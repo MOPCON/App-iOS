@@ -9,4 +9,6 @@
 import Foundation
 struct SegueIDManager {
     static let performNews = "performNews"
+    static let performCommunity = "performCommunity"
+    static let performSpeaker = "performSpeaker"
 }
