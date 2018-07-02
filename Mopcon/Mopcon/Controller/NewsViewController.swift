@@ -10,11 +10,9 @@ import UIKit
 
 class NewsViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var newsTableView: UITableView!
     
-    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
+    @IBAction func dismissAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     

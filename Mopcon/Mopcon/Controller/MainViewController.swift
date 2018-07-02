@@ -100,7 +100,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         switch section {
         case SectionName.Banner.rawValue:
-            return CGSize(width: self.view.frame.width, height: 127)
+            return CGSize(width: self.view.frame.width, height: self.view.frame.height * (127/667))
         default:
             return CGSize(width: 0, height: 0)
         }
@@ -133,27 +133,28 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 extension MainViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+//            return UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+        return UIEdgeInsetsMake(self.view.frame.height * (8/667), self.view.frame.width * (20/375), self.view.frame.height * (8/667), self.view.frame.width * (20/375))
     }
     
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
+        return self.view.frame.height * (16/667)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        return self.view.frame.width * (8/375)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
         case SectionName.Banner.rawValue:
-            return CGSize(width: 300, height: 168)
+            return CGSize(width: self.view.frame.width * 300/375, height: self.view.frame.height * (168/667))
         case SectionName.News.rawValue:
-            return CGSize(width: 336, height: 72)
+            return CGSize(width: self.view.frame.width * 336/375, height: self.view.frame.height * (72/667))
         default:
-            return CGSize(width: 160, height: 160)
+            return CGSize(width: self.view.frame.width * 160/375, height: self.view.frame.width * 160/375)
         }
     }
 }
