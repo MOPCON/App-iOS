@@ -12,7 +12,8 @@ class GridCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    func updateUI(title:String){
+    func updateUI(imageName:String,title:String){
+        iconImageView.image = UIImage(named: imageName)
         titleLabel.text = title
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true

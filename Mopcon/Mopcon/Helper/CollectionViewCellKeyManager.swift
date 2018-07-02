@@ -9,6 +9,7 @@
 import Foundation
 
 struct CollectionViewCellKeyManager {
+    static let collectionViewHeader = "CollectionViewHeader"
     static let bannerCell = "BannerCell"
     static let bannerImageCell = "BannerImageCell"
     static let newsCell = "NewsCell"

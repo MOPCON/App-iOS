@@ -18,6 +18,8 @@
 		D633463D20E914820033E5B4 /* GridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633463C20E914820033E5B4 /* GridCollectionViewCell.swift */; };
 		D633463F20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633463E20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift */; };
 		D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633464120E936ED0033E5B4 /* BannerImageCell.swift */; };
+		D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE629020E9C0C20043B68A /* MopconHeader.swift */; };
+		D6EE629320E9C9270043B68A /* SegueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE629220E9C9270043B68A /* SegueManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		D633463C20E914820033E5B4 /* GridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionViewCell.swift; sourceTree = "<group>"; };
 		D633463E20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellKeyManager.swift; sourceTree = "<group>"; };
 		D633464120E936ED0033E5B4 /* BannerImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageCell.swift; sourceTree = "<group>"; };
+		D6EE629020E9C0C20043B68A /* MopconHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconHeader.swift; sourceTree = "<group>"; };
+		D6EE629220E9C9270043B68A /* SegueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				D633463720E914520033E5B4 /* BannerCollectionViewCell.swift */,
+				D6EE629020E9C0C20043B68A /* MopconHeader.swift */,
 				D633464120E936ED0033E5B4 /* BannerImageCell.swift */,
 				D633463A20E914720033E5B4 /* NewsCollectionViewCell.swift */,
 				D633463C20E914820033E5B4 /* GridCollectionViewCell.swift */,
@@ -102,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				D633463E20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift */,
+				D6EE629220E9C9270043B68A /* SegueManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -180,9 +186,11 @@
 				D633463D20E914820033E5B4 /* GridCollectionViewCell.swift in Sources */,
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,
 				D633462420E8FFC60033E5B4 /* MainViewController.swift in Sources */,
+				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
 				D633462A20E8FFC60033E5B4 /* Mopcon.xcdatamodeld in Sources */,
 				D633463F20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift in Sources */,
 				D633463820E914520033E5B4 /* BannerCollectionViewCell.swift in Sources */,
+				D6EE629320E9C9270043B68A /* SegueManager.swift in Sources */,
 				D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */,
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 			);

@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
     //fake Data
-   
+    let gridImage = ["Agenda","Schedule","Communication","Mission","Sponsor","Speaker","Group","News"]
     let gridTitle = ["議程","我的行程","交流場次","任務","贊助廠商","講者","社群","最新消息"]
 
     override func viewDidLoad() {
@@ -81,12 +81,26 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return newsCell
         case SectionName.Grid.rawValue:
             let gridCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.gridCell, for: indexPath) as! GridCollectionViewCell
-            gridCell.updateUI(title: self.gridTitle[indexPath.item])
+            gridCell.updateUI(imageName: self.gridImage[indexPath.item], title: self.gridTitle[indexPath.item])
             return gridCell
         default:
             break
         }
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: CollectionViewCellKeyManager.collectionViewHeader, for: indexPath) as! MopconHeader
+            return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        switch section {
+        case SectionName.Banner.rawValue:
+            return CGSize(width: self.view.frame.width, height: 70)
+        default:
+            return CGSize(width: 0, height: 0)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -101,7 +115,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             print("任務")
         case (SectionName.Grid.rawValue,GridSectionName.Sponsor.rawValue):
             print("贊助廠商")
-        
+        case (SectionName.Grid.rawValue,GridSectionName.Speaker.rawValue):
+            print("講者")
+        case (SectionName.Grid.rawValue,GridSectionName.Group.rawValue):
+            print("社群")
+        case (SectionName.Grid.rawValue,GridSectionName.News.rawValue):
+            print("最新消息")
         default:
             print("")
         }

@@ -12,7 +12,7 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     
     @IBOutlet weak var bannerImageCollectionView: UICollectionView!
     
-     let bannerData = ["s6","s2"]
+     let bannerData = ["banner01","s2"]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bannerData.count
