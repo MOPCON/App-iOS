@@ -39,8 +39,11 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
+        mainCollectionView.backgroundView = UIImageView(image: UIImage(named: "bgMainPage"))
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -97,7 +100,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         switch section {
         case SectionName.Banner.rawValue:
-            return CGSize(width: self.view.frame.width, height: 70)
+            return CGSize(width: self.view.frame.width, height: 127)
         default:
             return CGSize(width: 0, height: 0)
         }
@@ -120,7 +123,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case (SectionName.Grid.rawValue,GridSectionName.Group.rawValue):
             print("社群")
         case (SectionName.Grid.rawValue,GridSectionName.News.rawValue):
-            print("最新消息")
+            performSegue(withIdentifier: SegueIDManager.performNews, sender: nil)
         default:
             print("")
         }

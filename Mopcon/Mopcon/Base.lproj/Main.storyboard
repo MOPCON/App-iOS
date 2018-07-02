@@ -18,22 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1161"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bgMainPage" translatesAutoresizingMaskIntoConstraints="NO" id="ktV-66-Gy7">
-                                <rect key="frame" x="0.0" y="20" width="375" height="520"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nU2-Nq-n6V">
-                                <rect key="frame" x="0.0" y="82" width="375" height="1011"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="1073"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HAE-Vk-ghR">
                                     <size key="itemSize" width="375" height="125"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="50" height="127"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BannerCell" id="aU8-9j-1DP" customClass="BannerCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="37.5" y="50" width="300" height="168"/>
+                                        <rect key="frame" x="37.5" y="127" width="300" height="168"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="168"/>
@@ -87,7 +83,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewsCell" id="dwK-lg-tvu" customClass="NewsCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="19.5" y="228" width="336" height="72"/>
+                                        <rect key="frame" x="19.5" y="305" width="336" height="72"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="336" height="72"/>
@@ -128,7 +124,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GridCell" id="p5V-Bl-b1C" customClass="GridCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="107.5" y="310" width="160" height="160"/>
+                                        <rect key="frame" x="107.5" y="387" width="160" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
@@ -155,11 +151,11 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CollectionViewHeader" id="TML-nx-Lfd" customClass="MopconHeader" customModule="Mopcon" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mopconLogo01" translatesAutoresizingMaskIntoConstraints="NO" id="kav-PK-S6V">
-                                            <rect key="frame" x="62" y="3" width="250" height="45"/>
+                                            <rect key="frame" x="62" y="74" width="250" height="45"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -173,7 +169,7 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nU2-Nq-n6V" secondAttribute="bottom" constant="68" id="87t-2Z-c4C"/>
                             <constraint firstItem="nU2-Nq-n6V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LSi-iq-OqE"/>
-                            <constraint firstItem="nU2-Nq-n6V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="62" id="ihX-EK-vHa"/>
+                            <constraint firstItem="nU2-Nq-n6V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ihX-EK-vHa"/>
                             <constraint firstItem="nU2-Nq-n6V" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sUb-uA-EsN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -188,24 +184,135 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
         </scene>
-        <!--View Controller-->
+        <!--News View Controller-->
         <scene sceneID="0kN-q0-Ir2">
             <objects>
-                <viewController id="r0p-Xz-pNY" sceneMemberID="viewController">
+                <viewController id="r0p-Xz-pNY" customClass="NewsViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fuT-LP-uLy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhi-kv-b8a">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="最新消息" id="zbk-EF-mhY">
+                                        <barButtonItem key="rightBarButtonItem" image="Close" id="rjA-U0-JwF">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="dismissAction:" destination="r0p-Xz-pNY" id="0qw-9p-bXB"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="otS-0P-sQJ">
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" rowHeight="205" id="rbU-sy-ZoH" customClass="NewsTableViewCell" customModule="Mopcon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="205"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rbU-sy-ZoH" id="8ev-CU-roB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="204.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIL-Wz-bBF">
+                                                    <rect key="frame" x="16" y="9.5" width="343" height="186"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10:17pm " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFD-7L-3x0">
+                                                            <rect key="frame" x="16" y="16" width="44" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
+                                                            <color key="textColor" red="0.0" green="0.81568627450980391" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="03/17/2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFy-wA-LhD">
+                                                            <rect key="frame" x="83" y="16" width="65" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="12"/>
+                                                            <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="任務遊戲倒數20分鐘 !" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdj-9f-rNX">
+                                                            <rect key="frame" x="16" y="41" width="218" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="還沒搜集到的朋友，快來看 360 直播影片，就知道所有隱藏版徽章位置！" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhb-aq-ghz">
+                                                            <rect key="frame" x="16" y="77" width="311" height="44"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xc0-DD-dBB" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
+                                                            <rect key="frame" x="243" y="137" width="84" height="36"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                                            <state key="normal" title="訊息連結">
+                                                                <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="messageConnectAction:" destination="rbU-sy-ZoH" eventType="touchUpInside" id="qIU-ar-ETc"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.0" green="0.81568627450980391" blue="0.79607843137254897" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="186" id="W8S-tD-WUQ"/>
+                                                        <constraint firstAttribute="width" constant="343" id="djs-lA-nrz"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="BIL-Wz-bBF" firstAttribute="centerX" secondItem="8ev-CU-roB" secondAttribute="centerX" id="VQn-PN-WZx"/>
+                                                <constraint firstItem="BIL-Wz-bBF" firstAttribute="centerY" secondItem="8ev-CU-roB" secondAttribute="centerY" id="alg-Ck-MR2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="backgroundView" destination="BIL-Wz-bBF" id="4sr-9e-kSh"/>
+                                            <outlet property="dateLabel" destination="AFy-wA-LhD" id="9C2-yS-uQi"/>
+                                            <outlet property="dedcriptionLabel" destination="Zhb-aq-ghz" id="zj0-un-vGJ"/>
+                                            <outlet property="opacityView" destination="BIL-Wz-bBF" id="KUi-RS-WgB"/>
+                                            <outlet property="timeLabel" destination="IFD-7L-3x0" id="zYe-XE-pjq"/>
+                                            <outlet property="titleLabel" destination="Cdj-9f-rNX" id="wD1-2d-zYM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mhi-kv-b8a" firstAttribute="leading" secondItem="fLx-Uc-sz6" secondAttribute="leading" id="0iB-Lc-3lB"/>
+                            <constraint firstItem="mhi-kv-b8a" firstAttribute="trailing" secondItem="fLx-Uc-sz6" secondAttribute="trailing" id="RsA-Gs-Ddw"/>
+                            <constraint firstItem="otS-0P-sQJ" firstAttribute="top" secondItem="mhi-kv-b8a" secondAttribute="bottom" constant="16" id="k5c-Rw-btF"/>
+                            <constraint firstItem="otS-0P-sQJ" firstAttribute="leading" secondItem="fLx-Uc-sz6" secondAttribute="leading" id="n3A-ru-R0e"/>
+                            <constraint firstItem="otS-0P-sQJ" firstAttribute="bottom" secondItem="fLx-Uc-sz6" secondAttribute="bottom" id="pwg-qc-dpf"/>
+                            <constraint firstItem="mhi-kv-b8a" firstAttribute="top" secondItem="fLx-Uc-sz6" secondAttribute="top" id="t11-s1-FPV"/>
+                            <constraint firstItem="otS-0P-sQJ" firstAttribute="top" secondItem="mhi-kv-b8a" secondAttribute="bottom" constant="16" id="wfr-qg-fiy"/>
+                            <constraint firstItem="otS-0P-sQJ" firstAttribute="trailing" secondItem="fLx-Uc-sz6" secondAttribute="trailing" id="xm3-Vi-x0p"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fLx-Uc-sz6"/>
                     </view>
+                    <connections>
+                        <outlet property="newsTableView" destination="otS-0P-sQJ" id="mni-4i-4Zh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOx-aw-usD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1364" y="118"/>
+            <point key="canvasLocation" x="1364" y="117.39130434782609"/>
         </scene>
     </scenes>
     <resources>
-        <image name="bgMainPage" width="375" height="520"/>
+        <image name="Close" width="24" height="24"/>
         <image name="iconChevronRight" width="7" height="12"/>
         <image name="mopconLogo01" width="250" height="45"/>
     </resources>
