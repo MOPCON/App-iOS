@@ -13,9 +13,13 @@ class ComminityDetailViewController: UIViewController {
     var imageNameFromPreviousPage:String = ""
     
     @IBOutlet weak var communityDetailImageView: UIImageView!
+    @IBOutlet weak var communityNameLabel: UILabel!
+    @IBOutlet weak var communityDescriptionLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        communityDescriptionLabel.adjustsFontSizeToFitWidth = true
         communityDetailImageView.image = UIImage(named: imageNameFromPreviousPage)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()

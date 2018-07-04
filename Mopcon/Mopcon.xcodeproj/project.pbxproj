@@ -24,6 +24,9 @@
 		D6555F2C20EC66CA000816DF /* CommunityImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2B20EC66CA000816DF /* CommunityImageCollectionViewCell.swift */; };
 		D6555F2F20EC783A000816DF /* ComminityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */; };
 		D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3020EC7D97000816DF /* CornerBackgroundView.swift */; };
+		D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3220EC8397000816DF /* VolunteerViewController.swift */; };
+		D6555F3520EC926A000816DF /* VolunteerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3420EC926A000816DF /* VolunteerTableViewCell.swift */; };
+		D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */; };
 		D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */; };
 		D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166120EA0607003FA56F /* SpeakersViewController.swift */; };
 		D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */; };
@@ -57,6 +60,9 @@
 		D6555F2B20EC66CA000816DF /* CommunityImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComminityDetailViewController.swift; sourceTree = "<group>"; };
 		D6555F3020EC7D97000816DF /* CornerBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerBackgroundView.swift; sourceTree = "<group>"; };
+		D6555F3220EC8397000816DF /* VolunteerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerViewController.swift; sourceTree = "<group>"; };
+		D6555F3420EC926A000816DF /* VolunteerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTableViewCell.swift; sourceTree = "<group>"; };
+		D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTableCellID.swift; sourceTree = "<group>"; };
 		D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		D6B5166120EA0607003FA56F /* SpeakersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersViewController.swift; sourceTree = "<group>"; };
 		D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTableViewCell.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 				D633462520E8FFC60033E5B4 /* Main.storyboard */,
 				D633463920E914550033E5B4 /* View */,
 				D633462B20E8FFC70033E5B4 /* Assets.xcassets */,
+				D6555F3620EC926D000816DF /* VolunteerTableView */,
 				D6555F2D20EC66D1000816DF /* CommunityImageCollectionView */,
 				D633462D20E8FFC70033E5B4 /* LaunchScreen.storyboard */,
 				D633463020E8FFC70033E5B4 /* Info.plist */,
@@ -124,6 +131,7 @@
 				D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */,
 				D6555F2920EC619F000816DF /* CommunityImageViewController.swift */,
 				D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */,
+				D6555F3220EC8397000816DF /* VolunteerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -146,6 +154,7 @@
 				D6EE629220E9C9270043B68A /* SegueManager.swift */,
 				D6EE629D20E9D1960043B68A /* NewsTableViewCellID.swift */,
 				D6B5166620EA0656003FA56F /* SpeakerTableCellID.swift */,
+				D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -156,6 +165,14 @@
 				D6555F2B20EC66CA000816DF /* CommunityImageCollectionViewCell.swift */,
 			);
 			path = CommunityImageCollectionView;
+			sourceTree = "<group>";
+		};
+		D6555F3620EC926D000816DF /* VolunteerTableView */ = {
+			isa = PBXGroup;
+			children = (
+				D6555F3420EC926A000816DF /* VolunteerTableViewCell.swift */,
+			);
+			path = VolunteerTableView;
 			sourceTree = "<group>";
 		};
 		D6B5166520EA062F003FA56F /* SpeakerTableView */ = {
@@ -270,6 +287,7 @@
 			files = (
 				D6B5166920EA07A1003FA56F /* CornerImageView.swift in Sources */,
 				D633463D20E914820033E5B4 /* GridCollectionViewCell.swift in Sources */,
+				D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */,
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,
 				D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */,
 				D633462420E8FFC60033E5B4 /* MainViewController.swift in Sources */,
@@ -277,6 +295,7 @@
 				D6EE629720E9CED20043B68A /* CustomCornerButton.swift in Sources */,
 				D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */,
 				D6EE629920E9D0B00043B68A /* NewsTableViewCell.swift in Sources */,
+				D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */,
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
 				D6555F2F20EC783A000816DF /* ComminityDetailViewController.swift in Sources */,
 				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
@@ -286,6 +305,7 @@
 				D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */,
 				D633462A20E8FFC60033E5B4 /* Mopcon.xcdatamodeld in Sources */,
 				D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */,
+				D6555F3520EC926A000816DF /* VolunteerTableViewCell.swift in Sources */,
 				D633463F20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift in Sources */,
 				D633463820E914520033E5B4 /* BannerCollectionViewCell.swift in Sources */,
 				D6EE629320E9C9270043B68A /* SegueManager.swift in Sources */,

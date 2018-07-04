@@ -11,14 +11,28 @@ import UIKit
 class CommunityViewController: UIViewController {
     
     @IBOutlet weak var communityImageContainerView: UIView!
+    @IBOutlet weak var volunteerContainerView: UIView!
     
     
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func mainGroupAction(_ sender: UIButton) {
+        communityImageContainerView.isHidden = false
+        volunteerContainerView.isHidden = true
+    }
+    
+    @IBAction func volunteerAction(_ sender: UIButton) {
+        communityImageContainerView.isHidden = true
+        volunteerContainerView.isHidden = false
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        volunteerContainerView.isHidden = true
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
