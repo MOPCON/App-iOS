@@ -210,6 +210,7 @@
                         <segue destination="npQ-5X-UM9" kind="show" identifier="performNews" id="S6D-9g-8Xk"/>
                         <segue destination="yQ3-MB-GMx" kind="show" identifier="performCommunity" id="ZFc-EI-JNX"/>
                         <segue destination="c9t-ld-yDG" kind="show" identifier="performSpeaker" id="2Yt-7U-Eoc"/>
+                        <segue destination="b1R-hf-vl3" kind="show" identifier="performSponsors" id="2wi-mu-uNZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -406,7 +407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yn3-PW-v99" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2303.1999999999998" y="874.81259370314854"/>
+            <point key="canvasLocation" x="3242.4000000000001" y="874.81259370314854"/>
         </scene>
         <!--社群-->
         <scene sceneID="8yf-o1-jax">
@@ -497,7 +498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TlG-3r-2A5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3372" y="706"/>
+            <point key="canvasLocation" x="4438" y="828"/>
         </scene>
         <!--講者-->
         <scene sceneID="F8R-Rn-iGE">
@@ -606,7 +607,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kat-9i-jHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2303.1999999999998" y="1737.481259370315"/>
+            <point key="canvasLocation" x="3242.4000000000001" y="1737.481259370315"/>
         </scene>
         <!--講者-->
         <scene sceneID="BZi-kO-FNh">
@@ -642,7 +643,143 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gm-ix-erp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3439.1999999999998" y="1736.5817091454273"/>
+            <point key="canvasLocation" x="4378.3999999999996" y="1736.5817091454273"/>
+        </scene>
+        <!--贊助商-->
+        <scene sceneID="x3J-WV-m8a">
+            <objects>
+                <viewController id="V5I-vg-TvL" customClass="SponsorsViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n04-zi-r8T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ruV-TZ-Nrf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yln-Oh-99z">
+                                    <size key="itemSize" width="375" height="150"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SponsorBigCollectionView" id="2iN-Dz-5Bd" customClass="SponsorBigCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="50" width="343" height="164"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="164"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vr-QP-E74">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="164"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eVK-6D-ZKC">
+                                                    <rect key="frame" x="105.5" y="16" width="132" height="132"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="eVK-6D-ZKC" secondAttribute="height" multiplier="1:1" id="3Y3-Nj-xVt"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="eVK-6D-ZKC" firstAttribute="centerX" secondItem="2iN-Dz-5Bd" secondAttribute="centerX" id="1rw-2B-iKD"/>
+                                            <constraint firstItem="eVK-6D-ZKC" firstAttribute="height" secondItem="7vr-QP-E74" secondAttribute="height" multiplier="132:164" id="J00-1j-gGy"/>
+                                            <constraint firstItem="7vr-QP-E74" firstAttribute="height" secondItem="2iN-Dz-5Bd" secondAttribute="height" id="JxR-aG-cln"/>
+                                            <constraint firstItem="7vr-QP-E74" firstAttribute="width" secondItem="2iN-Dz-5Bd" secondAttribute="width" id="XYd-7L-5Vi"/>
+                                            <constraint firstItem="7vr-QP-E74" firstAttribute="centerX" secondItem="2iN-Dz-5Bd" secondAttribute="centerX" id="hfn-4c-Lkt"/>
+                                            <constraint firstItem="7vr-QP-E74" firstAttribute="centerY" secondItem="2iN-Dz-5Bd" secondAttribute="centerY" id="i9V-EM-rOC"/>
+                                            <constraint firstItem="eVK-6D-ZKC" firstAttribute="centerY" secondItem="2iN-Dz-5Bd" secondAttribute="centerY" id="jcI-Cc-dsJ"/>
+                                        </constraints>
+                                        <size key="customSize" width="343" height="164"/>
+                                        <connections>
+                                            <outlet property="sponsorBigImageView" destination="eVK-6D-ZKC" id="VZC-gc-B8l"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SponsorSmallCollectionCell" id="Pg6-yF-Fl8" customClass="SponsorSmallCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
+                                        <rect key="frame" x="105.5" y="224" width="164" height="164"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qN-yo-pDj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P3Y-WF-R9h">
+                                                            <rect key="frame" x="15.5" y="16" width="132" height="132"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="P3Y-WF-R9h" secondAttribute="height" multiplier="1:1" id="27h-8O-Hdc"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="P3Y-WF-R9h" firstAttribute="width" secondItem="7qN-yo-pDj" secondAttribute="width" multiplier="132:164" id="AXr-bj-vUJ"/>
+                                                        <constraint firstItem="P3Y-WF-R9h" firstAttribute="centerY" secondItem="7qN-yo-pDj" secondAttribute="centerY" id="JCu-Lb-R7c"/>
+                                                        <constraint firstItem="P3Y-WF-R9h" firstAttribute="centerX" secondItem="7qN-yo-pDj" secondAttribute="centerX" id="tef-oW-pFT"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="7qN-yo-pDj" firstAttribute="centerX" secondItem="Pg6-yF-Fl8" secondAttribute="centerX" id="F65-Mw-nAA"/>
+                                            <constraint firstItem="7qN-yo-pDj" firstAttribute="height" secondItem="Pg6-yF-Fl8" secondAttribute="height" id="J8n-Iz-CgI"/>
+                                            <constraint firstItem="7qN-yo-pDj" firstAttribute="centerY" secondItem="Pg6-yF-Fl8" secondAttribute="centerY" id="jPD-aS-RXv"/>
+                                            <constraint firstItem="7qN-yo-pDj" firstAttribute="width" secondItem="Pg6-yF-Fl8" secondAttribute="width" id="zqg-Rz-5ZZ"/>
+                                        </constraints>
+                                        <size key="customSize" width="164" height="164"/>
+                                        <connections>
+                                            <outlet property="sponsorImageView" destination="P3Y-WF-R9h" id="PAs-iw-jcK"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SponsorHeader" id="oXT-FO-0OZ" customClass="SponsorHeaderView" customModule="Mopcon" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLZ-Og-gM8">
+                                            <rect key="frame" x="-0.5" y="15" width="375" height="20"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="lLZ-Og-gM8" firstAttribute="width" secondItem="oXT-FO-0OZ" secondAttribute="width" id="1Rv-7s-TEn"/>
+                                        <constraint firstItem="lLZ-Og-gM8" firstAttribute="centerX" secondItem="oXT-FO-0OZ" secondAttribute="centerX" id="Uv3-Op-7jC"/>
+                                        <constraint firstItem="lLZ-Og-gM8" firstAttribute="centerY" secondItem="oXT-FO-0OZ" secondAttribute="centerY" id="y60-hW-fs4"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="headerTitleLabel" destination="lLZ-Og-gM8" id="Ozd-iM-hgB"/>
+                                    </connections>
+                                </collectionReusableView>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ruV-TZ-Nrf" firstAttribute="top" secondItem="CIh-7Y-u3h" secondAttribute="top" id="F5r-A4-ItI"/>
+                            <constraint firstItem="ruV-TZ-Nrf" firstAttribute="leading" secondItem="CIh-7Y-u3h" secondAttribute="leading" id="Xtc-MU-Xhb"/>
+                            <constraint firstItem="ruV-TZ-Nrf" firstAttribute="trailing" secondItem="CIh-7Y-u3h" secondAttribute="trailing" id="e4v-uz-gEi"/>
+                            <constraint firstItem="ruV-TZ-Nrf" firstAttribute="bottom" secondItem="CIh-7Y-u3h" secondAttribute="bottom" id="od2-xw-t6u"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CIh-7Y-u3h"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="贊助商" id="SAk-VL-61w">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Close" id="VLN-iE-Ai4">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="dismissAction:" destination="V5I-vg-TvL" id="Tc9-wa-gdP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sponsorsCollectionView" destination="ruV-TZ-Nrf" id="cRJ-FU-UQe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TiP-Aw-DvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8.8000000000000007" y="1485.6071964017992"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5s3-Ph-6E8">
@@ -665,7 +802,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5L-95-LVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1364" y="1737.481259370315"/>
+            <point key="canvasLocation" x="2303.1999999999998" y="1737.481259370315"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ii9-x1-MZz">
@@ -709,7 +846,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5l0-Xa-Rzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1364" y="874.81259370314854"/>
+            <point key="canvasLocation" x="2303.1999999999998" y="874.81259370314854"/>
         </scene>
         <!--Community Image View Controller-->
         <scene sceneID="q1v-qT-P25">
@@ -772,7 +909,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5JY-ct-6JB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3372" y="81"/>
+            <point key="canvasLocation" x="4438" y="118"/>
         </scene>
         <!--Volunteer View Controller-->
         <scene sceneID="PCU-d9-m2W">
@@ -874,7 +1011,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dN-6U-Jc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4736.8000000000002" y="1452.3238380809596"/>
+            <point key="canvasLocation" x="5676" y="1452.3238380809596"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Fv-eF-6wX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b1R-hf-vl3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pjA-Kk-83a">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="V5I-vg-TvL" kind="relationship" relationship="rootViewController" id="oNP-g5-6ft"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zeX-F4-jIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-930.39999999999998" y="1485.6071964017992"/>
         </scene>
     </scenes>
     <resources>

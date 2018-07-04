@@ -117,7 +117,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case (SectionName.Grid.rawValue,GridSectionName.Mission.rawValue):
             print("任務")
         case (SectionName.Grid.rawValue,GridSectionName.Sponsor.rawValue):
-            print("贊助廠商")
+            performSegue(withIdentifier: SegueIDManager.performSponsors, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Speaker.rawValue):
             performSegue(withIdentifier: SegueIDManager.performSpeaker, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Group.rawValue):

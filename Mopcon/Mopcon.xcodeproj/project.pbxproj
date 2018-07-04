@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6240CDF20EC98AD002C89E7 /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */; };
+		D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE020EC9A70002C89E7 /* SponsorHeaderView.swift */; };
+		D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */; };
+		D6240CE620EC9ADC002C89E7 /* SponsorCollectionViewID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE520EC9ADC002C89E7 /* SponsorCollectionViewID.swift */; };
+		D6240CE820EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE720EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift */; };
 		D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633462120E8FFC60033E5B4 /* AppDelegate.swift */; };
 		D633462420E8FFC60033E5B4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633462320E8FFC60033E5B4 /* MainViewController.swift */; };
 		D633462720E8FFC60033E5B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D633462520E8FFC60033E5B4 /* Main.storyboard */; };
@@ -41,6 +46,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
+		D6240CE020EC9A70002C89E7 /* SponsorHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorHeaderView.swift; sourceTree = "<group>"; };
+		D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorSmallCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6240CE520EC9ADC002C89E7 /* SponsorCollectionViewID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorCollectionViewID.swift; sourceTree = "<group>"; };
+		D6240CE720EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorBigCollectionViewCell.swift; sourceTree = "<group>"; };
 		D633461E20E8FFC60033E5B4 /* Mopcon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mopcon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D633462120E8FFC60033E5B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D633462320E8FFC60033E5B4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +97,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D6240CE220EC9A74002C89E7 /* SponsorsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D6240CE020EC9A70002C89E7 /* SponsorHeaderView.swift */,
+				D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */,
+				D6240CE720EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift */,
+			);
+			path = SponsorsViewController;
+			sourceTree = "<group>";
+		};
 		D633461520E8FFC60033E5B4 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +152,7 @@
 				D6555F2920EC619F000816DF /* CommunityImageViewController.swift */,
 				D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */,
 				D6555F3220EC8397000816DF /* VolunteerViewController.swift */,
+				D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -143,6 +164,7 @@
 				D6EE629B20E9D0C70043B68A /* NewsTableView */,
 				D6EE629A20E9D0BF0043B68A /* Common */,
 				D6B5166520EA062F003FA56F /* SpeakerTableView */,
+				D6240CE220EC9A74002C89E7 /* SponsorsViewController */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,6 +177,7 @@
 				D6EE629D20E9D1960043B68A /* NewsTableViewCellID.swift */,
 				D6B5166620EA0656003FA56F /* SpeakerTableCellID.swift */,
 				D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */,
+				D6240CE520EC9ADC002C89E7 /* SponsorCollectionViewID.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -285,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6240CE620EC9ADC002C89E7 /* SponsorCollectionViewID.swift in Sources */,
 				D6B5166920EA07A1003FA56F /* CornerImageView.swift in Sources */,
 				D633463D20E914820033E5B4 /* GridCollectionViewCell.swift in Sources */,
 				D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */,
@@ -293,6 +317,7 @@
 				D633462420E8FFC60033E5B4 /* MainViewController.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
 				D6EE629720E9CED20043B68A /* CustomCornerButton.swift in Sources */,
+				D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */,
 				D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */,
 				D6EE629920E9D0B00043B68A /* NewsTableViewCell.swift in Sources */,
 				D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */,
@@ -303,15 +328,18 @@
 				D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */,
 				D6EE629520E9CAFE0043B68A /* NewsViewController.swift in Sources */,
 				D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */,
+				D6240CDF20EC98AD002C89E7 /* SponsorsViewController.swift in Sources */,
 				D633462A20E8FFC60033E5B4 /* Mopcon.xcdatamodeld in Sources */,
 				D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */,
 				D6555F3520EC926A000816DF /* VolunteerTableViewCell.swift in Sources */,
 				D633463F20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift in Sources */,
 				D633463820E914520033E5B4 /* BannerCollectionViewCell.swift in Sources */,
+				D6240CE820EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift in Sources */,
 				D6EE629320E9C9270043B68A /* SegueManager.swift in Sources */,
 				D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */,
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
+				D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */,
 				D6B5166720EA0656003FA56F /* SpeakerTableCellID.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
