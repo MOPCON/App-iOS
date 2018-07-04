@@ -1,29 +1,21 @@
 //
-//  CommunityViewController.swift
+//  SpeakerDetailViewController.swift
 //  Mopcon
 //
-//  Created by EthanLin on 2018/7/2.
+//  Created by EthanLin on 2018/7/3.
 //  Copyright © 2018 EthanLin. All rights reserved.
 //
 
 import UIKit
 
-class CommunityViewController: UIViewController {
-    
-    @IBOutlet weak var communityImageContainerView: UIView!
-    
-    
-    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+class SpeakerDetailViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
-        
         // Do any additional setup after loading the view.
     }
 

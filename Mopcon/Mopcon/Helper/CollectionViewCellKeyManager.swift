@@ -14,4 +14,5 @@ struct CollectionViewCellKeyManager {
     static let bannerImageCell = "BannerImageCell"
     static let newsCell = "NewsCell"
     static let gridCell = "GridCell"
+    static let communityImageCell = "CommunityImageCell"
 }

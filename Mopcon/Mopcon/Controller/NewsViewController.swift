@@ -12,12 +12,16 @@ class NewsViewController: UIViewController {
     
     @IBOutlet weak var newsTableView: UITableView!
     
-    @IBAction func dismissAction(_ sender: UIButton) {
+    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
         newsTableView.delegate = self
         newsTableView.dataSource = self
         newsTableView.separatorStyle = .none

@@ -13,13 +13,19 @@ class SpeakersViewController: UIViewController {
     
     @IBOutlet weak var speakersTableView: UITableView!
     
-    @IBAction func dismissAction(_ sender: UIButton) {
+
+    
+    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //navigationBar設定透明
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
         speakersTableView.delegate = self
         speakersTableView.dataSource = self
         speakersTableView.separatorStyle = .none
@@ -58,6 +64,11 @@ extension SpeakersViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //到時候要傳講者資料過去 sender再設定
+        performSegue(withIdentifier: SegueIDManager.performSpeakerDetail, sender: nil)
     }
     
 }
