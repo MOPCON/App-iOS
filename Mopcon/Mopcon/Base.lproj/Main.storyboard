@@ -348,17 +348,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfk-Md-zr2" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="16" y="78" width="172" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="主辦社群">
-                                    <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="mainGroupAction:" destination="V1C-c3-l0g" eventType="touchUpInside" id="j9j-CD-O9q"/>
-                                </connections>
-                            </button>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c2A-iD-GwI">
                                 <rect key="frame" x="0.0" y="134" width="375" height="533"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -367,17 +356,6 @@
                                     <segue destination="a0t-sS-Jxn" kind="embed" identifier="performCommunityContainerView" id="1Qd-xo-Swe"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9w-nE-eiv" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="187" y="78" width="172" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="主辦社群">
-                                    <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="volunteerAction:" destination="V1C-c3-l0g" eventType="touchUpInside" id="VV9-AM-TXA"/>
-                                </connections>
-                            </button>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Yl-l8-0xi">
                                 <rect key="frame" x="0.0" y="134" width="375" height="533"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -386,8 +364,50 @@
                                     <segue destination="lyQ-ri-YMe" kind="embed" id="Nwx-8w-tB8"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYQ-Dp-jjs" customClass="CornerBackgroundView" customModule="Mopcon" customModuleProvider="target">
+                                <rect key="frame" x="16" y="80" width="343" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfk-Md-zr2" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.81568627450980391" blue="0.79607843137254897" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="主辦社群">
+                                            <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="mainGroupAction:" destination="V1C-c3-l0g" eventType="touchUpInside" id="j9j-CD-O9q"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9w-nE-eiv" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
+                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="志工組織">
+                                            <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="volunteerAction:" destination="V1C-c3-l0g" eventType="touchUpInside" id="VV9-AM-TXA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="D9w-nE-eiv" firstAttribute="top" secondItem="fYQ-Dp-jjs" secondAttribute="top" id="Bav-4Q-VrV"/>
+                                    <constraint firstAttribute="bottom" secondItem="D9w-nE-eiv" secondAttribute="bottom" id="CY5-TM-zux"/>
+                                    <constraint firstItem="Gfk-Md-zr2" firstAttribute="centerY" secondItem="fYQ-Dp-jjs" secondAttribute="centerY" id="Kt0-HK-Xxo"/>
+                                    <constraint firstItem="Gfk-Md-zr2" firstAttribute="height" secondItem="fYQ-Dp-jjs" secondAttribute="height" id="YTO-hD-qB9"/>
+                                    <constraint firstItem="D9w-nE-eiv" firstAttribute="width" secondItem="fYQ-Dp-jjs" secondAttribute="width" multiplier="0.5" id="dzB-44-uhD"/>
+                                    <constraint firstItem="Gfk-Md-zr2" firstAttribute="leading" secondItem="fYQ-Dp-jjs" secondAttribute="leading" id="hun-Hd-D3f"/>
+                                    <constraint firstItem="Gfk-Md-zr2" firstAttribute="width" secondItem="fYQ-Dp-jjs" secondAttribute="width" multiplier="0.5" id="kgw-2K-uI8"/>
+                                    <constraint firstAttribute="trailing" secondItem="D9w-nE-eiv" secondAttribute="trailing" id="xmx-x1-8lf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="fYQ-Dp-jjs" firstAttribute="centerX" secondItem="fes-3z-JoV" secondAttribute="centerX" id="DdU-pF-BgC"/>
+                            <constraint firstItem="fYQ-Dp-jjs" firstAttribute="centerX" secondItem="fes-3z-JoV" secondAttribute="centerX" id="F4n-ck-vMg"/>
+                            <constraint firstItem="fYQ-Dp-jjs" firstAttribute="top" secondItem="bi3-Iy-PLE" secondAttribute="top" constant="16" id="V0m-fm-mb5"/>
+                            <constraint firstItem="fYQ-Dp-jjs" firstAttribute="width" secondItem="fes-3z-JoV" secondAttribute="width" multiplier="343:375" id="bpp-V1-IV2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bi3-Iy-PLE"/>
                     </view>
                     <navigationItem key="navigationItem" title="社群" id="0UL-GG-vnk">
@@ -401,6 +421,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="communityImageContainerView" destination="c2A-iD-GwI" id="ago-Ie-Hxt"/>
+                        <outlet property="mainGroupButton" destination="Gfk-Md-zr2" id="eir-A7-Uny"/>
+                        <outlet property="volunteerButton" destination="D9w-nE-eiv" id="s0F-mN-hZa"/>
                         <outlet property="volunteerContainerView" destination="5Yl-l8-0xi" id="LnF-GU-Bsd"/>
                         <segue destination="Fou-IH-Vn3" kind="show" identifier="performCommunityDetail" id="r7E-Cp-LlL"/>
                     </connections>

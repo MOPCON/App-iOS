@@ -13,22 +13,32 @@ class CommunityViewController: UIViewController {
     @IBOutlet weak var communityImageContainerView: UIView!
     @IBOutlet weak var volunteerContainerView: UIView!
     
+    @IBOutlet weak var mainGroupButton: CustomSelectedButton!
+    @IBOutlet weak var volunteerButton: CustomSelectedButton!
     
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func mainGroupAction(_ sender: UIButton) {
+        changeButtonColor(beTappedButton: mainGroupButton, notSelectedButton: volunteerButton)
         communityImageContainerView.isHidden = false
         volunteerContainerView.isHidden = true
     }
     
     @IBAction func volunteerAction(_ sender: UIButton) {
+        changeButtonColor(beTappedButton: volunteerButton, notSelectedButton: mainGroupButton)
         communityImageContainerView.isHidden = true
         volunteerContainerView.isHidden = false
     }
     
-    
+    func changeButtonColor(beTappedButton:CustomSelectedButton, notSelectedButton:CustomSelectedButton){
+          beTappedButton.backgroundColor = UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.2)
+          beTappedButton.setTitleColor(UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 1), for: .normal)
+        
+          notSelectedButton.backgroundColor = UIColor.clear
+          notSelectedButton.setTitleColor(UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.5), for: .normal)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
