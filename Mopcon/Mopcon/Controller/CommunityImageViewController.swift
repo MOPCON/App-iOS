@@ -8,18 +8,23 @@
 
 import UIKit
 
+protocol CollectionViewItemDidSelected {
+    func collectionViewItemDidSelected(index:IndexPath, imageName:String)
+}
+
 class CommunityImageViewController: UIViewController {
     
     
     let fakeImageArray = ["bitmap","lion","rabbit","greenCircle","yellowHouse","grayStrange","pulse","pulse","company","summit","nbc","companyName"]
     
     @IBOutlet weak var imageCollectionView: UICollectionView!
-    
+    var delegate: CollectionViewItemDidSelected?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -28,17 +33,6 @@ class CommunityImageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension CommunityImageViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -51,6 +45,11 @@ extension CommunityImageViewController: UICollectionViewDelegate, UICollectionVi
         let communityImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.communityImageCell, for: indexPath) as! CommunityImageCollectionViewCell
         communityImageCell.updateUI(imageName: fakeImageArray[indexPath.item])
         return communityImageCell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.collectionViewItemDidSelected(index: indexPath, imageName: fakeImageArray[indexPath.item])
     }
     
 }

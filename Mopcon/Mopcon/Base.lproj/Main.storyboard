@@ -348,19 +348,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfk-Md-zr2" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="22" y="90" width="172" height="36"/>
+                                <rect key="frame" x="16" y="78" width="172" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="主辦社群">
                                     <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9w-nE-eiv" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="187" y="90" width="172" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="主辦社群">
-                                    <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c2A-iD-GwI">
@@ -368,14 +360,23 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="a0t-sS-Jxn" kind="embed" id="1Qd-xo-Swe"/>
+                                    <segue destination="a0t-sS-Jxn" kind="embed" identifier="performCommunityContainerView" id="1Qd-xo-Swe"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9w-nE-eiv" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
+                                <rect key="frame" x="187" y="78" width="172" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="主辦社群">
+                                    <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="bi3-Iy-PLE"/>
                     </view>
                     <navigationItem key="navigationItem" title="社群" id="0UL-GG-vnk">
+                        <barButtonItem key="backBarButtonItem" title=" " id="yRQ-BE-H3u"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Close" id="2cg-HK-Va0">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -385,11 +386,70 @@
                     </navigationItem>
                     <connections>
                         <outlet property="communityImageContainerView" destination="c2A-iD-GwI" id="ago-Ie-Hxt"/>
+                        <segue destination="Fou-IH-Vn3" kind="show" identifier="performCommunityDetail" id="r7E-Cp-LlL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yn3-PW-v99" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2303.1999999999998" y="874.81259370314854"/>
+        </scene>
+        <!--社群-->
+        <scene sceneID="8yf-o1-jax">
+            <objects>
+                <viewController id="Fou-IH-Vn3" customClass="ComminityDetailViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p1D-8g-Dx1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KSDG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odk-MP-NQE">
+                                <rect key="frame" x="166" y="275" width="52" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grp-kQ-Q1C">
+                                <rect key="frame" x="21" y="311" width="343" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Kaohsiung Software Developer Group 是高雄從事軟體開發、網路技術開發者一起交流的園地，2012/05首度聚會活動。目前每月舉辦 Meet-up 及 Web Course 各一場，交流主題涵蓋各種軟體技術，歡迎對軟體開發技術有興趣的朋友可以踴躍參與。</string>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybx-bX-o0b">
+                                <rect key="frame" x="156" y="436" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="facebook"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKv-1l-3kg">
+                                <rect key="frame" x="214" y="436" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="connect"/>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="45I-7S-gfi" customClass="CornerBackgroundView" customModule="Mopcon" customModuleProvider="target">
+                                <rect key="frame" x="16" y="79" width="343" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cv4-UK-vBo">
+                                        <rect key="frame" x="105" y="16" width="132" height="132"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="xWv-pu-k5Y"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="社群" id="4c6-Dw-fkR"/>
+                    <connections>
+                        <outlet property="communityDetailImageView" destination="Cv4-UK-vBo" id="sA7-l2-3lI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TlG-3r-2A5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3372" y="1050.224887556222"/>
         </scene>
         <!--講者-->
         <scene sceneID="F8R-Rn-iGE">
@@ -500,10 +560,10 @@
             </objects>
             <point key="canvasLocation" x="2303.1999999999998" y="1737.481259370315"/>
         </scene>
-        <!--View Controller-->
+        <!--講者-->
         <scene sceneID="BZi-kO-FNh">
             <objects>
-                <viewController storyboardIdentifier="speakerDetailVC" id="xSc-rs-23U" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="speakerDetailVC" id="xSc-rs-23U" customClass="SpeakerDetailViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WRW-qt-jIf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -530,7 +590,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3RV-Sh-NDg"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Je4-Xd-7PZ"/>
+                    <navigationItem key="navigationItem" title="講者" id="Je4-Xd-7PZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gm-ix-erp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -664,11 +724,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5JY-ct-6JB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3230" y="681"/>
+            <point key="canvasLocation" x="3358" y="401"/>
         </scene>
     </scenes>
     <resources>
         <image name="Close" width="24" height="24"/>
+        <image name="connect" width="50" height="50"/>
+        <image name="facebook" width="50" height="50"/>
         <image name="iconChevronRight" width="7" height="12"/>
         <image name="mopconLogo01" width="250" height="45"/>
     </resources>

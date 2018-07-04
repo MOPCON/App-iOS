@@ -22,6 +22,8 @@
 		D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2720EB2A83000816DF /* CustomSelectedButton.swift */; };
 		D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2920EC619F000816DF /* CommunityImageViewController.swift */; };
 		D6555F2C20EC66CA000816DF /* CommunityImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2B20EC66CA000816DF /* CommunityImageCollectionViewCell.swift */; };
+		D6555F2F20EC783A000816DF /* ComminityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */; };
+		D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3020EC7D97000816DF /* CornerBackgroundView.swift */; };
 		D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */; };
 		D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166120EA0607003FA56F /* SpeakersViewController.swift */; };
 		D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */; };
@@ -53,6 +55,8 @@
 		D6555F2720EB2A83000816DF /* CustomSelectedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSelectedButton.swift; sourceTree = "<group>"; };
 		D6555F2920EC619F000816DF /* CommunityImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityImageViewController.swift; sourceTree = "<group>"; };
 		D6555F2B20EC66CA000816DF /* CommunityImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComminityDetailViewController.swift; sourceTree = "<group>"; };
+		D6555F3020EC7D97000816DF /* CornerBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerBackgroundView.swift; sourceTree = "<group>"; };
 		D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		D6B5166120EA0607003FA56F /* SpeakersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersViewController.swift; sourceTree = "<group>"; };
 		D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,10 +119,11 @@
 			children = (
 				D633462320E8FFC60033E5B4 /* MainViewController.swift */,
 				D6EE629420E9CAFE0043B68A /* NewsViewController.swift */,
-				D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */,
 				D6B5166120EA0607003FA56F /* SpeakersViewController.swift */,
 				D6555F2520EB1F27000816DF /* SpeakerDetailViewController.swift */,
+				D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */,
 				D6555F2920EC619F000816DF /* CommunityImageViewController.swift */,
+				D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				D6EE629620E9CED20043B68A /* CustomCornerButton.swift */,
 				D6555F2720EB2A83000816DF /* CustomSelectedButton.swift */,
 				D6B5166820EA07A1003FA56F /* CornerImageView.swift */,
+				D6555F3020EC7D97000816DF /* CornerBackgroundView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -267,10 +273,12 @@
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,
 				D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */,
 				D633462420E8FFC60033E5B4 /* MainViewController.swift in Sources */,
+				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
 				D6EE629720E9CED20043B68A /* CustomCornerButton.swift in Sources */,
 				D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */,
 				D6EE629920E9D0B00043B68A /* NewsTableViewCell.swift in Sources */,
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
+				D6555F2F20EC783A000816DF /* ComminityDetailViewController.swift in Sources */,
 				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
 				D6555F2C20EC66CA000816DF /* CommunityImageCollectionViewCell.swift in Sources */,
 				D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */,

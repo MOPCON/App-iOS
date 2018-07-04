@@ -42,5 +42,21 @@ class CommunityViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIDManager.performCommunityContainerView{
+            guard let communityImageVC = segue.destination as? CommunityImageViewController else {return}
+            communityImageVC.delegate = self
+        }
+        if segue.identifier == SegueIDManager.performCommunityDetail{
+            guard let commnunityDetailVC = segue.destination as? ComminityDetailViewController else {return}
+            guard let imageSender = sender as? String else {return}
+            commnunityDetailVC.imageNameFromPreviousPage = imageSender
+        }
+    }
 
+}
+extension CommunityViewController: CollectionViewItemDidSelected{
+    func collectionViewItemDidSelected(index: IndexPath, imageName: String) {
+        performSegue(withIdentifier: SegueIDManager.performCommunityDetail, sender: imageName)
+    }
 }
