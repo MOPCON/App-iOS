@@ -12,6 +12,7 @@
 		D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */; };
 		D6240CE620EC9ADC002C89E7 /* SponsorCollectionViewID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE520EC9ADC002C89E7 /* SponsorCollectionViewID.swift */; };
 		D6240CE820EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE720EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift */; };
+		D6240CEA20ECABED002C89E7 /* SponsorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE920ECABED002C89E7 /* SponsorDetailViewController.swift */; };
 		D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633462120E8FFC60033E5B4 /* AppDelegate.swift */; };
 		D633462420E8FFC60033E5B4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633462320E8FFC60033E5B4 /* MainViewController.swift */; };
 		D633462720E8FFC60033E5B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D633462520E8FFC60033E5B4 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorSmallCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6240CE520EC9ADC002C89E7 /* SponsorCollectionViewID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorCollectionViewID.swift; sourceTree = "<group>"; };
 		D6240CE720EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorBigCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6240CE920ECABED002C89E7 /* SponsorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorDetailViewController.swift; sourceTree = "<group>"; };
 		D633461E20E8FFC60033E5B4 /* Mopcon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mopcon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D633462120E8FFC60033E5B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D633462320E8FFC60033E5B4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */,
 				D6555F3220EC8397000816DF /* VolunteerViewController.swift */,
 				D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */,
+				D6240CE920ECABED002C89E7 /* SponsorDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
 				D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */,
+				D6240CEA20ECABED002C89E7 /* SponsorDetailViewController.swift in Sources */,
 				D6B5166720EA0656003FA56F /* SpeakerTableCellID.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

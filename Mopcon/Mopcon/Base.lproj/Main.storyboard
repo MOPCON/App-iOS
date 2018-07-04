@@ -766,6 +766,7 @@
                         <viewLayoutGuide key="safeArea" id="CIh-7Y-u3h"/>
                     </view>
                     <navigationItem key="navigationItem" title="贊助商" id="SAk-VL-61w">
+                        <barButtonItem key="backBarButtonItem" title=" " id="V9r-7a-2sP"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Close" id="VLN-iE-Ai4">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -775,11 +776,89 @@
                     </navigationItem>
                     <connections>
                         <outlet property="sponsorsCollectionView" destination="ruV-TZ-Nrf" id="cRJ-FU-UQe"/>
+                        <segue destination="Zw6-yC-6jI" kind="show" identifier="performSponsorDetail" id="XkI-zP-QEF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TiP-Aw-DvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8.8000000000000007" y="1485.6071964017992"/>
+        </scene>
+        <!--贊助商-->
+        <scene sceneID="4Jr-6G-9hu">
+            <objects>
+                <viewController id="Zw6-yC-6jI" customClass="SponsorDetailViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JlA-CB-CxU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Voq-7C-PUE" customClass="CornerBackgroundView" customModule="Mopcon" customModuleProvider="target">
+                                <rect key="frame" x="16" y="80" width="343" height="164"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LOk-az-Vb6">
+                                        <rect key="frame" x="105" y="16" width="132" height="132"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="LOk-az-Vb6" secondAttribute="height" multiplier="1:1" id="0pP-vm-qOw"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="LOk-az-Vb6" firstAttribute="centerY" secondItem="Voq-7C-PUE" secondAttribute="centerY" id="AYM-pu-lH7"/>
+                                    <constraint firstItem="LOk-az-Vb6" firstAttribute="centerX" secondItem="Voq-7C-PUE" secondAttribute="centerX" id="lMJ-xS-GGh"/>
+                                    <constraint firstItem="LOk-az-Vb6" firstAttribute="height" secondItem="Voq-7C-PUE" secondAttribute="height" multiplier="132:164" id="m1h-7C-a93"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dk-gz-CRY">
+                                <rect key="frame" x="16" y="312" width="343" height="118"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3dk-gz-CRY" secondAttribute="height" multiplier="343:118" id="Ufz-0E-RDU"/>
+                                </constraints>
+                                <string key="text">雲端平台是 Webduino 研發的雲端服務 
+具備開發板雲端裝置管理、Webduino Blockly 積木編輯工具，未來更會整合模擬器、App 開發和後端流程工具。 使用 Webduino 將可以讓不具有韌體程式專業背景的設計師、網頁開發者，也可以輕鬆成為創客 ( Maker、自造者 )，享受創造的樂趣和快感。</string>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLA-XN-1AO" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
+                                <rect key="frame" x="145" y="454" width="84" height="32"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="14"/>
+                                <state key="normal" title="查看更多">
+                                    <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="webduino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYq-8p-3tY">
+                                <rect key="frame" x="0.0" y="268" width="375" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="3dk-gz-CRY" firstAttribute="top" secondItem="QYq-8p-3tY" secondAttribute="bottom" constant="24" id="6qg-p5-0kK"/>
+                            <constraint firstItem="QYq-8p-3tY" firstAttribute="width" secondItem="JlA-CB-CxU" secondAttribute="width" id="FCq-sT-5Az"/>
+                            <constraint firstItem="Voq-7C-PUE" firstAttribute="top" secondItem="Szx-V8-Bpw" secondAttribute="top" constant="16" id="FSe-gH-eie"/>
+                            <constraint firstItem="Voq-7C-PUE" firstAttribute="height" secondItem="JlA-CB-CxU" secondAttribute="height" multiplier="164:667" id="Nbw-II-eM8"/>
+                            <constraint firstItem="3dk-gz-CRY" firstAttribute="width" secondItem="JlA-CB-CxU" secondAttribute="width" multiplier="343:375" id="Om5-4q-jUR"/>
+                            <constraint firstItem="QYq-8p-3tY" firstAttribute="centerX" secondItem="JlA-CB-CxU" secondAttribute="centerX" id="R9d-m4-hCx"/>
+                            <constraint firstItem="MLA-XN-1AO" firstAttribute="width" secondItem="JlA-CB-CxU" secondAttribute="width" multiplier="84:375" id="Sbq-Sh-pjz"/>
+                            <constraint firstItem="3dk-gz-CRY" firstAttribute="centerX" secondItem="JlA-CB-CxU" secondAttribute="centerX" id="Yu7-Vo-cU2"/>
+                            <constraint firstItem="MLA-XN-1AO" firstAttribute="centerX" secondItem="JlA-CB-CxU" secondAttribute="centerX" id="bBN-Tk-H0n"/>
+                            <constraint firstItem="QYq-8p-3tY" firstAttribute="top" secondItem="Voq-7C-PUE" secondAttribute="bottom" constant="24" id="ggG-BR-hhb"/>
+                            <constraint firstItem="Voq-7C-PUE" firstAttribute="width" secondItem="JlA-CB-CxU" secondAttribute="width" multiplier="343:375" id="i8L-R1-N1J"/>
+                            <constraint firstItem="Voq-7C-PUE" firstAttribute="centerX" secondItem="JlA-CB-CxU" secondAttribute="centerX" id="kr8-Zw-3lB"/>
+                            <constraint firstItem="MLA-XN-1AO" firstAttribute="top" secondItem="3dk-gz-CRY" secondAttribute="bottom" constant="24" id="pVQ-uh-TNz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Szx-V8-Bpw"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="贊助商" id="fsP-Gp-S2o"/>
+                    <connections>
+                        <outlet property="sponsorDetailImageView" destination="LOk-az-Vb6" id="5Mg-9L-iUa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xs4-J1-Dki" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887.20000000000005" y="1485.6071964017992"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5s3-Ph-6E8">

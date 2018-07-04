@@ -44,17 +44,13 @@ class SponsorsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == SegueIDManager.performSponsorDetail{
+            guard let sponsorDetailVC = segue.destination as? SponsorDetailViewController else {return}
+            guard let sender = sender as? String else {return}
+            sponsorDetailVC.imageNameFromSponsorsCollectionView = sender
+        }
     }
-    */
-
 }
 extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
@@ -100,6 +96,19 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: SponsorCollectionViewIDManager.sponsorHeader, for: indexPath) as! SponsorHeaderView
         headerView.updateUI(title: sectionTitle[indexPath.section])
         return headerView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case SponsorSectionName.TONYSTARK.rawValue:
+            performSegue(withIdentifier: SegueIDManager.performSponsorDetail, sender: sectionOneImageArray[indexPath.item])
+        case SponsorSectionName.BRUCEWAYNE.rawValue:
+            performSegue(withIdentifier: SegueIDManager.performSponsorDetail, sender: sectionTwoImageArray[indexPath.item])
+        case SponsorSectionName.GEEK.rawValue:
+            performSegue(withIdentifier: SegueIDManager.performSponsorDetail, sender: sectionThreeImageArray[indexPath.item])
+        default:
+            break
+        }
     }
 }
 

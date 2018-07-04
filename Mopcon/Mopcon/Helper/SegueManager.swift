@@ -15,4 +15,5 @@ struct SegueIDManager {
     static let performCommunityDetail = "performCommunityDetail"
     static let performCommunityContainerView = "performCommunityContainerView"
     static let performSponsors = "performSponsors"
+    static let performSponsorDetail = "performSponsorDetail"
 }
