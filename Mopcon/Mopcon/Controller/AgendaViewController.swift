@@ -158,14 +158,14 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch  indexPath.section {
-        case 0,2,4:
-            return 68
-        default:
-            return 174
-        }
-    }
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        switch  indexPath.section {
+//        case 0,2,4:
+//            return 68
+//        default:
+//            return 174
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 36

@@ -38,6 +38,10 @@
 		D662A1A520EDB5D600316FE6 /* BreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A1A420EDB5D600316FE6 /* BreakTableViewCell.swift */; };
 		D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */; };
 		D6A67AB820EDF31700D4886E /* AddToMySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67AB720EDF31700D4886E /* AddToMySchedule.swift */; };
+		D6A67ABB20EE029C00D4886E /* CommunicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */; };
+		D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */; };
+		D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABE20EE106800D4886E /* CommunicationBreakTableViewCell.swift */; };
+		D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67AC120EE108D00D4886E /* CommunicationConferenceTableViewCell.swift */; };
 		D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */; };
 		D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166120EA0607003FA56F /* SpeakersViewController.swift */; };
 		D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */; };
@@ -85,6 +89,10 @@
 		D662A1A420EDB5D600316FE6 /* BreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTableViewCell.swift; sourceTree = "<group>"; };
 		D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceTableViewCell.swift; sourceTree = "<group>"; };
 		D6A67AB720EDF31700D4886E /* AddToMySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToMySchedule.swift; sourceTree = "<group>"; };
+		D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationViewController.swift; sourceTree = "<group>"; };
+		D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationTableViewCellID.swift; sourceTree = "<group>"; };
+		D6A67ABE20EE106800D4886E /* CommunicationBreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationBreakTableViewCell.swift; sourceTree = "<group>"; };
+		D6A67AC120EE108D00D4886E /* CommunicationConferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationConferenceTableViewCell.swift; sourceTree = "<group>"; };
 		D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		D6B5166120EA0607003FA56F /* SpeakersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersViewController.swift; sourceTree = "<group>"; };
 		D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTableViewCell.swift; sourceTree = "<group>"; };
@@ -168,6 +176,7 @@
 				D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */,
 				D6240CE920ECABED002C89E7 /* SponsorDetailViewController.swift */,
 				D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */,
+				D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +190,7 @@
 				D6B5166520EA062F003FA56F /* SpeakerTableView */,
 				D6240CE220EC9A74002C89E7 /* SponsorsViewController */,
 				D662A1A820EDB5F000316FE6 /* AgendaTableView */,
+				D6A67AC020EE106D00D4886E /* CommunicationTableView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +205,7 @@
 				D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */,
 				D6240CE520EC9ADC002C89E7 /* SponsorCollectionViewID.swift */,
 				D62D30D220ED065D00BBDF5E /* AgendaTableViewCellID.swift */,
+				D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -230,6 +241,15 @@
 				D6A67AB720EDF31700D4886E /* AddToMySchedule.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D6A67AC020EE106D00D4886E /* CommunicationTableView */ = {
+			isa = PBXGroup;
+			children = (
+				D6A67ABE20EE106800D4886E /* CommunicationBreakTableViewCell.swift */,
+				D6A67AC120EE108D00D4886E /* CommunicationConferenceTableViewCell.swift */,
+			);
+			path = CommunicationTableView;
 			sourceTree = "<group>";
 		};
 		D6B5166520EA062F003FA56F /* SpeakerTableView */ = {
@@ -361,11 +381,15 @@
 				D6555F2F20EC783A000816DF /* ComminityDetailViewController.swift in Sources */,
 				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
 				D6555F2C20EC66CA000816DF /* CommunityImageCollectionViewCell.swift in Sources */,
+				D6A67ABB20EE029C00D4886E /* CommunicationViewController.swift in Sources */,
 				D62D30D320ED065D00BBDF5E /* AgendaTableViewCellID.swift in Sources */,
+				D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */,
 				D6A67AB820EDF31700D4886E /* AddToMySchedule.swift in Sources */,
 				D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */,
 				D6EE629520E9CAFE0043B68A /* NewsViewController.swift in Sources */,
+				D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */,
 				D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */,
+				D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */,
 				D6240CDF20EC98AD002C89E7 /* SponsorsViewController.swift in Sources */,
 				D633462A20E8FFC60033E5B4 /* Mopcon.xcdatamodeld in Sources */,
 				D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */,
