@@ -8,14 +8,38 @@
 
 import UIKit
 
+protocol WhichCellButtonDidTapped {
+    func whichCellButtonDidTapped(index:IndexPath)
+}
+
 class ConferenceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var speakerLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var addToMyScheduleButton: UIButton!
     
-
+    var delegate: WhichCellButtonDidTapped?
+    var index:IndexPath?
+    
+    @IBAction func addToMySchedule(_ sender: UIButton) {
+        guard let index = index else {return}
+        delegate?.whichCellButtonDidTapped(index: index) 
+    }
+    
+    func updateUI(model:AgendaModel){
+        self.categoryLabel.text = model.category
+        self.topicLabel.text = model.title
+        self.speakerLabel.text = model.speaker
+        self.locationLabel.text = model.location
+        if model.addedToMySchedule{
+            addToMyScheduleButton.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
+        }else{
+            addToMyScheduleButton.setImage(UIImage(named: "buttonStarNormal"), for: .normal)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

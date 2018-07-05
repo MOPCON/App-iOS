@@ -37,6 +37,7 @@
 		D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */; };
 		D662A1A520EDB5D600316FE6 /* BreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A1A420EDB5D600316FE6 /* BreakTableViewCell.swift */; };
 		D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */; };
+		D6A67AB820EDF31700D4886E /* AddToMySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67AB720EDF31700D4886E /* AddToMySchedule.swift */; };
 		D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */; };
 		D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166120EA0607003FA56F /* SpeakersViewController.swift */; };
 		D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */; };
@@ -83,6 +84,7 @@
 		D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTableCellID.swift; sourceTree = "<group>"; };
 		D662A1A420EDB5D600316FE6 /* BreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTableViewCell.swift; sourceTree = "<group>"; };
 		D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceTableViewCell.swift; sourceTree = "<group>"; };
+		D6A67AB720EDF31700D4886E /* AddToMySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToMySchedule.swift; sourceTree = "<group>"; };
 		D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		D6B5166120EA0607003FA56F /* SpeakersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersViewController.swift; sourceTree = "<group>"; };
 		D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTableViewCell.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				D633462120E8FFC60033E5B4 /* AppDelegate.swift */,
+				D6A67AB920EDF4BD00D4886E /* Model */,
 				D633464020E9153E0033E5B4 /* Helper */,
 				D633463620E914350033E5B4 /* Controller */,
 				D633462520E8FFC60033E5B4 /* Main.storyboard */,
@@ -219,6 +222,14 @@
 				D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */,
 			);
 			path = AgendaTableView;
+			sourceTree = "<group>";
+		};
+		D6A67AB920EDF4BD00D4886E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6A67AB720EDF31700D4886E /* AddToMySchedule.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D6B5166520EA062F003FA56F /* SpeakerTableView */ = {
@@ -351,6 +362,7 @@
 				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
 				D6555F2C20EC66CA000816DF /* CommunityImageCollectionViewCell.swift in Sources */,
 				D62D30D320ED065D00BBDF5E /* AgendaTableViewCellID.swift in Sources */,
+				D6A67AB820EDF31700D4886E /* AddToMySchedule.swift in Sources */,
 				D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */,
 				D6EE629520E9CAFE0043B68A /* NewsViewController.swift in Sources */,
 				D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */,

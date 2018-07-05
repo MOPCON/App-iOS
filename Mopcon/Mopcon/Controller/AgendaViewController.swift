@@ -10,17 +10,48 @@ import UIKit
 
 class AgendaViewController: UIViewController {
     
+    @IBOutlet weak var dayOneButton: UIButton!
+    @IBOutlet weak var dayTwoButton: UIButton!
+    
+    var section1ModelArray = [AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false)]
+    var section3ModelArray = [AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false),AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false),AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false)]
+    var section5ModelArray = [AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false),AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false),AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false)]
+    
+    @IBAction func chooseDayOneAction(_ sender: UIButton) {
+        changeButtonColor(beTappedButton: dayOneButton as! CustomSelectedButton, notSelectedButton: dayTwoButton as! CustomSelectedButton)
+    }
+    
+    @IBAction func chooseDayTwoAction(_ sender: UIButton) {
+        changeButtonColor(beTappedButton: dayTwoButton as! CustomSelectedButton, notSelectedButton: dayOneButton as! CustomSelectedButton)
+    }
+    
+    
+    func changeButtonColor(beTappedButton:CustomSelectedButton, notSelectedButton:CustomSelectedButton){
+        beTappedButton.backgroundColor = UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.2)
+        beTappedButton.setTitleColor(UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 1), for: .normal)
+        beTappedButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
+        notSelectedButton.backgroundColor = UIColor.clear
+        notSelectedButton.setTitleColor(UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.5), for: .normal)
+    }
     
     @IBOutlet weak var agendaTableView: UITableView!
     
+    
+    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
         agendaTableView.delegate = self
         agendaTableView.dataSource = self
         agendaTableView.separatorStyle = .none
         //因為現在tableView就是group所以要把footer的高度拿掉，要不然會留一塊
         agendaTableView.sectionFooterHeight = 0
-//        agendaTableView.tableHeaderView?.autoresizingMask = []
         // Do any additional setup after loading the view.
     }
 
@@ -76,15 +107,15 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
         case 0:
             return 1
         case 1:
-            return 1
+            return section1ModelArray.count
         case 2:
             return 1
         case 3:
-            return 3
+            return section3ModelArray.count
         case 4:
             return 1
         case 5:
-            return 3
+            return section5ModelArray.count
         default:
             return 0
         }
@@ -95,8 +126,23 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
         case 0, 2, 4:
             let breakCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.breakCell, for: indexPath) as! BreakTableViewCell
             return breakCell
-        case 1,3,5:
+        case 1:
             let conferenceCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.conferenceCell, for: indexPath) as! ConferenceTableViewCell
+            conferenceCell.updateUI(model: section1ModelArray[indexPath.row])
+            conferenceCell.delegate = self
+            conferenceCell.index = indexPath
+            return conferenceCell
+        case 3:
+            let conferenceCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.conferenceCell, for: indexPath) as! ConferenceTableViewCell
+            conferenceCell.updateUI(model: section3ModelArray[indexPath.row])
+            conferenceCell.delegate = self
+            conferenceCell.index = indexPath
+            return conferenceCell
+        case 5:
+            let conferenceCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.conferenceCell, for: indexPath) as! ConferenceTableViewCell
+            conferenceCell.updateUI(model: section5ModelArray[indexPath.row])
+            conferenceCell.delegate = self
+            conferenceCell.index = indexPath
             return conferenceCell
         default:
             return UITableViewCell()
@@ -124,7 +170,26 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 36
     }
-    
-    
-    
+}
+
+extension AgendaViewController: WhichCellButtonDidTapped{
+    func whichCellButtonDidTapped(index: IndexPath) {
+//        print(index)
+//        let chooseCell = agendaTableView.cellForRow(at: index) as! ConferenceTableViewCell
+//        chooseCell.buttonDidTapped = !chooseCell.buttonDidTapped
+        switch index.section {
+        case 1:
+            section1ModelArray[index.row].addedToMySchedule = !section1ModelArray[index.row].addedToMySchedule
+            agendaTableView.reloadRows(at: [index], with: .none)
+        case 3:
+            section3ModelArray[index.row].addedToMySchedule = !section3ModelArray[index.row].addedToMySchedule
+            agendaTableView.reloadRows(at: [index], with: .none)
+        case 5:
+            section5ModelArray[index.row].addedToMySchedule = !section5ModelArray[index.row].addedToMySchedule
+            agendaTableView.reloadRows(at: [index], with: .none)
+        default:
+            break
+        }
+        
+    }
 }
