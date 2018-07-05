@@ -109,11 +109,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch (indexPath.section, indexPath.item) {
         case (SectionName.Grid.rawValue,GridSectionName.Agenda.rawValue):
-            print("議程")
+            performSegue(withIdentifier: SegueIDManager.performAgenda, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.MySchedule.rawValue):
             print("我的行程")
         case (SectionName.Grid.rawValue,GridSectionName.Communication.rawValue):
-            print("交流場次")
+            performSegue(withIdentifier: SegueIDManager.performCommunication, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Mission.rawValue):
             print("任務")
         case (SectionName.Grid.rawValue,GridSectionName.Sponsor.rawValue):

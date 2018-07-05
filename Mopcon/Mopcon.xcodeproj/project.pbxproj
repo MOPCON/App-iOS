@@ -13,6 +13,8 @@
 		D6240CE620EC9ADC002C89E7 /* SponsorCollectionViewID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE520EC9ADC002C89E7 /* SponsorCollectionViewID.swift */; };
 		D6240CE820EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE720EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift */; };
 		D6240CEA20ECABED002C89E7 /* SponsorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE920ECABED002C89E7 /* SponsorDetailViewController.swift */; };
+		D62D30D320ED065D00BBDF5E /* AgendaTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D30D220ED065D00BBDF5E /* AgendaTableViewCellID.swift */; };
+		D62D30D520ED06F300BBDF5E /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */; };
 		D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633462120E8FFC60033E5B4 /* AppDelegate.swift */; };
 		D633462420E8FFC60033E5B4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633462320E8FFC60033E5B4 /* MainViewController.swift */; };
 		D633462720E8FFC60033E5B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D633462520E8FFC60033E5B4 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 		D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3220EC8397000816DF /* VolunteerViewController.swift */; };
 		D6555F3520EC926A000816DF /* VolunteerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3420EC926A000816DF /* VolunteerTableViewCell.swift */; };
 		D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */; };
+		D662A1A520EDB5D600316FE6 /* BreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A1A420EDB5D600316FE6 /* BreakTableViewCell.swift */; };
+		D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */; };
 		D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */; };
 		D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166120EA0607003FA56F /* SpeakersViewController.swift */; };
 		D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */; };
@@ -53,6 +57,8 @@
 		D6240CE520EC9ADC002C89E7 /* SponsorCollectionViewID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorCollectionViewID.swift; sourceTree = "<group>"; };
 		D6240CE720EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorBigCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6240CE920ECABED002C89E7 /* SponsorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorDetailViewController.swift; sourceTree = "<group>"; };
+		D62D30D220ED065D00BBDF5E /* AgendaTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCellID.swift; sourceTree = "<group>"; };
+		D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
 		D633461E20E8FFC60033E5B4 /* Mopcon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mopcon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D633462120E8FFC60033E5B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D633462320E8FFC60033E5B4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +81,8 @@
 		D6555F3220EC8397000816DF /* VolunteerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerViewController.swift; sourceTree = "<group>"; };
 		D6555F3420EC926A000816DF /* VolunteerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTableViewCell.swift; sourceTree = "<group>"; };
 		D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTableCellID.swift; sourceTree = "<group>"; };
+		D662A1A420EDB5D600316FE6 /* BreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTableViewCell.swift; sourceTree = "<group>"; };
+		D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceTableViewCell.swift; sourceTree = "<group>"; };
 		D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		D6B5166120EA0607003FA56F /* SpeakersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersViewController.swift; sourceTree = "<group>"; };
 		D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTableViewCell.swift; sourceTree = "<group>"; };
@@ -156,6 +164,7 @@
 				D6555F3220EC8397000816DF /* VolunteerViewController.swift */,
 				D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */,
 				D6240CE920ECABED002C89E7 /* SponsorDetailViewController.swift */,
+				D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,6 +177,7 @@
 				D6EE629A20E9D0BF0043B68A /* Common */,
 				D6B5166520EA062F003FA56F /* SpeakerTableView */,
 				D6240CE220EC9A74002C89E7 /* SponsorsViewController */,
+				D662A1A820EDB5F000316FE6 /* AgendaTableView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +191,7 @@
 				D6B5166620EA0656003FA56F /* SpeakerTableCellID.swift */,
 				D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */,
 				D6240CE520EC9ADC002C89E7 /* SponsorCollectionViewID.swift */,
+				D62D30D220ED065D00BBDF5E /* AgendaTableViewCellID.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -199,6 +210,15 @@
 				D6555F3420EC926A000816DF /* VolunteerTableViewCell.swift */,
 			);
 			path = VolunteerTableView;
+			sourceTree = "<group>";
+		};
+		D662A1A820EDB5F000316FE6 /* AgendaTableView */ = {
+			isa = PBXGroup;
+			children = (
+				D662A1A420EDB5D600316FE6 /* BreakTableViewCell.swift */,
+				D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */,
+			);
+			path = AgendaTableView;
 			sourceTree = "<group>";
 		};
 		D6B5166520EA062F003FA56F /* SpeakerTableView */ = {
@@ -319,15 +339,18 @@
 				D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */,
 				D633462420E8FFC60033E5B4 /* MainViewController.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
+				D62D30D520ED06F300BBDF5E /* AgendaViewController.swift in Sources */,
 				D6EE629720E9CED20043B68A /* CustomCornerButton.swift in Sources */,
 				D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */,
 				D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */,
+				D662A1A520EDB5D600316FE6 /* BreakTableViewCell.swift in Sources */,
 				D6EE629920E9D0B00043B68A /* NewsTableViewCell.swift in Sources */,
 				D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */,
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
 				D6555F2F20EC783A000816DF /* ComminityDetailViewController.swift in Sources */,
 				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
 				D6555F2C20EC66CA000816DF /* CommunityImageCollectionViewCell.swift in Sources */,
+				D62D30D320ED065D00BBDF5E /* AgendaTableViewCellID.swift in Sources */,
 				D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */,
 				D6EE629520E9CAFE0043B68A /* NewsViewController.swift in Sources */,
 				D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */,
@@ -343,6 +366,7 @@
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
 				D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */,
+				D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */,
 				D6240CEA20ECABED002C89E7 /* SponsorDetailViewController.swift in Sources */,
 				D6B5166720EA0656003FA56F /* SpeakerTableCellID.swift in Sources */,
 			);
