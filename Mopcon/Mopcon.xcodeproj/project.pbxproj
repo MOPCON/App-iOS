@@ -57,6 +57,7 @@
 		D6F0BE6320F06D6C0053A100 /* MyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F0BE6220F06D6C0053A100 /* MyScheduleViewController.swift */; };
 		D6F0BE6520F0756D0053A100 /* StoryboardIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F0BE6420F0756D0053A100 /* StoryboardIDManager.swift */; };
 		D6F0BE6720F093AD0053A100 /* UserdefaultKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F0BE6620F093AD0053A100 /* UserdefaultKeyManager.swift */; };
+		D6F0BE6920F0A02B0053A100 /* ConferenceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F0BE6820F0A02B0053A100 /* ConferenceDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		D6F0BE6220F06D6C0053A100 /* MyScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleViewController.swift; sourceTree = "<group>"; };
 		D6F0BE6420F0756D0053A100 /* StoryboardIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardIDManager.swift; sourceTree = "<group>"; };
 		D6F0BE6620F093AD0053A100 /* UserdefaultKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultKeyManager.swift; sourceTree = "<group>"; };
+		D6F0BE6820F0A02B0053A100 /* ConferenceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */,
 				D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */,
 				D6F0BE6220F06D6C0053A100 /* MyScheduleViewController.swift */,
+				D6F0BE6820F0A02B0053A100 /* ConferenceDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				D6A67AB820EDF31700D4886E /* AddToMySchedule.swift in Sources */,
 				D6F0BE6520F0756D0053A100 /* StoryboardIDManager.swift in Sources */,
 				D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */,
+				D6F0BE6920F0A02B0053A100 /* ConferenceDetailViewController.swift in Sources */,
 				D6EE629520E9CAFE0043B68A /* NewsViewController.swift in Sources */,
 				D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */,
 				D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */,

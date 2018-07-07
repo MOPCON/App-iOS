@@ -19,4 +19,5 @@ struct SegueIDManager {
     static let performAgenda = "performAgenda"
     static let performCommunication = "performCommunication"
     static let performMySchedule = "performMySchedule"
+    static let performConferenceDetail = "performConferenceDetail"
 }

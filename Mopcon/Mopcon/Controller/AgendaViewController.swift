@@ -171,6 +171,16 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 36
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 1,3,5:
+            performSegue(withIdentifier: SegueIDManager.performConferenceDetail, sender: nil)
+        default:
+            break
+        }
+        
+    }
 }
 
 extension AgendaViewController: WhichCellButtonDidTapped{
