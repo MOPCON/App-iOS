@@ -15,6 +15,8 @@ class CommunicationViewController: UIViewController {
     @IBOutlet weak var dayTwoButton: CustomSelectedButton!
     @IBOutlet weak var communicationTableView: UITableView!
     
+    @IBOutlet weak var goToMainAgendaVCButton: CustomCornerButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -29,9 +31,20 @@ class CommunicationViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func goToMainAgenda(_ sender: UIButton) {
+            let agendaVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: StoryboardIDManager.agendaVC) as! AgendaViewController
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+            self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
+            self.navigationController?.pushViewController(agendaVC, animated: true)
+        
+        
+    }
+    
     
     @IBAction func tappedDayOneButtonAction(_ sender: CustomSelectedButton) {
         CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton, notSelectedButton: dayTwoButton)
@@ -92,7 +105,7 @@ extension CommunicationViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        let timeLabel = UILabel(frame: CGRect(x: view.center.x + 116, y: view.center.y, width: 116, height: 22))
+        let timeLabel = UILabel(frame: CGRect(x: view.center.x + 116, y: view.center.y + 5.5, width: 116, height: 22))
         timeLabel.font = UIFont(name: "PingFangTC-Medium", size: 16)
         timeLabel.textColor = UIColor.white
         timeLabel.textAlignment = .center

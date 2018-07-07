@@ -10,4 +10,5 @@ import Foundation
 
 struct StoryboardIDManager {
     static let communicationVC = "communicationVC"
+    static let agendaVC = "agendaVC"
 }

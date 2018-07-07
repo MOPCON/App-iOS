@@ -1149,7 +1149,7 @@
         <!--議程-->
         <scene sceneID="02c-ED-fXQ">
             <objects>
-                <viewController id="Bnk-Hb-V3v" customClass="AgendaViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="agendaVC" id="Bnk-Hb-V3v" customClass="AgendaViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nAg-Zu-5N4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1169,7 +1169,7 @@
                                                     <rect key="frame" x="0.0" y="-0.5" width="343" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開幕" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U12-TD-okW">
-                                                            <rect key="frame" x="0.0" y="22.5" width="343" height="23.5"/>
+                                                            <rect key="frame" x="68.5" y="22.5" width="206" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1178,7 +1178,7 @@
                                                     <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="U12-TD-okW" firstAttribute="centerY" secondItem="z1Z-CX-1ej" secondAttribute="centerY" id="Cnw-g9-77e"/>
-                                                        <constraint firstItem="U12-TD-okW" firstAttribute="width" secondItem="z1Z-CX-1ej" secondAttribute="width" id="TuN-dI-VDw"/>
+                                                        <constraint firstItem="U12-TD-okW" firstAttribute="width" secondItem="z1Z-CX-1ej" secondAttribute="width" multiplier="0.6" id="TuN-dI-VDw"/>
                                                         <constraint firstItem="U12-TD-okW" firstAttribute="centerX" secondItem="z1Z-CX-1ej" secondAttribute="centerX" id="m8l-pL-zBR"/>
                                                     </constraints>
                                                 </view>
@@ -1291,6 +1291,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFE-i8-712" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="36"/>
                                         <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                         <state key="normal" title="11/03">
                                             <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -1301,6 +1302,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9S-pK-52T" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="171.5" y="0.0" width="171.5" height="36"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                         <state key="normal" title="11/04">
                                             <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -1336,7 +1338,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qPg-yp-EHy" firstAttribute="width" secondItem="nAg-Zu-5N4" secondAttribute="width" multiplier="343:375" id="0P3-ZM-9cY"/>
                             <constraint firstItem="qPg-yp-EHy" firstAttribute="top" secondItem="22M-fX-dgc" secondAttribute="top" constant="16" id="5lI-0b-X1b"/>
@@ -1363,6 +1365,7 @@
                         <outlet property="agendaTableView" destination="XlI-lt-8ng" id="SjV-qN-jRD"/>
                         <outlet property="dayOneButton" destination="qFE-i8-712" id="Inb-dN-BLk"/>
                         <outlet property="dayTwoButton" destination="c9S-pK-52T" id="Ubb-Tx-V07"/>
+                        <outlet property="goToCommunicationVCButton" destination="YFj-Tq-2xC" id="lY6-9e-K4Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlH-Nt-K25" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1405,6 +1408,9 @@
                                 <state key="normal" title="到主議程">
                                     <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToMainAgenda:" destination="p0y-JP-hD1" eventType="touchUpInside" id="HeF-jq-N7c"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="RJW-nz-PFd">
                                 <rect key="frame" x="16" y="132" width="343" height="474"/>
@@ -1580,11 +1586,12 @@
                         <outlet property="communicationTableView" destination="RJW-nz-PFd" id="sZS-rA-o6a"/>
                         <outlet property="dayOneButton" destination="m3g-D3-Bf8" id="aSZ-Mg-Ibb"/>
                         <outlet property="dayTwoButton" destination="ed5-Jf-ews" id="S51-cA-wjV"/>
+                        <outlet property="goToMainAgendaVCButton" destination="87S-Fo-gm1" id="6ZH-gA-yuW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4iA-qB-Q6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2610" y="1110"/>
+            <point key="canvasLocation" x="-2522" y="1803"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gaa-hj-Pb3">

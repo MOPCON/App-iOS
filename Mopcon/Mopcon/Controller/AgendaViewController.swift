@@ -12,6 +12,8 @@ class AgendaViewController: UIViewController {
     
     @IBOutlet weak var dayOneButton: UIButton!
     @IBOutlet weak var dayTwoButton: UIButton!
+    @IBOutlet weak var goToCommunicationVCButton: CustomCornerButton!
+    
     
     var section1ModelArray = [AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false)]
     var section3ModelArray = [AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false),AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false),AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false)]
@@ -27,8 +29,10 @@ class AgendaViewController: UIViewController {
     
     
     @IBAction func goToCommunicationVC(_ sender: UIButton) {
-        let communicationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: StoryboardIDManager.communicationVC) as! CommunicationViewController
-        self.navigationController?.pushViewController(communicationVC, animated: true)
+            let communicationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: StoryboardIDManager.communicationVC) as! CommunicationViewController
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+            self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
+            self.navigationController?.pushViewController(communicationVC, animated: true)
     }
     
     @IBOutlet weak var agendaTableView: UITableView!
@@ -51,7 +55,7 @@ class AgendaViewController: UIViewController {
         agendaTableView.sectionFooterHeight = 0
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -78,7 +82,7 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        let timeLabel = UILabel(frame: CGRect(x: view.center.x + 116, y: view.center.y, width: 116, height: 22))
+        let timeLabel = UILabel(frame: CGRect(x: view.center.x + 116, y: view.center.y + 5.5, width: 116, height: 22))
         timeLabel.font = UIFont(name: "PingFangTC-Medium", size: 16)
         timeLabel.textColor = UIColor.white
         timeLabel.textAlignment = .center
