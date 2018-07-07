@@ -111,7 +111,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case (SectionName.Grid.rawValue,GridSectionName.Agenda.rawValue):
             performSegue(withIdentifier: SegueIDManager.performAgenda, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.MySchedule.rawValue):
-            print("我的行程")
+            performSegue(withIdentifier: SegueIDManager.performMySchedule, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Communication.rawValue):
             performSegue(withIdentifier: SegueIDManager.performCommunication, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Mission.rawValue):

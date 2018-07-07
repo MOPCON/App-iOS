@@ -18,20 +18,17 @@ class AgendaViewController: UIViewController {
     var section5ModelArray = [AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false),AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false),AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false)]
     
     @IBAction func chooseDayOneAction(_ sender: UIButton) {
-        changeButtonColor(beTappedButton: dayOneButton as! CustomSelectedButton, notSelectedButton: dayTwoButton as! CustomSelectedButton)
+        CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton as! CustomSelectedButton, notSelectedButton: dayTwoButton as! CustomSelectedButton)
     }
     
     @IBAction func chooseDayTwoAction(_ sender: UIButton) {
-        changeButtonColor(beTappedButton: dayTwoButton as! CustomSelectedButton, notSelectedButton: dayOneButton as! CustomSelectedButton)
+        CommonFucntionHelper.changeButtonColor(beTappedButton: dayTwoButton as! CustomSelectedButton, notSelectedButton: dayOneButton as! CustomSelectedButton)
     }
     
     
-    func changeButtonColor(beTappedButton:CustomSelectedButton, notSelectedButton:CustomSelectedButton){
-        beTappedButton.backgroundColor = UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.2)
-        beTappedButton.setTitleColor(UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 1), for: .normal)
-        beTappedButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
-        notSelectedButton.backgroundColor = UIColor.clear
-        notSelectedButton.setTitleColor(UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.5), for: .normal)
+    @IBAction func goToCommunicationVC(_ sender: UIButton) {
+        let communicationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: StoryboardIDManager.communicationVC) as! CommunicationViewController
+        self.navigationController?.pushViewController(communicationVC, animated: true)
     }
     
     @IBOutlet weak var agendaTableView: UITableView!

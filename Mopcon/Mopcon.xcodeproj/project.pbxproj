@@ -53,6 +53,9 @@
 		D6EE629720E9CED20043B68A /* CustomCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE629620E9CED20043B68A /* CustomCornerButton.swift */; };
 		D6EE629920E9D0B00043B68A /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE629820E9D0B00043B68A /* NewsTableViewCell.swift */; };
 		D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE629D20E9D1960043B68A /* NewsTableViewCellID.swift */; };
+		D6F0BE6120F0610B0053A100 /* CommonFunctionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F0BE6020F0610B0053A100 /* CommonFunctionHelper.swift */; };
+		D6F0BE6320F06D6C0053A100 /* MyScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F0BE6220F06D6C0053A100 /* MyScheduleViewController.swift */; };
+		D6F0BE6520F0756D0053A100 /* StoryboardIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F0BE6420F0756D0053A100 /* StoryboardIDManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +107,9 @@
 		D6EE629620E9CED20043B68A /* CustomCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCornerButton.swift; sourceTree = "<group>"; };
 		D6EE629820E9D0B00043B68A /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		D6EE629D20E9D1960043B68A /* NewsTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCellID.swift; sourceTree = "<group>"; };
+		D6F0BE6020F0610B0053A100 /* CommonFunctionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctionHelper.swift; sourceTree = "<group>"; };
+		D6F0BE6220F06D6C0053A100 /* MyScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleViewController.swift; sourceTree = "<group>"; };
+		D6F0BE6420F0756D0053A100 /* StoryboardIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardIDManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +183,7 @@
 				D6240CE920ECABED002C89E7 /* SponsorDetailViewController.swift */,
 				D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */,
 				D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */,
+				D6F0BE6220F06D6C0053A100 /* MyScheduleViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -206,6 +213,8 @@
 				D6240CE520EC9ADC002C89E7 /* SponsorCollectionViewID.swift */,
 				D62D30D220ED065D00BBDF5E /* AgendaTableViewCellID.swift */,
 				D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */,
+				D6F0BE6020F0610B0053A100 /* CommonFunctionHelper.swift */,
+				D6F0BE6420F0756D0053A100 /* StoryboardIDManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -385,6 +394,7 @@
 				D62D30D320ED065D00BBDF5E /* AgendaTableViewCellID.swift in Sources */,
 				D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */,
 				D6A67AB820EDF31700D4886E /* AddToMySchedule.swift in Sources */,
+				D6F0BE6520F0756D0053A100 /* StoryboardIDManager.swift in Sources */,
 				D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */,
 				D6EE629520E9CAFE0043B68A /* NewsViewController.swift in Sources */,
 				D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */,
@@ -394,6 +404,7 @@
 				D633462A20E8FFC60033E5B4 /* Mopcon.xcdatamodeld in Sources */,
 				D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */,
 				D6555F3520EC926A000816DF /* VolunteerTableViewCell.swift in Sources */,
+				D6F0BE6120F0610B0053A100 /* CommonFunctionHelper.swift in Sources */,
 				D633463F20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift in Sources */,
 				D633463820E914520033E5B4 /* BannerCollectionViewCell.swift in Sources */,
 				D6240CE820EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift in Sources */,
@@ -402,6 +413,7 @@
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
 				D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */,
+				D6F0BE6320F06D6C0053A100 /* MyScheduleViewController.swift in Sources */,
 				D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */,
 				D6240CEA20ECABED002C89E7 /* SponsorDetailViewController.swift in Sources */,
 				D6B5166720EA0656003FA56F /* SpeakerTableCellID.swift in Sources */,

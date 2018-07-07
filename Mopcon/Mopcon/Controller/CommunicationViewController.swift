@@ -10,6 +10,9 @@ import UIKit
 
 class CommunicationViewController: UIViewController {
     
+    
+    @IBOutlet weak var dayOneButton: CustomSelectedButton!
+    @IBOutlet weak var dayTwoButton: CustomSelectedButton!
     @IBOutlet weak var communicationTableView: UITableView!
     
     override func viewDidLoad() {
@@ -30,7 +33,15 @@ class CommunicationViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    @IBAction func tappedDayOneButtonAction(_ sender: CustomSelectedButton) {
+        CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton, notSelectedButton: dayTwoButton)
+    }
+    
+    @IBAction func tappedDayTwoButtonAction(_ sender: CustomSelectedButton) {
+        CommonFucntionHelper.changeButtonColor(beTappedButton: dayTwoButton, notSelectedButton: dayOneButton)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
