@@ -1053,7 +1053,139 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j2c-01-FRz">
                                 <rect key="frame" x="16" y="132" width="343" height="519"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BreakCell" rowHeight="68" id="zrb-7S-TCK" customClass="MyScheduleBreakTableViewCell" customModule="Mopcon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zrb-7S-TCK" id="gr0-TI-fjv">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="67.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onX-df-akh">
+                                                    <rect key="frame" x="0.0" y="-1" width="343" height="68"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.81568627450980391" blue="0.79607843137254897" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="開幕" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4L-we-2va">
+                                                    <rect key="frame" x="150" y="23" width="40" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="onX-df-akh" firstAttribute="centerX" secondItem="gr0-TI-fjv" secondAttribute="centerX" id="3eM-iO-DL4"/>
+                                                <constraint firstItem="onX-df-akh" firstAttribute="height" secondItem="gr0-TI-fjv" secondAttribute="height" id="G4Q-Ak-g6a"/>
+                                                <constraint firstItem="onX-df-akh" firstAttribute="width" secondItem="gr0-TI-fjv" secondAttribute="width" id="USL-H3-RPP"/>
+                                                <constraint firstItem="onX-df-akh" firstAttribute="centerY" secondItem="gr0-TI-fjv" secondAttribute="centerY" id="WHr-nZ-L1u"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoScheduleCell" rowHeight="120" id="13z-r5-E6w" customClass="NoScheduleTableViewCell" customModule="Mopcon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="96" width="343" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="13z-r5-E6w" id="Xk5-UR-ZwA">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="119.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRW-Tq-elS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="119.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暫無行程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ler-Me-cmk">
+                                                            <rect key="frame" x="131" y="8" width="80" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                                                            <color key="textColor" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7V-yd-ZY7" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
+                                                            <rect key="frame" x="130" y="64" width="81" height="29"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                                            <state key="normal" title="查看議程">
+                                                                <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="KRW-Tq-elS" firstAttribute="centerY" secondItem="Xk5-UR-ZwA" secondAttribute="centerY" id="G5P-Wk-EUm"/>
+                                                <constraint firstItem="KRW-Tq-elS" firstAttribute="width" secondItem="Xk5-UR-ZwA" secondAttribute="width" id="Nnl-uK-Eag"/>
+                                                <constraint firstItem="KRW-Tq-elS" firstAttribute="centerX" secondItem="Xk5-UR-ZwA" secondAttribute="centerX" id="gjc-od-Uz5"/>
+                                                <constraint firstItem="KRW-Tq-elS" firstAttribute="height" secondItem="Xk5-UR-ZwA" secondAttribute="height" id="hR8-Ny-NH1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConferenceCell" rowHeight="172" id="HTx-YP-Sat" customClass="MyScheduleConferenceTableViewCell" customModule="Mopcon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="216" width="343" height="172"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HTx-YP-Sat" id="jKU-Aj-R4u">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="171.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7X-Zu-nR5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="171.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mobile App &amp; ENG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSx-Tl-QFa">
+                                                            <rect key="frame" x="14" y="16" width="104" height="15"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                                            <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="如何寫出有效率、好讀、好維護的 Java / Android 程式" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sh1-Jf-gvn">
+                                                            <rect key="frame" x="14" y="39" width="321" height="68"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="田哲禹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNW-WX-D9t">
+                                                            <rect key="frame" x="14" y="108" width="42" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvn-bn-hrS">
+                                                            <rect key="frame" x="14" y="139" width="24" height="24"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" image="map"/>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R1 : 一廳" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uha-LN-kic">
+                                                            <rect key="frame" x="45" y="141" width="57" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBY-UE-IJL">
+                                                            <rect key="frame" x="300" y="139" width="24" height="24"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" image="buttonStarChecked"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="r7X-Zu-nR5" firstAttribute="centerY" secondItem="jKU-Aj-R4u" secondAttribute="centerY" id="CMv-h9-IaV"/>
+                                                <constraint firstItem="r7X-Zu-nR5" firstAttribute="centerX" secondItem="jKU-Aj-R4u" secondAttribute="centerX" id="Dka-Mx-04i"/>
+                                                <constraint firstItem="r7X-Zu-nR5" firstAttribute="width" secondItem="jKU-Aj-R4u" secondAttribute="width" id="H7v-pC-xtd"/>
+                                                <constraint firstItem="r7X-Zu-nR5" firstAttribute="height" secondItem="jKU-Aj-R4u" secondAttribute="height" multiplier="171:172" id="PcI-gl-R9c"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1076,6 +1208,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="myScheduleTableView" destination="j2c-01-FRz" id="zme-vy-hXc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spB-dj-Uqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1898,6 +2033,7 @@
     <resources>
         <image name="Close" width="24" height="24"/>
         <image name="buttonSlide" width="24" height="24"/>
+        <image name="buttonStarChecked" width="24" height="24"/>
         <image name="buttonStarNormal" width="24" height="24"/>
         <image name="connect" width="50" height="50"/>
         <image name="facebook" width="50" height="50"/>

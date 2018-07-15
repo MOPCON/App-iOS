@@ -37,6 +37,10 @@
 		D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */; };
 		D662A1A520EDB5D600316FE6 /* BreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A1A420EDB5D600316FE6 /* BreakTableViewCell.swift */; };
 		D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */; };
+		D66778E420FB062F00E9CA34 /* MyScheduleTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66778E320FB062F00E9CA34 /* MyScheduleTableViewCellID.swift */; };
+		D66778E920FB142D00E9CA34 /* NoScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66778E820FB142D00E9CA34 /* NoScheduleTableViewCell.swift */; };
+		D66778ED20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66778EC20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift */; };
+		D66778EF20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66778EE20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift */; };
 		D6A67AB820EDF31700D4886E /* AddToMySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67AB720EDF31700D4886E /* AddToMySchedule.swift */; };
 		D6A67ABB20EE029C00D4886E /* CommunicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */; };
 		D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */; };
@@ -93,6 +97,10 @@
 		D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTableCellID.swift; sourceTree = "<group>"; };
 		D662A1A420EDB5D600316FE6 /* BreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTableViewCell.swift; sourceTree = "<group>"; };
 		D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceTableViewCell.swift; sourceTree = "<group>"; };
+		D66778E320FB062F00E9CA34 /* MyScheduleTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleTableViewCellID.swift; sourceTree = "<group>"; };
+		D66778E820FB142D00E9CA34 /* NoScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		D66778EC20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleConferenceTableViewCell.swift; sourceTree = "<group>"; };
+		D66778EE20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleBreakTableViewCell.swift; sourceTree = "<group>"; };
 		D6A67AB720EDF31700D4886E /* AddToMySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToMySchedule.swift; sourceTree = "<group>"; };
 		D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationViewController.swift; sourceTree = "<group>"; };
 		D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationTableViewCellID.swift; sourceTree = "<group>"; };
@@ -196,6 +204,7 @@
 		D633463920E914550033E5B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D66778E720FB130A00E9CA34 /* MyScheduleTableView */,
 				D6EE629C20E9D0D50043B68A /* MainTableView */,
 				D6EE629B20E9D0C70043B68A /* NewsTableView */,
 				D6EE629A20E9D0BF0043B68A /* Common */,
@@ -221,6 +230,7 @@
 				D6F0BE6020F0610B0053A100 /* CommonFunctionHelper.swift */,
 				D6F0BE6420F0756D0053A100 /* StoryboardIDManager.swift */,
 				D6F0BE6620F093AD0053A100 /* UserdefaultKeyManager.swift */,
+				D66778E320FB062F00E9CA34 /* MyScheduleTableViewCellID.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -248,6 +258,16 @@
 				D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */,
 			);
 			path = AgendaTableView;
+			sourceTree = "<group>";
+		};
+		D66778E720FB130A00E9CA34 /* MyScheduleTableView */ = {
+			isa = PBXGroup;
+			children = (
+				D66778E820FB142D00E9CA34 /* NoScheduleTableViewCell.swift */,
+				D66778EE20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift */,
+				D66778EC20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift */,
+			);
+			path = MyScheduleTableView;
 			sourceTree = "<group>";
 		};
 		D6A67AB920EDF4BD00D4886E /* Model */ = {
@@ -389,6 +409,7 @@
 				D6EE629720E9CED20043B68A /* CustomCornerButton.swift in Sources */,
 				D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */,
 				D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */,
+				D66778E420FB062F00E9CA34 /* MyScheduleTableViewCellID.swift in Sources */,
 				D662A1A520EDB5D600316FE6 /* BreakTableViewCell.swift in Sources */,
 				D6EE629920E9D0B00043B68A /* NewsTableViewCell.swift in Sources */,
 				D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */,
@@ -404,6 +425,7 @@
 				D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */,
 				D6F0BE6920F0A02B0053A100 /* ConferenceDetailViewController.swift in Sources */,
 				D6EE629520E9CAFE0043B68A /* NewsViewController.swift in Sources */,
+				D66778EF20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift in Sources */,
 				D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */,
 				D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */,
 				D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */,
@@ -416,9 +438,11 @@
 				D633463820E914520033E5B4 /* BannerCollectionViewCell.swift in Sources */,
 				D6240CE820EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift in Sources */,
 				D6EE629320E9C9270043B68A /* SegueManager.swift in Sources */,
+				D66778ED20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift in Sources */,
 				D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */,
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
+				D66778E920FB142D00E9CA34 /* NoScheduleTableViewCell.swift in Sources */,
 				D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */,
 				D6F0BE6320F06D6C0053A100 /* MyScheduleViewController.swift in Sources */,
 				D6F0BE6720F093AD0053A100 /* UserdefaultKeyManager.swift in Sources */,
