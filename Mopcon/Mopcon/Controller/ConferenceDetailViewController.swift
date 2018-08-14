@@ -12,7 +12,12 @@ class ConferenceDetailViewController: UIViewController {
     
     var agenda:Schedule.Payload.Agenda.Item.AgendaContent?
     
-    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var detailImageView: UIImageView! {
+        didSet {
+            detailImageView.layer.cornerRadius = detailImageView.frame.height / 2
+            detailImageView.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var topicLabel: UILabel!
     
@@ -30,7 +35,7 @@ class ConferenceDetailViewController: UIViewController {
     }
     
     func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent) {
-        self.speakerImageView.getImage(address: agenda.picture)
+        self.detailImageView.getImage(address: agenda.picture)
         self.typeLabel.text = agenda.type
         self.topicLabel.text = agenda.schedule_topic
         self.speakerName.text = agenda.name

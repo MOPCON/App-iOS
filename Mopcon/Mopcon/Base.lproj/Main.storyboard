@@ -1683,80 +1683,120 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tWQ-Sz-YBV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="232.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tWQ-Sz-YBV">
+                                <rect key="frame" x="0.0" y="64" width="375" height="210"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tWQ-Sz-YBV" secondAttribute="height" multiplier="375:210" id="2wM-dR-IFM"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mobile App &amp; ENG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWE-3F-6xd">
-                                <rect key="frame" x="18" y="312.5" width="187.5" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile App &amp; ENG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWE-3F-6xd">
+                                <rect key="frame" x="18" y="290" width="312" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mWE-3F-6xd" secondAttribute="height" multiplier="312:16" id="pIs-o2-cuF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="如何寫出有效率、好讀、好維護的 Java / Android 程式" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nb-y3-81e">
-                                <rect key="frame" x="18" y="334" width="312" height="58.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如何寫出有效率、好讀、好維護的 Java / Android 程式" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6Nb-y3-81e">
+                                <rect key="frame" x="18" y="312" width="312" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6Nb-y3-81e" secondAttribute="height" multiplier="312:53" id="v2Y-cu-Dr8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kK-hI-ocS" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="16" y="409" width="107" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kK-hI-ocS" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
+                                <rect key="frame" x="16" y="381" width="107" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4kK-hI-ocS" secondAttribute="height" multiplier="107:36" id="04E-Cz-4yI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="14"/>
-                                <inset key="contentEdgeInsets" minX="-12" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="加入行程" image="buttonStarNormal">
                                     <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWg-Ay-TXo" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="131" y="409" width="87" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="14"/>
-                                <inset key="contentEdgeInsets" minX="-12" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="SLIDE" image="buttonSlide">
-                                    <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-tb-gdN">
-                                <rect key="frame" x="16" y="547" width="96" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="田哲宇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9l-2N-Vya">
-                                <rect key="frame" x="131" y="556" width="52" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="台灣區經理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joJ-NI-UA4">
-                                <rect key="frame" x="131" y="594" width="70" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Google Cloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRR-CW-cc4">
-                                <rect key="frame" x="131" y="626" width="89" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="在軟體公司最痛苦的一件事就是看到前人留下來的程式碼像本天書，看也看不懂、改也改不動，跑起來卻健步如飛，不僅一切正常，勝制連重構後的城市都飽得不如就城市順暢。這個 Session 就是要討論有哪些技巧及新法可以避免寫出這樣難讀、難懂也難維護的程式。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWj-yb-EUI">
-                                <rect key="frame" x="16" y="461" width="341" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9Xd-iZ-M5x">
+                                <rect key="frame" x="16" y="539" width="201" height="104"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-tb-gdN">
+                                        <rect key="frame" x="0.0" y="4" width="96" height="96"/>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="hbc-tb-gdN" secondAttribute="height" multiplier="96:96" id="edv-KW-ynk"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hr3-lK-Xva">
+                                        <rect key="frame" x="112" y="14" width="89" height="76.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="田哲宇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9l-2N-Vya">
+                                                <rect key="frame" x="0.0" y="0.5" width="52" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台灣區經理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joJ-NI-UA4">
+                                                <rect key="frame" x="0.0" y="29" width="70" height="20"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Cloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRR-CW-cc4">
+                                                <rect key="frame" x="0.0" y="57" width="89" height="20"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在軟體公司最痛苦的一件事就是看到前人留下來的程式碼像本天書，看也看不懂、改也改不動，跑起來卻健步如飛，不僅一切正常，勝制連重構後的城市都飽得不如就城市順暢。這個 Session 就是要討論有哪些技巧及新法可以避免寫出這樣難讀、難懂也難維護的程式。" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWj-yb-EUI">
+                                <rect key="frame" x="18" y="433" width="341" height="82"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWg-Ay-TXo" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
+                                <rect key="frame" x="131" y="381" width="87" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VWg-Ay-TXo" secondAttribute="height" multiplier="87:36" id="Ece-Qg-Et5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="14"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="SLIDE" image="buttonSlide">
+                                    <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tWQ-Sz-YBV" firstAttribute="leading" secondItem="lTg-gA-KNn" secondAttribute="leading" id="0kB-l3-hDd"/>
+                            <constraint firstItem="mWE-3F-6xd" firstAttribute="leading" secondItem="lTg-gA-KNn" secondAttribute="leading" constant="18" id="1cF-Xf-0RQ"/>
+                            <constraint firstItem="6Nb-y3-81e" firstAttribute="leading" secondItem="lTg-gA-KNn" secondAttribute="leading" constant="18" id="64w-f5-GyL"/>
+                            <constraint firstItem="tWQ-Sz-YBV" firstAttribute="top" secondItem="lTg-gA-KNn" secondAttribute="top" id="77w-Ta-BfB"/>
+                            <constraint firstItem="mWE-3F-6xd" firstAttribute="top" secondItem="tWQ-Sz-YBV" secondAttribute="bottom" constant="16" id="8a0-EO-133"/>
+                            <constraint firstItem="4kK-hI-ocS" firstAttribute="leading" secondItem="lTg-gA-KNn" secondAttribute="leading" constant="16" id="A9O-c5-Sqn"/>
+                            <constraint firstItem="VWg-Ay-TXo" firstAttribute="leading" secondItem="4kK-hI-ocS" secondAttribute="trailing" constant="8" id="AyF-2I-s28"/>
+                            <constraint firstItem="VWg-Ay-TXo" firstAttribute="width" secondItem="tr1-1w-gdm" secondAttribute="width" multiplier="87:375" id="BYK-zx-QNg"/>
+                            <constraint firstItem="lTg-gA-KNn" firstAttribute="trailing" secondItem="wWj-yb-EUI" secondAttribute="trailing" constant="16" id="FeL-uI-AfV"/>
+                            <constraint firstItem="6Nb-y3-81e" firstAttribute="top" secondItem="mWE-3F-6xd" secondAttribute="bottom" constant="6" id="GFf-ML-dPa"/>
+                            <constraint firstItem="9Xd-iZ-M5x" firstAttribute="top" secondItem="wWj-yb-EUI" secondAttribute="bottom" constant="24" id="Kpa-z5-9si"/>
+                            <constraint firstItem="lTg-gA-KNn" firstAttribute="trailing" secondItem="6Nb-y3-81e" secondAttribute="trailing" constant="45" id="NmO-uQ-QhR"/>
+                            <constraint firstItem="VWg-Ay-TXo" firstAttribute="top" secondItem="6Nb-y3-81e" secondAttribute="bottom" constant="16" id="Rtg-pR-rOe"/>
+                            <constraint firstItem="wWj-yb-EUI" firstAttribute="leading" secondItem="lTg-gA-KNn" secondAttribute="leading" constant="18" id="T86-iN-38g"/>
+                            <constraint firstItem="wWj-yb-EUI" firstAttribute="top" secondItem="4kK-hI-ocS" secondAttribute="bottom" constant="16" id="X0N-LN-CsU"/>
+                            <constraint firstItem="lTg-gA-KNn" firstAttribute="bottom" secondItem="9Xd-iZ-M5x" secondAttribute="bottom" constant="24" id="fqW-8y-PSh"/>
+                            <constraint firstItem="tWQ-Sz-YBV" firstAttribute="trailing" secondItem="lTg-gA-KNn" secondAttribute="trailing" id="kDW-xU-i9n"/>
+                            <constraint firstItem="4kK-hI-ocS" firstAttribute="width" secondItem="tr1-1w-gdm" secondAttribute="width" multiplier="107:375" id="moi-2Q-aFd"/>
+                            <constraint firstItem="4kK-hI-ocS" firstAttribute="top" secondItem="6Nb-y3-81e" secondAttribute="bottom" constant="16" id="pQx-R1-J1s"/>
+                            <constraint firstItem="9Xd-iZ-M5x" firstAttribute="leading" secondItem="lTg-gA-KNn" secondAttribute="leading" constant="16" id="tBJ-ml-Zhr"/>
+                            <constraint firstItem="lTg-gA-KNn" firstAttribute="trailing" secondItem="mWE-3F-6xd" secondAttribute="trailing" constant="45" id="y01-AT-FUg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lTg-gA-KNn"/>
                     </view>
                     <navigationItem key="navigationItem" title="演講" id="98n-A9-IlC"/>
