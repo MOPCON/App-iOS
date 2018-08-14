@@ -232,7 +232,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" rowHeight="205" id="rbU-sy-ZoH" customClass="NewsTableViewCell" customModule="Mopcon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" rowHeight="205" id="rbU-sy-ZoH" customClass="NewsTableViewCell" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="205"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rbU-sy-ZoH" id="8ev-CU-roB">
@@ -543,7 +543,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SpeakerCell" rowHeight="160" id="9Ws-wC-Mvj" customClass="SpeakerTableViewCell" customModule="Mopcon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SpeakerCell" rowHeight="160" id="9Ws-wC-Mvj" customClass="SpeakerTableViewCell" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Ws-wC-Mvj" id="9ph-UJ-Vgb">
@@ -867,7 +867,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLZ-Og-gM8">
-                                            <rect key="frame" x="0.0" y="15" width="320" height="20"/>
+                                            <rect key="frame" x="0.0" y="15" width="375" height="20"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1335,7 +1335,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="541"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VolunteerTableViewCell" rowHeight="232" id="IaU-pL-VDX" customClass="VolunteerTableViewCell" customModule="Mopcon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VolunteerTableViewCell" rowHeight="232" id="IaU-pL-VDX" customClass="VolunteerTableViewCell" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IaU-pL-VDX" id="FHT-kL-jDJ">
@@ -1437,7 +1437,7 @@
                                 <rect key="frame" x="16" y="132" width="343" height="474"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BreakCell" rowHeight="68" id="FJs-ae-THH" customClass="BreakTableViewCell" customModule="Mopcon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BreakCell" rowHeight="68" id="FJs-ae-THH" customClass="BreakTableViewCell" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="343" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FJs-ae-THH" id="aSa-Id-S0Z">
@@ -1445,10 +1445,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1Z-CX-1ej">
-                                                    <rect key="frame" x="0.0" y="-0.5" width="348" height="68"/>
+                                                    <rect key="frame" x="0.0" y="-0.5" width="343" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開幕" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U12-TD-okW">
-                                                            <rect key="frame" x="69.5" y="22.5" width="209" height="23.5"/>
+                                                            <rect key="frame" x="68.5" y="22.5" width="206" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1475,7 +1475,7 @@
                                             <outlet property="breakStepLabel" destination="U12-TD-okW" id="eRN-UJ-Tua"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConferenceCell" rowHeight="174" id="09m-HK-jPe" customClass="ConferenceTableViewCell" customModule="Mopcon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConferenceCell" rowHeight="174" id="09m-HK-jPe" customClass="ConferenceTableViewCell" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="123.5" width="343" height="174"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="09m-HK-jPe" id="ZEn-nW-2Rq">
@@ -1483,10 +1483,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMH-Yc-E8O">
-                                                    <rect key="frame" x="0.0" y="0.0" width="348" height="173"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="173"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Innovate width New Technologies on Google" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiu-XG-9lm">
-                                                            <rect key="frame" x="16" y="41" width="289" height="55.5"/>
+                                                            <rect key="frame" x="16" y="41" width="285" height="55.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1512,13 +1512,13 @@
                                                             <state key="normal" image="map"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLOUD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEm-e1-nLV">
-                                                            <rect key="frame" x="16" y="12" width="243.5" height="21"/>
+                                                            <rect key="frame" x="16" y="12" width="240" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ny-cZ-2XH">
-                                                            <rect key="frame" x="308" y="133" width="24" height="24"/>
+                                                            <rect key="frame" x="303" y="133" width="24" height="24"/>
                                                             <state key="normal" image="buttonStarNormal"/>
                                                             <connections>
                                                                 <action selector="addToMySchedule:" destination="09m-HK-jPe" eventType="touchUpInside" id="4Yp-Kw-h4b"/>
@@ -1760,10 +1760,18 @@
                         <viewLayoutGuide key="safeArea" id="lTg-gA-KNn"/>
                     </view>
                     <navigationItem key="navigationItem" title="演講" id="98n-A9-IlC"/>
+                    <connections>
+                        <outlet property="detailImageView" destination="tWQ-Sz-YBV" id="FL2-kh-9CM"/>
+                        <outlet property="speakerImageView" destination="hbc-tb-gdN" id="sGk-KM-xbR"/>
+                        <outlet property="speakerJob" destination="joJ-NI-UA4" id="q8c-p8-idZ"/>
+                        <outlet property="speakerName" destination="V9l-2N-Vya" id="mz1-SX-ZYS"/>
+                        <outlet property="topicLabel" destination="6Nb-y3-81e" id="94x-so-g6K"/>
+                        <outlet property="typeLabel" destination="mWE-3F-6xd" id="0PT-Ow-70a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cX-aV-zWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1719" y="2606"/>
+            <point key="canvasLocation" x="-1719.2" y="2524.5877061469268"/>
         </scene>
         <!--交流場次-->
         <scene sceneID="VhO-YF-sVj">
@@ -1787,7 +1795,7 @@
                                 <rect key="frame" x="16" y="132" width="343" height="474"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommunicationConferenceCell" rowHeight="141" id="C6i-sk-fxe" customClass="CommunicationConferenceTableViewCell" customModule="Mopcon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommunicationConferenceCell" rowHeight="141" id="C6i-sk-fxe" customClass="CommunicationConferenceTableViewCell" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="343" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C6i-sk-fxe" id="pZ4-D5-Rai">
@@ -1795,16 +1803,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyA-yf-WyB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="348" height="141"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="141"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="雙邊平台的愛很情仇 ( PULO 找師傅 )" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vU6-gh-LC9">
-                                                            <rect key="frame" x="16" y="16" width="315.5" height="56"/>
+                                                            <rect key="frame" x="16" y="16" width="311" height="56"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kia Chen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PH7-IQ-WMw">
-                                                            <rect key="frame" x="16" y="80" width="198" height="17"/>
+                                                            <rect key="frame" x="16" y="80" width="195" height="17"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1855,7 +1863,7 @@
                                             <outlet property="tiltleLabel" destination="vU6-gh-LC9" id="rw6-x0-9yX"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommunicationBreakCell" rowHeight="68" id="I7p-wV-Str" customClass="CommunicationBreakTableViewCell" customModule="Mopcon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommunicationBreakCell" rowHeight="68" id="I7p-wV-Str" customClass="CommunicationBreakTableViewCell" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="196.5" width="343" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I7p-wV-Str" id="eci-eO-4cb">
@@ -1863,11 +1871,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Mw-eB-7EB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="348" height="68"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="68"/>
                                                     <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="午餐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgd-nl-UrJ">
-                                                    <rect key="frame" x="87" y="20" width="174" height="28"/>
+                                                    <rect key="frame" x="86" y="20" width="171.5" height="28"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>

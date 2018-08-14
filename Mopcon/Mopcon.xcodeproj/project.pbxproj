@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E349C9021225CE10060297A /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C8F21225CE10060297A /* Schedule.swift */; };
+		5E349C94212270650060297A /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C93212270650060297A /* Speaker.swift */; };
+		5E349C96212270A20060297A /* Schedule_unconf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C95212270A20060297A /* Schedule_unconf.swift */; };
+		5E349C98212270BA0060297A /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C97212270BA0060297A /* Sponsor.swift */; };
+		5E349C9A212270E00060297A /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C99212270E00060297A /* Community.swift */; };
+		5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C9C212271890060297A /* ScheduleAPI.swift */; };
+		5E349C9F21228A340060297A /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C9E21228A340060297A /* DownloadImage.swift */; };
 		D6240CDF20EC98AD002C89E7 /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */; };
 		D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE020EC9A70002C89E7 /* SponsorHeaderView.swift */; };
 		D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */; };
@@ -65,6 +72,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E349C8F21225CE10060297A /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		5E349C93212270650060297A /* Speaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
+		5E349C95212270A20060297A /* Schedule_unconf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule_unconf.swift; sourceTree = "<group>"; };
+		5E349C97212270BA0060297A /* Sponsor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
+		5E349C99212270E00060297A /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
+		5E349C9C212271890060297A /* ScheduleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAPI.swift; sourceTree = "<group>"; };
+		5E349C9E21228A340060297A /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
 		D6240CE020EC9A70002C89E7 /* SponsorHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorHeaderView.swift; sourceTree = "<group>"; };
 		D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorSmallCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -135,6 +149,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E349C9B212270ED0060297A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5E349C9C212271890060297A /* ScheduleAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		D6240CE220EC9A74002C89E7 /* SponsorsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +186,9 @@
 		D633462020E8FFC60033E5B4 /* Mopcon */ = {
 			isa = PBXGroup;
 			children = (
+				5E349C9E21228A340060297A /* DownloadImage.swift */,
 				D633462120E8FFC60033E5B4 /* AppDelegate.swift */,
+				5E349C9B212270ED0060297A /* API */,
 				D6A67AB920EDF4BD00D4886E /* Model */,
 				D633464020E9153E0033E5B4 /* Helper */,
 				D633463620E914350033E5B4 /* Controller */,
@@ -274,6 +298,11 @@
 			isa = PBXGroup;
 			children = (
 				D6A67AB720EDF31700D4886E /* AddToMySchedule.swift */,
+				5E349C8F21225CE10060297A /* Schedule.swift */,
+				5E349C93212270650060297A /* Speaker.swift */,
+				5E349C95212270A20060297A /* Schedule_unconf.swift */,
+				5E349C97212270BA0060297A /* Sponsor.swift */,
+				5E349C99212270E00060297A /* Community.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -404,6 +433,7 @@
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,
 				D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */,
 				D633462420E8FFC60033E5B4 /* MainViewController.swift in Sources */,
+				5E349C9F21228A340060297A /* DownloadImage.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
 				D62D30D520ED06F300BBDF5E /* AgendaViewController.swift in Sources */,
 				D6EE629720E9CED20043B68A /* CustomCornerButton.swift in Sources */,
@@ -414,9 +444,12 @@
 				D6EE629920E9D0B00043B68A /* NewsTableViewCell.swift in Sources */,
 				D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */,
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
+				5E349C9021225CE10060297A /* Schedule.swift in Sources */,
 				D6555F2F20EC783A000816DF /* ComminityDetailViewController.swift in Sources */,
+				5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */,
 				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
 				D6555F2C20EC66CA000816DF /* CommunityImageCollectionViewCell.swift in Sources */,
+				5E349C9A212270E00060297A /* Community.swift in Sources */,
 				D6A67ABB20EE029C00D4886E /* CommunicationViewController.swift in Sources */,
 				D62D30D320ED065D00BBDF5E /* AgendaTableViewCellID.swift in Sources */,
 				D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */,
@@ -438,7 +471,9 @@
 				D633463820E914520033E5B4 /* BannerCollectionViewCell.swift in Sources */,
 				D6240CE820EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift in Sources */,
 				D6EE629320E9C9270043B68A /* SegueManager.swift in Sources */,
+				5E349C96212270A20060297A /* Schedule_unconf.swift in Sources */,
 				D66778ED20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift in Sources */,
+				5E349C98212270BA0060297A /* Sponsor.swift in Sources */,
 				D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */,
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
@@ -447,6 +482,7 @@
 				D6F0BE6320F06D6C0053A100 /* MyScheduleViewController.swift in Sources */,
 				D6F0BE6720F093AD0053A100 /* UserdefaultKeyManager.swift in Sources */,
 				D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */,
+				5E349C94212270650060297A /* Speaker.swift in Sources */,
 				D6240CEA20ECABED002C89E7 /* SponsorDetailViewController.swift in Sources */,
 				D6B5166720EA0656003FA56F /* SpeakerTableCellID.swift in Sources */,
 			);

@@ -9,11 +9,32 @@
 import UIKit
 
 class ConferenceDetailViewController: UIViewController {
-
+    
+    var agenda:Schedule.Payload.Agenda.Item.AgendaContent?
+    
+    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var topicLabel: UILabel!
+    
+    @IBOutlet weak var speakerImageView: UIImageView!
+    @IBOutlet weak var speakerName: UILabel!
+    @IBOutlet weak var speakerJob: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
         // Do any additional setup after loading the view.
+        if let agenda = agenda {
+            updateUI(agenda: agenda)
+        }
+    }
+    
+    func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent) {
+        self.speakerImageView.getImage(address: agenda.picture)
+        self.typeLabel.text = agenda.type
+        self.topicLabel.text = agenda.schedule_topic
+        self.speakerName.text = agenda.name
+        self.speakerJob.text = agenda.job
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +42,5 @@ class ConferenceDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

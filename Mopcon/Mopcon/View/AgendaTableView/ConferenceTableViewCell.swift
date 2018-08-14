@@ -28,16 +28,17 @@ class ConferenceTableViewCell: UITableViewCell {
         delegate?.whichCellButtonDidTapped(index: index) 
     }
     
-    func updateUI(model:AgendaModel){
-        self.categoryLabel.text = model.category
-        self.topicLabel.text = model.title
-        self.speakerLabel.text = model.speaker
-        self.locationLabel.text = model.location
-        if model.addedToMySchedule{
-            addToMyScheduleButton.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
-        }else{
-            addToMyScheduleButton.setImage(UIImage(named: "buttonStarNormal"), for: .normal)
-        }
+    func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent){
+        self.categoryLabel.text = agenda.type
+        self.topicLabel.text = agenda.schedule_topic
+        self.speakerLabel.text = agenda.name
+        self.locationLabel.text = agenda.location
+        
+//        if model.addedToMySchedule{
+//            addToMyScheduleButton.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
+//        }else{
+//            addToMyScheduleButton.setImage(UIImage(named: "buttonStarNormal"), for: .normal)
+//        }
     }
     
     override func awakeFromNib() {

@@ -14,25 +14,31 @@ class AgendaViewController: UIViewController {
     @IBOutlet weak var dayTwoButton: UIButton!
     @IBOutlet weak var goToCommunicationVCButton: CustomCornerButton!
     
+    var selectedSchedule = [Schedule.Payload.Agenda.Item]()
+    var selectedAgenda:Schedule.Payload.Agenda.Item.AgendaContent?
     
-    var section1ModelArray = [AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false)]
-    var section3ModelArray = [AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false),AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false),AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false)]
-    var section5ModelArray = [AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false),AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false),AgendaModel(category: "CLOUD", title: "Innovate width New Technologies on Google", speaker: "田哲宇", location: "R1: 一廳", addedToMySchedule: false)]
+    var schedule_day1 = [Schedule.Payload.Agenda.Item]()
+    var schedule_day2 = [Schedule.Payload.Agenda.Item]()
     
-    @IBAction func chooseDayOneAction(_ sender: UIButton) {
+    
+    @IBAction func chooseDayOneAction(_ sender: Any) {
         CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton as! CustomSelectedButton, notSelectedButton: dayTwoButton as! CustomSelectedButton)
+        selectedSchedule = schedule_day1
+        agendaTableView.reloadData()
     }
     
-    @IBAction func chooseDayTwoAction(_ sender: UIButton) {
+    @IBAction func chooseDayTwoAction(_ sender: Any) {
         CommonFucntionHelper.changeButtonColor(beTappedButton: dayTwoButton as! CustomSelectedButton, notSelectedButton: dayOneButton as! CustomSelectedButton)
+        selectedSchedule = schedule_day2
+        agendaTableView.reloadData()
     }
     
     
     @IBAction func goToCommunicationVC(_ sender: UIButton) {
-            let communicationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: StoryboardIDManager.communicationVC) as! CommunicationViewController
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-            self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
-            self.navigationController?.pushViewController(communicationVC, animated: true)
+        let communicationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: StoryboardIDManager.communicationVC) as! CommunicationViewController
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
+        self.navigationController?.pushViewController(communicationVC, animated: true)
     }
     
     @IBOutlet weak var agendaTableView: UITableView!
@@ -53,31 +59,46 @@ class AgendaViewController: UIViewController {
         agendaTableView.separatorStyle = .none
         //因為現在tableView就是group所以要把footer的高度拿掉，要不然會留一塊
         agendaTableView.sectionFooterHeight = 0
-        // Do any additional setup after loading the view.
+        
+        guard let url = URL(string: "https://dev.mopcon.org/2018/api/schedule") else {
+            print("Invalid URL.")
+            return
+        }
+        
+        ScheduleAPI.getAPI(url: url) { (payload, errpr) in
+            if let payload = payload {
+                self.schedule_day1 = payload.agenda[0].items
+                self.schedule_day2 = payload.agenda[1].items
+                self.selectedSchedule = self.schedule_day1
+                DispatchQueue.main.async {
+                    self.agendaTableView.reloadData()
+                }
+            }
+        }
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == SegueIDManager.performConferenceDetail {
+            if let vc = segue.destination as? ConferenceDetailViewController {
+                vc.agenda = self.selectedAgenda
+            }
+        }
     }
-    */
-
+    
 }
 
+
+// MARK : Tableview Datasource & Tableview Delegate
 extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return selectedSchedule.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -88,60 +109,21 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
         timeLabel.textAlignment = .center
         view.backgroundColor = UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.5)
         view.addSubview(timeLabel)
-        switch section {
-        case 0:
-             timeLabel.text = "09:00 - 09:15"
-        case 1:
-            timeLabel.text = "09:15 - 10:00"
-        case 2:
-            timeLabel.text = "10:00 - 10:15"
-        case 3:
-            timeLabel.text = "10:15 - 11:00"
-        default:
-            timeLabel.text = "11:00 - 11:15"
-        }
+        
+        timeLabel.text = selectedSchedule[section].duration
+        
         return view
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        case 1:
-            return section1ModelArray.count
-        case 2:
-            return 1
-        case 3:
-            return section3ModelArray.count
-        case 4:
-            return 1
-        case 5:
-            return section5ModelArray.count
-        default:
-            return 0
-        }
+        return selectedSchedule[section].agendas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case 0, 2, 4:
-            let breakCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.breakCell, for: indexPath) as! BreakTableViewCell
-            return breakCell
-        case 1:
+        case indexPath.section:
             let conferenceCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.conferenceCell, for: indexPath) as! ConferenceTableViewCell
-            conferenceCell.updateUI(model: section1ModelArray[indexPath.row])
-            conferenceCell.delegate = self
-            conferenceCell.index = indexPath
-            return conferenceCell
-        case 3:
-            let conferenceCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.conferenceCell, for: indexPath) as! ConferenceTableViewCell
-            conferenceCell.updateUI(model: section3ModelArray[indexPath.row])
-            conferenceCell.delegate = self
-            conferenceCell.index = indexPath
-            return conferenceCell
-        case 5:
-            let conferenceCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.conferenceCell, for: indexPath) as! ConferenceTableViewCell
-            conferenceCell.updateUI(model: section5ModelArray[indexPath.row])
+            conferenceCell.updateUI(agenda: selectedSchedule[indexPath.section].agendas[indexPath.row])
             conferenceCell.delegate = self
             conferenceCell.index = indexPath
             return conferenceCell
@@ -151,56 +133,38 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch  indexPath.section {
-        case 0,2,4:
-            return 68
-        default:
-            return 174
-        }
+        return 174
     }
-    
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch  indexPath.section {
-//        case 0,2,4:
-//            return 68
-//        default:
-//            return 174
-//        }
-//    }
+
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 36
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 1,3,5:
-            performSegue(withIdentifier: SegueIDManager.performConferenceDetail, sender: nil)
-        default:
-            break
-        }
-        
+        selectedAgenda = selectedSchedule[indexPath.section].agendas[indexPath.row]
+        performSegue(withIdentifier: SegueIDManager.performConferenceDetail, sender: nil)
     }
 }
 
 extension AgendaViewController: WhichCellButtonDidTapped{
     func whichCellButtonDidTapped(index: IndexPath) {
-//        print(index)
-//        let chooseCell = agendaTableView.cellForRow(at: index) as! ConferenceTableViewCell
-//        chooseCell.buttonDidTapped = !chooseCell.buttonDidTapped
-        switch index.section {
-        case 1:
-            section1ModelArray[index.row].addedToMySchedule = !section1ModelArray[index.row].addedToMySchedule
-//            agendaTableView.reloadRows(at: [index], with: .none)
-        case 3:
-            section3ModelArray[index.row].addedToMySchedule = !section3ModelArray[index.row].addedToMySchedule
-//            agendaTableView.reloadRows(at: [index], with: .none)
-        case 5:
-            section5ModelArray[index.row].addedToMySchedule = !section5ModelArray[index.row].addedToMySchedule
-//            agendaTableView.reloadRows(at: [index], with: .none)
-        default:
-            break
-        }
+        //        print(index)
+        //        let chooseCell = agendaTableView.cellForRow(at: index) as! ConferenceTableViewCell
+        //        chooseCell.buttonDidTapped = !chooseCell.buttonDidTapped
+        //        switch index.section {
+        //        case 1:
+        //            section1ModelArray[index.row].addedToMySchedule = !section1ModelArray[index.row].addedToMySchedule
+        //            agendaTableView.reloadRows(at: [index], with: .none)
+        //        case 3:
+        //            section3ModelArray[index.row].addedToMySchedule = !section3ModelArray[index.row].addedToMySchedule
+        //            agendaTableView.reloadRows(at: [index], with: .none)
+        //        case 5:
+        //            section5ModelArray[index.row].addedToMySchedule = !section5ModelArray[index.row].addedToMySchedule
+        //            agendaTableView.reloadRows(at: [index], with: .none)
+        //        default:
+        //            break
+        //        }
         agendaTableView.reloadData()
     }
 }
