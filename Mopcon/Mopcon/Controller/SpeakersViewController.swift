@@ -10,9 +10,10 @@ import UIKit
 
 class SpeakersViewController: UIViewController {
     
+    var selectedSpeaker:Speaker.Payload?
+    var speakers = [Speaker.Payload]()
     
     @IBOutlet weak var speakersTableView: UITableView!
-    
 
     
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
@@ -29,7 +30,22 @@ class SpeakersViewController: UIViewController {
         speakersTableView.delegate = self
         speakersTableView.dataSource = self
         speakersTableView.separatorStyle = .none
-        // Do any additional setup after loading the view.
+        
+        guard let url = URL(string: "https://dev.mopcon.org/2018/api/speaker") else {
+            print("Invalid URL.")
+            return
+        }
+        
+        SpeakerAPI.getAPI(url: url) { (payload, error) in
+            if let payload = payload {
+                self.speakers = payload
+                DispatchQueue.main.async {
+                    self.speakersTableView.reloadData()
+                }
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,28 +53,26 @@ class SpeakersViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == SegueIDManager.performSpeakerDetail {
+            if let vc = segue.destination as? SpeakerDetailViewController {
+                vc.speaker = selectedSpeaker
+            }
+        }
     }
-    */
+
 
 }
 
 extension SpeakersViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return speakers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let speakerCell = tableView.dequeueReusableCell(withIdentifier: SpeakersTableViewCellIDManager.speakerCell, for: indexPath) as! SpeakerTableViewCell
-        speakerCell.updateUI()
+        speakerCell.updateUI(speaker: speakers[indexPath.row])
         return speakerCell
     }
     
@@ -68,6 +82,7 @@ extension SpeakersViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //到時候要傳講者資料過去 sender再設定
+        self.selectedSpeaker = speakers[indexPath.row]
         performSegue(withIdentifier: SegueIDManager.performSpeakerDetail, sender: nil)
     }
     

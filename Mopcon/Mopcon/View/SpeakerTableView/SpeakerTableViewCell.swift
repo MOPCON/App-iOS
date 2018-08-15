@@ -16,8 +16,11 @@ class SpeakerTableViewCell: UITableViewCell {
     @IBOutlet weak var speakerCompanyLabel: UILabel!
     
 
-    func updateUI(){
-        speakerAvatarImageView.image = UIImage(named: "s1")
+    func updateUI(speaker:Speaker.Payload){
+        self.speakerAvatarImageView.getImage(address: speaker.picture)
+        self.speakerAvatarImageView.makeCircle()
+        self.speakerNameLabel.text = speaker.name
+        self.speakerCompanyLabel.text = speaker.job
     }
     
     override func awakeFromNib() {

@@ -10,6 +10,8 @@ import UIKit
 import Foundation
 
 extension UIImageView {
+    
+    // Get URL Image
     func getImage(address:String) {
         
         if let imageUrl = URL(string: address) {
@@ -28,5 +30,11 @@ extension UIImageView {
             print("Invalid URL.")
         }
         
+    }
+    
+    // Make Circle Image
+    func makeCircle() {
+        self.layer.cornerRadius = self.frame.height / 2
+        self.clipsToBounds = true
     }
 }

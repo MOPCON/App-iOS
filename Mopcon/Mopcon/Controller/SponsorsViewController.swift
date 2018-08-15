@@ -8,21 +8,20 @@
 
 import UIKit
 
-enum SponsorSectionName:Int{
-    case TONYSTARK = 0
-    case BRUCEWAYNE
-    case GEEK
+enum SponsorType: String {
+    case tony_stark = "Tony Stark"
+    case bruce_wayne = "Bruce Wayne"
+    case geek = "Geek"
+    case developer = "Developer"
+    case specialThanks = "特別感謝"
 }
 
 class SponsorsViewController: UIViewController {
-
-    let sectionTitle = ["TONY STARK", "BRUCE WAYNE", "GEEK"]
-    let sectionOneImageArray = ["google"]
-    let sectionTwoImageArray = ["webDuino","amazon","uber","fitw","walt","cluj"]
-    let sectionThreeImageArray = ["ashton","upgrade","brave","mdamob","design","kitchen"]
+   
+    var selectedSponsor: Sponsor.Payload?
+    var sponsors = [[Sponsor.Payload]]()
     
     @IBOutlet weak var sponsorsCollectionView: UICollectionView!
-    
     
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
@@ -36,7 +35,47 @@ class SponsorsViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         sponsorsCollectionView.delegate = self
         sponsorsCollectionView.dataSource = self
-        // Do any additional setup after loading the view.
+        
+        guard let url = URL(string: "https://dev.mopcon.org/2018/api/sponsor") else {
+            print("Invalid URL.")
+            return
+        }
+        
+        SponsorAPI.getAPI(url: url) { (payload, error) in
+            if let payload = payload {
+                
+                var tonyStark = [Sponsor.Payload]()
+                var bruceWayne = [Sponsor.Payload]()
+                var geek = [Sponsor.Payload]()
+                var developer = [Sponsor.Payload]()
+                var specialThanks = [Sponsor.Payload]()
+                
+                for sponsor in payload {
+                    switch sponsor.type {
+                    case SponsorType.tony_stark.rawValue:
+                        tonyStark.append(sponsor)
+                    case SponsorType.bruce_wayne.rawValue:
+                        bruceWayne.append(sponsor)
+                    case SponsorType.geek.rawValue:
+                        geek.append(sponsor)
+                    case SponsorType.developer.rawValue:
+                        developer.append(sponsor)
+                    default:
+                        specialThanks.append(sponsor)
+                    }
+                }
+                
+                self.sponsors.append(tonyStark)
+                self.sponsors.append(bruceWayne)
+                self.sponsors.append(geek)
+                self.sponsors.append(developer)
+                self.sponsors.append(specialThanks)
+                
+                DispatchQueue.main.async {
+                    self.sponsorsCollectionView.reloadData()
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,69 +85,66 @@ class SponsorsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIDManager.performSponsorDetail{
-            guard let sponsorDetailVC = segue.destination as? SponsorDetailViewController else {return}
-            guard let sender = sender as? String else {return}
-            sponsorDetailVC.imageNameFromSponsorsCollectionView = sender
+            if let vc = segue.destination as? SponsorDetailViewController {
+                vc.sponsor = self.selectedSponsor
+            }
         }
     }
 }
 extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return sponsors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-        case SponsorSectionName.TONYSTARK.rawValue:
-            return sectionOneImageArray.count
-        case SponsorSectionName.BRUCEWAYNE.rawValue:
-            return sectionTwoImageArray.count
-        case SponsorSectionName.GEEK.rawValue:
-            return sectionThreeImageArray.count
-        default:
-            return 0
-        }
+        return sponsors[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let sponsor = sponsors[indexPath.section][indexPath.row]
+        
         switch indexPath.section {
-        case SponsorSectionName.TONYSTARK.rawValue:
+        case SponsorType.tony_stark.hashValue:
             let bigImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: SponsorCollectionViewIDManager.sponsorBigCollectionView, for: indexPath) as! SponsorBigCollectionViewCell
-            bigImageCell.updateUI(imageName: sectionOneImageArray[indexPath.item])
+            bigImageCell.updateUI(sponsor: sponsor)
             return bigImageCell
-        case SponsorSectionName.BRUCEWAYNE.rawValue:
-            let smallImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: SponsorCollectionViewIDManager.sponsorCollectionCell, for: indexPath) as! SponsorSmallCollectionViewCell
-            smallImageCell.updateUI(imageName: sectionTwoImageArray[indexPath.item])
-            return smallImageCell
-        case SponsorSectionName.GEEK.rawValue:
-            let smallImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: SponsorCollectionViewIDManager.sponsorCollectionCell, for: indexPath) as! SponsorSmallCollectionViewCell
-            smallImageCell.updateUI(imageName: sectionThreeImageArray[indexPath.item])
-            return smallImageCell
         default:
-            return UICollectionViewCell()
+            let smallImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: SponsorCollectionViewIDManager.sponsorCollectionCell, for: indexPath) as! SponsorSmallCollectionViewCell
+            smallImageCell.updateUI(sponsor: sponsor)
+            return smallImageCell
         }
+        
     }
-    
     
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: SponsorCollectionViewIDManager.sponsorHeader, for: indexPath) as! SponsorHeaderView
-        headerView.updateUI(title: sectionTitle[indexPath.section])
+        var title = ""
+        switch indexPath.section {
+        case SponsorType.tony_stark.hashValue:
+            title = SponsorType.tony_stark.rawValue
+        case SponsorType.bruce_wayne.hashValue:
+            title = SponsorType.bruce_wayne.rawValue
+        case SponsorType.geek.hashValue:
+            title = SponsorType.geek.rawValue
+        case SponsorType.developer.hashValue:
+            title = SponsorType.developer.rawValue
+        case SponsorType.specialThanks.hashValue:
+            title = SponsorType.specialThanks.rawValue
+        default:
+            title = ""
+        }
+        
+        headerView.updateUI(title: title)
+        
         return headerView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case SponsorSectionName.TONYSTARK.rawValue:
-            performSegue(withIdentifier: SegueIDManager.performSponsorDetail, sender: sectionOneImageArray[indexPath.item])
-        case SponsorSectionName.BRUCEWAYNE.rawValue:
-            performSegue(withIdentifier: SegueIDManager.performSponsorDetail, sender: sectionTwoImageArray[indexPath.item])
-        case SponsorSectionName.GEEK.rawValue:
-            performSegue(withIdentifier: SegueIDManager.performSponsorDetail, sender: sectionThreeImageArray[indexPath.item])
-        default:
-            break
-        }
+        self.selectedSponsor = sponsors[indexPath.section][indexPath.row]
+        performSegue(withIdentifier: SegueIDManager.performSponsorDetail, sender: self)
     }
 }
 
@@ -128,7 +164,7 @@ extension SponsorsViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
-        case SponsorSectionName.TONYSTARK.rawValue:
+        case SponsorType.tony_stark.hashValue:
             return CGSize(width: self.view.frame.width * (343/375), height: self.view.frame.width * (164/375))
         default:
             return CGSize(width: self.view.frame.width * (164/375), height: self.view.frame.width * (164/375))

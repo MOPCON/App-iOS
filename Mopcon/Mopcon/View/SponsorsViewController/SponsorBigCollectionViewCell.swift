@@ -10,9 +10,11 @@ import UIKit
 
 class SponsorBigCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var sponsorBigImageView: UIImageView!
-    func updateUI(imageName:String){
+    
+    func updateUI(sponsor:Sponsor.Payload){
+        
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
-        sponsorBigImageView.image = UIImage(named: imageName)
+        sponsorBigImageView.getImage(address: sponsor.logo)
     }
 }

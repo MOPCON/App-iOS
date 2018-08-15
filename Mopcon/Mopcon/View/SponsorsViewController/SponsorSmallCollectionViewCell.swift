@@ -12,9 +12,9 @@ class SponsorSmallCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var sponsorImageView: UIImageView!
     
-    func updateUI(imageName:String){
+    func updateUI(sponsor:Sponsor.Payload){
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
-        sponsorImageView.image = UIImage(named: imageName)
+        sponsorImageView.getImage(address: sponsor.logo)
     }
 }

@@ -9,7 +9,15 @@
 import UIKit
 
 class SpeakerDetailViewController: UIViewController {
+    
+    var speaker:Speaker.Payload?
 
+    @IBOutlet weak var speakerImageView: UIImageView!
+    @IBOutlet weak var speakerNameLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var scheduleTopicLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -18,7 +26,10 @@ class SpeakerDetailViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         //把backButton的顏色改成白色
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        // Do any additional setup after loading the view.
+        
+        if let speaker = speaker {
+            updateUI(speaker: speaker)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,14 +38,13 @@ class SpeakerDetailViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func updateUI(speaker:Speaker.Payload) {
+        self.speakerImageView.getImage(address: speaker.picture)
+        self.speakerImageView.makeCircle()
+        self.speakerNameLabel.text = speaker.name
+        self.infoLabel.text = speaker.info
+        self.scheduleTopicLabel.text = speaker.schedule_topic
+        self.typeLabel.text = speaker.type
     }
-    */
 
 }

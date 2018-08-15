@@ -65,7 +65,7 @@ class AgendaViewController: UIViewController {
             return
         }
         
-        ScheduleAPI.getAPI(url: url) { (payload, errpr) in
+        ScheduleAPI.getAPI(url: url) { (payload, error) in
             if let payload = payload {
                 self.schedule_day1 = payload.agenda[0].items
                 self.schedule_day2 = payload.agenda[1].items
@@ -73,6 +73,8 @@ class AgendaViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.agendaTableView.reloadData()
                 }
+            } else {
+                print(error?.localizedDescription)
             }
         }
     }

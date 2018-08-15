@@ -8,34 +8,82 @@
 
 import UIKit
 
-class SponsorDetailViewController: UIViewController {
+enum SponsorCellStyle {
+    case sponsor
+    case info
+    case seeMore
+}
 
+class SponsorDetailViewController: UIViewController {
     
-    var imageNameFromSponsorsCollectionView:String = ""
-    @IBOutlet weak var sponsorDetailImageView: UIImageView!
+    var sponsor: Sponsor.Payload?
     
+    @IBOutlet weak var sponsorsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sponsorDetailImageView.image = UIImage(named: imageNameFromSponsorsCollectionView)
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        // Do any additional setup after loading the view.
+        sponsorsTableView.dataSource = self
+        sponsorsTableView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+}
+
+extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cellidentifer = ""
+        
+        
+        switch indexPath.row {
+        case SponsorCellStyle.sponsor.hashValue:
+            cellidentifer = SponsorTableViewCellID.sponsorCell
+        case SponsorCellStyle.info.hashValue:
+            cellidentifer = SponsorTableViewCellID.sponsorInfoCell
+        default:
+            cellidentifer = SponsorTableViewCellID.seeMoreCell
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellidentifer, for: indexPath)
+        if let sponsor = sponsor {
+            // Get sponsor Data
+            if let sponsorImageView = cell.viewWithTag(0) as? UIImageView {
+                sponsorImageView.getImage(address: sponsor.logo)
+            }
+            
+            if let sponsorNameLabel = cell.viewWithTag(1) as? UILabel {
+                sponsorNameLabel.text = sponsor.name
+            }
+            
+            if let sponsorInfoLabel = cell.viewWithTag(2) as? UILabel {
+                sponsorInfoLabel.text = sponsor.info
+            }
 
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 244
+        case 1:
+            return UITableViewAutomaticDimension
+        default:
+            return 70
+        }
+    }
+    
+    
 }
