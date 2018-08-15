@@ -23,5 +23,9 @@ class CommunicationBreakTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         // Configure the view for the selected state
     }
+    
+    func updateUI(schedule:Schedule_unconf.Payload.Item) {
+        self.breakTitleLabel.text = schedule.topic
+    }
 
 }

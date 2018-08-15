@@ -24,5 +24,11 @@ class CommunicationConferenceTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         // Configure the view for the selected state
     }
+    
+    func updateUI(schedule:Schedule_unconf.Payload.Item) {
+        self.tiltleLabel.text = schedule.topic
+        self.speakerLabel.text = schedule.speaker
+    }
+    
 
 }

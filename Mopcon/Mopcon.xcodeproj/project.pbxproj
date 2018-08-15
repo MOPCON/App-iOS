@@ -18,6 +18,8 @@
 		5E349CA3212315C90060297A /* SponsorsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA2212315C90060297A /* SponsorsAPI.swift */; };
 		5E349CA6212411200060297A /* SponsorDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA5212411200060297A /* SponsorDetailTableViewCell.swift */; };
 		5E349CA8212411570060297A /* SponsorTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA7212411570060297A /* SponsorTableViewCellID.swift */; };
+		5E349CAA21242B910060297A /* CommunityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA921242B910060297A /* CommunityAPI.swift */; };
+		5E349CAC212448410060297A /* Schedule_unconfAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CAB212448410060297A /* Schedule_unconfAPI.swift */; };
 		D6240CDF20EC98AD002C89E7 /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */; };
 		D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE020EC9A70002C89E7 /* SponsorHeaderView.swift */; };
 		D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */; };
@@ -87,6 +89,8 @@
 		5E349CA2212315C90060297A /* SponsorsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsAPI.swift; sourceTree = "<group>"; };
 		5E349CA5212411200060297A /* SponsorDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorDetailTableViewCell.swift; sourceTree = "<group>"; };
 		5E349CA7212411570060297A /* SponsorTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorTableViewCellID.swift; sourceTree = "<group>"; };
+		5E349CA921242B910060297A /* CommunityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAPI.swift; sourceTree = "<group>"; };
+		5E349CAB212448410060297A /* Schedule_unconfAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule_unconfAPI.swift; sourceTree = "<group>"; };
 		D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
 		D6240CE020EC9A70002C89E7 /* SponsorHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorHeaderView.swift; sourceTree = "<group>"; };
 		D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorSmallCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 				5E349C9C212271890060297A /* ScheduleAPI.swift */,
 				5E349CA02123015F0060297A /* SpeakersAPI.swift */,
 				5E349CA2212315C90060297A /* SponsorsAPI.swift */,
+				5E349CA921242B910060297A /* CommunityAPI.swift */,
+				5E349CAB212448410060297A /* Schedule_unconfAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 				5E349C9F21228A340060297A /* UIImageViewExtension.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
 				D62D30D520ED06F300BBDF5E /* AgendaViewController.swift in Sources */,
+				5E349CAA21242B910060297A /* CommunityAPI.swift in Sources */,
 				D6EE629720E9CED20043B68A /* CustomCornerButton.swift in Sources */,
 				D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */,
 				D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */,
@@ -484,6 +491,7 @@
 				D6555F3520EC926A000816DF /* VolunteerTableViewCell.swift in Sources */,
 				D6F0BE6120F0610B0053A100 /* CommonFunctionHelper.swift in Sources */,
 				D633463F20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift in Sources */,
+				5E349CAC212448410060297A /* Schedule_unconfAPI.swift in Sources */,
 				D633463820E914520033E5B4 /* BannerCollectionViewCell.swift in Sources */,
 				D6240CE820EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift in Sources */,
 				D6EE629320E9C9270043B68A /* SegueManager.swift in Sources */,

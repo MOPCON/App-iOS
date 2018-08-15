@@ -9,13 +9,12 @@
 import UIKit
 
 protocol CollectionViewItemDidSelected {
-    func collectionViewItemDidSelected(index:IndexPath, imageName:String)
+    func collectionViewItemDidSelected(index:IndexPath, community:Community.Payload)
 }
 
 class CommunityImageViewController: UIViewController {
     
-    
-    let fakeImageArray = ["bitmap","lion","rabbit","greenCircle","yellowHouse","grayStrange","pulse","pulse","company","summit","nbc","companyName"]
+    var communitys = [Community.Payload]()
     
     @IBOutlet weak var imageCollectionView: UICollectionView!
     var delegate: CollectionViewItemDidSelected?
@@ -25,7 +24,19 @@ class CommunityImageViewController: UIViewController {
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
         
-        // Do any additional setup after loading the view.
+        guard let url = URL(string: "https://dev.mopcon.org/2018/api/community") else {
+            return
+        }
+        
+        CommunityAPI.getAPI(url: url) { (payload, error) in
+            if let payload = payload {
+                self.communitys = payload
+                print(payload)
+                DispatchQueue.main.async {
+                    self.imageCollectionView.reloadData()
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,18 +49,18 @@ class CommunityImageViewController: UIViewController {
 extension CommunityImageViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fakeImageArray.count
+        return communitys.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let communityImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.communityImageCell, for: indexPath) as! CommunityImageCollectionViewCell
-        communityImageCell.updateUI(imageName: fakeImageArray[indexPath.item])
+        communityImageCell.updateUI(community: communitys[indexPath.row])
         return communityImageCell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.collectionViewItemDidSelected(index: indexPath, imageName: fakeImageArray[indexPath.item])
+        delegate?.collectionViewItemDidSelected(index: indexPath, community: communitys[indexPath.row])
     }
     
 }

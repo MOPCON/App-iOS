@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -455,14 +456,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grp-kQ-Q1C">
-                                <rect key="frame" x="17" y="303.5" width="341" height="110"/>
+                                <rect key="frame" x="32" y="303.5" width="311" height="118"/>
                                 <string key="text">Kaohsiung Software Developer Group 是高雄從事軟體開發、網路技術開發者一起交流的園地，2012/05首度聚會活動。目前每月舉辦 Meet-up 及 Web Course 各一場，交流主題涵蓋各種軟體技術，歡迎對軟體開發技術有興趣的朋友可以踴躍參與。</string>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="B0S-nT-krH">
-                                <rect key="frame" x="135.5" y="445.5" width="104" height="44"/>
+                                <rect key="frame" x="135.5" y="453.5" width="104" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybx-bX-o0b">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -505,18 +506,18 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="45I-7S-gfi" firstAttribute="top" secondItem="xWv-pu-k5Y" secondAttribute="top" constant="16" id="2c1-WH-Njr"/>
-                            <constraint firstItem="grp-kQ-Q1C" firstAttribute="height" secondItem="p1D-8g-Dx1" secondAttribute="height" multiplier="110:667" id="DJW-7k-z00"/>
                             <constraint firstItem="B0S-nT-krH" firstAttribute="centerX" secondItem="p1D-8g-Dx1" secondAttribute="centerX" id="GaU-Z4-bsH"/>
+                            <constraint firstItem="grp-kQ-Q1C" firstAttribute="leading" secondItem="p1D-8g-Dx1" secondAttribute="leadingMargin" constant="16" id="GxF-yH-DAS"/>
                             <constraint firstItem="Odk-MP-NQE" firstAttribute="centerX" secondItem="p1D-8g-Dx1" secondAttribute="centerX" id="LMt-Hq-50G"/>
                             <constraint firstItem="Odk-MP-NQE" firstAttribute="width" secondItem="p1D-8g-Dx1" secondAttribute="width" id="MJM-fS-sjQ"/>
                             <constraint firstItem="45I-7S-gfi" firstAttribute="centerX" secondItem="p1D-8g-Dx1" secondAttribute="centerX" id="P5b-Tg-eGC"/>
                             <constraint firstItem="grp-kQ-Q1C" firstAttribute="top" secondItem="Odk-MP-NQE" secondAttribute="bottom" constant="16" id="Rlm-7l-bHw"/>
-                            <constraint firstItem="grp-kQ-Q1C" firstAttribute="width" secondItem="p1D-8g-Dx1" secondAttribute="width" multiplier="341:375" id="V0G-t6-F8g"/>
                             <constraint firstItem="B0S-nT-krH" firstAttribute="top" secondItem="grp-kQ-Q1C" secondAttribute="bottom" constant="32" id="V7I-E4-4wg"/>
                             <constraint firstItem="B0S-nT-krH" firstAttribute="width" secondItem="p1D-8g-Dx1" secondAttribute="width" multiplier="104:375" id="bKR-U2-nqt"/>
                             <constraint firstItem="Odk-MP-NQE" firstAttribute="top" secondItem="45I-7S-gfi" secondAttribute="bottom" constant="24" id="diK-DZ-0s1"/>
                             <constraint firstItem="grp-kQ-Q1C" firstAttribute="centerX" secondItem="p1D-8g-Dx1" secondAttribute="centerX" id="gGp-Me-80d"/>
                             <constraint firstItem="45I-7S-gfi" firstAttribute="width" secondItem="p1D-8g-Dx1" secondAttribute="width" multiplier="343:375" id="isS-yN-7oN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="grp-kQ-Q1C" secondAttribute="trailing" constant="16" id="zgY-HQ-7yA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xWv-pu-k5Y"/>
                     </view>
@@ -1371,7 +1372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5JY-ct-6JB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6010" y="-58"/>
+            <point key="canvasLocation" x="5230" y="162"/>
         </scene>
         <!--Volunteer View Controller-->
         <scene sceneID="PCU-d9-m2W">
@@ -1965,7 +1966,7 @@
                                                     <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="午餐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgd-nl-UrJ">
-                                                    <rect key="frame" x="86" y="20" width="171.5" height="28"/>
+                                                    <rect key="frame" x="152" y="20" width="40" height="28"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -1978,7 +1979,6 @@
                                                 <constraint firstItem="2Mw-eB-7EB" firstAttribute="height" secondItem="eci-eO-4cb" secondAttribute="height" id="edE-15-qgH"/>
                                                 <constraint firstItem="2Mw-eB-7EB" firstAttribute="centerY" secondItem="eci-eO-4cb" secondAttribute="centerY" id="my3-QN-cTi"/>
                                                 <constraint firstItem="2Mw-eB-7EB" firstAttribute="width" secondItem="eci-eO-4cb" secondAttribute="width" id="oLQ-5T-Ueg"/>
-                                                <constraint firstItem="vgd-nl-UrJ" firstAttribute="width" secondItem="2Mw-eB-7EB" secondAttribute="width" multiplier="0.5" id="qKT-aG-0DD"/>
                                                 <constraint firstItem="2Mw-eB-7EB" firstAttribute="centerX" secondItem="eci-eO-4cb" secondAttribute="centerX" id="rTe-a7-bX0"/>
                                             </constraints>
                                         </tableViewCellContentView>
