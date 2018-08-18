@@ -57,15 +57,6 @@ class CommunityViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIDManager.performCommunityContainerView{
             guard let communityImageVC = segue.destination as? CommunityImageViewController else {return}
@@ -73,14 +64,15 @@ class CommunityViewController: UIViewController {
         }
         if segue.identifier == SegueIDManager.performCommunityDetail{
             guard let commnunityDetailVC = segue.destination as? ComminityDetailViewController else {return}
-            guard let imageSender = sender as? String else {return}
-            commnunityDetailVC.imageNameFromPreviousPage = imageSender
+            guard let community = sender as? Community.Payload else {return}
+            commnunityDetailVC.community = community
         }
     }
 
 }
 extension CommunityViewController: CollectionViewItemDidSelected{
-    func collectionViewItemDidSelected(index: IndexPath, imageName: String) {
-        performSegue(withIdentifier: SegueIDManager.performCommunityDetail, sender: imageName)
+    func collectionViewItemDidSelected(index: IndexPath, community: Community.Payload) {
+        performSegue(withIdentifier: SegueIDManager.performCommunityDetail, sender: community)
     }
+
 }

@@ -10,11 +10,13 @@ import UIKit
 
 class CommunityImageCollectionViewCell: UICollectionViewCell {
     
-    func updateUI(imageName:String){
+    @IBOutlet weak var communityImageView: UIImageView!
+    
+    func updateUI(community:Community.Payload){
         self.backgroundColor = UIColor.white
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
-        communityImageView.image = UIImage(named: imageName)
+        communityImageView.getImage(address: community.liasion)
     }
-    @IBOutlet weak var communityImageView: UIImageView!
+    
 }

@@ -9,8 +9,12 @@
 import UIKit
 
 class CommunicationViewController: UIViewController {
+   
+    var selectedSchedule = [Schedule_unconf.Payload.Item]()
     
-    
+    var schedule_day1 = [Schedule_unconf.Payload.Item]()
+    var schedule_day2 = [Schedule_unconf.Payload.Item]()
+
     @IBOutlet weak var dayOneButton: CustomSelectedButton!
     @IBOutlet weak var dayTwoButton: CustomSelectedButton!
     @IBOutlet weak var communicationTableView: UITableView!
@@ -28,7 +32,23 @@ class CommunicationViewController: UIViewController {
         communicationTableView.dataSource = self
         //因為現在tableView就是group所以要把footer的高度拿掉，要不然會留一塊
         communicationTableView.sectionFooterHeight = 0
-        // Do any additional setup after loading the view.
+        
+        guard let url = URL(string: "https://dev.mopcon.org/2018/api/schedule-unconf") else {
+            return
+        }
+        
+        Schedule_unconfAPI.getAPI(url: url) { (payload, error) in
+            if let payload = payload {
+                self.schedule_day1 = payload[0].items
+                self.schedule_day2 = payload[1].items
+                self.selectedSchedule = self.schedule_day1
+                
+                DispatchQueue.main.async {
+                    self.communicationTableView.reloadData()
+                }
+                
+            }
+        }
     }
     
     
@@ -42,16 +62,20 @@ class CommunicationViewController: UIViewController {
             self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
             self.navigationController?.pushViewController(agendaVC, animated: true)
         
-        
     }
     
     
     @IBAction func tappedDayOneButtonAction(_ sender: CustomSelectedButton) {
         CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton, notSelectedButton: dayTwoButton)
+        selectedSchedule = schedule_day1
+        communicationTableView.reloadData()
     }
     
     @IBAction func tappedDayTwoButtonAction(_ sender: CustomSelectedButton) {
         CommonFucntionHelper.changeButtonColor(beTappedButton: dayTwoButton, notSelectedButton: dayOneButton)
+        selectedSchedule = schedule_day2
+        communicationTableView.reloadData()
+
     }
     
     
@@ -59,23 +83,13 @@ class CommunicationViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension CommunicationViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 8
+        return selectedSchedule.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,20 +97,28 @@ extension CommunicationViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 3,7:
+        
+        let schedule = selectedSchedule[indexPath.section]
+        
+        switch schedule.type {
+        case "others":
             let communicationBreakCell = tableView.dequeueReusableCell(withIdentifier: CommunicationTableViewCellID.communicationBreakCell, for: indexPath) as! CommunicationBreakTableViewCell
+            communicationBreakCell.updateUI(schedule: schedule)
             return communicationBreakCell
         default:
             let communicationConferenceCell = tableView.dequeueReusableCell(withIdentifier: CommunicationTableViewCellID.communicationConferenceCell, for: indexPath) as! CommunicationConferenceTableViewCell
+            communicationConferenceCell.updateUI(schedule: schedule)
             return communicationConferenceCell
         }
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 3,7:
+        
+        let schedule = selectedSchedule[indexPath.section]
+        
+        switch schedule.type {
+        case "others":
             return 68
         default:
             return 141
@@ -111,7 +133,7 @@ extension CommunicationViewController: UITableViewDelegate, UITableViewDataSourc
         timeLabel.textAlignment = .center
         view.backgroundColor = UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.5)
         view.addSubview(timeLabel)
-        timeLabel.text = "09:00 - 09:15"
+        timeLabel.text = selectedSchedule[section].duration
         return view
     }
     
