@@ -20,6 +20,12 @@ class ConferenceDetailViewController: UIViewController {
     @IBOutlet weak var speakerName: UILabel!
     @IBOutlet weak var speakerJob: UILabel!
     
+    @IBAction func addToMySchedule(_ sender: Any) {
+        if let agenda = agenda {
+             MySchedules.save(agenda: agenda)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white

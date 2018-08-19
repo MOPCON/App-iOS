@@ -18,6 +18,13 @@ class SpeakerDetailViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var scheduleTopicLabel: UILabel!
     
+    @IBAction func addToMySchedule(_ sender: Any) {
+        
+        if let speaker = speaker {
+            speaker
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)

@@ -34,11 +34,6 @@ class ConferenceTableViewCell: UITableViewCell {
         self.speakerLabel.text = agenda.name
         self.locationLabel.text = agenda.location
         
-//        if model.addedToMySchedule{
-//            addToMyScheduleButton.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
-//        }else{
-//            addToMyScheduleButton.setImage(UIImage(named: "buttonStarNormal"), for: .normal)
-//        }
     }
     
     override func awakeFromNib() {

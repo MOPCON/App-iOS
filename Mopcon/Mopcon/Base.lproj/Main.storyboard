@@ -712,6 +712,9 @@
                                         <state key="normal" title="加入行程" image="buttonStarNormal">
                                             <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addToMySchedule:" destination="xSc-rs-23U" eventType="touchUpInside" id="WSG-4J-z2l"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCm-8l-A9y" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="131" y="122.5" width="87" height="36"/>
@@ -1769,6 +1772,9 @@
                                 <state key="normal" title="加入行程" image="buttonStarNormal">
                                     <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addToMySchedule:" destination="eKh-J0-mdy" eventType="touchUpInside" id="OHA-Wi-esl"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9Xd-iZ-M5x">
                                 <rect key="frame" x="16" y="539" width="201" height="104"/>

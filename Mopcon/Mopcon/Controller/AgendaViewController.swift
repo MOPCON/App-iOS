@@ -149,24 +149,9 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-extension AgendaViewController: WhichCellButtonDidTapped{
+extension AgendaViewController: WhichCellButtonDidTapped {
     func whichCellButtonDidTapped(index: IndexPath) {
-        //        print(index)
-        //        let chooseCell = agendaTableView.cellForRow(at: index) as! ConferenceTableViewCell
-        //        chooseCell.buttonDidTapped = !chooseCell.buttonDidTapped
-        //        switch index.section {
-        //        case 1:
-        //            section1ModelArray[index.row].addedToMySchedule = !section1ModelArray[index.row].addedToMySchedule
-        //            agendaTableView.reloadRows(at: [index], with: .none)
-        //        case 3:
-        //            section3ModelArray[index.row].addedToMySchedule = !section3ModelArray[index.row].addedToMySchedule
-        //            agendaTableView.reloadRows(at: [index], with: .none)
-        //        case 5:
-        //            section5ModelArray[index.row].addedToMySchedule = !section5ModelArray[index.row].addedToMySchedule
-        //            agendaTableView.reloadRows(at: [index], with: .none)
-        //        default:
-        //            break
-        //        }
-        agendaTableView.reloadData()
+        let agenda = selectedSchedule[index.section].agendas[index.row]
+        MySchedules.save(agenda: agenda)
     }
 }
