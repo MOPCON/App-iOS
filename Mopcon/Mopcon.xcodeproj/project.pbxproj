@@ -55,7 +55,6 @@
 		D66778E920FB142D00E9CA34 /* NoScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66778E820FB142D00E9CA34 /* NoScheduleTableViewCell.swift */; };
 		D66778ED20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66778EC20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift */; };
 		D66778EF20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66778EE20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift */; };
-		D6A67AB820EDF31700D4886E /* AddToMySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67AB720EDF31700D4886E /* AddToMySchedule.swift */; };
 		D6A67ABB20EE029C00D4886E /* CommunicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */; };
 		D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */; };
 		D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABE20EE106800D4886E /* CommunicationBreakTableViewCell.swift */; };
@@ -129,7 +128,6 @@
 		D66778E820FB142D00E9CA34 /* NoScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		D66778EC20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleConferenceTableViewCell.swift; sourceTree = "<group>"; };
 		D66778EE20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleBreakTableViewCell.swift; sourceTree = "<group>"; };
-		D6A67AB720EDF31700D4886E /* AddToMySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToMySchedule.swift; sourceTree = "<group>"; };
 		D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationViewController.swift; sourceTree = "<group>"; };
 		D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationTableViewCellID.swift; sourceTree = "<group>"; };
 		D6A67ABE20EE106800D4886E /* CommunicationBreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationBreakTableViewCell.swift; sourceTree = "<group>"; };
@@ -326,7 +324,6 @@
 		D6A67AB920EDF4BD00D4886E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D6A67AB720EDF31700D4886E /* AddToMySchedule.swift */,
 				5E349C8F21225CE10060297A /* Schedule.swift */,
 				5E349C93212270650060297A /* Speaker.swift */,
 				5E349C95212270A20060297A /* Schedule_unconf.swift */,
@@ -487,7 +484,6 @@
 				D6A67ABB20EE029C00D4886E /* CommunicationViewController.swift in Sources */,
 				D62D30D320ED065D00BBDF5E /* AgendaTableViewCellID.swift in Sources */,
 				D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */,
-				D6A67AB820EDF31700D4886E /* AddToMySchedule.swift in Sources */,
 				D6F0BE6520F0756D0053A100 /* StoryboardIDManager.swift in Sources */,
 				D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */,
 				D6F0BE6920F0A02B0053A100 /* ConferenceDetailViewController.swift in Sources */,

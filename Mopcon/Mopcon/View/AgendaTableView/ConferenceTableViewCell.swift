@@ -9,7 +9,7 @@
 import UIKit
 
 protocol WhichCellButtonDidTapped {
-    func whichCellButtonDidTapped(index:IndexPath)
+    func whichCellButtonDidTapped(sender: UIButton,index:IndexPath)
 }
 
 class ConferenceTableViewCell: UITableViewCell {
@@ -25,20 +25,21 @@ class ConferenceTableViewCell: UITableViewCell {
     
     @IBAction func addToMySchedule(_ sender: UIButton) {
         guard let index = index else {return}
-        delegate?.whichCellButtonDidTapped(index: index) 
-    }
-    
-    func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent){
-        self.categoryLabel.text = agenda.type
-        self.topicLabel.text = agenda.schedule_topic
-        self.speakerLabel.text = agenda.name
-        self.locationLabel.text = agenda.location
-        
+        if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarNormal") {
+            addToMyScheduleButton.setImage(#imageLiteral(resourceName: "buttonStarChecked"), for: .normal)
+        } else {
+            addToMyScheduleButton.setImage(#imageLiteral(resourceName: "buttonStarNormal"), for: .normal)
+        }
+        delegate?.whichCellButtonDidTapped(sender: sender, index: index)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,5 +47,11 @@ class ConferenceTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         // Configure the view for the selected state
     }
-
+    
+    func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent){
+        self.categoryLabel.text = agenda.type
+        self.topicLabel.text = agenda.schedule_topic
+        self.speakerLabel.text = agenda.name
+        self.locationLabel.text = agenda.location
+    }
 }

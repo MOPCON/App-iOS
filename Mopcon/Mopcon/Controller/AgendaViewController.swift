@@ -13,10 +13,12 @@ class AgendaViewController: UIViewController {
     @IBOutlet weak var dayOneButton: UIButton!
     @IBOutlet weak var dayTwoButton: UIButton!
     @IBOutlet weak var goToCommunicationVCButton: CustomCornerButton!
+    @IBOutlet weak var agendaTableView: UITableView!
     
     var selectedSchedule = [Schedule.Payload.Agenda.Item]()
     var selectedAgenda:Schedule.Payload.Agenda.Item.AgendaContent?
     
+    var mySchedule = MySchedules.get()
     var schedule_day1 = [Schedule.Payload.Agenda.Item]()
     var schedule_day2 = [Schedule.Payload.Agenda.Item]()
     
@@ -41,7 +43,7 @@ class AgendaViewController: UIViewController {
         self.navigationController?.pushViewController(communicationVC, animated: true)
     }
     
-    @IBOutlet weak var agendaTableView: UITableView!
+   
     
     
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
@@ -125,7 +127,9 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
         switch indexPath.section {
         case indexPath.section:
             let conferenceCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.conferenceCell, for: indexPath) as! ConferenceTableViewCell
-            conferenceCell.updateUI(agenda: selectedSchedule[indexPath.section].agendas[indexPath.row])
+            let agenda = selectedSchedule[indexPath.section].agendas[indexPath.row]
+            checkMySchedule(agenda: agenda, sender: conferenceCell.addToMyScheduleButton)
+            conferenceCell.updateUI(agenda: agenda)
             conferenceCell.delegate = self
             conferenceCell.index = indexPath
             return conferenceCell
@@ -147,11 +151,34 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
         selectedAgenda = selectedSchedule[indexPath.section].agendas[indexPath.row]
         performSegue(withIdentifier: SegueIDManager.performConferenceDetail, sender: nil)
     }
+    
+    func checkMySchedule(agenda:Schedule.Payload.Agenda.Item.AgendaContent ,sender: UIButton) {
+        for schedule in mySchedule {
+            if schedule.schedule_topic == agenda.schedule_topic {
+                sender.setImage(#imageLiteral(resourceName: "buttonStarChecked"), for: .normal)
+                return
+            }
+        }
+        sender.setImage(#imageLiteral(resourceName: "buttonStarNormal"), for: .normal)
+    }
 }
 
 extension AgendaViewController: WhichCellButtonDidTapped {
-    func whichCellButtonDidTapped(index: IndexPath) {
+    
+    func whichCellButtonDidTapped(sender: UIButton, index: IndexPath) {
+        
         let agenda = selectedSchedule[index.section].agendas[index.row]
-        MySchedules.save(agenda: agenda)
+        
+        if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarChecked") {
+            print("新增行程")
+            MySchedules.add(agenda: agenda)
+        } else if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarNormal"){
+            print("刪除行程")
+            MySchedules.remove(agenda: agenda)
+        }
+        
+        self.mySchedule = MySchedules.get()
+        self.agendaTableView.reloadRows(at: [index], with: .none)
     }
+    
 }

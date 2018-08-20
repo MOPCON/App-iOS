@@ -22,7 +22,7 @@ class ConferenceDetailViewController: UIViewController {
     
     @IBAction func addToMySchedule(_ sender: Any) {
         if let agenda = agenda {
-             MySchedules.save(agenda: agenda)
+             MySchedules.add(agenda: agenda)
         }
     }
     
