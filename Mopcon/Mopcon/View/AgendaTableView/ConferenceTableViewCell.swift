@@ -35,7 +35,7 @@ class ConferenceTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.layoutIfNeeded()
     }
     
     override func prepareForReuse() {

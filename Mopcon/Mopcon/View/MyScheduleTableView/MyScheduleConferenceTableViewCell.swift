@@ -9,7 +9,18 @@
 import UIKit
 
 class MyScheduleConferenceTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var speakerLabel: UILabel!
+    @IBOutlet weak var floorLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    @IBAction func deleteSchedule(_ sender: Any) {
+        
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +31,12 @@ class MyScheduleConferenceTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         // Configure the view for the selected state
     }
-
+    
+    func update(mySchedule:Schedule.Payload.Agenda.Item.AgendaContent) {
+        self.typeLabel.text = mySchedule.type
+        self.titleLabel.text = mySchedule.schedule_topic
+        self.speakerLabel.text = mySchedule.name
+        
+        self.floorLabel.text = mySchedule.location
+    }
 }

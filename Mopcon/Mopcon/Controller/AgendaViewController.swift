@@ -178,7 +178,7 @@ extension AgendaViewController: WhichCellButtonDidTapped {
         }
         
         self.mySchedule = MySchedules.get()
-        self.agendaTableView.reloadRows(at: [index], with: .none)
+        self.agendaTableView.reloadRows(at: [index], with: .automatic)
     }
     
 }

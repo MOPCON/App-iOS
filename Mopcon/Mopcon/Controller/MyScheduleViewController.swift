@@ -23,10 +23,12 @@ class MyScheduleViewController: UIViewController {
         myScheduleTableView.delegate = self
         myScheduleTableView.dataSource = self
         myScheduleTableView.separatorStyle = .none
+        myScheduleTableView.sectionFooterHeight = 0
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
+        
         // Do any additional setup after loading the view.
     }
 
@@ -56,32 +58,14 @@ extension MyScheduleViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        switch indexPath.section {
-//        case 0, 2, 4:
-//            let breakCell = tableView.dequeueReusableCell(withIdentifier: MyScheduleTableViewCellID.breakCell, for: indexPath)
-//            return breakCell
-//        case 1, 5:
-//            let noScheduleCell = tableView.dequeueReusableCell(withIdentifier: MyScheduleTableViewCellID.noScheduleCell, for: indexPath)
-//            return noScheduleCell
-//        default:
-//            let conferenceCell = tableView.dequeueReusableCell(withIdentifier: MyScheduleTableViewCellID.conferenceCell, for: indexPath)
-//            return conferenceCell
-//        }
-//
-        let conferenceCell = tableView.dequeueReusableCell(withIdentifier: MyScheduleTableViewCellID.conferenceCell, for: indexPath)
+        let conferenceCell = tableView.dequeueReusableCell(withIdentifier: MyScheduleTableViewCellID.conferenceCell, for: indexPath) as! MyScheduleConferenceTableViewCell
+        conferenceCell.update(mySchedule: mySchedule[indexPath.section])
         return conferenceCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch indexPath.section {
-//        case 0, 2, 4:
-//            return 68
-//        case 1, 5:
-//            return 120
-//        default:
-//            return 172
-//        }
-        return 172
+
+        return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -92,9 +76,13 @@ extension MyScheduleViewController: UITableViewDelegate, UITableViewDataSource{
         timeLabel.textAlignment = .center
         view.backgroundColor = UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.5)
         view.addSubview(timeLabel)
-        timeLabel.text = mySchedule[section].duration
-        return view
         
+        timeLabel.text = mySchedule[section].duration
+        
+        return view
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 36
     }
     
     
