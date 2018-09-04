@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol DeleteMySchedule {
+    func deleteSchedule(indexPath:IndexPath)
+}
+
 class MyScheduleConferenceTableViewCell: UITableViewCell {
+    
+    var delegate:DeleteMySchedule?
+    var indexPath:IndexPath?
     
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -18,7 +25,10 @@ class MyScheduleConferenceTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     
     @IBAction func deleteSchedule(_ sender: Any) {
-        
+        guard let indexPath = indexPath else {
+            return
+        }
+        delegate?.deleteSchedule(indexPath: indexPath)
     }
     
     override func awakeFromNib() {

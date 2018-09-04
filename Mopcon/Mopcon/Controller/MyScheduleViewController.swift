@@ -60,6 +60,8 @@ extension MyScheduleViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let conferenceCell = tableView.dequeueReusableCell(withIdentifier: MyScheduleTableViewCellID.conferenceCell, for: indexPath) as! MyScheduleConferenceTableViewCell
         conferenceCell.update(mySchedule: mySchedule[indexPath.section])
+        conferenceCell.delegate = self
+        conferenceCell.indexPath = indexPath
         return conferenceCell
     }
     
@@ -85,5 +87,16 @@ extension MyScheduleViewController: UITableViewDelegate, UITableViewDataSource{
         return 36
     }
     
+}
+
+extension MyScheduleViewController: DeleteMySchedule {
+    
+    func deleteSchedule(indexPath: IndexPath) {
+        let removeSchedule = mySchedule[indexPath.section]
+        MySchedules.remove(agenda: removeSchedule)
+        mySchedule = MySchedules.get()
+        myScheduleTableView.reloadData()
+        
+    }
     
 }
