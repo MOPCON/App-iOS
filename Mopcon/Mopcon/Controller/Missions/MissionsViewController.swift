@@ -270,23 +270,29 @@ extension MissionsViewController: UICollectionViewDataSource, UICollectionViewDe
             
             return coinCell
         case 1:
-            let missionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "missionCell", for: indexPath)
+            guard let missionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "missionCell", for: indexPath) as? MissionCollectionViewCell else { fatalError("Can't created MissionCollecitonViewCell")}
             missionCell.layer.cornerRadius = 6
             missionCell.layer.borderWidth = 1
             missionCell.layer.borderColor = #colorLiteral(red: 0, green: 1, blue: 0.9764705882, alpha: 1).cgColor
             missionCell.clipsToBounds = true
             
-            guard let lockImageView = missionCell.viewWithTag(11) as? UIImageView else { fatalError("Can't find lockImageView.")}
-            guard let missionTypeLabel = missionCell.viewWithTag(12) as? UILabel else { fatalError("Can't find missionTypeLabel.")}
-            guard let missionTitleLabel = missionCell.viewWithTag(13) as? UILabel else { fatalError("Can't find missionTitleLabel.")}
-            
-            missionTypeLabel.text = missions[indexPath.row][0]
-            missionTitleLabel.text = missions[indexPath.row][1]
-            
-            if missionTypeLabel.text != "解鎖倒數" {
-                lockImageView.isHidden = true
+            missionCell.typeLabel.text = missions[indexPath.row][0]
+            missionCell.titleLabel.text = missions[indexPath.row][1]
+
+            if missionCell.typeLabel.text == "解鎖倒數" {
+                missionCell.lockImageView.isHidden = false
+            } else {
+                missionCell.lockImageView.isHidden = true
             }
             
+            if indexPath.row == 3 {
+                missionCell.missionCompleted(isSuccess: false)
+            }
+            
+            if indexPath.row == 4 {
+                missionCell.missionCompleted(isSuccess: true)
+            }
+
             return missionCell
         default:
             fatalError("Couldn't create cell.")
@@ -333,11 +339,9 @@ extension MissionsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let missionCell = collectionView.cellForItem(at: indexPath)
+        guard let missionCell = collectionView.cellForItem(at: indexPath) as? MissionCollectionViewCell else { return }
         
-        guard let missionTypeLabel = missionCell?.viewWithTag(12) as? UILabel else { fatalError("Can't find missionTypeLabel") }
-        
-        switch missionTypeLabel.text {
+        switch missionCell.typeLabel.text {
         case "Q&A":
             self.performSegue(withIdentifier: "performMissionDetail", sender: nil)
         case "INTERACTION":

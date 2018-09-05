@@ -133,7 +133,7 @@
                                         </constraints>
                                         <size key="customSize" width="336" height="193"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="missionCell" id="R7B-eU-uFP">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="missionCell" id="R7B-eU-uFP" customClass="MissionCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="107" y="203" width="160" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -190,6 +190,11 @@
                                             <constraint firstAttribute="trailing" secondItem="Syw-eo-I5i" secondAttribute="trailing" constant="8" id="nno-Ol-qnT"/>
                                         </constraints>
                                         <size key="customSize" width="160" height="160"/>
+                                        <connections>
+                                            <outlet property="lockImageView" destination="acp-3P-R81" id="5zb-6N-rd6"/>
+                                            <outlet property="titleLabel" destination="VXv-v1-6rZ" id="Ep4-RR-jBm"/>
+                                            <outlet property="typeLabel" destination="PX7-0V-IBj" id="NPF-TW-xvK"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

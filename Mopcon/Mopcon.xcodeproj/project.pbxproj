@@ -20,6 +20,7 @@
 		5E349CA8212411570060297A /* SponsorTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA7212411570060297A /* SponsorTableViewCellID.swift */; };
 		5E349CAA21242B910060297A /* CommunityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA921242B910060297A /* CommunityAPI.swift */; };
 		5E349CAC212448410060297A /* Schedule_unconfAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CAB212448410060297A /* Schedule_unconfAPI.swift */; };
+		5E564B77213FA86E00F2CED2 /* MissionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E564B76213FA86E00F2CED2 /* MissionCollectionViewCell.swift */; };
 		5E682E1A213CFE4400FC37CF /* Missions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E682E19213CFE4400FC37CF /* Missions.storyboard */; };
 		5E682E1D213D016500FC37CF /* MissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E682E1C213D016500FC37CF /* MissionsViewController.swift */; };
 		5E682E1F213D62CA00FC37CF /* MissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E682E1E213D62CA00FC37CF /* MissionDetailViewController.swift */; };
@@ -95,6 +96,7 @@
 		5E349CA7212411570060297A /* SponsorTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorTableViewCellID.swift; sourceTree = "<group>"; };
 		5E349CA921242B910060297A /* CommunityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAPI.swift; sourceTree = "<group>"; };
 		5E349CAB212448410060297A /* Schedule_unconfAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule_unconfAPI.swift; sourceTree = "<group>"; };
+		5E564B76213FA86E00F2CED2 /* MissionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCollectionViewCell.swift; sourceTree = "<group>"; };
 		5E682E19213CFE4400FC37CF /* Missions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Missions.storyboard; sourceTree = "<group>"; };
 		5E682E1C213D016500FC37CF /* MissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsViewController.swift; sourceTree = "<group>"; };
 		5E682E1E213D62CA00FC37CF /* MissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,14 @@
 				5E349CAB212448410060297A /* Schedule_unconfAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		5E564B75213FA85400F2CED2 /* Missions */ = {
+			isa = PBXGroup;
+			children = (
+				5E564B76213FA86E00F2CED2 /* MissionCollectionViewCell.swift */,
+			);
+			path = Missions;
 			sourceTree = "<group>";
 		};
 		5E682E18213CFDF300FC37CF /* Storyboard */ = {
@@ -281,6 +291,7 @@
 		D633463920E914550033E5B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5E564B75213FA85400F2CED2 /* Missions */,
 				D66778E720FB130A00E9CA34 /* MyScheduleTableView */,
 				D6EE629C20E9D0D50043B68A /* MainTableView */,
 				D6EE629B20E9D0C70043B68A /* NewsTableView */,
@@ -492,6 +503,7 @@
 				D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */,
 				D633462420E8FFC60033E5B4 /* MainViewController.swift in Sources */,
 				5E349C9F21228A340060297A /* UIImageViewExtension.swift in Sources */,
+				5E564B77213FA86E00F2CED2 /* MissionCollectionViewCell.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
 				D62D30D520ED06F300BBDF5E /* AgendaViewController.swift in Sources */,
 				5E349CAA21242B910060297A /* CommunityAPI.swift in Sources */,
