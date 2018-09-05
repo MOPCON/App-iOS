@@ -46,13 +46,19 @@ class MissionsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func showMissionInfo() {
-        
+    // MARK: Show customized alert
+    
+    func addBackView() {
         backView = UIView()
         backView.frame = UIScreen.main.bounds
         backView.backgroundColor = .black
         backView.alpha = 0.7
         self.view.addSubview(backView)
+    }
+    
+    func showMissionInfo() {
+        
+        addBackView()
         
         let infoView = UIView()
         infoView.frame = CGRect(x: 0, y: 0, width: missionsCollectionView.bounds.width, height: missionsCollectionView.bounds.width * 0.92)
@@ -98,22 +104,140 @@ class MissionsViewController: UIViewController {
         startButton.tintColor = .white
         startButton.setTitle("開始任務", for: .normal)
         startButton.titleLabel?.font = UIFont(name: "PingFangTC-Semibold", size: 20)
-        startButton.addTarget(self, action: #selector(startMissions(sender:)), for: UIControlEvents.touchUpInside)
+        startButton.addTarget(self, action: #selector(closeView(sender:)), for: .touchUpInside)
         
         infoView.addSubview(titleLabel)
         infoView.addSubview(contentLabel)
         infoView.addSubview(startButton)
     }
     
-    @objc func startMissions(sender:UIButton) {
-        if let infoView = sender.superview {
+    @objc func exchangeCapsule(sender:UIButton) {
+        
+        addBackView()
+        
+        let alertView = UIView()
+        alertView.frame = CGRect(x: 0, y: 0, width: view.bounds.width * 0.9, height: view.bounds.width * 0.9 * 0.53)
+        alertView.center = view.center
+        alertView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0.2, alpha: 1)
+        alertView.layer.cornerRadius = 4
+        alertView.clipsToBounds = true
+        alertView.layer.borderColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+        alertView.layer.borderWidth = 2
+        
+        let textField = UITextField()
+        textField.frame = CGRect(x: 0, y: 0, width: alertView.bounds.width * 0.9, height: 40)
+        textField.center = CGPoint(x: alertView.bounds.midX, y: textField.bounds.height * 1.8)
+        textField.font = UIFont(name: "PingFangTC-Semibold", size: 20)
+        textField.textColor = .white
+        textField.attributedPlaceholder = NSAttributedString(string: "請輸入兌換密碼",attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 0.6)])
+        textField.borderStyle = .none
+        
+        let lineView = UIView()
+        lineView.frame = CGRect(x: 0, y: 0, width: textField.bounds.width, height: 2)
+        lineView.center = textField.center
+        lineView.center.y += textField.bounds.height / 2
+        lineView.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+        
+        let sendButton = UIButton()
+        sendButton.frame = CGRect(x: 0, y: 0 , width: textField.bounds.width, height: 60)
+        sendButton.center = lineView.center
+        sendButton.center.y += sendButton.bounds.height
+        sendButton.layer.cornerRadius = 3
+        sendButton.clipsToBounds = true
+        sendButton.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+        sendButton.setTitle("送出", for: .normal)
+        sendButton.titleLabel?.font = UIFont(name: "PingFangTC-Semibold", size: 20)
+        sendButton.addTarget(self, action: #selector(closeView(sender:)), for: .touchUpInside)
+        
+        alertView.addSubview(textField)
+        alertView.addSubview(lineView)
+        alertView.addSubview(sendButton)
+        
+        self.view.addSubview(alertView)
+        
+    }
+    
+    func showExchangeInfo() {
+        
+        addBackView()
+        
+        let alertView = UIView()
+        alertView.frame = CGRect(x: 0, y: 0, width: view.bounds.width * 0.9, height: view.bounds.width * 0.9 * 0.83)
+        alertView.center = view.center
+        alertView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0.2, alpha: 1)
+        alertView.layer.cornerRadius = 4
+        alertView.clipsToBounds = true
+        alertView.layer.borderColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+        alertView.layer.borderWidth = 2
+        
+        let capsuleImageView = UIImageView()
+        capsuleImageView.image = #imageLiteral(resourceName: "iconCapsule")
+        capsuleImageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        capsuleImageView.center = CGPoint(x: alertView.bounds.midX, y: 50 * 1.62)
+        
+        let messageLabel = UILabel()
+        messageLabel.frame = CGRect(x: 0, y: 0, width: alertView.bounds.width * 0.91, height: 30)
+        messageLabel.center = CGPoint(x: alertView.bounds.midX, y: alertView.bounds.midY)
+        messageLabel.textColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+        messageLabel.textAlignment = .center
+        var text = NSMutableAttributedString()
+        text = NSMutableAttributedString(string: "您即將兌換 50 個扭蛋", attributes: [NSAttributedStringKey.font:UIFont(name: "PingFangTC-Semibold", size: 24)!])
+        text.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.white, range: NSRange(location:6,length:2))
+        text.addAttribute(NSAttributedStringKey.kern, value: 0.8, range: NSRange(location: 0, length: text.length))
+        messageLabel.attributedText = text
+        
+        let cancelButton = UIButton()
+        cancelButton.frame = CGRect(x: 0, y: 0, width: alertView.bounds.width * 0.43, height: 60)
+        cancelButton.center = CGPoint(x: cancelButton.bounds.width * 0.61, y: alertView.bounds.height - cancelButton.bounds.height * 0.77)
+        cancelButton.setTitle("取消", for: .normal)
+        cancelButton.titleLabel?.textColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+        cancelButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0.2, alpha: 1)
+        cancelButton.layer.cornerRadius = 4
+        cancelButton.clipsToBounds = true
+        cancelButton.layer.borderColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+        cancelButton.layer.borderWidth = 2
+        cancelButton.addTarget(self, action: #selector(closeView(sender:)), for: .touchUpInside)
+        
+        let confirmButton = UIButton()
+        confirmButton.frame = cancelButton.frame
+        confirmButton.center.x += 17 + cancelButton.bounds.width
+        confirmButton.setTitle("確認", for: .normal)
+        confirmButton.titleLabel?.textColor = .white
+        confirmButton.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+        confirmButton.layer.cornerRadius = 4
+        confirmButton.clipsToBounds = true
+        confirmButton.layer.borderColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+        confirmButton.layer.borderWidth = 2
+        confirmButton.addTarget(self, action: #selector(closeView(sender:)), for: .touchUpInside)
+        
+        alertView.addSubview(capsuleImageView)
+        alertView.addSubview(messageLabel)
+        alertView.addSubview(cancelButton)
+        alertView.addSubview(confirmButton)
+        
+        view.addSubview(alertView)
+        
+    }
+    
+    // Button Action
+    
+    @objc func closeView(sender:UIButton) {
+        if let alertView = sender.superview {
+            alertView.removeFromSuperview()
             backView.removeFromSuperview()
-            infoView.removeFromSuperview()
+        }
+        
+        guard let title = sender.titleLabel?.text else { return }
+        
+        if title == "送出" {
+            showExchangeInfo()
         }
     }
 
 }
 
+
+// MARK: - Collection datasource & delegate
 extension MissionsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -140,6 +264,9 @@ extension MissionsViewController: UICollectionViewDataSource, UICollectionViewDe
             coinCell.layer.borderWidth = 1
             coinCell.layer.borderColor = #colorLiteral(red: 0, green: 1, blue: 0.9764705882, alpha: 1).cgColor
             coinCell.clipsToBounds = true
+
+            guard let exchangeButton = coinCell.viewWithTag(3) as? UIButton else { fatalError("Can't find exchangeButton") }
+            exchangeButton.addTarget(self, action: #selector(exchangeCapsule(sender:)), for: .touchUpInside)
             
             return coinCell
         case 1:
@@ -167,6 +294,7 @@ extension MissionsViewController: UICollectionViewDataSource, UICollectionViewDe
     }
 }
 
+// MARK: - Collectionview delegate flowlayoyt
 extension MissionsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -36,7 +36,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="336" height="193"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYA-RS-5JZ">
+                                                <button opaque="NO" alpha="0.29999999999999999" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYA-RS-5JZ">
                                                     <rect key="frame" x="0.0" y="133" width="336" height="60"/>
                                                     <color key="backgroundColor" red="0.0" green="0.81568627450980391" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -144,13 +144,13 @@
                                                     <rect key="frame" x="8" y="39.666666666666657" width="144" height="80"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Jbd-fi-HAU">
-                                                            <rect key="frame" x="32" y="16.666666666666671" width="80" height="48"/>
+                                                            <rect key="frame" x="12" y="16.666666666666671" width="120" height="48"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ibd-L5-xuU">
-                                                                    <rect key="frame" x="5.6666666666666643" y="0.0" width="69" height="17"/>
+                                                                    <rect key="frame" x="25.666666666666664" y="0.0" width="69" height="17"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconLocked" translatesAutoresizingMaskIntoConstraints="NO" id="acp-3P-R81">
-                                                                            <rect key="frame" x="0.0" y="0.3333333333333286" width="14" height="16"/>
+                                                                            <rect key="frame" x="0.0" y="0.6666666666666643" width="14" height="16"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="16" id="EPw-QI-6Gq"/>
                                                                                 <constraint firstAttribute="width" constant="14" id="a0U-c7-C8b"/>
@@ -165,7 +165,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" tag="13" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任務標題" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXv-v1-6rZ">
-                                                                    <rect key="frame" x="0.0" y="19.999999999999993" width="80" height="28"/>
+                                                                    <rect key="frame" x="20" y="19.999999999999993" width="80" height="28"/>
                                                                     <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -183,6 +183,7 @@
                                         </view>
                                         <color key="backgroundColor" red="0.070588235294117646" green="0.16078431372549021" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="Jbd-fi-HAU" firstAttribute="width" secondItem="R7B-eU-uFP" secondAttribute="width" multiplier="0.75" id="Fas-r8-h7F"/>
                                             <constraint firstItem="Syw-eo-I5i" firstAttribute="leading" secondItem="R7B-eU-uFP" secondAttribute="leading" constant="8" id="G2U-Av-WIT"/>
                                             <constraint firstItem="Syw-eo-I5i" firstAttribute="height" secondItem="R7B-eU-uFP" secondAttribute="height" multiplier="1:2" id="akW-Bm-hg0"/>
                                             <constraint firstItem="Syw-eo-I5i" firstAttribute="centerY" secondItem="R7B-eU-uFP" secondAttribute="centerY" id="maw-WW-eGT"/>
@@ -505,7 +506,7 @@
         <!--Navigation Controller-->
         <scene sceneID="3ag-Qd-pfM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3V0-gp-WPe" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MissionsNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="3V0-gp-WPe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sri-7A-Rqb">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>

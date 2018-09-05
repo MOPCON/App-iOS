@@ -9,10 +9,11 @@
 import UIKit
 
 class MissionDetailViewController: UIViewController {
+    
+    var selectedAnswer = ""
+    var options = [String]()
 
     @IBOutlet weak var missionTableView: UITableView!
-    
-    var options = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,9 +63,17 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
             iconLabel.text = "\(Character(UnicodeScalar(indexPath.row + startingValue)!))"
             iconLabel.layer.cornerRadius = 11
             iconLabel.clipsToBounds = true
-            iconLabel.layer.borderColor = iconLabel.textColor.cgColor
+            iconLabel.layer.borderColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
             iconLabel.layer.borderWidth = 1
             optionLabel.text = options[indexPath.row]
+            
+            if optionLabel.text == selectedAnswer {
+                iconLabel.textColor = .white
+                iconLabel.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+            } else {
+                iconLabel.backgroundColor = .clear
+                iconLabel.textColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+            }
             
             return answerCell
         case 2:
@@ -84,10 +93,8 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            guard let iconLabel = tableView.cellForRow(at: indexPath)?.viewWithTag(11) as? UILabel else { fatalError("123") }
-            iconLabel.backgroundColor = .white
-        }
+        selectedAnswer = options[indexPath.row]
+        tableView.reloadData()
     }
 
 }
