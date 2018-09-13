@@ -12,9 +12,10 @@ class SponsorBigCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var sponsorBigImageView: UIImageView!
     
     func updateUI(sponsor:Sponsor.Payload){
-        
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
-        sponsorBigImageView.getImage(address: sponsor.logo)
+        if let url = URL(string: sponsor.logo) {
+            sponsorBigImageView.kf.setImage(with: url)
+        }
     }
 }

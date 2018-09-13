@@ -16,6 +16,7 @@ struct Speaker: Decodable {
         var name: String
         var name_en: String
         var type: String
+        var company: String
         var job: String
         var info: String
         var info_en: String

@@ -7,20 +7,28 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SpeakerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var opacityView: UIView!
-    @IBOutlet weak var speakerAvatarImageView: UIImageView!
+    @IBOutlet weak var speakerAvatarImageView: UIImageView! {
+        didSet {
+            self.speakerAvatarImageView.makeCircle()
+        }
+    }
     @IBOutlet weak var speakerNameLabel: UILabel!
     @IBOutlet weak var speakerCompanyLabel: UILabel!
+    @IBOutlet weak var speakerJobLabel: UILabel!
     
 
     func updateUI(speaker:Speaker.Payload){
-        self.speakerAvatarImageView.getImage(address: speaker.picture)
-        self.speakerAvatarImageView.makeCircle()
+        if let resource = URL(string: speaker.picture) {
+            self.speakerAvatarImageView.kf.setImage(with: resource)
+        }
+        self.speakerJobLabel.text = speaker.job
         self.speakerNameLabel.text = speaker.name
-        self.speakerCompanyLabel.text = speaker.job
+        self.speakerCompanyLabel.text = speaker.company
     }
     
     override func awakeFromNib() {

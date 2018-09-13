@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E1DC75F214946CB00F953F8 /* Volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DC75E214946CB00F953F8 /* Volunteer.swift */; };
+		5E1DC761214948AA00F953F8 /* VolunteerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DC760214948AA00F953F8 /* VolunteerAPI.swift */; };
 		5E349C9021225CE10060297A /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C8F21225CE10060297A /* Schedule.swift */; };
 		5E349C94212270650060297A /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C93212270650060297A /* Speaker.swift */; };
 		5E349C96212270A20060297A /* Schedule_unconf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C95212270A20060297A /* Schedule_unconf.swift */; };
@@ -87,6 +89,8 @@
 		0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mopcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		293FFEAF5ECBACAF171BB104 /* Pods-Mopcon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.release.xcconfig"; sourceTree = "<group>"; };
 		36A8ADA41F4B2FE3D1F03AD3 /* Pods-Mopcon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.debug.xcconfig"; sourceTree = "<group>"; };
+		5E1DC75E214946CB00F953F8 /* Volunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer.swift; sourceTree = "<group>"; };
+		5E1DC760214948AA00F953F8 /* VolunteerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerAPI.swift; sourceTree = "<group>"; };
 		5E349C8F21225CE10060297A /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		5E349C93212270650060297A /* Speaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		5E349C95212270A20060297A /* Schedule_unconf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule_unconf.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				5E349CA2212315C90060297A /* SponsorsAPI.swift */,
 				5E349CA921242B910060297A /* CommunityAPI.swift */,
 				5E349CAB212448410060297A /* Schedule_unconfAPI.swift */,
+				5E1DC760214948AA00F953F8 /* VolunteerAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 				5E349C95212270A20060297A /* Schedule_unconf.swift */,
 				5E349C97212270BA0060297A /* Sponsor.swift */,
 				5E349C99212270E00060297A /* Community.swift */,
+				5E1DC75E214946CB00F953F8 /* Volunteer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -591,6 +597,7 @@
 				5E349C9A212270E00060297A /* Community.swift in Sources */,
 				D6A67ABB20EE029C00D4886E /* CommunicationViewController.swift in Sources */,
 				D62D30D320ED065D00BBDF5E /* AgendaTableViewCellID.swift in Sources */,
+				5E1DC761214948AA00F953F8 /* VolunteerAPI.swift in Sources */,
 				D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */,
 				D6F0BE6520F0756D0053A100 /* StoryboardIDManager.swift in Sources */,
 				D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */,
@@ -621,6 +628,7 @@
 				D66778E920FB142D00E9CA34 /* NoScheduleTableViewCell.swift in Sources */,
 				D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */,
 				D6F0BE6320F06D6C0053A100 /* MyScheduleViewController.swift in Sources */,
+				5E1DC75F214946CB00F953F8 /* Volunteer.swift in Sources */,
 				D6F0BE6720F093AD0053A100 /* UserdefaultKeyManager.swift in Sources */,
 				D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */,
 				5E349C94212270650060297A /* Speaker.swift in Sources */,

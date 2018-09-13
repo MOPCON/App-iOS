@@ -40,7 +40,7 @@ class ComminityDetailViewController: UIViewController {
         
 //        communityDetailImageView.getImage(address: )
         communityNameLabel.text = community.title
-        communityDescriptionLabel.text = community.name
+        communityDescriptionLabel.text = community.info
     }
 
 }
