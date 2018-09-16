@@ -10,9 +10,14 @@ import UIKit
 
 class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet weak var bannerImageCollectionView: UICollectionView!
+    @IBOutlet weak var bannerImageCollectionView: UICollectionView! {
+        didSet {
+            bannerImageCollectionView.isPagingEnabled = true
+        }
+    }
     
-     let bannerData = ["banner01","s2"]
+    let bannerData = ["banner01","s2"]
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bannerData.count
@@ -25,6 +30,17 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         return cell
     }
    
+}
+
+extension BannerCollectionViewCell: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }
 

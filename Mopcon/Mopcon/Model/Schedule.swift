@@ -8,22 +8,22 @@
 
 import Foundation
 
-struct Schedule: Decodable {
+struct Schedule: Codable {
     var payload: Payload
     
-    struct Payload: Decodable {
+    struct Payload: Codable {
         var agenda: [Agenda]
         var talk: [Talk]
         
-        struct Agenda: Decodable {
+        struct Agenda: Codable {
             var date: String
             var items:[Item]
             
-            struct Item: Decodable {
+            struct Item: Codable {
                 var duration: String
                 var agendas: [AgendaContent]
                 
-                struct AgendaContent: Decodable {
+                struct AgendaContent: Codable {
                     var date: String
                     var schedule_id: String
                     var duration: String
@@ -54,11 +54,11 @@ struct Schedule: Decodable {
             }
         }
         
-        struct Talk: Decodable {
+        struct Talk: Codable {
             var date: String
             var items:[Item]
             
-            struct Item: Decodable {
+            struct Item: Codable {
                 var duration: String
                 var type: String
                 var topic: String

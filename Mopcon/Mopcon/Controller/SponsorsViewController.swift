@@ -120,8 +120,11 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
     
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: SponsorCollectionViewIDManager.sponsorHeader, for: indexPath) as! SponsorHeaderView
+        
         var title = ""
+        
         switch indexPath.section {
         case SponsorType.tony_stark.hashValue:
             title = SponsorType.tony_stark.rawValue
@@ -134,9 +137,9 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
         case SponsorType.specialThanks.hashValue:
             title = SponsorType.specialThanks.rawValue
         default:
-            title = ""
+            break
         }
-        
+        headerView.layoutIfNeeded()
         headerView.updateUI(title: title)
         
         return headerView
@@ -145,6 +148,15 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedSponsor = sponsors[indexPath.section][indexPath.row]
         performSegue(withIdentifier: SegueIDManager.performSponsorDetail, sender: self)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+
+        if sponsors[section].isEmpty {
+            return CGSize.zero
+        } else {
+            return CGSize(width: collectionView.bounds.width, height: 50)
+        }
     }
 }
 

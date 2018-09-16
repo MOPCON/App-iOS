@@ -15,6 +15,8 @@ class SponsorSmallCollectionViewCell: UICollectionViewCell {
     func updateUI(sponsor:Sponsor.Payload){
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
-        sponsorImageView.getImage(address: sponsor.logo)
+        if let url = URL(string: sponsor.logo) {
+            sponsorImageView.kf.setImage(with: url)
+        }
     }
 }

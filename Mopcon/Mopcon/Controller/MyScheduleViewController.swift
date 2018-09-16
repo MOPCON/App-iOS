@@ -10,25 +10,36 @@ import UIKit
 
 class MyScheduleViewController: UIViewController {
     
+    var mySchedule = [Schedule.Payload.Agenda.Item.AgendaContent]()
     
     @IBOutlet weak var myScheduleTableView: UITableView!
+    
+    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         myScheduleTableView.delegate = self
         myScheduleTableView.dataSource = self
         myScheduleTableView.separatorStyle = .none
+        myScheduleTableView.sectionFooterHeight = 0
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
+        
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        mySchedule = MySchedules.get()
+        for i in mySchedule {
+            print(i.name)
+        }
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -39,41 +50,24 @@ class MyScheduleViewController: UIViewController {
 extension MyScheduleViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return mySchedule.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 3:
-            return 2
-        default:
-            return 1
-        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0, 2, 4:
-            let breakCell = tableView.dequeueReusableCell(withIdentifier: MyScheduleTableViewCellID.breakCell, for: indexPath)
-            return breakCell
-        case 1, 5:
-            let noScheduleCell = tableView.dequeueReusableCell(withIdentifier: MyScheduleTableViewCellID.noScheduleCell, for: indexPath)
-            return noScheduleCell
-        default:
-            let conferenceCell = tableView.dequeueReusableCell(withIdentifier: MyScheduleTableViewCellID.conferenceCell, for: indexPath)
-            return conferenceCell
-        }
+        let conferenceCell = tableView.dequeueReusableCell(withIdentifier: MyScheduleTableViewCellID.conferenceCell, for: indexPath) as! MyScheduleConferenceTableViewCell
+        conferenceCell.update(mySchedule: mySchedule[indexPath.section])
+        conferenceCell.delegate = self
+        conferenceCell.indexPath = indexPath
+        return conferenceCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0, 2, 4:
-            return 68
-        case 1, 5:
-            return 120
-        default:
-            return 172
-        }
+
+        return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -84,10 +78,25 @@ extension MyScheduleViewController: UITableViewDelegate, UITableViewDataSource{
         timeLabel.textAlignment = .center
         view.backgroundColor = UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.5)
         view.addSubview(timeLabel)
-        timeLabel.text = "09:00 - 09:15"
-        return view
         
+        timeLabel.text = mySchedule[section].duration
+        
+        return view
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 36
     }
     
+}
+
+extension MyScheduleViewController: DeleteMySchedule {
+    
+    func deleteSchedule(indexPath: IndexPath) {
+        let removeSchedule = mySchedule[indexPath.section]
+        MySchedules.remove(agenda: removeSchedule)
+        mySchedule = MySchedules.get()
+        myScheduleTableView.reloadData()
+        
+    }
     
 }

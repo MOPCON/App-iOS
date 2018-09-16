@@ -23,7 +23,12 @@ class VolunteerTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.selectionStyle = .none
-        // Configure the view for the selected state
+    }
+    
+    func updateUI(volunteer:Volunteer.Payload) {
+        volunteerOrganizationTitleLabel.text = volunteer.groupname
+        volunteerDescriptionLabel.text = volunteer.info
+        volunteerMembersLabel.text = volunteer.memberlist
     }
 
 }

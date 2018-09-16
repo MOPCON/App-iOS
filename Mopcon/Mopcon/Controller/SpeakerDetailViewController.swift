@@ -13,10 +13,17 @@ class SpeakerDetailViewController: UIViewController {
     var speaker:Speaker.Payload?
 
     @IBOutlet weak var speakerImageView: UIImageView!
+    @IBOutlet weak var speakerJobLabel: UILabel!
+    @IBOutlet weak var speakerCompanyLabel: UILabel!
     @IBOutlet weak var speakerNameLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var scheduleTopicLabel: UILabel!
+    
+    @IBAction func addToMySchedule(_ sender: Any) {
+        
+        // TODO : 新增至行程
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +46,14 @@ class SpeakerDetailViewController: UIViewController {
     
 
     func updateUI(speaker:Speaker.Payload) {
-        self.speakerImageView.getImage(address: speaker.picture)
+        
+        if let url = URL(string: speaker.picture) {
+            speakerImageView.kf.setImage(with: url)
+        }
+        
         self.speakerImageView.makeCircle()
+        self.speakerJobLabel.text = speaker.job
+        self.speakerCompanyLabel.text = speaker.company
         self.speakerNameLabel.text = speaker.name
         self.infoLabel.text = speaker.info
         self.scheduleTopicLabel.text = speaker.schedule_topic

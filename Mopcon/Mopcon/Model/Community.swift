@@ -13,10 +13,12 @@ struct Community: Decodable {
     
     struct Payload: Decodable {
         var title: String
+        var id: String
         var liasion: String
-        var email: String?
-        var name: String
-        var name_en: String
+        var email: String
         var info: String
+        var info_en: String
+        var facebook: String
+        var other_links: String
     }
 }
