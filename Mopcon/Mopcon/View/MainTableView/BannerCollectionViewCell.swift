@@ -10,14 +10,32 @@ import UIKit
 
 class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    var bannerData = [Carousel.Payload]()
+    
     @IBOutlet weak var bannerImageCollectionView: UICollectionView! {
         didSet {
             bannerImageCollectionView.isPagingEnabled = true
         }
     }
     
-    let bannerData = ["banner01","s2"]
-    
+    func getBannerData() {
+        if let url = URL(string: "https://dev.mopcon.org/2018/api/carousel") {
+            CarouselAPI.getAPI(url: url) { (bannerData, error) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                    return
+                }
+                
+                if let data = bannerData {
+                    self.bannerData = data
+                    print("Banner 數量：\(self.bannerData.count)")
+                    DispatchQueue.main.async {
+                        self.bannerImageCollectionView.reloadData()
+                    }
+                }
+            }
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bannerData.count
@@ -25,8 +43,9 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.bannerImageCell, for: indexPath) as! BannerImageCell
-        cell.updateUI()
-        cell.bannerImageView.image = UIImage(named: bannerData[indexPath.item])
+        if let url = URL(string: bannerData[indexPath.item].banner) {
+            cell.updateUI(url: url)
+        }
         return cell
     }
    
@@ -42,5 +61,6 @@ extension BannerCollectionViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
 }
 

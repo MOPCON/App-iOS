@@ -16,7 +16,6 @@ class NewsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var opacityView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dedcriptionLabel: UILabel!
   
@@ -35,10 +34,9 @@ class NewsTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func updateUI(news: News.Payload) {
+        timeLabel.text = news.time
+        titleLabel.text = news.title
+        dedcriptionLabel.text = news.description
     }
-
 }

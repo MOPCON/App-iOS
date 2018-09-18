@@ -38,7 +38,9 @@ class ComminityDetailViewController: UIViewController {
     
     func updateUI(community:Community.Payload) {
         
-//        communityDetailImageView.getImage(address: )
+        if let url = URL(string: community.logo) {
+            communityDetailImageView.kf.setImage(with: url)
+        }
         communityNameLabel.text = community.title
         communityDescriptionLabel.text = community.info
     }

@@ -27,7 +27,7 @@ enum GridSectionName:Int{
 
 class MainViewController: UIViewController {
     
-    
+    var firstNews:News.Payload?
  
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
@@ -40,6 +40,7 @@ class MainViewController: UIViewController {
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         mainCollectionView.backgroundView = UIImageView(image: UIImage(named: "bgMainPage"))
+        getNews()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -49,7 +50,26 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func getNews() {
+        if let url = URL(string: "https://dev.mopcon.org/2018/api/news") {
+            NewsAPI.getAPI(url: url) { (news, error) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                    return
+                }
+                
+                if let news = news {
+                    self.firstNews = news[0]
+                    DispatchQueue.main.async {
+                        self.mainCollectionView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    
 
 }
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -77,10 +97,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let bannerCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.bannerCell, for: indexPath) as! BannerCollectionViewCell
             bannerCell.bannerImageCollectionView.delegate = bannerCell
             bannerCell.bannerImageCollectionView.dataSource = bannerCell
+            bannerCell.getBannerData()
             return bannerCell
         case SectionName.News.rawValue:
             let newsCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.newsCell, for: indexPath) as! NewsCollectionViewCell
-            newsCell.updateUI()
+            if let news = firstNews {
+                newsCell.updateUI(news: news)
+            }
             return newsCell
         case SectionName.Grid.rawValue:
             let gridCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.gridCell, for: indexPath) as! GridCollectionViewCell
@@ -108,6 +131,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch (indexPath.section, indexPath.item) {
+        case (SectionName.News.rawValue,0):
+            performSegue(withIdentifier: SegueIDManager.performNews, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Agenda.rawValue):
             performSegue(withIdentifier: SegueIDManager.performAgenda, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.MySchedule.rawValue):

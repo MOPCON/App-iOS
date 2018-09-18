@@ -9,20 +9,21 @@
 import Foundation
 
 struct UserDefaultsKeys {
-    static let saveSchedules = "SavedSchedules"
+    static let dayOneSchedule = "dayOneSchedule"
+    static let dayTwoSchedule = "dayTwoSchedule"
 }
 
 
 class MySchedules {
     
     // Add new schedule
-    class func add(agenda:Schedule.Payload.Agenda.Item.AgendaContent) {
+    class func add(agenda:Schedule.Payload.Agenda.Item.AgendaContent,forKey key: String) {
         
         let defaults = UserDefaults.standard
         let encoder = JSONEncoder()
         
         if let encoded = try? encoder.encode(agenda) {
-            if var savedSchedules = defaults.array(forKey: UserDefaultsKeys.saveSchedules) as? [Data] {
+            if var savedSchedules = defaults.array(forKey: key) as? [Data] {
                 // Check this schedule is repeated or not.
                 for saveedSchedule in savedSchedules {
                     if saveedSchedule == encoded {
@@ -32,29 +33,29 @@ class MySchedules {
                 }
                 print("增加一筆行程")
                 savedSchedules.append(encoded)
-                defaults.set(savedSchedules, forKey: UserDefaultsKeys.saveSchedules)
+                defaults.set(savedSchedules, forKey: key)
             } else {
                 // If doesn't have any schedule.
                 print("創建一我的行程表")
-                defaults.set([encoded], forKey: UserDefaultsKeys.saveSchedules)
+                defaults.set([encoded], forKey: key)
             }
         }
     }
     
     // Remove schedule
-    class func remove(agenda:Schedule.Payload.Agenda.Item.AgendaContent) {
+    class func remove(agenda:Schedule.Payload.Agenda.Item.AgendaContent,forKey key: String) {
         
         let defaults = UserDefaults.standard
         let encoder = JSONEncoder()
         
         if let encoded = try? encoder.encode(agenda) {
-            if var savedSchedules = defaults.array(forKey: UserDefaultsKeys.saveSchedules) as? [Data] {
+            if var savedSchedules = defaults.array(forKey: key) as? [Data] {
                 // Check this schedule is repeated or not.
                 for i in 0..<savedSchedules.count {
                     if savedSchedules[i] == encoded {
                         print("刪除一筆行程")
                         savedSchedules.remove(at: i)
-                        defaults.set(savedSchedules, forKey: UserDefaultsKeys.saveSchedules)
+                        defaults.set(savedSchedules, forKey: key)
                         return
                     }
                 }
@@ -64,10 +65,10 @@ class MySchedules {
     }
     
     // get mySchedule
-    class func get() -> [Schedule.Payload.Agenda.Item.AgendaContent] {
+    class func get(forKey key:String) -> [Schedule.Payload.Agenda.Item.AgendaContent] {
         
         let defaults = UserDefaults.standard
-        if let savedSchedules = defaults.array(forKey: UserDefaultsKeys.saveSchedules) as? [Data] {
+        if let savedSchedules = defaults.array(forKey: key) as? [Data] {
             let decoder = JSONDecoder()
             
             var schedules = [Schedule.Payload.Agenda.Item.AgendaContent]()
@@ -78,7 +79,7 @@ class MySchedules {
             }
             return schedules
         } else {
-            // Can't get userdefault return empty array.
+            // Can't get userdefault, Return empty array.
             return []
         }
     }

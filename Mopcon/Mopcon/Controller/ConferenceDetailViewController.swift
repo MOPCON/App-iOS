@@ -10,19 +10,21 @@ import UIKit
 
 class ConferenceDetailViewController: UIViewController {
     
+    var key:String?
     var agenda:Schedule.Payload.Agenda.Item.AgendaContent?
     
-    @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var topicLabel: UILabel!
     
     @IBOutlet weak var speakerImageView: UIImageView!
     @IBOutlet weak var speakerName: UILabel!
     @IBOutlet weak var speakerJob: UILabel!
+    @IBOutlet weak var companyLabel: UILabel!
+    @IBOutlet weak var scheduleInfoLabel: UILabel!
     
     @IBAction func addToMySchedule(_ sender: Any) {
-        if let agenda = agenda {
-             MySchedules.add(agenda: agenda)
+        if let agenda = agenda,let key = key {
+            MySchedules.add(agenda: agenda, forKey: key)
         }
     }
     
@@ -36,8 +38,12 @@ class ConferenceDetailViewController: UIViewController {
     }
     
     func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent) {
-        self.detailImageView.getImage(address: agenda.picture)
-        self.detailImageView.makeCircle()
+        if let picture = agenda.picture {
+            self.speakerImageView.getImage(address: picture)
+        }
+        self.speakerImageView.makeCircle()
+        self.scheduleInfoLabel.text = agenda.schedule_info
+        self.companyLabel.text = agenda.company
         self.typeLabel.text = agenda.type
         self.topicLabel.text = agenda.schedule_topic
         self.speakerName.text = agenda.name

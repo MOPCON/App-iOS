@@ -16,7 +16,9 @@ class CommunityImageCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = UIColor.white
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
-        communityImageView.getImage(address: community.liasion)
+        if let url = URL(string: community.logo) {
+            communityImageView.kf.setImage(with: url)
+        }
     }
     
 }

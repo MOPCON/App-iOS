@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum ScheduleDay {
+    case dayOne
+    case dayTwo
+}
+
 class AgendaViewController: UIViewController {
     
     @IBOutlet weak var dayOneButton: UIButton!
@@ -15,10 +20,12 @@ class AgendaViewController: UIViewController {
     @IBOutlet weak var goToCommunicationVCButton: CustomCornerButton!
     @IBOutlet weak var agendaTableView: UITableView!
     
+    var scheduleDay = ScheduleDay.dayOne
+    
     var selectedSchedule = [Schedule.Payload.Agenda.Item]()
     var selectedAgenda:Schedule.Payload.Agenda.Item.AgendaContent?
     
-    var mySchedule = MySchedules.get()
+    var mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayOneSchedule)
     var schedule_day1 = [Schedule.Payload.Agenda.Item]()
     var schedule_day2 = [Schedule.Payload.Agenda.Item]()
     
@@ -26,12 +33,16 @@ class AgendaViewController: UIViewController {
     @IBAction func chooseDayOneAction(_ sender: Any) {
         CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton as! CustomSelectedButton, notSelectedButton: dayTwoButton as! CustomSelectedButton)
         selectedSchedule = schedule_day1
+        scheduleDay = ScheduleDay.dayOne
+        mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayOneSchedule)
         agendaTableView.reloadData()
     }
     
     @IBAction func chooseDayTwoAction(_ sender: Any) {
         CommonFucntionHelper.changeButtonColor(beTappedButton: dayTwoButton as! CustomSelectedButton, notSelectedButton: dayOneButton as! CustomSelectedButton)
         selectedSchedule = schedule_day2
+        scheduleDay = ScheduleDay.dayTwo
+        mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayTwoSchedule)
         agendaTableView.reloadData()
     }
     
@@ -43,7 +54,7 @@ class AgendaViewController: UIViewController {
         self.navigationController?.pushViewController(communicationVC, animated: true)
     }
     
-   
+    
     
     
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
@@ -62,25 +73,8 @@ class AgendaViewController: UIViewController {
         //因為現在tableView就是group所以要把footer的高度拿掉，要不然會留一塊
         agendaTableView.sectionFooterHeight = 0
         
-        guard let url = URL(string: "https://dev.mopcon.org/2018/api/schedule") else {
-            print("Invalid URL.")
-            return
-        }
-        
-        ScheduleAPI.getAPI(url: url) { (payload, error) in
-            if let payload = payload {
-                self.schedule_day1 = payload.agenda[0].items
-                self.schedule_day2 = payload.agenda[1].items
-                self.selectedSchedule = self.schedule_day1
-                DispatchQueue.main.async {
-                    self.agendaTableView.reloadData()
-                }
-            } else {
-                print(error?.localizedDescription)
-            }
-        }
+        getSchedule()
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -91,6 +85,30 @@ class AgendaViewController: UIViewController {
         if segue.identifier == SegueIDManager.performConferenceDetail {
             if let vc = segue.destination as? ConferenceDetailViewController {
                 vc.agenda = self.selectedAgenda
+            }
+        }
+    }
+    
+    func getSchedule() {
+        guard let url = URL(string: "https://dev.mopcon.org/2018/api/schedule") else {
+            print("Invalid URL.")
+            return
+        }
+        
+        ScheduleAPI.getAPI(url: url) { (payload, error) in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            if let payload = payload {
+                self.schedule_day1 = payload.agenda[0].items
+                self.schedule_day2 = payload.agenda[1].items
+                self.selectedSchedule = self.schedule_day1
+                DispatchQueue.main.async {
+                    self.agendaTableView.reloadData()
+                }
             }
         }
     }
@@ -124,8 +142,10 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case indexPath.section:
+        
+        let scheduleID = selectedSchedule[indexPath.section].agendas[indexPath.row].schedule_id
+        
+        if scheduleID != nil {
             let conferenceCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.conferenceCell, for: indexPath) as! ConferenceTableViewCell
             let agenda = selectedSchedule[indexPath.section].agendas[indexPath.row]
             checkMySchedule(agenda: agenda, sender: conferenceCell.addToMyScheduleButton)
@@ -133,15 +153,32 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
             conferenceCell.delegate = self
             conferenceCell.index = indexPath
             return conferenceCell
-        default:
-            return UITableViewCell()
+        } else {
+            let agenda = selectedSchedule[indexPath.section].agendas[indexPath.row]
+            let breakCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.breakCell, for: indexPath) as! BreakTableViewCell
+            breakCell.updateUI(agenda:agenda )
+            return breakCell
         }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 174
+        
+        if selectedSchedule[indexPath.section].agendas[indexPath.row].schedule_id != nil {
+            return 174
+        } else {
+            return 68
+        }
     }
-
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if selectedSchedule[indexPath.section].agendas[indexPath.row].schedule_id != nil {
+            return 174
+        } else {
+            return 68
+        }
+    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 36
@@ -168,16 +205,19 @@ extension AgendaViewController: WhichCellButtonDidTapped {
     func whichCellButtonDidTapped(sender: UIButton, index: IndexPath) {
         
         let agenda = selectedSchedule[index.section].agendas[index.row]
+        var key = UserDefaultsKeys.dayOneSchedule
         
-        if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarChecked") {
-            print("新增行程")
-            MySchedules.add(agenda: agenda)
-        } else if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarNormal"){
-            print("刪除行程")
-            MySchedules.remove(agenda: agenda)
+        if scheduleDay == .dayTwo {
+            key = UserDefaultsKeys.dayTwoSchedule
         }
         
-        self.mySchedule = MySchedules.get()
+        if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarChecked") {
+            MySchedules.add(agenda: agenda, forKey: key)
+        } else if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarNormal"){
+            MySchedules.remove(agenda: agenda, forKey: key)
+        }
+        
+        self.mySchedule = MySchedules.get(forKey: key)
         self.agendaTableView.reloadData()
         
     }
