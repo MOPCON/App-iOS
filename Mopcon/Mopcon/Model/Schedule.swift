@@ -24,32 +24,35 @@ struct Schedule: Codable {
                 var agendas: [AgendaContent]
                 
                 struct AgendaContent: Codable {
-                    var date: String
-                    var schedule_id: String
-                    var duration: String
-                    var location: String
-                    var speaker_id: String
-                    var name: String
-                    var name_en: String
-                    var type: String
-                    var job: String
-                    var info: String
-                    var info_en: String
-                    var picture: String
-                    var filename: String
-                    var facebook: String
-                    var github: String
-                    var blog: String
-                    var website: String
-                    var linkedin: String
-                    var schedule_topic: String
-                    var schedule_topic_en: String
-                    var schedule_info: String
-                    var schedule_info_en: String
-                    var characters: String
-                    var slide: String
-                    var picture_merged: String
-                    var video_record: String
+                    var date: String?
+                    var schedule_id: String?
+                    var duration: String?
+                    var location: String?
+                    var speaker_id: String?
+                    var name: String?
+                    var name_en: String?
+                    var type: String?
+                    var company: String?
+                    var job: String?
+                    var info: String?
+                    var info_en: String?
+                    var picture: String?
+                    var filename: String?
+                    var facebook: String?
+                    var github: String?
+                    var blog: String?
+                    var website: String?
+                    var linkedin: String?
+                    var category: String?
+                    var degree_of_difficulty: String?
+                    var schedule_topic: String?
+                    var schedule_topic_en: String?
+                    var schedule_info: String?
+                    var schedule_info_en: String?
+                    var characters: String?
+                    var slide: String?
+                    var picture_merged: String?
+                    var video_record: String?
                 }
             }
         }

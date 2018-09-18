@@ -14,6 +14,7 @@ struct Community: Decodable {
     struct Payload: Decodable {
         var title: String
         var id: String
+        var logo: String
         var liasion: String
         var email: String
         var info: String

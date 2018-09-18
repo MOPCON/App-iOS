@@ -26,9 +26,21 @@ class SpeakerTableViewCell: UITableViewCell {
         if let resource = URL(string: speaker.picture) {
             self.speakerAvatarImageView.kf.setImage(with: resource)
         }
-        self.speakerJobLabel.text = speaker.job
-        self.speakerNameLabel.text = speaker.name
-        self.speakerCompanyLabel.text = speaker.company
+        
+        let language = CurrentLanguage.getLanguage()
+        switch language {
+        case Language.chinese.rawValue:
+            self.speakerJobLabel.text = speaker.job
+            self.speakerNameLabel.text = speaker.name
+            self.speakerCompanyLabel.text = speaker.company
+        case Language.english.rawValue:
+            self.speakerJobLabel.text = speaker.job
+            self.speakerNameLabel.text = speaker.name_en
+            self.speakerCompanyLabel.text = speaker.company
+        default:
+            break
+        }
+        
     }
     
     override func awakeFromNib() {

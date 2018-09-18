@@ -10,10 +10,19 @@ import UIKit
 
 class BannerImageCell: UICollectionViewCell {
     
-    @IBOutlet weak var bannerImageView: UIImageView!
+    @IBOutlet weak var bannerImageView: UIImageView! {
+        didSet {
+            bannerImageView.contentMode = .scaleAspectFit
+            bannerImageView.clipsToBounds = true
+        }
+    }
     
-    func updateUI(){
+    override func awakeFromNib() {
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
+    }
+    
+    func updateUI(url:URL){
+        self.bannerImageView.kf.setImage(with: url)
     }
 }

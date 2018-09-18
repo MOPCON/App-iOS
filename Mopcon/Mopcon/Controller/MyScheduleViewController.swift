@@ -10,12 +10,30 @@ import UIKit
 
 class MyScheduleViewController: UIViewController {
     
+    
+    var key = UserDefaultsKeys.dayOneSchedule
     var mySchedule = [Schedule.Payload.Agenda.Item.AgendaContent]()
     
     @IBOutlet weak var myScheduleTableView: UITableView!
+    @IBOutlet weak var dayOneButton: CustomSelectedButton!
+    @IBOutlet weak var dayTwoButton: CustomSelectedButton!
     
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func chooseDayOneAction(_ sender: Any) {
+        CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton as! CustomSelectedButton, notSelectedButton: dayTwoButton as! CustomSelectedButton)
+        key = UserDefaultsKeys.dayOneSchedule
+        mySchedule = MySchedules.get(forKey: key)
+        myScheduleTableView.reloadData()
+    }
+    
+    @IBAction func chooseDayTwoAction(_ sender: Any) {
+        CommonFucntionHelper.changeButtonColor(beTappedButton: dayTwoButton as! CustomSelectedButton, notSelectedButton: dayOneButton as! CustomSelectedButton)
+        key = UserDefaultsKeys.dayTwoSchedule
+        mySchedule = MySchedules.get(forKey: key)
+        myScheduleTableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -35,7 +53,7 @@ class MyScheduleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        mySchedule = MySchedules.get()
+        mySchedule = MySchedules.get(forKey: key)
         for i in mySchedule {
             print(i.name)
         }
@@ -93,8 +111,8 @@ extension MyScheduleViewController: DeleteMySchedule {
     
     func deleteSchedule(indexPath: IndexPath) {
         let removeSchedule = mySchedule[indexPath.section]
-        MySchedules.remove(agenda: removeSchedule)
-        mySchedule = MySchedules.get()
+        MySchedules.remove(agenda: removeSchedule, forKey: key)
+        mySchedule = MySchedules.get(forKey: key)
         myScheduleTableView.reloadData()
         
     }
