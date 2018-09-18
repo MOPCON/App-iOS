@@ -22,6 +22,18 @@ class NewsCollectionViewCell: UICollectionViewCell {
     }
     
     func updateUI(news:News.Payload) {
-        self.descriptionLabel.text = news.title
+        
+        
+        let language = CurrentLanguage.getLanguage()
+        switch language {
+        case Language.chinese.rawValue:
+            self.titleLabel.text = "最新消息"
+            self.descriptionLabel.text = news.title
+        case Language.english.rawValue:
+            self.titleLabel.text = "News"
+            self.descriptionLabel.text = news.title
+        default:
+            break
+        }
     }
 }
