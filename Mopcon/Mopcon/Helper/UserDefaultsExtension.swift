@@ -13,6 +13,15 @@ struct UserDefaultsKeys {
     static let dayTwoSchedule = "dayTwoSchedule"
 }
 
+class CurrentLanguage {
+    class func getLanguage() -> String {
+        if let language = UserDefaults.standard.string(forKey: "language") {
+            return language
+        } else {
+            return "Chinese"
+        }
+    }
+}
 
 class MySchedules {
     

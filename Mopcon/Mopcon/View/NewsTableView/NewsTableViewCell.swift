@@ -35,8 +35,19 @@ class NewsTableViewCell: UITableViewCell {
     }
 
     func updateUI(news: News.Payload) {
-        timeLabel.text = news.time
-        titleLabel.text = news.title
-        dedcriptionLabel.text = news.description
+        
+        let language = CurrentLanguage.getLanguage()
+        switch language {
+        case Language.chinese.rawValue:
+            timeLabel.text = news.time
+            titleLabel.text = news.title
+            dedcriptionLabel.text = news.description
+        case Language.english.rawValue:
+            timeLabel.text = news.time
+            titleLabel.text = news.title
+            dedcriptionLabel.text = news.description
+        default:
+            break
+        }
     }
 }

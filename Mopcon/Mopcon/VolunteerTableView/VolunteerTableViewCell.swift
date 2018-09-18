@@ -26,9 +26,20 @@ class VolunteerTableViewCell: UITableViewCell {
     }
     
     func updateUI(volunteer:Volunteer.Payload) {
-        volunteerOrganizationTitleLabel.text = volunteer.groupname
-        volunteerDescriptionLabel.text = volunteer.info
-        volunteerMembersLabel.text = volunteer.memberlist
+        
+        let language = CurrentLanguage.getLanguage()
+        switch language {
+        case Language.chinese.rawValue:
+            volunteerOrganizationTitleLabel.text = volunteer.groupname
+            volunteerDescriptionLabel.text = volunteer.info
+            volunteerMembersLabel.text = volunteer.memberlist
+        case Language.english.rawValue:
+            volunteerOrganizationTitleLabel.text = volunteer.groupname_en
+            volunteerDescriptionLabel.text = volunteer.info_en
+            volunteerMembersLabel.text = volunteer.memberlist
+        default:
+            break
+        }
     }
 
 }

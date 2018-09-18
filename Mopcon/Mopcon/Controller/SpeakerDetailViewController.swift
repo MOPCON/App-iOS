@@ -50,14 +50,27 @@ class SpeakerDetailViewController: UIViewController {
         if let url = URL(string: speaker.picture) {
             speakerImageView.kf.setImage(with: url)
         }
-        
         self.speakerImageView.makeCircle()
-        self.speakerJobLabel.text = speaker.job
-        self.speakerCompanyLabel.text = speaker.company
-        self.speakerNameLabel.text = speaker.name
-        self.infoLabel.text = speaker.info
-        self.scheduleTopicLabel.text = speaker.schedule_topic
-        self.typeLabel.text = speaker.type
+        
+        let language = CurrentLanguage.getLanguage()
+        switch language {
+        case Language.chinese.rawValue:
+            self.speakerJobLabel.text = speaker.job
+            self.speakerCompanyLabel.text = speaker.company
+            self.speakerNameLabel.text = speaker.name
+            self.infoLabel.text = speaker.info
+            self.scheduleTopicLabel.text = speaker.schedule_topic
+            self.typeLabel.text = speaker.type
+        case Language.english.rawValue:
+            self.speakerJobLabel.text = speaker.job
+            self.speakerCompanyLabel.text = speaker.company
+            self.speakerNameLabel.text = speaker.name_en
+            self.infoLabel.text = speaker.info_en
+            self.scheduleTopicLabel.text = speaker.schedule_topic_en
+            self.typeLabel.text = speaker.type
+        default:
+            break
+        }
     }
 
 }

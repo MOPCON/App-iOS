@@ -173,6 +173,77 @@
                                             <outlet property="titleLabel" destination="RlQ-Rq-fLk" id="kaC-bd-JY9"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LanguageCell" id="Ecs-Sc-5bG" customClass="LanguageCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="557" width="375" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmz-kl-vaB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3p-wA-Gr2" customClass="CornerBackgroundView" customModule="Mopcon" customModuleProvider="target">
+                                                            <rect key="frame" x="107.66666666666669" y="1.3333333333333321" width="160" height="32.333333333333343"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBh-DR-gCv" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
+                                                                    <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                    <state key="normal" title="中文">
+                                                                        <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="chooseDayOneAction:" destination="owx-2G-Z1J" eventType="touchUpInside" id="Pdd-PI-sa7"/>
+                                                                        <action selector="selectedChinese:" destination="Ecs-Sc-5bG" eventType="touchUpInside" id="44R-7d-RHv"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tlx-Ij-iow" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
+                                                                    <rect key="frame" x="80" y="0.0" width="80.333333333333314" height="32"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                                    <state key="normal" title="English">
+                                                                        <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="chooseDayTwoAction:" destination="owx-2G-Z1J" eventType="touchUpInside" id="8he-NO-Fl0"/>
+                                                                        <action selector="selectedEnglish:" destination="Ecs-Sc-5bG" eventType="touchUpInside" id="fxn-4z-G5w"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstItem="Tlx-Ij-iow" firstAttribute="leading" secondItem="BBh-DR-gCv" secondAttribute="trailing" id="0o9-Kb-fn9"/>
+                                                                <constraint firstAttribute="width" constant="160" id="3de-kC-Kie"/>
+                                                                <constraint firstAttribute="bottom" secondItem="BBh-DR-gCv" secondAttribute="bottom" id="74P-Zy-zMN"/>
+                                                                <constraint firstItem="BBh-DR-gCv" firstAttribute="leading" secondItem="K3p-wA-Gr2" secondAttribute="leading" id="8ak-DC-w5C"/>
+                                                                <constraint firstItem="Tlx-Ij-iow" firstAttribute="width" secondItem="BBh-DR-gCv" secondAttribute="width" id="9jr-dW-TrP"/>
+                                                                <constraint firstItem="BBh-DR-gCv" firstAttribute="width" secondItem="K3p-wA-Gr2" secondAttribute="width" multiplier="1:2" id="MbS-rg-u0X"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Tlx-Ij-iow" secondAttribute="bottom" id="NNZ-Ny-Olx"/>
+                                                                <constraint firstItem="Tlx-Ij-iow" firstAttribute="top" secondItem="K3p-wA-Gr2" secondAttribute="top" id="Zmo-7f-J4d"/>
+                                                                <constraint firstItem="BBh-DR-gCv" firstAttribute="top" secondItem="K3p-wA-Gr2" secondAttribute="top" id="sCW-KB-X5V"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="K3p-wA-Gr2" firstAttribute="centerY" secondItem="Tmz-kl-vaB" secondAttribute="centerY" id="0Ia-4o-NwH"/>
+                                                        <constraint firstItem="K3p-wA-Gr2" firstAttribute="centerX" secondItem="Tmz-kl-vaB" secondAttribute="centerX" id="rKn-7a-XBn"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Tmz-kl-vaB" firstAttribute="top" secondItem="Ecs-Sc-5bG" secondAttribute="top" id="8e7-hm-S8E"/>
+                                            <constraint firstItem="Tmz-kl-vaB" firstAttribute="leading" secondItem="Ecs-Sc-5bG" secondAttribute="leading" id="OaW-9n-DO6"/>
+                                            <constraint firstAttribute="bottom" secondItem="Tmz-kl-vaB" secondAttribute="bottom" id="dvj-RM-VWe"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tmz-kl-vaB" secondAttribute="trailing" id="xGF-nO-coP"/>
+                                        </constraints>
+                                        <size key="customSize" width="375" height="36"/>
+                                        <connections>
+                                            <outlet property="chineseButton" destination="BBh-DR-gCv" id="xct-zQ-V2W"/>
+                                            <outlet property="englishButton" destination="Tlx-Ij-iow" id="Zwl-TU-uxm"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CollectionViewHeader" id="TML-nx-Lfd" customClass="MopconHeader" customModule="Mopcon" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
@@ -219,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="181"/>
+            <point key="canvasLocation" x="347.10144927536237" y="180.57065217391306"/>
         </scene>
         <!--最新消息-->
         <scene sceneID="0kN-q0-Ir2">
@@ -1296,7 +1367,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spB-dj-Uqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2935.1999999999998" y="-774.06296851574223"/>
+            <point key="canvasLocation" x="2934.7826086956525" y="-774.45652173913049"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ii9-x1-MZz">

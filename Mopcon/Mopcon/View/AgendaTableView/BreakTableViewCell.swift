@@ -25,7 +25,16 @@ class BreakTableViewCell: UITableViewCell {
     }
     
     func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent) {
-        self.breakStepLabel.text = agenda.schedule_topic
+        
+        let language = CurrentLanguage.getLanguage()
+        switch language {
+        case Language.chinese.rawValue:
+            self.breakStepLabel.text = agenda.schedule_topic
+        case Language.english.rawValue:
+            self.breakStepLabel.text = agenda.schedule_topic_en
+        default:
+            break
+        }
     }
 
 }

@@ -8,10 +8,16 @@
 
 import UIKit
 
+enum Language:String {
+    case chinese = "Chinese"
+    case english = "English"
+}
+
 enum SectionName:Int {
     case Banner = 0
     case News
     case Grid
+    case Language
 }
 
 enum GridSectionName:Int{
@@ -28,6 +34,7 @@ enum GridSectionName:Int{
 class MainViewController: UIViewController {
     
     var firstNews:News.Payload?
+    var language = CurrentLanguage.getLanguage()
  
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
@@ -41,11 +48,9 @@ class MainViewController: UIViewController {
         mainCollectionView.dataSource = self
         mainCollectionView.backgroundView = UIImageView(image: UIImage(named: "bgMainPage"))
         getNews()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -69,13 +74,28 @@ class MainViewController: UIViewController {
         }
     }
     
-    
-
+    @objc func selectedLanguage(sender:CustomCornerButton) {
+        
+        
+        
+        switch sender.currentTitle {
+        case "中文":
+            UserDefaults.standard.set(Language.chinese.rawValue, forKey: "language")
+        case "English":
+            UserDefaults.standard.set(Language.english.rawValue, forKey: "language")
+        default:
+            return
+        }
+        
+        self.language = CurrentLanguage.getLanguage()
+        
+        mainCollectionView.reloadData()
+    }
 }
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -86,6 +106,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return 1
         case SectionName.Grid.rawValue:
             return gridTitle.count
+        case SectionName.Language.rawValue:
+            return 1
         default:
             return 0
         }
@@ -107,8 +129,20 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return newsCell
         case SectionName.Grid.rawValue:
             let gridCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.gridCell, for: indexPath) as! GridCollectionViewCell
-            gridCell.updateUI(imageName: self.gridImage[indexPath.item], title: self.gridTitle[indexPath.item])
+            switch language {
+            case Language.chinese.rawValue:
+                gridCell.updateUI(imageName: gridImage[indexPath.row], title: gridTitle[indexPath.row])
+            case Language.english.rawValue:
+                gridCell.updateUI(imageName: gridImage[indexPath.row], title: gridImage[indexPath.row])
+            default:
+                break
+            }
             return gridCell
+        case SectionName.Language.rawValue:
+            let language = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.languageCell, for: indexPath) as! LanguageCollectionViewCell
+            language.chineseButton.addTarget(self, action: #selector(selectedLanguage(sender:)), for: .touchUpInside)
+            language.englishButton.addTarget(self, action: #selector(selectedLanguage(sender:)), for: .touchUpInside)
+            return language
         default:
             break
         }
@@ -180,6 +214,8 @@ extension MainViewController: UICollectionViewDelegateFlowLayout{
             return CGSize(width: self.view.frame.width * 300/375, height: self.view.frame.height * (168/667))
         case SectionName.News.rawValue:
             return CGSize(width: self.view.frame.width * 336/375, height: self.view.frame.height * (72/667))
+        case SectionName.Language.rawValue:
+            return CGSize(width: self.view.frame.width * 336/375, height: 36)
         default:
             return CGSize(width: self.view.frame.width * 160/375, height: self.view.frame.width * 160/375)
         }

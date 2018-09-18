@@ -43,6 +43,17 @@ class ComminityDetailViewController: UIViewController {
         }
         communityNameLabel.text = community.title
         communityDescriptionLabel.text = community.info
+        
+        let language = CurrentLanguage.getLanguage()
+        switch language {
+        case Language.chinese.rawValue:
+            communityDescriptionLabel.text = community.info
+        case Language.english.rawValue:
+            communityDescriptionLabel.text = community.info_en
+        default:
+            break
+        }
+        
     }
 
 }
