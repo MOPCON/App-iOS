@@ -48,6 +48,12 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let url = URL(string: bannerData[indexPath.row].link) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
    
 }
 

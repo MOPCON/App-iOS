@@ -76,8 +76,6 @@ class MainViewController: UIViewController {
     
     @objc func selectedLanguage(sender:CustomCornerButton) {
         
-        
-        
         switch sender.currentTitle {
         case "中文":
             UserDefaults.standard.set(Language.chinese.rawValue, forKey: "language")

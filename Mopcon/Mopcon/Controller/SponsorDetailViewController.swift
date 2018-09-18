@@ -31,6 +31,12 @@ class SponsorDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @objc func showMore() {
+        if let sponsor = sponsor,let url = URL(string: sponsor.website) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
 
 }
 
@@ -69,6 +75,10 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
             
             if let sponsorInfoLabel = cell.viewWithTag(2) as? UILabel {
                 sponsorInfoLabel.text = sponsor.info
+            }
+            
+            if let seeMoreButton = cell.viewWithTag(3) as? UIButton {
+                seeMoreButton.addTarget(self, action: #selector(showMore), for: .touchUpInside)
             }
 
         }

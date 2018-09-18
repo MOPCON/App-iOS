@@ -534,6 +534,9 @@
                                             <constraint firstAttribute="width" constant="44" id="Ceu-ha-wAH"/>
                                         </constraints>
                                         <state key="normal" image="facebook"/>
+                                        <connections>
+                                            <action selector="connectToFacebook:" destination="Fou-IH-Vn3" eventType="touchUpInside" id="BWQ-EC-BEc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKv-1l-3kg">
                                         <rect key="frame" x="60" y="0.0" width="44" height="44"/>
@@ -542,6 +545,9 @@
                                             <constraint firstAttribute="height" constant="44" id="Rqm-cG-UrN"/>
                                         </constraints>
                                         <state key="normal" image="connect"/>
+                                        <connections>
+                                            <action selector="otherLink:" destination="Fou-IH-Vn3" eventType="touchUpInside" id="132-My-hyx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -1066,7 +1072,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTH-Hl-feP" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
+                                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTH-Hl-feP" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
                                                     <rect key="frame" x="160" y="7.6666666666666679" width="93" height="39.666666666666657"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="mTH-Hl-feP" secondAttribute="height" multiplier="7:3" id="8oa-tB-MbA"/>
