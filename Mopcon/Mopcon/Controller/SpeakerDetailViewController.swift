@@ -11,6 +11,7 @@ import UIKit
 class SpeakerDetailViewController: UIViewController {
     
     var speaker:Speaker.Payload?
+    var speaker_schedule:Schedule.Payload.Agenda.Item.AgendaContent?
 
     @IBOutlet weak var speakerImageView: UIImageView!
     @IBOutlet weak var speakerJobLabel: UILabel!
@@ -20,9 +21,8 @@ class SpeakerDetailViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var scheduleTopicLabel: UILabel!
     
-    @IBAction func addToMySchedule(_ sender: Any) {
-        
-        // TODO : 新增至行程
+    @IBAction func addToMySchedule(_ sender: UIButton) {
+        findSchedule()
     }
     
     override func viewDidLoad() {
@@ -33,10 +33,12 @@ class SpeakerDetailViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         //把backButton的顏色改成白色
         self.navigationController?.navigationBar.tintColor = UIColor.white
+            findSchedule()
         
         if let speaker = speaker {
             updateUI(speaker: speaker)
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,9 +46,31 @@ class SpeakerDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func findSchedule() {
+        ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { (payload, error) in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            if let payload = payload,let scheduleID = self.speaker?.schedule_id {
+                for agenda in payload.agenda {
+                    for item in agenda.items {
+                        for schedule in item.agendas {
+                            if scheduleID == schedule.schedule_id {
+                                self.speaker_schedule = schedule
+                                MySchedules.add(agenda: schedule, forKey: schedule.date!)
+                                return
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     func updateUI(speaker:Speaker.Payload) {
-        
         if let url = URL(string: speaker.picture) {
             speakerImageView.kf.setImage(with: url)
         }

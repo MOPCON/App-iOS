@@ -36,12 +36,7 @@ class SponsorsViewController: UIViewController {
         sponsorsCollectionView.delegate = self
         sponsorsCollectionView.dataSource = self
         
-        guard let url = URL(string: "https://dev.mopcon.org/2018/api/sponsor") else {
-            print("Invalid URL.")
-            return
-        }
-        
-        SponsorAPI.getAPI(url: url) { (payload, error) in
+        SponsorAPI.getAPI(url: MopconAPI.shared.sponsor) { (payload, error) in
             if let payload = payload {
                 
                 var tonyStark = [Sponsor.Payload]()

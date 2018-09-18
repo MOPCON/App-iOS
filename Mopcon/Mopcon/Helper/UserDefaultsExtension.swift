@@ -9,8 +9,8 @@
 import Foundation
 
 struct UserDefaultsKeys {
-    static let dayOneSchedule = "dayOneSchedule"
-    static let dayTwoSchedule = "dayTwoSchedule"
+    static let dayOneSchedule = "2018-11-03"
+    static let dayTwoSchedule = "2018-11-04"
 }
 
 class CurrentLanguage {

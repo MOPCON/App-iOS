@@ -33,11 +33,7 @@ class CommunicationViewController: UIViewController {
         //因為現在tableView就是group所以要把footer的高度拿掉，要不然會留一塊
         communicationTableView.sectionFooterHeight = 0
         
-        guard let url = URL(string: "https://dev.mopcon.org/2018/api/schedule-unconf") else {
-            return
-        }
-        
-        Schedule_unconfAPI.getAPI(url: url) { (payload, error) in
+        Schedule_unconfAPI.getAPI(url: MopconAPI.shared.schedule_unconf) { (payload, error) in
             if let payload = payload {
                 self.schedule_day1 = payload[0].items
                 self.schedule_day2 = payload[1].items

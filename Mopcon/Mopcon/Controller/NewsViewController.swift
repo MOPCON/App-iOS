@@ -30,31 +30,30 @@ class NewsViewController: UIViewController {
         getNews()
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func getNews() {
-        if let url = URL(string: "https://dev.mopcon.org/2018/api/news") {
-            NewsAPI.getAPI(url: url) { (news, error) in
-                if error != nil {
-                    print(error!.localizedDescription)
-                    return
-                }
+        
+        NewsAPI.getAPI(url: MopconAPI.shared.news) { (news, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            if let news = news {
+                self.news = news
                 
-                if let news = news {
-                    self.news = news
-                    
-                    DispatchQueue.main.async {
-                        self.newsTableView.reloadData()
-                    }
+                DispatchQueue.main.async {
+                    self.newsTableView.reloadData()
                 }
             }
         }
     }
-
+    
 }
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     
