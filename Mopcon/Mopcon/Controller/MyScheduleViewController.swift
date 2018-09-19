@@ -64,6 +64,10 @@ class MyScheduleViewController: UIViewController {
                 return false
             }
         }
+        
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.navigationItem.title = "Schedule"
+        }
     }
     
     override func didReceiveMemoryWarning() {

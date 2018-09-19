@@ -26,6 +26,13 @@ class SponsorDetailViewController: UIViewController {
         sponsorsTableView.dataSource = self
         sponsorsTableView.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.navigationItem.title = "Sponsor"
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -37,7 +44,6 @@ class SponsorDetailViewController: UIViewController {
             UIApplication.shared.open(url, options: [:])
         }
     }
-
 }
 
 extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegate {
