@@ -13,7 +13,7 @@ class VolunteerViewController: UIViewController {
     var volunteers = [Volunteer.Payload]()
     
     @IBOutlet weak var volunteerTableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         volunteerTableView.separatorStyle = .none
@@ -25,33 +25,33 @@ class VolunteerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     func getData() {
-        if let url = URL(string: "https://dev.mopcon.org/2018/api/volunteer") {
-            VolunteerAPI.getAPI(url: url) { (volunteers, error) in
-                
-                if error != nil {
-                    print(error!.localizedDescription)
-                    return
-                }
-                
-                if let volunteers = volunteers {
-                    print("get Data")
-                    self.volunteers = volunteers
-                    
-                    DispatchQueue.main.async {
-                        self.volunteerTableView.reloadData()
-                    }
-                }
-                
-                
+        
+        VolunteerAPI.getAPI(url: MopconAPI.shared.volunteer) { (volunteers, error) in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+                return
             }
+            
+            if let volunteers = volunteers {
+                print("get Data")
+                self.volunteers = volunteers
+                
+                DispatchQueue.main.async {
+                    self.volunteerTableView.reloadData()
+                }
+            }
+            
+            
         }
     }
+    
     
 }
 

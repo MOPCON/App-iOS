@@ -19,12 +19,16 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dedcriptionLabel: UILabel!
   
-    var delegate:ButtonDidTappedDelegate?
+//    var delegate:ButtonDidTappedDelegate?
+    var news:News.Payload?
     var index:IndexPath?
     
     @IBAction func messageConnectAction(_ sender: UIButton) {
-        print("OK")
-        delegate?.messageConnectionButtonDidTapped(index: index!)
+//        print("OK")
+//        delegate?.messageConnectionButtonDidTapped(index: index!)
+        if let news = news, let url = URL(string: news.link) {
+            UIApplication.shared.open(url, options: [:])
+        }
     }
     
     

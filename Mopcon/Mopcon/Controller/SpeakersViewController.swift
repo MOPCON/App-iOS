@@ -31,12 +31,8 @@ class SpeakersViewController: UIViewController {
         speakersTableView.dataSource = self
         speakersTableView.separatorStyle = .none
         
-        guard let url = URL(string: "https://dev.mopcon.org/2018/api/speaker") else {
-            print("Invalid URL.")
-            return
-        }
-        
-        SpeakerAPI.getAPI(url: url) { (payload, error) in
+
+        SpeakerAPI.getAPI(url: MopconAPI.shared.speaker) { (payload, error) in
             if let payload = payload {
                 self.speakers = payload
                 DispatchQueue.main.async {
@@ -45,6 +41,13 @@ class SpeakersViewController: UIViewController {
             } else {
                 print(error?.localizedDescription)
             }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.navigationItem.title = "Speaker"
         }
     }
 

@@ -16,6 +16,19 @@ class ComminityDetailViewController: UIViewController {
     @IBOutlet weak var communityNameLabel: UILabel!
     @IBOutlet weak var communityDescriptionLabel: UILabel!
     
+    @IBAction func connectToFacebook(_ sender: UIButton) {
+        if let community = community, let url = URL(string: community.facebook) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    @IBAction func otherLink(_ sender: UIButton) {
+        if let community = community, let url = URL(string: community.other_links) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         communityDescriptionLabel.adjustsFontSizeToFitWidth = true
@@ -28,6 +41,13 @@ class ComminityDetailViewController: UIViewController {
         
         if let community = community {
             updateUI(community: community)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.navigationItem.title = "Community"
         }
     }
 

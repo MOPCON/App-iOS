@@ -24,11 +24,7 @@ class CommunityImageViewController: UIViewController {
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
         
-        guard let url = URL(string: "https://dev.mopcon.org/2018/api/community") else {
-            return
-        }
-        
-        CommunityAPI.getAPI(url: url) { (payload, error) in
+        CommunityAPI.getAPI(url: MopconAPI.shared.community) { (payload, error) in
             if let payload = payload {
                 self.communitys = payload
                 DispatchQueue.main.async {

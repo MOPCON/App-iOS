@@ -26,12 +26,24 @@ class SponsorDetailViewController: UIViewController {
         sponsorsTableView.dataSource = self
         sponsorsTableView.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.navigationItem.title = "Sponsor"
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @objc func showMore() {
+        if let sponsor = sponsor,let url = URL(string: sponsor.website) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
 }
 
 extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegate {
@@ -69,6 +81,10 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
             
             if let sponsorInfoLabel = cell.viewWithTag(2) as? UILabel {
                 sponsorInfoLabel.text = sponsor.info
+            }
+            
+            if let seeMoreButton = cell.viewWithTag(3) as? UIButton {
+                seeMoreButton.addTarget(self, action: #selector(showMore), for: .touchUpInside)
             }
 
         }
