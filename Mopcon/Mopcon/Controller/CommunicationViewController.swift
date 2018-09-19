@@ -47,6 +47,14 @@ class CommunicationViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.navigationItem.title = "Communication"
+            self.goToMainAgendaVCButton.setTitle("Agenda", for: .normal)
+        }
+    }
+    
     
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)

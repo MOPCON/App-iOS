@@ -43,6 +43,13 @@ class ComminityDetailViewController: UIViewController {
             updateUI(community: community)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.navigationItem.title = "Community"
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
