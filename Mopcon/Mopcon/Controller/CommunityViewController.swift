@@ -50,6 +50,16 @@ class CommunityViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.navigationItem.title = "Group"
+            self.volunteerButton.setTitle("Volunteer", for: .normal)
+            self.mainGroupButton.setTitle("Community", for: .normal)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

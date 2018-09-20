@@ -54,9 +54,6 @@ class AgendaViewController: UIViewController {
         self.navigationController?.pushViewController(communicationVC, animated: true)
     }
     
-    
-    
-    
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -74,6 +71,13 @@ class AgendaViewController: UIViewController {
         agendaTableView.sectionFooterHeight = 0
         
         getSchedule()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.goToCommunicationVCButton.setTitle("Communication", for: .normal)
+            self.navigationItem.title = "Agenda"
+        }
     }
     
     override func didReceiveMemoryWarning() {
