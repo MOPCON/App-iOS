@@ -19,6 +19,34 @@ platform :ios do
   desc "Generate new localized screenshots"
   lane :screenshots do
     capture_screenshots(workspace: "Mopcon.xcworkspace", scheme: "Mopcon")
-    upload_to_app_store(skip_binary_upload: true, skip_metadata: true)
+    #upload_to_app_store(skip_binary_upload: true, skip_metadata: true)
   end
+
+  lane :test do
+    scan
+  end
+
+  lane :beta do
+    xcversion(version: "10")
+    get_certificates           # invokes cert
+    get_provisioning_profile   # invokes sigh
+
+    # new_build_number = next_version
+    # set_build_number(
+    #   new_build_number
+    # )
+    ios_set_build_number(build_number: next_version) # Time.now.to_i.to_s[0..7]
+
+    build_app(
+      scheme: "Mopcon",
+      workspace: "Mopcon.xcworkspace",
+      include_bitcode: true
+    )
+    upload_to_testflight
+  end
+
+  def next_version
+    Time.now.strftime("%Y%m%d%H%M")
+  end
+
 end
