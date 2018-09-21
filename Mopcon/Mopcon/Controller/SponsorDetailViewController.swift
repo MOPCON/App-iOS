@@ -57,8 +57,10 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: cellidentifer, for: indexPath)
         if let sponsor = sponsor {
             // Get sponsor Data
-            if let sponsorImageView = cell.viewWithTag(0) as? UIImageView {
-                sponsorImageView.getImage(address: sponsor.logo)
+            if let sponsorImageView = cell.viewWithTag(3) as? UIImageView {
+                if let url = URL(string: sponsor.logo) {
+                    sponsorImageView.kf.setImage(with: url)
+                }
             }
             
             if let sponsorNameLabel = cell.viewWithTag(1) as? UILabel {

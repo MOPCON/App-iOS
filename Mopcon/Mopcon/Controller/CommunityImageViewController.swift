@@ -31,7 +31,6 @@ class CommunityImageViewController: UIViewController {
         CommunityAPI.getAPI(url: url) { (payload, error) in
             if let payload = payload {
                 self.communitys = payload
-                print(payload)
                 DispatchQueue.main.async {
                     self.imageCollectionView.reloadData()
                 }

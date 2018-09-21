@@ -10,8 +10,9 @@ import UIKit
 
 class NewsViewController: UIViewController {
     
-    @IBOutlet weak var newsTableView: UITableView!
+    var news = [News.Payload]()
     
+    @IBOutlet weak var newsTableView: UITableView!
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -25,6 +26,8 @@ class NewsViewController: UIViewController {
         newsTableView.delegate = self
         newsTableView.dataSource = self
         newsTableView.separatorStyle = .none
+        
+        getNews()
         // Do any additional setup after loading the view.
     }
 
@@ -32,18 +35,38 @@ class NewsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func getNews() {
+        if let url = URL(string: "https://dev.mopcon.org/2018/api/news") {
+            NewsAPI.getAPI(url: url) { (news, error) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                    return
+                }
+                
+                if let news = news {
+                    self.news = news
+                    
+                    DispatchQueue.main.async {
+                        self.newsTableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
 
 }
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return news.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newsCell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCellIDManager.newsCell, for: indexPath) as! NewsTableViewCell
         newsCell.index = indexPath
         newsCell.delegate = self
+        newsCell.updateUI(news: news[indexPath.row])
         return newsCell
     }
     

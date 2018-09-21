@@ -38,9 +38,22 @@ class ComminityDetailViewController: UIViewController {
     
     func updateUI(community:Community.Payload) {
         
-//        communityDetailImageView.getImage(address: )
+        if let url = URL(string: community.logo) {
+            communityDetailImageView.kf.setImage(with: url)
+        }
         communityNameLabel.text = community.title
         communityDescriptionLabel.text = community.info
+        
+        let language = CurrentLanguage.getLanguage()
+        switch language {
+        case Language.chinese.rawValue:
+            communityDescriptionLabel.text = community.info
+        case Language.english.rawValue:
+            communityDescriptionLabel.text = community.info_en
+        default:
+            break
+        }
+        
     }
 
 }

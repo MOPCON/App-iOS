@@ -13,10 +13,15 @@ class NewsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var moreInfoLabel: UILabel!
     
-    func updateUI(){
+    override func awakeFromNib() {
+        super.awakeFromNib()
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
         self.layer.borderColor = UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 1).cgColor
         self.layer.borderWidth = 1
+    }
+    
+    func updateUI(news:News.Payload) {
+        self.descriptionLabel.text = news.title
     }
 }
