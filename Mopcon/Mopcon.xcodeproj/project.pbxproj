@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49A683912153248100EC6EA7 /* MopconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A683902153248100EC6EA7 /* MopconUITests.swift */; };
+		49A6839921532E4A00EC6EA7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */; };
 		5E1753AA2150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1753A92150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift */; };
 		5E1753AC2150D4BA00A5D4C5 /* MopconAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1753AB2150D4BA00A5D4C5 /* MopconAPI.swift */; };
 		5E1DC75F214946CB00F953F8 /* Volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DC75E214946CB00F953F8 /* Volunteer.swift */; };
@@ -91,10 +93,24 @@
 		D6F0BE6920F0A02B0053A100 /* ConferenceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F0BE6820F0A02B0053A100 /* ConferenceDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		49A683932153248100EC6EA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D633461620E8FFC60033E5B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D633461D20E8FFC60033E5B4;
+			remoteInfo = Mopcon;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mopcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		293FFEAF5ECBACAF171BB104 /* Pods-Mopcon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.release.xcconfig"; sourceTree = "<group>"; };
 		36A8ADA41F4B2FE3D1F03AD3 /* Pods-Mopcon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.debug.xcconfig"; sourceTree = "<group>"; };
+		49A6838E2153248000EC6EA7 /* MopconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MopconUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49A683902153248100EC6EA7 /* MopconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconUITests.swift; sourceTree = "<group>"; };
+		49A683922153248100EC6EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		5E1753A92150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCollectionViewCell.swift; sourceTree = "<group>"; };
 		5E1753AB2150D4BA00A5D4C5 /* MopconAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconAPI.swift; sourceTree = "<group>"; };
 		5E1DC75E214946CB00F953F8 /* Volunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer.swift; sourceTree = "<group>"; };
@@ -181,6 +197,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		49A6838B2153248000EC6EA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D633461B20E8FFC60033E5B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,6 +221,16 @@
 				0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49A6838F2153248100EC6EA7 /* MopconUITests */ = {
+			isa = PBXGroup;
+			children = (
+				49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */,
+				49A683902153248100EC6EA7 /* MopconUITests.swift */,
+				49A683922153248100EC6EA7 /* Info.plist */,
+			);
+			path = MopconUITests;
 			sourceTree = "<group>";
 		};
 		5E349C9B212270ED0060297A /* API */ = {
@@ -275,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				D633462020E8FFC60033E5B4 /* Mopcon */,
+				49A6838F2153248100EC6EA7 /* MopconUITests */,
 				D633461F20E8FFC60033E5B4 /* Products */,
 				960B7C1F8806742F9A864552 /* Pods */,
 				03F6A52C60EC4ABC5E9314F0 /* Frameworks */,
@@ -285,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				D633461E20E8FFC60033E5B4 /* Mopcon.app */,
+				49A6838E2153248000EC6EA7 /* MopconUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -471,6 +506,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		49A6838D2153248000EC6EA7 /* MopconUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49A683972153248100EC6EA7 /* Build configuration list for PBXNativeTarget "MopconUITests" */;
+			buildPhases = (
+				49A6838A2153248000EC6EA7 /* Sources */,
+				49A6838B2153248000EC6EA7 /* Frameworks */,
+				49A6838C2153248000EC6EA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49A683942153248100EC6EA7 /* PBXTargetDependency */,
+			);
+			name = MopconUITests;
+			productName = MopconUITests;
+			productReference = 49A6838E2153248000EC6EA7 /* MopconUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		D633461D20E8FFC60033E5B4 /* Mopcon */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D633463320E8FFC70033E5B4 /* Build configuration list for PBXNativeTarget "Mopcon" */;
@@ -496,10 +549,14 @@
 		D633461620E8FFC60033E5B4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = EthanLin;
 				TargetAttributes = {
+					49A6838D2153248000EC6EA7 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = D633461D20E8FFC60033E5B4;
+					};
 					D633461D20E8FFC60033E5B4 = {
 						CreatedOnToolsVersion = 9.4;
 					};
@@ -519,11 +576,19 @@
 			projectRoot = "";
 			targets = (
 				D633461D20E8FFC60033E5B4 /* Mopcon */,
+				49A6838D2153248000EC6EA7 /* MopconUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		49A6838C2153248000EC6EA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D633461C20E8FFC60033E5B4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -577,6 +642,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		49A6838A2153248000EC6EA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49A683912153248100EC6EA7 /* MopconUITests.swift in Sources */,
+				49A6839921532E4A00EC6EA7 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D633461A20E8FFC60033E5B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -663,6 +737,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		49A683942153248100EC6EA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D633461D20E8FFC60033E5B4 /* Mopcon */;
+			targetProxy = 49A683932153248100EC6EA7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D633462520E8FFC60033E5B4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -683,6 +765,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		49A683952153248100EC6EA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JA387Z4D7Q;
+				INFOPLIST_FILE = MopconUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.deepthought.MopconUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Mopcon;
+			};
+			name = Debug;
+		};
+		49A683962153248100EC6EA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JA387Z4D7Q;
+				INFOPLIST_FILE = MopconUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.deepthought.MopconUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Mopcon;
+			};
+			name = Release;
+		};
 		D633463120E8FFC70033E5B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -717,6 +844,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 201809201332;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -740,6 +868,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -777,6 +906,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 201809201332;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -794,6 +924,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -803,14 +934,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4PAC9XA99N;
+				DEVELOPMENT_TEAM = JA387Z4D7Q;
 				INFOPLIST_FILE = Mopcon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ethan510010.Mopcon;
+				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -823,14 +954,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4PAC9XA99N;
+				DEVELOPMENT_TEAM = JA387Z4D7Q;
 				INFOPLIST_FILE = Mopcon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ethan510010.Mopcon;
+				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -840,6 +971,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		49A683972153248100EC6EA7 /* Build configuration list for PBXNativeTarget "MopconUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49A683952153248100EC6EA7 /* Debug */,
+				49A683962153248100EC6EA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D633461920E8FFC60033E5B4 /* Build configuration list for PBXProject "Mopcon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
