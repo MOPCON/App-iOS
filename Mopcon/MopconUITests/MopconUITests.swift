@@ -30,13 +30,63 @@ class MopconUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
+    func testSnapshots() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
       let app = XCUIApplication()
       XCUIDevice.shared.orientation = .portrait
-      //app.launch()
-      snapshot("Main")
+
+      let currentLanguage = Locale.preferredLanguages[0]
+      var status = false
+
+      let collectionView = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .collectionView).element
+      if currentLanguage == "en-US" || currentLanguage == "en" {
+        collectionView.swipeUp()
+        app.collectionViews/*@START_MENU_TOKEN@*/.buttons["English"]/*[[".cells.buttons[\"English\"]",".buttons[\"English\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        collectionView.swipeDown()
+        status = true
+      } else {
+        collectionView.swipeUp()
+        app.collectionViews.buttons["中文"].tap()
+        collectionView.swipeDown()
+        status = false
+      }
+
+      snapshot("Lanch")
+
+      let cellsQuery = app.collectionViews.cells
+      cellsQuery.otherElements.containing(.image, identifier:"Agenda").element.tap()
+      snapshot("Agenda")
+      if status {
+        app.navigationBars["Agenda"].buttons["Item"].tap()
+      } else {
+        app.navigationBars["議程"].buttons["Item"].tap()
+      }
+
+      cellsQuery.otherElements.containing(.image, identifier:"Sponsor").element.tap()
+      snapshot("Sponsor")
+      if status {
+        app.navigationBars["Sponsor"].buttons["Item"].tap()
+      } else {
+        app.navigationBars["贊助商"].buttons["Item"].tap()
+      }
+
+      collectionView.swipeUp()
+      cellsQuery.otherElements.containing(.image, identifier:"Speaker").element.tap()
+      snapshot("Speaker")
+      if status {
+        app.navigationBars["Speaker"].buttons["Item"].tap()
+      } else {
+        app.navigationBars["講者"].buttons["Item"].tap()
+      }
+
+      cellsQuery.otherElements.containing(.image, identifier:"Group").element.tap()
+      snapshot("Group")
+      if status {
+        app.navigationBars["Group"].buttons["Item"].tap()
+      } else {
+        app.navigationBars["社群"].buttons["Item"].tap()
+      }
     }
 
 }

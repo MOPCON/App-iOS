@@ -77,3 +77,6 @@ fastlane/test_output
 /Mopcon/fastlane/README.md
 /Mopcon/fastlane/report.xml
 /Mopcon/fastlane/screenshots
+/Mopcon/.bundle
+/Mopcon/fastlane/metadata
+/Mopcon/vendor
