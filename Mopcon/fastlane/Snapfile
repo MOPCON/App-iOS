@@ -11,7 +11,7 @@
 
  languages([
    "en-US",
-   "zh-TW"
+   "zh-Hant"
 #   "de-DE",
 #   "it-IT",
 #   ["pt", "pt_BR"] # Portuguese with Brazilian locale
