@@ -28,7 +28,6 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
                 
                 if let data = bannerData {
                     self.bannerData = data
-                    print("Banner 數量：\(self.bannerData.count)")
                     DispatchQueue.main.async {
                         self.bannerImageCollectionView.reloadData()
                     }

@@ -7,5 +7,7 @@ target 'Mopcon' do
 
   # Pods for Mopcon
     pod 'Kingfisher'
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
 
 end
