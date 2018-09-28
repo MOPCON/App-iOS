@@ -10,6 +10,7 @@ import UIKit
 
 protocol CollectionViewItemDidSelected {
     func collectionViewItemDidSelected(index:IndexPath, community:Community.Payload)
+    func stopSpinner()
 }
 
 class CommunityImageViewController: UIViewController {
@@ -24,23 +25,32 @@ class CommunityImageViewController: UIViewController {
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
         
-        guard let url = URL(string: "https://dev.mopcon.org/2018/api/community") else {
-            return
-        }
-        
-        CommunityAPI.getAPI(url: url) { (payload, error) in
-            if let payload = payload {
-                self.communitys = payload
-                DispatchQueue.main.async {
-                    self.imageCollectionView.reloadData()
-                }
-            }
-        }
+        getCommunity()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getCommunity() {
+        
+        CommunityAPI.getAPI(url: MopconAPI.shared.community) { (payload, error) in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+                self.delegate?.stopSpinner()
+                return
+            }
+            
+            if let payload = payload {
+                self.communitys = payload
+                DispatchQueue.main.async {
+                    self.imageCollectionView.reloadData()
+                    self.delegate?.stopSpinner()
+                }
+            }
+        }
     }
     
 }

@@ -8,9 +8,9 @@
 
 import UIKit
 
-enum ScheduleDay {
-    case dayOne
-    case dayTwo
+enum ScheduleDay:String {
+    case dayOne = "2018-11-03"
+    case dayTwo = "2018-11-04"
 }
 
 class AgendaViewController: UIViewController {
@@ -20,7 +20,7 @@ class AgendaViewController: UIViewController {
     @IBOutlet weak var goToCommunicationVCButton: CustomCornerButton!
     @IBOutlet weak var agendaTableView: UITableView!
     
-    var scheduleDay = ScheduleDay.dayOne
+    var scheduleDay = ScheduleDay.dayOne.rawValue
     
     var selectedSchedule = [Schedule.Payload.Agenda.Item]()
     var selectedAgenda:Schedule.Payload.Agenda.Item.AgendaContent?
@@ -29,11 +29,13 @@ class AgendaViewController: UIViewController {
     var schedule_day1 = [Schedule.Payload.Agenda.Item]()
     var schedule_day2 = [Schedule.Payload.Agenda.Item]()
     
+    let spinner = LoadingTool.setActivityindicator()
+    
     
     @IBAction func chooseDayOneAction(_ sender: Any) {
         CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton as! CustomSelectedButton, notSelectedButton: dayTwoButton as! CustomSelectedButton)
         selectedSchedule = schedule_day1
-        scheduleDay = ScheduleDay.dayOne
+        scheduleDay = ScheduleDay.dayOne.rawValue
         mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayOneSchedule)
         agendaTableView.reloadData()
     }
@@ -41,7 +43,7 @@ class AgendaViewController: UIViewController {
     @IBAction func chooseDayTwoAction(_ sender: Any) {
         CommonFucntionHelper.changeButtonColor(beTappedButton: dayTwoButton as! CustomSelectedButton, notSelectedButton: dayOneButton as! CustomSelectedButton)
         selectedSchedule = schedule_day2
-        scheduleDay = ScheduleDay.dayTwo
+        scheduleDay = ScheduleDay.dayTwo.rawValue
         mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayTwoSchedule)
         agendaTableView.reloadData()
     }
@@ -53,9 +55,6 @@ class AgendaViewController: UIViewController {
         self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
         self.navigationController?.pushViewController(communicationVC, animated: true)
     }
-    
-    
-    
     
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
@@ -76,6 +75,13 @@ class AgendaViewController: UIViewController {
         getSchedule()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.goToCommunicationVCButton.setTitle("Communication", for: .normal)
+            self.navigationItem.title = "Agenda"
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -90,15 +96,16 @@ class AgendaViewController: UIViewController {
     }
     
     func getSchedule() {
-        guard let url = URL(string: "https://dev.mopcon.org/2018/api/schedule") else {
-            print("Invalid URL.")
-            return
-        }
         
-        ScheduleAPI.getAPI(url: url) { (payload, error) in
+        spinner.center = view.center
+        spinner.startAnimating()
+        self.view.addSubview(spinner)
+        
+        ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { (payload, error) in
             
             if error != nil {
                 print(error!.localizedDescription)
+                self.spinner.removeFromSuperview()
                 return
             }
             
@@ -108,6 +115,7 @@ class AgendaViewController: UIViewController {
                 self.selectedSchedule = self.schedule_day1
                 DispatchQueue.main.async {
                     self.agendaTableView.reloadData()
+                    self.spinner.removeFromSuperview()
                 }
             }
         }
@@ -207,14 +215,14 @@ extension AgendaViewController: WhichCellButtonDidTapped {
         let agenda = selectedSchedule[index.section].agendas[index.row]
         var key = UserDefaultsKeys.dayOneSchedule
         
-        if scheduleDay == .dayTwo {
+        if scheduleDay == ScheduleDay.dayTwo.rawValue {
             key = UserDefaultsKeys.dayTwoSchedule
         }
         
         if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarChecked") {
-            MySchedules.add(agenda: agenda, forKey: key)
+            MySchedules.add(agenda: agenda, forKey: agenda.date!)
         } else if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarNormal"){
-            MySchedules.remove(agenda: agenda, forKey: key)
+            MySchedules.remove(agenda: agenda, forKey: agenda.date!)
         }
         
         self.mySchedule = MySchedules.get(forKey: key)

@@ -28,7 +28,6 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
                 
                 if let data = bannerData {
                     self.bannerData = data
-                    print("Banner 數量：\(self.bannerData.count)")
                     DispatchQueue.main.async {
                         self.bannerImageCollectionView.reloadData()
                     }
@@ -47,6 +46,12 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
             cell.updateUI(url: url)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let url = URL(string: bannerData[indexPath.row].link) {
+            UIApplication.shared.open(url, options: [:])
+        }
     }
    
 }

@@ -20,6 +20,7 @@ class SponsorsViewController: UIViewController {
    
     var selectedSponsor: Sponsor.Payload?
     var sponsors = [[Sponsor.Payload]]()
+    let spinner = LoadingTool.setActivityindicator()
     
     @IBOutlet weak var sponsorsCollectionView: UICollectionView!
     
@@ -36,14 +37,44 @@ class SponsorsViewController: UIViewController {
         sponsorsCollectionView.delegate = self
         sponsorsCollectionView.dataSource = self
         
-        guard let url = URL(string: "https://dev.mopcon.org/2018/api/sponsor") else {
-            print("Invalid URL.")
-            return
+        getSponsors()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.navigationItem.title = "Sponsor"
         }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIDManager.performSponsorDetail{
+            if let vc = segue.destination as? SponsorDetailViewController {
+                vc.sponsor = self.selectedSponsor
+            }
+        }
+    }
+    
+    func getSponsors() {
         
-        SponsorAPI.getAPI(url: url) { (payload, error) in
+        spinner.startAnimating()
+        spinner.center = view.center
+        self.view.addSubview(spinner)
+        
+        SponsorAPI.getAPI(url: MopconAPI.shared.sponsor) { (payload, error) in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+                self.spinner.removeFromSuperview()
+                return
+            }
+            
             if let payload = payload {
-                
                 var tonyStark = [Sponsor.Payload]()
                 var bruceWayne = [Sponsor.Payload]()
                 var geek = [Sponsor.Payload]()
@@ -73,20 +104,8 @@ class SponsorsViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.sponsorsCollectionView.reloadData()
+                    self.spinner.removeFromSuperview()
                 }
-            }
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIDManager.performSponsorDetail{
-            if let vc = segue.destination as? SponsorDetailViewController {
-                vc.sponsor = self.selectedSponsor
             }
         }
     }

@@ -16,6 +16,8 @@ class CommunityViewController: UIViewController {
     @IBOutlet weak var mainGroupButton: CustomSelectedButton!
     @IBOutlet weak var volunteerButton: CustomSelectedButton!
     
+    let spinner = LoadingTool.setActivityindicator()
+    
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -48,7 +50,21 @@ class CommunityViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
         
+        spinner.startAnimating()
+        spinner.center = view.center
+        view.addSubview(spinner)
+        
         // Do any additional setup after loading the view.
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.navigationItem.title = "Group"
+            self.volunteerButton.setTitle("Volunteer", for: .normal)
+            self.mainGroupButton.setTitle("Community", for: .normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +87,11 @@ class CommunityViewController: UIViewController {
 
 }
 extension CommunityViewController: CollectionViewItemDidSelected{
+    
+    func stopSpinner() {
+        self.spinner.removeFromSuperview()
+    }
+    
     func collectionViewItemDidSelected(index: IndexPath, community: Community.Payload) {
         performSegue(withIdentifier: SegueIDManager.performCommunityDetail, sender: community)
     }
