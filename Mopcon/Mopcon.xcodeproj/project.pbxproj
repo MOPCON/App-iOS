@@ -41,6 +41,7 @@
 		5EE7310A215B8D1500201702 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE73109215B8D1500201702 /* User.swift */; };
 		5EE7310C215B978200201702 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE7310B215B978200201702 /* Result.swift */; };
 		5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */; };
+		5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF59B9C215DBCD200CF622C /* LoadingTool.swift */; };
 		854F882CF3DD3FD013EEC09B /* Pods_Mopcon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */; };
 		D6240CDF20EC98AD002C89E7 /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */; };
 		D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE020EC9A70002C89E7 /* SponsorHeaderView.swift */; };
@@ -149,6 +150,7 @@
 		5EE7310B215B978200201702 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		5EF59B97215CDF2800CF622C /* Mopcon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mopcon.entitlements; sourceTree = "<group>"; };
 		5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5EF59B9C215DBCD200CF622C /* LoadingTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTool.swift; sourceTree = "<group>"; };
 		D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
 		D6240CE020EC9A70002C89E7 /* SponsorHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorHeaderView.swift; sourceTree = "<group>"; };
 		D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorSmallCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 				D6F0BE6620F093AD0053A100 /* UserdefaultKeyManager.swift */,
 				D66778E320FB062F00E9CA34 /* MyScheduleTableViewCellID.swift */,
 				5E349CA7212411570060297A /* SponsorTableViewCellID.swift */,
+				5EF59B9C215DBCD200CF622C /* LoadingTool.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */,
 				D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */,
 				5E349CA3212315C90060297A /* SponsorsAPI.swift in Sources */,
+				5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */,
 				D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */,
 				D6240CDF20EC98AD002C89E7 /* SponsorsViewController.swift in Sources */,
 				D633462A20E8FFC60033E5B4 /* Mopcon.xcdatamodeld in Sources */,

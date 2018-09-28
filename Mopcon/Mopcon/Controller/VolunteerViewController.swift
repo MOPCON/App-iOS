@@ -11,7 +11,7 @@ import UIKit
 class VolunteerViewController: UIViewController {
     
     var volunteers = [Volunteer.Payload]()
-    
+
     @IBOutlet weak var volunteerTableView: UITableView!
     
     override func viewDidLoad() {
@@ -20,9 +20,7 @@ class VolunteerViewController: UIViewController {
         volunteerTableView.delegate = self
         volunteerTableView.dataSource = self
         volunteerTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 24, right: 0)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
         getData()
     }
     
@@ -40,9 +38,7 @@ class VolunteerViewController: UIViewController {
             }
             
             if let volunteers = volunteers {
-                print("get Data")
                 self.volunteers = volunteers
-                
                 DispatchQueue.main.async {
                     self.volunteerTableView.reloadData()
                 }
