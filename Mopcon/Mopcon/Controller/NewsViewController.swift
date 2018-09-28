@@ -11,6 +11,7 @@ import UIKit
 class NewsViewController: UIViewController {
     
     var news = [News.Payload]()
+    let spinner = LoadingTool.setActivityindicator()
     
     @IBOutlet weak var newsTableView: UITableView!
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
@@ -46,9 +47,14 @@ class NewsViewController: UIViewController {
     
     func getNews() {
         
+        spinner.startAnimating()
+        spinner.center = view.center
+        self.view.addSubview(spinner)
+        
         NewsAPI.getAPI(url: MopconAPI.shared.news) { (news, error) in
             if error != nil {
                 print(error!.localizedDescription)
+                self.spinner.removeFromSuperview()
                 return
             }
             
@@ -56,6 +62,7 @@ class NewsViewController: UIViewController {
                 self.news = news
                 
                 DispatchQueue.main.async {
+                    self.spinner.removeFromSuperview()
                     self.newsTableView.reloadData()
                 }
             }

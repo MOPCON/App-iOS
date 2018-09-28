@@ -29,6 +29,8 @@ class AgendaViewController: UIViewController {
     var schedule_day1 = [Schedule.Payload.Agenda.Item]()
     var schedule_day2 = [Schedule.Payload.Agenda.Item]()
     
+    let spinner = LoadingTool.setActivityindicator()
+    
     
     @IBAction func chooseDayOneAction(_ sender: Any) {
         CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton as! CustomSelectedButton, notSelectedButton: dayTwoButton as! CustomSelectedButton)
@@ -95,10 +97,15 @@ class AgendaViewController: UIViewController {
     
     func getSchedule() {
         
+        spinner.center = view.center
+        spinner.startAnimating()
+        self.view.addSubview(spinner)
+        
         ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { (payload, error) in
             
             if error != nil {
                 print(error!.localizedDescription)
+                self.spinner.removeFromSuperview()
                 return
             }
             
@@ -108,6 +115,7 @@ class AgendaViewController: UIViewController {
                 self.selectedSchedule = self.schedule_day1
                 DispatchQueue.main.async {
                     self.agendaTableView.reloadData()
+                    self.spinner.removeFromSuperview()
                 }
             }
         }

@@ -12,6 +12,7 @@ class SpeakersViewController: UIViewController {
     
     var selectedSpeaker:Speaker.Payload?
     var speakers = [Speaker.Payload]()
+    let spinner = LoadingTool.setActivityindicator()
     
     @IBOutlet weak var speakersTableView: UITableView!
 
@@ -31,17 +32,8 @@ class SpeakersViewController: UIViewController {
         speakersTableView.dataSource = self
         speakersTableView.separatorStyle = .none
         
-
-        SpeakerAPI.getAPI(url: MopconAPI.shared.speaker) { (payload, error) in
-            if let payload = payload {
-                self.speakers = payload
-                DispatchQueue.main.async {
-                    self.speakersTableView.reloadData()
-                }
-            } else {
-                print(error?.localizedDescription)
-            }
-        }
+        getSpeakers()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +52,30 @@ class SpeakersViewController: UIViewController {
         if segue.identifier == SegueIDManager.performSpeakerDetail {
             if let vc = segue.destination as? SpeakerDetailViewController {
                 vc.speaker = selectedSpeaker
+            }
+        }
+    }
+    
+    func getSpeakers() {
+        
+        spinner.startAnimating()
+        spinner.center = view.center
+        self.view.addSubview(spinner)
+        
+        SpeakerAPI.getAPI(url: MopconAPI.shared.speaker) { (payload, error) in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+                self.spinner.removeFromSuperview()
+                return
+            }
+            
+            if let payload = payload {
+                self.speakers = payload
+                DispatchQueue.main.async {
+                    self.speakersTableView.reloadData()
+                    self.spinner.removeFromSuperview()
+                }
             }
         }
     }
