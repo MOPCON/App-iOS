@@ -14,7 +14,7 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     
     @IBOutlet weak var bannerImageCollectionView: UICollectionView! {
         didSet {
-            bannerImageCollectionView.isPagingEnabled = true
+            bannerImageCollectionView.isPagingEnabled = false
         }
     }
     
@@ -60,11 +60,15 @@ extension BannerCollectionViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+        return CGSize(width: collectionView.bounds.width * (300/355), height: collectionView.bounds.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 16
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: collectionView.bounds.width * 20/355)
     }
     
 }
