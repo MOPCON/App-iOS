@@ -14,7 +14,7 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     
     @IBOutlet weak var bannerImageCollectionView: UICollectionView! {
         didSet {
-            bannerImageCollectionView.isPagingEnabled = false
+            bannerImageCollectionView.isPagingEnabled = true
         }
     }
     
@@ -60,7 +60,7 @@ extension BannerCollectionViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.bounds.width * (300/355), height: collectionView.bounds.height)
+        return CGSize(width: collectionView.bounds.width * (300/375), height: collectionView.bounds.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -68,7 +68,22 @@ extension BannerCollectionViewCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: collectionView.bounds.width * 20/355)
+        return UIEdgeInsets(top: 0, left: collectionView.bounds.width * 20/375, bottom: 0, right: collectionView.bounds.width * 20/375)
+    }
+    
+}
+
+extension BannerCollectionViewCell: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView == bannerImageCollectionView {
+            var currentCellOffset: CGPoint = bannerImageCollectionView.contentOffset
+            currentCellOffset.x += bannerImageCollectionView.frame.size.width / 2
+            let indexPath: IndexPath? = bannerImageCollectionView.indexPathForItem(at: currentCellOffset)
+            if let aPath = indexPath {
+                bannerImageCollectionView.scrollToItem(at: aPath, at: .centeredHorizontally, animated: true)
+            }
+        }
     }
     
 }

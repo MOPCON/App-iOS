@@ -201,7 +201,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         if section == SectionName.Banner.rawValue {
-            return UIEdgeInsetsMake(self.view.frame.height * (8/667), self.view.frame.width * (20/375), self.view.frame.height * (8/667), 0)
+            return UIEdgeInsetsMake(self.view.frame.height * (8/667), 0, self.view.frame.height * (8/667), 0)
         }
         
         return UIEdgeInsetsMake(self.view.frame.height * (8/667), self.view.frame.width * (20/375), self.view.frame.height * (8/667), self.view.frame.width * (20/375))
@@ -218,7 +218,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
         case SectionName.Banner.rawValue:
-            return CGSize(width: self.view.frame.width * 355/375, height: self.view.frame.height * (168/667))
+            return CGSize(width: self.view.frame.width * 375/375, height: self.view.frame.height * (168/667))
         case SectionName.News.rawValue:
             return CGSize(width: self.view.frame.width * 336/375, height: self.view.frame.height * (72/667))
         case SectionName.Language.rawValue:
