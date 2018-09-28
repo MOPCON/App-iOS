@@ -26,6 +26,35 @@ platform :ios do
     scan
   end
 
+  lane :changeLog do
+    versionName = ios_get_version
+    changeLog = read_changelog(
+      changelog_path: './CHANGELOG.md',
+      section_identifier: "[#{versionName}]",
+      excluded_markdown_elements: ['###']
+    )
+    sh(
+      "echo \"#{changeLog}\" > ./metadata/zh-Hant/release_notes.txt"
+    )
+    sh(
+      "echo \"#{changeLog}\" > ./metadata/en-US/release_notes.txt"
+    )
+  end
+
+  lane :changeUnreleaseLog do
+    changeLog = read_changelog(
+      changelog_path: './CHANGELOG.md',
+      section_identifier: "[Unreleased]",
+      excluded_markdown_elements: ['###']
+    )
+    sh(
+      "echo \"#{changeLog}\" > ./metadata/zh-Hant/release_notes.txt"
+    )
+    sh(
+      "echo \"#{changeLog}\" > ./metadata/en-US/release_notes.txt"
+    )
+  end
+
   lane :beta do
     xcversion(version: "10")
     get_certificates           # invokes cert
@@ -45,8 +74,9 @@ platform :ios do
     upload_to_testflight
   end
 
-  lane :preRelease do
-    #ensure_git_status_clean
+  # lane :preRelease do
+  private_lane :preRelease do
+    ensure_git_status_clean
 
     oldVersion = ios_get_version
     versionNameArray = oldVersion.split('.')
@@ -57,11 +87,39 @@ platform :ios do
     newVersionName = "2.3"
     #echo(message: newVersionName)
 
-    sh("git flow release start", newVersionName)
+    sh("git", "flow", "release", "start", newVersionName)
+
+    ios_set_build_number(build_number: next_build) # Time.now.to_i.to_s[0..7]
+    ios_set_version(version: newVersionName)
+    # screenshots
+
+    git_add(path: "./Mopcon.xcodeproj/project.pbxproj")
+    git_add(path: "./Mopcon/Info.plist")
+    git_add(path: "./MopconUITests/Info.plist")
+
+    git_commit(
+      path:[
+        "./Mopcon.xcodeproj/project.pbxproj",
+        "./Mopcon/Info.plist",
+        "./MopconUITests/Info.plist"        
+      ], 
+      message: "change version")
+
   end
 
   lane :release do
+    xcversion(version: "10")
+    get_certificates           # invokes cert
+    get_provisioning_profile   # invokes sigh
 
+    preRelease
+
+    build_app(
+      scheme: "Mopcon",
+      workspace: "Mopcon.xcworkspace",
+      include_bitcode: true
+    )
+    upload_to_app_store
   end
 
   def next_build

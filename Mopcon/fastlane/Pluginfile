@@ -6,3 +6,4 @@ gem "fastlane-plugin-versioning_ios"
 gem "fastlane-plugin-settings_bundle"
 gem "fastlane-plugin-update_xcodeproj"
 gem "fastlane-plugin-humanable_build_number"
+gem 'fastlane-plugin-changelog'
