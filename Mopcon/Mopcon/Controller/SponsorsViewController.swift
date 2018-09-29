@@ -8,12 +8,14 @@
 
 import UIKit
 
-enum SponsorType: String {
-    case tony_stark = "Tony Stark"
-    case bruce_wayne = "Bruce Wayne"
-    case geek = "Geek"
-    case developer = "Developer"
-    case specialThanks = "特別感謝"
+enum SponsorSection: Int {
+    case tony_stark
+    case bruce_wayne
+    case geek
+    case developer
+    case educationSponsorship
+    case specialThanks
+    case co_organiser
 }
 
 class SponsorsViewController: UIViewController {
@@ -80,17 +82,23 @@ class SponsorsViewController: UIViewController {
                 var geek = [Sponsor.Payload]()
                 var developer = [Sponsor.Payload]()
                 var specialThanks = [Sponsor.Payload]()
+                var educationSponsorship = [Sponsor.Payload]()
+                var co_organisers = [Sponsor.Payload]()
                 
                 for sponsor in payload {
                     switch sponsor.type {
-                    case SponsorType.tony_stark.rawValue:
+                    case "Tony Stark":
                         tonyStark.append(sponsor)
-                    case SponsorType.bruce_wayne.rawValue:
+                    case "Bruce Wayne":
                         bruceWayne.append(sponsor)
-                    case SponsorType.geek.rawValue:
+                    case "Geek":
                         geek.append(sponsor)
-                    case SponsorType.developer.rawValue:
+                    case "Developer":
                         developer.append(sponsor)
+                    case "教育贊助":
+                        educationSponsorship.append(sponsor)
+                    case "協辦單位":
+                        co_organisers.append(sponsor)
                     default:
                         specialThanks.append(sponsor)
                     }
@@ -100,7 +108,9 @@ class SponsorsViewController: UIViewController {
                 self.sponsors.append(bruceWayne)
                 self.sponsors.append(geek)
                 self.sponsors.append(developer)
+                self.sponsors.append(educationSponsorship)
                 self.sponsors.append(specialThanks)
+                self.sponsors.append(co_organisers)
                 
                 DispatchQueue.main.async {
                     self.sponsorsCollectionView.reloadData()
@@ -125,7 +135,7 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
         let sponsor = sponsors[indexPath.section][indexPath.row]
         
         switch indexPath.section {
-        case SponsorType.tony_stark.hashValue:
+        case SponsorSection.tony_stark.rawValue:
             let bigImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: SponsorCollectionViewIDManager.sponsorBigCollectionView, for: indexPath) as! SponsorBigCollectionViewCell
             bigImageCell.updateUI(sponsor: sponsor)
             return bigImageCell
@@ -145,16 +155,20 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
         var title = ""
         
         switch indexPath.section {
-        case SponsorType.tony_stark.hashValue:
-            title = SponsorType.tony_stark.rawValue
-        case SponsorType.bruce_wayne.hashValue:
-            title = SponsorType.bruce_wayne.rawValue
-        case SponsorType.geek.hashValue:
-            title = SponsorType.geek.rawValue
-        case SponsorType.developer.hashValue:
-            title = SponsorType.developer.rawValue
-        case SponsorType.specialThanks.hashValue:
-            title = SponsorType.specialThanks.rawValue
+        case SponsorSection.tony_stark.rawValue:
+            title = "ＴＯＮＹ ＳＴＡＲＫ"
+        case SponsorSection.bruce_wayne.rawValue:
+            title = "ＢＲＵＣＥ ＷＡＹＮＥ"
+        case SponsorSection.geek.rawValue:
+            title = "ＧＥＥＫ"
+        case SponsorSection.developer.rawValue:
+            title = "ＤＥＶＥＬＯＰＥＲ"
+        case SponsorSection.educationSponsorship.rawValue:
+            title = "教育贊助"
+        case SponsorSection.specialThanks.rawValue:
+            title = "特別感謝"
+        case SponsorSection.co_organiser.rawValue:
+            title = "協辦單位"
         default:
             break
         }
@@ -195,7 +209,7 @@ extension SponsorsViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
-        case SponsorType.tony_stark.hashValue:
+        case SponsorSection.tony_stark.rawValue:
             return CGSize(width: self.view.frame.width * (343/375), height: self.view.frame.width * (164/375))
         default:
             return CGSize(width: self.view.frame.width * (164/375), height: self.view.frame.width * (164/375))

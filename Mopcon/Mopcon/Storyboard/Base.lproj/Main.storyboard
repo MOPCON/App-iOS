@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -148,13 +145,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlQ-Rq-fLk">
-                                                    <rect key="frame" x="0.0" y="128" width="160" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="127.66666666666667" width="160" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b9L-bH-oAB">
-                                                    <rect key="frame" x="51" y="52" width="57" height="57"/>
+                                                    <rect key="frame" x="51.666666666666657" y="51.666666666666657" width="57" height="57"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -184,7 +181,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3p-wA-Gr2" customClass="CornerBackgroundView" customModule="Mopcon" customModuleProvider="target">
-                                                            <rect key="frame" x="107.66666666666669" y="1.3333333333333321" width="160" height="32.333333333333343"/>
+                                                            <rect key="frame" x="107.66666666666669" y="2" width="160" height="32"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBh-DR-gCv" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
@@ -199,7 +196,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tlx-Ij-iow" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
-                                                                    <rect key="frame" x="80" y="0.0" width="80.333333333333314" height="32"/>
+                                                                    <rect key="frame" x="79.999999999999986" y="0.0" width="80.000000000000014" height="32"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                                     <state key="normal" title="English">
                                                                         <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -250,7 +247,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mopconLogo01" translatesAutoresizingMaskIntoConstraints="NO" id="kav-PK-S6V">
-                                            <rect key="frame" x="62" y="74" width="250" height="45"/>
+                                            <rect key="frame" x="62.666666666666657" y="74" width="249.99999999999997" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="kav-PK-S6V" secondAttribute="height" multiplier="50:9" id="QVe-DQ-rqn"/>
                                             </constraints>
@@ -327,13 +324,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="還沒搜集到的朋友，快來看 360 直播影片，就知道所有隱藏版徽章位置！" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhb-aq-ghz">
-                                                            <rect key="frame" x="16" y="77" width="343" height="44"/>
+                                                            <rect key="frame" x="16" y="77" width="343.33333333333331" height="44"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xc0-DD-dBB" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
-                                                            <rect key="frame" x="278.66666666666663" y="137" width="84" height="36"/>
+                                                            <rect key="frame" x="278.66666666666663" y="136.66666666666666" width="84" height="36"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="84" id="5JF-og-ZJT"/>
                                                                 <constraint firstAttribute="height" constant="36" id="k0J-7Q-2eW"/>
@@ -512,20 +509,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KSDG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odk-MP-NQE">
-                                <rect key="frame" x="0.0" y="285.33333333333331" width="414" height="19.333333333333314"/>
+                                <rect key="frame" x="0.0" y="285" width="414" height="19.333333333333314"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grp-kQ-Q1C">
-                                <rect key="frame" x="36" y="320.66666666666669" width="342" height="98"/>
+                                <rect key="frame" x="36" y="320.33333333333331" width="342" height="98"/>
                                 <string key="text">Kaohsiung Software Developer Group 是高雄從事軟體開發、網路技術開發者一起交流的園地，2012/05首度聚會活動。目前每月舉辦 Meet-up 及 Web Course 各一場，交流主題涵蓋各種軟體技術，歡迎對軟體開發技術有興趣的朋友可以踴躍參與。</string>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="B0S-nT-krH">
-                                <rect key="frame" x="155" y="450.66666666666669" width="104" height="44"/>
+                                <rect key="frame" x="155" y="450.33333333333331" width="104" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybx-bX-o0b">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -552,10 +549,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45I-7S-gfi" customClass="CornerBackgroundView" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="17.666666666666657" y="80.000000000000014" width="378.66666666666674" height="181.33333333333337"/>
+                                <rect key="frame" x="17.666666666666657" y="80" width="378.66666666666674" height="181"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cv4-UK-vBo">
-                                        <rect key="frame" x="115.99999999999999" y="17.666666666666671" width="145.66666666666663" height="145.66666666666663"/>
+                                        <rect key="frame" x="116.33333333333331" y="17.666666666666671" width="146" height="145.66666666666663"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Cv4-UK-vBo" secondAttribute="height" multiplier="1:1" id="Ghb-3C-YhY"/>
                                         </constraints>
@@ -619,22 +616,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Qh-bb-pf1">
-                                                    <rect key="frame" x="17.666666666666657" y="7" width="378.66666666666674" height="144"/>
+                                                    <rect key="frame" x="17.666666666666657" y="8" width="378.66666666666674" height="143.66666666666666"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="96j-el-3oD" customClass="CustomCornerImageView" customModule="Mopcon" customModuleProvider="target">
-                                                            <rect key="frame" x="16" y="24" width="96" height="96"/>
+                                                            <rect key="frame" x="15.999999999999993" y="24.000000000000007" width="95.666666666666657" height="95.666666666666686"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="96j-el-3oD" secondAttribute="height" multiplier="1:1" id="rp0-kv-m3K"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="田哲宇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8p-Jo-mcY">
-                                                            <rect key="frame" x="127.99999999999999" y="32" width="219.66666666666663" height="28"/>
+                                                            <rect key="frame" x="127.66666666666667" y="32" width="219.66666666666663" height="28"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Cloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNQ-7K-sVI">
-                                                            <rect key="frame" x="127.99999999999999" y="92" width="219.66666666666663" height="20"/>
+                                                            <rect key="frame" x="127.66666666666667" y="92" width="219.66666666666663" height="20"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -653,7 +650,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台灣區經理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZL-7v-uqC">
-                                                    <rect key="frame" x="145.66666666666669" y="75" width="219.66666666666669" height="20"/>
+                                                    <rect key="frame" x="145.33333333333337" y="76" width="219.66666666666663" height="20"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -762,7 +759,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如何寫出有效率、好讀、好維護的 Java / Android 程式" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcM-0v-D4E">
-                                        <rect key="frame" x="16" y="36.333333333333371" width="344" height="56"/>
+                                        <rect key="frame" x="16" y="36.333333333333371" width="343.33333333333331" height="56"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -784,7 +781,7 @@
                                             <action selector="addToMySchedule:" destination="xSc-rs-23U" eventType="touchUpInside" id="WSG-4J-z2l"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCm-8l-A9y" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCm-8l-A9y" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="131" y="140.66666666666669" width="87" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="5gE-CF-JEC"/>
@@ -833,6 +830,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="講者" id="Je4-Xd-7PZ"/>
                     <connections>
+                        <outlet property="addToMyScheduleButton" destination="C7T-a5-S40" id="NqF-gR-gJD"/>
                         <outlet property="infoLabel" destination="1tf-aE-0EB" id="r70-iu-8Xm"/>
                         <outlet property="scheduleTopicLabel" destination="KcM-0v-D4E" id="Cp8-FY-jmb"/>
                         <outlet property="speakerCompanyLabel" destination="cC7-Ut-PRt" id="Zof-B4-qYp"/>
@@ -908,7 +906,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P3Y-WF-R9h">
-                                                            <rect key="frame" x="15.666666666666671" y="16" width="132" height="132"/>
+                                                            <rect key="frame" x="16" y="16" width="132" height="132"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="P3Y-WF-R9h" secondAttribute="height" multiplier="1:1" id="27h-8O-Hdc"/>
                                                             </constraints>
@@ -1007,7 +1005,7 @@
                                                     <rect key="frame" x="16" y="16" width="382" height="182.66666666666666"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rL5-Gh-zj6">
-                                                            <rect key="frame" x="117.33333333333336" y="17.666666666666657" width="147.66666666666663" height="147"/>
+                                                            <rect key="frame" x="117.33333333333333" y="17.666666666666657" width="147.33333333333337" height="147"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="rL5-Gh-zj6" secondAttribute="height" multiplier="1:1" id="68S-DT-eHe"/>
                                                             </constraints>
@@ -1047,7 +1045,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7N-kD-6TX">
-                                                    <rect key="frame" x="18" y="16" width="380" height="130.66666666666666"/>
+                                                    <rect key="frame" x="18" y="16" width="380" height="131"/>
                                                     <string key="text">雲端平台是 Webduino 研發的雲端服務 
 具備開發板雲端裝置管理、Webduino Blockly 積木編輯工具，未來更會整合模擬器、App 開發和後端流程工具。 使用 Webduino 將可以讓不具有韌體程式專業背景的設計師、網頁開發者，也可以輕鬆成為創客 ( Maker、自造者 )，享受創造的樂趣和快感。</string>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
@@ -1073,7 +1071,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTH-Hl-feP" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
-                                                    <rect key="frame" x="160" y="7.6666666666666679" width="93" height="39.666666666666657"/>
+                                                    <rect key="frame" x="160.66666666666666" y="7.6666666666666679" width="92.666666666666657" height="39.666666666666657"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="mTH-Hl-feP" secondAttribute="height" multiplier="7:3" id="8oa-tB-MbA"/>
                                                     </constraints>
@@ -1193,7 +1191,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onX-df-akh">
-                                                    <rect key="frame" x="0.0" y="-1" width="378.66666666666669" height="68"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="378.66666666666669" height="67.666666666666671"/>
                                                     <color key="backgroundColor" red="0.0" green="0.81568627450980391" blue="0.79607843137254897" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="開幕" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4L-we-2va">
@@ -1261,7 +1259,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7X-Zu-nR5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="378.66666666666669" height="171.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="0.6666666666666714" width="378.66666666666669" height="170.66666666666663"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile App &amp; ENG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSx-Tl-QFa">
                                                             <rect key="frame" x="16" y="12" width="346.66666666666669" height="14.333333333333336"/>
@@ -1282,14 +1280,14 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4Ji-s6-7e8">
-                                                            <rect key="frame" x="14" y="127.66666666666669" width="85.333333333333329" height="24"/>
+                                                            <rect key="frame" x="14" y="127.33333333333333" width="85.333333333333329" height="23.333333333333329"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvn-bn-hrS">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="23.333333333333332"/>
                                                                     <state key="normal" image="map"/>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R1 : 一廳" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uha-LN-kic">
-                                                                    <rect key="frame" x="29.000000000000004" y="2.3333333333333286" width="56.333333333333343" height="19.666666666666668"/>
+                                                                    <rect key="frame" x="29.000000000000004" y="2" width="56.333333333333343" height="19.666666666666668"/>
                                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                                                     <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -1297,7 +1295,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBY-UE-IJL">
-                                                            <rect key="frame" x="338.66666666666669" y="127.66666666666669" width="24" height="24"/>
+                                                            <rect key="frame" x="338.66666666666669" y="126.66666666666666" width="24" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="lBY-UE-IJL" secondAttribute="height" multiplier="1:1" id="Hj2-nf-f6z"/>
                                                             </constraints>
@@ -1516,7 +1514,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="委員名單" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb4-mg-8Gb">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成員名單" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb4-mg-8Gb">
                                                             <rect key="frame" x="16" y="144" width="56" height="20"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1554,6 +1552,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="memberTitleLabel" destination="Fb4-mg-8Gb" id="JGi-m7-EjO"/>
                                             <outlet property="volunteerDescriptionLabel" destination="RFx-tw-ccy" id="35W-Fm-cks"/>
                                             <outlet property="volunteerMembersLabel" destination="e24-8U-aWR" id="5fz-w3-i8v"/>
                                             <outlet property="volunteerOrganizationTitleLabel" destination="BiB-dp-elV" id="CF1-Fj-7fm"/>
@@ -1599,10 +1598,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1Z-CX-1ej">
-                                                    <rect key="frame" x="0.0" y="-0.6666666666666643" width="378.66666666666669" height="68.333333333333314"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="378.66666666666669" height="67.666666666666671"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開幕" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U12-TD-okW">
-                                                            <rect key="frame" x="75.666666666666671" y="22.666666666666664" width="227.33333333333331" height="23.666666666666664"/>
+                                                            <rect key="frame" x="75.666666666666671" y="22" width="227.33333333333331" height="23.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1637,22 +1636,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMH-Yc-E8O">
-                                                    <rect key="frame" x="0.0" y="0.0" width="378.66666666666669" height="173"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="378.66666666666669" height="173.66666666666666"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Innovate width New Technologies on Google" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiu-XG-9lm">
-                                                            <rect key="frame" x="16" y="41" width="314.66666666666669" height="55.666666666666657"/>
+                                                            <rect key="frame" x="16" y="41" width="314" height="56"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="田哲禹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHY-Yb-Up1">
-                                                            <rect key="frame" x="16" y="104.66666666666667" width="52" height="21"/>
+                                                            <rect key="frame" x="16" y="105" width="52" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R1: 一廳" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeG-tn-dHK">
-                                                            <rect key="frame" x="44" y="144" width="54" height="17"/>
+                                                            <rect key="frame" x="44" y="144.33333333333334" width="54" height="17"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="17" id="FA5-Fj-Sw4"/>
                                                                 <constraint firstAttribute="width" constant="54" id="Ti3-VL-g1Q"/>
@@ -1662,7 +1661,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSM-Ix-CCm">
-                                                            <rect key="frame" x="16" y="141.66666666666666" width="24" height="24"/>
+                                                            <rect key="frame" x="16" y="142" width="24" height="24"/>
                                                             <state key="normal" image="map"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLOUD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEm-e1-nLV">
@@ -1672,7 +1671,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ny-cZ-2XH">
-                                                            <rect key="frame" x="338.66666666666669" y="133" width="24" height="24"/>
+                                                            <rect key="frame" x="338.66666666666669" y="133.66666666666666" width="24" height="24"/>
                                                             <state key="normal" image="buttonStarNormal"/>
                                                             <connections>
                                                                 <action selector="addToMySchedule:" destination="09m-HK-jPe" eventType="touchUpInside" id="4Yp-Kw-h4b"/>
@@ -1914,8 +1913,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWg-Ay-TXo" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="131" y="172" width="87" height="36"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWg-Ay-TXo" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
+                                <rect key="frame" x="131" y="172.33333333333334" width="87" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="87" id="htl-Ca-yNE"/>
                                     <constraint firstAttribute="height" constant="36" id="sZs-EN-mCy"/>
@@ -1996,7 +1995,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyA-yf-WyB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="378.66666666666669" height="141"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="378.66666666666669" height="140.66666666666666"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="雙邊平台的愛很情仇 ( PULO 找師傅 )" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vU6-gh-LC9">
                                                             <rect key="frame" x="16" y="16" width="343.33333333333331" height="56"/>
@@ -2005,7 +2004,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kia Chen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PH7-IQ-WMw">
-                                                            <rect key="frame" x="16" y="80" width="215.33333333333334" height="17"/>
+                                                            <rect key="frame" x="16" y="80" width="215.66666666666666" height="17"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -2064,7 +2063,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Mw-eB-7EB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="378.66666666666669" height="68"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="378.66666666666669" height="67.666666666666671"/>
                                                     <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="午餐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgd-nl-UrJ">

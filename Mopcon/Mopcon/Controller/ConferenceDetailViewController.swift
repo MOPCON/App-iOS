@@ -22,10 +22,20 @@ class ConferenceDetailViewController: UIViewController {
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var scheduleInfoLabel: UILabel!
     
-    @IBAction func addToMySchedule(_ sender: Any) {
-        if let agenda = agenda,let key = key {
-            MySchedules.add(agenda: agenda, forKey: key)
+    @IBAction func addToMySchedule(_ sender: UIButton) {
+        
+        guard let agenda = agenda,let key = key  else {
+            return
         }
+        
+        if sender.currentImage == UIImage(named: "buttonStarNormal"){
+            MySchedules.add(agenda: agenda, forKey: key)
+            sender.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
+        } else {
+            MySchedules.remove(agenda: agenda, forKey: key)
+            sender.setImage(UIImage(named: "buttonStarNormal"), for: .normal)
+        }
+        
     }
     
     override func viewDidLoad() {

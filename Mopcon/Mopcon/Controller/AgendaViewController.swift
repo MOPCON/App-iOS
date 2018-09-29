@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum ScheduleDay:String {
-    case dayOne = "2018-11-03"
-    case dayTwo = "2018-11-04"
-}
-
 class AgendaViewController: UIViewController {
     
     @IBOutlet weak var dayOneButton: UIButton!
@@ -20,7 +15,7 @@ class AgendaViewController: UIViewController {
     @IBOutlet weak var goToCommunicationVCButton: CustomCornerButton!
     @IBOutlet weak var agendaTableView: UITableView!
     
-    var scheduleDay = ScheduleDay.dayOne.rawValue
+    var key = UserDefaultsKeys.dayOneSchedule
     
     var selectedSchedule = [Schedule.Payload.Agenda.Item]()
     var selectedAgenda:Schedule.Payload.Agenda.Item.AgendaContent?
@@ -35,7 +30,7 @@ class AgendaViewController: UIViewController {
     @IBAction func chooseDayOneAction(_ sender: Any) {
         CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton as! CustomSelectedButton, notSelectedButton: dayTwoButton as! CustomSelectedButton)
         selectedSchedule = schedule_day1
-        scheduleDay = ScheduleDay.dayOne.rawValue
+        key = UserDefaultsKeys.dayOneSchedule
         mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayOneSchedule)
         agendaTableView.reloadData()
     }
@@ -43,7 +38,7 @@ class AgendaViewController: UIViewController {
     @IBAction func chooseDayTwoAction(_ sender: Any) {
         CommonFucntionHelper.changeButtonColor(beTappedButton: dayTwoButton as! CustomSelectedButton, notSelectedButton: dayOneButton as! CustomSelectedButton)
         selectedSchedule = schedule_day2
-        scheduleDay = ScheduleDay.dayTwo.rawValue
+        key = UserDefaultsKeys.dayTwoSchedule
         mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayTwoSchedule)
         agendaTableView.reloadData()
     }
@@ -80,6 +75,9 @@ class AgendaViewController: UIViewController {
             self.goToCommunicationVCButton.setTitle("Communication", for: .normal)
             self.navigationItem.title = "Agenda"
         }
+        
+        mySchedule = MySchedules.get(forKey: key)
+        agendaTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,6 +88,7 @@ class AgendaViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIDManager.performConferenceDetail {
             if let vc = segue.destination as? ConferenceDetailViewController {
+                vc.key = key
                 vc.agenda = self.selectedAgenda
             }
         }
@@ -213,12 +212,7 @@ extension AgendaViewController: WhichCellButtonDidTapped {
     func whichCellButtonDidTapped(sender: UIButton, index: IndexPath) {
         
         let agenda = selectedSchedule[index.section].agendas[index.row]
-        var key = UserDefaultsKeys.dayOneSchedule
-        
-        if scheduleDay == ScheduleDay.dayTwo.rawValue {
-            key = UserDefaultsKeys.dayTwoSchedule
-        }
-        
+   
         if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarChecked") {
             MySchedules.add(agenda: agenda, forKey: agenda.date!)
         } else if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarNormal"){
