@@ -12,7 +12,8 @@ class SpeakerDetailViewController: UIViewController {
     
     var speaker:Speaker.Payload?
     var speaker_schedule:Schedule.Payload.Agenda.Item.AgendaContent?
-
+    var key:String?
+    
     @IBOutlet weak var speakerImageView: UIImageView!
     @IBOutlet weak var speakerJobLabel: UILabel!
     @IBOutlet weak var speakerCompanyLabel: UILabel!
@@ -20,9 +21,17 @@ class SpeakerDetailViewController: UIViewController {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var scheduleTopicLabel: UILabel!
+    @IBOutlet weak var addToMyScheduleButton: CustomCornerButton!
     
     @IBAction func addToMySchedule(_ sender: UIButton) {
-        findSchedule()
+        
+        if sender.currentImage == UIImage(named: "buttonStarNormal"){
+            findSchedule()
+            sender.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
+        } else {
+            findRemoveSchedule()
+            sender.setImage(UIImage(named: "buttonStarNormal"), for: .normal)
+        }
     }
     
     override func viewDidLoad() {
@@ -33,10 +42,27 @@ class SpeakerDetailViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         //把backButton的顏色改成白色
         self.navigationController?.navigationBar.tintColor = UIColor.white
-            findSchedule()
         
         if let speaker = speaker {
             updateUI(speaker: speaker)
+        }
+        
+        guard let scheduleID = speaker?.schedule_id else {
+            return
+        }
+        
+        for agenda in MySchedules.get(forKey: UserDefaultsKeys.dayOneSchedule) {
+            if scheduleID == agenda.schedule_id {
+                addToMyScheduleButton.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
+                return
+            }
+        }
+        
+        for agenda in MySchedules.get(forKey: UserDefaultsKeys.dayTwoSchedule) {
+            if scheduleID == agenda.schedule_id {
+                addToMyScheduleButton.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
+                return
+            }
         }
         
     }
@@ -47,7 +73,7 @@ class SpeakerDetailViewController: UIViewController {
             self.navigationItem.title = "Speaker"
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -68,6 +94,30 @@ class SpeakerDetailViewController: UIViewController {
                             if scheduleID == schedule.schedule_id {
                                 self.speaker_schedule = schedule
                                 MySchedules.add(agenda: schedule, forKey: schedule.date!)
+                                return
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func findRemoveSchedule() {
+        ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { (payload, error) in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            if let payload = payload,let scheduleID = self.speaker?.schedule_id {
+                for agenda in payload.agenda {
+                    for item in agenda.items {
+                        for schedule in item.agendas {
+                            if scheduleID == schedule.schedule_id {
+                                self.speaker_schedule = schedule
+                                MySchedules.remove(agenda: schedule, forKey: schedule.date!)
                                 return
                             }
                         }
@@ -103,5 +153,5 @@ class SpeakerDetailViewController: UIViewController {
             break
         }
     }
-
+    
 }
