@@ -150,7 +150,7 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: SponsorCollectionViewIDManager.sponsorHeader, for: indexPath) as! SponsorHeaderView
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SponsorCollectionViewIDManager.sponsorHeader, for: indexPath) as! SponsorHeaderView
         
         var title = ""
         
@@ -195,7 +195,7 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
 
 extension SponsorsViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, self.view.frame.width * (16/375), self.view.frame.width * (16/375), self.view.frame.width * (16/375))
+        return UIEdgeInsets.init(top: 0, left: self.view.frame.width * (16/375), bottom: self.view.frame.width * (16/375), right: self.view.frame.width * (16/375))
         
     }
     

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3V0-gp-WPe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3V0-gp-WPe">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="coinCell" id="1Zw-we-rxc">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="coinCell" id="1Zw-we-rxc" customClass="InformationCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="19" y="0.0" width="336" height="193"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -45,9 +44,12 @@
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="20"/>
                                                     <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="兌換"/>
+                                                    <connections>
+                                                        <action selector="exchange:" destination="1Zw-we-rxc" eventType="touchUpInside" id="Ieh-g2-7jq"/>
+                                                    </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nZB-V8-0dX">
-                                                    <rect key="frame" x="208.66666666666666" y="33" width="81.999999999999972" height="70"/>
+                                                    <rect key="frame" x="208" y="33" width="82" height="70"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="JQ7-pG-pfQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="82" height="18"/>
@@ -76,7 +78,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="→" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9A-p6-RWS">
-                                                    <rect key="frame" x="158.66666666666666" y="33" width="20" height="17"/>
+                                                    <rect key="frame" x="158" y="33" width="20" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="GIU-tr-jnd"/>
                                                         <constraint firstAttribute="width" constant="20" id="Pdr-V2-wq5"/>
@@ -86,7 +88,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="zV2-Su-x7g">
-                                                    <rect key="frame" x="44.666666666666657" y="33" width="84" height="70"/>
+                                                    <rect key="frame" x="44" y="33" width="84" height="70"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8hs-om-C4B">
                                                             <rect key="frame" x="0.0" y="0.0" width="84" height="18"/>
@@ -99,7 +101,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="累計 Mo 幣" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpj-I3-DKa">
-                                                                    <rect key="frame" x="22.000000000000007" y="0.0" width="61.999999999999993" height="18"/>
+                                                                    <rect key="frame" x="22" y="0.0" width="62" height="18"/>
                                                                     <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="12"/>
                                                                     <color key="textColor" red="0.0" green="0.81568627450980391" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -132,6 +134,11 @@
                                             <constraint firstItem="a9A-p6-RWS" firstAttribute="centerX" secondItem="1Zw-we-rxc" secondAttribute="centerX" id="xcW-BT-goU"/>
                                         </constraints>
                                         <size key="customSize" width="336" height="193"/>
+                                        <connections>
+                                            <outlet property="balanceLabel" destination="ey5-PK-3wq" id="QSV-Y2-X67"/>
+                                            <outlet property="capsulesLabel" destination="MT9-n1-QWI" id="nI2-oP-uzV"/>
+                                            <outlet property="exchangeButton" destination="VYA-RS-5JZ" id="4t4-SY-ks0"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="missionCell" id="R7B-eU-uFP" customClass="MissionCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="107" y="203" width="160" height="160"/>
@@ -141,10 +148,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Syw-eo-I5i">
-                                                    <rect key="frame" x="8" y="39.666666666666657" width="144" height="80"/>
+                                                    <rect key="frame" x="8" y="40" width="144" height="80"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Jbd-fi-HAU">
-                                                            <rect key="frame" x="12" y="16.666666666666671" width="120" height="48"/>
+                                                            <rect key="frame" x="12" y="16" width="120" height="48"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ibd-L5-xuU">
                                                                     <rect key="frame" x="25.666666666666664" y="0.0" width="69" height="17"/>
@@ -165,7 +172,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" tag="13" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任務標題" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXv-v1-6rZ">
-                                                                    <rect key="frame" x="20" y="19.999999999999993" width="80" height="28"/>
+                                                                    <rect key="frame" x="20" y="20" width="80" height="28"/>
                                                                     <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -246,7 +253,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitmap" translatesAutoresizingMaskIntoConstraints="NO" id="Rc6-DL-x69">
-                                                    <rect key="frame" x="16" y="16" width="382" height="157.66666666666666"/>
+                                                    <rect key="frame" x="16" y="16" width="382" height="158"/>
                                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -325,7 +332,7 @@
                                                         <constraint firstAttribute="height" constant="60" id="zEu-Yp-SFs"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
-                                                    <state key="normal" title="提交">
+                                                    <state key="normal" title="掃 QR CODE">
                                                         <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -384,7 +391,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e82-gU-qg6">
-                                                    <rect key="frame" x="16" y="24" width="382" height="24.666666666666671"/>
+                                                    <rect key="frame" x="16" y="24" width="382" height="25"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="回答選項">
                                                             <attributes>
@@ -431,7 +438,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="12" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACa-Th-fCd">
-                                                    <rect key="frame" x="50" y="16" width="348" height="20.666666666666671"/>
+                                                    <rect key="frame" x="50" y="16" width="348" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="回答選項">
                                                             <attributes>

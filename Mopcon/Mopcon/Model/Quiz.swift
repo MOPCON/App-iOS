@@ -10,8 +10,8 @@ import Foundation
 
 
 struct Quiz: Decodable {
-    var date: String
-    var items: [Item]
+    var date: String?
+    var items: [Item]?
     
     struct Item: Decodable {
         var id: String

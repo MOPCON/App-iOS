@@ -88,7 +88,7 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
         if indexPath.section == 2 {
             return 150
         } else {
-            return UITableViewAutomaticDimension
+            return UITableView.automaticDimension
         }
     }
     

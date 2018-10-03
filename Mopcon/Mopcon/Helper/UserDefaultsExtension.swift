@@ -93,4 +93,21 @@ class MySchedules {
         }
     }
     
+    class func checkRepeat(scheduleID: String?) -> Bool {
+        
+        for agenda in MySchedules.get(forKey: UserDefaultsKeys.dayOneSchedule) {
+            if scheduleID == agenda.schedule_id {
+                return true
+            }
+        }
+        
+        for agenda in MySchedules.get(forKey: UserDefaultsKeys.dayTwoSchedule) {
+            if scheduleID == agenda.schedule_id {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
 }

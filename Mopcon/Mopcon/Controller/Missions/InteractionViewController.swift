@@ -56,7 +56,7 @@ extension InteractionViewController: UITableViewDataSource, UITableViewDelegate 
         case 0:
             return 180
         case 1:
-            return UITableViewAutomaticDimension
+            return UITableView.automaticDimension
         case 2:
             return 150
         default:
