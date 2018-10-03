@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum SponsorCellStyle {
+enum SponsorCellStyle: Int {
     case sponsor
     case info
     case seeMore
@@ -58,9 +58,9 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
         
         
         switch indexPath.row {
-        case SponsorCellStyle.sponsor.hashValue:
+        case SponsorCellStyle.sponsor.rawValue:
             cellidentifer = SponsorTableViewCellID.sponsorCell
-        case SponsorCellStyle.info.hashValue:
+        case SponsorCellStyle.info.rawValue:
             cellidentifer = SponsorTableViewCellID.sponsorInfoCell
         default:
             cellidentifer = SponsorTableViewCellID.seeMoreCell
@@ -97,7 +97,7 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
         case 0:
             return 244
         case 1:
-            return UITableViewAutomaticDimension
+            return UITableView.automaticDimension
         default:
             return 70
         }

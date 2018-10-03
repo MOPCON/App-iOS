@@ -13,6 +13,7 @@ class VolunteerTableViewCell: UITableViewCell {
     @IBOutlet weak var volunteerOrganizationTitleLabel: UILabel!
     @IBOutlet weak var volunteerDescriptionLabel: UILabel!
     @IBOutlet weak var volunteerMembersLabel: UILabel!
+    @IBOutlet weak var memberTitleLabel: UILabel!
     
 
     override func awakeFromNib() {
@@ -31,10 +32,18 @@ class VolunteerTableViewCell: UITableViewCell {
         switch language {
         case Language.chinese.rawValue:
             volunteerOrganizationTitleLabel.text = volunteer.groupname
+            
+            if volunteerOrganizationTitleLabel.text == "議程委員會" {
+                memberTitleLabel.text = "委員名單"
+            }
+            
             volunteerDescriptionLabel.text = volunteer.info
             volunteerMembersLabel.text = volunteer.memberlist
         case Language.english.rawValue:
             volunteerOrganizationTitleLabel.text = volunteer.groupname_en
+            
+            memberTitleLabel.text = "Member list"
+            
             volunteerDescriptionLabel.text = volunteer.info_en
             volunteerMembersLabel.text = volunteer.memberlist
         default:

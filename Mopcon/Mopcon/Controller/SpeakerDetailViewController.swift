@@ -12,7 +12,9 @@ class SpeakerDetailViewController: UIViewController {
     
     var speaker:Speaker.Payload?
     var speaker_schedule:Schedule.Payload.Agenda.Item.AgendaContent?
-
+    var key:String?
+    var spinner = LoadingTool.setActivityindicator()
+    
     @IBOutlet weak var speakerImageView: UIImageView!
     @IBOutlet weak var speakerJobLabel: UILabel!
     @IBOutlet weak var speakerCompanyLabel: UILabel!
@@ -20,9 +22,21 @@ class SpeakerDetailViewController: UIViewController {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var scheduleTopicLabel: UILabel!
+    @IBOutlet weak var addToMyScheduleButton: CustomCornerButton!
     
     @IBAction func addToMySchedule(_ sender: UIButton) {
-        findSchedule()
+        
+        guard let schedule = speaker_schedule, let key = key else {
+            return
+        }
+        
+        if sender.currentImage == UIImage(named: "buttonStarNormal"){
+            MySchedules.add(agenda: schedule, forKey: key)
+            sender.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
+        } else {
+            MySchedules.remove(agenda: schedule, forKey: key)
+            sender.setImage(UIImage(named: "buttonStarNormal"), for: .normal)
+        }
     }
     
     override func viewDidLoad() {
@@ -33,12 +47,12 @@ class SpeakerDetailViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         //把backButton的顏色改成白色
         self.navigationController?.navigationBar.tintColor = UIColor.white
-            findSchedule()
         
         if let speaker = speaker {
             updateUI(speaker: speaker)
         }
         
+        findSchedule()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,13 +61,18 @@ class SpeakerDetailViewController: UIViewController {
             self.navigationItem.title = "Speaker"
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func findSchedule() {
+        
+        spinner.center = view.center
+        spinner.startAnimating()
+        view.addSubview(spinner)
+        
         ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { (payload, error) in
             
             if error != nil {
@@ -67,8 +86,11 @@ class SpeakerDetailViewController: UIViewController {
                         for schedule in item.agendas {
                             if scheduleID == schedule.schedule_id {
                                 self.speaker_schedule = schedule
-                                MySchedules.add(agenda: schedule, forKey: schedule.date!)
-                                return
+                                self.key = schedule.date
+                                
+                                DispatchQueue.main.async {
+                                    self.spinner.removeFromSuperview()
+                                }
                             }
                         }
                     }
@@ -77,11 +99,16 @@ class SpeakerDetailViewController: UIViewController {
         }
     }
     
+    
     func updateUI(speaker:Speaker.Payload) {
         if let url = URL(string: speaker.picture) {
             speakerImageView.kf.setImage(with: url)
         }
         self.speakerImageView.makeCircle()
+        
+        if MySchedules.checkRepeat(scheduleID: speaker.schedule_id) {
+            self.addToMyScheduleButton.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
+        }
         
         let language = CurrentLanguage.getLanguage()
         switch language {
@@ -103,5 +130,5 @@ class SpeakerDetailViewController: UIViewController {
             break
         }
     }
-
+    
 }

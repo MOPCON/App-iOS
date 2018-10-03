@@ -22,14 +22,14 @@ class MyScheduleViewController: UIViewController {
     }
     
     @IBAction func chooseDayOneAction(_ sender: Any) {
-        CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton as! CustomSelectedButton, notSelectedButton: dayTwoButton as! CustomSelectedButton)
+        CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton, notSelectedButton: dayTwoButton)
         key = UserDefaultsKeys.dayOneSchedule
         mySchedule = MySchedules.get(forKey: key)
         myScheduleTableView.reloadData()
     }
     
     @IBAction func chooseDayTwoAction(_ sender: Any) {
-        CommonFucntionHelper.changeButtonColor(beTappedButton: dayTwoButton as! CustomSelectedButton, notSelectedButton: dayOneButton as! CustomSelectedButton)
+        CommonFucntionHelper.changeButtonColor(beTappedButton: dayTwoButton, notSelectedButton: dayOneButton)
         key = UserDefaultsKeys.dayTwoSchedule
         mySchedule = MySchedules.get(forKey: key)
         myScheduleTableView.reloadData()
@@ -96,7 +96,7 @@ extension MyScheduleViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
