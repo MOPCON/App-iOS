@@ -25,6 +25,8 @@ class SpeakerTableViewCell: UITableViewCell {
     func updateUI(speaker:Speaker.Payload){
         if let resource = URL(string: speaker.picture) {
             self.speakerAvatarImageView.kf.setImage(with: resource)
+        } else {
+            self.speakerAvatarImageView.image = nil
         }
         
         let language = CurrentLanguage.getLanguage()
