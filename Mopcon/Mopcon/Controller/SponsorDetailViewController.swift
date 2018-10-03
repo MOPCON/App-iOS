@@ -97,7 +97,7 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
         case 0:
             return 244
         case 1:
-            return UITableViewAutomaticDimension
+            return UITableView.automaticDimension
         default:
             return 70
         }

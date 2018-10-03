@@ -77,7 +77,7 @@ extension CommunityImageViewController: UICollectionViewDelegate, UICollectionVi
 extension CommunityImageViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, self.view.frame.width * (16/375), self.view.frame.height * (16/667), self.view.frame.width * (16/375))
+        return UIEdgeInsets.init(top: 0, left: self.view.frame.width * (16/375), bottom: self.view.frame.height * (16/667), right: self.view.frame.width * (16/375))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

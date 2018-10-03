@@ -13,6 +13,7 @@ class SpeakerDetailViewController: UIViewController {
     var speaker:Speaker.Payload?
     var speaker_schedule:Schedule.Payload.Agenda.Item.AgendaContent?
     var key:String?
+    var spinner = LoadingTool.setActivityindicator()
     
     @IBOutlet weak var speakerImageView: UIImageView!
     @IBOutlet weak var speakerJobLabel: UILabel!
@@ -25,11 +26,15 @@ class SpeakerDetailViewController: UIViewController {
     
     @IBAction func addToMySchedule(_ sender: UIButton) {
         
+        guard let schedule = speaker_schedule, let key = key else {
+            return
+        }
+        
         if sender.currentImage == UIImage(named: "buttonStarNormal"){
-            findSchedule()
+            MySchedules.add(agenda: schedule, forKey: key)
             sender.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
         } else {
-            findRemoveSchedule()
+            MySchedules.remove(agenda: schedule, forKey: key)
             sender.setImage(UIImage(named: "buttonStarNormal"), for: .normal)
         }
     }
@@ -47,24 +52,7 @@ class SpeakerDetailViewController: UIViewController {
             updateUI(speaker: speaker)
         }
         
-        guard let scheduleID = speaker?.schedule_id else {
-            return
-        }
-        
-        for agenda in MySchedules.get(forKey: UserDefaultsKeys.dayOneSchedule) {
-            if scheduleID == agenda.schedule_id {
-                addToMyScheduleButton.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
-                return
-            }
-        }
-        
-        for agenda in MySchedules.get(forKey: UserDefaultsKeys.dayTwoSchedule) {
-            if scheduleID == agenda.schedule_id {
-                addToMyScheduleButton.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
-                return
-            }
-        }
-        
+        findSchedule()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,6 +68,11 @@ class SpeakerDetailViewController: UIViewController {
     }
     
     func findSchedule() {
+        
+        spinner.center = view.center
+        spinner.startAnimating()
+        view.addSubview(spinner)
+        
         ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { (payload, error) in
             
             if error != nil {
@@ -93,8 +86,11 @@ class SpeakerDetailViewController: UIViewController {
                         for schedule in item.agendas {
                             if scheduleID == schedule.schedule_id {
                                 self.speaker_schedule = schedule
-                                MySchedules.add(agenda: schedule, forKey: schedule.date!)
-                                return
+                                self.key = schedule.date
+                                
+                                DispatchQueue.main.async {
+                                    self.spinner.removeFromSuperview()
+                                }
                             }
                         }
                     }
@@ -103,35 +99,16 @@ class SpeakerDetailViewController: UIViewController {
         }
     }
     
-    func findRemoveSchedule() {
-        ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { (payload, error) in
-            
-            if error != nil {
-                print(error!.localizedDescription)
-                return
-            }
-            
-            if let payload = payload,let scheduleID = self.speaker?.schedule_id {
-                for agenda in payload.agenda {
-                    for item in agenda.items {
-                        for schedule in item.agendas {
-                            if scheduleID == schedule.schedule_id {
-                                self.speaker_schedule = schedule
-                                MySchedules.remove(agenda: schedule, forKey: schedule.date!)
-                                return
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
     
     func updateUI(speaker:Speaker.Payload) {
         if let url = URL(string: speaker.picture) {
             speakerImageView.kf.setImage(with: url)
         }
         self.speakerImageView.makeCircle()
+        
+        if MySchedules.checkRepeat(scheduleID: speaker.schedule_id) {
+            self.addToMyScheduleButton.setImage(UIImage(named: "buttonStarChecked"), for: .normal)
+        }
         
         let language = CurrentLanguage.getLanguage()
         switch language {

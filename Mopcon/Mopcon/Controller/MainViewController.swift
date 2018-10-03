@@ -59,10 +59,6 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination.navigationItem.title = ""
-    }
-    
     func getNews() {
         if let url = URL(string: "https://dev.mopcon.org/2018/api/news") {
             NewsAPI.getAPI(url: url) { (news, error) in
@@ -155,7 +151,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: CollectionViewCellKeyManager.collectionViewHeader, for: indexPath) as! MopconHeader
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewCellKeyManager.collectionViewHeader, for: indexPath) as! MopconHeader
             return header
     }
     
@@ -201,10 +197,10 @@ extension MainViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         if section == SectionName.Banner.rawValue {
-            return UIEdgeInsetsMake(self.view.frame.height * (8/667), 0, self.view.frame.height * (8/667), 0)
+            return UIEdgeInsets.init(top: self.view.frame.height * (8/667), left: 0, bottom: self.view.frame.height * (8/667), right: 0)
         }
         
-        return UIEdgeInsetsMake(self.view.frame.height * (8/667), self.view.frame.width * (20/375), self.view.frame.height * (8/667), self.view.frame.width * (20/375))
+        return UIEdgeInsets.init(top: self.view.frame.height * (8/667), left: self.view.frame.width * (20/375), bottom: self.view.frame.height * (8/667), right: self.view.frame.width * (20/375))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

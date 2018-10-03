@@ -1949,6 +1949,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="演講" id="98n-A9-IlC"/>
                     <connections>
+                        <outlet property="addToMyScheduleButton" destination="4kK-hI-ocS" id="jA5-m8-OGW"/>
                         <outlet property="companyLabel" destination="zRR-CW-cc4" id="usM-BB-l5I"/>
                         <outlet property="scheduleInfoLabel" destination="wWj-yb-EUI" id="2al-1i-8uE"/>
                         <outlet property="speakerImageView" destination="hbc-tb-gdN" id="sGk-KM-xbR"/>

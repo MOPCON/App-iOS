@@ -156,11 +156,11 @@ open class ImageCache {
         
 #if !os(macOS) && !os(watchOS)
         NotificationCenter.default.addObserver(
-            self, selector: #selector(clearMemoryCache), name: .UIApplicationDidReceiveMemoryWarning, object: nil)
+            self, selector: #selector(clearMemoryCache), name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
         NotificationCenter.default.addObserver(
-            self, selector: #selector(cleanExpiredDiskCache), name: .UIApplicationWillTerminate, object: nil)
+            self, selector: #selector(cleanExpiredDiskCache), name: UIApplication.willTerminateNotification, object: nil)
         NotificationCenter.default.addObserver(
-            self, selector: #selector(backgroundCleanExpiredDiskCache), name: .UIApplicationDidEnterBackground, object: nil)
+            self, selector: #selector(backgroundCleanExpiredDiskCache), name: UIApplication.didEnterBackgroundNotification, object: nil)
 #endif
     }
     
@@ -539,8 +539,8 @@ open class ImageCache {
         guard let sharedApplication = Kingfisher<UIApplication>.shared else { return }
 
         func endBackgroundTask(_ task: inout UIBackgroundTaskIdentifier) {
-            sharedApplication.endBackgroundTask(task)
-            task = UIBackgroundTaskInvalid
+            sharedApplication.endBackgroundTask(convertToUIBackgroundTaskIdentifier(task.rawValue))
+            task = UIBackgroundTaskIdentifier.invalid
         }
         
         var backgroundTask: UIBackgroundTaskIdentifier!
@@ -724,4 +724,9 @@ extension String {
             return appending("@\(identifier)")
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIBackgroundTaskIdentifier(_ input: Int) -> UIBackgroundTaskIdentifier {
+	return UIBackgroundTaskIdentifier(rawValue: input)
 }
