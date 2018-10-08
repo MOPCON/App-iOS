@@ -37,6 +37,12 @@ class InformationCollectionViewCell: UICollectionViewCell {
     func update(balance: Int) {
         self.balanceLabel.text = "\(balance)"
         self.capsulesLabel.text = "\(balance / 180)"
+        
+        if balance > 0 {
+            exchangeButton.alpha = 1
+        } else {
+            exchangeButton.alpha = 0.3
+        }
     }
     
 }

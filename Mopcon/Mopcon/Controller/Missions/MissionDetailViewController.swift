@@ -8,11 +8,18 @@
 
 import UIKit
 
+enum SolvesStatus {
+    case noAnswer
+    case success
+    case fail
+}
+
 class MissionDetailViewController: UIViewController {
     
+    var missionStatus = SolvesStatus.noAnswer
     var selectedAnswer = ""
     var options = [String]()
-
+    
     @IBOutlet weak var missionTableView: UITableView!
     
     override func viewDidLoad() {
@@ -24,7 +31,7 @@ class MissionDetailViewController: UIViewController {
         //MARK: Fake data
         options = ["區塊鏈是藉由密碼學串接並保護內容的串連交易記錄。","每一個區塊包含了前個區塊的加密","區塊內容具有難以竄改的特性。用區塊鏈所串接的分散式帳本能讓兩方有效紀錄交易，且可永久查驗此交易。"]
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -77,8 +84,24 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
             
             return answerCell
         case 2:
-            let submitCell = tableView.dequeueReusableCell(withIdentifier: "submitCell", for: indexPath)
-            return submitCell
+            
+            switch missionStatus {
+            case .noAnswer:
+                let submitCell = tableView.dequeueReusableCell(withIdentifier: "submitCell", for: indexPath)
+                
+                if let sumbitButton = submitCell.viewWithTag(31) as? UIButton {
+                    sumbitButton.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
+                }
+                
+                return submitCell
+            case .success:
+                let successCell = tableView.dequeueReusableCell(withIdentifier: "successCell", for: indexPath)
+                return successCell
+            case .fail:
+                let failCell = tableView.dequeueReusableCell(withIdentifier: "failCell", for: indexPath)
+                return failCell
+            }
+            
         default:
             fatalError("Can't created cell.")
         }
@@ -86,15 +109,37 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 2 {
-            return 150
+            if missionStatus == .success {
+                return 190
+            } else {
+                return 150
+            }
         } else {
             return UITableView.automaticDimension
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedAnswer = options[indexPath.row]
-        tableView.reloadData()
+        if indexPath.section == 1 {
+            selectedAnswer = options[indexPath.row]
+            tableView.reloadData()
+        }
     }
-
+    
+    @objc func checkAnswer() {
+        
+        let answer: [String: Any ] = [
+            "public_key": "123-456",
+            "id" : 3,
+            "answer" : 4
+        ]
+        
+        FieldGameAPI.solveQuiz(jsonData: answer) { (data) in
+            self.missionStatus = .fail
+            DispatchQueue.main.async {
+                self.missionTableView.reloadSections(IndexSet.init(integer: 2), with: .automatic)
+            }
+        }
+    }
+    
 }
