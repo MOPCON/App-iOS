@@ -8,8 +8,15 @@
 
 import UIKit
 
+enum MissionStatus {
+    case notPerformed
+    case hasBeenExcuted
+}
+
 class InteractionViewController: UIViewController {
 
+    var missionStatus = MissionStatus.notPerformed
+    
     @IBOutlet weak var interactionTableView: UITableView!
     
     override func viewDidLoad() {
@@ -43,8 +50,20 @@ extension InteractionViewController: UITableViewDataSource, UITableViewDelegate 
             let contentCell = tableView.dequeueReusableCell(withIdentifier: "contentCell", for: indexPath)
             return contentCell
         case 2:
-            let submitCell = tableView.dequeueReusableCell(withIdentifier: "submitCell", for: indexPath)
-            return submitCell
+            switch missionStatus {
+            case .notPerformed:
+                let submitCell = tableView.dequeueReusableCell(withIdentifier: "submitCell", for: indexPath)
+                
+                if let submitButton = submitCell.viewWithTag(31) as? UIButton {
+                    submitButton.addTarget(self, action: #selector(checkMission), for: .touchUpInside)
+                }
+                
+                return submitCell
+            case .hasBeenExcuted:
+                let successCell = tableView.dequeueReusableCell(withIdentifier: "successCell", for: indexPath)
+                
+                return successCell
+            }
         default:
             fatalError("Can't create Tableview Cell")
         }
@@ -58,9 +77,29 @@ extension InteractionViewController: UITableViewDataSource, UITableViewDelegate 
         case 1:
             return UITableView.automaticDimension
         case 2:
+            if missionStatus == .hasBeenExcuted {
+                return 190
+            }
             return 150
         default:
             return 0
+        }
+    }
+    
+    @objc func checkMission() {
+        
+        let answer: [String: Any] = [
+            "id" : 1,
+            "public_key":"12345678",
+            "token" : "mopcon:123-456-789"
+        ]
+        
+        FieldGameAPI.getHawkerMission(jsonData: answer) { (data) in
+            self.missionStatus = .hasBeenExcuted
+            DispatchQueue.main.async {
+                self.interactionTableView.reloadRows(at: [[0, 2]], with: .automatic)
+            }
+            print(data)
         }
     }
    

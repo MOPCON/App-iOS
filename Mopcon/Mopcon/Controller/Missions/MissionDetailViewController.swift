@@ -120,7 +120,7 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        if indexPath.section == 1 && missionStatus == .noAnswer {
             selectedAnswer = options[indexPath.row]
             tableView.reloadData()
         }

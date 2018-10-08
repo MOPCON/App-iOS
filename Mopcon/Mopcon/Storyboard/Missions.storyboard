@@ -350,6 +350,77 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="successCell" rowHeight="190" id="rDg-uz-x8x">
+                                        <rect key="frame" x="0.0" y="502" width="414" height="190"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rDg-uz-x8x" id="ydk-uz-zst">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0S-AO-BpP">
+                                                    <rect key="frame" x="20" y="72" width="374" height="118"/>
+                                                    <subviews>
+                                                        <view clipsSubviews="YES" alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8t8-PI-MKA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="118"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="挑戰成功！獲得 Mo 幣" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yf2-ke-f7Z">
+                                                            <rect key="frame" x="126" y="24" width="122" height="17"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="12"/>
+                                                            <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="LcR-oA-tJg">
+                                                            <rect key="frame" x="133.66666666666666" y="61" width="106.66666666666666" height="30"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCoin" translatesAutoresizingMaskIntoConstraints="NO" id="D7p-64-0Mc">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="NIM-1p-fPS"/>
+                                                                        <constraint firstAttribute="height" constant="30" id="oyd-ph-RuN"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw7-K0-jRH">
+                                                                    <rect key="frame" x="42.000000000000007" y="0.0" width="64.666666666666686" height="30"/>
+                                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="40"/>
+                                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="8t8-PI-MKA" firstAttribute="top" secondItem="y0S-AO-BpP" secondAttribute="top" id="Dsy-RR-d2w"/>
+                                                        <constraint firstAttribute="bottom" secondItem="8t8-PI-MKA" secondAttribute="bottom" id="HIE-CW-fAJ"/>
+                                                        <constraint firstItem="Yf2-ke-f7Z" firstAttribute="centerX" secondItem="y0S-AO-BpP" secondAttribute="centerX" id="InL-so-XFG"/>
+                                                        <constraint firstItem="LcR-oA-tJg" firstAttribute="centerX" secondItem="y0S-AO-BpP" secondAttribute="centerX" id="QM0-yJ-Zjt"/>
+                                                        <constraint firstItem="LcR-oA-tJg" firstAttribute="top" secondItem="Yf2-ke-f7Z" secondAttribute="bottom" constant="20" id="RfT-Xg-4yK"/>
+                                                        <constraint firstItem="8t8-PI-MKA" firstAttribute="leading" secondItem="y0S-AO-BpP" secondAttribute="leading" id="gmL-v2-oIM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8t8-PI-MKA" secondAttribute="trailing" id="hyW-nR-3BJ"/>
+                                                        <constraint firstItem="Yf2-ke-f7Z" firstAttribute="top" secondItem="y0S-AO-BpP" secondAttribute="top" constant="24" id="mQB-Ua-gyK"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="y0S-AO-BpP" firstAttribute="leading" secondItem="ydk-uz-zst" secondAttribute="leading" constant="20" id="OOK-ae-FT3"/>
+                                                <constraint firstAttribute="bottom" secondItem="y0S-AO-BpP" secondAttribute="bottom" id="bUj-hl-FFd"/>
+                                                <constraint firstAttribute="trailing" secondItem="y0S-AO-BpP" secondAttribute="trailing" constant="20" id="oKm-fK-JnE"/>
+                                                <constraint firstItem="y0S-AO-BpP" firstAttribute="top" secondItem="ydk-uz-zst" secondAttribute="top" constant="72" id="qXW-gf-AGb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.023529411760000001" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
