@@ -94,6 +94,8 @@ extension InteractionViewController: UITableViewDataSource, UITableViewDelegate 
             "token" : "mopcon:123-456-789"
         ]
         
+        performSegue(withIdentifier: "showScanner", sender: self)
+        
         FieldGameAPI.getHawkerMission(jsonData: answer) { (data) in
             self.missionStatus = .hasBeenExcuted
             DispatchQueue.main.async {

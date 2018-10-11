@@ -27,6 +27,8 @@ class MissionsViewController: UIViewController {
     var quizs = [Quiz]()
     var balance = 0
     
+    var selectedMission: Quiz.Item?
+    
     var user = User(publicKey: "0988797601")
 
     @IBOutlet weak var missionsCollectionView: UICollectionView!
@@ -57,8 +59,15 @@ class MissionsViewController: UIViewController {
         getBalance()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "performMissionDetail":
+            if let vc = segue.destination as? MissionDetailViewController {
+                vc.mission = self.selectedMission
+            }
+        default:
+            break
+        }
     }
     
     // MARK: Show customized alert
@@ -228,7 +237,7 @@ class MissionsViewController: UIViewController {
         confirmButton.clipsToBounds = true
         confirmButton.layer.borderColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
         confirmButton.layer.borderWidth = 2
-        confirmButton.addTarget(self, action: #selector(closeView(sender:)), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(exchangeGachapon(sender:)), for: .touchUpInside)
         
         alertView.addSubview(capsuleImageView)
         alertView.addSubview(messageLabel)
@@ -248,13 +257,18 @@ class MissionsViewController: UIViewController {
     
     @objc func checkExchangeInfo(sender: UIButton) {
         closeView(sender: sender)
-        self.showExchangeInfo()
+        showExchangeInfo()
+    }
+    
+    @objc func exchangeGachapon(sender: UIButton) {
+        
+        closeView(sender: sender)
         
         FieldGameAPI.buyGachapon(user: user) { (data) in
             let decoder = JSONDecoder()
             guard let result = try? decoder.decode(Result.self, from: data) else { return }
             if let isSuccess = result.isSuccess {
-                print("buy Gachapon")
+                self.testAlert(msg: "Result: \(isSuccess)")
             }
         }
     }
@@ -355,6 +369,7 @@ extension MissionsViewController: UICollectionViewDelegateFlowLayout {
         
         switch missionCell.typeLabel.text {
         case "quiz":
+            self.selectedMission = quizs[0].items?[indexPath.row]
             self.performSegue(withIdentifier: "performMissionDetail", sender: nil)
         case "task":
             self.performSegue(withIdentifier: "performInteractionDetail", sender: nil)

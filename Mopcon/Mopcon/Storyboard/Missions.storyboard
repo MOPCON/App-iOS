@@ -216,7 +216,7 @@
                         <viewLayoutGuide key="safeArea" id="Nd8-qj-MJO"/>
                     </view>
                     <navigationItem key="navigationItem" title="任務" id="1jc-5g-vCN">
-                        <barButtonItem key="backBarButtonItem" title=" " id="4jF-UY-Ixd"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="RVK-Qd-46o"/>
                         <barButtonItem key="rightBarButtonItem" image="outlined" id="kfT-Cv-hUF">
                             <connections>
                                 <action selector="exit:" destination="L0Y-gg-2tG" id="p1D-rh-3aE"/>
@@ -385,7 +385,7 @@
                                                                         <constraint firstAttribute="height" constant="30" id="oyd-ph-RuN"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw7-K0-jRH">
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="41" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw7-K0-jRH">
                                                                     <rect key="frame" x="42.000000000000007" y="0.0" width="64.666666666666686" height="30"/>
                                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="40"/>
                                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -433,9 +433,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TNo-qp-ddq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="廠商互動" id="eJo-8y-5hs"/>
+                    <navigationItem key="navigationItem" title="廠商互動" id="eJo-8y-5hs">
+                        <barButtonItem key="backBarButtonItem" title=" " id="xQR-Tx-jy0"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="interactionTableView" destination="j8k-vt-jm5" id="0NP-Ea-HaN"/>
+                        <segue destination="ye1-nu-JVZ" kind="show" identifier="showScanner" id="IDL-P9-9eM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUK-Kt-9bk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -600,7 +603,7 @@
                                                                         <constraint firstAttribute="width" constant="30" id="nDU-ks-05B"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwo-6B-gMH">
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="41" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwo-6B-gMH">
                                                                     <rect key="frame" x="42.000000000000007" y="0.0" width="64.666666666666686" height="30"/>
                                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="40"/>
                                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -699,7 +702,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ol2-NU-JoV"/>
                     </view>
-                    <navigationItem key="navigationItem" title="問答" id="47j-zs-SFr"/>
+                    <navigationItem key="navigationItem" title="問答" id="47j-zs-SFr">
+                        <barButtonItem key="backBarButtonItem" title=" " id="eaz-GH-ort"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="missionTableView" destination="L7Y-dH-aS3" id="JFh-qn-kBU"/>
                     </connections>
@@ -707,6 +712,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDc-XF-XVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1902.8985507246377" y="-171.19565217391306"/>
+        </scene>
+        <!--QRCode Scanner-->
+        <scene sceneID="1Qe-A2-PNx">
+            <objects>
+                <viewController id="ye1-nu-JVZ" customClass="QRCodeViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HsL-fk-8w5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="o1j-FI-suh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="QRCode Scanner" id="NZ5-2V-602"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DCm-tb-JPP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2721.739130434783" y="-169.56521739130437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ag-Qd-pfM">
