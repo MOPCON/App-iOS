@@ -10,7 +10,7 @@ import Foundation
 
 class MopconAPI {
     
-    private let frontURL = "https://dev.mopcon.org/2018/api/"
+    private let frontURL = "https://mopcon.org/2018/api/"
     
     var schedule:URL
     var speaker:URL
