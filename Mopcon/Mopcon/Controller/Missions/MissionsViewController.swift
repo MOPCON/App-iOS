@@ -27,6 +27,8 @@ class MissionsViewController: UIViewController {
     var quizs = [Quiz]()
     var balance = 0
     
+    var selectedMission: Quiz.Item?
+    
     var user = User(publicKey: "0988797601")
 
     @IBOutlet weak var missionsCollectionView: UICollectionView!
@@ -57,8 +59,15 @@ class MissionsViewController: UIViewController {
         getBalance()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "performMissionDetail":
+            if let vc = segue.destination as? MissionDetailViewController {
+                vc.mission = self.selectedMission
+            }
+        default:
+            break
+        }
     }
     
     // MARK: Show customized alert
@@ -73,7 +82,6 @@ class MissionsViewController: UIViewController {
             let tap = UITapGestureRecognizer(target: self, action: #selector(removeBackView))
             backView.addGestureRecognizer(tap)
         }
-        
         self.view.addSubview(backView)
     }
     
@@ -132,7 +140,7 @@ class MissionsViewController: UIViewController {
         infoView.addSubview(startButton)
     }
     
-    @objc func exchangeCapsule(sender:UIButton) {
+    @objc func exchangeCapsule(sender: Any) {
         
         addBackView(addTap: true)
         
@@ -168,7 +176,7 @@ class MissionsViewController: UIViewController {
         sendButton.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
         sendButton.setTitle("送出", for: .normal)
         sendButton.titleLabel?.font = UIFont(name: "PingFangTC-Semibold", size: 20)
-        sendButton.addTarget(self, action: #selector(closeView(sender:)), for: .touchUpInside)
+        sendButton.addTarget(self, action: #selector(checkExchangeInfo(sender:)), for: .touchUpInside)
         
         alertView.addSubview(textField)
         alertView.addSubview(lineView)
@@ -178,7 +186,7 @@ class MissionsViewController: UIViewController {
         
     }
     
-    func showExchangeInfo() {
+    @objc func showExchangeInfo() {
         
         addBackView(addTap: false)
         
@@ -229,7 +237,7 @@ class MissionsViewController: UIViewController {
         confirmButton.clipsToBounds = true
         confirmButton.layer.borderColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
         confirmButton.layer.borderWidth = 2
-        confirmButton.addTarget(self, action: #selector(closeView(sender:)), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(exchangeGachapon(sender:)), for: .touchUpInside)
         
         alertView.addSubview(capsuleImageView)
         alertView.addSubview(messageLabel)
@@ -247,14 +255,25 @@ class MissionsViewController: UIViewController {
         backView.removeFromSuperview()
     }
     
-    @objc func closeView(sender:UIButton) {
+    @objc func checkExchangeInfo(sender: UIButton) {
+        closeView(sender: sender)
+        showExchangeInfo()
+    }
+    
+    @objc func exchangeGachapon(sender: UIButton) {
         
-        guard let title = sender.titleLabel?.text else { return }
+        closeView(sender: sender)
         
-        if title == "送出" {
-            showExchangeInfo()
+        FieldGameAPI.buyGachapon(user: user) { (data) in
+            let decoder = JSONDecoder()
+            guard let result = try? decoder.decode(Result.self, from: data) else { return }
+            if let isSuccess = result.isSuccess {
+                self.testAlert(msg: "Result: \(isSuccess)")
+            }
         }
-        
+    }
+    
+    @objc func closeView(sender:UIButton) {
         if let alertView = sender.superview {
             alertView.removeFromSuperview()
             backView.removeFromSuperview()
@@ -350,6 +369,7 @@ extension MissionsViewController: UICollectionViewDelegateFlowLayout {
         
         switch missionCell.typeLabel.text {
         case "quiz":
+            self.selectedMission = quizs[0].items?[indexPath.row]
             self.performSegue(withIdentifier: "performMissionDetail", sender: nil)
         case "task":
             self.performSegue(withIdentifier: "performInteractionDetail", sender: nil)
@@ -364,16 +384,8 @@ extension MissionsViewController: UICollectionViewDelegateFlowLayout {
 extension MissionsViewController: InformationCollectionViewCellDelegate {
     
     func exchange(amount: Int) {
-        
         user.amount = amount
-        
-        FieldGameAPI.buyGachapon(user: user) { (data) in
-            let decoder = JSONDecoder()
-            guard let result = try? decoder.decode(Result.self, from: data) else { return }
-            if let isSuccess = result.isSuccess {
-                self.testAlert(msg: "\(isSuccess)")
-            }
-        }
+        exchangeCapsule(sender: self)
     }
     
 }
@@ -390,14 +402,15 @@ extension MissionsViewController {
     }
     
     func getQuiz() {
+        
         FieldGameAPI.getQuiz { (data) in
             do {
                 let decoder = JSONDecoder()
                 let decoded = try decoder.decode([Quiz].self, from: data)
                 self.quizs = decoded
-                
+                print("Get Quiz Success")
                 DispatchQueue.main.async {
-                    self.missionsCollectionView.reloadData()
+                    self.missionsCollectionView.reloadSections(IndexSet.init(integer: 1))
                 }
             } catch {
                 print(error.localizedDescription)
@@ -423,6 +436,10 @@ extension MissionsViewController {
             guard let result = try? decoder.decode(Result.self, from: data) else { return }
             if let balance = result.balance {
                 self.balance = balance
+                print("Get balance: \(balance)")
+                DispatchQueue.main.async {
+                    self.missionsCollectionView.reloadItems(at: [[0,0]])
+                }
             }
         }
     }

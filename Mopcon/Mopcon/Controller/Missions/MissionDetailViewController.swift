@@ -8,11 +8,30 @@
 
 import UIKit
 
+enum SolvesStatus {
+    case noAnswer
+    case success
+    case fail
+}
+
 class MissionDetailViewController: UIViewController {
     
-    var selectedAnswer = ""
+    var mission: Quiz.Item?
+    var missionStatus = SolvesStatus.noAnswer
+    var selectedAnswer: String?
     var options = [String]()
-
+    var reward: Int?
+    var answer: String {
+        
+        if let string = mission?.answer, let option = mission?.options  {
+            if let index = Int(string) {
+                return option[index - 1]
+            }
+        }
+        
+        return "?"
+    }
+    
     @IBOutlet weak var missionTableView: UITableView!
     
     override func viewDidLoad() {
@@ -21,10 +40,12 @@ class MissionDetailViewController: UIViewController {
         missionTableView.dataSource = self
         missionTableView.delegate = self
         
-        //MARK: Fake data
-        options = ["區塊鏈是藉由密碼學串接並保護內容的串連交易記錄。","每一個區塊包含了前個區塊的加密","區塊內容具有難以竄改的特性。用區塊鏈所串接的分散式帳本能讓兩方有效紀錄交易，且可永久查驗此交易。"]
+        if let item = mission, let options = item.options {
+            self.options = options
+        }
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -51,7 +72,7 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
         case 0:
             let questionCell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath)
             guard let questionLabel = questionCell.viewWithTag(1) as? UILabel else {  fatalError("Can't find questionLabel")}
-            questionLabel.text = "區塊鏈為何稱為區塊鏈？"
+            questionLabel.text = mission?.title
             return questionCell
         case 1:
             let answerCell = tableView.dequeueReusableCell(withIdentifier: "answerCell", for: indexPath)
@@ -67,18 +88,53 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
             iconLabel.layer.borderWidth = 1
             optionLabel.text = options[indexPath.row]
             
-            if optionLabel.text == selectedAnswer {
-                iconLabel.textColor = .white
-                iconLabel.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
-            } else {
-                iconLabel.backgroundColor = .clear
-                iconLabel.textColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+            switch missionStatus {
+            case .noAnswer:
+                if optionLabel.text == selectedAnswer {
+                    iconLabel.textColor = .white
+                    iconLabel.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+                } else {
+                    iconLabel.backgroundColor = .clear
+                    iconLabel.textColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+                }
+            case .fail:
+                if optionLabel.text == selectedAnswer {
+                    iconLabel.textColor = .white
+                    iconLabel.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+                } else if optionLabel.text == answer {
+                    iconLabel.backgroundColor = .red
+                    iconLabel.layer.borderColor = UIColor.red.cgColor
+                    iconLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                }
+                
+                
+            case .success:
+                break
             }
             
             return answerCell
         case 2:
-            let submitCell = tableView.dequeueReusableCell(withIdentifier: "submitCell", for: indexPath)
-            return submitCell
+            
+            switch missionStatus {
+            case .noAnswer:
+                let submitCell = tableView.dequeueReusableCell(withIdentifier: "submitCell", for: indexPath)
+                
+                if let sumbitButton = submitCell.viewWithTag(31) as? UIButton {
+                    sumbitButton.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
+                }
+                
+                return submitCell
+            case .success:
+                let successCell = tableView.dequeueReusableCell(withIdentifier: "successCell", for: indexPath)
+                if let rewardLabel = successCell.viewWithTag(41) as? UILabel, let reward = reward {
+                    rewardLabel.text = "\(reward)"
+                }
+                return successCell
+            case .fail:
+                let failCell = tableView.dequeueReusableCell(withIdentifier: "failCell", for: indexPath)
+                return failCell
+            }
+            
         default:
             fatalError("Can't created cell.")
         }
@@ -86,15 +142,47 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 2 {
-            return 150
+            if missionStatus == .success {
+                return 190
+            } else {
+                return 150
+            }
         } else {
             return UITableView.automaticDimension
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedAnswer = options[indexPath.row]
-        tableView.reloadData()
+        if indexPath.section == 1 && missionStatus == .noAnswer {
+            selectedAnswer = options[indexPath.row]
+            tableView.reloadSections(IndexSet(integer: 1), with: .none)
+        }
     }
-
+    
+    @objc func checkAnswer() {
+        
+        let body: [String: Any ] = [
+            "public_key": "123-456",
+            "id" : 3,
+            "answer" : 4
+        ]
+        
+        FieldGameAPI.solveQuiz(jsonData: body) { (data) in
+            
+            if self.selectedAnswer == self.answer {
+                self.missionStatus = .success
+                let decoder = JSONDecoder()
+                if let json = try? decoder.decode(Result.self, from: data), let reward = json.reward {
+                    self.reward = reward
+                }
+            } else {
+                self.missionStatus = .fail
+            }
+            
+            DispatchQueue.main.async {
+                self.missionTableView.reloadData()
+            }
+        }
+    }
+    
 }

@@ -11,7 +11,21 @@ import UIKit
 class MyScheduleViewController: UIViewController {
     
     var key = UserDefaultsKeys.dayOneSchedule
-    var mySchedule = [Schedule.Payload.Agenda.Item.AgendaContent]()
+    var mySchedule = [Schedule.Payload.Agenda.Item.AgendaContent]() {
+        didSet {
+            mySchedule.sort { ( a, b) -> Bool in
+                if let firstID = Int(a.schedule_id!), let secondID = Int(b.schedule_id!) {
+                    if firstID < secondID {
+                        return true
+                    } else {
+                        return false
+                    }
+                } else {
+                    return false
+                }
+            }
+        }
+    }
     
     @IBOutlet weak var myScheduleTableView: UITableView!
     @IBOutlet weak var dayOneButton: CustomSelectedButton!
@@ -53,17 +67,6 @@ class MyScheduleViewController: UIViewController {
         super.viewWillAppear(true)
         
         mySchedule = MySchedules.get(forKey: key)
-        mySchedule.sort { ( a, b) -> Bool in
-            if let firstID = Int(a.schedule_id!), let secondID = Int(b.schedule_id!) {
-                if firstID < secondID {
-                    return true
-                } else {
-                    return false
-                }
-            } else {
-                return false
-            }
-        }
         
         if CurrentLanguage.getLanguage() == Language.english.rawValue {
             self.navigationItem.title = "Schedule"
