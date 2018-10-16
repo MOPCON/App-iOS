@@ -9,8 +9,8 @@
 import UIKit
 
 enum SponsorSection: Int {
-    case tony_stark
     case bruce_wayne
+    case hacker
     case geek
     case developer
     case educationSponsorship
@@ -77,8 +77,8 @@ class SponsorsViewController: UIViewController {
             }
             
             if let payload = payload {
-                var tonyStark = [Sponsor.Payload]()
                 var bruceWayne = [Sponsor.Payload]()
+                var hacker = [Sponsor.Payload]()
                 var geek = [Sponsor.Payload]()
                 var developer = [Sponsor.Payload]()
                 var specialThanks = [Sponsor.Payload]()
@@ -87,10 +87,10 @@ class SponsorsViewController: UIViewController {
                 
                 for sponsor in payload {
                     switch sponsor.type {
-                    case "Tony Stark":
-                        tonyStark.append(sponsor)
                     case "Bruce Wayne":
                         bruceWayne.append(sponsor)
+                    case "Hacker":
+                        hacker.append(sponsor)
                     case "Geek":
                         geek.append(sponsor)
                     case "Developer":
@@ -103,9 +103,8 @@ class SponsorsViewController: UIViewController {
                         specialThanks.append(sponsor)
                     }
                 }
-                
-                self.sponsors.append(tonyStark)
                 self.sponsors.append(bruceWayne)
+                self.sponsors.append(hacker)
                 self.sponsors.append(geek)
                 self.sponsors.append(developer)
                 self.sponsors.append(educationSponsorship)
@@ -134,16 +133,9 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
         
         let sponsor = sponsors[indexPath.section][indexPath.row]
         
-        switch indexPath.section {
-        case SponsorSection.tony_stark.rawValue:
-            let bigImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: SponsorCollectionViewIDManager.sponsorBigCollectionView, for: indexPath) as! SponsorBigCollectionViewCell
-            bigImageCell.updateUI(sponsor: sponsor)
-            return bigImageCell
-        default:
-            let smallImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: SponsorCollectionViewIDManager.sponsorCollectionCell, for: indexPath) as! SponsorSmallCollectionViewCell
-            smallImageCell.updateUI(sponsor: sponsor)
-            return smallImageCell
-        }
+        let smallImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: SponsorCollectionViewIDManager.sponsorCollectionCell, for: indexPath) as! SponsorSmallCollectionViewCell
+        smallImageCell.updateUI(sponsor: sponsor)
+        return smallImageCell
         
     }
     
@@ -155,10 +147,10 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
         var title = ""
         
         switch indexPath.section {
-        case SponsorSection.tony_stark.rawValue:
-            title = "ＴＯＮＹ ＳＴＡＲＫ"
         case SponsorSection.bruce_wayne.rawValue:
             title = "ＢＲＵＣＥ ＷＡＹＮＥ"
+        case SponsorSection.hacker.rawValue:
+            title = "ＨＡＣＫＥＲ"
         case SponsorSection.geek.rawValue:
             title = "ＧＥＥＫ"
         case SponsorSection.developer.rawValue:
@@ -208,11 +200,6 @@ extension SponsorsViewController: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch indexPath.section {
-        case SponsorSection.tony_stark.rawValue:
-            return CGSize(width: self.view.frame.width * (343/375), height: self.view.frame.width * (164/375))
-        default:
-            return CGSize(width: self.view.frame.width * (164/375), height: self.view.frame.width * (164/375))
-        }
+        return CGSize(width: self.view.frame.width * (164/375), height: self.view.frame.width * (164/375))
     }
 }
