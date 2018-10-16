@@ -24,7 +24,7 @@ enum GridSectionName:Int{
     case Agenda = 0
     case MySchedule
     case Communication
-//    case Mission
+    //    case Mission
     case Sponsor
     case Speaker
     case Group
@@ -35,16 +35,16 @@ class MainViewController: UIViewController {
     
     var firstNews:News.Payload?
     var language = CurrentLanguage.getLanguage()
- 
+    
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
     //fake Data
-//    let gridImage = ["Agenda","Schedule","Communication","Mission","Sponsor","Speaker","Group","News"]
-//    let gridTitle = ["議程","我的行程","交流場次","任務","贊助廠商","講者","社群","最新消息"]
+    //    let gridImage = ["Agenda","Schedule","Communication","Mission","Sponsor","Speaker","Group","News"]
+    //    let gridTitle = ["議程","我的行程","交流場次","任務","贊助廠商","講者","社群","最新消息"]
     
     let gridImage = ["Agenda","Schedule","Communication","Sponsor","Speaker","Group","News"]
     let gridTitle = ["議程","我的行程","交流場次","贊助廠商","講者","社群","最新消息"]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mainCollectionView.delegate = self
@@ -60,22 +60,22 @@ class MainViewController: UIViewController {
     }
     
     func getNews() {
-        if let url = URL(string: "https://dev.mopcon.org/2018/api/news") {
-            NewsAPI.getAPI(url: url) { (news, error) in
-                if error != nil {
-                    print(error!.localizedDescription)
-                    return
-                }
-                
-                if let news = news {
-                    self.firstNews = news[0]
-                    DispatchQueue.main.async {
-                        self.mainCollectionView.reloadData()
-                    }
+        NewsAPI.getAPI(url: MopconAPI.shared.news) { (news, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            if let news = news {
+                self.firstNews = news[0]
+                DispatchQueue.main.async {
+                    self.mainCollectionView.reloadData()
                 }
             }
         }
     }
+    
+    
     
     
     @objc func selectedLanguage(sender:CustomCornerButton) {
@@ -152,8 +152,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewCellKeyManager.collectionViewHeader, for: indexPath) as! MopconHeader
-            return header
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewCellKeyManager.collectionViewHeader, for: indexPath) as! MopconHeader
+        return header
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -175,10 +175,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             performSegue(withIdentifier: SegueIDManager.performMySchedule, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Communication.rawValue):
             performSegue(withIdentifier: SegueIDManager.performCommunication, sender: nil)
-//        case (SectionName.Grid.rawValue,GridSectionName.Mission.rawValue):
-//            if let missionViewController = UIStoryboard(name: "Missions", bundle: nil).instantiateViewController(withIdentifier: "MissionsNavigationViewController") as? UINavigationController {
-//                self.present(missionViewController, animated: true, completion: nil)
-//            }
+            //        case (SectionName.Grid.rawValue,GridSectionName.Mission.rawValue):
+            //            if let missionViewController = UIStoryboard(name: "Missions", bundle: nil).instantiateViewController(withIdentifier: "MissionsNavigationViewController") as? UINavigationController {
+            //                self.present(missionViewController, animated: true, completion: nil)
+        //            }
         case (SectionName.Grid.rawValue,GridSectionName.Sponsor.rawValue):
             performSegue(withIdentifier: SegueIDManager.performSponsors, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Speaker.rawValue):

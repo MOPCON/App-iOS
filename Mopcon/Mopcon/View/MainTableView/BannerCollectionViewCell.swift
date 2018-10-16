@@ -18,23 +18,6 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         }
     }
     
-    func getBannerData() {
-        let url = MopconAPI.shared.carousel
-        CarouselAPI.getAPI(url: url) { (bannerData, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-                return
-            }
-            
-            if let data = bannerData {
-                self.bannerData = data
-                DispatchQueue.main.async {
-                    self.bannerImageCollectionView.reloadData()
-                }
-            }
-        }
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bannerData.count
     }
