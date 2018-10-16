@@ -77,6 +77,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    
     @objc func selectedLanguage(sender:CustomCornerButton) {
         
         switch sender.currentTitle {

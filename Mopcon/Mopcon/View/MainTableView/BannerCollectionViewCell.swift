@@ -19,18 +19,17 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     }
     
     func getBannerData() {
-        if let url = URL(string: "https://dev.mopcon.org/2018/api/carousel") {
-            CarouselAPI.getAPI(url: url) { (bannerData, error) in
-                if error != nil {
-                    print(error!.localizedDescription)
-                    return
-                }
-                
-                if let data = bannerData {
-                    self.bannerData = data
-                    DispatchQueue.main.async {
-                        self.bannerImageCollectionView.reloadData()
-                    }
+        let url = MopconAPI.shared.carousel
+        CarouselAPI.getAPI(url: url) { (bannerData, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            if let data = bannerData {
+                self.bannerData = data
+                DispatchQueue.main.async {
+                    self.bannerImageCollectionView.reloadData()
                 }
             }
         }
@@ -53,7 +52,7 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
             UIApplication.shared.open(url, options: [:])
         }
     }
-   
+    
 }
 
 extension BannerCollectionViewCell: UICollectionViewDelegateFlowLayout {
