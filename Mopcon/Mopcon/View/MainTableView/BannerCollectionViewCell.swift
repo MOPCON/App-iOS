@@ -17,7 +17,7 @@ class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
             bannerImageCollectionView.isPagingEnabled = true
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bannerData.count
     }

@@ -35,6 +35,7 @@ class MainViewController: UIViewController {
     
     var firstNews:News.Payload?
     var language = CurrentLanguage.getLanguage()
+    var bannerData = [Carousel.Payload]()
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
@@ -51,7 +52,7 @@ class MainViewController: UIViewController {
         mainCollectionView.dataSource = self
         mainCollectionView.backgroundView = UIImageView(image: UIImage(named: "bgMainPage"))
         getNews()
-        
+        getBannerData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,8 +76,21 @@ class MainViewController: UIViewController {
         }
     }
     
-    
-    
+    func getBannerData() {
+        CarouselAPI.getAPI(url: MopconAPI.shared.carousel) { (bannerData, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            if let data = bannerData {
+                self.bannerData = data
+                DispatchQueue.main.async {
+                    self.mainCollectionView.reloadSections(IndexSet.init(integer: 0))
+                }
+            }
+        }
+    }
     
     @objc func selectedLanguage(sender:CustomCornerButton) {
         
@@ -121,7 +135,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let bannerCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.bannerCell, for: indexPath) as! BannerCollectionViewCell
             bannerCell.bannerImageCollectionView.delegate = bannerCell
             bannerCell.bannerImageCollectionView.dataSource = bannerCell
-            bannerCell.getBannerData()
+            bannerCell.bannerData = self.bannerData
             return bannerCell
         case SectionName.News.rawValue:
             let newsCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.newsCell, for: indexPath) as! NewsCollectionViewCell
