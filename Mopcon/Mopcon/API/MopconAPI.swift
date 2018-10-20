@@ -11,6 +11,7 @@ import Foundation
 class MopconAPI {
     
     private let frontURL = "https://mopcon.org/2018/api/"
+    private let frontTestURL = "https://dev.mopcon.org/2018/api/"
     
     var schedule:URL
     var speaker:URL
@@ -39,12 +40,12 @@ class MopconAPI {
         volunteer = URL(string: frontURL + "volunteer")!
         news = URL(string: frontURL + "news")!
         carousel = URL(string: frontURL + "carousel")!
-        new_user = URL(string: frontURL + "new-user")!
-        get_balance = URL(string: frontURL + "get-balance")!
-        buy_gachapon = URL(string: frontURL + "buy-gachapon")!
-        get_quiz = URL(string: frontURL + "get-quiz")!
-        solve_quiz = URL(string: frontURL + "solve-quiz")!
-        get_hawker_qrcode = URL(string: frontURL + "get-hawker-qrcode")!
-        get_hawker_mission = URL(string: frontURL + "get-hawker-mission")!
+        new_user = URL(string: frontTestURL + "new-user")!
+        get_balance = URL(string: frontTestURL + "get-balance")!
+        buy_gachapon = URL(string: frontTestURL + "buy-gachapon")!
+        get_quiz = URL(string: frontTestURL + "get-quiz")!
+        solve_quiz = URL(string: frontTestURL + "solve-quiz")!
+        get_hawker_qrcode = URL(string: frontTestURL + "get-hawker-qrcode")!
+        get_hawker_mission = URL(string: frontTestURL + "get-hawker-mission")!
     }
 }

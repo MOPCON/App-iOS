@@ -96,7 +96,7 @@ extension InteractionViewController: UITableViewDataSource, UITableViewDelegate 
         
         performSegue(withIdentifier: "showScanner", sender: self)
         
-        FieldGameAPI.getHawkerMission(jsonData: answer) { (data) in
+        FieldGameAPI.getHawkerMission(json: answer) { (data) in
             self.missionStatus = .hasBeenExcuted
             DispatchQueue.main.async {
                 self.interactionTableView.reloadRows(at: [[0, 2]], with: .automatic)

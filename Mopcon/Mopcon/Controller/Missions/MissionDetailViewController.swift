@@ -8,29 +8,11 @@
 
 import UIKit
 
-enum SolvesStatus {
-    case noAnswer
-    case success
-    case fail
-}
-
 class MissionDetailViewController: UIViewController {
     
-    var mission: Quiz.Item?
-    var missionStatus = SolvesStatus.noAnswer
+    var mission: Quiz?
     var selectedAnswer: String?
-    var options = [String]()
     var reward: Int?
-    var answer: String {
-        
-        if let string = mission?.answer, let option = mission?.options  {
-            if let index = Int(string) {
-                return option[index - 1]
-            }
-        }
-        
-        return "?"
-    }
     
     @IBOutlet weak var missionTableView: UITableView!
     
@@ -40,10 +22,10 @@ class MissionDetailViewController: UIViewController {
         missionTableView.dataSource = self
         missionTableView.delegate = self
         
-        if let item = mission, let options = item.options {
-            self.options = options
+        if let myAnswer = mission?.myAnswer {
+            selectedAnswer = myAnswer
+            missionTableView.reloadData()
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,63 +42,65 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 1 {
-            return options.count
+            return 4
         } else {
             return 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        guard let status = mission?.status else { return UITableViewCell() }
         switch indexPath.section {
         case 0:
             let questionCell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath)
-            guard let questionLabel = questionCell.viewWithTag(1) as? UILabel else {  fatalError("Can't find questionLabel")}
+            guard let questionLabel = questionCell.viewWithTag(1) as? UILabel else {  return UITableViewCell() }
             questionLabel.text = mission?.title
             return questionCell
         case 1:
             let answerCell = tableView.dequeueReusableCell(withIdentifier: "answerCell", for: indexPath)
             let startingValue = Int(("A" as UnicodeScalar).value)
             
-            guard let iconLabel = answerCell.viewWithTag(11) as? UILabel else {  fatalError("Can't find iconLabel")}
-            guard let optionLabel = answerCell.viewWithTag(12) as? UILabel else {  fatalError("Can't find optionLabel")}
+            guard let iconLabel = answerCell.viewWithTag(11) as? UILabel else {  return UITableViewCell() }
+            guard let optionLabel = answerCell.viewWithTag(12) as? UILabel else {  return UITableViewCell() }
             
             iconLabel.text = "\(Character(UnicodeScalar(indexPath.row + startingValue)!))"
             iconLabel.layer.cornerRadius = 11
             iconLabel.clipsToBounds = true
             iconLabel.layer.borderColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
             iconLabel.layer.borderWidth = 1
-            optionLabel.text = options[indexPath.row]
-            
-            switch missionStatus {
-            case .noAnswer:
-                if optionLabel.text == selectedAnswer {
+            optionLabel.text = mission?.options["\(indexPath.row + 1)"]
+            let row = "\(indexPath.row + 1)"
+            switch status {
+            case QuizStatus.unlock.rawValue:
+                if row == selectedAnswer {
                     iconLabel.textColor = .white
                     iconLabel.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
                 } else {
                     iconLabel.backgroundColor = .clear
                     iconLabel.textColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
                 }
-            case .fail:
-                if optionLabel.text == selectedAnswer {
+            case QuizStatus.fail.rawValue:
+                if row == selectedAnswer {
                     iconLabel.textColor = .white
                     iconLabel.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
-                } else if optionLabel.text == answer {
+                } else if row == mission?.answer {
                     iconLabel.backgroundColor = .red
                     iconLabel.layer.borderColor = UIColor.red.cgColor
                     iconLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 }
-                
-                
-            case .success:
+            case QuizStatus.success.rawValue:
+                if row == selectedAnswer {
+                    iconLabel.textColor = .white
+                    iconLabel.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
+                }
+            default:
                 break
             }
             
             return answerCell
         case 2:
-            
-            switch missionStatus {
-            case .noAnswer:
+            switch status {
+            case QuizStatus.unlock.rawValue:
                 let submitCell = tableView.dequeueReusableCell(withIdentifier: "submitCell", for: indexPath)
                 
                 if let sumbitButton = submitCell.viewWithTag(31) as? UIButton {
@@ -124,25 +108,28 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
                 }
                 
                 return submitCell
-            case .success:
+            case QuizStatus.success.rawValue:
                 let successCell = tableView.dequeueReusableCell(withIdentifier: "successCell", for: indexPath)
                 if let rewardLabel = successCell.viewWithTag(41) as? UILabel, let reward = reward {
                     rewardLabel.text = "\(reward)"
                 }
                 return successCell
-            case .fail:
+            case QuizStatus.fail.rawValue:
                 let failCell = tableView.dequeueReusableCell(withIdentifier: "failCell", for: indexPath)
                 return failCell
+            default:
+                return UITableViewCell()
             }
             
         default:
-            fatalError("Can't created cell.")
+            return UITableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let status = mission?.status else { return UITableView.automaticDimension }
         if indexPath.section == 2 {
-            if missionStatus == .success {
+            if status == QuizStatus.success.rawValue {
                 return 190
             } else {
                 return 150
@@ -153,36 +140,26 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 && missionStatus == .noAnswer {
-            selectedAnswer = options[indexPath.row]
+        guard let status = mission?.status else { return  }
+        if indexPath.section == 1 && status == QuizStatus.unlock.rawValue {
+            selectedAnswer = "\(indexPath.row + 1)"
             tableView.reloadSections(IndexSet(integer: 1), with: .none)
         }
     }
     
     @objc func checkAnswer() {
-        
-        let body: [String: Any ] = [
-            "public_key": "123-456",
-            "id" : 3,
-            "answer" : 4
-        ]
-        
-        FieldGameAPI.solveQuiz(jsonData: body) { (data) in
-            
-            if self.selectedAnswer == self.answer {
-                self.missionStatus = .success
-                let decoder = JSONDecoder()
-                if let json = try? decoder.decode(Result.self, from: data), let reward = json.reward {
-                    self.reward = reward
-                }
+        if let myAnswer = selectedAnswer, let mission = mission {
+            if myAnswer == mission.answer {
+                self.reward = mission.reward
+                self.mission?.status = QuizStatus.success.rawValue
+                Quiz.solveQuiz(id: mission.id, answer: myAnswer, status: QuizStatus.success.rawValue)
+                Wallet.getReward(reward: mission.reward)
             } else {
-                self.missionStatus = .fail
-            }
-            
-            DispatchQueue.main.async {
-                self.missionTableView.reloadData()
+                self.mission?.status = QuizStatus.fail.rawValue
+                Quiz.solveQuiz(id: mission.id, answer: myAnswer, status: QuizStatus.fail.rawValue)
             }
         }
+        self.missionTableView.reloadData()
     }
     
 }
