@@ -42,6 +42,7 @@
 		5E9FEF0021294FD70096B4A8 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */; };
 		5EE73108215B61C400201702 /* FieldGameAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE73107215B61C400201702 /* FieldGameAPI.swift */; };
 		5EE7310C215B978200201702 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE7310B215B978200201702 /* Result.swift */; };
+		5EE90E95217D5F9100F9763E /* DesCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE90E94217D5F9100F9763E /* DesCoder.swift */; };
 		5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */; };
 		5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF59B9C215DBCD200CF622C /* LoadingTool.swift */; };
 		854F882CF3DD3FD013EEC09B /* Pods_Mopcon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */; };
@@ -140,6 +141,8 @@
 		5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		5EE73107215B61C400201702 /* FieldGameAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameAPI.swift; sourceTree = "<group>"; };
 		5EE7310B215B978200201702 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		5EE90E8B217D5D9900F9763E /* Mopcon-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mopcon-Bridging-Header.h"; sourceTree = "<group>"; };
+		5EE90E94217D5F9100F9763E /* DesCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesCoder.swift; sourceTree = "<group>"; };
 		5EF59B97215CDF2800CF622C /* Mopcon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mopcon.entitlements; sourceTree = "<group>"; };
 		5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EF59B9C215DBCD200CF622C /* LoadingTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTool.swift; sourceTree = "<group>"; };
@@ -402,6 +405,8 @@
 				D66778E320FB062F00E9CA34 /* MyScheduleTableViewCellID.swift */,
 				5E349CA7212411570060297A /* SponsorTableViewCellID.swift */,
 				5EF59B9C215DBCD200CF622C /* LoadingTool.swift */,
+				5EE90E8B217D5D9900F9763E /* Mopcon-Bridging-Header.h */,
+				5EE90E94217D5F9100F9763E /* DesCoder.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -664,6 +669,7 @@
 				D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */,
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
 				5E349C9021225CE10060297A /* Schedule.swift in Sources */,
+				5EE90E95217D5F9100F9763E /* DesCoder.swift in Sources */,
 				D6555F2F20EC783A000816DF /* ComminityDetailViewController.swift in Sources */,
 				5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */,
 				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
@@ -864,6 +870,7 @@
 			baseConfigurationReference = 36A8ADA41F4B2FE3D1F03AD3 /* Pods-Mopcon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PAC9XA99N;
 				INFOPLIST_FILE = Mopcon/Info.plist;
@@ -874,6 +881,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Mopcon/Helper/Mopcon-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -884,6 +893,7 @@
 			baseConfigurationReference = 293FFEAF5ECBACAF171BB104 /* Pods-Mopcon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PAC9XA99N;
 				INFOPLIST_FILE = Mopcon/Info.plist;
@@ -894,6 +904,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Mopcon/Helper/Mopcon-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

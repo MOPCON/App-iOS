@@ -24,7 +24,7 @@ enum GridSectionName:Int{
     case Agenda = 0
     case MySchedule
     case Communication
-    //    case Mission
+        case Mission
     case Sponsor
     case Speaker
     case Group
@@ -39,12 +39,12 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
-    //fake Data
-    //    let gridImage = ["Agenda","Schedule","Communication","Mission","Sponsor","Speaker","Group","News"]
-    //    let gridTitle = ["議程","我的行程","交流場次","任務","贊助廠商","講者","社群","最新消息"]
+//    fake Data
+        let gridImage = ["Agenda","Schedule","Communication","Field Game","Sponsor","Speaker","Group","News"]
+        let gridTitle = ["議程","我的行程","交流場次","任務","贊助廠商","講者","社群","最新消息"]
     
-    let gridImage = ["Agenda","Schedule","Communication","Sponsor","Speaker","Group","News"]
-    let gridTitle = ["議程","我的行程","交流場次","贊助廠商","講者","社群","最新消息"]
+//    let gridImage = ["Agenda","Schedule","Communication","Sponsor","Speaker","Group","News"]
+//    let gridTitle = ["議程","我的行程","交流場次","贊助廠商","講者","社群","最新消息"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -189,10 +189,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             performSegue(withIdentifier: SegueIDManager.performMySchedule, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Communication.rawValue):
             performSegue(withIdentifier: SegueIDManager.performCommunication, sender: nil)
-            //        case (SectionName.Grid.rawValue,GridSectionName.Mission.rawValue):
-            //            if let missionViewController = UIStoryboard(name: "Missions", bundle: nil).instantiateViewController(withIdentifier: "MissionsNavigationViewController") as? UINavigationController {
-            //                self.present(missionViewController, animated: true, completion: nil)
-        //            }
+        case (SectionName.Grid.rawValue,GridSectionName.Mission.rawValue):
+            if let missionViewController = UIStoryboard(name: "Missions", bundle: nil).instantiateViewController(withIdentifier: "MissionsNavigationViewController") as? UINavigationController {
+                self.present(missionViewController, animated: true, completion: nil)
+            }
         case (SectionName.Grid.rawValue,GridSectionName.Sponsor.rawValue):
             performSegue(withIdentifier: SegueIDManager.performSponsors, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Speaker.rawValue):

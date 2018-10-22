@@ -17,6 +17,7 @@ class MissionsViewController: UIViewController {
     
     var backView: UIView!
     var alertView: UIView!
+    var textField: UITextField!
     var balance = 0 {
         didSet {
             missionsCollectionView.reloadSections(IndexSet(integer: 0))
@@ -46,7 +47,6 @@ class MissionsViewController: UIViewController {
         
         missionsCollectionView.dataSource = self
         missionsCollectionView.delegate = self
-        
         showMissionInfo()
     }
     
@@ -156,7 +156,7 @@ class MissionsViewController: UIViewController {
         alertView.layer.borderColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
         alertView.layer.borderWidth = 2
         
-        let textField = UITextField()
+        textField = UITextField()
         textField.frame = CGRect(x: 0, y: 0, width: alertView.bounds.width * 0.9, height: alertView.bounds.height * 0.22)
         textField.center = CGPoint(x: alertView.bounds.midX, y: textField.bounds.height * 1.8)
         textField.font = UIFont(name: "PingFangTC-Semibold", size: 20)
@@ -214,8 +214,8 @@ class MissionsViewController: UIViewController {
         messageLabel.textColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
         messageLabel.textAlignment = .center
         var text = NSMutableAttributedString()
-        let maxNumber = Wallet.getBalance() / 200
-        text = NSMutableAttributedString(string: "您即將兌換 \(maxNumber) 個扭蛋", attributes: [NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 24)!])
+        let number = NSString(string:textField.text!.lowercased().replacingOccurrences(of: "mopcon", with: "")).intValue
+        text = NSMutableAttributedString(string: "您即將兌換 \(number) 個扭蛋", attributes: [NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 24)!])
         text.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:6,length:2))
         text.addAttribute(NSAttributedString.Key.kern, value: 0.8, range: NSRange(location: 0, length: text.length))
         messageLabel.attributedText = text
@@ -266,13 +266,18 @@ class MissionsViewController: UIViewController {
     }
     
     @objc func exchangeGachapon(sender: UIButton) {
-        
+        let number = NSString(string:textField.text!.lowercased().replacingOccurrences(of: "mopcon", with: "")).intValue
         closeView(sender: sender)
-        let maxAmount = Wallet.getBalance() / 200
-        if  maxAmount > 0 {
-            print("兌換\(maxAmount)顆，花費\(maxAmount * 200)")
-            Wallet.exchange(cost: maxAmount * 200)
+        let maxExchange = Wallet.getBalance() / 200
+        if number <= maxExchange {
+            print("兌換\(number)顆，花費\(number * 200)")
+            Wallet.exchange(cost: Int(number) * 200)
             balance = Wallet.getBalance()
+        } else {
+            let alert = UIAlertController(title: "錯誤", message: "餘額不足", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

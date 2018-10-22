@@ -63,12 +63,16 @@ struct Quiz: Codable {
     
     static func solveQuiz(id: String, answer: String, status: String) {
         var quiz = getData()
+        var number = 0
         for i in quiz.indices {
             if quiz[i].id == id {
                 quiz[i].status = status
                 quiz[i].myAnswer = answer
+                number = i
             }
         }
+        let removeItem = quiz.remove(at: number)
+        quiz.append(removeItem)
         saveData(array: quiz)
     }
 }
