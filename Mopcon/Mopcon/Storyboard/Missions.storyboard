@@ -405,7 +405,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="LcR-oA-tJg">
-                                                            <rect key="frame" x="133.66666666666666" y="61" width="106.66666666666666" height="30"/>
+                                                            <rect key="frame" x="154" y="61" width="66" height="30"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCoin" translatesAutoresizingMaskIntoConstraints="NO" id="D7p-64-0Mc">
                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -414,8 +414,8 @@
                                                                         <constraint firstAttribute="height" constant="30" id="oyd-ph-RuN"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" tag="41" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw7-K0-jRH">
-                                                                    <rect key="frame" x="42.000000000000007" y="0.0" width="64.666666666666686" height="30"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="41" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw7-K0-jRH">
+                                                                    <rect key="frame" x="42" y="0.0" width="24" height="30"/>
                                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="40"/>
                                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -623,7 +623,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pf4-ak-SNa">
-                                                            <rect key="frame" x="133.66666666666666" y="61" width="106.66666666666666" height="30"/>
+                                                            <rect key="frame" x="154" y="61" width="66" height="30"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCoin" translatesAutoresizingMaskIntoConstraints="NO" id="Glw-nm-POW">
                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -632,8 +632,8 @@
                                                                         <constraint firstAttribute="width" constant="30" id="nDU-ks-05B"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" tag="41" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwo-6B-gMH">
-                                                                    <rect key="frame" x="42.000000000000007" y="0.0" width="64.666666666666686" height="30"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="41" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwo-6B-gMH">
+                                                                    <rect key="frame" x="42" y="0.0" width="24" height="30"/>
                                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="40"/>
                                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>

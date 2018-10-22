@@ -22,9 +22,11 @@ class MissionDetailViewController: UIViewController {
         missionTableView.dataSource = self
         missionTableView.delegate = self
         
-        if let myAnswer = mission?.myAnswer {
-            selectedAnswer = myAnswer
-            missionTableView.reloadData()
+        if let mission = mission {
+            if mission.status == QuizStatus.success.rawValue {
+                self.reward = NSString(string: mission.reward).integerValue
+                self.missionTableView.reloadData()
+            }
         }
     }
     

@@ -24,6 +24,7 @@ class InteractionViewController: UIViewController {
 
         interactionTableView.dataSource = self
         interactionTableView.delegate = self
+        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -113,7 +114,6 @@ extension InteractionViewController: GetInteractionMissionResult {
     func updateMissionStatus() {
         if let mission = mission {
             self.mission?.status = "2"
-
             Quiz.solveQuiz(id: mission.id, answer: "Finish", status: "2")
             Wallet.getReward(reward: NSString(string: mission.reward).integerValue)
             self.interactionTableView.reloadData()
