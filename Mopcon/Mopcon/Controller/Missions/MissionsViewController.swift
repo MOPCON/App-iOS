@@ -9,7 +9,7 @@
 import UIKit
 
 enum MissionsSection:Int, CaseIterable {
-    case information
+    case information = 0
     case quiz
 }
 
@@ -20,12 +20,12 @@ class MissionsViewController: UIViewController {
     var textField: UITextField!
     var balance = 0 {
         didSet {
-            missionsCollectionView.reloadSections(IndexSet(integer: 0))
+            missionsCollectionView.reloadData()
         }
     }
     var quiz = [Quiz]() {
         didSet {
-            missionsCollectionView.reloadSections(IndexSet(integer: 1))
+            missionsCollectionView.reloadData()
         }
     }
     var selectedMission: Quiz?
@@ -91,7 +91,7 @@ class MissionsViewController: UIViewController {
         addBackView(addTap: false)
         
         let infoView = UIView()
-        infoView.frame = CGRect(x: 0, y: 0, width: missionsCollectionView.bounds.width, height: missionsCollectionView.bounds.width * 0.92)
+        infoView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.width * 0.92)
         infoView.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
         infoView.backgroundColor = #colorLiteral(red: 0, green: 0.007843137255, blue: 0.1921568627, alpha: 1)
         infoView.layer.cornerRadius = 4
@@ -333,37 +333,38 @@ extension MissionsViewController: UICollectionViewDataSource, UICollectionViewDe
 extension MissionsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width - 38
         
-        guard let sectionType = MissionsSection(rawValue: indexPath.section) else { return CGSize.zero }
-        let width = collectionView.bounds.width
-        
-        switch sectionType {
-        case .information:
-            return CGSize(width: width, height: width * 193 / 336 )
-        case .quiz:
-            return CGSize(width: (width - 16) / 2 , height: (width - 16) / 2)
+        if indexPath.section == MissionsSection.information.rawValue {
+            return CGSize(width: width, height: width * 0.57 )
+        } else {
+            return CGSize(width: (width - 20) * 0.5 , height: (width - 20) * 0.5)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-        guard let sectionType = MissionsSection(rawValue: section) else { return UIEdgeInsets.zero }
-        
-        switch sectionType {
-        case .information:
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        case .quiz:
-            return UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
+        if section == MissionsSection.information.rawValue {
+            return UIEdgeInsets(top: 16, left: 19, bottom: 16, right: 19)
+        } else {
+            return UIEdgeInsets(top: 0, left: 19, bottom: 0, right: 19)
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        if section == MissionsSection.quiz.rawValue {
+//            return 16
+//        } else {
+//            return 0
+//        }
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        if section == MissionsSection.quiz.rawValue {
+//            return 16
+//        } else {
+//            return 0
+//        }
+//    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ek9-uk-Pf8">
-                                <rect key="frame" x="20" y="80" width="374" height="632"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" red="0.0" green="0.023529411764705882" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uRT-zm-iwT">
                                     <size key="itemSize" width="50" height="50"/>
@@ -29,7 +29,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="coinCell" id="1Zw-we-rxc" customClass="InformationCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="19" y="0.0" width="336" height="193"/>
+                                        <rect key="frame" x="39" y="0.0" width="336" height="193"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="336" height="193"/>
@@ -139,7 +139,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="missionCell" id="R7B-eU-uFP" customClass="MissionCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="107" y="203" width="160" height="160"/>
+                                        <rect key="frame" x="127" y="203" width="160" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
@@ -234,10 +234,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.019607843137254902" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Nd8-qj-MJO" firstAttribute="bottom" secondItem="ek9-uk-Pf8" secondAttribute="bottom" constant="24" id="Klc-Y1-MXx"/>
-                            <constraint firstItem="Nd8-qj-MJO" firstAttribute="trailing" secondItem="ek9-uk-Pf8" secondAttribute="trailing" constant="20" id="RTW-fq-bmh"/>
-                            <constraint firstItem="ek9-uk-Pf8" firstAttribute="top" secondItem="Nd8-qj-MJO" secondAttribute="top" constant="16" id="VJ1-5M-KhD"/>
-                            <constraint firstItem="ek9-uk-Pf8" firstAttribute="leading" secondItem="Nd8-qj-MJO" secondAttribute="leading" constant="20" id="peZ-dA-UpN"/>
+                            <constraint firstItem="Nd8-qj-MJO" firstAttribute="bottom" secondItem="ek9-uk-Pf8" secondAttribute="bottom" id="Klc-Y1-MXx"/>
+                            <constraint firstItem="Nd8-qj-MJO" firstAttribute="trailing" secondItem="ek9-uk-Pf8" secondAttribute="trailing" id="RTW-fq-bmh"/>
+                            <constraint firstItem="ek9-uk-Pf8" firstAttribute="top" secondItem="Nd8-qj-MJO" secondAttribute="top" id="VJ1-5M-KhD"/>
+                            <constraint firstItem="ek9-uk-Pf8" firstAttribute="leading" secondItem="Nd8-qj-MJO" secondAttribute="leading" id="peZ-dA-UpN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nd8-qj-MJO"/>
                     </view>
