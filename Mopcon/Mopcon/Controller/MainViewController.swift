@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
     
 //    fake Data
         let gridImage = ["Agenda","Schedule","Communication","Field Game","Sponsor","Speaker","Group","News"]
-        let gridTitle = ["議程","我的行程","交流場次","任務","贊助廠商","講者","社群","最新消息"]
+        let gridTitle = ["議程","我的行程","交流場次","大地遊戲","贊助廠商","講者","社群","最新消息"]
     
 //    let gridImage = ["Agenda","Schedule","Communication","Sponsor","Speaker","Group","News"]
 //    let gridTitle = ["議程","我的行程","交流場次","贊助廠商","講者","社群","最新消息"]
