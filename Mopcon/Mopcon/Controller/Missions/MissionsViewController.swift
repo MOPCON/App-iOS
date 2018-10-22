@@ -62,6 +62,10 @@ class MissionsViewController: UIViewController {
             if let vc = segue.destination as? MissionDetailViewController {
                 vc.mission = self.selectedMission
             }
+        case "performInteractionDetail":
+            if let vc = segue.destination as? InteractionViewController {
+                vc.mission = self.selectedMission
+            }
         default:
             break
         }
@@ -359,10 +363,9 @@ extension MissionsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         guard let missionCell = collectionView.cellForItem(at: indexPath) as? MissionCollectionViewCell else { return }
-        
+        selectedMission = quiz[indexPath.row]
         switch missionCell.typeLabel.text {
         case "quiz":
-            selectedMission = quiz[indexPath.row]
             self.performSegue(withIdentifier: "performMissionDetail", sender: nil)
         case "task":
             self.performSegue(withIdentifier: "performInteractionDetail", sender: nil)

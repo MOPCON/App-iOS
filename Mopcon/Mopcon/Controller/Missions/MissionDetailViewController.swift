@@ -68,7 +68,7 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
             iconLabel.clipsToBounds = true
             iconLabel.layer.borderColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
             iconLabel.layer.borderWidth = 1
-            optionLabel.text = mission?.options["\(indexPath.row + 1)"]
+            optionLabel.text = mission?.options?["\(indexPath.row + 1)"]
             let row = "\(indexPath.row + 1)"
             switch status {
             case QuizStatus.unlock.rawValue:
@@ -150,10 +150,10 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
     @objc func checkAnswer() {
         if let myAnswer = selectedAnswer, let mission = mission {
             if myAnswer == mission.answer {
-                self.reward = mission.reward
+                self.reward = NSString(string: mission.reward).integerValue
                 self.mission?.status = QuizStatus.success.rawValue
                 Quiz.solveQuiz(id: mission.id, answer: myAnswer, status: QuizStatus.success.rawValue)
-                Wallet.getReward(reward: mission.reward)
+                Wallet.getReward(reward: NSString(string: mission.reward).integerValue)
             } else {
                 self.mission?.status = QuizStatus.fail.rawValue
                 Quiz.solveQuiz(id: mission.id, answer: myAnswer, status: QuizStatus.fail.rawValue)

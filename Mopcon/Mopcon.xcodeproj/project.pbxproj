@@ -34,6 +34,7 @@
 		5E682E21213E2AA700FC37CF /* InteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E682E20213E2AA700FC37CF /* InteractionViewController.swift */; };
 		5E6CBD9D217B28D10097D5E2 /* Quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CBD9C217B28D10097D5E2 /* Quiz.json */; };
 		5E6CBDA1217BB9D60097D5E2 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CBDA0217BB9D60097D5E2 /* Wallet.swift */; };
+		5E6CBDA3217BC37D0097D5E2 /* BoothMission.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CBDA2217BC37D0097D5E2 /* BoothMission.json */; };
 		5E941014214F43DD001D61F6 /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941013214F43DD001D61F6 /* NewsAPI.swift */; };
 		5E941016214F4401001D61F6 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941015214F4401001D61F6 /* News.swift */; };
 		5E941018214F4FBA001D61F6 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941017214F4FBA001D61F6 /* Carousel.swift */; };
@@ -131,6 +132,7 @@
 		5E682E20213E2AA700FC37CF /* InteractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionViewController.swift; sourceTree = "<group>"; };
 		5E6CBD9C217B28D10097D5E2 /* Quiz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Quiz.json; sourceTree = "<group>"; };
 		5E6CBDA0217BB9D60097D5E2 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		5E6CBDA2217BC37D0097D5E2 /* BoothMission.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BoothMission.json; sourceTree = "<group>"; };
 		5E941013214F43DD001D61F6 /* NewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
 		5E941015214F4401001D61F6 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		5E941017214F4FBA001D61F6 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 		5E6CBD97217B27350097D5E2 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				5E6CBDA2217BC37D0097D5E2 /* BoothMission.json */,
 				5E6CBD9C217B28D10097D5E2 /* Quiz.json */,
 			);
 			path = JSON;
@@ -571,6 +574,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E6CBDA3217BC37D0097D5E2 /* BoothMission.json in Resources */,
 				D633462F20E8FFC70033E5B4 /* LaunchScreen.storyboard in Resources */,
 				5E6CBD9D217B28D10097D5E2 /* Quiz.json in Resources */,
 				D633462C20E8FFC70033E5B4 /* Assets.xcassets in Resources */,

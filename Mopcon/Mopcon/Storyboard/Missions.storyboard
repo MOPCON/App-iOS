@@ -278,7 +278,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="174"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitmap" translatesAutoresizingMaskIntoConstraints="NO" id="Rc6-DL-x69">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitmap" translatesAutoresizingMaskIntoConstraints="NO" id="Rc6-DL-x69">
                                                     <rect key="frame" x="16" y="16" width="382" height="158"/>
                                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <userDefinedRuntimeAttributes>
@@ -304,10 +304,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1m-E5-cCT">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1m-E5-cCT">
                                                     <rect key="frame" x="16" y="16" width="382" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="303-ad-bed"/>
+                                                    </constraints>
                                                     <attributedString key="attributedText">
-                                                        <fragment content="找到紫色小鴨">
+                                                        <fragment content="Title">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <font key="NSFont" size="24" name="PingFangTC-Medium"/>
@@ -317,10 +320,10 @@
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZK-ZT-fCl">
-                                                    <rect key="frame" x="16" y="66" width="382" height="60.333333333333343"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" tag="12" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZK-ZT-fCl">
+                                                    <rect key="frame" x="16" y="66" width="382" height="19.666666666666671"/>
                                                     <attributedString key="attributedText">
-                                                        <fragment content="必須找不同小隊的人當夥伴。每組會有一個 4x4 公格的板子(or紙)，16 個空格代表除了 5、6、9 之外的 16關，過關後關主在該關的">
+                                                        <fragment content="conten">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <font key="NSFont" size="14" name="PingFangTC-Regular"/>
@@ -337,7 +340,7 @@
                                                 <constraint firstItem="iZK-ZT-fCl" firstAttribute="leading" secondItem="gwZ-Yu-gEm" secondAttribute="leading" constant="16" id="4CJ-fU-2Nb"/>
                                                 <constraint firstItem="l1m-E5-cCT" firstAttribute="top" secondItem="gwZ-Yu-gEm" secondAttribute="top" constant="16" id="9Yb-qF-xhl"/>
                                                 <constraint firstAttribute="trailing" secondItem="iZK-ZT-fCl" secondAttribute="trailing" constant="16" id="J8o-VD-SQt"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iZK-ZT-fCl" secondAttribute="bottom" constant="16" id="Uw9-i4-f7h"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iZK-ZT-fCl" secondAttribute="bottom" id="Uw9-i4-f7h"/>
                                                 <constraint firstAttribute="trailing" secondItem="l1m-E5-cCT" secondAttribute="trailing" constant="16" id="YxT-JW-dJd"/>
                                                 <constraint firstItem="l1m-E5-cCT" firstAttribute="leading" secondItem="gwZ-Yu-gEm" secondAttribute="leading" constant="16" id="h3B-2T-tDD"/>
                                             </constraints>

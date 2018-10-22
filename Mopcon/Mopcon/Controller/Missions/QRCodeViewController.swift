@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import SafariServices
 
 class QRCodeViewController: UIViewController {
     
@@ -63,12 +62,11 @@ class QRCodeViewController: UIViewController {
         }
     }
     
-    func scannerAlert(message:String, url: URL) {
-        let alertController = UIAlertController(title: "確認要開啟連結嗎？", message: "\(message)", preferredStyle: .actionSheet)
+    func scannerAlert(message:String) {
+        let alertController = UIAlertController(title: "獲取條碼", message: "\(message)", preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "確認", style: .default) { (action) in
-            let svc = SFSafariViewController(url: url)
-            self.present(svc, animated: true, completion: nil)
+           
         }
         
         alertController.addAction(cancelAction)
@@ -93,8 +91,8 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
                 let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
                 qrCodeFrameView?.frame = barCodeObject!.bounds
                 
-                if let string = metadataObj.stringValue, let url = URL(string: string) {
-                    scannerAlert(message: string, url: url)
+                if let string = metadataObj.stringValue {
+                    scannerAlert(message: string)
                 }
             }
         }

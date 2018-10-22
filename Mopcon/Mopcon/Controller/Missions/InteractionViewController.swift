@@ -15,6 +15,7 @@ enum MissionStatus {
 
 class InteractionViewController: UIViewController {
 
+    var mission: Quiz?
     var missionStatus = MissionStatus.notPerformed
     
     @IBOutlet weak var interactionTableView: UITableView!
@@ -45,9 +46,19 @@ extension InteractionViewController: UITableViewDataSource, UITableViewDelegate 
         switch indexPath.row {
         case 0:
             let companyCell = tableView.dequeueReusableCell(withIdentifier: "companyCell", for: indexPath)
+            if let imageView = companyCell.viewWithTag(1) as? UIImageView {
+                
+            }
             return companyCell
         case 1:
             let contentCell = tableView.dequeueReusableCell(withIdentifier: "contentCell", for: indexPath)
+            if let titleLabel = contentCell.viewWithTag(11) as? UILabel {
+                titleLabel.text = mission?.title
+            }
+            if let contentLabel = contentCell.viewWithTag(12) as? UILabel {
+                contentLabel.text = mission?.description
+            }
+            
             return contentCell
         case 2:
             switch missionStatus {
@@ -71,7 +82,7 @@ extension InteractionViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        switch indexPath.section {
+        switch indexPath.row {
         case 0:
             return 180
         case 1:
@@ -87,22 +98,7 @@ extension InteractionViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     @objc func checkMission() {
-        
-        let answer: [String: Any] = [
-            "id" : 1,
-            "public_key":"12345678",
-            "token" : "mopcon:123-456-789"
-        ]
-        
         performSegue(withIdentifier: "showScanner", sender: self)
-        
-        FieldGameAPI.getHawkerMission(json: answer) { (data) in
-            self.missionStatus = .hasBeenExcuted
-            DispatchQueue.main.async {
-                self.interactionTableView.reloadRows(at: [[0, 2]], with: .automatic)
-            }
-            print(data)
-        }
     }
    
     
