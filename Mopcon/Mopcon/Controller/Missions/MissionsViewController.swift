@@ -161,6 +161,7 @@ class MissionsViewController: UIViewController {
         textField.center = CGPoint(x: alertView.bounds.midX, y: textField.bounds.height * 1.8)
         textField.font = UIFont(name: "PingFangTC-Semibold", size: 20)
         textField.textColor = .white
+        textField.autocorrectionType = .no
         textField.minimumFontSize = 0.5
         textField.attributedPlaceholder = NSAttributedString(string: "請輸入兌換密碼",attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 0.6)])
         textField.borderStyle = .none
