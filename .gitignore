@@ -81,3 +81,5 @@ fastlane/test_output
 /Mopcon/fastlane/metadata
 /Mopcon/vendor
 /Mopcon/fastlane/Preview.html
+Quiz.json
+BoothMission.json

@@ -36,12 +36,14 @@ class InformationCollectionViewCell: UICollectionViewCell {
     
     func update(balance: Int) {
         self.balanceLabel.text = "\(balance)"
-        self.capsulesLabel.text = "\(balance / 180)"
+        self.capsulesLabel.text = "\(balance / 200)"
         
-        if balance > 0 {
+        if balance >= 200 {
             exchangeButton.alpha = 1
+            exchangeButton.isUserInteractionEnabled = true
         } else {
             exchangeButton.alpha = 0.3
+            exchangeButton.isUserInteractionEnabled = false
         }
     }
     
