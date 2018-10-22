@@ -23,8 +23,9 @@ class MissionDetailViewController: UIViewController {
         missionTableView.delegate = self
         
         if let mission = mission {
-            if mission.status == QuizStatus.success.rawValue {
+            if mission.status != QuizStatus.unlock.rawValue  {
                 self.reward = NSString(string: mission.reward).integerValue
+                self.selectedAnswer = mission.myAnswer
                 self.missionTableView.reloadData()
             }
         }
