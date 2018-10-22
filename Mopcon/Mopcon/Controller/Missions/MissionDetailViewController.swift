@@ -84,12 +84,12 @@ extension MissionDetailViewController: UITableViewDataSource, UITableViewDelegat
                 }
             case QuizStatus.fail.rawValue:
                 if row == selectedAnswer {
-                    iconLabel.textColor = .white
-                    iconLabel.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
-                } else if row == mission?.answer {
                     iconLabel.backgroundColor = .red
                     iconLabel.layer.borderColor = UIColor.red.cgColor
                     iconLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                } else if row == mission?.answer {
+                    iconLabel.textColor = .white
+                    iconLabel.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
                 }
             case QuizStatus.success.rawValue:
                 if row == selectedAnswer {
