@@ -262,22 +262,44 @@ class MissionsViewController: UIViewController {
     
     @objc func checkExchangeInfo(sender: UIButton) {
         closeView(sender: sender)
-        showExchangeInfo()
+        
+        if !textField.text!.lowercased().hasPrefix("mopcon") {
+            showAlert(message: "請輸入正確的內容")
+            return
+        }
+        
+        let changeNumber = NSString(string: textField.text!.lowercased().replacingOccurrences(of: "mopcon", with: "")).integerValue
+        
+        if changeNumber < 1 {
+            showAlert(message: "兌換數量需要大於 1")
+        } else {
+            showExchangeInfo()
+            
+        }
     }
     
     @objc func exchangeGachapon(sender: UIButton) {
-        let number = NSString(string:textField.text!.lowercased().replacingOccurrences(of: "mopcon", with: "")).intValue
+        if !textField.text!.lowercased().hasPrefix("mopcon") {
+            showAlert(message: "請輸入正確的內容")
+            return
+        }
+        
+        let changeNumber = NSString(string: textField.text!.lowercased().replacingOccurrences(of: "mopcon", with: "")).integerValue
+        
+        if changeNumber < 1 {
+            showAlert(message: "兌換數量需要大於 1")
+        }
+        
+        let number = NSString(string:textField.text!.lowercased().replacingOccurrences(of: "mopcon", with: "")).integerValue
+        
         closeView(sender: sender)
         let maxExchange = Wallet.getBalance() / 200
-        if number <= maxExchange {
+        if number <= maxExchange && number > 0 {
             print("兌換\(number)顆，花費\(number * 200)")
             Wallet.exchange(cost: Int(number) * 200)
             balance = Wallet.getBalance()
         } else {
-            let alert = UIAlertController(title: "錯誤", message: "餘額不足", preferredStyle: UIAlertController.Style.alert)
-            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alert.addAction(okAction)
-            self.present(alert, animated: true, completion: nil)
+            showAlert(message: "餘額不足")
         }
     }
     
@@ -286,6 +308,13 @@ class MissionsViewController: UIViewController {
             alertView.removeFromSuperview()
             backView.removeFromSuperview()
         }
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "兌換失敗", message: message, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
