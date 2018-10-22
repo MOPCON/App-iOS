@@ -72,5 +72,13 @@ fastlane/screenshots
 fastlane/test_output
 
 # End of https://www.gitignore.io/api/swift
+/Mopcon/2FRDFY473X.cer
+/Mopcon/AppStore_org.mopcon.session.app.mobileprovision
+/Mopcon/fastlane/README.md
+/Mopcon/fastlane/report.xml
+/Mopcon/fastlane/screenshots
+/Mopcon/.bundle
+/Mopcon/fastlane/metadata
+/Mopcon/vendor
 Quiz.json
 BoothMission.json
