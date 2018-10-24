@@ -70,7 +70,7 @@ class MainViewController: UIViewController {
             if let news = news {
                 self.firstNews = news[0]
                 DispatchQueue.main.async {
-                    self.mainCollectionView.reloadData()
+                    self.mainCollectionView.reloadSections(IndexSet.init(integer: 1))
                 }
             }
         }
@@ -135,7 +135,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let bannerCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.bannerCell, for: indexPath) as! BannerCollectionViewCell
             bannerCell.bannerImageCollectionView.delegate = bannerCell
             bannerCell.bannerImageCollectionView.dataSource = bannerCell
-            bannerCell.bannerData = self.bannerData
+            bannerCell.bannerData = bannerData
             return bannerCell
         case SectionName.News.rawValue:
             let newsCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.newsCell, for: indexPath) as! NewsCollectionViewCell

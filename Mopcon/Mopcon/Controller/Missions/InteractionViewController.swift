@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 enum MissionStatus {
     case notPerformed
@@ -105,7 +106,38 @@ extension InteractionViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     @objc func checkMission() {
-        performSegue(withIdentifier: "showScanner", sender: self)
+        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
+            //already authorized
+            self.performSegue(withIdentifier: "showScanner", sender: self)
+        } else {
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { allowed in
+                if allowed {
+                    self.performSegue(withIdentifier: "showScanner", sender: self)
+                } else {
+                    let alertController = UIAlertController(title: "開啟失敗", message: "請先開啟相機權限", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: { _ in
+                        
+                    })
+                    let okAction = UIAlertAction(title: "設定", style: .default, handler: { _ in
+                        let url = URL(string: UIApplication.openSettingsURLString)
+                        if let url = url, UIApplication.shared.canOpenURL(url) {
+                            if #available(iOS 10, *) {
+                                UIApplication.shared.open(url, options: [:],
+                                                          completionHandler: {
+                                                            (success) in
+                                })
+                            } else {
+                                UIApplication.shared.openURL(url)
+                            }
+                        }
+                    })
+                    alertController.addAction(cancelAction)
+                    alertController.addAction(okAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            })
+        }
     }
    
 }

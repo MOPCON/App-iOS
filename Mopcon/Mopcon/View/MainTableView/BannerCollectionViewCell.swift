@@ -10,7 +10,11 @@ import UIKit
 
 class BannerCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var bannerData = [Carousel.Payload]()
+    var bannerData = [Carousel.Payload]() {
+        didSet {
+            bannerImageCollectionView.reloadData()
+        }
+    }
     
     @IBOutlet weak var bannerImageCollectionView: UICollectionView! {
         didSet {
