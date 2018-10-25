@@ -72,6 +72,9 @@ class MainViewController: UIViewController {
             }
             
             if let news = news {
+                if news.isEmpty {
+                    return
+                }
                 self.firstNews = news[0]
                 DispatchQueue.main.async {
                     self.mainCollectionView.reloadSections(IndexSet.init(integer: 1))
