@@ -51,6 +51,10 @@ class MainViewController: UIViewController {
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         mainCollectionView.backgroundView = UIImageView(image: UIImage(named: "bgMainPage"))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         getNews()
         getBannerData()
     }
