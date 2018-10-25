@@ -999,7 +999,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mopcon/Mopcon.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JA387Z4D7Q;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Mopcon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1024,7 +1024,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mopcon/Mopcon.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JA387Z4D7Q;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Mopcon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
