@@ -590,6 +590,8 @@
                         <outlet property="communityDescriptionLabel" destination="grp-kQ-Q1C" id="miP-8I-HFA"/>
                         <outlet property="communityDetailImageView" destination="Cv4-UK-vBo" id="sA7-l2-3lI"/>
                         <outlet property="communityNameLabel" destination="Odk-MP-NQE" id="sgf-p7-6r5"/>
+                        <outlet property="facebookButton" destination="ybx-bX-o0b" id="Vdz-M9-vLQ"/>
+                        <outlet property="otherLinkButton" destination="CKv-1l-3kg" id="E6m-v4-wp2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TlG-3r-2A5" userLabel="First Responder" sceneMemberID="firstResponder"/>
