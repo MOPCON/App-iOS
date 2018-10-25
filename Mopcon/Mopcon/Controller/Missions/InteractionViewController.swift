@@ -109,12 +109,14 @@ extension InteractionViewController: UITableViewDataSource, UITableViewDelegate 
     
     @objc func checkMission() {
         if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
-            //already authorized
             self.performSegue(withIdentifier: "showScanner", sender: self)
         } else {
             AVCaptureDevice.requestAccess(for: .video, completionHandler: { allowed in
+                print("Allowed",allowed)
                 if allowed {
-                    self.performSegue(withIdentifier: "showScanner", sender: self)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "showScanner", sender: self)
+                    }
                 } else {
                     let alertController = UIAlertController(title: "開啟失敗", message: "請先開啟相機權限", preferredStyle: .alert)
                     let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: { _ in
