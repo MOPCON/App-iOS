@@ -53,7 +53,7 @@ extension InteractionViewController: UITableViewDataSource, UITableViewDelegate 
             let companyCell = tableView.dequeueReusableCell(withIdentifier: "companyCell", for: indexPath)
             if let imageView = companyCell.viewWithTag(1) as? UIImageView, let mission = mission {
                 if let url = URL(string: mission.banner_url) {
-                    imageView.kf.setImage(with: url)
+                    imageView.kf.setImage(with: url, options: [.forceRefresh])
                 }
             }
             return companyCell

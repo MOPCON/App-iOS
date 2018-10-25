@@ -1006,7 +1006,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session.app;
+				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1031,7 +1031,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session.app;
+				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
