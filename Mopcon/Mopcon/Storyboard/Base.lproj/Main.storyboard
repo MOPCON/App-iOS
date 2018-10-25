@@ -1933,6 +1933,7 @@
                             <constraint firstItem="4kK-hI-ocS" firstAttribute="top" secondItem="6Nb-y3-81e" secondAttribute="bottom" constant="16" id="hBH-Zj-JiH"/>
                             <constraint firstItem="9Xd-iZ-M5x" firstAttribute="top" secondItem="wWj-yb-EUI" secondAttribute="bottom" constant="24" id="iYm-3h-8bf"/>
                             <constraint firstItem="lTg-gA-KNn" firstAttribute="trailing" secondItem="6Nb-y3-81e" secondAttribute="trailing" constant="45" id="kib-Ye-Yia"/>
+                            <constraint firstItem="lTg-gA-KNn" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9Xd-iZ-M5x" secondAttribute="bottom" constant="10" id="lby-zo-NNM"/>
                             <constraint firstItem="VWg-Ay-TXo" firstAttribute="top" secondItem="6Nb-y3-81e" secondAttribute="bottom" constant="16" id="sLg-zB-OAh"/>
                             <constraint firstItem="wWj-yb-EUI" firstAttribute="top" secondItem="4kK-hI-ocS" secondAttribute="bottom" constant="16" id="suT-VP-955"/>
                         </constraints>
