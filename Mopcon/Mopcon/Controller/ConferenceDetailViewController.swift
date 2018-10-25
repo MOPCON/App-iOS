@@ -43,6 +43,9 @@ class ConferenceDetailViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
         // Do any additional setup after loading the view.
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.navigationItem.title = "Agenda"
+        }
         if let agenda = agenda {
             updateUI(agenda: agenda)
         }
@@ -71,7 +74,7 @@ class ConferenceDetailViewController: UIViewController {
         case Language.english.rawValue:
             self.scheduleInfoLabel.text = agenda.schedule_info_en
             self.companyLabel.text = agenda.company
-            self.topicLabel.text = agenda.schedule_info_en
+            self.topicLabel.text = agenda.schedule_topic_en
             self.typeLabel.text = agenda.category
             self.speakerName.text = agenda.name_en
             self.speakerJob.text = agenda.job
