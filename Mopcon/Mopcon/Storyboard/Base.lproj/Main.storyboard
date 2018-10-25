@@ -590,6 +590,8 @@
                         <outlet property="communityDescriptionLabel" destination="grp-kQ-Q1C" id="miP-8I-HFA"/>
                         <outlet property="communityDetailImageView" destination="Cv4-UK-vBo" id="sA7-l2-3lI"/>
                         <outlet property="communityNameLabel" destination="Odk-MP-NQE" id="sgf-p7-6r5"/>
+                        <outlet property="facebookButton" destination="ybx-bX-o0b" id="Vdz-M9-vLQ"/>
+                        <outlet property="otherLinkButton" destination="CKv-1l-3kg" id="E6m-v4-wp2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TlG-3r-2A5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1028,7 +1030,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sponsorInfoCell" rowHeight="171" id="11g-oj-dTE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sponsorInfoCell" rowHeight="171" id="11g-oj-dTE">
                                         <rect key="frame" x="0.0" y="273" width="414" height="171"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="11g-oj-dTE" id="T7V-lH-3vr">
@@ -1054,14 +1056,14 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="seeMoreCell" rowHeight="55" id="d5J-pc-9Et">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="seeMoreCell" rowHeight="55" id="d5J-pc-9Et">
                                         <rect key="frame" x="0.0" y="444" width="414" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d5J-pc-9Et" id="INq-F4-Z1b">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTH-Hl-feP" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
+                                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTH-Hl-feP" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
                                                     <rect key="frame" x="160.66666666666666" y="7.6666666666666679" width="92.666666666666657" height="39.666666666666657"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="mTH-Hl-feP" secondAttribute="height" multiplier="7:3" id="8oa-tB-MbA"/>
@@ -1933,6 +1935,7 @@
                             <constraint firstItem="4kK-hI-ocS" firstAttribute="top" secondItem="6Nb-y3-81e" secondAttribute="bottom" constant="16" id="hBH-Zj-JiH"/>
                             <constraint firstItem="9Xd-iZ-M5x" firstAttribute="top" secondItem="wWj-yb-EUI" secondAttribute="bottom" constant="24" id="iYm-3h-8bf"/>
                             <constraint firstItem="lTg-gA-KNn" firstAttribute="trailing" secondItem="6Nb-y3-81e" secondAttribute="trailing" constant="45" id="kib-Ye-Yia"/>
+                            <constraint firstItem="lTg-gA-KNn" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9Xd-iZ-M5x" secondAttribute="bottom" constant="10" id="lby-zo-NNM"/>
                             <constraint firstItem="VWg-Ay-TXo" firstAttribute="top" secondItem="6Nb-y3-81e" secondAttribute="bottom" constant="16" id="sLg-zB-OAh"/>
                             <constraint firstItem="wWj-yb-EUI" firstAttribute="top" secondItem="4kK-hI-ocS" secondAttribute="bottom" constant="16" id="suT-VP-955"/>
                         </constraints>

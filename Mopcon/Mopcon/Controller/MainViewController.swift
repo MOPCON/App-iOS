@@ -51,6 +51,10 @@ class MainViewController: UIViewController {
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         mainCollectionView.backgroundView = UIImageView(image: UIImage(named: "bgMainPage"))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         getNews()
         getBannerData()
     }
@@ -68,9 +72,12 @@ class MainViewController: UIViewController {
             }
             
             if let news = news {
+                if news.isEmpty {
+                    return
+                }
                 self.firstNews = news[0]
                 DispatchQueue.main.async {
-                    self.mainCollectionView.reloadData()
+                    self.mainCollectionView.reloadSections(IndexSet.init(integer: 1))
                 }
             }
         }
@@ -135,7 +142,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let bannerCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.bannerCell, for: indexPath) as! BannerCollectionViewCell
             bannerCell.bannerImageCollectionView.delegate = bannerCell
             bannerCell.bannerImageCollectionView.dataSource = bannerCell
-            bannerCell.bannerData = self.bannerData
+            bannerCell.bannerData = bannerData
             return bannerCell
         case SectionName.News.rawValue:
             let newsCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.newsCell, for: indexPath) as! NewsCollectionViewCell
