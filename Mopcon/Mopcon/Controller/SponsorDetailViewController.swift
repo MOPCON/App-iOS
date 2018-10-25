@@ -83,7 +83,10 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
                 sponsorInfoLabel.text = sponsor.info
             }
             
-            if let seeMoreButton = cell.viewWithTag(3) as? UIButton {
+            if let seeMoreButton = cell.viewWithTag(4) as? UIButton {
+                if sponsor.website == "" {
+                    seeMoreButton.isHidden = true
+                }
                 seeMoreButton.addTarget(self, action: #selector(showMore), for: .touchUpInside)
             }
 
