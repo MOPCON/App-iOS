@@ -47,12 +47,12 @@ class MyScheduleConferenceTableViewCell: UITableViewCell {
         let language = CurrentLanguage.getLanguage()
         switch language {
         case Language.chinese.rawValue:
-            self.typeLabel.text = mySchedule.type
+            self.typeLabel.text = mySchedule.category
             self.titleLabel.text = mySchedule.schedule_topic
             self.speakerLabel.text = mySchedule.name
             self.floorLabel.text = mySchedule.location
         case Language.english.rawValue:
-            self.typeLabel.text = mySchedule.type
+            self.typeLabel.text = mySchedule.category
             self.titleLabel.text = mySchedule.schedule_topic_en
             self.speakerLabel.text = mySchedule.name_en
             self.floorLabel.text = mySchedule.location

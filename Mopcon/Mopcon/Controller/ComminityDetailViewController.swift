@@ -15,6 +15,9 @@ class ComminityDetailViewController: UIViewController {
     @IBOutlet weak var communityDetailImageView: UIImageView!
     @IBOutlet weak var communityNameLabel: UILabel!
     @IBOutlet weak var communityDescriptionLabel: UILabel!
+    @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var otherLinkButton: UIButton!
+    
     
     @IBAction func connectToFacebook(_ sender: UIButton) {
         if let community = community, let url = URL(string: community.facebook) {
@@ -32,7 +35,6 @@ class ComminityDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         communityDescriptionLabel.adjustsFontSizeToFitWidth = true
-        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -41,6 +43,12 @@ class ComminityDetailViewController: UIViewController {
         
         if let community = community {
             updateUI(community: community)
+            if community.facebook == "" {
+                facebookButton.isHidden = true
+            }
+            if community.other_links == "" {
+                otherLinkButton.isHidden = true
+            }
         }
     }
     
@@ -59,7 +67,7 @@ class ComminityDetailViewController: UIViewController {
     func updateUI(community:Community.Payload) {
         
         if let url = URL(string: community.logo) {
-            communityDetailImageView.kf.setImage(with: url)
+            communityDetailImageView.kf.setImage(with: url, options: [.forceRefresh])
         }
         communityNameLabel.text = community.title
         communityDescriptionLabel.text = community.info

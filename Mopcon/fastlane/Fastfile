@@ -78,33 +78,11 @@ platform :ios do
   private_lane :preRelease do
     ensure_git_status_clean
 
-    oldVersion = ios_get_version
-    versionNameArray = oldVersion.split('.')
-    newVersionName = ""
-    newVersionName = newVersionName + versionNameArray[0] + "."
-    newVersionName = newVersionName + versionNameArray[1] + "."
-    newVersionName = newVersionName + (versionNameArray[2].to_i+1).to_s
-    newVersionName = "2.3"
-    #echo(message: newVersionName)
-
-    sh("git", "flow", "release", "start", newVersionName)
+    # sh("git", "flow", "release", "start", newVersionName)
 
     ios_set_build_number(build_number: next_build) # Time.now.to_i.to_s[0..7]
-    ios_set_version(version: newVersionName)
+    nextVersion
     # screenshots
-
-    git_add(path: "./Mopcon.xcodeproj/project.pbxproj")
-    git_add(path: "./Mopcon/Info.plist")
-    git_add(path: "./MopconUITests/Info.plist")
-
-    git_commit(
-      path:[
-        "./Mopcon.xcodeproj/project.pbxproj",
-        "./Mopcon/Info.plist",
-        "./MopconUITests/Info.plist"        
-      ], 
-      message: "change version")
-
   end
 
   lane :release do
@@ -126,4 +104,26 @@ platform :ios do
     Time.now.strftime("%Y%m%d%H%M")
   end
 
+  lane :nextVersion do
+    oldVersion = ios_get_version
+    versionNameArray = oldVersion.split('.')
+    newVersionName = ""
+    newVersionName = newVersionName + versionNameArray[0] + "."
+    newVersionName = newVersionName + versionNameArray[1] + "."
+    newVersionName = newVersionName + (versionNameArray[2].to_i+1).to_s
+    # newVersionName = "2.3"
+    # echo(message: newVersionName)
+    ios_set_version(version: newVersionName)
+
+    git_add(path: "./Mopcon/Info.plist")
+    git_add(path: "./MopconUITests/Info.plist")
+
+    git_commit(
+      path:[
+        "./Mopcon/Info.plist",
+        "./MopconUITests/Info.plist"        
+      ], 
+      message: "change version"
+    )
+  end
 end

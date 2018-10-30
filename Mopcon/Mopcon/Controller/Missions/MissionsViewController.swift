@@ -9,26 +9,27 @@
 import UIKit
 
 enum MissionsSection:Int, CaseIterable {
-    case information
+    case information = 0
     case quiz
-}
-
-enum QuizStatus: String {
-    case fail = "-1"
-    case lock = "0"
-    case unlock = "1"
-    case success = "2"
 }
 
 class MissionsViewController: UIViewController {
     
     var backView: UIView!
     var alertView: UIView!
-    var quizs = [Quiz]()
-    var balance = 0
+    var textField: UITextField!
+    var balance = 0 {
+        didSet {
+            missionsCollectionView.reloadData()
+        }
+    }
+    var quiz = [Quiz]() {
+        didSet {
+            missionsCollectionView.reloadData()
+        }
+    }
+    var selectedMission: Quiz?
     
-    var user = User(publicKey: "0988797601")
-
     @IBOutlet weak var missionsCollectionView: UICollectionView!
     
     @IBAction func exit(_ sender: UIBarButtonItem) {
@@ -46,19 +47,28 @@ class MissionsViewController: UIViewController {
         
         missionsCollectionView.dataSource = self
         missionsCollectionView.delegate = self
-        
-        newUser()
         showMissionInfo()
-        getQuiz()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getBalance()
+        quiz = Quiz.getData()
+        balance = Wallet.getBalance()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "performMissionDetail":
+            if let vc = segue.destination as? MissionDetailViewController {
+                vc.mission = self.selectedMission
+            }
+        case "performInteractionDetail":
+            if let vc = segue.destination as? InteractionViewController {
+                vc.mission = self.selectedMission
+            }
+        default:
+            break
+        }
     }
     
     // MARK: Show customized alert
@@ -73,7 +83,6 @@ class MissionsViewController: UIViewController {
             let tap = UITapGestureRecognizer(target: self, action: #selector(removeBackView))
             backView.addGestureRecognizer(tap)
         }
-        
         self.view.addSubview(backView)
     }
     
@@ -82,7 +91,7 @@ class MissionsViewController: UIViewController {
         addBackView(addTap: false)
         
         let infoView = UIView()
-        infoView.frame = CGRect(x: 0, y: 0, width: missionsCollectionView.bounds.width, height: missionsCollectionView.bounds.width * 0.92)
+        infoView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.width * 0.92)
         infoView.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
         infoView.backgroundColor = #colorLiteral(red: 0, green: 0.007843137255, blue: 0.1921568627, alpha: 1)
         infoView.layer.cornerRadius = 4
@@ -95,6 +104,7 @@ class MissionsViewController: UIViewController {
         titleLabel.center = CGPoint(x: infoView.bounds.midX, y: titleLabel.bounds.height * 1.3)
         titleLabel.text = "搶攻 MO 幣"
         titleLabel.font = UIFont(name: "PingFangTC-Semibold", size: 30)
+        titleLabel.minimumScaleFactor = 0.5
         titleLabel.textColor = #colorLiteral(red: 0, green: 1, blue: 0.9764705882, alpha: 1)
         titleLabel.textAlignment = .center
         
@@ -113,18 +123,19 @@ class MissionsViewController: UIViewController {
         text.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: range)
         text.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "PingFangTC-Semibold", size: 16) ?? UIFont.boldSystemFont(ofSize: 16), range: range)
         text.addAttribute(NSAttributedString.Key.kern, value: 1.3, range: range)
-        
         contentLabel.attributedText = text
+        contentLabel.minimumScaleFactor = 0.5
         
         let startButton = UIButton()
-        startButton.frame = CGRect(x: 0, y: 0, width: infoView.bounds.width * 0.9, height: 60)
-        startButton.center = CGPoint(x: infoView.bounds.midX, y:infoView.bounds.maxY - startButton.bounds.height * 0.8)
+        startButton.frame = CGRect(x: 0, y: 0, width: infoView.bounds.width * 0.9, height: infoView.bounds.height / 5)
+        startButton.center = CGPoint(x: infoView.bounds.midX, y:infoView.bounds.maxY - startButton.bounds.height * 0.76)
         startButton.layer.cornerRadius = 3
         startButton.clipsToBounds = true
         startButton.backgroundColor = #colorLiteral(red: 0, green: 1, blue: 0.9764705882, alpha: 1)
         startButton.tintColor = .white
         startButton.setTitle("開始任務", for: .normal)
         startButton.titleLabel?.font = UIFont(name: "PingFangTC-Semibold", size: 20)
+        startButton.titleLabel?.minimumScaleFactor = 0.5
         startButton.addTarget(self, action: #selector(closeView(sender:)), for: .touchUpInside)
         
         infoView.addSubview(titleLabel)
@@ -132,7 +143,7 @@ class MissionsViewController: UIViewController {
         infoView.addSubview(startButton)
     }
     
-    @objc func exchangeCapsule(sender:UIButton) {
+    @objc func exchangeCapsule(sender: Any) {
         
         addBackView(addTap: true)
         
@@ -145,30 +156,32 @@ class MissionsViewController: UIViewController {
         alertView.layer.borderColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
         alertView.layer.borderWidth = 2
         
-        let textField = UITextField()
-        textField.frame = CGRect(x: 0, y: 0, width: alertView.bounds.width * 0.9, height: 40)
+        textField = UITextField()
+        textField.frame = CGRect(x: 0, y: 0, width: alertView.bounds.width * 0.9, height: alertView.bounds.height * 0.22)
         textField.center = CGPoint(x: alertView.bounds.midX, y: textField.bounds.height * 1.8)
         textField.font = UIFont(name: "PingFangTC-Semibold", size: 20)
         textField.textColor = .white
+        textField.autocorrectionType = .no
+        textField.minimumFontSize = 0.5
         textField.attributedPlaceholder = NSAttributedString(string: "請輸入兌換密碼",attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 0.6)])
         textField.borderStyle = .none
         
         let lineView = UIView()
         lineView.frame = CGRect(x: 0, y: 0, width: textField.bounds.width, height: 2)
         lineView.center = textField.center
-        lineView.center.y += textField.bounds.height / 2
+        lineView.center.y += textField.bounds.height / 2 + 2
         lineView.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
         
         let sendButton = UIButton()
-        sendButton.frame = CGRect(x: 0, y: 0 , width: textField.bounds.width, height: 60)
-        sendButton.center = lineView.center
-        sendButton.center.y += sendButton.bounds.height
+        sendButton.frame = CGRect(x: 0, y: 0 , width: textField.bounds.width, height: textField.bounds.height / 2 * 3)
+        sendButton.center = CGPoint(x: alertView.bounds.midX, y: alertView.bounds.maxY - sendButton.bounds.height * 0.76)
         sendButton.layer.cornerRadius = 3
         sendButton.clipsToBounds = true
         sendButton.backgroundColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
         sendButton.setTitle("送出", for: .normal)
         sendButton.titleLabel?.font = UIFont(name: "PingFangTC-Semibold", size: 20)
-        sendButton.addTarget(self, action: #selector(closeView(sender:)), for: .touchUpInside)
+        sendButton.titleLabel?.minimumScaleFactor = 0.5
+        sendButton.addTarget(self, action: #selector(checkExchangeInfo(sender:)), for: .touchUpInside)
         
         alertView.addSubview(textField)
         alertView.addSubview(lineView)
@@ -178,7 +191,7 @@ class MissionsViewController: UIViewController {
         
     }
     
-    func showExchangeInfo() {
+    @objc func showExchangeInfo() {
         
         addBackView(addTap: false)
         
@@ -202,7 +215,8 @@ class MissionsViewController: UIViewController {
         messageLabel.textColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
         messageLabel.textAlignment = .center
         var text = NSMutableAttributedString()
-        text = NSMutableAttributedString(string: "您即將兌換 50 個扭蛋", attributes: [NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 24)!])
+        let number = NSString(string:textField.text!.lowercased().replacingOccurrences(of: "mopcon", with: "")).intValue
+        text = NSMutableAttributedString(string: "您即將兌換 \(number) 個扭蛋", attributes: [NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 24)!])
         text.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:6,length:2))
         text.addAttribute(NSAttributedString.Key.kern, value: 0.8, range: NSRange(location: 0, length: text.length))
         messageLabel.attributedText = text
@@ -229,7 +243,7 @@ class MissionsViewController: UIViewController {
         confirmButton.clipsToBounds = true
         confirmButton.layer.borderColor = #colorLiteral(red: 0, green: 0.8156862745, blue: 0.7960784314, alpha: 1)
         confirmButton.layer.borderWidth = 2
-        confirmButton.addTarget(self, action: #selector(closeView(sender:)), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(exchangeGachapon(sender:)), for: .touchUpInside)
         
         alertView.addSubview(capsuleImageView)
         alertView.addSubview(messageLabel)
@@ -247,18 +261,61 @@ class MissionsViewController: UIViewController {
         backView.removeFromSuperview()
     }
     
-    @objc func closeView(sender:UIButton) {
+    @objc func checkExchangeInfo(sender: UIButton) {
+        closeView(sender: sender)
         
-        guard let title = sender.titleLabel?.text else { return }
-        
-        if title == "送出" {
-            showExchangeInfo()
+        if !textField.text!.lowercased().hasPrefix("mopcon") {
+            showAlert(message: "請輸入正確的內容")
+            return
         }
         
+        let changeNumber = NSString(string: textField.text!.lowercased().replacingOccurrences(of: "mopcon", with: "")).integerValue
+        
+        if changeNumber < 1 {
+            showAlert(message: "兌換數量需要大於 1")
+        } else {
+            showExchangeInfo()
+            
+        }
+    }
+    
+    @objc func exchangeGachapon(sender: UIButton) {
+        if !textField.text!.lowercased().hasPrefix("mopcon") {
+            showAlert(message: "請輸入正確的內容")
+            return
+        }
+        
+        let changeNumber = NSString(string: textField.text!.lowercased().replacingOccurrences(of: "mopcon", with: "")).integerValue
+        
+        if changeNumber < 1 {
+            showAlert(message: "兌換數量需要大於 1")
+        }
+        
+        let number = NSString(string:textField.text!.lowercased().replacingOccurrences(of: "mopcon", with: "")).integerValue
+        
+        closeView(sender: sender)
+        let maxExchange = Wallet.getBalance() / 200
+        if number <= maxExchange && number > 0 {
+            print("兌換\(number)顆，花費\(number * 200)")
+            Wallet.exchange(cost: Int(number) * 200)
+            balance = Wallet.getBalance()
+        } else {
+            showAlert(message: "餘額不足")
+        }
+    }
+    
+    @objc func closeView(sender:UIButton) {
         if let alertView = sender.superview {
             alertView.removeFromSuperview()
             backView.removeFromSuperview()
         }
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "兌換失敗", message: message, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
@@ -278,11 +335,7 @@ extension MissionsViewController: UICollectionViewDataSource, UICollectionViewDe
         case .information:
             return 1
         case .quiz:
-            if quizs.isEmpty {
-                return 0
-            } else {
-                return quizs[0].items?.count ?? 0
-            }
+            return quiz.count
         }
     }
     
@@ -299,10 +352,8 @@ extension MissionsViewController: UICollectionViewDataSource, UICollectionViewDe
             return coinCell
         case .quiz:
             guard let missionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "missionCell", for: indexPath) as? MissionCollectionViewCell else { fatalError("Couldn't create cell.") }
-    
-            if let item = quizs[0].items?[indexPath.row] {
-                missionCell.updateUI(item: item)
-            }
+            let item = quiz[indexPath.row]
+            missionCell.updateUI(item: item)
             return missionCell
         }
     }
@@ -312,42 +363,43 @@ extension MissionsViewController: UICollectionViewDataSource, UICollectionViewDe
 extension MissionsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width - 38
         
-        guard let sectionType = MissionsSection(rawValue: indexPath.section) else { return CGSize.zero }
-        let width = collectionView.bounds.width
-        
-        switch sectionType {
-        case .information:
-            return CGSize(width: width, height: width * 193 / 336 )
-        case .quiz:
-            return CGSize(width: (width - 16) / 2 , height: (width - 16) / 2)
+        if indexPath.section == MissionsSection.information.rawValue {
+            return CGSize(width: width, height: width * 0.57 )
+        } else {
+            return CGSize(width: (width - 20) * 0.5 , height: (width - 20) * 0.5)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-        guard let sectionType = MissionsSection(rawValue: section) else { return UIEdgeInsets.zero }
-
-        switch sectionType {
-        case .information:
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        case .quiz:
-            return UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
+        if section == MissionsSection.information.rawValue {
+            return UIEdgeInsets(top: 16, left: 19, bottom: 16, right: 19)
+        } else {
+            return UIEdgeInsets(top: 0, left: 19, bottom: 0, right: 19)
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        if section == MissionsSection.quiz.rawValue {
+//            return 16
+//        } else {
+//            return 0
+//        }
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        if section == MissionsSection.quiz.rawValue {
+//            return 16
+//        } else {
+//            return 0
+//        }
+//    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         guard let missionCell = collectionView.cellForItem(at: indexPath) as? MissionCollectionViewCell else { return }
-        
+        selectedMission = quiz[indexPath.row]
         switch missionCell.typeLabel.text {
         case "quiz":
             self.performSegue(withIdentifier: "performMissionDetail", sender: nil)
@@ -364,67 +416,8 @@ extension MissionsViewController: UICollectionViewDelegateFlowLayout {
 extension MissionsViewController: InformationCollectionViewCellDelegate {
     
     func exchange(amount: Int) {
-        
-        user.amount = amount
-        
-        FieldGameAPI.buyGachapon(user: user) { (data) in
-            let decoder = JSONDecoder()
-            guard let result = try? decoder.decode(Result.self, from: data) else { return }
-            if let isSuccess = result.isSuccess {
-                self.testAlert(msg: "\(isSuccess)")
-            }
-        }
+        exchangeCapsule(sender: self)
     }
     
 }
 
-// Post API request
-extension MissionsViewController {
-    
-    func testAlert(msg: String) {
-        let alert = UIAlertController(title: "Get Data", message: msg, preferredStyle: .alert)
-        let okaction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(okaction)
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func getQuiz() {
-        FieldGameAPI.getQuiz { (data) in
-            do {
-                let decoder = JSONDecoder()
-                let decoded = try decoder.decode([Quiz].self, from: data)
-                self.quizs = decoded
-                
-                DispatchQueue.main.async {
-                    self.missionsCollectionView.reloadData()
-                }
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    func newUser() {
-        
-        FieldGameAPI.newUserRequest(user: user) { (data) in
-            let decoder = JSONDecoder()
-            guard let result = try? decoder.decode(Result.self, from: data) else { return }
-            if let isSuccess = result.isSuccess {
-                self.testAlert(msg: "\(isSuccess)")
-            }
-        }
-    }
-    
-    func getBalance() {
-        
-        FieldGameAPI.getBalanceRequest(user: user) { (data) in
-            let decoder = JSONDecoder()
-            guard let result = try? decoder.decode(Result.self, from: data) else { return }
-            if let balance = result.balance {
-                self.balance = balance
-            }
-        }
-    }
-    
-}

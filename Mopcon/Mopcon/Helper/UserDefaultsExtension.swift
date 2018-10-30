@@ -11,6 +11,8 @@ import Foundation
 struct UserDefaultsKeys {
     static let dayOneSchedule = "2018-11-03"
     static let dayTwoSchedule = "2018-11-04"
+    static let fcmToken = "fcmToken"
+    static let UUID = "UUID"
 }
 
 class CurrentLanguage {

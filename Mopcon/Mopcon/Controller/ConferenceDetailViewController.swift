@@ -43,6 +43,9 @@ class ConferenceDetailViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
         // Do any additional setup after loading the view.
+        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            self.navigationItem.title = "Agenda"
+        }
         if let agenda = agenda {
             updateUI(agenda: agenda)
         }
@@ -58,27 +61,21 @@ class ConferenceDetailViewController: UIViewController {
         }
 
         self.speakerImageView.makeCircle()
-        self.scheduleInfoLabel.text = agenda.schedule_info
-        self.companyLabel.text = agenda.company
-        self.typeLabel.text = agenda.type
-        self.topicLabel.text = agenda.schedule_topic
-        self.speakerName.text = agenda.name
-        self.speakerJob.text = agenda.job
         
         let language = CurrentLanguage.getLanguage()
         switch language {
         case Language.chinese.rawValue:
             self.scheduleInfoLabel.text = agenda.schedule_info
             self.companyLabel.text = agenda.company
-            self.typeLabel.text = agenda.type
+            self.typeLabel.text = agenda.category
             self.topicLabel.text = agenda.schedule_topic
             self.speakerName.text = agenda.name
             self.speakerJob.text = agenda.job
         case Language.english.rawValue:
             self.scheduleInfoLabel.text = agenda.schedule_info_en
             self.companyLabel.text = agenda.company
-            self.typeLabel.text = agenda.type
             self.topicLabel.text = agenda.schedule_topic_en
+            self.typeLabel.text = agenda.category
             self.speakerName.text = agenda.name_en
             self.speakerJob.text = agenda.job
         default:

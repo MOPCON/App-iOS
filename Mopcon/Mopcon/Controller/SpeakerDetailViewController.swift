@@ -20,7 +20,6 @@ class SpeakerDetailViewController: UIViewController {
     @IBOutlet weak var speakerCompanyLabel: UILabel!
     @IBOutlet weak var speakerNameLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
-    @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var scheduleTopicLabel: UILabel!
     @IBOutlet weak var addToMyScheduleButton: CustomCornerButton!
     
@@ -47,7 +46,6 @@ class SpeakerDetailViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         //把backButton的顏色改成白色
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        
         if let speaker = speaker {
             updateUI(speaker: speaker)
         }
@@ -118,14 +116,12 @@ class SpeakerDetailViewController: UIViewController {
             self.speakerNameLabel.text = speaker.name
             self.infoLabel.text = speaker.info
             self.scheduleTopicLabel.text = speaker.schedule_topic
-            self.typeLabel.text = speaker.type
         case Language.english.rawValue:
             self.speakerJobLabel.text = speaker.job
             self.speakerCompanyLabel.text = speaker.company
             self.speakerNameLabel.text = speaker.name_en
             self.infoLabel.text = speaker.info_en
             self.scheduleTopicLabel.text = speaker.schedule_topic_en
-            self.typeLabel.text = speaker.type
         default:
             break
         }
