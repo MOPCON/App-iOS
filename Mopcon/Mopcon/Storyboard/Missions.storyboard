@@ -304,11 +304,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1m-E5-cCT">
-                                                    <rect key="frame" x="16" y="16" width="382" height="34"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="303-ad-bed"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1m-E5-cCT">
+                                                    <rect key="frame" x="16" y="15.999999999999996" width="382" height="33.666666666666657"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Title">
                                                             <attributes>
@@ -321,11 +318,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" tag="12" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZK-ZT-fCl">
-                                                    <rect key="frame" x="16" y="66" width="382" height="19.666666666666671"/>
+                                                    <rect key="frame" x="16" y="65.666666666666671" width="382" height="19.666666666666671"/>
                                                     <attributedString key="attributedText">
-                                                        <fragment content="conten">
+                                                        <fragment content="content">
                                                             <attributes>
-                                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <font key="NSFont" size="14" name="PingFangTC-Regular"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="0.59999999999999998" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
