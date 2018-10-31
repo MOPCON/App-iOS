@@ -108,24 +108,8 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         let userInfo = response.notification.request.content.userInfo
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
-        }
-        
+        }        
         print(userInfo)
-        
-        NewsAPI.getAPI(url: MopconAPI.shared.news) { (news, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-                return
-            }
-            
-            if let news = news, news.isEmpty == false {
-                if let url = URL(string: news[0].link) {
-                    let safari = SFSafariViewController(url: url)
-                    self.window?.rootViewController?.present(safari, animated: true, completion: nil)
-                }
-            }
-        }
-        
         completionHandler()
     }
 }
