@@ -51,6 +51,7 @@ class MainViewController: UIViewController {
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         mainCollectionView.backgroundView = UIImageView(image: UIImage(named: "bgMainPage"))
+        mainCollectionView.backgroundView?.contentMode = .scaleAspectFill
     }
     
     override func viewWillAppear(_ animated: Bool) {
