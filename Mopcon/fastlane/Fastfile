@@ -56,7 +56,7 @@ platform :ios do
   end
 
   lane :beta do
-    xcversion(version: "10")
+    #xcversion(version: "10")
     get_certificates           # invokes cert
     get_provisioning_profile   # invokes sigh
 
