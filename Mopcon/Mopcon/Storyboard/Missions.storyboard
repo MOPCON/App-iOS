@@ -322,7 +322,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="content">
                                                             <attributes>
-                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <font key="NSFont" size="14" name="PingFangTC-Regular"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="0.59999999999999998" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
