@@ -34,9 +34,7 @@
 		5E682E1D213D016500FC37CF /* MissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E682E1C213D016500FC37CF /* MissionsViewController.swift */; };
 		5E682E1F213D62CA00FC37CF /* MissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E682E1E213D62CA00FC37CF /* MissionDetailViewController.swift */; };
 		5E682E21213E2AA700FC37CF /* InteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E682E20213E2AA700FC37CF /* InteractionViewController.swift */; };
-		5E6CBD9D217B28D10097D5E2 /* Quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CBD9C217B28D10097D5E2 /* Quiz.json */; };
 		5E6CBDA1217BB9D60097D5E2 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CBDA0217BB9D60097D5E2 /* Wallet.swift */; };
-		5E6CBDA3217BC37D0097D5E2 /* BoothMission.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CBDA2217BC37D0097D5E2 /* BoothMission.json */; };
 		5E941014214F43DD001D61F6 /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941013214F43DD001D61F6 /* NewsAPI.swift */; };
 		5E941016214F4401001D61F6 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941015214F4401001D61F6 /* News.swift */; };
 		5E941018214F4FBA001D61F6 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941017214F4FBA001D61F6 /* Carousel.swift */; };
@@ -573,6 +571,7 @@
 				D633461B20E8FFC60033E5B4 /* Frameworks */,
 				D633461C20E8FFC60033E5B4 /* Resources */,
 				6B8B2D35D5FB2A6FE09AC128 /* [CP] Embed Pods Frameworks */,
+				86D4B292D54B20D8BF9A3AE3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -595,11 +594,12 @@
 				TargetAttributes = {
 					49A6838D2153248000EC6EA7 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = D633461D20E8FFC60033E5B4;
 					};
 					D633461D20E8FFC60033E5B4 = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -639,9 +639,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E6CBDA3217BC37D0097D5E2 /* BoothMission.json in Resources */,
 				D633462F20E8FFC70033E5B4 /* LaunchScreen.storyboard in Resources */,
-				5E6CBD9D217B28D10097D5E2 /* Quiz.json in Resources */,
 				D633462C20E8FFC70033E5B4 /* Assets.xcassets in Resources */,
 				5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */,
 				D633462720E8FFC60033E5B4 /* Main.storyboard in Resources */,
@@ -677,14 +675,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -692,6 +690,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86D4B292D54B20D8BF9A3AE3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -844,7 +861,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.deepthought.MopconUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Mopcon;
 			};
@@ -866,7 +883,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.deepthought.MopconUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Mopcon;
 			};
@@ -999,7 +1016,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mopcon/Mopcon.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JA387Z4D7Q;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Mopcon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1010,7 +1027,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1024,7 +1041,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mopcon/Mopcon.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JA387Z4D7Q;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Mopcon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1034,7 +1051,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
