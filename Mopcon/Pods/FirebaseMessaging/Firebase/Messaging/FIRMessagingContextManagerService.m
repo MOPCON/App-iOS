@@ -20,6 +20,7 @@
 
 #import "FIRMessagingDefines.h"
 #import "FIRMessagingLogger.h"
+#import "FIRMessagingUtilities.h"
 
 #define kFIRMessagingContextManagerPrefixKey @"google.c.cm."
 #define kFIRMessagingContextManagerNotificationKeyPrefix @"gcm.notification."
@@ -77,6 +78,7 @@ typedef NS_ENUM(NSUInteger, FIRMessagingContextManagerMessageType) {
 + (BOOL)handleContextManagerLocalTimeMessage:(NSDictionary *)message {
   NSString *startTimeString = message[kFIRMessagingContextManagerLocalTimeStart];
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+  dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
   [dateFormatter setDateFormat:kLocalTimeFormatString];
   NSDate *startDate = [dateFormatter dateFromString:startTimeString];
 
@@ -128,6 +130,7 @@ typedef NS_ENUM(NSUInteger, FIRMessagingContextManagerMessageType) {
 
 + (void)scheduleLocalNotificationForMessage:(NSDictionary *)message
                                      atDate:(NSDate *)date {
+#if TARGET_OS_IOS
   NSDictionary *apsDictionary = message;
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -174,8 +177,13 @@ typedef NS_ENUM(NSUInteger, FIRMessagingContextManagerMessageType) {
   }
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-  [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+  UIApplication *application = FIRMessagingUIApplication();
+  if (!application) {
+    return;
+  }
+  [application scheduleLocalNotification:notification];
 #pragma clang diagnostic pop
+#endif
 }
 
 + (NSDictionary *)parseDataFromMessage:(NSDictionary *)message {
