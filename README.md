@@ -68,33 +68,33 @@ after setting all tool and commands, now we can start develop. Please open `Mopc
 
 ```
 .
-├── Mopcon                 							# Mopcon folder
-│		├── appcenter-post-clone.sh 				# App-Center CI/CD config
-│		├── BoothMission.json       				# Mission game json, it should be extracted from secrets.tar.enc
-│	  ├── Mopcon.xcodeproj    						# Xcode Project file
-│	  ├── Mopcon.xcworkspace  						# Xcode Workspace file, open to start this project
-│	  ├── Mopcon    								
-│		│	  ├── API													# All api services defined in here    
-│		│	  ├── Assets.xcassets							# Image files   
-│		│	  ├── Base.lproj									# Launch view
-│		│	  ├── Controller									# View controllers and controllers
-│		│	  ├── Helper											# Helper classes  
-│		│	  ├── Model												# Data models
-│		│	  ├── Mopcon.xcdatamodeld				
-│		│	  ├── Storyboard									# UI Storyboards
-│		│	  ├── View												# UI Views 
-│		│	  ├── AppDelegate.swift										
-│		│	  ├── GoogleService-Info.plist		# Firebase config								
-│		│	  ├── Info.plist										
-│		│	  └── Mopcon.entitlements									
-│	  ├── MopconUITests		    						# UI Test files
-│	  ├── Pods		    										# Thrid-party libraries
-│	  ├── Podfile		    									# Config file of Pods
-│	  ├── Podfile.lock		    						# Pods lock file
-│	  ├── Quiz.json               				# Mission game json, it should be extracted from secrets.tar.enc
-│		└── secrets.tar.enc        					# Encryped secrets files
-├── README.me														# Readme file
-└── .gitignore              						# Git ignore file
+├── Mopcon                 			# Mopcon folder
+│	├── appcenter-post-clone.sh 		# App-Center CI/CD config
+│	├── BoothMission.json       		# Mission game json, it should be extracted from secrets.tar.enc
+│	├── Mopcon.xcodeproj    			# Xcode Project file
+│	├── Mopcon.xcworkspace  			# Xcode Workspace file, open to start this project
+│	├── Mopcon    								
+│	│	  ├── API						# All api services defined in here    
+│	│	  ├── Assets.xcassets			# Image files   
+│	│	  ├── Base.lproj				# Launch view
+│	│	  ├── Controller				# View controllers and controllers
+│	│	  ├── Helper					# Helper classes  
+│	│	  ├── Model						# Data models
+│	│	  ├── Mopcon.xcdatamodeld				
+│	│	  ├── Storyboard				# UI Storyboards
+│	│	  ├── View						# UI Views 
+│	│	  ├── AppDelegate.swift										
+│	│	  ├── GoogleService-Info.plist	# Firebase config								
+│	│	  ├── Info.plist										
+│	│	  └── Mopcon.entitlements									
+│	├── MopconUITests		    		# UI Test files
+│	├── Pods							# Thrid-party libraries
+│	├── Podfile		    				# Config file of Pods
+│	├── Podfile.lock					# Pods lock file
+│	├── Quiz.json          				# Mission game json, it should be extracted from secrets.tar.enc
+│	└── secrets.tar.enc        			# Encryped secrets files
+├── README.me						    # Readme file
+└── .gitignore              			# Git ignore file
 ```
 
 ### Coding Style 
