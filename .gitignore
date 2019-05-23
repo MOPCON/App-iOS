@@ -81,5 +81,6 @@ fastlane/test_output
 /Mopcon/fastlane/metadata
 /Mopcon/vendor
 /Mopcon/fastlane/Preview.html
+/Mopcon/Mopcon/GoogleService-Info.plist
 Quiz.json
 BoothMission.json
