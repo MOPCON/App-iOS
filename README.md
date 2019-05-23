@@ -13,15 +13,19 @@ This project develop with Swift (latest version), so before getting start, we sh
 Edit -> Convert -> To Current Swift Syntax...
 ```
 
-#### Pods Installation
+#### Pods Installation & Update
 
-this project uses [CocoaPods](https://cocoapods.org/) to manage third party libraries. Use command below to intsall and update third party libraries.
+this project uses [CocoaPods](https://cocoapods.org/) to manage third party libraries. We can use commands below to intsall or update third party libraries.
 
 ```bash
+# pods installation
 $ pod install
+
+# pods update
+$ pod update
 ```
 
-if CocoaPods isn't installed in your Mac, you should install first:
+if CocoaPods isn't installed in our Mac, we should install first:
 ```bash
 $ sudo gem install cocoapods
 ```
@@ -48,7 +52,7 @@ tar xvf ./secrets.tar
 # move file
 mv GoogleService-Info.plist ./Mopcon/
 ```
-or, if you want to make encrypt file, here is the command:
+or, if we want to make encrypt file, here is the commands:
 ##### Encrypt
 ```bash
 tar -czvf secrets.tar files_you_want_to_encrypt
