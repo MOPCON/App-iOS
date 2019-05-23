@@ -48,9 +48,6 @@ openssl des-cbc -d -k $MOPCON_DES_KEY -in secrets.tar.enc -out secrets.tar
 
 # extract tar file.
 tar xvf ./secrets.tar
-
-# move file
-mv GoogleService-Info.plist ./Mopcon/
 ```
 or, if we want to make encrypt file, here is the commands:
 ##### Encrypt
