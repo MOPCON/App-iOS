@@ -7,7 +7,7 @@ This project develop with Swift (latest version), so before getting start, we sh
 
 * Xcode recommend 10.2 or above
 
-#### Contert To Latest Swift Version
+#### Conert To Latest Swift Version
 ```bash
 # In Xcode
 Edit -> Convert -> To Current Swift Syntax...
