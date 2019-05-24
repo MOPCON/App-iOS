@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		49A683912153248100EC6EA7 /* MopconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A683902153248100EC6EA7 /* MopconUITests.swift */; };
 		49A6839921532E4A00EC6EA7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */; };
+		53652B482296F0E0003131BC /* Quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 53652B472296F0E0003131BC /* Quiz.json */; };
+		53652B4A2296F10A003131BC /* BoothMission.json in Resources */ = {isa = PBXBuildFile; fileRef = 53652B492296F10A003131BC /* BoothMission.json */; };
 		53850930227D69480083429A /* VolunteerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5385092F227D69480083429A /* VolunteerTableViewCell.swift */; };
 		53850934227D6A960083429A /* CommunityImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53850933227D6A960083429A /* CommunityImageCollectionViewCell.swift */; };
-		539A7187227F35F100760524 /* Quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 539A7186227F35F100760524 /* Quiz.json */; };
-		539A7189227F360400760524 /* BoothMission.json in Resources */ = {isa = PBXBuildFile; fileRef = 539A7188227F360300760524 /* BoothMission.json */; };
 		5E1753AA2150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1753A92150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift */; };
 		5E1753AC2150D4BA00A5D4C5 /* MopconAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1753AB2150D4BA00A5D4C5 /* MopconAPI.swift */; };
 		5E1DC75F214946CB00F953F8 /* Volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1DC75E214946CB00F953F8 /* Volunteer.swift */; };
@@ -121,10 +121,10 @@
 		49A683902153248100EC6EA7 /* MopconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconUITests.swift; sourceTree = "<group>"; };
 		49A683922153248100EC6EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		53652B472296F0E0003131BC /* Quiz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Quiz.json; sourceTree = SOURCE_ROOT; };
+		53652B492296F10A003131BC /* BoothMission.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BoothMission.json; sourceTree = SOURCE_ROOT; };
 		5385092F227D69480083429A /* VolunteerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTableViewCell.swift; sourceTree = "<group>"; };
 		53850933227D6A960083429A /* CommunityImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		539A7186227F35F100760524 /* Quiz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Quiz.json; sourceTree = "<group>"; };
-		539A7188227F360300760524 /* BoothMission.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BoothMission.json; sourceTree = "<group>"; };
 		5E1753A92150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCollectionViewCell.swift; sourceTree = "<group>"; };
 		5E1753AB2150D4BA00A5D4C5 /* MopconAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconAPI.swift; sourceTree = "<group>"; };
 		5E1DC75E214946CB00F953F8 /* Volunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer.swift; sourceTree = "<group>"; };
@@ -311,8 +311,8 @@
 		5E6CBD97217B27350097D5E2 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				539A7186227F35F100760524 /* Quiz.json */,
-				539A7188227F360300760524 /* BoothMission.json */,
+				53652B472296F0E0003131BC /* Quiz.json */,
+				53652B492296F10A003131BC /* BoothMission.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -641,9 +641,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				539A7189227F360400760524 /* BoothMission.json in Resources */,
-				539A7187227F35F100760524 /* Quiz.json in Resources */,
+				53652B4A2296F10A003131BC /* BoothMission.json in Resources */,
 				D633462F20E8FFC70033E5B4 /* LaunchScreen.storyboard in Resources */,
+				53652B482296F0E0003131BC /* Quiz.json in Resources */,
 				D633462C20E8FFC70033E5B4 /* Assets.xcassets in Resources */,
 				5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */,
 				D633462720E8FFC60033E5B4 /* Main.storyboard in Resources */,
