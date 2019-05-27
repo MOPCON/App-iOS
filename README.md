@@ -3,11 +3,11 @@ MOPCON App for iOS
 
 
 ### Develop Tool
-This project develop with Swift (latest version), so before getting start, we should check [Xcode](https://developer.apple.com/xcode/) has been installed in our Mac.
+This project develops with Swift (latest version), so before getting start, we should check [Xcode](https://developer.apple.com/xcode/) has been installed in our Mac.
 
 * Xcode recommend 10.2 or above
 
-#### Contert To Latest Swift Version
+#### Convert To Latest Swift Version
 ```bash
 # In Xcode
 Edit -> Convert -> To Current Swift Syntax...
@@ -15,7 +15,7 @@ Edit -> Convert -> To Current Swift Syntax...
 
 #### Pods Installation & Update
 
-this project uses [CocoaPods](https://cocoapods.org/) to manage third party libraries. We can use commands below to intsall or update third party libraries.
+This project uses [CocoaPods](https://cocoapods.org/) to manage third party libraries. If `Pods` folder doesn't exist, we can use commands below to intsall or update third party libraries. But before install or update, we should check third-party libraries version in `Podfile`.
 
 ```bash
 # pods installation
@@ -25,21 +25,21 @@ $ pod install
 $ pod update
 ```
 
-if CocoaPods isn't installed in our Mac, we should install first:
+If CocoaPods isn't installed in our Mac, we should install first:
 ```bash
 $ sudo gem install cocoapods
 ```
 
 ### Environment Variable
 
-before getting start, please set env variable to develop machine
+Before getting start, please set env variable to develop machine
 
 ```bash
 export MOPCON_DES_KEY="xxx"
 ```
 
 ### Security Files
-the security files was encrypted into `secrets.tar.enc` use follow commands to decrypt it.
+The security files was encrypted into `secrets.tar.enc` use following commands to decrypt it.
 
 
 ##### Derypt
@@ -48,11 +48,8 @@ openssl des-cbc -d -k $MOPCON_DES_KEY -in secrets.tar.enc -out secrets.tar
 
 # extract tar file.
 tar xvf ./secrets.tar
-
-# move file
-mv GoogleService-Info.plist ./Mopcon/
 ```
-or, if we want to make encrypt file, here is the commands:
+Or, if we want to make encrypt file, here is the commands:
 ##### Encrypt
 ```bash
 tar -czvf secrets.tar files_you_want_to_encrypt
@@ -62,7 +59,7 @@ openssl des-cbc -e -K $MOPCON_DES_KEY -in secrets.tar -out secrets.tar.enc
 
 ### Start Develop
 
-after setting all tool and commands, now we can start develop. Please open `Mopcon.xcworkspace` file.
+After setting all tool and commands, now we can start to develop. Please open `Mopcon.xcworkspace` file.
 
 ### Folder Structure
 
@@ -99,7 +96,7 @@ after setting all tool and commands, now we can start develop. Please open `Mopc
 
 ### Coding Style 
 
-the coding style refers to following link, all the developer should follow it.
+The coding style refers to following link, all the developer should follow it.
 
 https://github.com/raywenderlich/swift-style-guide
 
