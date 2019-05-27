@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C903F8322979AE600765CB2 /* Agenda.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8222979AE600765CB2 /* Agenda.storyboard */; };
+		3C903F8522979AFB00765CB2 /* Schedual.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8422979AFB00765CB2 /* Schedual.storyboard */; };
+		3C903F8722979B0C00765CB2 /* Communication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8622979B0C00765CB2 /* Communication.storyboard */; };
+		3C903F8922979B1900765CB2 /* Sponsor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8822979B1900765CB2 /* Sponsor.storyboard */; };
+		3C903F8B22979B2700765CB2 /* Speaker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8A22979B2700765CB2 /* Speaker.storyboard */; };
+		3C903F8D22979B3800765CB2 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8C22979B3700765CB2 /* Group.storyboard */; };
+		3C903F8F22979B4800765CB2 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8E22979B4800765CB2 /* News.storyboard */; };
 		49A683912153248100EC6EA7 /* MopconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A683902153248100EC6EA7 /* MopconUITests.swift */; };
 		49A6839921532E4A00EC6EA7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */; };
 		53652B482296F0E0003131BC /* Quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 53652B472296F0E0003131BC /* Quiz.json */; };
@@ -117,6 +124,13 @@
 		0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mopcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		293FFEAF5ECBACAF171BB104 /* Pods-Mopcon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.release.xcconfig"; sourceTree = "<group>"; };
 		36A8ADA41F4B2FE3D1F03AD3 /* Pods-Mopcon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.debug.xcconfig"; sourceTree = "<group>"; };
+		3C903F8222979AE600765CB2 /* Agenda.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Agenda.storyboard; sourceTree = "<group>"; };
+		3C903F8422979AFB00765CB2 /* Schedual.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedual.storyboard; sourceTree = "<group>"; };
+		3C903F8622979B0C00765CB2 /* Communication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Communication.storyboard; sourceTree = "<group>"; };
+		3C903F8822979B1900765CB2 /* Sponsor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sponsor.storyboard; sourceTree = "<group>"; };
+		3C903F8A22979B2700765CB2 /* Speaker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Speaker.storyboard; sourceTree = "<group>"; };
+		3C903F8C22979B3700765CB2 /* Group.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
+		3C903F8E22979B4800765CB2 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		49A6838E2153248000EC6EA7 /* MopconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MopconUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A683902153248100EC6EA7 /* MopconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconUITests.swift; sourceTree = "<group>"; };
 		49A683922153248100EC6EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -292,6 +306,13 @@
 			isa = PBXGroup;
 			children = (
 				D633462520E8FFC60033E5B4 /* Main.storyboard */,
+				3C903F8222979AE600765CB2 /* Agenda.storyboard */,
+				3C903F8422979AFB00765CB2 /* Schedual.storyboard */,
+				3C903F8622979B0C00765CB2 /* Communication.storyboard */,
+				3C903F8822979B1900765CB2 /* Sponsor.storyboard */,
+				3C903F8A22979B2700765CB2 /* Speaker.storyboard */,
+				3C903F8C22979B3700765CB2 /* Group.storyboard */,
+				3C903F8E22979B4800765CB2 /* News.storyboard */,
 				5E682E19213CFE4400FC37CF /* Missions.storyboard */,
 			);
 			path = Storyboard;
@@ -641,11 +662,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C903F8D22979B3800765CB2 /* Group.storyboard in Resources */,
+				3C903F8322979AE600765CB2 /* Agenda.storyboard in Resources */,
+				3C903F8722979B0C00765CB2 /* Communication.storyboard in Resources */,
+				539A7189227F360400760524 /* BoothMission.json in Resources */,
+				539A7187227F35F100760524 /* Quiz.json in Resources */,
+				3C903F8B22979B2700765CB2 /* Speaker.storyboard in Resources */,
+				3C903F8922979B1900765CB2 /* Sponsor.storyboard in Resources */,
 				53652B4A2296F10A003131BC /* BoothMission.json in Resources */,
 				D633462F20E8FFC70033E5B4 /* LaunchScreen.storyboard in Resources */,
 				53652B482296F0E0003131BC /* Quiz.json in Resources */,
 				D633462C20E8FFC70033E5B4 /* Assets.xcassets in Resources */,
 				5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */,
+				3C903F8522979AFB00765CB2 /* Schedual.storyboard in Resources */,
+				3C903F8F22979B4800765CB2 /* News.storyboard in Resources */,
 				D633462720E8FFC60033E5B4 /* Main.storyboard in Resources */,
 				5E682E1A213CFE4400FC37CF /* Missions.storyboard in Resources */,
 			);

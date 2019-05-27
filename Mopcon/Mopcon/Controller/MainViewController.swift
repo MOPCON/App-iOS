@@ -198,9 +198,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case (SectionName.Grid.rawValue,GridSectionName.Communication.rawValue):
             performSegue(withIdentifier: SegueIDManager.performCommunication, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Mission.rawValue):
-            if let missionViewController = UIStoryboard(name: "Missions", bundle: nil).instantiateViewController(withIdentifier: "MissionsNavigationViewController") as? UINavigationController {
-                self.present(missionViewController, animated: true, completion: nil)
-            }
+            performSegue(withIdentifier: SegueIDManager.performMission, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Sponsor.rawValue):
             performSegue(withIdentifier: SegueIDManager.performSponsors, sender: nil)
         case (SectionName.Grid.rawValue,GridSectionName.Speaker.rawValue):
