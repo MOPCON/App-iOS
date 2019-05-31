@@ -17,25 +17,25 @@ enum Language:String {
 
 enum SectionName: Equatable {
     
-    case Banner([Carousel.Payload])
+    case banner([Carousel.Payload])
     
-    case News(News.Payload?)
+    case news(News.Payload?)
     
-    case Grid([GridSectionName])
+    case grid([GridSectionName])
     
-    case Language
+    case language
     
     func numberOfItems() -> Int {
         
         switch self {
             
-        case .Banner: return 1
+        case .banner: return 1
             
-        case .News: return 1
+        case .news: return 1
                 
-        case .Grid(let datas): return datas.count
+        case .grid(let datas): return datas.count
                     
-        case .Language: return 1
+        case .language: return 1
             
         }
     }
@@ -44,13 +44,13 @@ enum SectionName: Equatable {
         
         switch self {
             
-        case .Banner: return CollectionViewCellKeyManager.bannerCell
+        case .banner: return CollectionViewCellKeyManager.bannerCell
             
-        case .News: return CollectionViewCellKeyManager.newsCell
+        case .news: return CollectionViewCellKeyManager.newsCell
             
-        case .Grid: return CollectionViewCellKeyManager.gridCell
+        case .grid: return CollectionViewCellKeyManager.gridCell
             
-        case .Language: return CollectionViewCellKeyManager.languageCell
+        case .language: return CollectionViewCellKeyManager.languageCell
             
         }
     }
@@ -63,41 +63,41 @@ enum SectionName: Equatable {
 
 enum GridSectionName: Int {
     
-    case Agenda = 0
+    case agenda = 0
     
-    case MySchedule
+    case mySchedule
     
-    case Communication
+    case communication
     
-    case Mission
+    case mission
     
-    case Sponsor
+    case sponsor
     
-    case Speaker
+    case speaker
     
-    case Group
+    case group
     
-    case News
+    case news
     
     func gridImage() -> String {
         
         switch self {
             
-        case .Agenda: return "Agenda"
+        case .agenda: return "Agenda"
         
-        case .MySchedule: return "Schedule"
+        case .mySchedule: return "Schedule"
         
-        case .Communication: return "Communication"
+        case .communication: return "Communication"
         
-        case .Mission: return "Field Game"
+        case .mission: return "Field Game"
         
-        case .Sponsor: return "Sponsor"
+        case .sponsor: return "Sponsor"
         
-        case .Speaker: return "Speaker"
+        case .speaker: return "Speaker"
         
-        case .Group: return "Group"
+        case .group: return "Group"
         
-        case .News: return "News"
+        case .news: return "News"
         
         }
     }
@@ -106,21 +106,21 @@ enum GridSectionName: Int {
         
         switch self {
             
-        case .Agenda: return "議程"
+        case .agenda: return "議程"
             
-        case .MySchedule: return "我的行程"
+        case .mySchedule: return "我的行程"
             
-        case .Communication: return "交流場次"
+        case .communication: return "交流場次"
             
-        case .Mission: return "大地遊戲"
+        case .mission: return "大地遊戲"
             
-        case .Sponsor: return "贊助廠商"
+        case .sponsor: return "贊助廠商"
             
-        case .Speaker: return "講者"
+        case .speaker: return "講者"
             
-        case .Group: return "社群"
+        case .group: return "社群"
             
-        case .News: return "最新消息"
+        case .news: return "最新消息"
             
         }
     }
@@ -129,21 +129,21 @@ enum GridSectionName: Int {
         
         switch self {
             
-        case .Agenda: return SegueIDManager.performAgenda
+        case .agenda: return SegueIDManager.performAgenda
             
-        case .MySchedule: return SegueIDManager.performMySchedule
+        case .mySchedule: return SegueIDManager.performMySchedule
             
-        case .Communication: return SegueIDManager.performCommunication
+        case .communication: return SegueIDManager.performCommunication
             
-        case .Mission: return SegueIDManager.performMission
+        case .mission: return SegueIDManager.performMission
             
-        case .Sponsor: return SegueIDManager.performSponsors
+        case .sponsor: return SegueIDManager.performSponsors
             
-        case .Speaker: return SegueIDManager.performSpeaker
+        case .speaker: return SegueIDManager.performSpeaker
             
-        case .Group: return SegueIDManager.performCommunity
+        case .group: return SegueIDManager.performCommunity
             
-        case .News: return SegueIDManager.performNews
+        case .news: return SegueIDManager.performNews
             
         }
     }
@@ -159,10 +159,10 @@ class MainViewController: UIViewController {
 //    let gridTitle = ["議程","我的行程","交流場次","大地遊戲","贊助廠商","講者","社群","最新消息"]
     
     var datas: [SectionName] = [
-        .Banner([]),
-        .News(nil),
-        .Grid([.Agenda, .MySchedule, .Communication, .Mission, .Sponsor, .Speaker, .Group, .News]),
-        .Language
+        .banner([]),
+        .news(nil),
+        .grid([.agenda, .mySchedule, .communication, .mission, .sponsor, .speaker, .group, .news]),
+        .language
     ]
     
     override func viewDidLoad() {
@@ -198,13 +198,13 @@ class MainViewController: UIViewController {
             }
             
             if let news = news,
-               let index = self?.datas.firstIndex(of: .News(nil)) {
+               let index = self?.datas.firstIndex(of: .news(nil)) {
                 
                 if news.isEmpty {
                     return
                 }
                 
-                self?.datas[index] = .News(news.first)
+                self?.datas[index] = .news(news.first)
                 
                 DispatchQueue.main.async {
                     self?.mainCollectionView.reloadSections(IndexSet.init(integer: index))
@@ -223,9 +223,9 @@ class MainViewController: UIViewController {
             }
             
             if let data = bannerData,
-               let index = self?.datas.firstIndex(of: .Banner([])) {
+               let index = self?.datas.firstIndex(of: .banner([])) {
                 
-                self?.datas[index] = .Banner(data)
+                self?.datas[index] = .banner(data)
                 
                 DispatchQueue.main.async {
                     self?.mainCollectionView.reloadSections(IndexSet.init(integer: index))
@@ -269,21 +269,21 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         switch sectionItem {
             
-        case .Banner(let bannerData):
+        case .banner(let bannerData):
             let bannerCell = cell as! BannerCollectionViewCell
             bannerCell.bannerImageCollectionView.delegate = bannerCell
             bannerCell.bannerImageCollectionView.dataSource = bannerCell
             bannerCell.bannerData = bannerData
             return bannerCell
         
-        case .News(let firstNews):
+        case .news(let firstNews):
             let newsCell = cell as! NewsCollectionViewCell
             if let news = firstNews {
                 newsCell.updateUI(news: news)
             }
             return newsCell
         
-        case .Grid(let gridItems):
+        case .grid(let gridItems):
             let gridCell = cell as! GridCollectionViewCell
             switch language {
             case Language.chinese.rawValue:
@@ -295,7 +295,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             return gridCell
         
-        case .Language:
+        case .language:
             let language = cell as! LanguageCollectionViewCell
             language.chineseButton.addTarget(self, action: #selector(selectedLanguage(sender:)), for: .touchUpInside)
             language.englishButton.addTarget(self, action: #selector(selectedLanguage(sender:)), for: .touchUpInside)
@@ -319,7 +319,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         switch datas[section] {
         
-        case .Banner: return CGSize(width: self.view.frame.width, height: self.view.frame.height * (127/667))
+        case .banner: return CGSize(width: self.view.frame.width, height: self.view.frame.height * (127/667))
         
         default: return CGSize(width: 0, height: 0)
             
@@ -330,9 +330,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         switch datas[indexPath.section] {
             
-        case .News: performSegue(withIdentifier: SegueIDManager.performNews, sender: nil)
+        case .news: performSegue(withIdentifier: SegueIDManager.performNews, sender: nil)
             
-        case .Grid(let gridItems): performSegue(withIdentifier: gridItems[indexPath.row].segue(), sender: nil)
+        case .grid(let gridItems): performSegue(withIdentifier: gridItems[indexPath.row].segue(), sender: nil)
             
         default: break
             
@@ -346,7 +346,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout{
         
         switch datas[section] {
             
-        case .Banner: return UIEdgeInsets.init(top: self.view.frame.height * (8/667), left: 0, bottom: self.view.frame.height * (8/667), right: 0)
+        case .banner: return UIEdgeInsets.init(top: self.view.frame.height * (8/667), left: 0, bottom: self.view.frame.height * (8/667), right: 0)
         
         default: return UIEdgeInsets.init(
             top: self.view.frame.height * (8/667),
@@ -372,11 +372,11 @@ extension MainViewController: UICollectionViewDelegateFlowLayout{
        
         switch datas[indexPath.section] {
         
-        case .Banner: return CGSize(width: self.view.frame.width * 375/375, height: self.view.frame.height * (168/667))
+        case .banner: return CGSize(width: self.view.frame.width * 375/375, height: self.view.frame.height * (168/667))
         
-        case .News: return CGSize(width: self.view.frame.width * 336/375, height: self.view.frame.height * (72/667))
+        case .news: return CGSize(width: self.view.frame.width * 336/375, height: self.view.frame.height * (72/667))
         
-        case .Language: return CGSize(width: self.view.frame.width * 336/375, height: 36)
+        case .language: return CGSize(width: self.view.frame.width * 336/375, height: 36)
         
         default: return CGSize(width: self.view.frame.width * 160/375, height: self.view.frame.width * 160/375)
         
