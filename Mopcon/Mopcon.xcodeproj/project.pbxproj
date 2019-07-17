@@ -18,6 +18,8 @@
 		3CFCF00722DED10E006184CD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00622DED10E006184CD /* TabBarViewController.swift */; };
 		3CFCF00922DEEFCB006184CD /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */; };
 		3CFCF00B22DEFBB2006184CD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00A22DEFBB2006184CD /* UIColorExtension.swift */; };
+		3CFCF01022DF106F006184CD /* LobbyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00E22DF106F006184CD /* LobbyCollectionViewCell.swift */; };
+		3CFCF01122DF106F006184CD /* LobbyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCF00F22DF106F006184CD /* LobbyCollectionViewCell.xib */; };
 		49A683912153248100EC6EA7 /* MopconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A683902153248100EC6EA7 /* MopconUITests.swift */; };
 		49A6839921532E4A00EC6EA7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */; };
 		53652B482296F0E0003131BC /* Quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 53652B472296F0E0003131BC /* Quiz.json */; };
@@ -69,7 +71,7 @@
 		D62D30D320ED065D00BBDF5E /* AgendaTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D30D220ED065D00BBDF5E /* AgendaTableViewCellID.swift */; };
 		D62D30D520ED06F300BBDF5E /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */; };
 		D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633462120E8FFC60033E5B4 /* AppDelegate.swift */; };
-		D633462420E8FFC60033E5B4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633462320E8FFC60033E5B4 /* MainViewController.swift */; };
+		D633462420E8FFC60033E5B4 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633462320E8FFC60033E5B4 /* LobbyViewController.swift */; };
 		D633462720E8FFC60033E5B4 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D633462520E8FFC60033E5B4 /* Lobby.storyboard */; };
 		D633462A20E8FFC60033E5B4 /* Mopcon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D633462820E8FFC60033E5B4 /* Mopcon.xcdatamodeld */; };
 		D633462C20E8FFC70033E5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D633462B20E8FFC70033E5B4 /* Assets.xcassets */; };
@@ -139,6 +141,8 @@
 		3CFCF00622DED10E006184CD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		3CFCF00A22DEFBB2006184CD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		3CFCF00E22DF106F006184CD /* LobbyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyCollectionViewCell.swift; sourceTree = "<group>"; };
+		3CFCF00F22DF106F006184CD /* LobbyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LobbyCollectionViewCell.xib; sourceTree = "<group>"; };
 		49A6838E2153248000EC6EA7 /* MopconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MopconUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A683902153248100EC6EA7 /* MopconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconUITests.swift; sourceTree = "<group>"; };
 		49A683922153248100EC6EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -193,7 +197,7 @@
 		D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
 		D633461E20E8FFC60033E5B4 /* Mopcon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mopcon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D633462120E8FFC60033E5B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D633462320E8FFC60033E5B4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D633462320E8FFC60033E5B4 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		D633462620E8FFC60033E5B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Lobby.storyboard; sourceTree = "<group>"; };
 		D633462920E8FFC60033E5B4 /* Mopcon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mopcon.xcdatamodel; sourceTree = "<group>"; };
 		D633462B20E8FFC70033E5B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -272,6 +276,23 @@
 				3CFCF00622DED10E006184CD /* TabBarViewController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		3CFCF00C22DF1033006184CD /* Lobby */ = {
+			isa = PBXGroup;
+			children = (
+				3CFCF00D22DF1046006184CD /* LobbyCollectionViewCell */,
+			);
+			path = Lobby;
+			sourceTree = "<group>";
+		};
+		3CFCF00D22DF1046006184CD /* LobbyCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3CFCF00E22DF106F006184CD /* LobbyCollectionViewCell.swift */,
+				3CFCF00F22DF106F006184CD /* LobbyCollectionViewCell.xib */,
+			);
+			path = LobbyCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		49A6838F2153248100EC6EA7 /* MopconUITests */ = {
@@ -431,7 +452,7 @@
 			children = (
 				3CFCF00522DED0A6006184CD /* TabBar */,
 				5E682E1B213D014800FC37CF /* Missions */,
-				D633462320E8FFC60033E5B4 /* MainViewController.swift */,
+				D633462320E8FFC60033E5B4 /* LobbyViewController.swift */,
 				D6EE629420E9CAFE0043B68A /* NewsViewController.swift */,
 				D6B5166120EA0607003FA56F /* SpeakersViewController.swift */,
 				D6555F2520EB1F27000816DF /* SpeakerDetailViewController.swift */,
@@ -452,6 +473,7 @@
 		D633463920E914550033E5B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3CFCF00C22DF1033006184CD /* Lobby */,
 				53850932227D6A960083429A /* CommunityImageCollectionView */,
 				D6555F3620EC926D000816DF /* VolunteerTableView */,
 				5E564B75213FA85400F2CED2 /* Missions */,
@@ -693,6 +715,7 @@
 				D633462C20E8FFC70033E5B4 /* Assets.xcassets in Resources */,
 				5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */,
 				3C903F8522979AFB00765CB2 /* Schedual.storyboard in Resources */,
+				3CFCF01122DF106F006184CD /* LobbyCollectionViewCell.xib in Resources */,
 				3CFCF00422DECF9D006184CD /* Main.storyboard in Resources */,
 				3C903F8F22979B4800765CB2 /* News.storyboard in Resources */,
 				D633462720E8FFC60033E5B4 /* Lobby.storyboard in Resources */,
@@ -790,7 +813,7 @@
 				D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */,
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,
 				D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */,
-				D633462420E8FFC60033E5B4 /* MainViewController.swift in Sources */,
+				D633462420E8FFC60033E5B4 /* LobbyViewController.swift in Sources */,
 				5E349C9F21228A340060297A /* UIImageViewExtension.swift in Sources */,
 				5E564B77213FA86E00F2CED2 /* MissionCollectionViewCell.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
@@ -843,6 +866,7 @@
 				D6F0BE6120F0610B0053A100 /* CommonFunctionHelper.swift in Sources */,
 				D633463F20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift in Sources */,
 				5E349CAC212448410060297A /* Schedule_unconfAPI.swift in Sources */,
+				3CFCF01022DF106F006184CD /* LobbyCollectionViewCell.swift in Sources */,
 				D633463820E914520033E5B4 /* BannerCollectionViewCell.swift in Sources */,
 				3CFCF00722DED10E006184CD /* TabBarViewController.swift in Sources */,
 				D6240CE820EC9F62002C89E7 /* SponsorBigCollectionViewCell.swift in Sources */,

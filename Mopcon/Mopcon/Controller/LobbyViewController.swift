@@ -15,7 +15,7 @@ enum Language:String {
     case english = "English"
 }
 
-class MainViewController: UIViewController {
+class LobbyViewController: UIViewController {
 
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var newsTitleLabel: UILabel!
@@ -29,19 +29,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainCollectionView.delegate = self
-        mainCollectionView.dataSource = self
-    
+        
+        setupCollectionView()
         updateUI()
         getNews()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     private func getNews() {
@@ -57,6 +48,30 @@ class MainViewController: UIViewController {
                 }
             }
         }
+    }
+
+    private func setupCollectionView() {
+    
+        mainCollectionView.delegate = self
+        mainCollectionView.dataSource = self
+        mainCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 0)
+        mainCollectionView.contentOffset = CGPoint(x: -20, y: 0)
+        
+        let nib = UINib(
+            nibName: String(describing: LobbyCollectionViewCell.self),
+            bundle: nil
+        )
+        mainCollectionView.register(
+            nib,
+            forCellWithReuseIdentifier: String(describing: LobbyCollectionViewCell.self)
+        )
+        
+        let layoutObject = mainCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        
+        layoutObject?.scrollDirection = .horizontal
+        layoutObject?.itemSize = CGSize(width: 335.0, height: 300.0)
+        layoutObject?.minimumLineSpacing = 12.0
+        
     }
     
     private func updateUI() {
@@ -78,8 +93,6 @@ class MainViewController: UIViewController {
         default:
             break
         }
-        
-        
     }
     
     @IBAction func selectedLanguage(sender: UIButton) {
@@ -103,17 +116,33 @@ class MainViewController: UIViewController {
     }
     
 }
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+
+extension LobbyViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 0
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: String(describing: LobbyCollectionViewCell.self),
+            for: indexPath
+        )
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = collectionView.frame.width - 40
+        
+        let height = collectionView.frame.height - 45
+        
+        return CGSize(width: width, height: height)
     }
 }

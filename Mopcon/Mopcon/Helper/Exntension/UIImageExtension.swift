@@ -26,12 +26,13 @@ enum ImageAsset: String {
     case moreSelected = "more_selected"
     
     case communication = "communication"
-    
     case speaker = "speaker"
-    
     case sponsor = "sponsor"
-    
     case group = "group"
+    
+    //Lobby
+    case dislike_24 = "dislike_24"
+    case like_24 = "like_24"
 }
 
 extension UIImage {
