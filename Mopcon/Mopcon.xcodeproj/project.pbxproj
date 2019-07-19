@@ -14,6 +14,8 @@
 		3C903F8B22979B2700765CB2 /* Speaker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8A22979B2700765CB2 /* Speaker.storyboard */; };
 		3C903F8D22979B3800765CB2 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8C22979B3700765CB2 /* Group.storyboard */; };
 		3C903F8F22979B4800765CB2 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8E22979B4800765CB2 /* News.storyboard */; };
+		3CBDCF7122E182F700561D8D /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7022E182F700561D8D /* SelectionView.swift */; };
+		3CBDCF7322E1888500561D8D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7222E1888500561D8D /* UIViewExtension.swift */; };
 		3CFCF00422DECF9D006184CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCF00322DECF9D006184CD /* Main.storyboard */; };
 		3CFCF00722DED10E006184CD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00622DED10E006184CD /* TabBarViewController.swift */; };
 		3CFCF00922DEEFCB006184CD /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */; };
@@ -137,6 +139,8 @@
 		3C903F8A22979B2700765CB2 /* Speaker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Speaker.storyboard; sourceTree = "<group>"; };
 		3C903F8C22979B3700765CB2 /* Group.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
 		3C903F8E22979B4800765CB2 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
+		3CBDCF7022E182F700561D8D /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		3CBDCF7222E1888500561D8D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3CFCF00322DECF9D006184CD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3CFCF00622DED10E006184CD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -381,6 +385,7 @@
 			children = (
 				5E349C9E21228A340060297A /* UIImageViewExtension.swift */,
 				3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */,
+				3CBDCF7222E1888500561D8D /* UIViewExtension.swift */,
 				3CFCF00A22DEFBB2006184CD /* UIColorExtension.swift */,
 			);
 			path = Exntension;
@@ -578,6 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				D6EE629620E9CED20043B68A /* CustomCornerButton.swift */,
+				3CBDCF7022E182F700561D8D /* SelectionView.swift */,
 				D6555F2720EB2A83000816DF /* CustomSelectedButton.swift */,
 				D6B5166820EA07A1003FA56F /* CornerImageView.swift */,
 				D6555F3020EC7D97000816DF /* CornerBackgroundView.swift */,
@@ -863,6 +869,7 @@
 				5E4A0046216F273B00C4A656 /* QRCodeViewController.swift in Sources */,
 				D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */,
 				5EE7310C215B978200201702 /* Result.swift in Sources */,
+				3CBDCF7322E1888500561D8D /* UIViewExtension.swift in Sources */,
 				D6F0BE6120F0610B0053A100 /* CommonFunctionHelper.swift in Sources */,
 				D633463F20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift in Sources */,
 				5E349CAC212448410060297A /* Schedule_unconfAPI.swift in Sources */,
@@ -880,6 +887,7 @@
 				5E682E21213E2AA700FC37CF /* InteractionViewController.swift in Sources */,
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
+				3CBDCF7122E182F700561D8D /* SelectionView.swift in Sources */,
 				D66778E920FB142D00E9CA34 /* NoScheduleTableViewCell.swift in Sources */,
 				D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */,
 				D6F0BE6320F06D6C0053A100 /* MyScheduleViewController.swift in Sources */,
