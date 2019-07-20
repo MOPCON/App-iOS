@@ -36,6 +36,8 @@ enum TabCategory: String {
             
         case .lobby: return vc
             
+        case .news: return vc
+            
         default: return UIViewController()
             
         }
