@@ -10,24 +10,33 @@ import UIKit
 
 class CommunicationConferenceTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var tiltleLabel: UILabel!
     @IBOutlet weak var speakerLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
     
     override func awakeFromNib() {
+        
         super.awakeFromNib()
-        // Initialization code
+        
+        contentView.subviews.first?.layer.borderColor = UIColor.azure?.cgColor
+        
+        contentView.subviews.first?.layer.borderWidth = 1
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
         super.setSelected(selected, animated: animated)
+        
         self.selectionStyle = .none
-        // Configure the view for the selected state
     }
     
     func updateUI(schedule:Schedule_unconf.Payload.Item) {
-        self.tiltleLabel.text = schedule.topic
-        self.speakerLabel.text = schedule.speaker
+        
+        timeLabel.text = schedule.duration
+        
+        tiltleLabel.text = schedule.topic
+        
+        speakerLabel.text = schedule.speaker
     }
     
 
