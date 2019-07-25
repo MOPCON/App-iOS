@@ -186,7 +186,7 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedAgenda = selectedSchedule[indexPath.section].agendas[indexPath.row]
+        selectedAgenda = isAgenda ? selectedSchedule[indexPath.section].agendas[indexPath.row] : mySchedule[indexPath.row]
         
         performSegue(withIdentifier: SegueIDManager.performConferenceDetail, sender: nil)
     }
