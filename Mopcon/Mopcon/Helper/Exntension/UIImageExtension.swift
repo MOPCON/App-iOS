@@ -13,8 +13,8 @@ enum ImageAsset: String {
     case lobby = "lobby"
     case lobbySelected = "lobby_selected"
     
-    case schedual = "schedual"
-    case schedualSelected = "schedual_selected"
+    case agenda = "agenda"
+    case agendaSelected = "agenda_selected"
     
     case mission = "mission"
     case missionSelected = "mission_selected"
