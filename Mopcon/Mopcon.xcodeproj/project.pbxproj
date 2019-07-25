@@ -320,16 +320,16 @@
 		5E349C9B212270ED0060297A /* API */ = {
 			isa = PBXGroup;
 			children = (
+				5E941019214F505F001D61F6 /* CarouselAPI.swift */,
+				5E349CA921242B910060297A /* CommunityAPI.swift */,
+				5EE73107215B61C400201702 /* FieldGameAPI.swift */,
 				5E1753AB2150D4BA00A5D4C5 /* MopconAPI.swift */,
+				5E941013214F43DD001D61F6 /* NewsAPI.swift */,
+				5E349CAB212448410060297A /* Schedule_unconfAPI.swift */,
 				5E349C9C212271890060297A /* ScheduleAPI.swift */,
 				5E349CA02123015F0060297A /* SpeakersAPI.swift */,
 				5E349CA2212315C90060297A /* SponsorsAPI.swift */,
-				5E349CA921242B910060297A /* CommunityAPI.swift */,
-				5E349CAB212448410060297A /* Schedule_unconfAPI.swift */,
 				5E1DC760214948AA00F953F8 /* VolunteerAPI.swift */,
-				5E941013214F43DD001D61F6 /* NewsAPI.swift */,
-				5E941019214F505F001D61F6 /* CarouselAPI.swift */,
-				5EE73107215B61C400201702 /* FieldGameAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -346,16 +346,16 @@
 		5E682E18213CFDF300FC37CF /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				D633462520E8FFC60033E5B4 /* Lobby.storyboard */,
 				3C903F8222979AE600765CB2 /* Agenda.storyboard */,
-				3C903F8422979AFB00765CB2 /* Schedual.storyboard */,
 				3C903F8622979B0C00765CB2 /* Communication.storyboard */,
-				3C903F8822979B1900765CB2 /* Sponsor.storyboard */,
-				3C903F8A22979B2700765CB2 /* Speaker.storyboard */,
 				3C903F8C22979B3700765CB2 /* Group.storyboard */,
-				3C903F8E22979B4800765CB2 /* News.storyboard */,
-				5E682E19213CFE4400FC37CF /* Missions.storyboard */,
+				D633462520E8FFC60033E5B4 /* Lobby.storyboard */,
 				3CFCF00322DECF9D006184CD /* Main.storyboard */,
+				5E682E19213CFE4400FC37CF /* Missions.storyboard */,
+				3C903F8E22979B4800765CB2 /* News.storyboard */,
+				3C903F8422979AFB00765CB2 /* Schedual.storyboard */,
+				3C903F8A22979B2700765CB2 /* Speaker.storyboard */,
+				3C903F8822979B1900765CB2 /* Sponsor.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -455,22 +455,22 @@
 		D633463620E914350033E5B4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3CFCF00522DED0A6006184CD /* TabBar */,
-				5E682E1B213D014800FC37CF /* Missions */,
-				D633462320E8FFC60033E5B4 /* LobbyViewController.swift */,
-				D6EE629420E9CAFE0043B68A /* NewsViewController.swift */,
-				D6B5166120EA0607003FA56F /* SpeakersViewController.swift */,
-				D6555F2520EB1F27000816DF /* SpeakerDetailViewController.swift */,
-				D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */,
-				D6555F2920EC619F000816DF /* CommunityImageViewController.swift */,
-				D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */,
-				D6555F3220EC8397000816DF /* VolunteerViewController.swift */,
-				D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */,
-				D6240CE920ECABED002C89E7 /* SponsorDetailViewController.swift */,
 				D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */,
+				D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */,
 				D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */,
-				D6F0BE6220F06D6C0053A100 /* MyScheduleViewController.swift */,
+				D6555F2920EC619F000816DF /* CommunityImageViewController.swift */,
+				D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */,
 				D6F0BE6820F0A02B0053A100 /* ConferenceDetailViewController.swift */,
+				D633462320E8FFC60033E5B4 /* LobbyViewController.swift */,
+				D6F0BE6220F06D6C0053A100 /* MyScheduleViewController.swift */,
+				D6EE629420E9CAFE0043B68A /* NewsViewController.swift */,
+				D6555F2520EB1F27000816DF /* SpeakerDetailViewController.swift */,
+				D6B5166120EA0607003FA56F /* SpeakersViewController.swift */,
+				D6240CE920ECABED002C89E7 /* SponsorDetailViewController.swift */,
+				D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */,
+				D6555F3220EC8397000816DF /* VolunteerViewController.swift */,
+				5E682E1B213D014800FC37CF /* Missions */,
+				3CFCF00522DED0A6006184CD /* TabBar */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -497,22 +497,22 @@
 		D633464020E9153E0033E5B4 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				5E9FEEFE21294CAB0096B4A8 /* Exntension */,
-				5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */,
-				D633463E20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift */,
-				D6EE629220E9C9270043B68A /* SegueManager.swift */,
-				D6EE629D20E9D1960043B68A /* NewsTableViewCellID.swift */,
-				D6B5166620EA0656003FA56F /* SpeakerTableCellID.swift */,
-				D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */,
-				D6240CE520EC9ADC002C89E7 /* SponsorCollectionViewID.swift */,
 				D62D30D220ED065D00BBDF5E /* AgendaTableViewCellID.swift */,
-				D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */,
+				D633463E20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift */,
 				D6F0BE6020F0610B0053A100 /* CommonFunctionHelper.swift */,
+				D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */,
+				5EF59B9C215DBCD200CF622C /* LoadingTool.swift */,
+				D66778E320FB062F00E9CA34 /* MyScheduleTableViewCellID.swift */,
+				D6EE629D20E9D1960043B68A /* NewsTableViewCellID.swift */,
+				D6EE629220E9C9270043B68A /* SegueManager.swift */,
+				D6B5166620EA0656003FA56F /* SpeakerTableCellID.swift */,
+				D6240CE520EC9ADC002C89E7 /* SponsorCollectionViewID.swift */,
+				5E349CA7212411570060297A /* SponsorTableViewCellID.swift */,
 				D6F0BE6420F0756D0053A100 /* StoryboardIDManager.swift */,
 				D6F0BE6620F093AD0053A100 /* UserdefaultKeyManager.swift */,
-				D66778E320FB062F00E9CA34 /* MyScheduleTableViewCellID.swift */,
-				5E349CA7212411570060297A /* SponsorTableViewCellID.swift */,
-				5EF59B9C215DBCD200CF622C /* LoadingTool.swift */,
+				5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */,
+				D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */,
+				5E9FEEFE21294CAB0096B4A8 /* Exntension */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -547,16 +547,16 @@
 		D6A67AB920EDF4BD00D4886E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5E941017214F4FBA001D61F6 /* Carousel.swift */,
+				5E349C99212270E00060297A /* Community.swift */,
+				5E941015214F4401001D61F6 /* News.swift */,
+				5E2EC573215A150300EEA680 /* Quiz.swift */,
+				5EE7310B215B978200201702 /* Result.swift */,
+				5E349C95212270A20060297A /* Schedule_unconf.swift */,
 				5E349C8F21225CE10060297A /* Schedule.swift */,
 				5E349C93212270650060297A /* Speaker.swift */,
-				5E349C95212270A20060297A /* Schedule_unconf.swift */,
 				5E349C97212270BA0060297A /* Sponsor.swift */,
-				5E349C99212270E00060297A /* Community.swift */,
 				5E1DC75E214946CB00F953F8 /* Volunteer.swift */,
-				5E941015214F4401001D61F6 /* News.swift */,
-				5E941017214F4FBA001D61F6 /* Carousel.swift */,
-				5EE7310B215B978200201702 /* Result.swift */,
-				5E2EC573215A150300EEA680 /* Quiz.swift */,
 				5E6CBDA0217BB9D60097D5E2 /* Wallet.swift */,
 			);
 			path = Model;
