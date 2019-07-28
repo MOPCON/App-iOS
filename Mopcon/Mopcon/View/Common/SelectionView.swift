@@ -71,15 +71,6 @@ class SelectionView: UIView {
             
             let button = UIButton()
             
-            
-            //Prepare to remove
-            button.backgroundColor = UIColor.black
-            
-            button.layer.cornerRadius = 10.0
-
-            button.clipsToBounds = true
-            //
-            
             button.tag = index
             
             button.setTitle(dataSource.titleOfButton(self, at: index), for: .normal)

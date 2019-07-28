@@ -14,6 +14,6 @@ class CustomCornerButton: UIButton{
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 1).cgColor
+        self.layer.borderColor = UIColor.azure?.cgColor
     }
 }

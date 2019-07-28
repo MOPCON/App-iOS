@@ -10,86 +10,90 @@ import UIKit
 
 class AgendaViewController: UIViewController {
     
-    @IBOutlet weak var dayOneButton: UIButton!
-    @IBOutlet weak var dayTwoButton: UIButton!
     @IBOutlet weak var goToCommunicationVCButton: CustomCornerButton!
+    
+    @IBOutlet weak var dateSelectionView: SelectionView!
+    
+    @IBOutlet weak var scheduleSegmentedControl: UISegmentedControl!
+    
     @IBOutlet weak var agendaTableView: UITableView!
     
-    var key = UserDefaultsKeys.dayOneSchedule
+    private var key = UserDefaultsKeys.dayOneSchedule
     
-    var selectedSchedule = [Schedule.Payload.Agenda.Item]()
-    var selectedAgenda:Schedule.Payload.Agenda.Item.AgendaContent?
+    private var selectedSchedule = [Schedule.Payload.Agenda.Item]()
     
-    var mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayOneSchedule)
-    var schedule_day1 = [Schedule.Payload.Agenda.Item]()
-    var schedule_day2 = [Schedule.Payload.Agenda.Item]()
+    private var selectedAgenda:Schedule.Payload.Agenda.Item.AgendaContent?
     
-    let spinner = LoadingTool.setActivityindicator()
+    private var mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayOneSchedule)
     
+    private var schedule_day1 = [Schedule.Payload.Agenda.Item]()
     
-    @IBAction func chooseDayOneAction(_ sender: Any) {
-        CommonFucntionHelper.changeButtonColor(beTappedButton: dayOneButton as! CustomSelectedButton, notSelectedButton: dayTwoButton as! CustomSelectedButton)
-        selectedSchedule = schedule_day1
-        key = UserDefaultsKeys.dayOneSchedule
-        mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayOneSchedule)
+    private var schedule_day2 = [Schedule.Payload.Agenda.Item]()
+    
+    private var isAgenda: Bool = true
+    
+    private let spinner = LoadingTool.setActivityindicator()
+    
+    @IBAction func chooseScheduleAction(_ sender: UISegmentedControl) {
+        
+        isAgenda = (sender.selectedSegmentIndex == 0)
+        
         agendaTableView.reloadData()
+        
     }
-    
-    @IBAction func chooseDayTwoAction(_ sender: Any) {
-        CommonFucntionHelper.changeButtonColor(beTappedButton: dayTwoButton as! CustomSelectedButton, notSelectedButton: dayOneButton as! CustomSelectedButton)
-        selectedSchedule = schedule_day2
-        key = UserDefaultsKeys.dayTwoSchedule
-        mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayTwoSchedule)
-        agendaTableView.reloadData()
-    }
-    
     
     @IBAction func goToCommunicationVC(_ sender: UIButton) {
-        let communicationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: StoryboardIDManager.communicationVC) as! CommunicationViewController
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        self.navigationItem.backBarButtonItem?.tintColor = UIColor.white
-        self.navigationController?.pushViewController(communicationVC, animated: true)
-    }
-    
-    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        let communicationVC = UIStoryboard(name: "Communication", bundle: nil).instantiateViewController(withIdentifier: StoryboardIDManager.communicationVC) as! CommunicationViewController
+        
+        navigationController?.pushViewController(communicationVC, animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clear
+        
         agendaTableView.delegate = self
+        
         agendaTableView.dataSource = self
+        
         agendaTableView.separatorStyle = .none
-        //因為現在tableView就是group所以要把footer的高度拿掉，要不然會留一塊
-        agendaTableView.sectionFooterHeight = 0
+        
+        dateSelectionView.dataSource = self
+        
+        scheduleSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)], for: .selected)
         
         getSchedule()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if CurrentLanguage.getLanguage() == Language.english.rawValue {
+            
             self.goToCommunicationVCButton.setTitle("Communication", for: .normal)
+            
             self.navigationItem.title = "Agenda"
+            
+            scheduleSegmentedControl.setTitle("Schedule", forSegmentAt: 0)
+            
+            scheduleSegmentedControl.setTitle("Favorite", forSegmentAt: 1)
         }
         
         mySchedule = MySchedules.get(forKey: key)
+        
         agendaTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == SegueIDManager.performConferenceDetail {
+            
             if let vc = segue.destination as? ConferenceDetailViewController {
+                
                 vc.key = key
-                vc.agenda = self.selectedAgenda
+                
+                vc.agenda = selectedAgenda
             }
         }
     }
@@ -97,24 +101,35 @@ class AgendaViewController: UIViewController {
     func getSchedule() {
         
         spinner.center = view.center
-        spinner.startAnimating()
-        self.view.addSubview(spinner)
         
-        ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { (payload, error) in
+        spinner.startAnimating()
+        
+        view.addSubview(spinner)
+        
+        ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { [weak self] (payload, error) in
             
             if error != nil {
+                
                 print(error!.localizedDescription)
-                self.spinner.removeFromSuperview()
+                
+                self?.spinner.removeFromSuperview()
+                
                 return
             }
             
             if let payload = payload {
-                self.schedule_day1 = payload.agenda[0].items
-                self.schedule_day2 = payload.agenda[1].items
-                self.selectedSchedule = self.schedule_day1
+                
+                self?.schedule_day1 = payload.agenda[0].items
+                
+                self?.schedule_day2 = payload.agenda[1].items
+                
+                self?.selectedSchedule = self?.schedule_day1 ?? []
+                
                 DispatchQueue.main.async {
-                    self.agendaTableView.reloadData()
-                    self.spinner.removeFromSuperview()
+                
+                    self?.agendaTableView.reloadData()
+                    
+                    self?.spinner.removeFromSuperview()
                 }
             }
         }
@@ -127,83 +142,67 @@ class AgendaViewController: UIViewController {
 extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return selectedSchedule.count
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
-        let timeLabel = UILabel(frame: CGRect(x: view.center.x + 116, y: view.center.y + 5.5, width: 116, height: 22))
-        timeLabel.font = UIFont(name: "PingFangTC-Medium", size: 16)
-        timeLabel.textColor = UIColor.white
-        timeLabel.textAlignment = .center
-        view.backgroundColor = UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.5)
-        view.addSubview(timeLabel)
         
-        timeLabel.text = selectedSchedule[section].duration
-        
-        return view
+        return isAgenda ? selectedSchedule.count : 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectedSchedule[section].agendas.count
+        
+        return isAgenda ? selectedSchedule[section].agendas.count : mySchedule.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let scheduleID = selectedSchedule[indexPath.section].agendas[indexPath.row].schedule_id
+        let scheduleID = isAgenda ? selectedSchedule[indexPath.section].agendas[indexPath.row].schedule_id : mySchedule[indexPath.row].schedule_id
         
         if scheduleID != nil {
+            
             let conferenceCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.conferenceCell, for: indexPath) as! ConferenceTableViewCell
-            let agenda = selectedSchedule[indexPath.section].agendas[indexPath.row]
+            
+            let agenda = isAgenda ? selectedSchedule[indexPath.section].agendas[indexPath.row] : mySchedule[indexPath.row]
+            
             checkMySchedule(agenda: agenda, sender: conferenceCell.addToMyScheduleButton)
+            
             conferenceCell.updateUI(agenda: agenda)
+            
             conferenceCell.delegate = self
+            
             conferenceCell.index = indexPath
+            
             return conferenceCell
+        
         } else {
+            
             let agenda = selectedSchedule[indexPath.section].agendas[indexPath.row]
+            
             let breakCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.breakCell, for: indexPath) as! BreakTableViewCell
+            
             breakCell.updateUI(agenda:agenda )
+            
             return breakCell
         }
         
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if selectedSchedule[indexPath.section].agendas[indexPath.row].schedule_id != nil {
-            return 174
-        } else {
-            return 68
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if selectedSchedule[indexPath.section].agendas[indexPath.row].schedule_id != nil {
-            return 174
-        } else {
-            return 68
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 36
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedAgenda = selectedSchedule[indexPath.section].agendas[indexPath.row]
+        
+        selectedAgenda = isAgenda ? selectedSchedule[indexPath.section].agendas[indexPath.row] : mySchedule[indexPath.row]
+        
         performSegue(withIdentifier: SegueIDManager.performConferenceDetail, sender: nil)
     }
     
     func checkMySchedule(agenda:Schedule.Payload.Agenda.Item.AgendaContent ,sender: UIButton) {
         for schedule in mySchedule {
+            
             if schedule.schedule_topic == agenda.schedule_topic {
-                sender.setImage(#imageLiteral(resourceName: "buttonStarChecked"), for: .normal)
+                
+                sender.setImage(#imageLiteral(resourceName: "like_24"), for: .normal)
+                
                 return
             }
         }
-        sender.setImage(#imageLiteral(resourceName: "buttonStarNormal"), for: .normal)
+        
+        sender.setImage(#imageLiteral(resourceName: "dislike_24"), for: .normal)
     }
 }
 
@@ -213,15 +212,37 @@ extension AgendaViewController: WhichCellButtonDidTapped {
         
         let agenda = selectedSchedule[index.section].agendas[index.row]
    
-        if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarChecked") {
+        if sender.image(for: .normal) == #imageLiteral(resourceName: "like_24") {
+            
             MySchedules.add(agenda: agenda, forKey: agenda.date!)
-        } else if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarNormal"){
+            
+        } else if sender.image(for: .normal) == #imageLiteral(resourceName: "dislike_24"){
+            
             MySchedules.remove(agenda: agenda, forKey: agenda.date!)
         }
         
-        self.mySchedule = MySchedules.get(forKey: key)
-        self.agendaTableView.reloadData()
+        mySchedule = MySchedules.get(forKey: key)
         
+        agendaTableView.reloadData()
     }
     
+}
+
+extension AgendaViewController: SelectionViewDataSource {
+    
+    func titleOfButton(_ selectionView: SelectionView, at index: Int) -> String {
+        
+        return (index == 0) ? "10/19" : "10/20"
+    }
+    
+    func didSelectedButton(_ selectionView: SelectionView, at index: Int) {
+        
+        selectedSchedule = (index == 0) ? schedule_day1 : schedule_day2
+        
+        key = (index == 0) ? UserDefaultsKeys.dayOneSchedule : UserDefaultsKeys.dayTwoSchedule
+        
+        mySchedule = MySchedules.get(forKey: key)
+        
+        agendaTableView.reloadData()
+    }
 }

@@ -112,7 +112,7 @@ class LobbyViewController: UIViewController {
     }
     
     @IBAction func moreNews(_ sender: UIButton) {
-        performSegue(withIdentifier: SegueIDManager.performNews, sender: nil)
+        self.tabBarController?.selectedIndex = 3
     }
     
 }
