@@ -40,6 +40,8 @@ enum TabCategory: String {
             
         case .news: return vc
             
+        case .communication: return vc
+            
         default: return UIViewController()
             
         }
@@ -133,10 +135,42 @@ class TabBarViewController: UITabBarController {
             return vc
         }
         
+        tabBar.unselectedItemTintColor = .white
+        
         tabBar.tintColor = UIColor.azure
         
         tabBar.barTintColor = UIColor.dark
 
         tabBar.isTranslucent = false
+        
+        moreNavigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        
+        moreNavigationController.navigationBar.shadowImage = UIImage.imageWithColor(color: (UIColor.azure?.withAlphaComponent(0.2))!)
+        
+        moreNavigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        moreNavigationController.navigationBar.isTranslucent = true
+        
+        moreNavigationController.topViewController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        if let moreTableView = moreNavigationController.topViewController?.view as? UITableView {
+            
+            moreTableView.backgroundColor = UIColor.dark
+            
+            moreTableView.tintColor = .white
+            
+            moreTableView.separatorStyle = .none
+            
+            for cell in moreTableView.visibleCells {
+            
+                cell.selectionStyle = .none
+                
+                cell.textLabel?.textColor = .white
+                
+                cell.backgroundColor = .clear
+            }
+        }
+        
+        customizableViewControllers = []
     }
 }

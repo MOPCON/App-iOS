@@ -27,7 +27,7 @@ class CommunicationConferenceTableViewCell: UITableViewCell {
         
         super.setSelected(selected, animated: animated)
         
-        self.selectionStyle = .none
+        selectionStyle = .none
     }
     
     func updateUI(schedule:Schedule_unconf.Payload.Item) {
