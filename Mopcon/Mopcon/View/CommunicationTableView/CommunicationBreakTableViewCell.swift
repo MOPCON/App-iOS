@@ -10,7 +10,6 @@ import UIKit
 
 class CommunicationBreakTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var breakTitleLabel: UILabel!
     
     override func awakeFromNib() {

@@ -31,7 +31,7 @@ class CommunicationConferenceTableViewCell: UITableViewCell {
     }
     
     func updateUI(schedule:Schedule_unconf.Payload.Item) {
-        
+
         timeLabel.text = schedule.duration
         
         tiltleLabel.text = schedule.topic
