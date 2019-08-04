@@ -30,27 +30,15 @@
                                 <segments>
                                     <segment title="全部議程"/>
                                     <segment title="我最想聽"/>
+                                    <segment title="交流場次"/>
                                 </segments>
                                 <color key="tintColor" red="0.0" green="0.66666666669999997" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="chooseScheduleAction:" destination="BpR-EJ-EkZ" eventType="valueChanged" id="UED-Au-OZj"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UgM-Ak-oaq" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="138" y="810" width="138" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="kWW-3l-Xoh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                <state key="normal" title="查看交流場次">
-                                    <color key="titleColor" red="0.0" green="0.66666666669999997" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToCommunicationVC:" destination="BpR-EJ-EkZ" eventType="touchUpInside" id="9Md-aW-HVu"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="j69-QJ-HIi">
-                                <rect key="frame" x="20" y="200" width="374" height="594"/>
+                                <rect key="frame" x="20" y="200" width="374" height="662"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BreakCell" rowHeight="64" id="zjr-sh-IoF" customClass="BreakTableViewCell" customModule="Mopcon" customModuleProvider="target">
@@ -210,15 +198,12 @@
                             <constraint firstItem="TVJ-si-1kA" firstAttribute="top" secondItem="h32-s1-IxA" secondAttribute="bottom" constant="24" id="CVe-zv-vLe"/>
                             <constraint firstItem="TVJ-si-1kA" firstAttribute="leading" secondItem="fcX-0B-WcP" secondAttribute="leading" constant="20" id="VsW-9d-lsd"/>
                             <constraint firstItem="j69-QJ-HIi" firstAttribute="leading" secondItem="fcX-0B-WcP" secondAttribute="leading" constant="20" id="WvF-ZH-Feg"/>
-                            <constraint firstItem="fcX-0B-WcP" firstAttribute="bottom" secondItem="UgM-Ak-oaq" secondAttribute="bottom" constant="16" id="X2a-DY-iea"/>
                             <constraint firstItem="fcX-0B-WcP" firstAttribute="trailing" secondItem="h32-s1-IxA" secondAttribute="trailing" id="X60-lX-WWd"/>
                             <constraint firstItem="j69-QJ-HIi" firstAttribute="top" secondItem="TVJ-si-1kA" secondAttribute="bottom" constant="8" id="YOI-HU-82J"/>
-                            <constraint firstItem="UgM-Ak-oaq" firstAttribute="top" secondItem="j69-QJ-HIi" secondAttribute="bottom" constant="16" id="cPn-mg-G0Z"/>
+                            <constraint firstItem="fcX-0B-WcP" firstAttribute="bottom" secondItem="j69-QJ-HIi" secondAttribute="bottom" id="Zc1-Mv-6n9"/>
                             <constraint firstItem="h32-s1-IxA" firstAttribute="leading" secondItem="fcX-0B-WcP" secondAttribute="leading" id="fZO-LC-qbA"/>
                             <constraint firstItem="h32-s1-IxA" firstAttribute="top" secondItem="fcX-0B-WcP" secondAttribute="top" id="lzn-4x-GTY"/>
-                            <constraint firstItem="UgM-Ak-oaq" firstAttribute="width" secondItem="qjW-cS-9Xd" secondAttribute="width" multiplier="1:3" id="mMC-gl-bbb"/>
                             <constraint firstItem="fcX-0B-WcP" firstAttribute="trailing" secondItem="j69-QJ-HIi" secondAttribute="trailing" constant="20" id="mSv-t0-WCe"/>
-                            <constraint firstItem="UgM-Ak-oaq" firstAttribute="centerX" secondItem="qjW-cS-9Xd" secondAttribute="centerX" id="oug-8K-IZS"/>
                             <constraint firstItem="fcX-0B-WcP" firstAttribute="trailing" secondItem="TVJ-si-1kA" secondAttribute="trailing" constant="20" id="rwu-UV-34a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fcX-0B-WcP"/>
@@ -229,7 +214,6 @@
                     <connections>
                         <outlet property="agendaTableView" destination="j69-QJ-HIi" id="slj-37-W5F"/>
                         <outlet property="dateSelectionView" destination="h32-s1-IxA" id="eBl-84-vwv"/>
-                        <outlet property="goToCommunicationVCButton" destination="UgM-Ak-oaq" id="TrS-ES-fkU"/>
                         <outlet property="scheduleSegmentedControl" destination="TVJ-si-1kA" id="am5-FG-gG3"/>
                         <segue destination="o4V-94-Nxa" kind="show" identifier="performConferenceDetail" id="G7b-Ws-ea0"/>
                     </connections>

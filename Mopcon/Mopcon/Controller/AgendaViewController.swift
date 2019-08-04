@@ -10,8 +10,6 @@ import UIKit
 
 class AgendaViewController: UIViewController {
     
-    @IBOutlet weak var goToCommunicationVCButton: CustomCornerButton!
-    
     @IBOutlet weak var dateSelectionView: SelectionView!
     
     @IBOutlet weak var scheduleSegmentedControl: UISegmentedControl!
@@ -22,6 +20,8 @@ class AgendaViewController: UIViewController {
     
     private var selectedSchedule = [Schedule.Payload.Agenda.Item]()
     
+    private var selectedUnconf = [Schedule_unconf.Payload.Item]()
+    
     private var selectedAgenda:Schedule.Payload.Agenda.Item.AgendaContent?
     
     private var mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayOneSchedule)
@@ -29,6 +29,10 @@ class AgendaViewController: UIViewController {
     private var schedule_day1 = [Schedule.Payload.Agenda.Item]()
     
     private var schedule_day2 = [Schedule.Payload.Agenda.Item]()
+    
+    private var unconf_day1 = [Schedule_unconf.Payload.Item]()
+    
+    private var unconf_day2 = [Schedule_unconf.Payload.Item]()
     
     private var isAgenda: Bool = true
     
@@ -42,12 +46,6 @@ class AgendaViewController: UIViewController {
         
     }
     
-    @IBAction func goToCommunicationVC(_ sender: UIButton) {
-        let communicationVC = UIStoryboard(name: "Communication", bundle: nil).instantiateViewController(withIdentifier: StoryboardIDManager.communicationVC) as! CommunicationViewController
-        
-        navigationController?.pushViewController(communicationVC, animated: true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,23 +55,28 @@ class AgendaViewController: UIViewController {
         
         agendaTableView.separatorStyle = .none
         
+        
         dateSelectionView.dataSource = self
         
         scheduleSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)], for: .selected)
         
+        setCommunicationCell()
+        
         getSchedule()
+        
+        getCommunication()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if CurrentLanguage.getLanguage() == Language.english.rawValue {
-            
-            self.goToCommunicationVCButton.setTitle("Communication", for: .normal)
             
             self.navigationItem.title = "Agenda"
             
             scheduleSegmentedControl.setTitle("Schedule", forSegmentAt: 0)
             
             scheduleSegmentedControl.setTitle("Favorite", forSegmentAt: 1)
+            
+            scheduleSegmentedControl.setTitle("Communication", forSegmentAt: 2)
         }
         
         mySchedule = MySchedules.get(forKey: key)
@@ -96,6 +99,17 @@ class AgendaViewController: UIViewController {
                 vc.agenda = selectedAgenda
             }
         }
+    }
+    
+    private func setCommunicationCell() {
+        
+        let communicationCell = UINib(nibName: String(describing: CommunicationConferenceTableViewCell.self), bundle: nil)
+        
+        let communicationBreakCell = UINib(nibName: String(describing: CommunicationBreakTableViewCell.self), bundle: nil)
+        
+        agendaTableView.register(communicationCell, forCellReuseIdentifier: CommunicationTableViewCellID.communicationConferenceCell)
+        
+        agendaTableView.register(communicationBreakCell, forCellReuseIdentifier: CommunicationTableViewCellID.communicationBreakCell)
     }
     
     func getSchedule() {
@@ -134,7 +148,27 @@ class AgendaViewController: UIViewController {
             }
         }
     }
-    
+
+    func getCommunication() {
+        
+        Schedule_unconfAPI.getAPI(url: MopconAPI.shared.schedule_unconf) { [weak self] (payload, error) in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+                
+                return
+            }
+            
+            if let payload = payload {
+                
+                self?.unconf_day1 = payload[0].items
+                
+                self?.unconf_day2 = payload[1].items
+                
+                self?.selectedUnconf = self?.unconf_day1 ?? []
+            }
+        }
+    }
 }
 
 
@@ -142,16 +176,58 @@ class AgendaViewController: UIViewController {
 extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
+    
         return isAgenda ? selectedSchedule.count : 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return isAgenda ? selectedSchedule[section].agendas.count : mySchedule.count
+        switch scheduleSegmentedControl.selectedSegmentIndex {
+            
+        case 0:
+            
+            return selectedSchedule[section].agendas.count
+        
+        case 1:
+            
+            return mySchedule.count
+        
+        case 2:
+            
+            return selectedUnconf.count
+            
+        default:
+            
+            return 0
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if scheduleSegmentedControl.selectedSegmentIndex == 2 {
+            
+            let schedule = selectedUnconf[indexPath.row]
+
+            switch schedule.type {
+                
+            case "others":
+                
+                let communicationBreakCell = tableView.dequeueReusableCell(withIdentifier: CommunicationTableViewCellID.communicationBreakCell, for: indexPath) as! CommunicationBreakTableViewCell
+                
+                communicationBreakCell.updateUI(schedule: schedule)
+                
+                return communicationBreakCell
+                
+            default:
+
+                let communicationConferenceCell = tableView.dequeueReusableCell(withIdentifier: CommunicationTableViewCellID.communicationConferenceCell, for: indexPath) as! CommunicationConferenceTableViewCell
+                
+                communicationConferenceCell.updateUI(schedule: schedule)
+                
+                return communicationConferenceCell
+            }
+        }
         
         let scheduleID = isAgenda ? selectedSchedule[indexPath.section].agendas[indexPath.row].schedule_id : mySchedule[indexPath.row].schedule_id
         
@@ -185,6 +261,8 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard scheduleSegmentedControl.selectedSegmentIndex != 2 else { return }
         
         selectedAgenda = isAgenda ? selectedSchedule[indexPath.section].agendas[indexPath.row] : mySchedule[indexPath.row]
         
@@ -238,6 +316,8 @@ extension AgendaViewController: SelectionViewDataSource {
     func didSelectedButton(_ selectionView: SelectionView, at index: Int) {
         
         selectedSchedule = (index == 0) ? schedule_day1 : schedule_day2
+        
+        selectedUnconf = (index == 0) ? unconf_day1 : unconf_day2
         
         key = (index == 0) ? UserDefaultsKeys.dayOneSchedule : UserDefaultsKeys.dayTwoSchedule
         
