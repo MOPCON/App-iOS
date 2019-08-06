@@ -108,4 +108,10 @@ extension MoreViewController: UITableViewDataSource {
 
 extension MoreViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = datas[indexPath.row].instantiateInitialViewController()
+        
+        show(vc, sender: nil)
+    }
 }

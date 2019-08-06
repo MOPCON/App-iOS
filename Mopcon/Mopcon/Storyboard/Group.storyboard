@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4ji-ts-z5u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gu6-Uw-2KJ">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,21 +19,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jda-He-Suu">
-                                <rect key="frame" x="0.0" y="150" width="414" height="712"/>
+                                <rect key="frame" x="0.0" y="106" width="414" height="756"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="Nrd-GL-5h3" kind="embed" identifier="performCommunityContainerView" id="xZC-6X-K5H"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWL-OR-dbb">
-                                <rect key="frame" x="0.0" y="150" width="414" height="712"/>
+                                <rect key="frame" x="0.0" y="106" width="414" height="756"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="tgk-pg-3HF" kind="embed" id="d7d-LI-xtn"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdl-XY-7QY" customClass="CornerBackgroundView" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="17.5" y="104" width="379" height="30"/>
+                                <rect key="frame" x="17.5" y="60" width="379" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oE-IY-Dvv" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="189.5" height="30"/>
@@ -88,12 +88,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="社群" id="7Eb-Iy-1o1">
                         <barButtonItem key="backBarButtonItem" title=" " id="Lkl-mM-yt7"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Close" id="Uw7-9k-uy8">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="dismissAction:" destination="gu6-Uw-2KJ" id="UNP-1N-a2i"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="communityImageContainerView" destination="jda-He-Suu" id="cPH-4a-BlG"/>
@@ -116,20 +110,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KSDG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ce3-C2-SsP">
-                                <rect key="frame" x="0.0" y="309" width="414" height="19.5"/>
+                                <rect key="frame" x="0.0" y="265" width="414" height="19.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28M-PU-ngb">
-                                <rect key="frame" x="36" y="344.5" width="342" height="98"/>
+                                <rect key="frame" x="36" y="300.5" width="342" height="98"/>
                                 <string key="text">Kaohsiung Software Developer Group 是高雄從事軟體開發、網路技術開發者一起交流的園地，2012/05首度聚會活動。目前每月舉辦 Meet-up 及 Web Course 各一場，交流主題涵蓋各種軟體技術，歡迎對軟體開發技術有興趣的朋友可以踴躍參與。</string>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="urw-lx-eV5">
-                                <rect key="frame" x="155" y="474.5" width="104" height="44"/>
+                                <rect key="frame" x="155" y="430.5" width="104" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFZ-GS-duN">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -156,7 +150,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igd-R3-W9g" customClass="CornerBackgroundView" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="17.5" y="104" width="379" height="181"/>
+                                <rect key="frame" x="17.5" y="60" width="379" height="181"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hh7-L2-nc2">
                                         <rect key="frame" x="116.5" y="17.5" width="146" height="146"/>
@@ -205,38 +199,16 @@
             </objects>
             <point key="canvasLocation" x="5376.8000000000002" y="827.13643178410803"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="S43-vH-p59">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4ji-ts-z5u" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6ga-mW-phm">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="gu6-Uw-2KJ" kind="relationship" relationship="rootViewController" id="ycB-xF-TGo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lbO-eX-8ZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3242.4000000000001" y="874.81259370314854"/>
-        </scene>
         <!--Community Image View Controller-->
         <scene sceneID="vqC-X9-wBo">
             <objects>
                 <viewController id="Nrd-GL-5h3" customClass="CommunityImageViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8a9-T0-KYH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="712"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yI8-64-jG1">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="712"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hec-xv-yW1">
                                     <size key="itemSize" width="177" height="149"/>
@@ -295,11 +267,11 @@
             <objects>
                 <viewController id="tgk-pg-3HF" customClass="VolunteerViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vj5-st-1wn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="712"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8fU-W1-DHx">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="712"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VolunteerTableViewCell" rowHeight="232" id="fh2-ae-Lk4" customClass="VolunteerTableViewCell" customModule="Mopcon" customModuleProvider="target">
@@ -390,7 +362,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Close" width="24" height="24"/>
         <image name="connect" width="50" height="50"/>
         <image name="facebook" width="50" height="50"/>
     </resources>
