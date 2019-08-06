@@ -16,6 +16,10 @@
 		3C903F8F22979B4800765CB2 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8E22979B4800765CB2 /* News.storyboard */; };
 		3CBDCF7122E182F700561D8D /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7022E182F700561D8D /* SelectionView.swift */; };
 		3CBDCF7322E1888500561D8D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7222E1888500561D8D /* UIViewExtension.swift */; };
+		3CFC369E22F92F7B0058C322 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFC369D22F92F7B0058C322 /* More.storyboard */; };
+		3CFC36A122F92FED0058C322 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC36A022F92FED0058C322 /* MoreViewController.swift */; };
+		3CFC36A422F957DA0058C322 /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC36A322F957DA0058C322 /* MoreTableViewCell.swift */; };
+		3CFC36A622F958190058C322 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC36A522F958190058C322 /* UITableViewCellExtension.swift */; };
 		3CFCF00422DECF9D006184CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCF00322DECF9D006184CD /* Main.storyboard */; };
 		3CFCF00722DED10E006184CD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00622DED10E006184CD /* TabBarViewController.swift */; };
 		3CFCF00922DEEFCB006184CD /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */; };
@@ -141,6 +145,10 @@
 		3C903F8E22979B4800765CB2 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		3CBDCF7022E182F700561D8D /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		3CBDCF7222E1888500561D8D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		3CFC369D22F92F7B0058C322 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
+		3CFC36A022F92FED0058C322 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		3CFC36A322F957DA0058C322 /* MoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewCell.swift; sourceTree = "<group>"; };
+		3CFC36A522F958190058C322 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
 		3CFCF00322DECF9D006184CD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3CFCF00622DED10E006184CD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -274,6 +282,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3CFC369F22F92FDC0058C322 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				3CFC36A022F92FED0058C322 /* MoreViewController.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		3CFC36A222F957C00058C322 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				3CFC36A322F957DA0058C322 /* MoreTableViewCell.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
 		3CFCF00522DED0A6006184CD /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				3C903F8222979AE600765CB2 /* Agenda.storyboard */,
+				3CFC369D22F92F7B0058C322 /* More.storyboard */,
 				3C903F8622979B0C00765CB2 /* Communication.storyboard */,
 				3C903F8C22979B3700765CB2 /* Group.storyboard */,
 				D633462520E8FFC60033E5B4 /* Lobby.storyboard */,
@@ -384,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				5E349C9E21228A340060297A /* UIImageViewExtension.swift */,
+				3CFC36A522F958190058C322 /* UITableViewCellExtension.swift */,
 				3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */,
 				3CBDCF7222E1888500561D8D /* UIViewExtension.swift */,
 				3CFCF00A22DEFBB2006184CD /* UIColorExtension.swift */,
@@ -469,6 +495,7 @@
 				D6240CE920ECABED002C89E7 /* SponsorDetailViewController.swift */,
 				D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */,
 				D6555F3220EC8397000816DF /* VolunteerViewController.swift */,
+				3CFC369F22F92FDC0058C322 /* More */,
 				5E682E1B213D014800FC37CF /* Missions */,
 				3CFCF00522DED0A6006184CD /* TabBar */,
 			);
@@ -478,6 +505,7 @@
 		D633463920E914550033E5B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3CFC36A222F957C00058C322 /* More */,
 				3CFCF00C22DF1033006184CD /* Lobby */,
 				53850932227D6A960083429A /* CommunityImageCollectionView */,
 				D6555F3620EC926D000816DF /* VolunteerTableView */,
@@ -716,6 +744,7 @@
 				3C903F8B22979B2700765CB2 /* Speaker.storyboard in Resources */,
 				3C903F8922979B1900765CB2 /* Sponsor.storyboard in Resources */,
 				53652B4A2296F10A003131BC /* BoothMission.json in Resources */,
+				3CFC369E22F92F7B0058C322 /* More.storyboard in Resources */,
 				D633462F20E8FFC70033E5B4 /* LaunchScreen.storyboard in Resources */,
 				53652B482296F0E0003131BC /* Quiz.json in Resources */,
 				D633462C20E8FFC70033E5B4 /* Assets.xcassets in Resources */,
@@ -818,11 +847,13 @@
 				D633463D20E914820033E5B4 /* GridCollectionViewCell.swift in Sources */,
 				D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */,
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,
+				3CFC36A622F958190058C322 /* UITableViewCellExtension.swift in Sources */,
 				D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */,
 				D633462420E8FFC60033E5B4 /* LobbyViewController.swift in Sources */,
 				5E349C9F21228A340060297A /* UIImageViewExtension.swift in Sources */,
 				5E564B77213FA86E00F2CED2 /* MissionCollectionViewCell.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
+				3CFC36A122F92FED0058C322 /* MoreViewController.swift in Sources */,
 				D62D30D520ED06F300BBDF5E /* AgendaViewController.swift in Sources */,
 				5E349CAA21242B910060297A /* CommunityAPI.swift in Sources */,
 				D6EE629720E9CED20043B68A /* CustomCornerButton.swift in Sources */,
@@ -832,6 +863,7 @@
 				D66778E420FB062F00E9CA34 /* MyScheduleTableViewCellID.swift in Sources */,
 				5E1753AA2150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift in Sources */,
 				D662A1A520EDB5D600316FE6 /* BreakTableViewCell.swift in Sources */,
+				3CFC36A422F957DA0058C322 /* MoreTableViewCell.swift in Sources */,
 				D6EE629920E9D0B00043B68A /* NewsTableViewCell.swift in Sources */,
 				53850934227D6A960083429A /* CommunityImageCollectionViewCell.swift in Sources */,
 				5E349CA8212411570060297A /* SponsorTableViewCellID.swift in Sources */,
