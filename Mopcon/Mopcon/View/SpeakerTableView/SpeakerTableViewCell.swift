@@ -11,18 +11,17 @@ import Kingfisher
 
 class SpeakerTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var opacityView: UIView!
+    @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var speakerAvatarImageView: UIImageView! {
         didSet {
             self.speakerAvatarImageView.makeCircle()
         }
     }
     @IBOutlet weak var speakerNameLabel: UILabel!
-    @IBOutlet weak var speakerCompanyLabel: UILabel!
     @IBOutlet weak var speakerJobLabel: UILabel!
     
 
-    func updateUI(speaker:Speaker.Payload){
+    func updateUI(speaker: Speaker.Payload) {
         if let resource = URL(string: speaker.picture) {
             self.speakerAvatarImageView.kf.setImage(with: resource)
         } else {
@@ -34,11 +33,9 @@ class SpeakerTableViewCell: UITableViewCell {
         case Language.chinese.rawValue:
             self.speakerJobLabel.text = speaker.job
             self.speakerNameLabel.text = speaker.name
-            self.speakerCompanyLabel.text = speaker.company
         case Language.english.rawValue:
             self.speakerJobLabel.text = speaker.job
             self.speakerNameLabel.text = speaker.name_en
-            self.speakerCompanyLabel.text = speaker.company
         default:
             break
         }
@@ -48,6 +45,11 @@ class SpeakerTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        baseView.layer.borderColor = UIColor.azure?.cgColor
+        baseView.layer.borderWidth = 1.0
+        baseView.layer.cornerRadius = 6.0
+        baseView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -55,5 +57,4 @@ class SpeakerTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         // Configure the view for the selected state
     }
-
 }

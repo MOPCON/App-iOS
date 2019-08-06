@@ -10,6 +10,17 @@ import UIKit
 
 class SpeakersViewController: UIViewController {
     
+    override var hidesBottomBarWhenPushed: Bool {
+        
+        get {
+            return true
+        }
+        
+        set {
+            
+        }
+    }
+    
     var selectedSpeaker:Speaker.Payload?
     var speakers = [Speaker.Payload]()
     let spinner = LoadingTool.setActivityindicator()
@@ -96,7 +107,7 @@ extension SpeakersViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+        return 143
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
