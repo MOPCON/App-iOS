@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JoinVolunteerView" customModule="Mopcon" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="3Xq-rP-yJM"/>
+                <outlet property="facebookBtn" destination="rtD-Tt-ylP" id="n8O-Kg-eTi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="447"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group-1534" translatesAutoresizingMaskIntoConstraints="NO" id="HNr-U4-Xn2">
+                    <rect key="frame" x="158.5" y="56" width="97" height="91"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="「我想加入志工行列！」" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbd-fc-hhb">
+                    <rect key="frame" x="97" y="167" width="220" height="28"/>
+                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                    <color key="textColor" red="1" green="0.2627450980392157" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtD-Tt-ylP">
+                    <rect key="frame" x="112" y="226" width="190" height="35"/>
+                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                    <state key="normal" title="追蹤 Facebook">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="想要和我們一起改變南部資訊生態圈嗎？歡迎追蹤我們的 Facebook，我們會在下一屆準備開始前 PO 出徵才資訊！加入我們不僅有機會參與改變的過程，還可以得到寶貴的辦展經驗，認識大神們哦！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypf-It-3b7">
+                    <rect key="frame" x="50" y="309" width="314" height="105"/>
+                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vzp-dQ-Inn">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                    <color key="backgroundColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="xCm-km-Uxa"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="vzp-dQ-Inn" secondAttribute="trailing" id="2mu-Zd-5Qb"/>
+                <constraint firstItem="Ypf-It-3b7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="DVE-k9-j62"/>
+                <constraint firstItem="Ypf-It-3b7" firstAttribute="top" secondItem="rtD-Tt-ylP" secondAttribute="bottom" constant="48" id="FFu-KC-cb0"/>
+                <constraint firstItem="fbd-fc-hhb" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Fat-SF-Prc"/>
+                <constraint firstItem="vzp-dQ-Inn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FkV-Mn-RY4"/>
+                <constraint firstItem="rtD-Tt-ylP" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Gfs-QT-LhK"/>
+                <constraint firstItem="fbd-fc-hhb" firstAttribute="top" secondItem="HNr-U4-Xn2" secondAttribute="bottom" constant="20" id="Iy1-Em-ZHI"/>
+                <constraint firstItem="HNr-U4-Xn2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OWr-dq-ImA"/>
+                <constraint firstItem="HNr-U4-Xn2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="56" id="U0k-I2-qX0"/>
+                <constraint firstItem="rtD-Tt-ylP" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="172:375" id="amH-sQ-tYM"/>
+                <constraint firstItem="vzp-dQ-Inn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mi5-Xi-5S3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ypf-It-3b7" secondAttribute="trailing" constant="50" id="r3p-e4-fsw"/>
+                <constraint firstItem="rtD-Tt-ylP" firstAttribute="top" secondItem="fbd-fc-hhb" secondAttribute="bottom" constant="31" id="rEn-FL-xtf"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-7.2463768115942031" y="42.522321428571423"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="group-1534" width="97" height="91"/>
+    </resources>
+</document>

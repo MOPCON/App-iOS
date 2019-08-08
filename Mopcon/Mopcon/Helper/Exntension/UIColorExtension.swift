@@ -16,6 +16,8 @@ extension UIColor {
     
     static let almostBlack = UIColor(hex: "#070b11", alpha: 0.2)
     
+    static let pink = UIColor(hex: "#ff4392")
+    
     public convenience init?(hex: String, alpha: CGFloat = 1.0) {
         
         var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

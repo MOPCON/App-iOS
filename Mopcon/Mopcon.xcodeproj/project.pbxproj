@@ -10,6 +10,8 @@
 		3C3FFE9A22FAA8E300873416 /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9922FAA8E300873416 /* SpeakerView.swift */; };
 		3C3FFE9C22FAA8F800873416 /* SpeakerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9B22FAA8F800873416 /* SpeakerDetailView.swift */; };
 		3C3FFE9E22FAA90E00873416 /* SpeakerTalkInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9D22FAA90E00873416 /* SpeakerTalkInfoView.swift */; };
+		3C3FFEA122FAD6E300873416 /* JoinVolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */; };
+		3C3FFEA322FAD6FE00873416 /* JoinVolunteerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */; };
 		3C903F8322979AE600765CB2 /* Agenda.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8222979AE600765CB2 /* Agenda.storyboard */; };
 		3C903F8522979AFB00765CB2 /* Schedual.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8422979AFB00765CB2 /* Schedual.storyboard */; };
 		3C903F8722979B0C00765CB2 /* Communication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8622979B0C00765CB2 /* Communication.storyboard */; };
@@ -22,7 +24,6 @@
 		3CFC369E22F92F7B0058C322 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFC369D22F92F7B0058C322 /* More.storyboard */; };
 		3CFC36A122F92FED0058C322 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC36A022F92FED0058C322 /* MoreViewController.swift */; };
 		3CFC36A422F957DA0058C322 /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC36A322F957DA0058C322 /* MoreTableViewCell.swift */; };
-		3CFC36A622F958190058C322 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC36A522F958190058C322 /* UITableViewCellExtension.swift */; };
 		3CFCF00422DECF9D006184CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCF00322DECF9D006184CD /* Main.storyboard */; };
 		3CFCF00722DED10E006184CD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00622DED10E006184CD /* TabBarViewController.swift */; };
 		3CFCF00922DEEFCB006184CD /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */; };
@@ -142,6 +143,8 @@
 		3C3FFE9922FAA8E300873416 /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
 		3C3FFE9B22FAA8F800873416 /* SpeakerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailView.swift; sourceTree = "<group>"; };
 		3C3FFE9D22FAA90E00873416 /* SpeakerTalkInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTalkInfoView.swift; sourceTree = "<group>"; };
+		3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVolunteerView.swift; sourceTree = "<group>"; };
+		3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JoinVolunteerView.xib; sourceTree = "<group>"; };
 		3C903F8222979AE600765CB2 /* Agenda.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Agenda.storyboard; sourceTree = "<group>"; };
 		3C903F8422979AFB00765CB2 /* Schedual.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedual.storyboard; sourceTree = "<group>"; };
 		3C903F8622979B0C00765CB2 /* Communication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Communication.storyboard; sourceTree = "<group>"; };
@@ -154,7 +157,6 @@
 		3CFC369D22F92F7B0058C322 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		3CFC36A022F92FED0058C322 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		3CFC36A322F957DA0058C322 /* MoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewCell.swift; sourceTree = "<group>"; };
-		3CFC36A522F958190058C322 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
 		3CFCF00322DECF9D006184CD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3CFCF00622DED10E006184CD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -298,6 +300,23 @@
 			path = Speaker;
 			sourceTree = "<group>";
 		};
+		3C3FFE9F22FAD6A700873416 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				3C9335BB22FBBAA700545A6E /* JoinVolunteerView */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		3C9335BB22FBBAA700545A6E /* JoinVolunteerView */ = {
+			isa = PBXGroup;
+			children = (
+				3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */,
+				3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */,
+			);
+			path = JoinVolunteerView;
+			sourceTree = "<group>";
+		};
 		3CFC369F22F92FDC0058C322 /* More */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,7 +444,6 @@
 			isa = PBXGroup;
 			children = (
 				5E349C9E21228A340060297A /* UIImageViewExtension.swift */,
-				3CFC36A522F958190058C322 /* UITableViewCellExtension.swift */,
 				3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */,
 				3CBDCF7222E1888500561D8D /* UIViewExtension.swift */,
 				3CFCF00A22DEFBB2006184CD /* UIColorExtension.swift */,
@@ -521,6 +539,7 @@
 		D633463920E914550033E5B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3C3FFE9F22FAD6A700873416 /* Group */,
 				3C3FFE9822FAA89D00873416 /* Speaker */,
 				3CFC36A222F957C00058C322 /* More */,
 				3CFCF00C22DF1033006184CD /* Lobby */,
@@ -766,6 +785,7 @@
 				53652B482296F0E0003131BC /* Quiz.json in Resources */,
 				D633462C20E8FFC70033E5B4 /* Assets.xcassets in Resources */,
 				5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */,
+				3C3FFEA322FAD6FE00873416 /* JoinVolunteerView.xib in Resources */,
 				3C903F8522979AFB00765CB2 /* Schedual.storyboard in Resources */,
 				3CFCF01122DF106F006184CD /* LobbyCollectionViewCell.xib in Resources */,
 				3CFCF00422DECF9D006184CD /* Main.storyboard in Resources */,
@@ -865,7 +885,6 @@
 				D633463D20E914820033E5B4 /* GridCollectionViewCell.swift in Sources */,
 				D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */,
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,
-				3CFC36A622F958190058C322 /* UITableViewCellExtension.swift in Sources */,
 				D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */,
 				D633462420E8FFC60033E5B4 /* LobbyViewController.swift in Sources */,
 				5E349C9F21228A340060297A /* UIImageViewExtension.swift in Sources */,
@@ -932,6 +951,7 @@
 				D6EE629320E9C9270043B68A /* SegueManager.swift in Sources */,
 				5E941018214F4FBA001D61F6 /* Carousel.swift in Sources */,
 				5E349C96212270A20060297A /* Schedule_unconf.swift in Sources */,
+				3C3FFEA122FAD6E300873416 /* JoinVolunteerView.swift in Sources */,
 				D66778ED20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift in Sources */,
 				5E349C98212270BA0060297A /* Sponsor.swift in Sources */,
 				D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */,

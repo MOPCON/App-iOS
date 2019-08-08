@@ -8,76 +8,72 @@
 
 import UIKit
 
+private enum GroupType {
+    
+    case host
+    
+    case volunteer
+    
+    func title() -> String {
+        
+        switch self {
+            
+        case .host: return "主辦社群"
+            
+        case .volunteer: return "志工組織"
+        
+        }
+    }
+}
+
 class CommunityViewController: UIViewController {
     
     @IBOutlet weak var communityImageContainerView: UIView!
+    
     @IBOutlet weak var volunteerContainerView: UIView!
     
-    @IBOutlet weak var mainGroupButton: CustomSelectedButton!
-    @IBOutlet weak var volunteerButton: CustomSelectedButton!
+    @IBOutlet weak var selectionView: SelectionView! {
+        
+        didSet {
+        
+            selectionView.dataSource = self
+        }
+    }
+    
+    private let selectionDatas: [GroupType] = [.host, .volunteer]
     
     let spinner = LoadingTool.setActivityindicator()
     
-    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func mainGroupAction(_ sender: UIButton) {
-        changeButtonColor(beTappedButton: mainGroupButton, notSelectedButton: volunteerButton)
-        communityImageContainerView.isHidden = false
-        volunteerContainerView.isHidden = true
-    }
-    
-    @IBAction func volunteerAction(_ sender: UIButton) {
-        changeButtonColor(beTappedButton: volunteerButton, notSelectedButton: mainGroupButton)
-        communityImageContainerView.isHidden = true
-        volunteerContainerView.isHidden = false
-    }
-    
-    func changeButtonColor(beTappedButton:CustomSelectedButton, notSelectedButton:CustomSelectedButton){
-          beTappedButton.backgroundColor = UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.2)
-          beTappedButton.setTitleColor(UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 1), for: .normal)
-          beTappedButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
-          notSelectedButton.backgroundColor = UIColor.clear
-          notSelectedButton.setTitleColor(UIColor(red: 0, green: 208/255, blue: 203/255, alpha: 0.5), for: .normal)
-    }
+    //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         volunteerContainerView.isHidden = true
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clear
         
         spinner.startAnimating()
+        
         spinner.center = view.center
+        
         view.addSubview(spinner)
         
-        // Do any additional setup after loading the view.
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         if CurrentLanguage.getLanguage() == Language.english.rawValue {
             self.navigationItem.title = "Group"
-            self.volunteerButton.setTitle("Volunteer", for: .normal)
-            self.mainGroupButton.setTitle("Community", for: .normal)
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == SegueIDManager.performCommunityContainerView{
             guard let communityImageVC = segue.destination as? CommunityImageViewController else {return}
             communityImageVC.delegate = self
         }
+        
         if segue.identifier == SegueIDManager.performCommunityDetail{
             guard let commnunityDetailVC = segue.destination as? ComminityDetailViewController else {return}
             guard let community = sender as? Community.Payload else {return}
@@ -96,4 +92,30 @@ extension CommunityViewController: CollectionViewItemDidSelected{
         performSegue(withIdentifier: SegueIDManager.performCommunityDetail, sender: community)
     }
 
+}
+
+extension CommunityViewController: SelectionViewDataSource {
+    
+    func titleOfButton(_ selectionView: SelectionView, at index: Int) -> String {
+        
+        return selectionDatas[index].title()
+    }
+    
+    func didSelectedButton(_ selectionView: SelectionView, at index: Int) {
+        
+        switch selectionDatas[index] {
+        
+        case .host:
+            
+            communityImageContainerView.isHidden = false
+            
+            volunteerContainerView.isHidden = true
+            
+        case .volunteer:
+        
+            communityImageContainerView.isHidden = true
+            
+            volunteerContainerView.isHidden = false
+        }
+    }
 }

@@ -19,59 +19,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jda-He-Suu">
-                                <rect key="frame" x="0.0" y="106" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="112" width="414" height="750"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="Nrd-GL-5h3" kind="embed" identifier="performCommunityContainerView" id="xZC-6X-K5H"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWL-OR-dbb">
-                                <rect key="frame" x="0.0" y="106" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="112" width="414" height="750"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="tgk-pg-3HF" kind="embed" id="d7d-LI-xtn"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdl-XY-7QY" customClass="CornerBackgroundView" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="17.5" y="60" width="379" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oE-IY-Dvv" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="189.5" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="主辦社群">
-                                            <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="mainGroupAction:" destination="gu6-Uw-2KJ" eventType="touchUpInside" id="2Td-zM-lwb"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGl-L2-bM4" customClass="CustomSelectedButton" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="189.5" y="0.0" width="189.5" height="30"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="志工組織">
-                                            <color key="titleColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="volunteerAction:" destination="gu6-Uw-2KJ" eventType="touchUpInside" id="v48-wO-yf8"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdl-XY-7QY" customClass="SelectionView" customModule="Mopcon" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="52"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="0oE-IY-Dvv" firstAttribute="height" secondItem="fdl-XY-7QY" secondAttribute="height" id="I44-Ey-b1r"/>
-                                    <constraint firstItem="0oE-IY-Dvv" firstAttribute="centerY" secondItem="fdl-XY-7QY" secondAttribute="centerY" id="S6r-Iy-FYm"/>
-                                    <constraint firstItem="0oE-IY-Dvv" firstAttribute="width" secondItem="fdl-XY-7QY" secondAttribute="width" multiplier="0.5" id="ZeF-35-eyv"/>
-                                    <constraint firstItem="mGl-L2-bM4" firstAttribute="width" secondItem="fdl-XY-7QY" secondAttribute="width" multiplier="0.5" id="dmM-rJ-zbW"/>
-                                    <constraint firstAttribute="trailing" secondItem="mGl-L2-bM4" secondAttribute="trailing" id="hCr-DF-day"/>
-                                    <constraint firstItem="0oE-IY-Dvv" firstAttribute="leading" secondItem="fdl-XY-7QY" secondAttribute="leading" id="o7d-9f-2e7"/>
-                                    <constraint firstItem="mGl-L2-bM4" firstAttribute="top" secondItem="fdl-XY-7QY" secondAttribute="top" id="wal-UZ-3Lq"/>
-                                    <constraint firstAttribute="bottom" secondItem="mGl-L2-bM4" secondAttribute="bottom" id="zeH-lw-9Rk"/>
+                                    <constraint firstAttribute="height" constant="52" id="bRw-rY-53M"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="fdl-XY-7QY" firstAttribute="width" secondItem="qkp-w5-pbZ" secondAttribute="width" multiplier="343:375" id="2AW-YX-W5R"/>
+                            <constraint firstItem="fdl-XY-7QY" firstAttribute="width" secondItem="qkp-w5-pbZ" secondAttribute="width" id="2AW-YX-W5R"/>
                             <constraint firstItem="qWL-OR-dbb" firstAttribute="trailing" secondItem="qO7-8H-CWR" secondAttribute="trailing" id="2gI-dY-2Pz"/>
                             <constraint firstItem="qWL-OR-dbb" firstAttribute="top" secondItem="fdl-XY-7QY" secondAttribute="bottom" constant="16" id="4yC-YM-08R"/>
                             <constraint firstItem="jda-He-Suu" firstAttribute="top" secondItem="fdl-XY-7QY" secondAttribute="bottom" constant="16" id="8aV-WI-9JL"/>
@@ -79,9 +50,8 @@
                             <constraint firstItem="qWL-OR-dbb" firstAttribute="bottom" secondItem="qO7-8H-CWR" secondAttribute="bottom" id="MJ1-He-Mpd"/>
                             <constraint firstItem="fdl-XY-7QY" firstAttribute="centerX" secondItem="qkp-w5-pbZ" secondAttribute="centerX" id="UWp-Bf-3in"/>
                             <constraint firstItem="jda-He-Suu" firstAttribute="trailing" secondItem="qO7-8H-CWR" secondAttribute="trailing" id="Xqy-HZ-h89"/>
-                            <constraint firstItem="fdl-XY-7QY" firstAttribute="top" secondItem="qO7-8H-CWR" secondAttribute="top" constant="16" id="aMN-hv-O42"/>
+                            <constraint firstItem="fdl-XY-7QY" firstAttribute="top" secondItem="qO7-8H-CWR" secondAttribute="top" id="aMN-hv-O42"/>
                             <constraint firstItem="jda-He-Suu" firstAttribute="bottom" secondItem="qO7-8H-CWR" secondAttribute="bottom" id="fwe-gQ-v1L"/>
-                            <constraint firstItem="fdl-XY-7QY" firstAttribute="centerX" secondItem="qkp-w5-pbZ" secondAttribute="centerX" id="xR4-0R-GH3"/>
                             <constraint firstItem="jda-He-Suu" firstAttribute="leading" secondItem="qO7-8H-CWR" secondAttribute="leading" id="znM-kW-08e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qO7-8H-CWR"/>
@@ -91,8 +61,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="communityImageContainerView" destination="jda-He-Suu" id="cPH-4a-BlG"/>
-                        <outlet property="mainGroupButton" destination="0oE-IY-Dvv" id="DxR-Uq-SEL"/>
-                        <outlet property="volunteerButton" destination="mGl-L2-bM4" id="6b5-F3-vqS"/>
+                        <outlet property="selectionView" destination="fdl-XY-7QY" id="kTp-mT-5uw"/>
                         <outlet property="volunteerContainerView" destination="qWL-OR-dbb" id="Qdj-bj-uoI"/>
                         <segue destination="jOl-02-M2L" kind="show" identifier="performCommunityDetail" id="GTp-bH-TRX"/>
                     </connections>
@@ -204,11 +173,11 @@
             <objects>
                 <viewController id="Nrd-GL-5h3" customClass="CommunityImageViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8a9-T0-KYH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yI8-64-jG1">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hec-xv-yW1">
                                     <size key="itemSize" width="177" height="149"/>
@@ -225,21 +194,31 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hQV-pc-b4t">
-                                                    <rect key="frame" x="16" y="16" width="132" height="132"/>
+                                                    <rect key="frame" x="47" y="24" width="70" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="hQV-pc-b4t" secondAttribute="height" multiplier="1:1" id="vJ0-wa-Ror"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DY-ru-iXY">
+                                                    <rect key="frame" x="62" y="104" width="40.5" height="22.5"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="hQV-pc-b4t" firstAttribute="centerY" secondItem="icm-w0-k88" secondAttribute="centerY" id="IlP-iC-AUn"/>
-                                            <constraint firstItem="hQV-pc-b4t" firstAttribute="width" secondItem="icm-w0-k88" secondAttribute="width" multiplier="132:164" id="NbG-yu-Q81"/>
+                                            <constraint firstItem="7DY-ru-iXY" firstAttribute="width" relation="lessThanOrEqual" secondItem="icm-w0-k88" secondAttribute="width" constant="-40" id="7pb-7p-jif"/>
+                                            <constraint firstItem="hQV-pc-b4t" firstAttribute="width" secondItem="icm-w0-k88" secondAttribute="width" multiplier="80:187" id="NbG-yu-Q81"/>
                                             <constraint firstItem="hQV-pc-b4t" firstAttribute="centerX" secondItem="icm-w0-k88" secondAttribute="centerX" id="O4d-4x-3Jw"/>
+                                            <constraint firstItem="7DY-ru-iXY" firstAttribute="centerX" secondItem="hQV-pc-b4t" secondAttribute="centerX" id="aGS-sH-mZa"/>
+                                            <constraint firstItem="7DY-ru-iXY" firstAttribute="top" secondItem="hQV-pc-b4t" secondAttribute="bottom" constant="10" id="bj8-NN-gOG"/>
+                                            <constraint firstItem="hQV-pc-b4t" firstAttribute="top" secondItem="icm-w0-k88" secondAttribute="top" constant="24" id="nAy-it-5qa"/>
                                         </constraints>
                                         <size key="customSize" width="164" height="164"/>
                                         <connections>
                                             <outlet property="communityImageView" destination="hQV-pc-b4t" id="KdG-C9-QRx"/>
+                                            <outlet property="communityLabel" destination="7DY-ru-iXY" id="BWM-tv-6DM"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -267,11 +246,11 @@
             <objects>
                 <viewController id="tgk-pg-3HF" customClass="VolunteerViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vj5-st-1wn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8fU-W1-DHx">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VolunteerTableViewCell" rowHeight="232" id="fh2-ae-Lk4" customClass="VolunteerTableViewCell" customModule="Mopcon" customModuleProvider="target">

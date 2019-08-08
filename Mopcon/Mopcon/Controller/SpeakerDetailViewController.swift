@@ -14,7 +14,13 @@ class SpeakerDetailViewController: UIViewController {
     
     @IBOutlet weak var speakerDetailView: SpeakerDetailView!
     
-    @IBOutlet weak var talkInfoView: SpeakerTalkInfoView!
+    @IBOutlet weak var talkInfoView: SpeakerTalkInfoView! {
+        
+        didSet {
+        
+            talkInfoView.delegate = self
+        }
+    }
     
     @IBOutlet weak var scrollView: UIScrollView!
     
