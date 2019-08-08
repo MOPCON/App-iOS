@@ -26,7 +26,7 @@ private enum GroupType {
     }
 }
 
-class CommunityViewController: UIViewController {
+class GroupViewController: UIViewController {
     
     @IBOutlet weak var communityImageContainerView: UIView!
     
@@ -70,19 +70,19 @@ class CommunityViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == SegueIDManager.performCommunityContainerView{
-            guard let communityImageVC = segue.destination as? CommunityImageViewController else {return}
-            communityImageVC.delegate = self
+            guard let groupHostVC = segue.destination as? GroupHostViewController else {return}
+            groupHostVC.delegate = self
         }
         
         if segue.identifier == SegueIDManager.performCommunityDetail{
-            guard let commnunityDetailVC = segue.destination as? ComminityDetailViewController else {return}
+            guard let groupHostDetailVC = segue.destination as? GroupHostDetailViewController else {return}
             guard let community = sender as? Community.Payload else {return}
-            commnunityDetailVC.community = community
+            groupHostDetailVC.community = community
         }
     }
 
 }
-extension CommunityViewController: CollectionViewItemDidSelected{
+extension GroupViewController: CollectionViewItemDidSelected{
     
     func stopSpinner() {
         self.spinner.removeFromSuperview()
@@ -94,7 +94,7 @@ extension CommunityViewController: CollectionViewItemDidSelected{
 
 }
 
-extension CommunityViewController: SelectionViewDataSource {
+extension GroupViewController: SelectionViewDataSource {
     
     func titleOfButton(_ selectionView: SelectionView, at index: Int) -> String {
         

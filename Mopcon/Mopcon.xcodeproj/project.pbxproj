@@ -93,8 +93,8 @@
 		D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633464120E936ED0033E5B4 /* BannerImageCell.swift */; };
 		D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2520EB1F27000816DF /* SpeakerDetailViewController.swift */; };
 		D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2720EB2A83000816DF /* CustomSelectedButton.swift */; };
-		D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2920EC619F000816DF /* CommunityImageViewController.swift */; };
-		D6555F2F20EC783A000816DF /* ComminityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */; };
+		D6555F2A20EC619F000816DF /* GroupHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2920EC619F000816DF /* GroupHostViewController.swift */; };
+		D6555F2F20EC783A000816DF /* GroupHostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2E20EC783A000816DF /* GroupHostDetailViewController.swift */; };
 		D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3020EC7D97000816DF /* CornerBackgroundView.swift */; };
 		D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3220EC8397000816DF /* VolunteerViewController.swift */; };
 		D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */; };
@@ -108,7 +108,7 @@
 		D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */; };
 		D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABE20EE106800D4886E /* CommunicationBreakTableViewCell.swift */; };
 		D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67AC120EE108D00D4886E /* CommunicationConferenceTableViewCell.swift */; };
-		D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */; };
+		D6B5166020EA00FC003FA56F /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5165F20EA00FC003FA56F /* GroupViewController.swift */; };
 		D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166120EA0607003FA56F /* SpeakersViewController.swift */; };
 		D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */; };
 		D6B5166720EA0656003FA56F /* SpeakerTableCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166620EA0656003FA56F /* SpeakerTableCellID.swift */; };
@@ -230,8 +230,8 @@
 		D633464120E936ED0033E5B4 /* BannerImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageCell.swift; sourceTree = "<group>"; };
 		D6555F2520EB1F27000816DF /* SpeakerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailViewController.swift; sourceTree = "<group>"; };
 		D6555F2720EB2A83000816DF /* CustomSelectedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSelectedButton.swift; sourceTree = "<group>"; };
-		D6555F2920EC619F000816DF /* CommunityImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityImageViewController.swift; sourceTree = "<group>"; };
-		D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComminityDetailViewController.swift; sourceTree = "<group>"; };
+		D6555F2920EC619F000816DF /* GroupHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupHostViewController.swift; sourceTree = "<group>"; };
+		D6555F2E20EC783A000816DF /* GroupHostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupHostDetailViewController.swift; sourceTree = "<group>"; };
 		D6555F3020EC7D97000816DF /* CornerBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerBackgroundView.swift; sourceTree = "<group>"; };
 		D6555F3220EC8397000816DF /* VolunteerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerViewController.swift; sourceTree = "<group>"; };
 		D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTableCellID.swift; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 		D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationTableViewCellID.swift; sourceTree = "<group>"; };
 		D6A67ABE20EE106800D4886E /* CommunicationBreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationBreakTableViewCell.swift; sourceTree = "<group>"; };
 		D6A67AC120EE108D00D4886E /* CommunicationConferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationConferenceTableViewCell.swift; sourceTree = "<group>"; };
-		D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		D6B5165F20EA00FC003FA56F /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		D6B5166120EA0607003FA56F /* SpeakersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersViewController.swift; sourceTree = "<group>"; };
 		D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTableViewCell.swift; sourceTree = "<group>"; };
 		D6B5166620EA0656003FA56F /* SpeakerTableCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTableCellID.swift; sourceTree = "<group>"; };
@@ -516,10 +516,10 @@
 			isa = PBXGroup;
 			children = (
 				D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */,
-				D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */,
+				D6555F2E20EC783A000816DF /* GroupHostDetailViewController.swift */,
 				D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */,
-				D6555F2920EC619F000816DF /* CommunityImageViewController.swift */,
-				D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */,
+				D6555F2920EC619F000816DF /* GroupHostViewController.swift */,
+				D6B5165F20EA00FC003FA56F /* GroupViewController.swift */,
 				D6F0BE6820F0A02B0053A100 /* ConferenceDetailViewController.swift */,
 				D633462320E8FFC60033E5B4 /* LobbyViewController.swift */,
 				D6F0BE6220F06D6C0053A100 /* MyScheduleViewController.swift */,
@@ -909,7 +909,7 @@
 				D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */,
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
 				5E349C9021225CE10060297A /* Schedule.swift in Sources */,
-				D6555F2F20EC783A000816DF /* ComminityDetailViewController.swift in Sources */,
+				D6555F2F20EC783A000816DF /* GroupHostDetailViewController.swift in Sources */,
 				5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */,
 				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
 				5E349C9A212270E00060297A /* Community.swift in Sources */,
@@ -920,13 +920,13 @@
 				5E6CBDA1217BB9D60097D5E2 /* Wallet.swift in Sources */,
 				D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */,
 				D6F0BE6520F0756D0053A100 /* StoryboardIDManager.swift in Sources */,
-				D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */,
+				D6555F2A20EC619F000816DF /* GroupHostViewController.swift in Sources */,
 				D6F0BE6920F0A02B0053A100 /* ConferenceDetailViewController.swift in Sources */,
 				5E1753AC2150D4BA00A5D4C5 /* MopconAPI.swift in Sources */,
 				D6EE629520E9CAFE0043B68A /* NewsViewController.swift in Sources */,
 				D66778EF20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift in Sources */,
 				D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */,
-				D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */,
+				D6B5166020EA00FC003FA56F /* GroupViewController.swift in Sources */,
 				5E349CA3212315C90060297A /* SponsorsAPI.swift in Sources */,
 				5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */,
 				D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */,

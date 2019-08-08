@@ -13,7 +13,7 @@
         <!--社群-->
         <scene sceneID="yZA-JZ-bql">
             <objects>
-                <viewController id="gu6-Uw-2KJ" customClass="CommunityViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gu6-Uw-2KJ" customClass="GroupViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qkp-w5-pbZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,6 @@
                         <outlet property="communityImageContainerView" destination="jda-He-Suu" id="cPH-4a-BlG"/>
                         <outlet property="selectionView" destination="fdl-XY-7QY" id="kTp-mT-5uw"/>
                         <outlet property="volunteerContainerView" destination="qWL-OR-dbb" id="Qdj-bj-uoI"/>
-                        <segue destination="jOl-02-M2L" kind="show" identifier="performCommunityDetail" id="GTp-bH-TRX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCB-ex-RmV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -73,9 +72,9 @@
         <!--社群-->
         <scene sceneID="udJ-3Z-PQd">
             <objects>
-                <viewController id="jOl-02-M2L" customClass="ComminityDetailViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jOl-02-M2L" customClass="GroupHostDetailViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rfo-4L-Xsg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KSDG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ce3-C2-SsP">
@@ -166,12 +165,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cbp-BY-lNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5376.8000000000002" y="827.13643178410803"/>
+            <point key="canvasLocation" x="6174" y="161"/>
         </scene>
-        <!--Community Image View Controller-->
+        <!--Group Host View Controller-->
         <scene sceneID="vqC-X9-wBo">
             <objects>
-                <viewController id="Nrd-GL-5h3" customClass="CommunityImageViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nrd-GL-5h3" customClass="GroupHostViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8a9-T0-KYH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,6 +234,7 @@
                     </view>
                     <connections>
                         <outlet property="imageCollectionView" destination="yI8-64-jG1" id="IMD-mD-Pmr"/>
+                        <segue destination="jOl-02-M2L" kind="show" identifier="performCommunityDetail" id="Dow-Jw-XhO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="niE-at-dP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOC-u9-NK2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5676" y="1452.3238380809596"/>
+            <point key="canvasLocation" x="5229" y="875"/>
         </scene>
     </scenes>
     <resources>

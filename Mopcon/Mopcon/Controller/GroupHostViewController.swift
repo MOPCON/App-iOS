@@ -10,12 +10,10 @@ import UIKit
 
 protocol CollectionViewItemDidSelected: AnyObject {
     
-    func collectionViewItemDidSelected(index:IndexPath, community:Community.Payload)
-    
     func stopSpinner()
 }
 
-class CommunityImageViewController: UIViewController {
+class GroupHostViewController: UIViewController {
     
     var communitys = [Community.Payload]()
     
@@ -50,6 +48,19 @@ class CommunityImageViewController: UIViewController {
         joinVolunteerView.delegate = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == SegueIDManager.performCommunityDetail{
+            
+            guard
+                let groupHostDetailVC = segue.destination as? GroupHostDetailViewController,
+                let community = sender as? Community.Payload
+            else { return }
+            
+            groupHostDetailVC.community = community
+        }
+    }
+    
     func getCommunity() {
         
         CommunityAPI.getAPI(url: MopconAPI.shared.community) { [weak self] (payload, error) in
@@ -72,7 +83,7 @@ class CommunityImageViewController: UIViewController {
     
 }
 
-extension CommunityImageViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension GroupHostViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return communitys.count
@@ -85,7 +96,8 @@ extension CommunityImageViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.collectionViewItemDidSelected(index: indexPath, community: communitys[indexPath.row])
+        
+        performSegue(withIdentifier: SegueIDManager.performCommunityDetail, sender: communitys[indexPath.row])
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -99,7 +111,7 @@ extension CommunityImageViewController: UICollectionViewDelegate, UICollectionVi
     }
 }
 
-extension CommunityImageViewController: UICollectionViewDelegateFlowLayout{
+extension GroupHostViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets.init(top: 0, left: self.view.frame.width * (16/375), bottom: self.view.frame.height * (16/667), right: self.view.frame.width * (16/375))
@@ -118,7 +130,7 @@ extension CommunityImageViewController: UICollectionViewDelegateFlowLayout{
     }
 }
 
-extension CommunityImageViewController: JoinVolunteerViewDelegate {
+extension GroupHostViewController: JoinVolunteerViewDelegate {
     
     func didTouchFacebookButton(_ volunteerView: JoinVolunteerView) {
         
