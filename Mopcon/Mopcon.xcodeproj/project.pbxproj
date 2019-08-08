@@ -19,6 +19,7 @@
 		3C903F8B22979B2700765CB2 /* Speaker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8A22979B2700765CB2 /* Speaker.storyboard */; };
 		3C903F8D22979B3800765CB2 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8C22979B3700765CB2 /* Group.storyboard */; };
 		3C903F8F22979B4800765CB2 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8E22979B4800765CB2 /* News.storyboard */; };
+		3C9335BF22FBF31E00545A6E /* GroupBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9335BE22FBF31E00545A6E /* GroupBaseViewController.swift */; };
 		3CBDCF7122E182F700561D8D /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7022E182F700561D8D /* SelectionView.swift */; };
 		3CBDCF7322E1888500561D8D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7222E1888500561D8D /* UIViewExtension.swift */; };
 		3CFC369E22F92F7B0058C322 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFC369D22F92F7B0058C322 /* More.storyboard */; };
@@ -152,6 +153,7 @@
 		3C903F8A22979B2700765CB2 /* Speaker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Speaker.storyboard; sourceTree = "<group>"; };
 		3C903F8C22979B3700765CB2 /* Group.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
 		3C903F8E22979B4800765CB2 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
+		3C9335BE22FBF31E00545A6E /* GroupBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBaseViewController.swift; sourceTree = "<group>"; };
 		3CBDCF7022E182F700561D8D /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		3CBDCF7222E1888500561D8D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3CFC369D22F92F7B0058C322 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
@@ -315,6 +317,14 @@
 				3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */,
 			);
 			path = JoinVolunteerView;
+			sourceTree = "<group>";
+		};
+		3C9335BD22FBF2F800545A6E /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				3C9335BE22FBF31E00545A6E /* GroupBaseViewController.swift */,
+			);
+			path = Group;
 			sourceTree = "<group>";
 		};
 		3CFC369F22F92FDC0058C322 /* More */ = {
@@ -516,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */,
+				3C9335BD22FBF2F800545A6E /* Group */,
 				D6555F2E20EC783A000816DF /* GroupHostDetailViewController.swift */,
 				D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */,
 				D6555F2920EC619F000816DF /* GroupHostViewController.swift */,
@@ -923,6 +934,7 @@
 				D6555F2A20EC619F000816DF /* GroupHostViewController.swift in Sources */,
 				D6F0BE6920F0A02B0053A100 /* ConferenceDetailViewController.swift in Sources */,
 				5E1753AC2150D4BA00A5D4C5 /* MopconAPI.swift in Sources */,
+				3C9335BF22FBF31E00545A6E /* GroupBaseViewController.swift in Sources */,
 				D6EE629520E9CAFE0043B68A /* NewsViewController.swift in Sources */,
 				D66778EF20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift in Sources */,
 				D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */,

@@ -21,13 +21,11 @@ class CommunityImageCollectionViewCell: UICollectionViewCell {
         self.layer.masksToBounds = true
     }
     
-    func updateUI(community: Community.Payload){
+    func updateUI(image: String, title: String){
         
-        if let url = URL(string: community.logo) {
-            communityImageView.kf.setImage(with: url)
-        }
+        communityLabel.text = title
         
-        communityLabel.text = community.title
+        communityImageView.loadImage(image)
     }
     
     override func layoutSubviews() {
