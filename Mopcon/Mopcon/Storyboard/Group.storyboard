@@ -78,79 +78,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KSDG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ce3-C2-SsP">
-                                <rect key="frame" x="0.0" y="265" width="414" height="19.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28M-PU-ngb">
-                                <rect key="frame" x="36" y="300.5" width="342" height="98"/>
-                                <string key="text">Kaohsiung Software Developer Group 是高雄從事軟體開發、網路技術開發者一起交流的園地，2012/05首度聚會活動。目前每月舉辦 Meet-up 及 Web Course 各一場，交流主題涵蓋各種軟體技術，歡迎對軟體開發技術有興趣的朋友可以踴躍參與。</string>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <rect key="frame" x="0.0" y="191.5" width="414" height="22.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="urw-lx-eV5">
-                                <rect key="frame" x="155" y="430.5" width="104" height="44"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFZ-GS-duN">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="OKZ-ab-T0m"/>
-                                            <constraint firstAttribute="width" constant="44" id="YO6-4I-RK9"/>
-                                        </constraints>
-                                        <state key="normal" image="facebook"/>
-                                        <connections>
-                                            <action selector="connectToFacebook:" destination="jOl-02-M2L" eventType="touchUpInside" id="T9b-g5-cD6"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52I-r3-1Hk">
-                                        <rect key="frame" x="60" y="0.0" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="8vY-It-fvm"/>
-                                            <constraint firstAttribute="width" constant="44" id="Ws6-mD-f3o"/>
-                                        </constraints>
-                                        <state key="normal" image="connect"/>
-                                        <connections>
-                                            <action selector="otherLink:" destination="jOl-02-M2L" eventType="touchUpInside" id="B1q-6j-cZq"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igd-R3-W9g" customClass="CornerBackgroundView" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="17.5" y="60" width="379" height="181"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hh7-L2-nc2">
-                                        <rect key="frame" x="116.5" y="17.5" width="146" height="146"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Hh7-L2-nc2" secondAttribute="height" multiplier="1:1" id="MEz-5E-yM6"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28M-PU-ngb">
+                                <rect key="frame" x="36" y="230" width="342" height="134.5"/>
+                                <string key="text">Kaohsiung Software Developer Group 是高雄從事軟體開發、網路技術開發者一起交流的園地，2012/05首度聚會活動。目前每月舉辦 Meet-up 及 Web Course 各一場，交流主題涵蓋各種軟體技術，歡迎對軟體開發技術有興趣的朋友可以踴躍參與。</string>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hh7-L2-nc2">
+                                <rect key="frame" x="163" y="77" width="88" height="88.5"/>
                                 <constraints>
-                                    <constraint firstItem="Hh7-L2-nc2" firstAttribute="centerX" secondItem="Igd-R3-W9g" secondAttribute="centerX" id="1Ku-ad-DW9"/>
-                                    <constraint firstItem="Hh7-L2-nc2" firstAttribute="centerY" secondItem="Igd-R3-W9g" secondAttribute="centerY" id="HY7-2W-AXX"/>
-                                    <constraint firstItem="Hh7-L2-nc2" firstAttribute="width" secondItem="Igd-R3-W9g" secondAttribute="width" multiplier="132:343" id="ICS-XD-IgZ"/>
-                                    <constraint firstAttribute="width" secondItem="Igd-R3-W9g" secondAttribute="height" multiplier="343:164" id="oOw-U4-777"/>
+                                    <constraint firstAttribute="width" secondItem="Hh7-L2-nc2" secondAttribute="height" multiplier="1:1" id="MEz-5E-yM6"/>
                                 </constraints>
-                            </view>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cax-vg-gfg">
+                                <rect key="frame" x="112" y="436.5" width="190" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Cax-vg-gfg" secondAttribute="height" multiplier="172/52" id="orE-oa-Bxu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <state key="normal" title="了解更多">
+                                    <color key="titleColor" red="0.0" green="0.66666666666666663" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Igd-R3-W9g" firstAttribute="centerX" secondItem="rfo-4L-Xsg" secondAttribute="centerX" id="2oi-oK-xoI"/>
+                            <constraint firstItem="Hh7-L2-nc2" firstAttribute="top" secondItem="8i0-85-pba" secondAttribute="top" constant="33" id="0x3-wM-kzU"/>
+                            <constraint firstItem="Hh7-L2-nc2" firstAttribute="centerX" secondItem="rfo-4L-Xsg" secondAttribute="centerX" id="5dw-88-S2G"/>
                             <constraint firstAttribute="trailingMargin" secondItem="28M-PU-ngb" secondAttribute="trailing" constant="16" id="63V-5I-IX3"/>
-                            <constraint firstItem="Igd-R3-W9g" firstAttribute="top" secondItem="8i0-85-pba" secondAttribute="top" constant="16" id="DdM-JG-O6K"/>
-                            <constraint firstItem="urw-lx-eV5" firstAttribute="centerX" secondItem="rfo-4L-Xsg" secondAttribute="centerX" id="EJ0-W7-UDp"/>
-                            <constraint firstItem="urw-lx-eV5" firstAttribute="top" secondItem="28M-PU-ngb" secondAttribute="bottom" constant="32" id="FnZ-kt-MLl"/>
                             <constraint firstItem="Ce3-C2-SsP" firstAttribute="width" secondItem="rfo-4L-Xsg" secondAttribute="width" id="HFC-RC-s4O"/>
-                            <constraint firstItem="Ce3-C2-SsP" firstAttribute="top" secondItem="Igd-R3-W9g" secondAttribute="bottom" constant="24" id="Y7W-eN-XRB"/>
+                            <constraint firstItem="Cax-vg-gfg" firstAttribute="width" secondItem="rfo-4L-Xsg" secondAttribute="width" multiplier="172/375" id="JBA-RW-GoD"/>
+                            <constraint firstItem="Cax-vg-gfg" firstAttribute="centerX" secondItem="rfo-4L-Xsg" secondAttribute="centerX" id="S9d-Mz-YAi"/>
                             <constraint firstItem="Ce3-C2-SsP" firstAttribute="centerX" secondItem="rfo-4L-Xsg" secondAttribute="centerX" id="eT4-sP-bLS"/>
-                            <constraint firstItem="Igd-R3-W9g" firstAttribute="width" secondItem="rfo-4L-Xsg" secondAttribute="width" multiplier="343:375" id="eh7-H9-HW6"/>
+                            <constraint firstItem="Hh7-L2-nc2" firstAttribute="width" secondItem="rfo-4L-Xsg" secondAttribute="width" multiplier="80/375" id="iSc-dE-caU"/>
+                            <constraint firstItem="Ce3-C2-SsP" firstAttribute="top" secondItem="Hh7-L2-nc2" secondAttribute="bottom" constant="26" id="kOl-2h-vao"/>
                             <constraint firstItem="28M-PU-ngb" firstAttribute="leading" secondItem="rfo-4L-Xsg" secondAttribute="leadingMargin" constant="16" id="oF1-ZR-TTs"/>
                             <constraint firstItem="28M-PU-ngb" firstAttribute="centerX" secondItem="rfo-4L-Xsg" secondAttribute="centerX" id="oOC-Vs-U6i"/>
                             <constraint firstItem="28M-PU-ngb" firstAttribute="top" secondItem="Ce3-C2-SsP" secondAttribute="bottom" constant="16" id="zYn-y2-KwU"/>
+                            <constraint firstItem="Cax-vg-gfg" firstAttribute="top" secondItem="28M-PU-ngb" secondAttribute="bottom" constant="72" id="zgF-lE-2P7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8i0-85-pba"/>
                     </view>
@@ -159,8 +131,7 @@
                         <outlet property="communityDescriptionLabel" destination="28M-PU-ngb" id="CXa-Sm-GaN"/>
                         <outlet property="communityDetailImageView" destination="Hh7-L2-nc2" id="8WM-Cx-8Up"/>
                         <outlet property="communityNameLabel" destination="Ce3-C2-SsP" id="K9a-yA-lap"/>
-                        <outlet property="facebookButton" destination="gFZ-GS-duN" id="pro-BG-ein"/>
-                        <outlet property="otherLinkButton" destination="52I-r3-1Hk" id="QlN-JF-wQW"/>
+                        <outlet property="facebookButton" destination="Cax-vg-gfg" id="JPf-Q7-Csv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cbp-BY-lNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -340,8 +311,4 @@
             <point key="canvasLocation" x="5229" y="875"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="connect" width="50" height="50"/>
-        <image name="facebook" width="50" height="50"/>
-    </resources>
 </document>

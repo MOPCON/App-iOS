@@ -16,7 +16,6 @@ class GroupHostDetailViewController: UIViewController {
     @IBOutlet weak var communityNameLabel: UILabel!
     @IBOutlet weak var communityDescriptionLabel: UILabel!
     @IBOutlet weak var facebookButton: UIButton!
-    @IBOutlet weak var otherLinkButton: UIButton!
     
     
     @IBAction func connectToFacebook(_ sender: UIButton) {
@@ -34,6 +33,7 @@ class GroupHostDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         communityDescriptionLabel.adjustsFontSizeToFitWidth = true
         
         if let community = community {
@@ -41,14 +41,24 @@ class GroupHostDetailViewController: UIViewController {
             if community.facebook == "" {
                 facebookButton.isHidden = true
             }
-            if community.other_links == "" {
-                otherLinkButton.isHidden = true
-            }
         }
+        
+        facebookButton.layer.cornerRadius = 15
+        
+        facebookButton.layer.borderColor = UIColor.azure?.cgColor
+        
+        facebookButton.layer.borderWidth = 1.0
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        communityDetailImageView.makeCircle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         if CurrentLanguage.getLanguage() == Language.english.rawValue {
             self.navigationItem.title = "Community"
         }
