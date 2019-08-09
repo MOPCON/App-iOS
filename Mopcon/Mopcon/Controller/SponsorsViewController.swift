@@ -50,7 +50,8 @@ class SponsorsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if CurrentLanguage.getLanguage() == Language.english.rawValue {
-            self.navigationItem.title = "Sponsor"
+            
+            navigationItem.title = "Sponsor"
         }
     }
 
@@ -60,8 +61,11 @@ class SponsorsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == SegueIDManager.performSponsorDetail{
+        
             if let vc = segue.destination as? SponsorDetailViewController {
+            
                 vc.sponsor = self.selectedSponsor
             }
         }
@@ -70,14 +74,18 @@ class SponsorsViewController: UIViewController {
     func getSponsors() {
         
         spinner.startAnimating()
+        
         spinner.center = view.center
-        self.view.addSubview(spinner)
+        
+        view.addSubview(spinner)
         
         SponsorAPI.getAPI(url: MopconAPI.shared.sponsor) { (payload, error) in
             
             if error != nil {
                 print(error!.localizedDescription)
+                
                 self.spinner.removeFromSuperview()
+                
                 return
             }
             
@@ -139,9 +147,10 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
         let sponsor = sponsors[indexPath.section][indexPath.row]
         
         let smallImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: SponsorCollectionViewIDManager.sponsorCollectionCell, for: indexPath) as! SponsorSmallCollectionViewCell
-        smallImageCell.updateUI(sponsor: sponsor)
-        return smallImageCell
         
+        smallImageCell.updateUI(sponsor: sponsor)
+        
+        return smallImageCell
     }
     
     

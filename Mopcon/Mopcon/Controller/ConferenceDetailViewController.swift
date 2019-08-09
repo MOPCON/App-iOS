@@ -46,15 +46,11 @@ class ConferenceDetailViewController: UIViewController {
             
             sender.image = #imageLiteral(resourceName: "like_24")
             
-//            sender.tintColor = .azure
-        
         } else {
         
             MySchedules.remove(agenda: agenda, forKey: key)
             
             sender.image = #imageLiteral(resourceName: "dislike_24")
-            
-//            sender.
         }
     }
     
@@ -75,6 +71,19 @@ class ConferenceDetailViewController: UIViewController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    
+        speakerImageView.makeCircle()
+
+        sponsorImageView.makeCircle()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
+    
     func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent) {
         
         if let picture = agenda.picture {
@@ -87,7 +96,7 @@ class ConferenceDetailViewController: UIViewController {
             addToMyScheduleButtonItem.image = #imageLiteral(resourceName: "like_24")
         }
 
-        speakerImageView.makeCircle()
+        
         
         let language = CurrentLanguage.getLanguage()
         
@@ -122,7 +131,7 @@ class ConferenceDetailViewController: UIViewController {
             break
         }
         
-        sponsorImageView.makeCircle()
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -103,6 +103,7 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
         
         if indexPath.section == 2 {
             (cell as! ConferenceTableViewCell).leadingConstraint.constant = 20
+            
             (cell as! ConferenceTableViewCell).trailingConstraint.constant = 20
 //            (cell as! ConferenceTableViewCell).updateUI(agenda: )
             return cell
@@ -116,10 +117,7 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
                 if let url = URL(string: sponsor.logo) {
                 
                     sponsorImageView.kf.setImage(with: url)
-                    
-                    sponsorImageView.makeCircle()
                 }
-      
             }
             
             if let sponsorNameLabel = cell.viewWithTag(1) as? UILabel {
@@ -141,10 +139,19 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
                 
                 seeMoreButton.addTarget(self, action: #selector(showMore), for: .touchUpInside)
             }
-
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if let sponsorImageView = cell.viewWithTag(3) as? UIImageView {
+        
+            sponsorImageView.layoutIfNeeded()
+            
+            sponsorImageView.makeCircle()
+        }
     }
     
 

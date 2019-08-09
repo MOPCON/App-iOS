@@ -14,10 +14,13 @@ class SponsorSmallCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var sponsorLabel: UILabel!
     
-    func updateUI(sponsor:Sponsor.Payload){
+    override func layoutSubviews() {
         
         sponsorImageView.makeCircle()
-        
+    }
+    
+    func updateUI(sponsor:Sponsor.Payload){
+                
         sponsorLabel.text = (CurrentLanguage.getLanguage() == Language.english.rawValue) ? sponsor.name_en : sponsor.name
         
         if let url = URL(string: sponsor.logo) {
