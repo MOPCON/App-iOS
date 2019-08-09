@@ -32,19 +32,20 @@ enum TabCategory: String {
         }
         
         //等到所有 tab 都完成，這邊就可以改成 return vc，不需要 switch case
-        switch self {
-            
-        case .lobby: return vc
-            
-        case .agenda:  return vc
-            
-        case .news: return vc
-            
-        case .communication: return vc
-            
-        default: return UIViewController()
-            
-        }
+        return vc
+//        switch self {
+//
+//        case .lobby: return vc
+//
+//        case .agenda:  return vc
+//
+//        case .news: return vc
+//
+//        case .communication: return vc
+//
+//        default: return UIViewController()
+//
+//        }
     }
     
     func image() -> UIImage? {
