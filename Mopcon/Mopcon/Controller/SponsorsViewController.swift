@@ -10,40 +10,45 @@ import UIKit
 
 enum SponsorSection: Int {
     case bruce_wayne
+    
     case hacker
+    
     case geek
+    
     case developer
+    
     case educationSponsorship
+    
     case specialThanks
+    
     case co_organiser
 }
 
 class SponsorsViewController: UIViewController {
    
     var selectedSponsor: Sponsor.Payload?
+    
     var sponsors = [[Sponsor.Payload]]()
+    
     let spinner = LoadingTool.setActivityindicator()
     
     @IBOutlet weak var sponsorsCollectionView: UICollectionView!
     
-    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clear
+        
         sponsorsCollectionView.delegate = self
+        
         sponsorsCollectionView.dataSource = self
         
         getSponsors()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
+        
         if CurrentLanguage.getLanguage() == Language.english.rawValue {
             self.navigationItem.title = "Sponsor"
         }
@@ -148,13 +153,13 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
         
         switch indexPath.section {
         case SponsorSection.bruce_wayne.rawValue:
-            title = "ＢＲＵＣＥ ＷＡＹＮＥ"
+            title = "BRUCE WAYNE"
         case SponsorSection.hacker.rawValue:
-            title = "ＨＡＣＫＥＲ"
+            title = "HACKER"
         case SponsorSection.geek.rawValue:
-            title = "ＧＥＥＫ"
+            title = "GEEK"
         case SponsorSection.developer.rawValue:
-            title = "ＤＥＶＥＬＯＰＥＲ"
+            title = "DEVELOPER"
         case SponsorSection.educationSponsorship.rawValue:
             title = "教育贊助"
         case SponsorSection.specialThanks.rawValue:

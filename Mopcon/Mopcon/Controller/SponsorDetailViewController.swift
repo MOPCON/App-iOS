@@ -11,6 +11,7 @@ import UIKit
 enum SponsorCellStyle: Int {
     case sponsor
     case info
+    case speech
     case seeMore
 }
 
@@ -21,17 +22,31 @@ class SponsorDetailViewController: UIViewController {
     @IBOutlet weak var sponsorsTableView: UITableView!
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        sponsorsTableView.dataSource = self
-        sponsorsTableView.delegate = self
+
+        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
+        
         if CurrentLanguage.getLanguage() == Language.english.rawValue {
-            self.navigationItem.title = "Sponsor"
+        
+            navigationItem.title = "Sponsor"
         }
+    }
+    
+    private func setupTableView() {
+        
+        sponsorsTableView.dataSource = self
+        
+        sponsorsTableView.delegate = self
+        
+         let conferenceTableViewCell = UINib(nibName: String(describing: ConferenceTableViewCell.self), bundle: nil)
+        
+        sponsorsTableView.register(conferenceTableViewCell, forCellReuseIdentifier: AgendaTableViewCellID.conferenceCell)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +55,9 @@ class SponsorDetailViewController: UIViewController {
     }
     
     @objc func showMore() {
+        
         if let sponsor = sponsor,let url = URL(string: sponsor.website) {
+        
             UIApplication.shared.open(url, options: [:])
         }
     }
@@ -48,45 +65,80 @@ class SponsorDetailViewController: UIViewController {
 
 extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 4
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        
+        /* should get data count from api */
+        return (section == 2) ? 1 : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cellidentifer = ""
         
-        
-        switch indexPath.row {
+        switch indexPath.section {
+            
         case SponsorCellStyle.sponsor.rawValue:
+            
             cellidentifer = SponsorTableViewCellID.sponsorCell
+            
         case SponsorCellStyle.info.rawValue:
+            
             cellidentifer = SponsorTableViewCellID.sponsorInfoCell
+        
+        case SponsorCellStyle.speech.rawValue:
+            
+            cellidentifer = AgendaTableViewCellID.conferenceCell
+            
         default:
+            
             cellidentifer = SponsorTableViewCellID.seeMoreCell
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellidentifer, for: indexPath)
+        
+        if indexPath.section == 2 {
+            (cell as! ConferenceTableViewCell).leadingConstraint.constant = 20
+            (cell as! ConferenceTableViewCell).trailingConstraint.constant = 20
+//            (cell as! ConferenceTableViewCell).updateUI(agenda: )
+            return cell
+        }
+        
         if let sponsor = sponsor {
             // Get sponsor Data
+        
             if let sponsorImageView = cell.viewWithTag(3) as? UIImageView {
+                
                 if let url = URL(string: sponsor.logo) {
+                
                     sponsorImageView.kf.setImage(with: url)
+                    
+                    sponsorImageView.makeCircle()
                 }
+      
             }
             
             if let sponsorNameLabel = cell.viewWithTag(1) as? UILabel {
-                sponsorNameLabel.text = sponsor.name
+        
+                sponsorNameLabel.text = (CurrentLanguage.getLanguage() == Language.english.rawValue) ? sponsor.name_en : sponsor.name
             }
             
             if let sponsorInfoLabel = cell.viewWithTag(2) as? UILabel {
-                sponsorInfoLabel.text = sponsor.info
+                
+                sponsorInfoLabel.text = (CurrentLanguage.getLanguage() == Language.english.rawValue) ? sponsor.info_en : sponsor.info
             }
             
             if let seeMoreButton = cell.viewWithTag(4) as? UIButton {
+                
                 if sponsor.website == "" {
+                
                     seeMoreButton.isHidden = true
                 }
+                
                 seeMoreButton.addTarget(self, action: #selector(showMore), for: .touchUpInside)
             }
 
@@ -95,16 +147,5 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return 244
-        case 1:
-            return UITableView.automaticDimension
-        default:
-            return 70
-        }
-    }
-    
-    
+
 }
