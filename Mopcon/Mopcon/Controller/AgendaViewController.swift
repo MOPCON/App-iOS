@@ -55,12 +55,11 @@ class AgendaViewController: UIViewController {
         
         agendaTableView.separatorStyle = .none
         
-        
         dateSelectionView.dataSource = self
         
         scheduleSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)], for: .selected)
         
-        setCommunicationCell()
+        setupTableViewCell()
         
         getSchedule()
         
@@ -101,11 +100,15 @@ class AgendaViewController: UIViewController {
         }
     }
     
-    private func setCommunicationCell() {
+    private func setupTableViewCell() {
+        
+        let conferenceTableViewCell = UINib(nibName: String(describing: ConferenceTableViewCell.self), bundle: nil)
         
         let communicationCell = UINib(nibName: String(describing: CommunicationConferenceTableViewCell.self), bundle: nil)
         
         let communicationBreakCell = UINib(nibName: String(describing: CommunicationBreakTableViewCell.self), bundle: nil)
+        
+        agendaTableView.register(conferenceTableViewCell, forCellReuseIdentifier: AgendaTableViewCellID.conferenceCell)
         
         agendaTableView.register(communicationCell, forCellReuseIdentifier: CommunicationTableViewCellID.communicationConferenceCell)
         
