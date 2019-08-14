@@ -32,17 +32,20 @@ enum TabCategory: String {
         }
         
         //等到所有 tab 都完成，這邊就可以改成 return vc，不需要 switch case
-        switch self {
-            
-        case .lobby: return vc
-            
-        case .agenda:  return vc
-            
-        case .news: return vc
-            
-        default: return UIViewController()
-            
-        }
+        return vc
+//        switch self {
+//
+//        case .lobby: return vc
+//
+//        case .agenda:  return vc
+//
+//        case .news: return vc
+//
+//        case .communication: return vc
+//
+//        default: return UIViewController()
+//
+//        }
     }
     
     func image() -> UIImage? {
@@ -133,10 +136,42 @@ class TabBarViewController: UITabBarController {
             return vc
         }
         
+        tabBar.unselectedItemTintColor = .white
+        
         tabBar.tintColor = UIColor.azure
         
         tabBar.barTintColor = UIColor.dark
 
         tabBar.isTranslucent = false
+        
+        moreNavigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        
+        moreNavigationController.navigationBar.shadowImage = UIImage.imageWithColor(color: (UIColor.azure?.withAlphaComponent(0.2))!)
+        
+        moreNavigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        moreNavigationController.navigationBar.isTranslucent = true
+        
+        moreNavigationController.topViewController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        if let moreTableView = moreNavigationController.topViewController?.view as? UITableView {
+            
+            moreTableView.backgroundColor = UIColor.dark
+            
+            moreTableView.tintColor = .white
+            
+            moreTableView.separatorStyle = .none
+            
+            for cell in moreTableView.visibleCells {
+            
+                cell.selectionStyle = .none
+                
+                cell.textLabel?.textColor = .white
+                
+                cell.backgroundColor = .clear
+            }
+        }
+        
+        customizableViewControllers = []
     }
 }
