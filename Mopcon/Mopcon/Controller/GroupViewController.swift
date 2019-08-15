@@ -26,7 +26,7 @@ private enum GroupType {
     }
 }
 
-class GroupViewController: UIViewController {
+class GroupViewController: MPBaseViewController {
     
     @IBOutlet weak var communityImageContainerView: UIView!
     

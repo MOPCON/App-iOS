@@ -33,6 +33,9 @@ enum ImageAsset: String {
     //Lobby
     case dislike_24 = "dislike_24"
     case like_24 = "like_24"
+    
+    //Base
+    case back = "back"
 }
 
 extension UIImage {

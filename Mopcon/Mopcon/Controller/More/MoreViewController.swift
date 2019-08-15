@@ -64,7 +64,7 @@ private enum TabCategory: String {
     }
 }
 
-class MoreViewController: UIViewController {
+class MoreViewController: MPBaseViewController {
 
     @IBOutlet weak var tableView: UITableView! {
         

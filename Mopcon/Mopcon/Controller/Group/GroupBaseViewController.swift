@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupBaseViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, JoinVolunteerViewDelegate {
+class GroupBaseViewController: MPBaseViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, JoinVolunteerViewDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView! {
         
