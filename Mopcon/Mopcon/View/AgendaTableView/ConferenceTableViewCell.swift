@@ -26,6 +26,9 @@ class ConferenceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var addToMyScheduleButton: UIButton!
     
+    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
     
     var delegate: WhichCellButtonDidTapped?
     

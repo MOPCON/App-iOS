@@ -25,18 +25,31 @@ class CommunicationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupTableView()
+        
+        dateSelectionView.dataSource = self
+        
+        getCommunicationAPI()
+    }
+    
+    private func setupTableView() {
+        
         communicationTableView.separatorStyle = .none
         
         communicationTableView.delegate = self
         
         communicationTableView.dataSource = self
         
-        dateSelectionView.dataSource = self
+        let communicationCell = UINib(nibName: String(describing: CommunicationConferenceTableViewCell.self), bundle: nil)
         
-        getCoummunicationAPI()
+        let communicationBreakCell = UINib(nibName: String(describing: CommunicationBreakTableViewCell.self), bundle: nil)
+        
+        communicationTableView.register(communicationCell, forCellReuseIdentifier: CommunicationTableViewCellID.communicationConferenceCell)
+        
+        communicationTableView.register(communicationBreakCell, forCellReuseIdentifier: CommunicationTableViewCellID.communicationBreakCell)
     }
     
-    func getCoummunicationAPI() {
+    func getCommunicationAPI() {
         spinner.center = view.center
         
         spinner.startAnimating()

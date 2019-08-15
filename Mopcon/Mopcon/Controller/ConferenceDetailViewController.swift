@@ -24,29 +24,33 @@ class ConferenceDetailViewController: UIViewController {
     
     @IBOutlet weak var speakerJob: UILabel!
     
-    @IBOutlet weak var companyLabel: UILabel!
-    
     @IBOutlet weak var scheduleInfoLabel: UILabel!
     
-    @IBOutlet weak var addToMyScheduleButton: CustomCornerButton!
+    @IBOutlet weak var addToMyScheduleButtonItem: UIBarButtonItem!
     
-    @IBAction func addToMySchedule(_ sender: UIButton) {
+    @IBOutlet weak var sponsorTitleLabel: UILabel!
+    
+    @IBOutlet weak var sponsorImageView: UIImageView!
+    
+    @IBOutlet weak var sponsorLabel: UILabel!
+    
+    @IBAction func addToMySchedule(_ sender: UIBarButtonItem) {
         
         guard let agenda = agenda,let key = key  else {
             return
         }
         
-        if sender.currentImage == #imageLiteral(resourceName: "dislike_24"){
+        if sender.image == #imageLiteral(resourceName: "dislike_24"){
     
             MySchedules.add(agenda: agenda, forKey: key)
             
-            sender.setImage(#imageLiteral(resourceName: "like_24"), for: .normal)
-        
+            sender.image = #imageLiteral(resourceName: "like_24")
+            
         } else {
         
             MySchedules.remove(agenda: agenda, forKey: key)
             
-            sender.setImage(#imageLiteral(resourceName: "dislike_24"), for: .normal)
+            sender.image = #imageLiteral(resourceName: "dislike_24")
         }
     }
     
@@ -56,30 +60,43 @@ class ConferenceDetailViewController: UIViewController {
         
         if CurrentLanguage.getLanguage() == Language.english.rawValue {
         
-            self.navigationItem.title = "Agenda"
-        
+            navigationItem.title = "Agenda"
+            
+            sponsorTitleLabel.text = "Sponsor"
         }
         
         if let agenda = agenda {
         
             updateUI(agenda: agenda)
-        
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    
+        speakerImageView.makeCircle()
+
+        sponsorImageView.makeCircle()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
     }
     
     func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent) {
         
         if let picture = agenda.picture {
         
-            self.speakerImageView.getImage(address: picture)
+            speakerImageView.kf.setImage(with: URL(string: picture))
         }
         
         if MySchedules.checkRepeat(scheduleID: agenda.schedule_id) {
         
-            self.addToMyScheduleButton.setImage(#imageLiteral(resourceName: "like_24"), for: .normal)
+            addToMyScheduleButtonItem.image = #imageLiteral(resourceName: "like_24")
         }
 
-        self.speakerImageView.makeCircle()
+        
         
         let language = CurrentLanguage.getLanguage()
         
@@ -87,36 +104,34 @@ class ConferenceDetailViewController: UIViewController {
         
         case Language.chinese.rawValue:
         
-            self.scheduleInfoLabel.text = agenda.schedule_info
+            scheduleInfoLabel.text = agenda.schedule_info
             
-            self.companyLabel.text = agenda.company
+            typeLabel.text = agenda.category
             
-            self.typeLabel.text = agenda.category
+            topicLabel.text = agenda.schedule_topic
             
-            self.topicLabel.text = agenda.schedule_topic
+            speakerName.text = agenda.name
             
-            self.speakerName.text = agenda.name
-            
-            self.speakerJob.text = agenda.job
+            speakerJob.text = "\(agenda.job ?? "")@\(agenda.company ?? "")"
         
         case Language.english.rawValue:
         
-            self.scheduleInfoLabel.text = agenda.schedule_info_en
+            scheduleInfoLabel.text = agenda.schedule_info_en
             
-            self.companyLabel.text = agenda.company
+            topicLabel.text = agenda.schedule_topic_en
             
-            self.topicLabel.text = agenda.schedule_topic_en
+            typeLabel.text = agenda.category
             
-            self.typeLabel.text = agenda.category
+            speakerName.text = agenda.name_en
             
-            self.speakerName.text = agenda.name_en
-            
-            self.speakerJob.text = agenda.job
+            speakerJob.text = "\(agenda.job ?? "")@\(agenda.company ?? "")"
         
         default:
         
             break
         }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
