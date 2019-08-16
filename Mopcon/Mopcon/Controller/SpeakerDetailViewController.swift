@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpeakerDetailViewController: UIViewController {
+class SpeakerDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var speakerView: SpeakerView!
     

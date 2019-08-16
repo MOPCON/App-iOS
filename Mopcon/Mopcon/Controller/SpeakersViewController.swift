@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpeakersViewController: UIViewController {
+class SpeakersViewController: MPBaseViewController {
     
     override var hidesBottomBarWhenPushed: Bool {
         
