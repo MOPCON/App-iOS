@@ -36,6 +36,20 @@ enum ImageAsset: String {
     
     //Base
     case back = "back"
+    
+    //Group
+    case committee_team
+    case agenda_team
+    case finance_team
+    case administrative_team
+    case sponsor_team
+    case into_team
+    case art_team
+    case public_team
+    case place_team
+    case record_team
+    case video_team
+    
 }
 
 extension UIImage {

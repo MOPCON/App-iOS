@@ -277,11 +277,81 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="wqN-m0-jrp" id="IVY-VJ-uH0"/>
+                        <segue destination="Fg7-Rl-VKX" kind="show" identifier="performCommunityDetail" id="PQI-q0-u1S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOC-u9-NK2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5228.985507246377" y="874.55357142857144"/>
+        </scene>
+        <!--志工資訊-->
+        <scene sceneID="P0q-De-nK1">
+            <objects>
+                <viewController id="Fg7-Rl-VKX" customClass="VolunteerDetailViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tVT-RI-oGZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aAS-bR-Xvo">
+                                <rect key="frame" x="163" y="81" width="88" height="88.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aAS-bR-Xvo" secondAttribute="height" id="n9Y-bv-8QL"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="議程委員會" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1d-Yv-mxv">
+                                <rect key="frame" x="167" y="189.5" width="80" height="22.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="議程品質的守門員，審核各方來稿是否適合 MOPCON 舞台。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5MJ-UB-fbo">
+                                <rect key="frame" x="20" y="228" width="374" height="45"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成員" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fhv-bu-mKJ">
+                                <rect key="frame" x="20" y="289" width="32" height="22.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王小明，素還真，東尼大木，多拉Ａ夢" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3a-XQ-TKV">
+                                <rect key="frame" x="20" y="319.5" width="374" height="22.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Fhv-bu-mKJ" firstAttribute="top" secondItem="5MJ-UB-fbo" secondAttribute="bottom" constant="16" id="1lg-zB-1bx"/>
+                            <constraint firstItem="F3a-XQ-TKV" firstAttribute="top" secondItem="Fhv-bu-mKJ" secondAttribute="bottom" constant="8" id="Hcd-u1-r3A"/>
+                            <constraint firstItem="aAS-bR-Xvo" firstAttribute="top" secondItem="uvt-Bk-e1n" secondAttribute="top" constant="37" id="HtS-BZ-fmc"/>
+                            <constraint firstItem="5MJ-UB-fbo" firstAttribute="top" secondItem="F1d-Yv-mxv" secondAttribute="bottom" constant="16" id="KDg-aL-TkJ"/>
+                            <constraint firstItem="aAS-bR-Xvo" firstAttribute="width" secondItem="tVT-RI-oGZ" secondAttribute="width" multiplier="80/375" id="OcP-Kb-ZOj"/>
+                            <constraint firstItem="uvt-Bk-e1n" firstAttribute="trailing" secondItem="5MJ-UB-fbo" secondAttribute="trailing" constant="20" id="Pmp-Dt-WNg"/>
+                            <constraint firstItem="aAS-bR-Xvo" firstAttribute="centerX" secondItem="tVT-RI-oGZ" secondAttribute="centerX" id="R2u-Me-p1O"/>
+                            <constraint firstItem="F1d-Yv-mxv" firstAttribute="centerX" secondItem="aAS-bR-Xvo" secondAttribute="centerX" id="VRT-pL-kJn"/>
+                            <constraint firstItem="F1d-Yv-mxv" firstAttribute="top" secondItem="aAS-bR-Xvo" secondAttribute="bottom" constant="20" id="Wmf-uQ-m86"/>
+                            <constraint firstItem="F3a-XQ-TKV" firstAttribute="leading" secondItem="Fhv-bu-mKJ" secondAttribute="leading" id="l1E-ug-vRg"/>
+                            <constraint firstItem="Fhv-bu-mKJ" firstAttribute="leading" secondItem="5MJ-UB-fbo" secondAttribute="leading" id="oW4-Pi-W7k"/>
+                            <constraint firstItem="F3a-XQ-TKV" firstAttribute="trailing" secondItem="5MJ-UB-fbo" secondAttribute="trailing" id="rM0-wd-7BE"/>
+                            <constraint firstItem="5MJ-UB-fbo" firstAttribute="leading" secondItem="uvt-Bk-e1n" secondAttribute="leading" constant="20" id="zJu-FU-drq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uvt-Bk-e1n"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="志工資訊" id="Xyh-Fd-SgU"/>
+                    <connections>
+                        <outlet property="volunteerDetailLbl" destination="5MJ-UB-fbo" id="B9E-Ms-u58"/>
+                        <outlet property="volunteerImgView" destination="aAS-bR-Xvo" id="lfC-9T-lz0"/>
+                        <outlet property="volunteerListLbl" destination="F3a-XQ-TKV" id="8u4-vW-ZKE"/>
+                        <outlet property="volunteerTitleLbl" destination="F1d-Yv-mxv" id="cQI-NI-yVL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lgJ-49-2sf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6197" y="874"/>
         </scene>
     </scenes>
 </document>

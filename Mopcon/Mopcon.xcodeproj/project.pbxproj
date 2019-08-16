@@ -13,6 +13,7 @@
 		3C3FFEA122FAD6E300873416 /* JoinVolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */; };
 		3C3FFEA322FAD6FE00873416 /* JoinVolunteerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */; };
 		3C6A38DE2305A3F200B4546B /* MPTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A38DD2305A3F200B4546B /* MPTagView.swift */; };
+		3C8C357623069B4000D04CB0 /* VolunteerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */; };
 		3C903F8322979AE600765CB2 /* Agenda.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8222979AE600765CB2 /* Agenda.storyboard */; };
 		3C903F8522979AFB00765CB2 /* Schedual.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8422979AFB00765CB2 /* Schedual.storyboard */; };
 		3C903F8722979B0C00765CB2 /* Communication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8622979B0C00765CB2 /* Communication.storyboard */; };
@@ -152,6 +153,7 @@
 		3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVolunteerView.swift; sourceTree = "<group>"; };
 		3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JoinVolunteerView.xib; sourceTree = "<group>"; };
 		3C6A38DD2305A3F200B4546B /* MPTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTagView.swift; sourceTree = "<group>"; };
+		3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerDetailViewController.swift; sourceTree = "<group>"; };
 		3C903F8222979AE600765CB2 /* Agenda.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Agenda.storyboard; sourceTree = "<group>"; };
 		3C903F8422979AFB00765CB2 /* Schedual.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedual.storyboard; sourceTree = "<group>"; };
 		3C903F8622979B0C00765CB2 /* Communication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Communication.storyboard; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				3C9335BE22FBF31E00545A6E /* GroupBaseViewController.swift */,
 				D6555F2E20EC783A000816DF /* GroupHostDetailViewController.swift */,
 				D6555F3220EC8397000816DF /* VolunteerViewController.swift */,
+				3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -928,6 +931,7 @@
 				5E349CA6212411200060297A /* SponsorDetailTableViewCell.swift in Sources */,
 				D6B5166920EA07A1003FA56F /* CornerImageView.swift in Sources */,
 				D633463D20E914820033E5B4 /* GridCollectionViewCell.swift in Sources */,
+				3C8C357623069B4000D04CB0 /* VolunteerDetailViewController.swift in Sources */,
 				D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */,
 				3C6A38DE2305A3F200B4546B /* MPTagView.swift in Sources */,
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,

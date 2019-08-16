@@ -37,19 +37,36 @@ class VolunteerViewController: GroupBaseViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == SegueIDManager.performCommunityDetail,
+           let destinationVC = segue.destination as? VolunteerDetailViewController {
+            
+            destinationVC.loadViewIfNeeded()
+            
+            destinationVC.volunteer = sender as? Volunteer.Payload
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return volunteers.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let communityImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellKeyManager.communityImageCell, for: indexPath) as! CommunityImageCollectionViewCell
-//        communityImageCell.updateUI(image: volunteers[indexPath.row], title: )
+        
+        let communityImageCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: CollectionViewCellKeyManager.communityImageCell,
+            for: indexPath
+        ) as! CommunityImageCollectionViewCell
+        
+        communityImageCell.updateUI(image: volunteers[indexPath.row].image(), title: volunteers[indexPath.row].groupname)
+        
         return communityImageCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-//        performSegue(withIdentifier: SegueIDManager.performCommunityDetail, sender: nil)
+        performSegue(withIdentifier: SegueIDManager.performCommunityDetail, sender: volunteers[indexPath.row])
     }
     
 }

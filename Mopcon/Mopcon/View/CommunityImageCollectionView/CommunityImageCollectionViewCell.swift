@@ -27,6 +27,13 @@ class CommunityImageCollectionViewCell: UICollectionViewCell {
         
         communityImageView.loadImage(image)
     }
+
+    func updateUI(image: UIImage?, title: String){
+        
+        communityLabel.text = title
+        
+        communityImageView.image = image
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
