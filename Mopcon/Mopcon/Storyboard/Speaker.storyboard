@@ -51,19 +51,17 @@
                                                             <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blockchain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O34-ud-LJf">
-                                                            <rect key="frame" x="116" y="88.5" width="45.5" height="18"/>
-                                                            <color key="backgroundColor" red="0.0039215686274509803" green="0.66666666666666663" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIE-I7-D2d" customClass="MPTagView" customModule="Mopcon" customModuleProvider="target">
+                                                            <rect key="frame" x="116" y="88.5" width="234" height="18"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="18" id="1WN-dR-1Wb"/>
+                                                                <constraint firstAttribute="height" constant="18" id="Pr6-SR-WAy"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="9"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="zIE-I7-D2d" secondAttribute="trailing" constant="20" id="4g6-2k-D2G"/>
                                                         <constraint firstItem="56K-QZ-jFJ" firstAttribute="leading" secondItem="db9-vl-c5G" secondAttribute="leading" id="65V-EQ-PUO"/>
                                                         <constraint firstItem="db9-vl-c5G" firstAttribute="top" secondItem="zAC-cd-Ic2" secondAttribute="top" constant="5" id="Abh-0h-s3t"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="56K-QZ-jFJ" secondAttribute="trailing" constant="20" id="EuX-DP-l5W"/>
@@ -72,8 +70,8 @@
                                                         <constraint firstItem="zAC-cd-Ic2" firstAttribute="leading" secondItem="Ksh-ae-mMq" secondAttribute="leading" constant="20" id="Nop-E7-KUV"/>
                                                         <constraint firstItem="zAC-cd-Ic2" firstAttribute="centerY" secondItem="Ksh-ae-mMq" secondAttribute="centerY" constant="-1" id="VBc-uc-Drm"/>
                                                         <constraint firstItem="56K-QZ-jFJ" firstAttribute="top" secondItem="db9-vl-c5G" secondAttribute="bottom" constant="8" id="dDZ-jr-NRe"/>
-                                                        <constraint firstItem="O34-ud-LJf" firstAttribute="top" secondItem="56K-QZ-jFJ" secondAttribute="bottom" constant="8" id="hYl-Ri-Wna"/>
-                                                        <constraint firstItem="O34-ud-LJf" firstAttribute="leading" secondItem="56K-QZ-jFJ" secondAttribute="leading" id="qpN-fX-JTf"/>
+                                                        <constraint firstItem="zIE-I7-D2d" firstAttribute="leading" secondItem="56K-QZ-jFJ" secondAttribute="leading" id="uSw-sl-u4d"/>
+                                                        <constraint firstItem="zIE-I7-D2d" firstAttribute="top" secondItem="56K-QZ-jFJ" secondAttribute="bottom" constant="8" id="vJR-NX-U7s"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -90,6 +88,7 @@
                                             <outlet property="speakerAvatarImageView" destination="zAC-cd-Ic2" id="f40-Ps-YgC"/>
                                             <outlet property="speakerJobLabel" destination="56K-QZ-jFJ" id="RFX-ND-3mW"/>
                                             <outlet property="speakerNameLabel" destination="db9-vl-c5G" id="Y8J-Jr-wEe"/>
+                                            <outlet property="tagView" destination="zIE-I7-D2d" id="Lyv-TG-9gs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
