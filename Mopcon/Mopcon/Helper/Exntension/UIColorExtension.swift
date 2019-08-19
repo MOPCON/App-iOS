@@ -16,6 +16,14 @@ extension UIColor {
     
     static let almostBlack = UIColor(hex: "#070b11", alpha: 0.2)
     
+    static let pink = UIColor(hex: "#ff4392")
+    
+    static let barbiePink = UIColor(hex: "#ff4492")
+    
+    static let azureTwo = UIColor(hex: "#01aaf0")
+    
+    static let greenTwo = UIColor(hex: "#98ce02")
+    
     public convenience init?(hex: String, alpha: CGFloat = 1.0) {
         
         var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

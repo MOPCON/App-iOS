@@ -10,6 +10,11 @@ import UIKit
 
 extension UIView {
     
+    static var identifier: String {
+        
+        return String(describing: self)
+    }
+    
     func addAndStickSubView(_ subview: UIView) {
         
         subview.translatesAutoresizingMaskIntoConstraints = false

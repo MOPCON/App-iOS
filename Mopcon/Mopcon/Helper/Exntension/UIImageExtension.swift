@@ -33,6 +33,23 @@ enum ImageAsset: String {
     //Lobby
     case dislike_24 = "dislike_24"
     case like_24 = "like_24"
+    
+    //Base
+    case back = "back"
+    
+    //Group
+    case committee_team
+    case agenda_team
+    case finance_team
+    case administrative_team
+    case sponsor_team
+    case into_team
+    case art_team
+    case public_team
+    case place_team
+    case record_team
+    case video_team
+    
 }
 
 extension UIImage {

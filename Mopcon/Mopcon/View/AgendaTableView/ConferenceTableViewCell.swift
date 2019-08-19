@@ -26,11 +26,15 @@ class ConferenceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var addToMyScheduleButton: UIButton!
     
+    @IBOutlet weak var tagView: MPTagView!
+    
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
     
     var delegate: WhichCellButtonDidTapped?
+    
+    var tags: [SpeakerTag] = [.blockchain, .design, .ioT]
     
     var index:IndexPath?
     
@@ -58,6 +62,8 @@ class ConferenceTableViewCell: UITableViewCell {
         contentView.subviews.first?.layer.borderColor = UIColor.azure?.cgColor
         
         contentView.subviews.first?.layer.borderWidth = 1
+        
+        tagView.dataSource = self
         
         layoutIfNeeded()
     }
@@ -104,5 +110,23 @@ class ConferenceTableViewCell: UITableViewCell {
             
             break
         }
+    }
+}
+
+extension ConferenceTableViewCell: MPTagViewDataSource {
+    
+    func numberOfTags(_ tagView: MPTagView) -> Int {
+        
+        return tags.count
+    }
+    
+    func titleForTags(_ tagView: MPTagView, index: Int) -> String {
+        
+        return tags[index].rawValue
+    }
+    
+    func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
+        
+        return tags[index].color
     }
 }

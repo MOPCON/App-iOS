@@ -12,13 +12,33 @@ class CommunityImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var communityImageView: UIImageView!
     
-    func updateUI(community:Community.Payload){
-        self.backgroundColor = UIColor.white
-        self.layer.cornerRadius = 5
+    @IBOutlet weak var communityLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.backgroundColor = UIColor.clear
         self.layer.masksToBounds = true
-        if let url = URL(string: community.logo) {
-            communityImageView.kf.setImage(with: url)
-        }
+    }
+    
+    func updateUI(image: String, title: String){
+        
+        communityLabel.text = title
+        
+        communityImageView.loadImage(image)
+    }
+
+    func updateUI(image: UIImage?, title: String){
+        
+        communityLabel.text = title
+        
+        communityImageView.image = image
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        communityImageView.makeCircle()
     }
     
 }

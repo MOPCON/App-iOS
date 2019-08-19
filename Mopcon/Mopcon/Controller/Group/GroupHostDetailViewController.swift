@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ComminityDetailViewController: UIViewController {
+class GroupHostDetailViewController: UIViewController {
     
     var community: Community.Payload?
     
@@ -16,7 +16,6 @@ class ComminityDetailViewController: UIViewController {
     @IBOutlet weak var communityNameLabel: UILabel!
     @IBOutlet weak var communityDescriptionLabel: UILabel!
     @IBOutlet weak var facebookButton: UIButton!
-    @IBOutlet weak var otherLinkButton: UIButton!
     
     
     @IBAction func connectToFacebook(_ sender: UIButton) {
@@ -34,34 +33,35 @@ class ComminityDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         communityDescriptionLabel.adjustsFontSizeToFitWidth = true
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clear
-        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         if let community = community {
             updateUI(community: community)
             if community.facebook == "" {
                 facebookButton.isHidden = true
             }
-            if community.other_links == "" {
-                otherLinkButton.isHidden = true
-            }
         }
+        
+        facebookButton.layer.cornerRadius = 15
+        
+        facebookButton.layer.borderColor = UIColor.azure?.cgColor
+        
+        facebookButton.layer.borderWidth = 1.0
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        communityDetailImageView.makeCircle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         if CurrentLanguage.getLanguage() == Language.english.rawValue {
             self.navigationItem.title = "Community"
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func updateUI(community:Community.Payload) {

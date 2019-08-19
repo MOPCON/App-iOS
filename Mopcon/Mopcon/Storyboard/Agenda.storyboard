@@ -49,10 +49,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pAF-GT-RBt">
-                                                    <rect key="frame" x="0.0" y="8" width="374" height="47.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="8" width="335" height="47.666666666666664"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開幕" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLT-Ky-sTg">
-                                                            <rect key="frame" x="321" y="14.000000000000002" width="33" height="19.666666666666671"/>
+                                                            <rect key="frame" x="282" y="14.000000000000002" width="33" height="19.666666666666671"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -250,7 +250,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="演講資訊" id="xJm-Zv-xwn">
-                        <barButtonItem key="rightBarButtonItem" image="dislike_24" style="plain" id="kxq-fN-6D2">
+                        <barButtonItem key="rightBarButtonItem" image="dislike_24" style="done" id="kxq-fN-6D2">
                             <connections>
                                 <action selector="addToMySchedule:" destination="o4V-94-Nxa" id="1hy-uz-dhX"/>
                             </connections>

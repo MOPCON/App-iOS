@@ -10,11 +10,18 @@ import UIKit
 import Foundation
 
 extension UIImageView {
-        
+    
     // Make Circle Image
     func makeCircle() {
         self.layer.cornerRadius = self.frame.height / 2
         
         self.clipsToBounds = true
+    }
+    
+    func loadImage(_ url: String) {
+        
+        guard let url = URL(string: url) else { return }
+        
+        kf.setImage(with: url)
     }
 }

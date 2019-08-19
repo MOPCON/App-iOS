@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C3FFE9A22FAA8E300873416 /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9922FAA8E300873416 /* SpeakerView.swift */; };
+		3C3FFE9C22FAA8F800873416 /* SpeakerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9B22FAA8F800873416 /* SpeakerDetailView.swift */; };
+		3C3FFE9E22FAA90E00873416 /* SpeakerTalkInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9D22FAA90E00873416 /* SpeakerTalkInfoView.swift */; };
+		3C3FFEA122FAD6E300873416 /* JoinVolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */; };
+		3C3FFEA322FAD6FE00873416 /* JoinVolunteerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */; };
+		3C6A38DE2305A3F200B4546B /* MPTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A38DD2305A3F200B4546B /* MPTagView.swift */; };
+		3C8C357623069B4000D04CB0 /* VolunteerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */; };
 		3C903F8322979AE600765CB2 /* Agenda.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8222979AE600765CB2 /* Agenda.storyboard */; };
 		3C903F8522979AFB00765CB2 /* Schedual.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8422979AFB00765CB2 /* Schedual.storyboard */; };
 		3C903F8722979B0C00765CB2 /* Communication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8622979B0C00765CB2 /* Communication.storyboard */; };
@@ -14,8 +21,14 @@
 		3C903F8B22979B2700765CB2 /* Speaker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8A22979B2700765CB2 /* Speaker.storyboard */; };
 		3C903F8D22979B3800765CB2 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8C22979B3700765CB2 /* Group.storyboard */; };
 		3C903F8F22979B4800765CB2 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8E22979B4800765CB2 /* News.storyboard */; };
+		3C9335BF22FBF31E00545A6E /* GroupBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9335BE22FBF31E00545A6E /* GroupBaseViewController.swift */; };
 		3CBDCF7122E182F700561D8D /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7022E182F700561D8D /* SelectionView.swift */; };
 		3CBDCF7322E1888500561D8D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7222E1888500561D8D /* UIViewExtension.swift */; };
+		3CC6FDB223053578007352DB /* MPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FDB123053578007352DB /* MPBaseViewController.swift */; };
+		3CC6FDB42305365F007352DB /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FDB32305365F007352DB /* StringExtension.swift */; };
+		3CFC369E22F92F7B0058C322 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFC369D22F92F7B0058C322 /* More.storyboard */; };
+		3CFC36A122F92FED0058C322 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC36A022F92FED0058C322 /* MoreViewController.swift */; };
+		3CFC36A422F957DA0058C322 /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC36A322F957DA0058C322 /* MoreTableViewCell.swift */; };
 		3CFCF00422DECF9D006184CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCF00322DECF9D006184CD /* Main.storyboard */; };
 		3CFCF00722DED10E006184CD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00622DED10E006184CD /* TabBarViewController.swift */; };
 		3CFCF00922DEEFCB006184CD /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */; };
@@ -87,8 +100,8 @@
 		D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633464120E936ED0033E5B4 /* BannerImageCell.swift */; };
 		D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2520EB1F27000816DF /* SpeakerDetailViewController.swift */; };
 		D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2720EB2A83000816DF /* CustomSelectedButton.swift */; };
-		D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2920EC619F000816DF /* CommunityImageViewController.swift */; };
-		D6555F2F20EC783A000816DF /* ComminityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */; };
+		D6555F2A20EC619F000816DF /* GroupHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2920EC619F000816DF /* GroupHostViewController.swift */; };
+		D6555F2F20EC783A000816DF /* GroupHostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F2E20EC783A000816DF /* GroupHostDetailViewController.swift */; };
 		D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3020EC7D97000816DF /* CornerBackgroundView.swift */; };
 		D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3220EC8397000816DF /* VolunteerViewController.swift */; };
 		D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */; };
@@ -102,7 +115,7 @@
 		D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */; };
 		D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABE20EE106800D4886E /* CommunicationBreakTableViewCell.swift */; };
 		D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67AC120EE108D00D4886E /* CommunicationConferenceTableViewCell.swift */; };
-		D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */; };
+		D6B5166020EA00FC003FA56F /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5165F20EA00FC003FA56F /* GroupViewController.swift */; };
 		D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166120EA0607003FA56F /* SpeakersViewController.swift */; };
 		D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */; };
 		D6B5166720EA0656003FA56F /* SpeakerTableCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B5166620EA0656003FA56F /* SpeakerTableCellID.swift */; };
@@ -134,6 +147,13 @@
 		0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mopcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		293FFEAF5ECBACAF171BB104 /* Pods-Mopcon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.release.xcconfig"; sourceTree = "<group>"; };
 		36A8ADA41F4B2FE3D1F03AD3 /* Pods-Mopcon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.debug.xcconfig"; sourceTree = "<group>"; };
+		3C3FFE9922FAA8E300873416 /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
+		3C3FFE9B22FAA8F800873416 /* SpeakerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailView.swift; sourceTree = "<group>"; };
+		3C3FFE9D22FAA90E00873416 /* SpeakerTalkInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTalkInfoView.swift; sourceTree = "<group>"; };
+		3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVolunteerView.swift; sourceTree = "<group>"; };
+		3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JoinVolunteerView.xib; sourceTree = "<group>"; };
+		3C6A38DD2305A3F200B4546B /* MPTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTagView.swift; sourceTree = "<group>"; };
+		3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerDetailViewController.swift; sourceTree = "<group>"; };
 		3C903F8222979AE600765CB2 /* Agenda.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Agenda.storyboard; sourceTree = "<group>"; };
 		3C903F8422979AFB00765CB2 /* Schedual.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedual.storyboard; sourceTree = "<group>"; };
 		3C903F8622979B0C00765CB2 /* Communication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Communication.storyboard; sourceTree = "<group>"; };
@@ -141,8 +161,14 @@
 		3C903F8A22979B2700765CB2 /* Speaker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Speaker.storyboard; sourceTree = "<group>"; };
 		3C903F8C22979B3700765CB2 /* Group.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
 		3C903F8E22979B4800765CB2 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
+		3C9335BE22FBF31E00545A6E /* GroupBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBaseViewController.swift; sourceTree = "<group>"; };
 		3CBDCF7022E182F700561D8D /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		3CBDCF7222E1888500561D8D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		3CC6FDB123053578007352DB /* MPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPBaseViewController.swift; sourceTree = "<group>"; };
+		3CC6FDB32305365F007352DB /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3CFC369D22F92F7B0058C322 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
+		3CFC36A022F92FED0058C322 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		3CFC36A322F957DA0058C322 /* MoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewCell.swift; sourceTree = "<group>"; };
 		3CFCF00322DECF9D006184CD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3CFCF00622DED10E006184CD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -218,8 +244,8 @@
 		D633464120E936ED0033E5B4 /* BannerImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageCell.swift; sourceTree = "<group>"; };
 		D6555F2520EB1F27000816DF /* SpeakerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailViewController.swift; sourceTree = "<group>"; };
 		D6555F2720EB2A83000816DF /* CustomSelectedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSelectedButton.swift; sourceTree = "<group>"; };
-		D6555F2920EC619F000816DF /* CommunityImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityImageViewController.swift; sourceTree = "<group>"; };
-		D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComminityDetailViewController.swift; sourceTree = "<group>"; };
+		D6555F2920EC619F000816DF /* GroupHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupHostViewController.swift; sourceTree = "<group>"; };
+		D6555F2E20EC783A000816DF /* GroupHostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupHostDetailViewController.swift; sourceTree = "<group>"; };
 		D6555F3020EC7D97000816DF /* CornerBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerBackgroundView.swift; sourceTree = "<group>"; };
 		D6555F3220EC8397000816DF /* VolunteerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerViewController.swift; sourceTree = "<group>"; };
 		D6555F3720EC92B5000816DF /* VolunteerTableCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTableCellID.swift; sourceTree = "<group>"; };
@@ -233,7 +259,7 @@
 		D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationTableViewCellID.swift; sourceTree = "<group>"; };
 		D6A67ABE20EE106800D4886E /* CommunicationBreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationBreakTableViewCell.swift; sourceTree = "<group>"; };
 		D6A67AC120EE108D00D4886E /* CommunicationConferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationConferenceTableViewCell.swift; sourceTree = "<group>"; };
-		D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		D6B5165F20EA00FC003FA56F /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		D6B5166120EA0607003FA56F /* SpeakersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersViewController.swift; sourceTree = "<group>"; };
 		D6B5166320EA062C003FA56F /* SpeakerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTableViewCell.swift; sourceTree = "<group>"; };
 		D6B5166620EA0656003FA56F /* SpeakerTableCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTableCellID.swift; sourceTree = "<group>"; };
@@ -276,6 +302,76 @@
 				0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C3FFE9822FAA89D00873416 /* Speaker */ = {
+			isa = PBXGroup;
+			children = (
+				3C3FFE9922FAA8E300873416 /* SpeakerView.swift */,
+				3C3FFE9B22FAA8F800873416 /* SpeakerDetailView.swift */,
+				3C3FFE9D22FAA90E00873416 /* SpeakerTalkInfoView.swift */,
+			);
+			path = Speaker;
+			sourceTree = "<group>";
+		};
+		3C3FFE9F22FAD6A700873416 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				3C9335BB22FBBAA700545A6E /* JoinVolunteerView */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		3C6A38DC2305A3C800B4546B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3C6A38DD2305A3F200B4546B /* MPTagView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		3C9335BB22FBBAA700545A6E /* JoinVolunteerView */ = {
+			isa = PBXGroup;
+			children = (
+				3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */,
+				3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */,
+			);
+			path = JoinVolunteerView;
+			sourceTree = "<group>";
+		};
+		3C9335BD22FBF2F800545A6E /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				3C9335BE22FBF31E00545A6E /* GroupBaseViewController.swift */,
+				D6555F2E20EC783A000816DF /* GroupHostDetailViewController.swift */,
+				D6555F3220EC8397000816DF /* VolunteerViewController.swift */,
+				3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		3CC6FDB02305321E007352DB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3CC6FDB123053578007352DB /* MPBaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		3CFC369F22F92FDC0058C322 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				3CFC36A022F92FED0058C322 /* MoreViewController.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		3CFC36A222F957C00058C322 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				3CFC36A322F957DA0058C322 /* MoreTableViewCell.swift */,
+			);
+			path = More;
 			sourceTree = "<group>";
 		};
 		3CFCF00522DED0A6006184CD /* TabBar */ = {
@@ -351,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				3C903F8222979AE600765CB2 /* Agenda.storyboard */,
+				3CFC369D22F92F7B0058C322 /* More.storyboard */,
 				3C903F8622979B0C00765CB2 /* Communication.storyboard */,
 				3C903F8C22979B3700765CB2 /* Group.storyboard */,
 				D633462520E8FFC60033E5B4 /* Lobby.storyboard */,
@@ -388,6 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				5E349C9E21228A340060297A /* UIImageViewExtension.swift */,
+				3CC6FDB32305365F007352DB /* StringExtension.swift */,
 				3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */,
 				3CBDCF7222E1888500561D8D /* UIViewExtension.swift */,
 				3CFCF00A22DEFBB2006184CD /* UIColorExtension.swift */,
@@ -458,11 +556,12 @@
 		D633463620E914350033E5B4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3CC6FDB02305321E007352DB /* Base */,
 				D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */,
-				D6555F2E20EC783A000816DF /* ComminityDetailViewController.swift */,
+				3C9335BD22FBF2F800545A6E /* Group */,
 				D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */,
-				D6555F2920EC619F000816DF /* CommunityImageViewController.swift */,
-				D6B5165F20EA00FC003FA56F /* CommunityViewController.swift */,
+				D6555F2920EC619F000816DF /* GroupHostViewController.swift */,
+				D6B5165F20EA00FC003FA56F /* GroupViewController.swift */,
 				D6F0BE6820F0A02B0053A100 /* ConferenceDetailViewController.swift */,
 				D633462320E8FFC60033E5B4 /* LobbyViewController.swift */,
 				D6F0BE6220F06D6C0053A100 /* MyScheduleViewController.swift */,
@@ -471,7 +570,7 @@
 				D6B5166120EA0607003FA56F /* SpeakersViewController.swift */,
 				D6240CE920ECABED002C89E7 /* SponsorDetailViewController.swift */,
 				D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */,
-				D6555F3220EC8397000816DF /* VolunteerViewController.swift */,
+				3CFC369F22F92FDC0058C322 /* More */,
 				5E682E1B213D014800FC37CF /* Missions */,
 				3CFCF00522DED0A6006184CD /* TabBar */,
 			);
@@ -481,6 +580,10 @@
 		D633463920E914550033E5B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3C6A38DC2305A3C800B4546B /* Base */,
+				3C3FFE9F22FAD6A700873416 /* Group */,
+				3C3FFE9822FAA89D00873416 /* Speaker */,
+				3CFC36A222F957C00058C322 /* More */,
 				3CFCF00C22DF1033006184CD /* Lobby */,
 				53850932227D6A960083429A /* CommunityImageCollectionView */,
 				D6555F3620EC926D000816DF /* VolunteerTableView */,
@@ -724,11 +827,13 @@
 				3C903F8922979B1900765CB2 /* Sponsor.storyboard in Resources */,
 				5381B36A22F7442100FEEC2C /* CommunicationBreakTableViewCell.xib in Resources */,
 				53652B4A2296F10A003131BC /* BoothMission.json in Resources */,
+				3CFC369E22F92F7B0058C322 /* More.storyboard in Resources */,
 				D633462F20E8FFC70033E5B4 /* LaunchScreen.storyboard in Resources */,
 				5381B36C22F9EED200FEEC2C /* ConferenceTableViewCell.xib in Resources */,
 				53652B482296F0E0003131BC /* Quiz.json in Resources */,
 				D633462C20E8FFC70033E5B4 /* Assets.xcassets in Resources */,
 				5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */,
+				3C3FFEA322FAD6FE00873416 /* JoinVolunteerView.xib in Resources */,
 				3C903F8522979AFB00765CB2 /* Schedual.storyboard in Resources */,
 				3CFCF01122DF106F006184CD /* LobbyCollectionViewCell.xib in Resources */,
 				3CFCF00422DECF9D006184CD /* Main.storyboard in Resources */,
@@ -818,6 +923,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C3FFE9A22FAA8E300873416 /* SpeakerView.swift in Sources */,
 				53850930227D69480083429A /* VolunteerTableViewCell.swift in Sources */,
 				5E349CA12123015F0060297A /* SpeakersAPI.swift in Sources */,
 				D6240CE620EC9ADC002C89E7 /* SponsorCollectionViewID.swift in Sources */,
@@ -825,15 +931,19 @@
 				5E349CA6212411200060297A /* SponsorDetailTableViewCell.swift in Sources */,
 				D6B5166920EA07A1003FA56F /* CornerImageView.swift in Sources */,
 				D633463D20E914820033E5B4 /* GridCollectionViewCell.swift in Sources */,
+				3C8C357623069B4000D04CB0 /* VolunteerDetailViewController.swift in Sources */,
 				D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */,
+				3C6A38DE2305A3F200B4546B /* MPTagView.swift in Sources */,
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,
 				D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */,
 				D633462420E8FFC60033E5B4 /* LobbyViewController.swift in Sources */,
 				5E349C9F21228A340060297A /* UIImageViewExtension.swift in Sources */,
 				5E564B77213FA86E00F2CED2 /* MissionCollectionViewCell.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
+				3CFC36A122F92FED0058C322 /* MoreViewController.swift in Sources */,
 				D62D30D520ED06F300BBDF5E /* AgendaViewController.swift in Sources */,
 				5E349CAA21242B910060297A /* CommunityAPI.swift in Sources */,
+				3C3FFE9C22FAA8F800873416 /* SpeakerDetailView.swift in Sources */,
 				D6EE629720E9CED20043B68A /* CustomCornerButton.swift in Sources */,
 				5E9FEF0021294FD70096B4A8 /* UserDefaultsExtension.swift in Sources */,
 				D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */,
@@ -841,6 +951,7 @@
 				D66778E420FB062F00E9CA34 /* MyScheduleTableViewCellID.swift in Sources */,
 				5E1753AA2150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift in Sources */,
 				D662A1A520EDB5D600316FE6 /* BreakTableViewCell.swift in Sources */,
+				3CFC36A422F957DA0058C322 /* MoreTableViewCell.swift in Sources */,
 				D6EE629920E9D0B00043B68A /* NewsTableViewCell.swift in Sources */,
 				53850934227D6A960083429A /* CommunityImageCollectionViewCell.swift in Sources */,
 				5E349CA8212411570060297A /* SponsorTableViewCellID.swift in Sources */,
@@ -848,7 +959,7 @@
 				D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */,
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
 				5E349C9021225CE10060297A /* Schedule.swift in Sources */,
-				D6555F2F20EC783A000816DF /* ComminityDetailViewController.swift in Sources */,
+				D6555F2F20EC783A000816DF /* GroupHostDetailViewController.swift in Sources */,
 				5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */,
 				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
 				5E349C9A212270E00060297A /* Community.swift in Sources */,
@@ -859,13 +970,15 @@
 				5E6CBDA1217BB9D60097D5E2 /* Wallet.swift in Sources */,
 				D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */,
 				D6F0BE6520F0756D0053A100 /* StoryboardIDManager.swift in Sources */,
-				D6555F2A20EC619F000816DF /* CommunityImageViewController.swift in Sources */,
+				3CC6FDB223053578007352DB /* MPBaseViewController.swift in Sources */,
+				D6555F2A20EC619F000816DF /* GroupHostViewController.swift in Sources */,
 				D6F0BE6920F0A02B0053A100 /* ConferenceDetailViewController.swift in Sources */,
 				5E1753AC2150D4BA00A5D4C5 /* MopconAPI.swift in Sources */,
+				3C9335BF22FBF31E00545A6E /* GroupBaseViewController.swift in Sources */,
 				D6EE629520E9CAFE0043B68A /* NewsViewController.swift in Sources */,
 				D66778EF20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift in Sources */,
 				D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */,
-				D6B5166020EA00FC003FA56F /* CommunityViewController.swift in Sources */,
+				D6B5166020EA00FC003FA56F /* GroupViewController.swift in Sources */,
 				5E349CA3212315C90060297A /* SponsorsAPI.swift in Sources */,
 				5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */,
 				D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */,
@@ -876,6 +989,7 @@
 				5EE73108215B61C400201702 /* FieldGameAPI.swift in Sources */,
 				5E94101A214F505F001D61F6 /* CarouselAPI.swift in Sources */,
 				5E4A0046216F273B00C4A656 /* QRCodeViewController.swift in Sources */,
+				3CC6FDB42305365F007352DB /* StringExtension.swift in Sources */,
 				D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */,
 				5EE7310C215B978200201702 /* Result.swift in Sources */,
 				3CBDCF7322E1888500561D8D /* UIViewExtension.swift in Sources */,
@@ -889,11 +1003,13 @@
 				D6EE629320E9C9270043B68A /* SegueManager.swift in Sources */,
 				5E941018214F4FBA001D61F6 /* Carousel.swift in Sources */,
 				5E349C96212270A20060297A /* Schedule_unconf.swift in Sources */,
+				3C3FFEA122FAD6E300873416 /* JoinVolunteerView.swift in Sources */,
 				D66778ED20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift in Sources */,
 				5E349C98212270BA0060297A /* Sponsor.swift in Sources */,
 				D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */,
 				5E682E21213E2AA700FC37CF /* InteractionViewController.swift in Sources */,
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
+				3C3FFE9E22FAA90E00873416 /* SpeakerTalkInfoView.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
 				3CBDCF7122E182F700561D8D /* SelectionView.swift in Sources */,
 				D66778E920FB142D00E9CA34 /* NoScheduleTableViewCell.swift in Sources */,
