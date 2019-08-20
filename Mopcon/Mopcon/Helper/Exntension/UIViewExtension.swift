@@ -30,4 +30,17 @@ extension UIView {
             
         ])
     }
+    
+    func applyGradient(colours: [UIColor]) -> Void {
+        
+        let gradient: CAGradientLayer = CAGradientLayer()
+        
+        gradient.frame = self.bounds
+        
+        gradient.colors = colours.map { $0.cgColor }
+        
+        gradient.locations = [0,1]
+        
+        self.layer.addSublayer(gradient)
+    }
 }
