@@ -39,6 +39,14 @@
 		49A6839921532E4A00EC6EA7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */; };
 		53652B482296F0E0003131BC /* Quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 53652B472296F0E0003131BC /* Quiz.json */; };
 		53652B4A2296F10A003131BC /* BoothMission.json in Resources */ = {isa = PBXBuildFile; fileRef = 53652B492296F10A003131BC /* BoothMission.json */; };
+		536688732305B0310036DFE5 /* GameStageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536688712305B0310036DFE5 /* GameStageCell.swift */; };
+		536688742305B0310036DFE5 /* GameStageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 536688722305B0310036DFE5 /* GameStageCell.xib */; };
+		536688772305BC040036DFE5 /* PresentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536688752305BC040036DFE5 /* PresentCell.swift */; };
+		536688782305BC040036DFE5 /* PresentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 536688762305BC040036DFE5 /* PresentCell.xib */; };
+		5366887B2305BFFA0036DFE5 /* CompleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536688792305BFF90036DFE5 /* CompleteCell.swift */; };
+		5366887C2305BFFA0036DFE5 /* CompleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5366887A2305BFF90036DFE5 /* CompleteCell.xib */; };
+		5366887E230847AC0036DFE5 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5366887D230847AC0036DFE5 /* NoticeView.swift */; };
+		53668880230847BA0036DFE5 /* NoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5366887F230847BA0036DFE5 /* NoticeView.xib */; };
 		5381B36822F743D700FEEC2C /* CommunicationConferenceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5381B36722F743D700FEEC2C /* CommunicationConferenceTableViewCell.xib */; };
 		5381B36A22F7442100FEEC2C /* CommunicationBreakTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5381B36922F7442100FEEC2C /* CommunicationBreakTableViewCell.xib */; };
 		5381B36C22F9EED200FEEC2C /* ConferenceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5381B36B22F9EED200FEEC2C /* ConferenceTableViewCell.xib */; };
@@ -181,6 +189,14 @@
 		49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		53652B472296F0E0003131BC /* Quiz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Quiz.json; sourceTree = SOURCE_ROOT; };
 		53652B492296F10A003131BC /* BoothMission.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BoothMission.json; sourceTree = SOURCE_ROOT; };
+		536688712305B0310036DFE5 /* GameStageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStageCell.swift; sourceTree = "<group>"; };
+		536688722305B0310036DFE5 /* GameStageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameStageCell.xib; sourceTree = "<group>"; };
+		536688752305BC040036DFE5 /* PresentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentCell.swift; sourceTree = "<group>"; };
+		536688762305BC040036DFE5 /* PresentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresentCell.xib; sourceTree = "<group>"; };
+		536688792305BFF90036DFE5 /* CompleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCell.swift; sourceTree = "<group>"; };
+		5366887A2305BFF90036DFE5 /* CompleteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteCell.xib; sourceTree = "<group>"; };
+		5366887D230847AC0036DFE5 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		5366887F230847BA0036DFE5 /* NoticeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeView.xib; sourceTree = "<group>"; };
 		5381B36722F743D700FEEC2C /* CommunicationConferenceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunicationConferenceTableViewCell.xib; sourceTree = "<group>"; };
 		5381B36922F7442100FEEC2C /* CommunicationBreakTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunicationBreakTableViewCell.xib; sourceTree = "<group>"; };
 		5381B36B22F9EED200FEEC2C /* ConferenceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConferenceTableViewCell.xib; sourceTree = "<group>"; };
@@ -409,6 +425,21 @@
 			path = MopconUITests;
 			sourceTree = "<group>";
 		};
+		536688702305AFEA0036DFE5 /* FieldGame */ = {
+			isa = PBXGroup;
+			children = (
+				536688792305BFF90036DFE5 /* CompleteCell.swift */,
+				5366887A2305BFF90036DFE5 /* CompleteCell.xib */,
+				536688712305B0310036DFE5 /* GameStageCell.swift */,
+				536688722305B0310036DFE5 /* GameStageCell.xib */,
+				536688752305BC040036DFE5 /* PresentCell.swift */,
+				536688762305BC040036DFE5 /* PresentCell.xib */,
+				5366887D230847AC0036DFE5 /* NoticeView.swift */,
+				5366887F230847BA0036DFE5 /* NoticeView.xib */,
+			);
+			path = FieldGame;
+			sourceTree = "<group>";
+		};
 		53850932227D6A960083429A /* CommunityImageCollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,21 +612,22 @@
 			isa = PBXGroup;
 			children = (
 				3C6A38DC2305A3C800B4546B /* Base */,
-				3C3FFE9F22FAD6A700873416 /* Group */,
-				3C3FFE9822FAA89D00873416 /* Speaker */,
-				3CFC36A222F957C00058C322 /* More */,
-				3CFCF00C22DF1033006184CD /* Lobby */,
-				53850932227D6A960083429A /* CommunityImageCollectionView */,
-				D6555F3620EC926D000816DF /* VolunteerTableView */,
-				5E564B75213FA85400F2CED2 /* Missions */,
-				D66778E720FB130A00E9CA34 /* MyScheduleTableView */,
-				D6EE629C20E9D0D50043B68A /* MainTableView */,
-				D6EE629B20E9D0C70043B68A /* NewsTableView */,
+				D662A1A820EDB5F000316FE6 /* AgendaTableView */,
 				D6EE629A20E9D0BF0043B68A /* Common */,
+				D6A67AC020EE106D00D4886E /* CommunicationTableView */,
+				53850932227D6A960083429A /* CommunityImageCollectionView */,
+				536688702305AFEA0036DFE5 /* FieldGame */,
+				3C3FFE9F22FAD6A700873416 /* Group */,
+				3CFCF00C22DF1033006184CD /* Lobby */,
+				D6EE629C20E9D0D50043B68A /* MainTableView */,
+				5E564B75213FA85400F2CED2 /* Missions */,
+				3CFC36A222F957C00058C322 /* More */,
+				D66778E720FB130A00E9CA34 /* MyScheduleTableView */,
+				D6EE629B20E9D0C70043B68A /* NewsTableView */,
+				3C3FFE9822FAA89D00873416 /* Speaker */,
 				D6B5166520EA062F003FA56F /* SpeakerTableView */,
 				D6240CE220EC9A74002C89E7 /* SponsorsViewController */,
-				D662A1A820EDB5F000316FE6 /* AgendaTableView */,
-				D6A67AC020EE106D00D4886E /* CommunicationTableView */,
+				D6555F3620EC926D000816DF /* VolunteerTableView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -826,6 +858,7 @@
 				3C903F8B22979B2700765CB2 /* Speaker.storyboard in Resources */,
 				3C903F8922979B1900765CB2 /* Sponsor.storyboard in Resources */,
 				5381B36A22F7442100FEEC2C /* CommunicationBreakTableViewCell.xib in Resources */,
+				536688782305BC040036DFE5 /* PresentCell.xib in Resources */,
 				53652B4A2296F10A003131BC /* BoothMission.json in Resources */,
 				3CFC369E22F92F7B0058C322 /* More.storyboard in Resources */,
 				D633462F20E8FFC70033E5B4 /* LaunchScreen.storyboard in Resources */,
@@ -833,10 +866,13 @@
 				53652B482296F0E0003131BC /* Quiz.json in Resources */,
 				D633462C20E8FFC70033E5B4 /* Assets.xcassets in Resources */,
 				5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */,
+				53668880230847BA0036DFE5 /* NoticeView.xib in Resources */,
 				3C3FFEA322FAD6FE00873416 /* JoinVolunteerView.xib in Resources */,
 				3C903F8522979AFB00765CB2 /* Schedual.storyboard in Resources */,
 				3CFCF01122DF106F006184CD /* LobbyCollectionViewCell.xib in Resources */,
+				5366887C2305BFFA0036DFE5 /* CompleteCell.xib in Resources */,
 				3CFCF00422DECF9D006184CD /* Main.storyboard in Resources */,
+				536688742305B0310036DFE5 /* GameStageCell.xib in Resources */,
 				3C903F8F22979B4800765CB2 /* News.storyboard in Resources */,
 				D633462720E8FFC60033E5B4 /* Lobby.storyboard in Resources */,
 				5E682E1A213CFE4400FC37CF /* Missions.storyboard in Resources */,
@@ -938,6 +974,7 @@
 				D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */,
 				D633462420E8FFC60033E5B4 /* LobbyViewController.swift in Sources */,
 				5E349C9F21228A340060297A /* UIImageViewExtension.swift in Sources */,
+				536688772305BC040036DFE5 /* PresentCell.swift in Sources */,
 				5E564B77213FA86E00F2CED2 /* MissionCollectionViewCell.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
 				3CFC36A122F92FED0058C322 /* MoreViewController.swift in Sources */,
@@ -971,6 +1008,7 @@
 				D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */,
 				D6F0BE6520F0756D0053A100 /* StoryboardIDManager.swift in Sources */,
 				3CC6FDB223053578007352DB /* MPBaseViewController.swift in Sources */,
+				5366887B2305BFFA0036DFE5 /* CompleteCell.swift in Sources */,
 				D6555F2A20EC619F000816DF /* GroupHostViewController.swift in Sources */,
 				D6F0BE6920F0A02B0053A100 /* ConferenceDetailViewController.swift in Sources */,
 				5E1753AC2150D4BA00A5D4C5 /* MopconAPI.swift in Sources */,
@@ -979,6 +1017,7 @@
 				D66778EF20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift in Sources */,
 				D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */,
 				D6B5166020EA00FC003FA56F /* GroupViewController.swift in Sources */,
+				536688732305B0310036DFE5 /* GameStageCell.swift in Sources */,
 				5E349CA3212315C90060297A /* SponsorsAPI.swift in Sources */,
 				5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */,
 				D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */,
@@ -1012,6 +1051,7 @@
 				3C3FFE9E22FAA90E00873416 /* SpeakerTalkInfoView.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
 				3CBDCF7122E182F700561D8D /* SelectionView.swift in Sources */,
+				5366887E230847AC0036DFE5 /* NoticeView.swift in Sources */,
 				D66778E920FB142D00E9CA34 /* NoScheduleTableViewCell.swift in Sources */,
 				D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */,
 				D6F0BE6320F06D6C0053A100 /* MyScheduleViewController.swift in Sources */,
