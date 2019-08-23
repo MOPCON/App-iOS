@@ -14,7 +14,7 @@ class VolunteerViewController: GroupBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
+//        getData()
     }
     
     func getData() {

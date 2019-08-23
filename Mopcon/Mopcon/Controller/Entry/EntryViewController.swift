@@ -17,15 +17,15 @@ class EntryViewController: MPBaseViewController {
             
             switch result{
                 
-            case .success(let config):
+            case .success(let serverState):
                 
                 UserDefaults.standard.set(
-                    config.data.apiServer.mopcon,
+                    serverState.apiServer.mopcon,
                     forKey: MPConstant.mopconServerKey
                 )
                 
                 UserDefaults.standard.set(
-                    config.data.apiServer.game,
+                    serverState.apiServer.game,
                     forKey: MPConstant.gameServerKey
                 )
                 

@@ -10,38 +10,30 @@ import UIKit
 
 class GroupHostDetailViewController: UIViewController {
     
-    var community: Community.Payload?
+    var communityID: String?
+    
+    var organizer: Organizer?
     
     @IBOutlet weak var communityDetailImageView: UIImageView!
+    
     @IBOutlet weak var communityNameLabel: UILabel!
+    
     @IBOutlet weak var communityDescriptionLabel: UILabel!
+    
     @IBOutlet weak var facebookButton: UIButton!
     
-    
     @IBAction func connectToFacebook(_ sender: UIButton) {
-        if let community = community, let url = URL(string: community.facebook) {
+        
+        if let organizer = organizer, let url = URL(string: organizer.facebook) {
+        
             UIApplication.shared.open(url, options: [:])
         }
     }
-    
-    @IBAction func otherLink(_ sender: UIButton) {
-        if let community = community, let url = URL(string: community.other_links) {
-            UIApplication.shared.open(url, options: [:])
-        }
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         communityDescriptionLabel.adjustsFontSizeToFitWidth = true
-        
-        if let community = community {
-            updateUI(community: community)
-            if community.facebook == "" {
-                facebookButton.isHidden = true
-            }
-        }
         
         facebookButton.layer.cornerRadius = 15
         
@@ -64,21 +56,48 @@ class GroupHostDetailViewController: UIViewController {
         }
     }
     
-    func updateUI(community:Community.Payload) {
+    func fetchOrganizer() {
         
-        if let url = URL(string: community.logo) {
-            communityDetailImageView.kf.setImage(with: url, options: [.forceRefresh])
-        }
-        communityNameLabel.text = community.title
-        communityDescriptionLabel.text = community.info
+        guard let id = communityID else { return }
+        
+        GroupProvider.fetchOrganizer(
+            id: id,
+            completion: { [weak self] result in
+            
+                switch result{
+                    
+                case .success(let organizer):
+                    
+                    self?.updateUI(organizer: organizer)
+                    
+                case .failure(let error):
+                    
+                    print(error)
+                }
+            }
+        )
+    }
+    
+    func updateUI(organizer: Organizer) {
+
+        communityDetailImageView.loadImage(organizer.photo)
+        
+        communityNameLabel.text = organizer.name
         
         let language = CurrentLanguage.getLanguage()
+        
         switch language {
+        
         case Language.chinese.rawValue:
-            communityDescriptionLabel.text = community.info
+        
+            communityDescriptionLabel.text = organizer.introducion
+        
         case Language.english.rawValue:
-            communityDescriptionLabel.text = community.info_en
+        
+            communityDescriptionLabel.text = organizer.introducionEn
+        
         default:
+            
             break
         }
         

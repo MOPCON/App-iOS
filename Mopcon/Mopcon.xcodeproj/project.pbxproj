@@ -13,10 +13,15 @@
 		3C31E660230F8CF900000518 /* MPConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E65F230F8CF900000518 /* MPConstant.swift */; };
 		3C31E663230F8F1400000518 /* ConfigObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E662230F8F1400000518 /* ConfigObject.swift */; };
 		3C31E666230F971E00000518 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E665230F971E00000518 /* EntryViewController.swift */; };
-		3C31E668230F97B000000518 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E667230F97B000000518 /* ResultType.swift */; };
+		3C31E668230F97B000000518 /* ResponseResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E667230F97B000000518 /* ResponseResultType.swift */; };
 		3C31E66A230F9B3000000518 /* JSONDecoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E669230F9B3000000518 /* JSONDecoderExtension.swift */; };
 		3C31E66D230FA0B500000518 /* MainThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E66C230FA0B500000518 /* MainThreadHelper.swift */; };
 		3C31E66F230FA25700000518 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E66E230FA25700000518 /* UIViewControllerExtension.swift */; };
+		3C31E672230FA8AC00000518 /* GroupAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E671230FA8AC00000518 /* GroupAPI.swift */; };
+		3C31E674230FA9E400000518 /* GroupObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E673230FA9E400000518 /* GroupObject.swift */; };
+		3C31E676230FB3C400000518 /* InitialProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E675230FB3C400000518 /* InitialProvider.swift */; };
+		3C31E678230FB3EE00000518 /* GroupProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E677230FB3EE00000518 /* GroupProvider.swift */; };
+		3C31E67B230FB4F400000518 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E67A230FB4F400000518 /* Response.swift */; };
 		3C3FFE9A22FAA8E300873416 /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9922FAA8E300873416 /* SpeakerView.swift */; };
 		3C3FFE9C22FAA8F800873416 /* SpeakerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9B22FAA8F800873416 /* SpeakerDetailView.swift */; };
 		3C3FFE9E22FAA90E00873416 /* SpeakerTalkInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9D22FAA90E00873416 /* SpeakerTalkInfoView.swift */; };
@@ -71,7 +76,6 @@
 		5E349C94212270650060297A /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C93212270650060297A /* Speaker.swift */; };
 		5E349C96212270A20060297A /* Schedule_unconf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C95212270A20060297A /* Schedule_unconf.swift */; };
 		5E349C98212270BA0060297A /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C97212270BA0060297A /* Sponsor.swift */; };
-		5E349C9A212270E00060297A /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C99212270E00060297A /* Community.swift */; };
 		5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C9C212271890060297A /* ScheduleAPI.swift */; };
 		5E349C9F21228A340060297A /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C9E21228A340060297A /* UIImageViewExtension.swift */; };
 		5E349CA12123015F0060297A /* SpeakersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA02123015F0060297A /* SpeakersAPI.swift */; };
@@ -170,10 +174,15 @@
 		3C31E65F230F8CF900000518 /* MPConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPConstant.swift; sourceTree = "<group>"; };
 		3C31E662230F8F1400000518 /* ConfigObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigObject.swift; sourceTree = "<group>"; };
 		3C31E665230F971E00000518 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
-		3C31E667230F97B000000518 /* ResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
+		3C31E667230F97B000000518 /* ResponseResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResultType.swift; sourceTree = "<group>"; };
 		3C31E669230F9B3000000518 /* JSONDecoderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderExtension.swift; sourceTree = "<group>"; };
 		3C31E66C230FA0B500000518 /* MainThreadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainThreadHelper.swift; sourceTree = "<group>"; };
 		3C31E66E230FA25700000518 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		3C31E671230FA8AC00000518 /* GroupAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAPI.swift; sourceTree = "<group>"; };
+		3C31E673230FA9E400000518 /* GroupObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupObject.swift; sourceTree = "<group>"; };
+		3C31E675230FB3C400000518 /* InitialProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialProvider.swift; sourceTree = "<group>"; };
+		3C31E677230FB3EE00000518 /* GroupProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProvider.swift; sourceTree = "<group>"; };
+		3C31E67A230FB4F400000518 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		3C3FFE9922FAA8E300873416 /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
 		3C3FFE9B22FAA8F800873416 /* SpeakerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailView.swift; sourceTree = "<group>"; };
 		3C3FFE9D22FAA90E00873416 /* SpeakerTalkInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTalkInfoView.swift; sourceTree = "<group>"; };
@@ -230,7 +239,6 @@
 		5E349C93212270650060297A /* Speaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		5E349C95212270A20060297A /* Schedule_unconf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule_unconf.swift; sourceTree = "<group>"; };
 		5E349C97212270BA0060297A /* Sponsor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
-		5E349C99212270E00060297A /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		5E349C9C212271890060297A /* ScheduleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAPI.swift; sourceTree = "<group>"; };
 		5E349C9E21228A340060297A /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		5E349CA02123015F0060297A /* SpeakersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersAPI.swift; sourceTree = "<group>"; };
@@ -343,7 +351,6 @@
 			children = (
 				3C31E656230F872E00000518 /* HTTPClient.swift */,
 				3C31E65C230F8AF800000518 /* HTTPClientExtenstion.swift */,
-				3C31E667230F97B000000518 /* ResultType.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -378,6 +385,7 @@
 			children = (
 				3C31E65A230F8ABB00000518 /* InitialAPI.swift */,
 				3C31E662230F8F1400000518 /* ConfigObject.swift */,
+				3C31E675230FB3C400000518 /* InitialProvider.swift */,
 			);
 			path = InitialAPI;
 			sourceTree = "<group>";
@@ -396,6 +404,25 @@
 				3C31E66C230FA0B500000518 /* MainThreadHelper.swift */,
 			);
 			path = MainThreadHelper;
+			sourceTree = "<group>";
+		};
+		3C31E670230FA88900000518 /* GroupAPI */ = {
+			isa = PBXGroup;
+			children = (
+				3C31E671230FA8AC00000518 /* GroupAPI.swift */,
+				3C31E673230FA9E400000518 /* GroupObject.swift */,
+				3C31E677230FB3EE00000518 /* GroupProvider.swift */,
+			);
+			path = GroupAPI;
+			sourceTree = "<group>";
+		};
+		3C31E679230FB4E500000518 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				3C31E67A230FB4F400000518 /* Response.swift */,
+				3C31E667230F97B000000518 /* ResponseResultType.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		3C3FFE9822FAA89D00873416 /* Speaker */ = {
@@ -436,9 +463,11 @@
 		3C9335BD22FBF2F800545A6E /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				D6555F2920EC619F000816DF /* GroupHostViewController.swift */,
 				3C9335BE22FBF31E00545A6E /* GroupBaseViewController.swift */,
 				D6555F2E20EC783A000816DF /* GroupHostDetailViewController.swift */,
 				D6555F3220EC8397000816DF /* VolunteerViewController.swift */,
+				D6B5165F20EA00FC003FA56F /* GroupViewController.swift */,
 				3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */,
 			);
 			path = Group;
@@ -529,6 +558,8 @@
 		5E349C9B212270ED0060297A /* API */ = {
 			isa = PBXGroup;
 			children = (
+				3C31E679230FB4E500000518 /* Response */,
+				3C31E670230FA88900000518 /* GroupAPI */,
 				3C31E661230F8EE200000518 /* InitialAPI */,
 				3C31E655230F872E00000518 /* HTTP */,
 				3C31E659230F8A8800000518 /* Old API */,
@@ -665,8 +696,6 @@
 				3C31E664230F968E00000518 /* Entry */,
 				3C9335BD22FBF2F800545A6E /* Group */,
 				D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */,
-				D6555F2920EC619F000816DF /* GroupHostViewController.swift */,
-				D6B5165F20EA00FC003FA56F /* GroupViewController.swift */,
 				D6F0BE6820F0A02B0053A100 /* ConferenceDetailViewController.swift */,
 				D633462320E8FFC60033E5B4 /* LobbyViewController.swift */,
 				D6F0BE6220F06D6C0053A100 /* MyScheduleViewController.swift */,
@@ -763,7 +792,6 @@
 			isa = PBXGroup;
 			children = (
 				5E941017214F4FBA001D61F6 /* Carousel.swift */,
-				5E349C99212270E00060297A /* Community.swift */,
 				5E941015214F4401001D61F6 /* News.swift */,
 				5E2EC573215A150300EEA680 /* Quiz.swift */,
 				5E349C95212270A20060297A /* Schedule_unconf.swift */,
@@ -1036,9 +1064,11 @@
 			files = (
 				3C3FFE9A22FAA8E300873416 /* SpeakerView.swift in Sources */,
 				53850930227D69480083429A /* VolunteerTableViewCell.swift in Sources */,
+				3C31E672230FA8AC00000518 /* GroupAPI.swift in Sources */,
 				5E349CA12123015F0060297A /* SpeakersAPI.swift in Sources */,
 				D6240CE620EC9ADC002C89E7 /* SponsorCollectionViewID.swift in Sources */,
 				5E682E1F213D62CA00FC37CF /* MissionDetailViewController.swift in Sources */,
+				3C31E678230FB3EE00000518 /* GroupProvider.swift in Sources */,
 				5E349CA6212411200060297A /* SponsorDetailTableViewCell.swift in Sources */,
 				D6B5166920EA07A1003FA56F /* CornerImageView.swift in Sources */,
 				D633463D20E914820033E5B4 /* GridCollectionViewCell.swift in Sources */,
@@ -1055,7 +1085,7 @@
 				5E564B77213FA86E00F2CED2 /* MissionCollectionViewCell.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
 				3CFC36A122F92FED0058C322 /* MoreViewController.swift in Sources */,
-				3C31E668230F97B000000518 /* ResultType.swift in Sources */,
+				3C31E668230F97B000000518 /* ResponseResultType.swift in Sources */,
 				D62D30D520ED06F300BBDF5E /* AgendaViewController.swift in Sources */,
 				5E349CAA21242B910060297A /* CommunityAPI.swift in Sources */,
 				3C3FFE9C22FAA8F800873416 /* SpeakerDetailView.swift in Sources */,
@@ -1075,20 +1105,22 @@
 				5E682E1D213D016500FC37CF /* MissionsViewController.swift in Sources */,
 				D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */,
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
+				3C31E674230FA9E400000518 /* GroupObject.swift in Sources */,
 				3C31E66F230FA25700000518 /* UIViewControllerExtension.swift in Sources */,
 				5E349C9021225CE10060297A /* Schedule.swift in Sources */,
 				D6555F2F20EC783A000816DF /* GroupHostDetailViewController.swift in Sources */,
 				5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */,
 				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
-				5E349C9A212270E00060297A /* Community.swift in Sources */,
 				D6A67ABB20EE029C00D4886E /* CommunicationViewController.swift in Sources */,
 				3CFCF00922DEEFCB006184CD /* UIImageExtension.swift in Sources */,
 				D62D30D320ED065D00BBDF5E /* AgendaTableViewCellID.swift in Sources */,
+				3C31E676230FB3C400000518 /* InitialProvider.swift in Sources */,
 				5E1DC761214948AA00F953F8 /* VolunteerAPI.swift in Sources */,
 				5E6CBDA1217BB9D60097D5E2 /* Wallet.swift in Sources */,
 				D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */,
 				D6F0BE6520F0756D0053A100 /* StoryboardIDManager.swift in Sources */,
 				3CC6FDB223053578007352DB /* MPBaseViewController.swift in Sources */,
+				3C31E67B230FB4F400000518 /* Response.swift in Sources */,
 				5366887B2305BFFA0036DFE5 /* CompleteCell.swift in Sources */,
 				D6555F2A20EC619F000816DF /* GroupHostViewController.swift in Sources */,
 				D6F0BE6920F0A02B0053A100 /* ConferenceDetailViewController.swift in Sources */,

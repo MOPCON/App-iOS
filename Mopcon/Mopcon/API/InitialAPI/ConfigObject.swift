@@ -8,15 +8,6 @@
 
 import Foundation
 
-struct SuccessConfig: Codable {
-    
-    let success: Bool
-    
-    let message: String
-    
-    let data: ServerState
-}
-
 struct ServerState: Codable {
     
     let apiServer: Server

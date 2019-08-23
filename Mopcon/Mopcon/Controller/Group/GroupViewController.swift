@@ -51,7 +51,7 @@ class GroupViewController: MPBaseViewController {
         
         volunteerContainerView.isHidden = true
         
-        spinner.startAnimating()
+//        spinner.startAnimating()
         
         spinner.center = view.center
         
@@ -66,30 +66,11 @@ class GroupViewController: MPBaseViewController {
             self.navigationItem.title = "Group"
         }
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == SegueIDManager.performCommunityContainerView{
-            guard let groupHostVC = segue.destination as? GroupHostViewController else {return}
-            groupHostVC.delegate = self
-        }
-        
-        if segue.identifier == SegueIDManager.performCommunityDetail{
-            guard let groupHostDetailVC = segue.destination as? GroupHostDetailViewController else {return}
-            guard let community = sender as? Community.Payload else {return}
-            groupHostDetailVC.community = community
-        }
-    }
-
 }
 extension GroupViewController: CollectionViewItemDidSelected{
     
     func stopSpinner() {
         self.spinner.removeFromSuperview()
-    }
-    
-    func collectionViewItemDidSelected(index: IndexPath, community: Community.Payload) {
-        performSegue(withIdentifier: SegueIDManager.performCommunityDetail, sender: community)
     }
 
 }

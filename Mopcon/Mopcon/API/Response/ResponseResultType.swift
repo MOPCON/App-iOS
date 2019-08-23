@@ -9,3 +9,7 @@
 import Foundation
 
 typealias VoidResultType = (Result<Void, Error>) -> Void
+
+typealias CommunityResultType = (Result<Group, Error>) -> Void
+
+typealias OrganizerResultType = (Result<Organizer, Error>) -> Void
