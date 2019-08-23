@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C31E657230F872E00000518 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E656230F872E00000518 /* HTTPClient.swift */; };
+		3C31E65B230F8ABB00000518 /* InitialAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E65A230F8ABB00000518 /* InitialAPI.swift */; };
+		3C31E65D230F8AF800000518 /* HTTPClient+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E65C230F8AF800000518 /* HTTPClient+Extenstion.swift */; };
+		3C31E660230F8CF900000518 /* MPConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E65F230F8CF900000518 /* MPConstant.swift */; };
+		3C31E663230F8F1400000518 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E662230F8F1400000518 /* Config.swift */; };
 		3C3FFE9A22FAA8E300873416 /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9922FAA8E300873416 /* SpeakerView.swift */; };
 		3C3FFE9C22FAA8F800873416 /* SpeakerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9B22FAA8F800873416 /* SpeakerDetailView.swift */; };
 		3C3FFE9E22FAA90E00873416 /* SpeakerTalkInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9D22FAA90E00873416 /* SpeakerTalkInfoView.swift */; };
@@ -84,7 +89,6 @@
 		5E94101A214F505F001D61F6 /* CarouselAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941019214F505F001D61F6 /* CarouselAPI.swift */; };
 		5E9FEF0021294FD70096B4A8 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */; };
 		5EE73108215B61C400201702 /* FieldGameAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE73107215B61C400201702 /* FieldGameAPI.swift */; };
-		5EE7310C215B978200201702 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE7310B215B978200201702 /* Result.swift */; };
 		5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */; };
 		5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF59B9C215DBCD200CF622C /* LoadingTool.swift */; };
 		854F882CF3DD3FD013EEC09B /* Pods_Mopcon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */; };
@@ -155,6 +159,11 @@
 		0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mopcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		293FFEAF5ECBACAF171BB104 /* Pods-Mopcon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.release.xcconfig"; sourceTree = "<group>"; };
 		36A8ADA41F4B2FE3D1F03AD3 /* Pods-Mopcon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.debug.xcconfig"; sourceTree = "<group>"; };
+		3C31E656230F872E00000518 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		3C31E65A230F8ABB00000518 /* InitialAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialAPI.swift; sourceTree = "<group>"; };
+		3C31E65C230F8AF800000518 /* HTTPClient+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPClient+Extenstion.swift"; sourceTree = "<group>"; };
+		3C31E65F230F8CF900000518 /* MPConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPConstant.swift; sourceTree = "<group>"; };
+		3C31E662230F8F1400000518 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3C3FFE9922FAA8E300873416 /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
 		3C3FFE9B22FAA8F800873416 /* SpeakerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailView.swift; sourceTree = "<group>"; };
 		3C3FFE9D22FAA90E00873416 /* SpeakerTalkInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTalkInfoView.swift; sourceTree = "<group>"; };
@@ -234,7 +243,6 @@
 		5E941019214F505F001D61F6 /* CarouselAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAPI.swift; sourceTree = "<group>"; };
 		5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		5EE73107215B61C400201702 /* FieldGameAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameAPI.swift; sourceTree = "<group>"; };
-		5EE7310B215B978200201702 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		5EF59B97215CDF2800CF622C /* Mopcon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mopcon.entitlements; sourceTree = "<group>"; };
 		5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EF59B9C215DBCD200CF622C /* LoadingTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTool.swift; sourceTree = "<group>"; };
@@ -318,6 +326,49 @@
 				0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C31E655230F872E00000518 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				3C31E656230F872E00000518 /* HTTPClient.swift */,
+				3C31E65C230F8AF800000518 /* HTTPClient+Extenstion.swift */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		3C31E659230F8A8800000518 /* Old API */ = {
+			isa = PBXGroup;
+			children = (
+				5E941019214F505F001D61F6 /* CarouselAPI.swift */,
+				5E349CA921242B910060297A /* CommunityAPI.swift */,
+				5EE73107215B61C400201702 /* FieldGameAPI.swift */,
+				5E1753AB2150D4BA00A5D4C5 /* MopconAPI.swift */,
+				5E941013214F43DD001D61F6 /* NewsAPI.swift */,
+				5E349CAB212448410060297A /* Schedule_unconfAPI.swift */,
+				5E349C9C212271890060297A /* ScheduleAPI.swift */,
+				5E349CA02123015F0060297A /* SpeakersAPI.swift */,
+				5E349CA2212315C90060297A /* SponsorsAPI.swift */,
+				5E1DC760214948AA00F953F8 /* VolunteerAPI.swift */,
+			);
+			path = "Old API";
+			sourceTree = "<group>";
+		};
+		3C31E65E230F8CE200000518 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				3C31E65F230F8CF900000518 /* MPConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		3C31E661230F8EE200000518 /* InitialAPI */ = {
+			isa = PBXGroup;
+			children = (
+				3C31E65A230F8ABB00000518 /* InitialAPI.swift */,
+				3C31E662230F8F1400000518 /* Config.swift */,
+			);
+			path = InitialAPI;
 			sourceTree = "<group>";
 		};
 		3C3FFE9822FAA89D00873416 /* Speaker */ = {
@@ -451,16 +502,9 @@
 		5E349C9B212270ED0060297A /* API */ = {
 			isa = PBXGroup;
 			children = (
-				5E941019214F505F001D61F6 /* CarouselAPI.swift */,
-				5E349CA921242B910060297A /* CommunityAPI.swift */,
-				5EE73107215B61C400201702 /* FieldGameAPI.swift */,
-				5E1753AB2150D4BA00A5D4C5 /* MopconAPI.swift */,
-				5E941013214F43DD001D61F6 /* NewsAPI.swift */,
-				5E349CAB212448410060297A /* Schedule_unconfAPI.swift */,
-				5E349C9C212271890060297A /* ScheduleAPI.swift */,
-				5E349CA02123015F0060297A /* SpeakersAPI.swift */,
-				5E349CA2212315C90060297A /* SponsorsAPI.swift */,
-				5E1DC760214948AA00F953F8 /* VolunteerAPI.swift */,
+				3C31E661230F8EE200000518 /* InitialAPI */,
+				3C31E655230F872E00000518 /* HTTP */,
+				3C31E659230F8A8800000518 /* Old API */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -635,6 +679,7 @@
 		D633464020E9153E0033E5B4 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3C31E65E230F8CE200000518 /* Constant */,
 				D62D30D220ED065D00BBDF5E /* AgendaTableViewCellID.swift */,
 				D633463E20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift */,
 				D6F0BE6020F0610B0053A100 /* CommonFunctionHelper.swift */,
@@ -690,7 +735,6 @@
 				5E349C99212270E00060297A /* Community.swift */,
 				5E941015214F4401001D61F6 /* News.swift */,
 				5E2EC573215A150300EEA680 /* Quiz.swift */,
-				5EE7310B215B978200201702 /* Result.swift */,
 				5E349C95212270A20060297A /* Schedule_unconf.swift */,
 				5E349C8F21225CE10060297A /* Schedule.swift */,
 				5E349C93212270650060297A /* Speaker.swift */,
@@ -968,6 +1012,7 @@
 				D6B5166920EA07A1003FA56F /* CornerImageView.swift in Sources */,
 				D633463D20E914820033E5B4 /* GridCollectionViewCell.swift in Sources */,
 				3C8C357623069B4000D04CB0 /* VolunteerDetailViewController.swift in Sources */,
+				3C31E65D230F8AF800000518 /* HTTPClient+Extenstion.swift in Sources */,
 				D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */,
 				3C6A38DE2305A3F200B4546B /* MPTagView.swift in Sources */,
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,
@@ -986,6 +1031,8 @@
 				D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */,
 				D6B5166220EA0607003FA56F /* SpeakersViewController.swift in Sources */,
 				D66778E420FB062F00E9CA34 /* MyScheduleTableViewCellID.swift in Sources */,
+				3C31E660230F8CF900000518 /* MPConstant.swift in Sources */,
+				3C31E663230F8F1400000518 /* Config.swift in Sources */,
 				5E1753AA2150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift in Sources */,
 				D662A1A520EDB5D600316FE6 /* BreakTableViewCell.swift in Sources */,
 				3CFC36A422F957DA0058C322 /* MoreTableViewCell.swift in Sources */,
@@ -1018,6 +1065,7 @@
 				D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */,
 				D6B5166020EA00FC003FA56F /* GroupViewController.swift in Sources */,
 				536688732305B0310036DFE5 /* GameStageCell.swift in Sources */,
+				3C31E65B230F8ABB00000518 /* InitialAPI.swift in Sources */,
 				5E349CA3212315C90060297A /* SponsorsAPI.swift in Sources */,
 				5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */,
 				D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */,
@@ -1030,7 +1078,6 @@
 				5E4A0046216F273B00C4A656 /* QRCodeViewController.swift in Sources */,
 				3CC6FDB42305365F007352DB /* StringExtension.swift in Sources */,
 				D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */,
-				5EE7310C215B978200201702 /* Result.swift in Sources */,
 				3CBDCF7322E1888500561D8D /* UIViewExtension.swift in Sources */,
 				D6F0BE6120F0610B0053A100 /* CommonFunctionHelper.swift in Sources */,
 				D633463F20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift in Sources */,
@@ -1060,6 +1107,7 @@
 				D6F0BE6720F093AD0053A100 /* UserdefaultKeyManager.swift in Sources */,
 				D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */,
 				5E60D67B21630C9E00035E82 /* InformationCollectionViewCell.swift in Sources */,
+				3C31E657230F872E00000518 /* HTTPClient.swift in Sources */,
 				5E349C94212270650060297A /* Speaker.swift in Sources */,
 				D6240CEA20ECABED002C89E7 /* SponsorDetailViewController.swift in Sources */,
 				D6B5166720EA0656003FA56F /* SpeakerTableCellID.swift in Sources */,
