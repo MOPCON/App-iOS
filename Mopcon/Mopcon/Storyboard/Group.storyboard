@@ -343,6 +343,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="志工資訊" id="Xyh-Fd-SgU"/>
                     <connections>
+                        <outlet property="memberLbl" destination="Fhv-bu-mKJ" id="Nh7-K5-Zuc"/>
                         <outlet property="volunteerDetailLbl" destination="5MJ-UB-fbo" id="B9E-Ms-u58"/>
                         <outlet property="volunteerImgView" destination="aAS-bR-Xvo" id="lfC-9T-lz0"/>
                         <outlet property="volunteerListLbl" destination="F3a-XQ-TKV" id="8u4-vW-ZKE"/>

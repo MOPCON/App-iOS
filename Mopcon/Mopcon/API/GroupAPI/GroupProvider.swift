@@ -77,4 +77,74 @@ class GroupProvider: MainThreadHelper {
             }
         )
     }
+    
+    static func fetchVolunteerList(completion: @escaping VolunteerListResultType) {
+        
+        HTTPClient.shared.request(
+            GroupAPI.volunteerList,
+            completion: { result in
+                
+                switch result{
+                    
+                case .success(let data):
+                    
+                    do {
+                        
+                        let successResponse = try JSONDecoder.shared.decode(
+                            SuccessResponse<VolunteerList>.self,
+                            from: data
+                        )
+                        
+                        throwToMainThreadAsync {
+                            completion(Result.success(successResponse.data))
+                        }
+                        
+                    } catch {
+                        
+                        completion(Result.failure(error))
+                    }
+                    
+                case .failure(let error):
+                    
+                    completion(Result.failure(error))
+                }
+                
+            }
+        )
+    }
+    
+    static func fetchVolunteer(id: String, completion: @escaping VolunteerResultType) {
+        
+        HTTPClient.shared.request(
+            GroupAPI.volunteer(id),
+            completion: { result in
+                
+                switch result{
+                    
+                case .success(let data):
+                    
+                    do {
+                        
+                        let successResponse = try JSONDecoder.shared.decode(
+                            SuccessResponse<Volunteer>.self,
+                            from: data
+                        )
+                        
+                        throwToMainThreadAsync {
+                            completion(Result.success(successResponse.data))
+                        }
+                        
+                    } catch {
+                        
+                        completion(Result.failure(error))
+                    }
+                    
+                case .failure(let error):
+                    
+                    completion(Result.failure(error))
+                }
+                
+        }
+        )
+    }
 }
