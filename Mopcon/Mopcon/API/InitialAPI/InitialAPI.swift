@@ -21,7 +21,7 @@ enum InitialAPI: LKRequest {
         
         switch self {
         
-        case .initial: return "/2019/initial"
+        case .initial: return "/api/2019/initial"
             
         }
     }

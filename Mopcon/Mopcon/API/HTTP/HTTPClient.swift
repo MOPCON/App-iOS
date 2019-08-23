@@ -61,7 +61,7 @@ extension LKRequest {
     
     func makeRequest() -> URLRequest {
         
-        let url = URL(string: baseURL+endPoint+makeQueryPath())!
+        let url = URL(string: baseURL + endPoint + makeQueryPath())!
         
         var request = URLRequest(url: url)
         
