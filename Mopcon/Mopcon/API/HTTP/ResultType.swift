@@ -1,5 +1,5 @@
 //
-//  Config.swift
+//  ResultType.swift
 //  Mopcon
 //
 //  Created by WU CHIH WEI on 2019/8/23.
@@ -8,6 +8,4 @@
 
 import Foundation
 
-struct Config {
-    
-}
+typealias VoidResultType = (Result<Void, Error>) -> Void

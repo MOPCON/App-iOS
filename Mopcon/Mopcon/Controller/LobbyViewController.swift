@@ -72,10 +72,6 @@ class LobbyViewController: UIViewController {
     }
 
     private func setupCollectionView() {
-    
-        mainCollectionView.delegate = self
-        
-        mainCollectionView.dataSource = self
         
         mainCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 0)
         
@@ -98,6 +94,10 @@ class LobbyViewController: UIViewController {
         layoutObject?.itemSize = CGSize(width: 335.0, height: 300.0)
         
         layoutObject?.minimumLineSpacing = 12.0
+        
+        mainCollectionView.delegate = self
+        
+        mainCollectionView.dataSource = self
     }
     
     private func getBanner() {

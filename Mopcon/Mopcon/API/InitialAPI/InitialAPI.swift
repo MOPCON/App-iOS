@@ -22,9 +22,9 @@ enum InitialAPI: LKRequest {
     }
 }
 
-class InitialProvider {
+class InitialProvider: MainThreadHelper {
     
-    static func fetchInitialAPI() {
+    static func fetchInitialAPI(completion: @escaping (Result<SuccessConfig, Error>) -> Void) {
         
         HTTPClient.shared.request(InitialAPI.initial, completion: { result in
             
@@ -32,11 +32,23 @@ class InitialProvider {
                 
             case .success(let data):
                 
-                print(data)
+                do {
+                    
+                    let config = try JSONDecoder.shared.decode(SuccessConfig.self, from: data)
+                    
+                    throwToMainThreadAsync {
+                        
+                        completion(Result.success(config))
+                    }
+                    
+                } catch {
+                    
+                    completion(Result.failure(error))
+                }
                 
             case .failure(let error):
                 
-                print(error)
+                completion(Result.failure(error))
             }
         })
     }
