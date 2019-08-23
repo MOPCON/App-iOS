@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C31E657230F872E00000518 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E656230F872E00000518 /* HTTPClient.swift */; };
 		3C31E65B230F8ABB00000518 /* InitialAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E65A230F8ABB00000518 /* InitialAPI.swift */; };
-		3C31E65D230F8AF800000518 /* HTTPClient+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E65C230F8AF800000518 /* HTTPClient+Extenstion.swift */; };
+		3C31E65D230F8AF800000518 /* HTTPClientExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E65C230F8AF800000518 /* HTTPClientExtenstion.swift */; };
 		3C31E660230F8CF900000518 /* MPConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E65F230F8CF900000518 /* MPConstant.swift */; };
 		3C31E663230F8F1400000518 /* ConfigObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E662230F8F1400000518 /* ConfigObject.swift */; };
 		3C31E666230F971E00000518 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E665230F971E00000518 /* EntryViewController.swift */; };
@@ -166,7 +166,7 @@
 		36A8ADA41F4B2FE3D1F03AD3 /* Pods-Mopcon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.debug.xcconfig"; sourceTree = "<group>"; };
 		3C31E656230F872E00000518 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		3C31E65A230F8ABB00000518 /* InitialAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialAPI.swift; sourceTree = "<group>"; };
-		3C31E65C230F8AF800000518 /* HTTPClient+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPClient+Extenstion.swift"; sourceTree = "<group>"; };
+		3C31E65C230F8AF800000518 /* HTTPClientExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientExtenstion.swift; sourceTree = "<group>"; };
 		3C31E65F230F8CF900000518 /* MPConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPConstant.swift; sourceTree = "<group>"; };
 		3C31E662230F8F1400000518 /* ConfigObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigObject.swift; sourceTree = "<group>"; };
 		3C31E665230F971E00000518 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
@@ -342,7 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				3C31E656230F872E00000518 /* HTTPClient.swift */,
-				3C31E65C230F8AF800000518 /* HTTPClient+Extenstion.swift */,
+				3C31E65C230F8AF800000518 /* HTTPClientExtenstion.swift */,
 				3C31E667230F97B000000518 /* ResultType.swift */,
 			);
 			path = HTTP;
@@ -1044,7 +1044,7 @@
 				D633463D20E914820033E5B4 /* GridCollectionViewCell.swift in Sources */,
 				3C8C357623069B4000D04CB0 /* VolunteerDetailViewController.swift in Sources */,
 				3C31E66A230F9B3000000518 /* JSONDecoderExtension.swift in Sources */,
-				3C31E65D230F8AF800000518 /* HTTPClient+Extenstion.swift in Sources */,
+				3C31E65D230F8AF800000518 /* HTTPClientExtenstion.swift in Sources */,
 				D6555F3820EC92B5000816DF /* VolunteerTableCellID.swift in Sources */,
 				3C6A38DE2305A3F200B4546B /* MPTagView.swift in Sources */,
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,

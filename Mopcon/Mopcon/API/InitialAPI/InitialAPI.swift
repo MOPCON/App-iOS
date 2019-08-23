@@ -12,6 +12,11 @@ enum InitialAPI: LKRequest {
     
     case initial
     
+    var baseURL: String {
+        
+        return MPConstant.baseURL
+    }
+    
     var endPoint: String {
         
         switch self {
