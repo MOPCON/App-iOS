@@ -23,6 +23,9 @@
 		3C31E678230FB3EE00000518 /* GroupProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E677230FB3EE00000518 /* GroupProvider.swift */; };
 		3C31E67B230FB4F400000518 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E67A230FB4F400000518 /* Response.swift */; };
 		3C31E67D230FC41E00000518 /* VolunteerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E67C230FC41E00000518 /* VolunteerObject.swift */; };
+		3C31E680230FE94D00000518 /* SponsorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E67F230FE94D00000518 /* SponsorAPI.swift */; };
+		3C31E682230FEC0F00000518 /* SponsorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E681230FEC0F00000518 /* SponsorProvider.swift */; };
+		3C31E684230FEC3000000518 /* SponsorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E683230FEC3000000518 /* SponsorObject.swift */; };
 		3C3FFE9A22FAA8E300873416 /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9922FAA8E300873416 /* SpeakerView.swift */; };
 		3C3FFE9C22FAA8F800873416 /* SpeakerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9B22FAA8F800873416 /* SpeakerDetailView.swift */; };
 		3C3FFE9E22FAA90E00873416 /* SpeakerTalkInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFE9D22FAA90E00873416 /* SpeakerTalkInfoView.swift */; };
@@ -73,11 +76,9 @@
 		5E349C9021225CE10060297A /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C8F21225CE10060297A /* Schedule.swift */; };
 		5E349C94212270650060297A /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C93212270650060297A /* Speaker.swift */; };
 		5E349C96212270A20060297A /* Schedule_unconf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C95212270A20060297A /* Schedule_unconf.swift */; };
-		5E349C98212270BA0060297A /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C97212270BA0060297A /* Sponsor.swift */; };
 		5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C9C212271890060297A /* ScheduleAPI.swift */; };
 		5E349C9F21228A340060297A /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C9E21228A340060297A /* UIImageViewExtension.swift */; };
 		5E349CA12123015F0060297A /* SpeakersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA02123015F0060297A /* SpeakersAPI.swift */; };
-		5E349CA3212315C90060297A /* SponsorsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA2212315C90060297A /* SponsorsAPI.swift */; };
 		5E349CA6212411200060297A /* SponsorDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA5212411200060297A /* SponsorDetailTableViewCell.swift */; };
 		5E349CA8212411570060297A /* SponsorTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA7212411570060297A /* SponsorTableViewCellID.swift */; };
 		5E349CAA21242B910060297A /* CommunityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA921242B910060297A /* CommunityAPI.swift */; };
@@ -181,6 +182,9 @@
 		3C31E677230FB3EE00000518 /* GroupProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProvider.swift; sourceTree = "<group>"; };
 		3C31E67A230FB4F400000518 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		3C31E67C230FC41E00000518 /* VolunteerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerObject.swift; sourceTree = "<group>"; };
+		3C31E67F230FE94D00000518 /* SponsorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorAPI.swift; sourceTree = "<group>"; };
+		3C31E681230FEC0F00000518 /* SponsorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorProvider.swift; sourceTree = "<group>"; };
+		3C31E683230FEC3000000518 /* SponsorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorObject.swift; sourceTree = "<group>"; };
 		3C3FFE9922FAA8E300873416 /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
 		3C3FFE9B22FAA8F800873416 /* SpeakerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailView.swift; sourceTree = "<group>"; };
 		3C3FFE9D22FAA90E00873416 /* SpeakerTalkInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerTalkInfoView.swift; sourceTree = "<group>"; };
@@ -233,11 +237,9 @@
 		5E349C8F21225CE10060297A /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		5E349C93212270650060297A /* Speaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		5E349C95212270A20060297A /* Schedule_unconf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule_unconf.swift; sourceTree = "<group>"; };
-		5E349C97212270BA0060297A /* Sponsor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
 		5E349C9C212271890060297A /* ScheduleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAPI.swift; sourceTree = "<group>"; };
 		5E349C9E21228A340060297A /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		5E349CA02123015F0060297A /* SpeakersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersAPI.swift; sourceTree = "<group>"; };
-		5E349CA2212315C90060297A /* SponsorsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsAPI.swift; sourceTree = "<group>"; };
 		5E349CA5212411200060297A /* SponsorDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorDetailTableViewCell.swift; sourceTree = "<group>"; };
 		5E349CA7212411570060297A /* SponsorTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorTableViewCellID.swift; sourceTree = "<group>"; };
 		5E349CA921242B910060297A /* CommunityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAPI.swift; sourceTree = "<group>"; };
@@ -360,7 +362,6 @@
 				5E349CAB212448410060297A /* Schedule_unconfAPI.swift */,
 				5E349C9C212271890060297A /* ScheduleAPI.swift */,
 				5E349CA02123015F0060297A /* SpeakersAPI.swift */,
-				5E349CA2212315C90060297A /* SponsorsAPI.swift */,
 			);
 			path = "Old API";
 			sourceTree = "<group>";
@@ -417,6 +418,16 @@
 				3C31E667230F97B000000518 /* ResponseResultType.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		3C31E67E230FE92600000518 /* Sponsor */ = {
+			isa = PBXGroup;
+			children = (
+				3C31E67F230FE94D00000518 /* SponsorAPI.swift */,
+				3C31E683230FEC3000000518 /* SponsorObject.swift */,
+				3C31E681230FEC0F00000518 /* SponsorProvider.swift */,
+			);
+			path = Sponsor;
 			sourceTree = "<group>";
 		};
 		3C3FFE9822FAA89D00873416 /* Speaker */ = {
@@ -552,10 +563,11 @@
 		5E349C9B212270ED0060297A /* API */ = {
 			isa = PBXGroup;
 			children = (
+				3C31E655230F872E00000518 /* HTTP */,
 				3C31E679230FB4E500000518 /* Response */,
+				3C31E67E230FE92600000518 /* Sponsor */,
 				3C31E670230FA88900000518 /* GroupAPI */,
 				3C31E661230F8EE200000518 /* InitialAPI */,
-				3C31E655230F872E00000518 /* HTTP */,
 				3C31E659230F8A8800000518 /* Old API */,
 			);
 			path = API;
@@ -789,7 +801,6 @@
 				5E349C95212270A20060297A /* Schedule_unconf.swift */,
 				5E349C8F21225CE10060297A /* Schedule.swift */,
 				5E349C93212270650060297A /* Speaker.swift */,
-				5E349C97212270BA0060297A /* Sponsor.swift */,
 				5E6CBDA0217BB9D60097D5E2 /* Wallet.swift */,
 			);
 			path = Model;
@@ -1091,6 +1102,7 @@
 				D6EE629920E9D0B00043B68A /* NewsTableViewCell.swift in Sources */,
 				53850934227D6A960083429A /* CommunityImageCollectionViewCell.swift in Sources */,
 				5E349CA8212411570060297A /* SponsorTableViewCellID.swift in Sources */,
+				3C31E680230FE94D00000518 /* SponsorAPI.swift in Sources */,
 				5E682E1D213D016500FC37CF /* MissionsViewController.swift in Sources */,
 				D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */,
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
@@ -1119,8 +1131,8 @@
 				D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */,
 				D6B5166020EA00FC003FA56F /* GroupViewController.swift in Sources */,
 				536688732305B0310036DFE5 /* GameStageCell.swift in Sources */,
+				3C31E682230FEC0F00000518 /* SponsorProvider.swift in Sources */,
 				3C31E65B230F8ABB00000518 /* InitialAPI.swift in Sources */,
-				5E349CA3212315C90060297A /* SponsorsAPI.swift in Sources */,
 				5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */,
 				D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */,
 				D6240CDF20EC98AD002C89E7 /* SponsorsViewController.swift in Sources */,
@@ -1146,13 +1158,13 @@
 				5E349C96212270A20060297A /* Schedule_unconf.swift in Sources */,
 				3C3FFEA122FAD6E300873416 /* JoinVolunteerView.swift in Sources */,
 				D66778ED20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift in Sources */,
-				5E349C98212270BA0060297A /* Sponsor.swift in Sources */,
 				D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */,
 				5E682E21213E2AA700FC37CF /* InteractionViewController.swift in Sources */,
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 				3C3FFE9E22FAA90E00873416 /* SpeakerTalkInfoView.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
 				3CBDCF7122E182F700561D8D /* SelectionView.swift in Sources */,
+				3C31E684230FEC3000000518 /* SponsorObject.swift in Sources */,
 				5366887E230847AC0036DFE5 /* NoticeView.swift in Sources */,
 				3C31E666230F971E00000518 /* EntryViewController.swift in Sources */,
 				D66778E920FB142D00E9CA34 /* NoScheduleTableViewCell.swift in Sources */,
