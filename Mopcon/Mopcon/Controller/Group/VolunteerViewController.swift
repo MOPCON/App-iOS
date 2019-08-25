@@ -112,6 +112,8 @@ class VolunteerViewController: GroupBaseViewController {
             
         case "場務組": return UIImage.asset(.place_team)
             
+        case "攝影組": return UIImage.asset(.record_team)
+            
         default: return nil
             
         }

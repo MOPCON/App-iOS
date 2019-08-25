@@ -91,6 +91,8 @@ class VolunteerDetailViewController: MPBaseViewController {
             
         case "紀錄組": return UIImage.asset(.record_team)
             
+        case "攝影組": return UIImage.asset(.record_team)
+            
         case "錄影組": return UIImage.asset(.video_team)
             
         case "場務組": return UIImage.asset(.place_team)
