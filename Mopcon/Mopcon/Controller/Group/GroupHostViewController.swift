@@ -23,6 +23,12 @@ class GroupHostViewController: GroupBaseViewController {
         super.viewDidLoad()
         
         fetchGroup()
+        
+        collectionView.register(
+            CommunityCollectionViewHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: CommunityCollectionViewHeaderView.identifier
+        )
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,12 +63,21 @@ class GroupHostViewController: GroupBaseViewController {
         })
     }
     
+    //MARK: - UICollectionView DataSource
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
+        return 2
+    }
+    
     override func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
         
-        return group?.communitys.count ?? 0
+        guard let group = group else { return 0 }
+        
+        return section == 0 ? group.communitys.count : group.participants.count
     }
     
     override func collectionView(
@@ -75,11 +90,44 @@ class GroupHostViewController: GroupBaseViewController {
             for: indexPath
         ) as! CommunityImageCollectionViewCell
         
-        guard let community = group?.communitys[indexPath.row] else { return communityImageCell }
+        if indexPath.section == 0 {
         
-        communityImageCell.updateUI(image: community.photo, title: community.name)
+            guard let community = group?.communitys[indexPath.row] else { return communityImageCell }
+            
+            communityImageCell.updateUI(image: community.photo, title: community.name)
+            
+        } else {
+            
+            guard let participant = group?.participants[indexPath.row] else { return communityImageCell }
+            
+            communityImageCell.updateUI(image: participant.photo, title: participant.name)
+        }
+        
         
         return communityImageCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        return CGSize(width: UIScreen.main.bounds.width, height: 40)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: CommunityCollectionViewHeaderView.identifier,
+            for: indexPath
+        )
+        
+        guard let communityHeader = header as? CommunityCollectionViewHeaderView else {
+            
+            return header
+        }
+        
+        communityHeader.headerLabel.text = indexPath.section == 0 ? "主辦社群" : "參與社群"
+        
+        return header
     }
     
     func collectionView(
@@ -93,5 +141,39 @@ class GroupHostViewController: GroupBaseViewController {
             withIdentifier: SegueIDManager.performCommunityDetail,
             sender: community.id
         )
+    }
+    
+}
+
+class CommunityCollectionViewHeaderView: UICollectionReusableView {
+    
+    let headerLabel = UILabel()
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        setupLayout()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupLayout()
+    }
+    
+    private func setupLayout() {
+        
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(headerLabel)
+        
+        NSLayoutConstraint.activate([
+            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            headerLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+        
+        headerLabel.textColor = UIColor(hex: "#878787")
+        
+        headerLabel.font = UIFont.systemFont(ofSize: 14)
     }
 }
