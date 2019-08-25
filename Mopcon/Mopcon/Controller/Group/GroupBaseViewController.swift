@@ -29,21 +29,16 @@ class GroupBaseViewController: MPBaseViewController, UICollectionViewDelegateFlo
         
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: joinViewHeight, right: 0)
         
+        joinVolunteerView.frame = CGRect(
+            origin: CGPoint(x: 0, y: collectionView.contentSize.height),
+            size: CGSize(width: UIScreen.main.bounds.width, height: joinViewHeight)
+        )
         
         collectionView.addSubview(joinVolunteerView)
         
         joinVolunteerView.isHidden = true
         
         joinVolunteerView.delegate = self
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        joinVolunteerView.frame = CGRect(
-            origin: CGPoint(x: 0, y: collectionView.contentSize.height),
-            size: CGSize(width: collectionView.frame.width, height: joinViewHeight)
-        )
     }
     
     //MARK: - UICollectionViewDataSource

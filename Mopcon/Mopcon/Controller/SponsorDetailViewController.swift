@@ -15,7 +15,7 @@ enum SponsorCellStyle: Int {
     case seeMore
 }
 
-class SponsorDetailViewController: UIViewController {
+class SponsorDetailViewController: MPBaseViewController {
     
     var sponsor: Sponsor.Payload?
     

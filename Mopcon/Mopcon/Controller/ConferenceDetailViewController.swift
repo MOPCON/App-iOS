@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConferenceDetailViewController: UIViewController {
+class ConferenceDetailViewController: MPBaseViewController {
     
     var key:String?
     

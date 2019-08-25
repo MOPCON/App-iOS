@@ -27,6 +27,8 @@ class MPBaseViewController: UIViewController {
             
             modifyBackItemTitle()
         }
+        
+        view.backgroundColor = UIColor.dark
     }
     
     override func viewDidAppear(_ animated: Bool) {

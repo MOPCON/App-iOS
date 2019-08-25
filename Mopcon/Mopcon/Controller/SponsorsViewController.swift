@@ -24,7 +24,7 @@ enum SponsorSection: Int {
     case co_organiser
 }
 
-class SponsorsViewController: UIViewController {
+class SponsorsViewController: MPBaseViewController {
    
     var selectedSponsor: Sponsor.Payload?
     

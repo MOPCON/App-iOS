@@ -15,7 +15,7 @@ enum Language:String {
     case english = "English"
 }
 
-class LobbyViewController: UIViewController {
+class LobbyViewController: MPBaseViewController {
 
     @IBOutlet weak var bannerScrollView: UIScrollView!
     

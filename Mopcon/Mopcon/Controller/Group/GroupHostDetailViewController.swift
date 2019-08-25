@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupHostDetailViewController: UIViewController {
+class GroupHostDetailViewController: MPBaseViewController {
     
     var communityID: String?
     

@@ -13,7 +13,7 @@ enum MissionsSection:Int, CaseIterable {
     case quiz
 }
 
-class MissionsViewController: UIViewController {
+class MissionsViewController: MPBaseViewController {
     
     var backView: UIView!
     var alertView: UIView!
