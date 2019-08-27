@@ -18,9 +18,21 @@ class SponsorProvider {
                 
                 switch result{
                     
-                case .success:
+                case .success(let data):
                     
-                    print(123)
+                    do {
+                        
+                        let sponsorList = try JSONDecoder.shared.decode(
+                            SuccessResponse<SponsorList>.self,
+                            from: data
+                        )
+                        
+                        print(sponsorList)
+                        
+                    } catch {
+                        
+                        print(error)
+                    }
                     
                 case .failure:
                     
