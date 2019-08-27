@@ -26,9 +26,9 @@ enum SponsorSection: Int {
 
 class SponsorsViewController: MPBaseViewController {
    
-    var selectedSponsor: Sponsor.Payload?
-    
-    var sponsors = [[Sponsor.Payload]]()
+//    var selectedSponsor: Sponsor.Payload?
+//    
+//    var sponsors = [[Sponsor.Payload]]()
     
     let spinner = LoadingTool.setActivityindicator()
     
@@ -43,6 +43,11 @@ class SponsorsViewController: MPBaseViewController {
         sponsorsCollectionView.dataSource = self
         
         getSponsors()
+        
+        SponsorProvider.fetchSponsor(completion: { result in
+            
+            
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +71,7 @@ class SponsorsViewController: MPBaseViewController {
         
             if let vc = segue.destination as? SponsorDetailViewController {
             
-                vc.sponsor = self.selectedSponsor
+//                vc.sponsor = self.selectedSponsor
             }
         }
     }
@@ -79,78 +84,80 @@ class SponsorsViewController: MPBaseViewController {
         
         view.addSubview(spinner)
         
-        SponsorAPI.getAPI(url: MopconAPI.shared.sponsor) { (payload, error) in
-            
-            if error != nil {
-                print(error!.localizedDescription)
-                
-                self.spinner.removeFromSuperview()
-                
-                return
-            }
-            
-            if let payload = payload {
-                var bruceWayne = [Sponsor.Payload]()
-                var hacker = [Sponsor.Payload]()
-                var geek = [Sponsor.Payload]()
-                var developer = [Sponsor.Payload]()
-                var specialThanks = [Sponsor.Payload]()
-                var educationSponsorship = [Sponsor.Payload]()
-                var co_organisers = [Sponsor.Payload]()
-                
-                for sponsor in payload {
-                    switch sponsor.type {
-                    case "Bruce Wayne":
-                        bruceWayne.append(sponsor)
-                    case "Hacker":
-                        hacker.append(sponsor)
-                    case "Geek":
-                        geek.append(sponsor)
-                    case "Developer":
-                        developer.append(sponsor)
-                    case "教育贊助":
-                        educationSponsorship.append(sponsor)
-                    case "協辦單位":
-                        co_organisers.append(sponsor)
-                    default:
-                        specialThanks.append(sponsor)
-                    }
-                }
-                self.sponsors.append(bruceWayne)
-                self.sponsors.append(hacker)
-                self.sponsors.append(geek)
-                self.sponsors.append(developer)
-                self.sponsors.append(educationSponsorship)
-                self.sponsors.append(specialThanks)
-                self.sponsors.append(co_organisers)
-                
-                DispatchQueue.main.async {
-                    self.sponsorsCollectionView.reloadData()
-                    self.spinner.removeFromSuperview()
-                }
-            }
-        }
+//        SponsorAPI.getAPI(url: MopconAPI.shared.sponsor) { (payload, error) in
+//            
+//            if error != nil {
+//                print(error!.localizedDescription)
+//                
+//                self.spinner.removeFromSuperview()
+//                
+//                return
+//            }
+//            
+//            if let payload = payload {
+//                var bruceWayne = [Sponsor.Payload]()
+//                var hacker = [Sponsor.Payload]()
+//                var geek = [Sponsor.Payload]()
+//                var developer = [Sponsor.Payload]()
+//                var specialThanks = [Sponsor.Payload]()
+//                var educationSponsorship = [Sponsor.Payload]()
+//                var co_organisers = [Sponsor.Payload]()
+//                
+//                for sponsor in payload {
+//                    switch sponsor.type {
+//                    case "Bruce Wayne":
+//                        bruceWayne.append(sponsor)
+//                    case "Hacker":
+//                        hacker.append(sponsor)
+//                    case "Geek":
+//                        geek.append(sponsor)
+//                    case "Developer":
+//                        developer.append(sponsor)
+//                    case "教育贊助":
+//                        educationSponsorship.append(sponsor)
+//                    case "協辦單位":
+//                        co_organisers.append(sponsor)
+//                    default:
+//                        specialThanks.append(sponsor)
+//                    }
+//                }
+//                self.sponsors.append(bruceWayne)
+//                self.sponsors.append(hacker)
+//                self.sponsors.append(geek)
+//                self.sponsors.append(developer)
+//                self.sponsors.append(educationSponsorship)
+//                self.sponsors.append(specialThanks)
+//                self.sponsors.append(co_organisers)
+//                
+//                DispatchQueue.main.async {
+//                    self.sponsorsCollectionView.reloadData()
+//                    self.spinner.removeFromSuperview()
+//                }
+//            }
+//        }
     }
 }
 extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sponsors.count
+        return 0//sponsors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sponsors[section].count
+        return 0//sponsors[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let sponsor = sponsors[indexPath.section][indexPath.row]
+//        let sponsor = sponsors[indexPath.section][indexPath.row]
+//
+//        let smallImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: SponsorCollectionViewIDManager.sponsorCollectionCell, for: indexPath) as! SponsorSmallCollectionViewCell
+//
+//        smallImageCell.updateUI(sponsor: sponsor)
+//
+//        return smallImageCell
         
-        let smallImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: SponsorCollectionViewIDManager.sponsorCollectionCell, for: indexPath) as! SponsorSmallCollectionViewCell
-        
-        smallImageCell.updateUI(sponsor: sponsor)
-        
-        return smallImageCell
+        return UICollectionViewCell()
     }
     
     
@@ -185,17 +192,19 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedSponsor = sponsors[indexPath.section][indexPath.row]
-        performSegue(withIdentifier: SegueIDManager.performSponsorDetail, sender: self)
+//        self.selectedSponsor = sponsors[indexPath.section][indexPath.row]
+//        performSegue(withIdentifier: SegueIDManager.performSponsorDetail, sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
 
-        if sponsors[section].isEmpty {
-            return CGSize.zero
-        } else {
-            return CGSize(width: collectionView.bounds.width, height: 50)
-        }
+//        if sponsors[section].isEmpty {
+//            return CGSize.zero
+//        } else {
+//            return CGSize(width: collectionView.bounds.width, height: 50)
+//        }
+        
+        return CGSize.zero
     }
 }
 

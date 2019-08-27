@@ -19,13 +19,13 @@ class SponsorSmallCollectionViewCell: UICollectionViewCell {
         sponsorImageView.makeCircle()
     }
     
-    func updateUI(sponsor:Sponsor.Payload){
-                
-        sponsorLabel.text = (CurrentLanguage.getLanguage() == Language.english.rawValue) ? sponsor.name_en : sponsor.name
-        
-        if let url = URL(string: sponsor.logo) {
-            
-            sponsorImageView.kf.setImage(with: url)
-        }
-    }
+//    func updateUI(sponsor:Sponsor.Payload){
+//                
+//        sponsorLabel.text = (CurrentLanguage.getLanguage() == Language.english.rawValue) ? sponsor.name_en : sponsor.name
+//        
+//        if let url = URL(string: sponsor.logo) {
+//            
+//            sponsorImageView.kf.setImage(with: url)
+//        }
+//    }
 }
