@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AgendaViewController: UIViewController {
+class AgendaViewController: MPBaseViewController {
     
     @IBOutlet weak var dateSelectionView: SelectionView!
     

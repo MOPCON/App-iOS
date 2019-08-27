@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsViewController: UIViewController {
+class NewsViewController: MPBaseViewController {
     
     var news = [News.Payload]()
     let spinner = LoadingTool.setActivityindicator()

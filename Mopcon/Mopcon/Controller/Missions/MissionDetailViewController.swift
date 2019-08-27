@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MissionDetailViewController: UIViewController {
+class MissionDetailViewController: MPBaseViewController {
     
     var mission: Quiz?
     var selectedAnswer: String?

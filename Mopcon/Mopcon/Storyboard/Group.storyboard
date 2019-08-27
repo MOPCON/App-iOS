@@ -169,8 +169,8 @@
                                                         <constraint firstAttribute="width" secondItem="hQV-pc-b4t" secondAttribute="height" multiplier="1:1" id="vJ0-wa-Ror"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DY-ru-iXY">
-                                                    <rect key="frame" x="62" y="104" width="40.5" height="22.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="7DY-ru-iXY">
+                                                    <rect key="frame" x="20" y="104" width="124" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -178,11 +178,12 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="7DY-ru-iXY" firstAttribute="width" relation="lessThanOrEqual" secondItem="icm-w0-k88" secondAttribute="width" constant="-40" id="7pb-7p-jif"/>
                                             <constraint firstItem="hQV-pc-b4t" firstAttribute="width" secondItem="icm-w0-k88" secondAttribute="width" multiplier="80:187" id="NbG-yu-Q81"/>
                                             <constraint firstItem="hQV-pc-b4t" firstAttribute="centerX" secondItem="icm-w0-k88" secondAttribute="centerX" id="O4d-4x-3Jw"/>
                                             <constraint firstItem="7DY-ru-iXY" firstAttribute="centerX" secondItem="hQV-pc-b4t" secondAttribute="centerX" id="aGS-sH-mZa"/>
+                                            <constraint firstAttribute="trailing" secondItem="7DY-ru-iXY" secondAttribute="trailing" constant="20" id="bKW-9U-Jh9"/>
                                             <constraint firstItem="7DY-ru-iXY" firstAttribute="top" secondItem="hQV-pc-b4t" secondAttribute="bottom" constant="10" id="bj8-NN-gOG"/>
+                                            <constraint firstItem="7DY-ru-iXY" firstAttribute="leading" secondItem="icm-w0-k88" secondAttribute="leading" constant="20" id="glD-cy-0Rj"/>
                                             <constraint firstItem="hQV-pc-b4t" firstAttribute="top" secondItem="icm-w0-k88" secondAttribute="top" constant="24" id="nAy-it-5qa"/>
                                         </constraints>
                                         <size key="customSize" width="164" height="164"/>
@@ -343,6 +344,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="志工資訊" id="Xyh-Fd-SgU"/>
                     <connections>
+                        <outlet property="memberLbl" destination="Fhv-bu-mKJ" id="Nh7-K5-Zuc"/>
                         <outlet property="volunteerDetailLbl" destination="5MJ-UB-fbo" id="B9E-Ms-u58"/>
                         <outlet property="volunteerImgView" destination="aAS-bR-Xvo" id="lfC-9T-lz0"/>
                         <outlet property="volunteerListLbl" destination="F3a-XQ-TKV" id="8u4-vW-ZKE"/>

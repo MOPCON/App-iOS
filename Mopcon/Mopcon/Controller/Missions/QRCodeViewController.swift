@@ -13,7 +13,7 @@ protocol GetInteractionMissionResult: class {
     func updateMissionStatus()
 }
 
-class QRCodeViewController: UIViewController {
+class QRCodeViewController: MPBaseViewController {
     
     var currentID: String?
     weak var getInteractionMissionResult:GetInteractionMissionResult?

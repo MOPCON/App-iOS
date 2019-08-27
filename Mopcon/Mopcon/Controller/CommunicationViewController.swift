@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommunicationViewController: UIViewController {
+class CommunicationViewController: MPBaseViewController {
    
     var selectedSchedule = [Schedule_unconf.Payload.Item]()
     

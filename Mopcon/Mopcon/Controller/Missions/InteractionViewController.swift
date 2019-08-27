@@ -14,7 +14,7 @@ enum MissionStatus {
     case hasBeenExcuted
 }
 
-class InteractionViewController: UIViewController {
+class InteractionViewController: MPBaseViewController {
 
     var mission: Quiz?
     

@@ -31,7 +31,7 @@ class GroupBaseViewController: MPBaseViewController, UICollectionViewDelegateFlo
         
         joinVolunteerView.frame = CGRect(
             origin: CGPoint(x: 0, y: collectionView.contentSize.height),
-            size: CGSize(width: collectionView.frame.width, height: joinViewHeight)
+            size: CGSize(width: UIScreen.main.bounds.width, height: joinViewHeight)
         )
         
         collectionView.addSubview(joinVolunteerView)

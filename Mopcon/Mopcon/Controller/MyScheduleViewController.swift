@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyScheduleViewController: UIViewController {
+class MyScheduleViewController: MPBaseViewController {
     
     var key = UserDefaultsKeys.dayOneSchedule
     var mySchedule = [Schedule.Payload.Agenda.Item.AgendaContent]() {
