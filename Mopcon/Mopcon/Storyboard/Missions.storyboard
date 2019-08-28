@@ -10,19 +10,110 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--遊戲-->
         <scene sceneID="mJl-El-Yi5">
             <objects>
-                <viewController id="0RZ-XR-IUs" sceneMemberID="viewController">
+                <viewController id="0RZ-XR-IUs" customClass="FileGameViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GQR-TS-hwq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OHQ-Ea-KNW">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="0RZ-XR-IUs" id="i2E-fd-Yj0"/>
+                                    <outlet property="delegate" destination="0RZ-XR-IUs" id="jdw-4n-GNb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Y8A-Bo-odp" firstAttribute="bottom" secondItem="OHQ-Ea-KNW" secondAttribute="bottom" id="78O-6O-cFn"/>
+                            <constraint firstItem="OHQ-Ea-KNW" firstAttribute="leading" secondItem="Y8A-Bo-odp" secondAttribute="leading" id="bBS-Fn-djV"/>
+                            <constraint firstItem="OHQ-Ea-KNW" firstAttribute="top" secondItem="Y8A-Bo-odp" secondAttribute="top" id="fVr-wr-ITj"/>
+                            <constraint firstItem="Y8A-Bo-odp" firstAttribute="trailing" secondItem="OHQ-Ea-KNW" secondAttribute="trailing" id="n1A-ez-4JI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Y8A-Bo-odp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JLs-lA-qhP"/>
+                    <navigationItem key="navigationItem" title="遊戲" id="JLs-lA-qhP">
+                        <barButtonItem key="rightBarButtonItem" image="info" id="tfG-fk-bcj"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="headerView" destination="870-vM-EuO" id="l7N-IQ-WsW"/>
+                        <outlet property="tableView" destination="OHQ-Ea-KNW" id="j1r-Vk-LLM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="us2-aJ-aSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="870-vM-EuO" customClass="FieldGameHeaderView" customModule="Mopcon" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="field_game_profile" translatesAutoresizingMaskIntoConstraints="NO" id="FLZ-XY-gaY">
+                            <rect key="frame" x="20" y="32" width="80" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="FLZ-XY-gaY" secondAttribute="height" multiplier="1:1" id="PEA-iv-Dfi"/>
+                                <constraint firstAttribute="width" constant="80" id="f7F-By-ozZ"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="累積分數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyl-1e-Erj">
+                            <rect key="frame" x="120" y="33.333333333333336" width="64" height="22.666666666666664"/>
+                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFe-w1-5Cp">
+                            <rect key="frame" x="342.66666666666669" y="23.666666666666671" width="12.333333333333314" height="42"/>
+                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="30"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Fa-Cv-MMD">
+                            <rect key="frame" x="120" y="72" width="88" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="88" id="Ero-Kf-4YY"/>
+                                <constraint firstAttribute="height" constant="32" id="cuE-H8-9hv"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                            <state key="normal" title="我的獎勵">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="破關進度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6Q-mi-cKm">
+                            <rect key="frame" x="20" y="147" width="64" height="22.666666666666657"/>
+                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2/8" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2a-4Q-GFc">
+                            <rect key="frame" x="327.66666666666669" y="147" width="27.333333333333314" height="22.666666666666657"/>
+                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="6cu-ex-KxH" firstAttribute="trailing" secondItem="BFe-w1-5Cp" secondAttribute="trailing" constant="20" id="7QT-Dp-IhJ"/>
+                        <constraint firstItem="Wyl-1e-Erj" firstAttribute="leading" secondItem="FLZ-XY-gaY" secondAttribute="trailing" constant="20" id="E8Z-bG-YJ5"/>
+                        <constraint firstItem="FLZ-XY-gaY" firstAttribute="top" secondItem="6cu-ex-KxH" secondAttribute="top" constant="32" id="Jhv-qY-lZE"/>
+                        <constraint firstItem="FLZ-XY-gaY" firstAttribute="leading" secondItem="6cu-ex-KxH" secondAttribute="leading" constant="20" id="KZG-4F-fGb"/>
+                        <constraint firstItem="c6Q-mi-cKm" firstAttribute="leading" secondItem="FLZ-XY-gaY" secondAttribute="leading" id="S51-4D-VsT"/>
+                        <constraint firstItem="BFe-w1-5Cp" firstAttribute="centerY" secondItem="Wyl-1e-Erj" secondAttribute="centerY" id="TLJ-el-pXm"/>
+                        <constraint firstItem="E2a-4Q-GFc" firstAttribute="centerY" secondItem="c6Q-mi-cKm" secondAttribute="centerY" id="Vul-RU-veM"/>
+                        <constraint firstItem="2Fa-Cv-MMD" firstAttribute="leading" secondItem="Wyl-1e-Erj" secondAttribute="leading" id="g6G-Mc-yY3"/>
+                        <constraint firstItem="c6Q-mi-cKm" firstAttribute="top" secondItem="FLZ-XY-gaY" secondAttribute="bottom" constant="35" id="s2Y-Ph-RNs"/>
+                        <constraint firstItem="Wyl-1e-Erj" firstAttribute="bottom" secondItem="FLZ-XY-gaY" secondAttribute="centerY" constant="-16" id="tjc-tH-wcr"/>
+                        <constraint firstItem="E2a-4Q-GFc" firstAttribute="trailing" secondItem="BFe-w1-5Cp" secondAttribute="trailing" id="wWe-lk-XtX"/>
+                        <constraint firstItem="2Fa-Cv-MMD" firstAttribute="top" secondItem="Wyl-1e-Erj" secondAttribute="bottom" constant="16" id="zyd-Gv-CBX"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="6cu-ex-KxH"/>
+                    <connections>
+                        <outlet property="levelLabel" destination="E2a-4Q-GFc" id="XV2-vH-jxt"/>
+                        <outlet property="rewardBtn" destination="2Fa-Cv-MMD" id="bml-Cb-ERw"/>
+                        <outlet property="scoreLabel" destination="BFe-w1-5Cp" id="XJ9-xi-w6G"/>
+                    </connections>
+                </view>
             </objects>
             <point key="canvasLocation" x="1668.1159420289857" y="200.54347826086959"/>
         </scene>
@@ -34,6 +125,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6ZT-Sa-ocf">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -45,4 +139,8 @@
             <point key="canvasLocation" x="760.86956521739137" y="200.54347826086959"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="field_game_profile" width="80" height="80"/>
+        <image name="info" width="16" height="16"/>
+    </resources>
 </document>

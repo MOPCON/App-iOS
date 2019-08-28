@@ -29,6 +29,8 @@
 		3C3FFEA122FAD6E300873416 /* JoinVolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */; };
 		3C3FFEA322FAD6FE00873416 /* JoinVolunteerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */; };
 		3C6A38DE2305A3F200B4546B /* MPTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A38DD2305A3F200B4546B /* MPTagView.swift */; };
+		3C7D65AD23167D2900D0EEE2 /* FileGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D65AC23167D2900D0EEE2 /* FileGameViewController.swift */; };
+		3C7D65AF2316822500D0EEE2 /* FieldGameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D65AE2316822500D0EEE2 /* FieldGameHeaderView.swift */; };
 		3C8C357623069B4000D04CB0 /* VolunteerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */; };
 		3C903F8322979AE600765CB2 /* Agenda.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8222979AE600765CB2 /* Agenda.storyboard */; };
 		3C903F8522979AFB00765CB2 /* Schedual.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8422979AFB00765CB2 /* Schedual.storyboard */; };
@@ -181,6 +183,8 @@
 		3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVolunteerView.swift; sourceTree = "<group>"; };
 		3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JoinVolunteerView.xib; sourceTree = "<group>"; };
 		3C6A38DD2305A3F200B4546B /* MPTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTagView.swift; sourceTree = "<group>"; };
+		3C7D65AC23167D2900D0EEE2 /* FileGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileGameViewController.swift; sourceTree = "<group>"; };
+		3C7D65AE2316822500D0EEE2 /* FieldGameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameHeaderView.swift; sourceTree = "<group>"; };
 		3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerDetailViewController.swift; sourceTree = "<group>"; };
 		3C903F8222979AE600765CB2 /* Agenda.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Agenda.storyboard; sourceTree = "<group>"; };
 		3C903F8422979AFB00765CB2 /* Schedual.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedual.storyboard; sourceTree = "<group>"; };
@@ -517,6 +521,7 @@
 		536688702305AFEA0036DFE5 /* FieldGame */ = {
 			isa = PBXGroup;
 			children = (
+				3C7D65AE2316822500D0EEE2 /* FieldGameHeaderView.swift */,
 				536688792305BFF90036DFE5 /* CompleteCell.swift */,
 				5366887A2305BFF90036DFE5 /* CompleteCell.xib */,
 				536688712305B0310036DFE5 /* GameStageCell.swift */,
@@ -549,13 +554,6 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		5E564B75213FA85400F2CED2 /* Missions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Missions;
-			sourceTree = "<group>";
-		};
 		5E682E18213CFDF300FC37CF /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +576,7 @@
 			isa = PBXGroup;
 			children = (
 				5E4A0045216F273B00C4A656 /* QRCodeViewController.swift */,
+				3C7D65AC23167D2900D0EEE2 /* FileGameViewController.swift */,
 			);
 			path = Missions;
 			sourceTree = "<group>";
@@ -700,7 +699,6 @@
 				3C3FFE9F22FAD6A700873416 /* Group */,
 				3CFCF00C22DF1033006184CD /* Lobby */,
 				D6EE629C20E9D0D50043B68A /* MainTableView */,
-				5E564B75213FA85400F2CED2 /* Missions */,
 				3CFC36A222F957C00058C322 /* More */,
 				D66778E720FB130A00E9CA34 /* MyScheduleTableView */,
 				D6EE629B20E9D0C70043B68A /* NewsTableView */,
@@ -1075,6 +1073,7 @@
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
 				3C31E674230FA9E400000518 /* GroupObject.swift in Sources */,
 				3C31E66F230FA25700000518 /* UIViewControllerExtension.swift in Sources */,
+				3C7D65AD23167D2900D0EEE2 /* FileGameViewController.swift in Sources */,
 				5E349C9021225CE10060297A /* Schedule.swift in Sources */,
 				D6555F2F20EC783A000816DF /* GroupHostDetailViewController.swift in Sources */,
 				5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */,
@@ -1126,6 +1125,7 @@
 				D66778ED20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift in Sources */,
 				5E349C98212270BA0060297A /* Sponsor.swift in Sources */,
 				D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */,
+				3C7D65AF2316822500D0EEE2 /* FieldGameHeaderView.swift in Sources */,
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 				3C3FFE9E22FAA90E00873416 /* SpeakerTalkInfoView.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,

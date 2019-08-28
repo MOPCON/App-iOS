@@ -24,13 +24,13 @@ class GameStageCell: UITableViewCell {
 
     private var timer : Timer?
     
-    func updateUI() {
+    func updateUI(isComplete: Bool) {
         // change check image and backgroundColor and borderColor
-        checkImage.image = (true) ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "uncheck")
+        checkImage.image = isComplete ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "uncheck")
         
-        if true {
+        if isComplete {
             
-            cellView?.layer.sublayers?.removeAll()
+//            cellView?.layer.sublayers?.removeAll()
             
             cellView?.backgroundColor = UIColor.azure?.withAlphaComponent(0.3)
             
