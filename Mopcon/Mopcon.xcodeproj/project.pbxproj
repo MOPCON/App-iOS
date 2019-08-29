@@ -29,7 +29,7 @@
 		3C3FFEA122FAD6E300873416 /* JoinVolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */; };
 		3C3FFEA322FAD6FE00873416 /* JoinVolunteerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */; };
 		3C6A38DE2305A3F200B4546B /* MPTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A38DD2305A3F200B4546B /* MPTagView.swift */; };
-		3C7D65AD23167D2900D0EEE2 /* FileGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D65AC23167D2900D0EEE2 /* FileGameViewController.swift */; };
+		3C7D65AD23167D2900D0EEE2 /* FieldGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D65AC23167D2900D0EEE2 /* FieldGameViewController.swift */; };
 		3C7D65AF2316822500D0EEE2 /* FieldGameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D65AE2316822500D0EEE2 /* FieldGameHeaderView.swift */; };
 		3C8C357623069B4000D04CB0 /* VolunteerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */; };
 		3C903F8322979AE600765CB2 /* Agenda.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8222979AE600765CB2 /* Agenda.storyboard */; };
@@ -84,7 +84,7 @@
 		5E349CAA21242B910060297A /* CommunityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA921242B910060297A /* CommunityAPI.swift */; };
 		5E349CAC212448410060297A /* Schedule_unconfAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CAB212448410060297A /* Schedule_unconfAPI.swift */; };
 		5E4A0046216F273B00C4A656 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4A0045216F273B00C4A656 /* QRCodeViewController.swift */; };
-		5E682E1A213CFE4400FC37CF /* Missions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E682E19213CFE4400FC37CF /* Missions.storyboard */; };
+		5E682E1A213CFE4400FC37CF /* FieldGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E682E19213CFE4400FC37CF /* FieldGame.storyboard */; };
 		5E6CBDA1217BB9D60097D5E2 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CBDA0217BB9D60097D5E2 /* Wallet.swift */; };
 		5E941014214F43DD001D61F6 /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941013214F43DD001D61F6 /* NewsAPI.swift */; };
 		5E941016214F4401001D61F6 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941015214F4401001D61F6 /* News.swift */; };
@@ -183,7 +183,7 @@
 		3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVolunteerView.swift; sourceTree = "<group>"; };
 		3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JoinVolunteerView.xib; sourceTree = "<group>"; };
 		3C6A38DD2305A3F200B4546B /* MPTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTagView.swift; sourceTree = "<group>"; };
-		3C7D65AC23167D2900D0EEE2 /* FileGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileGameViewController.swift; sourceTree = "<group>"; };
+		3C7D65AC23167D2900D0EEE2 /* FieldGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameViewController.swift; sourceTree = "<group>"; };
 		3C7D65AE2316822500D0EEE2 /* FieldGameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameHeaderView.swift; sourceTree = "<group>"; };
 		3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerDetailViewController.swift; sourceTree = "<group>"; };
 		3C903F8222979AE600765CB2 /* Agenda.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Agenda.storyboard; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 		5E349CA921242B910060297A /* CommunityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAPI.swift; sourceTree = "<group>"; };
 		5E349CAB212448410060297A /* Schedule_unconfAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule_unconfAPI.swift; sourceTree = "<group>"; };
 		5E4A0045216F273B00C4A656 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
-		5E682E19213CFE4400FC37CF /* Missions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Missions.storyboard; sourceTree = "<group>"; };
+		5E682E19213CFE4400FC37CF /* FieldGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FieldGame.storyboard; sourceTree = "<group>"; };
 		5E6CBDA0217BB9D60097D5E2 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		5E941013214F43DD001D61F6 /* NewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
 		5E941015214F4401001D61F6 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -563,7 +563,7 @@
 				3C903F8C22979B3700765CB2 /* Group.storyboard */,
 				D633462520E8FFC60033E5B4 /* Lobby.storyboard */,
 				3CFCF00322DECF9D006184CD /* Main.storyboard */,
-				5E682E19213CFE4400FC37CF /* Missions.storyboard */,
+				5E682E19213CFE4400FC37CF /* FieldGame.storyboard */,
 				3C903F8E22979B4800765CB2 /* News.storyboard */,
 				3C903F8422979AFB00765CB2 /* Schedual.storyboard */,
 				3C903F8A22979B2700765CB2 /* Speaker.storyboard */,
@@ -576,7 +576,7 @@
 			isa = PBXGroup;
 			children = (
 				5E4A0045216F273B00C4A656 /* QRCodeViewController.swift */,
-				3C7D65AC23167D2900D0EEE2 /* FileGameViewController.swift */,
+				3C7D65AC23167D2900D0EEE2 /* FieldGameViewController.swift */,
 			);
 			path = Missions;
 			sourceTree = "<group>";
@@ -949,7 +949,7 @@
 				536688742305B0310036DFE5 /* GameStageCell.xib in Resources */,
 				3C903F8F22979B4800765CB2 /* News.storyboard in Resources */,
 				D633462720E8FFC60033E5B4 /* Lobby.storyboard in Resources */,
-				5E682E1A213CFE4400FC37CF /* Missions.storyboard in Resources */,
+				5E682E1A213CFE4400FC37CF /* FieldGame.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1073,7 +1073,7 @@
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
 				3C31E674230FA9E400000518 /* GroupObject.swift in Sources */,
 				3C31E66F230FA25700000518 /* UIViewControllerExtension.swift in Sources */,
-				3C7D65AD23167D2900D0EEE2 /* FileGameViewController.swift in Sources */,
+				3C7D65AD23167D2900D0EEE2 /* FieldGameViewController.swift in Sources */,
 				5E349C9021225CE10060297A /* Schedule.swift in Sources */,
 				D6555F2F20EC783A000816DF /* GroupHostDetailViewController.swift in Sources */,
 				5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */,

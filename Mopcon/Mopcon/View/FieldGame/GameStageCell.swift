@@ -16,13 +16,15 @@ class GameStageCell: UITableViewCell {
     
     private var cellView: UIView?
     
+    private let animationKey: String = "AnimationKey"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         cellView = contentView.subviews.first
+        
+        cellView?.layer.borderWidth = 1
     }
-
-    private var timer : Timer?
     
     func updateUI(isComplete: Bool) {
         // change check image and backgroundColor and borderColor
@@ -30,55 +32,59 @@ class GameStageCell: UITableViewCell {
         
         if isComplete {
             
-//            cellView?.layer.sublayers?.removeAll()
-            
-            cellView?.backgroundColor = UIColor.azure?.withAlphaComponent(0.3)
-            
-            cellView?.layer.borderWidth = 0
+            hightlightStateLayout()
             
         } else {
             
-            cellView?.layer.borderWidth = 1
-            
-            cellView?.layer.borderColor = UIColor.azure?.cgColor
+            unHightlightStateLayout()
         }
     }
     
-    private func startTimer() {
+    private func hightlightStateLayout() {
         
-        timer = Timer(timeInterval: 1, repeats: true, block: { [weak self] _ in
+        cellView?.backgroundColor = UIColor.azure?.withAlphaComponent(0.3)
         
-            UIView.animate(withDuration: 0.5, animations: {
-                
-                DispatchQueue.main.async {
-                    
-                    self?.cellView?.backgroundColor = .clear
-                    
-                    self?.cellView?.layer.borderWidth = 1
-                    
-                    self?.cellView?.layer.borderColor = UIColor.azure?.cgColor
-                }
-                
-            }, completion: { finished in
-                
-                UIView.animate(withDuration: 0.5, animations: {
-                    
-                    DispatchQueue.main.async {
-                        
-                        self?.cellView?.layer.borderWidth = 0
-                        
-                        self?.cellView?.backgroundColor = UIColor.azure?.withAlphaComponent(0.3)
-                    }
-                    
-                }, completion: nil)
-            })
-        })
+        cellView?.layer.borderColor = UIColor.clear.cgColor
     }
     
-    private func stopTimer() {
+    private func unHightlightStateLayout() {
         
-        timer?.invalidate()
+        cellView?.backgroundColor = UIColor.clear
         
-        timer = nil
+        cellView?.layer.borderColor = UIColor.azure?.cgColor
+    }
+    
+    func startTimer() {
+        
+        let backgroudColorAnimation = CABasicAnimation(keyPath: "backgroundColor")
+        
+        backgroudColorAnimation.fromValue = UIColor.clear
+        
+        backgroudColorAnimation.toValue = UIColor.azure?.withAlphaComponent(0.3).cgColor
+        
+        let borderColorAnimation = CABasicAnimation(keyPath: "borderColor")
+        
+        borderColorAnimation.fromValue = UIColor.azure?.cgColor
+        
+        borderColorAnimation.toValue = UIColor.clear.cgColor
+        
+        let groupAnimation = CAAnimationGroup()
+        
+        groupAnimation.animations = [backgroudColorAnimation, borderColorAnimation]
+        
+        groupAnimation.duration = 1.0
+        
+        groupAnimation.autoreverses = true
+        
+        groupAnimation.repeatCount = Float.infinity
+        
+        groupAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        
+        cellView?.layer.add(groupAnimation, forKey: animationKey)
+    }
+    
+    func stopTimer() {
+        
+        cellView?.layer.removeAnimation(forKey: animationKey)
     }
 }

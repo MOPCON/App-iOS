@@ -13,40 +13,39 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompleteCell" rowHeight="112" id="KGk-i7-Jjw" customClass="CompleteCell" customModule="Mopcon" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
+            <rect key="frame" x="0.0" y="0.0" width="359" height="112"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="111.66666666666667"/>
+                <rect key="frame" x="0.0" y="0.0" width="359" height="111.66666666666667"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TWX-uO-cIW">
-                        <rect key="frame" x="20" y="8" width="335" height="95.666666666666671"/>
+                        <rect key="frame" x="20" y="8" width="319" height="95.666666666666671"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="Qvt-55-sRu">
-                                <rect key="frame" x="16" y="36" width="24" height="24"/>
+                                <rect key="frame" x="16" y="36.333333333333336" width="23" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qvt-55-sRu" secondAttribute="height" multiplier="1:1" id="qKH-n9-4Eh"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Get Present" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWZ-d5-VTd">
-                                <rect key="frame" x="64" y="24" width="76.666666666666686" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="領取獎勵" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWZ-d5-VTd">
+                                <rect key="frame" x="63" y="24" width="56" height="19.666666666666671"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed All Missions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDM-UP-0jK">
-                                <rect key="frame" x="63.999999999999986" y="49" width="150.66666666666663" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已完成所有任務" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDM-UP-0jK">
+                                <rect key="frame" x="63" y="51.666666666666664" width="98" height="14.333333333333336"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oow-2X-frl">
-                                <rect key="frame" x="231" y="32" width="88" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oow-2X-frl">
+                                <rect key="frame" x="215" y="32" width="88" height="32"/>
                                 <color key="backgroundColor" red="0.0" green="0.66666666669999997" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="oow-2X-frl" secondAttribute="height" multiplier="44:16" id="hvy-JQ-DFk"/>
-                                </constraints>
-                                <state key="normal" title="Get"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <inset key="contentEdgeInsets" minX="16" minY="6" maxX="16" maxY="6"/>
+                                <state key="normal" title="領取獎勵"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="6"/>
@@ -58,7 +57,6 @@
                         <constraints>
                             <constraint firstItem="Qvt-55-sRu" firstAttribute="centerY" secondItem="TWX-uO-cIW" secondAttribute="centerY" id="0NR-eQ-vpc"/>
                             <constraint firstAttribute="bottom" secondItem="zDM-UP-0jK" secondAttribute="bottom" constant="29.670000000000002" id="2Dh-Sf-9fu"/>
-                            <constraint firstItem="oow-2X-frl" firstAttribute="width" secondItem="TWX-uO-cIW" secondAttribute="width" multiplier="88:335" id="9fv-Uz-Q4o"/>
                             <constraint firstAttribute="trailing" secondItem="oow-2X-frl" secondAttribute="trailing" constant="16" id="9j7-gK-3aW"/>
                             <constraint firstItem="Qvt-55-sRu" firstAttribute="leading" secondItem="TWX-uO-cIW" secondAttribute="leading" constant="16" id="DTB-nF-r70"/>
                             <constraint firstItem="zDM-UP-0jK" firstAttribute="top" secondItem="kWZ-d5-VTd" secondAttribute="bottom" constant="8" id="EeU-RD-jof"/>
@@ -67,6 +65,7 @@
                             <constraint firstItem="oow-2X-frl" firstAttribute="centerY" secondItem="TWX-uO-cIW" secondAttribute="centerY" id="MKm-dr-c37"/>
                             <constraint firstItem="kWZ-d5-VTd" firstAttribute="leading" secondItem="Qvt-55-sRu" secondAttribute="trailing" constant="24" id="YUV-p9-DnG"/>
                             <constraint firstItem="zDM-UP-0jK" firstAttribute="leading" secondItem="kWZ-d5-VTd" secondAttribute="leading" id="dI1-eL-OQz"/>
+                            <constraint firstItem="oow-2X-frl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zDM-UP-0jK" secondAttribute="trailing" constant="10" id="ecj-q0-gr0"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -75,6 +74,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="TWX-uO-cIW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Vjv-ZM-XQK"/>
                     <constraint firstItem="TWX-uO-cIW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="fjT-96-cRM"/>
@@ -82,12 +82,14 @@
                     <constraint firstAttribute="trailing" secondItem="TWX-uO-cIW" secondAttribute="trailing" constant="20" id="jJo-zR-O7j"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="descriptionLabel" destination="zDM-UP-0jK" id="v69-wV-Cnu"/>
                 <outlet property="getButton" destination="oow-2X-frl" id="kqV-Df-2SM"/>
                 <outlet property="titleLabel" destination="kWZ-d5-VTd" id="bQ8-NT-pIy"/>
             </connections>
+            <point key="canvasLocation" x="40.799999999999997" y="39.90147783251232"/>
         </tableViewCell>
     </objects>
     <resources>

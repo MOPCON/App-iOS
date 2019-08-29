@@ -12,7 +12,7 @@ private enum TabCategory: String {
     
     case lobby = "Lobby"
     case agenda = "Agenda"
-    case missions = "Missions"
+    case fieldGame = "FieldGame"
     case news = "News"
     case more = "More"
     
@@ -41,7 +41,7 @@ private enum TabCategory: String {
             
         case .agenda: return UIImage.asset(.agenda)
             
-        case .missions: return UIImage.asset(.mission)
+        case .fieldGame: return UIImage.asset(.mission)
             
         case .news: return UIImage.asset(.news)
             
@@ -58,7 +58,7 @@ private enum TabCategory: String {
             
         case .agenda: return UIImage.asset(.agendaSelected)
             
-        case .missions: return UIImage.asset(.mission)
+        case .fieldGame: return UIImage.asset(.missionSelected)
             
         case .news: return UIImage.asset(.newsSelected)
             
@@ -75,7 +75,7 @@ private enum TabCategory: String {
             
         case .agenda: return "議程"
             
-        case .missions: return "任務"
+        case .fieldGame: return "任務"
             
         case .news: return "最新"
             
@@ -87,7 +87,7 @@ private enum TabCategory: String {
 
 class TabBarViewController: UITabBarController {
     
-    private let tabs: [TabCategory] = [.lobby, .agenda, .missions, .news, .more]
+    private let tabs: [TabCategory] = [.lobby, .agenda, .fieldGame, .news, .more]
     
     override func viewDidLoad() {
         super.viewDidLoad()
