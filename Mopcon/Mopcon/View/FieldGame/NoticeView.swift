@@ -8,6 +8,25 @@
 
 import UIKit
 
+protocol NoticeViewPresentable {
+    
+    var noticeView: NoticeView { get }
+    
+    var targetFrame: CGRect { get }
+}
+
+extension NoticeViewPresentable {
+    
+    func presentHintView() {
+        
+        noticeView.frame = UIScreen.main.bounds
+        
+        noticeView.contentView.frame = targetFrame
+        
+        (UIApplication.shared.delegate as! AppDelegate).window?.addSubview(noticeView)
+    }
+}
+
 enum NoticeType {
     case welcome
     case reward
@@ -17,6 +36,8 @@ enum NoticeType {
 
 class NoticeView: UIView {
 
+    @IBOutlet weak var contentView: UIView!
+    
     @IBOutlet weak var noticeImageView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -31,11 +52,27 @@ class NoticeView: UIView {
     
     @IBOutlet weak var cancelButton: UIButton!
 
-    override func draw(_ rect: CGRect) {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        commonInit()
+    }
+    
+    private func commonInit() {
+        
+        Bundle.main.loadNibNamed(NoticeView.identifier, owner: self, options: nil)
+        
+        addSubview(contentView)
+        
+        backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
         cancelButton.layer.borderColor = UIColor.azure?.cgColor
-        
-        frame.origin.y = UIScreen.main.bounds.height
     }
     
     func updateUI(with type: NoticeType) {
@@ -91,6 +128,16 @@ class NoticeView: UIView {
             cancelButton.isHidden = false
             
             descriptionLabel.isHidden = true
+            
+            passwordTextField.isHidden = false
+        
+        } else {
+            
+            cancelButton.isHidden = true
+            
+            descriptionLabel.isHidden = false
+        
+            passwordTextField.isHidden = true
         }
         
     }
@@ -109,7 +156,7 @@ class NoticeView: UIView {
         
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: { [weak self] in
             
-            self?.frame.origin.y = UIScreen.main.bounds.height
+            self?.contentView.frame.origin.y = UIScreen.main.bounds.height
             
         }, completion: { [weak self] _ in
             
@@ -118,10 +165,14 @@ class NoticeView: UIView {
     }
     
     @IBAction func okAction(_ sender: UIButton) {
+        
+        print(123)
         dismissAnimation()
     }
     
     @IBAction func cancelAction(_ sender: UIButton) {
+        
+        print(456)
         dismissAnimation()
     }
     

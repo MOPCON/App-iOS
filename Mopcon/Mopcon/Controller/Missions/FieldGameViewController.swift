@@ -8,12 +8,37 @@
 
 import UIKit
 
-class FieldGameViewController: MPBaseViewController {
+class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
 
     @IBOutlet weak var headerView: FieldGameHeaderView!
     
     @IBOutlet weak var tableView: UITableView!
     
+    //MARK: - HintViewPresentable
+    lazy var noticeView: NoticeView = {
+        
+        let tempNoticeView = NoticeView(frame: CGRect.zero)
+        
+        tempNoticeView.updateUI(with: .welcome)
+        
+        return tempNoticeView
+    }()
+    
+    lazy var targetFrame: CGRect = {
+        
+        let targetWidth = UIScreen.main.bounds.size.width - 40
+        
+        let targetHeight = UIScreen.main.bounds.size.height * 440 / 667
+        
+        return CGRect(
+            x: UIScreen.main.bounds.size.width / 2 - 0.5 * targetWidth,
+            y: UIScreen.main.bounds.size.height / 2 - 0.5 * targetHeight,
+            width: targetWidth,
+            height: targetHeight
+        )
+    }()
+    
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,6 +70,12 @@ class FieldGameViewController: MPBaseViewController {
             completeNib,
             forCellReuseIdentifier: CompleteCell.identifier
         )
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        presentHintView()
     }
 }
 
