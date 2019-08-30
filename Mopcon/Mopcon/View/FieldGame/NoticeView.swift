@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol NoticeViewPresentable {
+protocol NoticeViewPresentable: AnyObject {
     
     var noticeView: NoticeView { get }
     
@@ -21,16 +21,48 @@ extension NoticeViewPresentable {
         
         noticeView.frame = UIScreen.main.bounds
         
-        noticeView.contentView.frame = targetFrame
+        let initFrame = CGRect(
+            x: targetFrame.origin.x,
+            y: UIScreen.main.bounds.height,
+            width: targetFrame.size.width,
+            height: targetFrame.size.height
+        )
+        
+        noticeView.contentView.frame = initFrame
         
         (UIApplication.shared.delegate as! AppDelegate).window?.addSubview(noticeView)
+        
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            
+            guard let strongSelf = self else { return }
+            
+            strongSelf.noticeView.contentView.frame = strongSelf.targetFrame
+        })
     }
 }
 
+protocol NoticeViewDelegate: AnyObject {
+    
+    func didTouchOKButton(_ noticeView: NoticeView)
+    
+    func didTouchCancelButton(_ noticeView: NoticeView)
+}
+
+extension NoticeViewDelegate {
+    
+    func didTouchOKButton(_ noticeView: NoticeView) { }
+    
+    func didTouchCancelButton(_ noticeView: NoticeView) { }
+}
+
 enum NoticeType {
+    
     case welcome
+    
     case reward
+    
     case exchange
+    
     case finish
 }
 
@@ -52,6 +84,8 @@ class NoticeView: UIView {
     
     @IBOutlet weak var cancelButton: UIButton!
 
+    weak var delegate: NoticeViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -116,7 +150,6 @@ class NoticeView: UIView {
             description = (CurrentLanguage.getLanguage() == "Chinese") ? "恭喜你完成此任務，讓 Mopcon 更加成長茁壯一大步！" : ""
         }
         
-        
         titleLabel.text = title
         
         descriptionLabel.text = description
@@ -139,22 +172,11 @@ class NoticeView: UIView {
         
             passwordTextField.isHidden = true
         }
-        
-    }
-    
-    private func presentAnimation() {
-        
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: { [weak self] in
-            let width = UIScreen.main.bounds.width
-            let height = UIScreen.main.bounds.height
-            
-            self?.center = CGPoint(x: (width / 2), y: (height / 2))
-        })
     }
     
     private func dismissAnimation() {
         
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: { [weak self] in
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: { [weak self] in
             
             self?.contentView.frame.origin.y = UIScreen.main.bounds.height
             
@@ -166,15 +188,15 @@ class NoticeView: UIView {
     
     @IBAction func okAction(_ sender: UIButton) {
         
-        print(123)
+        delegate?.didTouchOKButton(self)
+        
         dismissAnimation()
     }
     
     @IBAction func cancelAction(_ sender: UIButton) {
         
-        print(456)
+        delegate?.didTouchCancelButton(self)
+        
         dismissAnimation()
     }
-    
-    
 }

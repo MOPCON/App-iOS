@@ -21,6 +21,8 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
         
         tempNoticeView.updateUI(with: .welcome)
         
+        tempNoticeView.delegate = self
+        
         return tempNoticeView
     }()
     
@@ -37,6 +39,13 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
             height: targetHeight
         )
     }()
+    
+    private let keyFieldGame = "isOpenFieldGame"
+    
+    var shouldOpenNoticeView: Bool {
+        
+        return !UserDefaults.standard.bool(forKey: keyFieldGame)
+    }
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -75,7 +84,10 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        presentHintView()
+        if shouldOpenNoticeView {
+            
+            presentHintView()
+        }
     }
 }
 
@@ -139,5 +151,13 @@ extension FieldGameViewController: UITableViewDelegate {
             
             stageCell.stopTimer()
         }
+    }
+}
+
+extension FieldGameViewController: NoticeViewDelegate {
+    
+    func didTouchOKButton(_ noticeView: NoticeView) {
+        
+        UserDefaults.standard.set(true, forKey: keyFieldGame)
     }
 }

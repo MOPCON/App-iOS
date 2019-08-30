@@ -572,13 +572,13 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		5E682E1B213D014800FC37CF /* Missions */ = {
+		5E682E1B213D014800FC37CF /* FieldGame */ = {
 			isa = PBXGroup;
 			children = (
 				5E4A0045216F273B00C4A656 /* QRCodeViewController.swift */,
 				3C7D65AC23167D2900D0EEE2 /* FieldGameViewController.swift */,
 			);
-			path = Missions;
+			path = FieldGame;
 			sourceTree = "<group>";
 		};
 		5E6CBD97217B27350097D5E2 /* JSON */ = {
@@ -671,7 +671,7 @@
 				3C31E664230F968E00000518 /* Entry */,
 				3C9335BD22FBF2F800545A6E /* Group */,
 				3CFC369F22F92FDC0058C322 /* More */,
-				5E682E1B213D014800FC37CF /* Missions */,
+				5E682E1B213D014800FC37CF /* FieldGame */,
 				3CFCF00522DED0A6006184CD /* TabBar */,
 				D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */,
 				D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */,
