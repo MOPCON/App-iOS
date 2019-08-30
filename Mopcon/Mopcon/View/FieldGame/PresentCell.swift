@@ -10,6 +10,8 @@ import UIKit
 
 class PresentCell: UITableViewCell {
 
+    @IBOutlet weak var baseView: UIView!
+    
     @IBOutlet weak var presentImageView: UIImageView!
     
     @IBOutlet weak var presentNameLabel: UILabel!
@@ -23,7 +25,11 @@ class PresentCell: UITableViewCell {
         // Initialization code
         
         presentImageView.makeCircle()
-    }
-
     
+        baseView.layer.cornerRadius = 6
+        
+        baseView.layer.borderWidth = 1.0
+        
+        baseView.layer.borderColor = UIColor.azure?.cgColor
+    }
 }

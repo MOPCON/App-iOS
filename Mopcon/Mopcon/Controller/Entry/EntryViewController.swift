@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EntryViewController: MPBaseViewController {
+class EntryViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

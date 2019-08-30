@@ -194,7 +194,6 @@
                         <segue destination="cGR-J0-5tg" kind="show" identifier="performSponsors" id="VGA-QW-HDT"/>
                         <segue destination="tGm-Za-w59" kind="show" identifier="performAgenda" id="SXr-Bg-8un"/>
                         <segue destination="170-5G-90f" kind="show" identifier="performCommunication" id="Meq-VD-CD3"/>
-                        <segue destination="niT-Ig-Dc9" kind="presentation" identifier="performMission" id="e5q-s6-lgH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -256,14 +255,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k1R-yY-7gb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1285" y="626"/>
-        </scene>
-        <!--Missions-->
-        <scene sceneID="rKG-nI-s5p">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Missions" id="niT-Ig-Dc9" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z3d-PV-eQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="811" y="793"/>
         </scene>
     </scenes>
     <resources>
