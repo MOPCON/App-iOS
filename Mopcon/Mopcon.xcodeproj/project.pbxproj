@@ -44,6 +44,7 @@
 		3CBDCF7322E1888500561D8D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7222E1888500561D8D /* UIViewExtension.swift */; };
 		3CC6FDB223053578007352DB /* MPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FDB123053578007352DB /* MPBaseViewController.swift */; };
 		3CC6FDB42305365F007352DB /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FDB32305365F007352DB /* StringExtension.swift */; };
+		3CEF49442319259B002AEB65 /* StageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF49432319259B002AEB65 /* StageViewController.swift */; };
 		3CFC369E22F92F7B0058C322 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFC369D22F92F7B0058C322 /* More.storyboard */; };
 		3CFC36A122F92FED0058C322 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC36A022F92FED0058C322 /* MoreViewController.swift */; };
 		3CFC36A422F957DA0058C322 /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC36A322F957DA0058C322 /* MoreTableViewCell.swift */; };
@@ -198,6 +199,7 @@
 		3CBDCF7222E1888500561D8D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3CC6FDB123053578007352DB /* MPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPBaseViewController.swift; sourceTree = "<group>"; };
 		3CC6FDB32305365F007352DB /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3CEF49432319259B002AEB65 /* StageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewController.swift; sourceTree = "<group>"; };
 		3CFC369D22F92F7B0058C322 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		3CFC36A022F92FED0058C322 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		3CFC36A322F957DA0058C322 /* MoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 			children = (
 				5E4A0045216F273B00C4A656 /* QRCodeViewController.swift */,
 				3C7D65AC23167D2900D0EEE2 /* FieldGameViewController.swift */,
+				3CEF49432319259B002AEB65 /* StageViewController.swift */,
 			);
 			path = FieldGame;
 			sourceTree = "<group>";
@@ -1063,6 +1066,7 @@
 				D66778E420FB062F00E9CA34 /* MyScheduleTableViewCellID.swift in Sources */,
 				3C31E660230F8CF900000518 /* MPConstant.swift in Sources */,
 				3C31E663230F8F1400000518 /* ConfigObject.swift in Sources */,
+				3CEF49442319259B002AEB65 /* StageViewController.swift in Sources */,
 				5E1753AA2150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift in Sources */,
 				D662A1A520EDB5D600316FE6 /* BreakTableViewCell.swift in Sources */,
 				3CFC36A422F957DA0058C322 /* MoreTableViewCell.swift in Sources */,

@@ -10,6 +10,11 @@ import UIKit
 
 class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
 
+    private struct Segue {
+        
+        static let stage = "SegueStage"
+    }
+    
     @IBOutlet weak var headerView: FieldGameHeaderView!
     
     @IBOutlet weak var tableView: UITableView!
@@ -151,6 +156,11 @@ extension FieldGameViewController: UITableViewDelegate {
             
             stageCell.stopTimer()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: Segue.stage, sender: nil)
     }
 }
 
