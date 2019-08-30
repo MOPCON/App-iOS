@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol FieldGameHeaderViewDelegate: AnyObject {
+    
+    func didTouchRewardBtn(_ headerView: FieldGameHeaderView)
+}
+
 class FieldGameHeaderView: UIView {
     
     @IBOutlet weak var rewardBtn: UIButton!
@@ -15,6 +20,8 @@ class FieldGameHeaderView: UIView {
     @IBOutlet weak var levelLabel: UILabel!
     
     @IBOutlet weak var scoreLabel: UILabel!
+    
+    weak var delegate: FieldGameHeaderViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +31,11 @@ class FieldGameHeaderView: UIView {
         rewardBtn.layer.borderWidth = 1.0
         
         rewardBtn.layer.cornerRadius = 6.0
+    }
+    
+    @IBAction func didTouchRewardBtn(_ sender: UIButton) {
+        
+        delegate?.didTouchRewardBtn(self)
     }
 
 }

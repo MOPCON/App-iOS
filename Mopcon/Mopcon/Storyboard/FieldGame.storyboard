@@ -43,6 +43,7 @@
                         <outlet property="headerView" destination="870-vM-EuO" id="l7N-IQ-WsW"/>
                         <outlet property="tableView" destination="OHQ-Ea-KNW" id="j1r-Vk-LLM"/>
                         <segue destination="uXe-I1-Z6h" kind="show" identifier="SegueStage" id="4pm-Te-34n"/>
+                        <segue destination="V3V-ym-Ind" kind="show" identifier="SegueReward" id="8qu-0x-GWd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="us2-aJ-aSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -79,6 +80,9 @@
                             <state key="normal" title="我的獎勵">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="didTouchRewardBtn:" destination="870-vM-EuO" eventType="touchUpInside" id="ZNb-he-ZdX"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="破關進度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6Q-mi-cKm">
                             <rect key="frame" x="20" y="147" width="64" height="22.666666666666657"/>
@@ -188,6 +192,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fmq-QA-fR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2587" y="201"/>
+        </scene>
+        <!--我的獎勵-->
+        <scene sceneID="ZX3-Jk-wpu">
+            <objects>
+                <viewController id="V3V-ym-Ind" customClass="RewardViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k2Q-Ss-gAZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="25E-zq-2nH">
+                                <rect key="frame" x="0.0" y="73" width="414" height="663"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="V3V-ym-Ind" id="Fhx-Fo-GDr"/>
+                                    <outlet property="delegate" destination="V3V-ym-Ind" id="sPp-qa-hk5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="25E-zq-2nH" firstAttribute="leading" secondItem="FAt-Ya-3hA" secondAttribute="leading" id="2qU-cf-A4r"/>
+                            <constraint firstItem="25E-zq-2nH" firstAttribute="top" secondItem="FAt-Ya-3hA" secondAttribute="top" constant="9" id="48A-ma-Wk4"/>
+                            <constraint firstItem="FAt-Ya-3hA" firstAttribute="bottom" secondItem="25E-zq-2nH" secondAttribute="bottom" id="5dF-5W-cst"/>
+                            <constraint firstItem="FAt-Ya-3hA" firstAttribute="trailing" secondItem="25E-zq-2nH" secondAttribute="trailing" id="LBI-fF-yTB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FAt-Ya-3hA"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="我的獎勵" id="nmS-PG-KBM"/>
+                    <connections>
+                        <outlet property="tableView" destination="25E-zq-2nH" id="Lyv-mM-mhR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90D-9x-6hU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2587" y="956"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GHh-df-YLB">

@@ -13,9 +13,17 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     private struct Segue {
         
         static let stage = "SegueStage"
+        
+        static let reward = "SegueReward"
     }
     
-    @IBOutlet weak var headerView: FieldGameHeaderView!
+    @IBOutlet weak var headerView: FieldGameHeaderView! {
+        
+        didSet {
+        
+            headerView.delegate = self
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -169,5 +177,13 @@ extension FieldGameViewController: NoticeViewDelegate {
     func didTouchOKButton(_ noticeView: NoticeView) {
         
         UserDefaults.standard.set(true, forKey: keyFieldGame)
+    }
+}
+
+extension FieldGameViewController: FieldGameHeaderViewDelegate {
+    
+    func didTouchRewardBtn(_ headerView: FieldGameHeaderView) {
+        
+        performSegue(withIdentifier: Segue.reward, sender: nil)
     }
 }
