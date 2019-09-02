@@ -100,6 +100,10 @@
                                         <outlet property="headerTitleLabel" destination="Qqy-ku-xLj" id="ugs-2n-iGg"/>
                                     </connections>
                                 </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="vMI-Ej-XKJ" id="brW-2I-tfV"/>
+                                    <outlet property="delegate" destination="vMI-Ej-XKJ" id="VZm-lr-JJa"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

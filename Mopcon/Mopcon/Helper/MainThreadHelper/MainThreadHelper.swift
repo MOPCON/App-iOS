@@ -18,4 +18,11 @@ extension MainThreadHelper {
             closure()
         }
     }
+    
+    func throwToMainThreadAsync(_ closure: @escaping () -> Void) {
+        
+        DispatchQueue.main.async {
+            closure()
+        }
+    }
 }

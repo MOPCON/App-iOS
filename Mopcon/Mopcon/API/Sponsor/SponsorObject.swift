@@ -10,33 +10,17 @@ import Foundation
 
 struct SponsorList: Codable {
     
-    var tonyStark: [Sponsor]?
-
-    var bruceWayne: [Sponsor]?
+    let name: String
     
-    var hacker: [Sponsor]?
-
-    var geek: [Sponsor]?
+    let nameEn: String
     
-    var developer: [Sponsor]?
-
-    var specialCooperation: [Sponsor]?
-
-    var specialThanks: [Sponsor]?
-
-    var education: [Sponsor]?
+    let data: [Sponsor]
     
     enum CodingKeys: String, CodingKey {
 
-        case tonyStark = "tony_stark"
+        case name, data
 
-        case bruceWayne = "bruce_wayne"
-
-        case specialCooperation = "special_cooperation"
-
-        case specialThanks = "special_thanks"
-
-        case hacker, geek, developer, education
+        case nameEn = "name_e"
     }
 }
 
@@ -44,9 +28,9 @@ struct Sponsor: Codable {
     
     let logo: String
     
-    let sponsor: String
+    let name: String
     
-    let sponsorEn: String
+    let nameEn: String
     
     let sponsorId: String
     
@@ -54,27 +38,29 @@ struct Sponsor: Codable {
     
     let aboutUsEn: String
     
-    let facebook: String?
+    let facebook: String
     
-    let officialWebsite: String?
+    let officialWebsite: String
     
-    let careerInformation: String?
+    let careerInformation: String
     
     let sponsorType: String
     
-    let speakerInformation: [SponsorSperker]?
+    let speakerInfo: [SponsorSpeaker]
     
     enum CodingKeys: String, CodingKey {
         
+        case name
+        
         case logo = "logo_path"
         
-        case sponsorEn = "sponsor_en"
+        case nameEn = "name_e"
         
         case sponsorId = "sponsor_id"
         
         case aboutUs = "about_us"
         
-        case aboutUsEn = "about_us_en"
+        case aboutUsEn = "about_us_e"
         
         case facebook = "facebook_url"
         
@@ -84,23 +70,25 @@ struct Sponsor: Codable {
         
         case sponsorType = "sponsor_type"
         
-        case speakerInformation = "speaker_information"
-        
-        case sponsor
+        case speakerInfo = "speaker_information"
     }
 }
 
-struct SponsorSperker: Codable {
+struct SponsorSpeaker: Codable {
     
     let img: SpeakerImage
+    
+    let speakerId: Int
+    
+    let sessionId: Int
     
     let name: String
     
     let nameEn: String
     
-    let title: String
+    let topicName: String
     
-    let titleEn: String
+    let topicNameEn: String
     
     let startedAt: Int
     
@@ -108,23 +96,25 @@ struct SponsorSperker: Codable {
     
     let room: String
     
+    let tags: [Tag]
+    
     enum CodingKeys: String, CodingKey {
         
-        case title = "speaker_title"
+        case img, name, room, tags
         
-        case room = "speaker_room"
+        case speakerId = "speaker_id"
         
-        case name = "speaker_name"
+        case sessionId = "session_id"
         
-        case img = "speaker_img"
+        case nameEn = "name_e"
         
-        case nameEn = "speaker_name_en"
+        case topicName = "topic_name"
         
-        case titleEn = "title_e"
+        case topicNameEn = "topic_name_e"
         
         case startedAt = "started_at"
         
-        case endedAt = "ended_at"
+        case endedAt = "endeded_at"
     }
 }
 
@@ -137,4 +127,7 @@ struct SpeakerImage: Codable {
 
 struct Tag: Codable {
     
+    let color: String
+    
+    let name: String
 }

@@ -22,21 +22,21 @@ class SponsorProvider {
                     
                     do {
                         
-                        let sponsorList = try JSONDecoder.shared.decode(
-                            SuccessResponse<SponsorList>.self,
+                        let sponsorLists = try JSONDecoder.shared.decode(
+                            SuccessResponse<[SponsorList]>.self,
                             from: data
                         )
                         
-                        print(sponsorList)
+                        completion(Result.success(sponsorLists.data))
                         
                     } catch {
                         
-                        print(error)
+                        completion(Result.failure(error))
                     }
                     
-                case .failure:
+                case .failure(let error):
                     
-                    print(456)
+                        completion(Result.failure(error))
                 }
             }
         )
