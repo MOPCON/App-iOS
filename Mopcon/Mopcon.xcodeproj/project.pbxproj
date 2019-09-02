@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C23D4CC231D272B005E28E5 /* SessionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23D4CB231D272B005E28E5 /* SessionAPI.swift */; };
+		3C23D4CE231D299D005E28E5 /* SessionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23D4CD231D299D005E28E5 /* SessionObject.swift */; };
+		3C23D4D0231D3DB1005E28E5 /* SessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23D4CF231D3DB1005E28E5 /* SessionProvider.swift */; };
 		3C31E657230F872E00000518 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E656230F872E00000518 /* HTTPClient.swift */; };
 		3C31E65B230F8ABB00000518 /* InitialAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E65A230F8ABB00000518 /* InitialAPI.swift */; };
 		3C31E65D230F8AF800000518 /* HTTPClientExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E65C230F8AF800000518 /* HTTPClientExtenstion.swift */; };
@@ -164,6 +167,9 @@
 		0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mopcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		293FFEAF5ECBACAF171BB104 /* Pods-Mopcon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.release.xcconfig"; sourceTree = "<group>"; };
 		36A8ADA41F4B2FE3D1F03AD3 /* Pods-Mopcon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.debug.xcconfig"; sourceTree = "<group>"; };
+		3C23D4CB231D272B005E28E5 /* SessionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionAPI.swift; sourceTree = "<group>"; };
+		3C23D4CD231D299D005E28E5 /* SessionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionObject.swift; sourceTree = "<group>"; };
+		3C23D4CF231D3DB1005E28E5 /* SessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionProvider.swift; sourceTree = "<group>"; };
 		3C31E656230F872E00000518 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		3C31E65A230F8ABB00000518 /* InitialAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialAPI.swift; sourceTree = "<group>"; };
 		3C31E65C230F8AF800000518 /* HTTPClientExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientExtenstion.swift; sourceTree = "<group>"; };
@@ -336,6 +342,16 @@
 				0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C23D4CA231D26BE005E28E5 /* SessionAPI */ = {
+			isa = PBXGroup;
+			children = (
+				3C23D4CB231D272B005E28E5 /* SessionAPI.swift */,
+				3C23D4CD231D299D005E28E5 /* SessionObject.swift */,
+				3C23D4CF231D3DB1005E28E5 /* SessionProvider.swift */,
+			);
+			path = SessionAPI;
 			sourceTree = "<group>";
 		};
 		3C31E655230F872E00000518 /* HTTP */ = {
@@ -560,6 +576,7 @@
 		5E349C9B212270ED0060297A /* API */ = {
 			isa = PBXGroup;
 			children = (
+				3C23D4CA231D26BE005E28E5 /* SessionAPI */,
 				3C31E655230F872E00000518 /* HTTP */,
 				3C31E679230FB4E500000518 /* Response */,
 				3C31E67E230FE92600000518 /* Sponsor */,
@@ -1121,8 +1138,10 @@
 				3C31E65B230F8ABB00000518 /* InitialAPI.swift in Sources */,
 				5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */,
 				D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */,
+				3C23D4D0231D3DB1005E28E5 /* SessionProvider.swift in Sources */,
 				D6240CDF20EC98AD002C89E7 /* SponsorsViewController.swift in Sources */,
 				D633462A20E8FFC60033E5B4 /* Mopcon.xcdatamodeld in Sources */,
+				3C23D4CE231D299D005E28E5 /* SessionObject.swift in Sources */,
 				5E941014214F43DD001D61F6 /* NewsAPI.swift in Sources */,
 				5EE73108215B61C400201702 /* FieldGameAPI.swift in Sources */,
 				5E94101A214F505F001D61F6 /* CarouselAPI.swift in Sources */,
@@ -1159,6 +1178,7 @@
 				D6F0BE6720F093AD0053A100 /* UserdefaultKeyManager.swift in Sources */,
 				3C31E67D230FC41E00000518 /* VolunteerObject.swift in Sources */,
 				D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */,
+				3C23D4CC231D272B005E28E5 /* SessionAPI.swift in Sources */,
 				3C31E657230F872E00000518 /* HTTPClient.swift in Sources */,
 				5E349C94212270650060297A /* Speaker.swift in Sources */,
 				D6240CEA20ECABED002C89E7 /* SponsorDetailViewController.swift in Sources */,
