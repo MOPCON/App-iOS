@@ -32,6 +32,8 @@
 		3C3FFEA122FAD6E300873416 /* JoinVolunteerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */; };
 		3C3FFEA322FAD6FE00873416 /* JoinVolunteerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */; };
 		3C6A38DE2305A3F200B4546B /* MPTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A38DD2305A3F200B4546B /* MPTagView.swift */; };
+		3C7D65AD23167D2900D0EEE2 /* FieldGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D65AC23167D2900D0EEE2 /* FieldGameViewController.swift */; };
+		3C7D65AF2316822500D0EEE2 /* FieldGameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D65AE2316822500D0EEE2 /* FieldGameHeaderView.swift */; };
 		3C8C357623069B4000D04CB0 /* VolunteerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */; };
 		3C903F8322979AE600765CB2 /* Agenda.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8222979AE600765CB2 /* Agenda.storyboard */; };
 		3C903F8522979AFB00765CB2 /* Schedual.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8422979AFB00765CB2 /* Schedual.storyboard */; };
@@ -45,6 +47,8 @@
 		3CBDCF7322E1888500561D8D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7222E1888500561D8D /* UIViewExtension.swift */; };
 		3CC6FDB223053578007352DB /* MPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FDB123053578007352DB /* MPBaseViewController.swift */; };
 		3CC6FDB42305365F007352DB /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FDB32305365F007352DB /* StringExtension.swift */; };
+		3CEF49442319259B002AEB65 /* StageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF49432319259B002AEB65 /* StageViewController.swift */; };
+		3CEF494623192E4A002AEB65 /* RewardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF494523192E4A002AEB65 /* RewardViewController.swift */; };
 		3CFC369E22F92F7B0058C322 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFC369D22F92F7B0058C322 /* More.storyboard */; };
 		3CFC36A122F92FED0058C322 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC36A022F92FED0058C322 /* MoreViewController.swift */; };
 		3CFC36A422F957DA0058C322 /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFC36A322F957DA0058C322 /* MoreTableViewCell.swift */; };
@@ -72,7 +76,6 @@
 		53850934227D6A960083429A /* CommunityImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53850933227D6A960083429A /* CommunityImageCollectionViewCell.swift */; };
 		5E1753AA2150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1753A92150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift */; };
 		5E1753AC2150D4BA00A5D4C5 /* MopconAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1753AB2150D4BA00A5D4C5 /* MopconAPI.swift */; };
-		5E2EC574215A150300EEA680 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2EC573215A150300EEA680 /* Quiz.swift */; };
 		5E349C9021225CE10060297A /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C8F21225CE10060297A /* Schedule.swift */; };
 		5E349C94212270650060297A /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C93212270650060297A /* Speaker.swift */; };
 		5E349C96212270A20060297A /* Schedule_unconf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C95212270A20060297A /* Schedule_unconf.swift */; };
@@ -84,12 +87,7 @@
 		5E349CAA21242B910060297A /* CommunityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA921242B910060297A /* CommunityAPI.swift */; };
 		5E349CAC212448410060297A /* Schedule_unconfAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CAB212448410060297A /* Schedule_unconfAPI.swift */; };
 		5E4A0046216F273B00C4A656 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4A0045216F273B00C4A656 /* QRCodeViewController.swift */; };
-		5E564B77213FA86E00F2CED2 /* MissionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E564B76213FA86E00F2CED2 /* MissionCollectionViewCell.swift */; };
-		5E60D67B21630C9E00035E82 /* InformationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E60D67A21630C9E00035E82 /* InformationCollectionViewCell.swift */; };
-		5E682E1A213CFE4400FC37CF /* Missions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E682E19213CFE4400FC37CF /* Missions.storyboard */; };
-		5E682E1D213D016500FC37CF /* MissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E682E1C213D016500FC37CF /* MissionsViewController.swift */; };
-		5E682E1F213D62CA00FC37CF /* MissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E682E1E213D62CA00FC37CF /* MissionDetailViewController.swift */; };
-		5E682E21213E2AA700FC37CF /* InteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E682E20213E2AA700FC37CF /* InteractionViewController.swift */; };
+		5E682E1A213CFE4400FC37CF /* FieldGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E682E19213CFE4400FC37CF /* FieldGame.storyboard */; };
 		5E6CBDA1217BB9D60097D5E2 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CBDA0217BB9D60097D5E2 /* Wallet.swift */; };
 		5E941014214F43DD001D61F6 /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941013214F43DD001D61F6 /* NewsAPI.swift */; };
 		5E941016214F4401001D61F6 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941015214F4401001D61F6 /* News.swift */; };
@@ -191,6 +189,8 @@
 		3C3FFEA022FAD6E300873416 /* JoinVolunteerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVolunteerView.swift; sourceTree = "<group>"; };
 		3C3FFEA222FAD6FE00873416 /* JoinVolunteerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JoinVolunteerView.xib; sourceTree = "<group>"; };
 		3C6A38DD2305A3F200B4546B /* MPTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTagView.swift; sourceTree = "<group>"; };
+		3C7D65AC23167D2900D0EEE2 /* FieldGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameViewController.swift; sourceTree = "<group>"; };
+		3C7D65AE2316822500D0EEE2 /* FieldGameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameHeaderView.swift; sourceTree = "<group>"; };
 		3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerDetailViewController.swift; sourceTree = "<group>"; };
 		3C903F8222979AE600765CB2 /* Agenda.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Agenda.storyboard; sourceTree = "<group>"; };
 		3C903F8422979AFB00765CB2 /* Schedual.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedual.storyboard; sourceTree = "<group>"; };
@@ -204,6 +204,8 @@
 		3CBDCF7222E1888500561D8D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3CC6FDB123053578007352DB /* MPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPBaseViewController.swift; sourceTree = "<group>"; };
 		3CC6FDB32305365F007352DB /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3CEF49432319259B002AEB65 /* StageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewController.swift; sourceTree = "<group>"; };
+		3CEF494523192E4A002AEB65 /* RewardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardViewController.swift; sourceTree = "<group>"; };
 		3CFC369D22F92F7B0058C322 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		3CFC36A022F92FED0058C322 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		3CFC36A322F957DA0058C322 /* MoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -233,7 +235,6 @@
 		53850933227D6A960083429A /* CommunityImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		5E1753A92150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCollectionViewCell.swift; sourceTree = "<group>"; };
 		5E1753AB2150D4BA00A5D4C5 /* MopconAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconAPI.swift; sourceTree = "<group>"; };
-		5E2EC573215A150300EEA680 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		5E349C8F21225CE10060297A /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		5E349C93212270650060297A /* Speaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		5E349C95212270A20060297A /* Schedule_unconf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule_unconf.swift; sourceTree = "<group>"; };
@@ -245,12 +246,7 @@
 		5E349CA921242B910060297A /* CommunityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAPI.swift; sourceTree = "<group>"; };
 		5E349CAB212448410060297A /* Schedule_unconfAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule_unconfAPI.swift; sourceTree = "<group>"; };
 		5E4A0045216F273B00C4A656 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
-		5E564B76213FA86E00F2CED2 /* MissionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCollectionViewCell.swift; sourceTree = "<group>"; };
-		5E60D67A21630C9E00035E82 /* InformationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCollectionViewCell.swift; sourceTree = "<group>"; };
-		5E682E19213CFE4400FC37CF /* Missions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Missions.storyboard; sourceTree = "<group>"; };
-		5E682E1C213D016500FC37CF /* MissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsViewController.swift; sourceTree = "<group>"; };
-		5E682E1E213D62CA00FC37CF /* MissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailViewController.swift; sourceTree = "<group>"; };
-		5E682E20213E2AA700FC37CF /* InteractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionViewController.swift; sourceTree = "<group>"; };
+		5E682E19213CFE4400FC37CF /* FieldGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FieldGame.storyboard; sourceTree = "<group>"; };
 		5E6CBDA0217BB9D60097D5E2 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		5E941013214F43DD001D61F6 /* NewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
 		5E941015214F4401001D61F6 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -540,6 +536,7 @@
 		536688702305AFEA0036DFE5 /* FieldGame */ = {
 			isa = PBXGroup;
 			children = (
+				3C7D65AE2316822500D0EEE2 /* FieldGameHeaderView.swift */,
 				536688792305BFF90036DFE5 /* CompleteCell.swift */,
 				5366887A2305BFF90036DFE5 /* CompleteCell.xib */,
 				536688712305B0310036DFE5 /* GameStageCell.swift */,
@@ -573,15 +570,6 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		5E564B75213FA85400F2CED2 /* Missions */ = {
-			isa = PBXGroup;
-			children = (
-				5E60D67A21630C9E00035E82 /* InformationCollectionViewCell.swift */,
-				5E564B76213FA86E00F2CED2 /* MissionCollectionViewCell.swift */,
-			);
-			path = Missions;
-			sourceTree = "<group>";
-		};
 		5E682E18213CFDF300FC37CF /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,7 +579,7 @@
 				3C903F8C22979B3700765CB2 /* Group.storyboard */,
 				D633462520E8FFC60033E5B4 /* Lobby.storyboard */,
 				3CFCF00322DECF9D006184CD /* Main.storyboard */,
-				5E682E19213CFE4400FC37CF /* Missions.storyboard */,
+				5E682E19213CFE4400FC37CF /* FieldGame.storyboard */,
 				3C903F8E22979B4800765CB2 /* News.storyboard */,
 				3C903F8422979AFB00765CB2 /* Schedual.storyboard */,
 				3C903F8A22979B2700765CB2 /* Speaker.storyboard */,
@@ -600,15 +588,15 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		5E682E1B213D014800FC37CF /* Missions */ = {
+		5E682E1B213D014800FC37CF /* FieldGame */ = {
 			isa = PBXGroup;
 			children = (
-				5E682E1C213D016500FC37CF /* MissionsViewController.swift */,
-				5E682E1E213D62CA00FC37CF /* MissionDetailViewController.swift */,
-				5E682E20213E2AA700FC37CF /* InteractionViewController.swift */,
 				5E4A0045216F273B00C4A656 /* QRCodeViewController.swift */,
+				3C7D65AC23167D2900D0EEE2 /* FieldGameViewController.swift */,
+				3CEF494523192E4A002AEB65 /* RewardViewController.swift */,
+				3CEF49432319259B002AEB65 /* StageViewController.swift */,
 			);
-			path = Missions;
+			path = FieldGame;
 			sourceTree = "<group>";
 		};
 		5E6CBD97217B27350097D5E2 /* JSON */ = {
@@ -701,7 +689,7 @@
 				3C31E664230F968E00000518 /* Entry */,
 				3C9335BD22FBF2F800545A6E /* Group */,
 				3CFC369F22F92FDC0058C322 /* More */,
-				5E682E1B213D014800FC37CF /* Missions */,
+				5E682E1B213D014800FC37CF /* FieldGame */,
 				3CFCF00522DED0A6006184CD /* TabBar */,
 				D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */,
 				D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */,
@@ -729,7 +717,6 @@
 				3C3FFE9F22FAD6A700873416 /* Group */,
 				3CFCF00C22DF1033006184CD /* Lobby */,
 				D6EE629C20E9D0D50043B68A /* MainTableView */,
-				5E564B75213FA85400F2CED2 /* Missions */,
 				3CFC36A222F957C00058C322 /* More */,
 				D66778E720FB130A00E9CA34 /* MyScheduleTableView */,
 				D6EE629B20E9D0C70043B68A /* NewsTableView */,
@@ -797,7 +784,6 @@
 			children = (
 				5E941017214F4FBA001D61F6 /* Carousel.swift */,
 				5E941015214F4401001D61F6 /* News.swift */,
-				5E2EC573215A150300EEA680 /* Quiz.swift */,
 				5E349C95212270A20060297A /* Schedule_unconf.swift */,
 				5E349C8F21225CE10060297A /* Schedule.swift */,
 				5E349C93212270650060297A /* Speaker.swift */,
@@ -980,7 +966,7 @@
 				536688742305B0310036DFE5 /* GameStageCell.xib in Resources */,
 				3C903F8F22979B4800765CB2 /* News.storyboard in Resources */,
 				D633462720E8FFC60033E5B4 /* Lobby.storyboard in Resources */,
-				5E682E1A213CFE4400FC37CF /* Missions.storyboard in Resources */,
+				5E682E1A213CFE4400FC37CF /* FieldGame.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1068,7 +1054,6 @@
 				3C31E672230FA8AC00000518 /* GroupAPI.swift in Sources */,
 				5E349CA12123015F0060297A /* SpeakersAPI.swift in Sources */,
 				D6240CE620EC9ADC002C89E7 /* SponsorCollectionViewID.swift in Sources */,
-				5E682E1F213D62CA00FC37CF /* MissionDetailViewController.swift in Sources */,
 				3C31E678230FB3EE00000518 /* GroupProvider.swift in Sources */,
 				5E349CA6212411200060297A /* SponsorDetailTableViewCell.swift in Sources */,
 				D6B5166920EA07A1003FA56F /* CornerImageView.swift in Sources */,
@@ -1082,7 +1067,6 @@
 				D633462420E8FFC60033E5B4 /* LobbyViewController.swift in Sources */,
 				5E349C9F21228A340060297A /* UIImageViewExtension.swift in Sources */,
 				536688772305BC040036DFE5 /* PresentCell.swift in Sources */,
-				5E564B77213FA86E00F2CED2 /* MissionCollectionViewCell.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
 				3CFC36A122F92FED0058C322 /* MoreViewController.swift in Sources */,
 				3C31E668230F97B000000518 /* ResponseResultType.swift in Sources */,
@@ -1096,6 +1080,7 @@
 				D66778E420FB062F00E9CA34 /* MyScheduleTableViewCellID.swift in Sources */,
 				3C31E660230F8CF900000518 /* MPConstant.swift in Sources */,
 				3C31E663230F8F1400000518 /* ConfigObject.swift in Sources */,
+				3CEF49442319259B002AEB65 /* StageViewController.swift in Sources */,
 				5E1753AA2150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift in Sources */,
 				D662A1A520EDB5D600316FE6 /* BreakTableViewCell.swift in Sources */,
 				3CFC36A422F957DA0058C322 /* MoreTableViewCell.swift in Sources */,
@@ -1103,11 +1088,11 @@
 				53850934227D6A960083429A /* CommunityImageCollectionViewCell.swift in Sources */,
 				5E349CA8212411570060297A /* SponsorTableViewCellID.swift in Sources */,
 				3C31E680230FE94D00000518 /* SponsorAPI.swift in Sources */,
-				5E682E1D213D016500FC37CF /* MissionsViewController.swift in Sources */,
 				D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */,
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
 				3C31E674230FA9E400000518 /* GroupObject.swift in Sources */,
 				3C31E66F230FA25700000518 /* UIViewControllerExtension.swift in Sources */,
+				3C7D65AD23167D2900D0EEE2 /* FieldGameViewController.swift in Sources */,
 				5E349C9021225CE10060297A /* Schedule.swift in Sources */,
 				D6555F2F20EC783A000816DF /* GroupHostDetailViewController.swift in Sources */,
 				5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */,
@@ -1123,6 +1108,7 @@
 				3C31E67B230FB4F400000518 /* Response.swift in Sources */,
 				5366887B2305BFFA0036DFE5 /* CompleteCell.swift in Sources */,
 				D6555F2A20EC619F000816DF /* GroupHostViewController.swift in Sources */,
+				3CEF494623192E4A002AEB65 /* RewardViewController.swift in Sources */,
 				D6F0BE6920F0A02B0053A100 /* ConferenceDetailViewController.swift in Sources */,
 				5E1753AC2150D4BA00A5D4C5 /* MopconAPI.swift in Sources */,
 				3C9335BF22FBF31E00545A6E /* GroupBaseViewController.swift in Sources */,
@@ -1137,7 +1123,6 @@
 				D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */,
 				D6240CDF20EC98AD002C89E7 /* SponsorsViewController.swift in Sources */,
 				D633462A20E8FFC60033E5B4 /* Mopcon.xcdatamodeld in Sources */,
-				5E2EC574215A150300EEA680 /* Quiz.swift in Sources */,
 				5E941014214F43DD001D61F6 /* NewsAPI.swift in Sources */,
 				5EE73108215B61C400201702 /* FieldGameAPI.swift in Sources */,
 				5E94101A214F505F001D61F6 /* CarouselAPI.swift in Sources */,
@@ -1159,7 +1144,7 @@
 				3C3FFEA122FAD6E300873416 /* JoinVolunteerView.swift in Sources */,
 				D66778ED20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift in Sources */,
 				D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */,
-				5E682E21213E2AA700FC37CF /* InteractionViewController.swift in Sources */,
+				3C7D65AF2316822500D0EEE2 /* FieldGameHeaderView.swift in Sources */,
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 				3C3FFE9E22FAA90E00873416 /* SpeakerTalkInfoView.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
@@ -1174,7 +1159,6 @@
 				D6F0BE6720F093AD0053A100 /* UserdefaultKeyManager.swift in Sources */,
 				3C31E67D230FC41E00000518 /* VolunteerObject.swift in Sources */,
 				D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */,
-				5E60D67B21630C9E00035E82 /* InformationCollectionViewCell.swift in Sources */,
 				3C31E657230F872E00000518 /* HTTPClient.swift in Sources */,
 				5E349C94212270650060297A /* Speaker.swift in Sources */,
 				D6240CEA20ECABED002C89E7 /* SponsorDetailViewController.swift in Sources */,

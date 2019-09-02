@@ -12,7 +12,7 @@ private enum TabCategory: String {
     
     case lobby = "Lobby"
     case agenda = "Agenda"
-    case missions = "Missions"
+    case fieldGame = "FieldGame"
     case news = "News"
     case more = "More"
     
@@ -29,17 +29,8 @@ private enum TabCategory: String {
         }
         
         //等到所有 tab 都完成，這邊就可以改成 return vc，不需要 switch case
-
-        switch self {
-            
-        case .lobby, .agenda, .news, .more:
         
-            return vc
-            
-        default: return UIViewController()
-            
-        }
-
+        return vc
     }
     
     func image() -> UIImage? {
@@ -50,7 +41,7 @@ private enum TabCategory: String {
             
         case .agenda: return UIImage.asset(.agenda)
             
-        case .missions: return UIImage.asset(.mission)
+        case .fieldGame: return UIImage.asset(.mission)
             
         case .news: return UIImage.asset(.news)
             
@@ -67,7 +58,7 @@ private enum TabCategory: String {
             
         case .agenda: return UIImage.asset(.agendaSelected)
             
-        case .missions: return UIImage.asset(.mission)
+        case .fieldGame: return UIImage.asset(.missionSelected)
             
         case .news: return UIImage.asset(.newsSelected)
             
@@ -84,7 +75,7 @@ private enum TabCategory: String {
             
         case .agenda: return "議程"
             
-        case .missions: return "任務"
+        case .fieldGame: return "任務"
             
         case .news: return "最新"
             
@@ -96,7 +87,7 @@ private enum TabCategory: String {
 
 class TabBarViewController: UITabBarController {
     
-    private let tabs: [TabCategory] = [.lobby, .agenda, .missions, .news, .more]
+    private let tabs: [TabCategory] = [.lobby, .agenda, .fieldGame, .news, .more]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,35 +110,5 @@ class TabBarViewController: UITabBarController {
         tabBar.barTintColor = UIColor.dark
 
         tabBar.isTranslucent = false
-        
-        moreNavigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        
-        moreNavigationController.navigationBar.shadowImage = UIImage.imageWithColor(color: (UIColor.azure?.withAlphaComponent(0.2))!)
-        
-        moreNavigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
-        moreNavigationController.navigationBar.isTranslucent = true
-        
-        moreNavigationController.topViewController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        if let moreTableView = moreNavigationController.topViewController?.view as? UITableView {
-            
-            moreTableView.backgroundColor = UIColor.dark
-            
-            moreTableView.tintColor = .white
-            
-            moreTableView.separatorStyle = .none
-            
-            for cell in moreTableView.visibleCells {
-            
-                cell.selectionStyle = .none
-                
-                cell.textLabel?.textColor = .white
-                
-                cell.backgroundColor = .clear
-            }
-        }
-        
-        customizableViewControllers = []
     }
 }

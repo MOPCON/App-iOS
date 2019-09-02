@@ -24,11 +24,12 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Ek-1V-vPh">
                                 <rect key="frame" x="20" y="24" width="80" height="80"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1Ek-1V-vPh" secondAttribute="height" multiplier="1:1" id="JSB-nS-dJa"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIx-ps-sFO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="義美霜淇淋一個" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIx-ps-sFO">
                                 <rect key="frame" x="120" y="24" width="195" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -46,7 +47,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LAw-GL-gX2" secondAttribute="height" multiplier="96:28" id="BhK-OQ-Flb"/>
                                 </constraints>
-                                <state key="normal" title="Get"/>
+                                <state key="normal" title="直接兌換"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderRadius">
                                         <integer key="value" value="3"/>
@@ -81,6 +82,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="ZtC-Ds-QHk" secondAttribute="bottom" constant="8" id="0uc-bb-X0G"/>
                     <constraint firstAttribute="trailing" secondItem="ZtC-Ds-QHk" secondAttribute="trailing" constant="20" id="Ase-Sg-RmP"/>
@@ -88,8 +90,10 @@
                     <constraint firstItem="ZtC-Ds-QHk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="r8O-3N-8xU"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="baseView" destination="ZtC-Ds-QHk" id="E6Y-wl-Xgn"/>
                 <outlet property="getButton" destination="LAw-GL-gX2" id="9u0-LJ-wDF"/>
                 <outlet property="presentDescriptionLabel" destination="cVU-cP-fsw" id="xeA-1I-h7t"/>
                 <outlet property="presentImageView" destination="1Ek-1V-vPh" id="KBq-NK-FEm"/>
