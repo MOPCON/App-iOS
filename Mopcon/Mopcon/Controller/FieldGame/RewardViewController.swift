@@ -106,6 +106,16 @@ extension RewardViewController: NoticeViewDelegate {
                 case .failure(let error):
                     
                     print(error)
+                    
+                    let title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "通知" : "Info"
+                    
+                    let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
+                   
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    
+                    alert.addAction(okAction)
+                    
+                    self?.present(alert, animated: true, completion: nil)
                 }
             })
         }
