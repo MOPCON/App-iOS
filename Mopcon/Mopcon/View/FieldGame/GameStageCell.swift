@@ -26,9 +26,11 @@ class GameStageCell: UITableViewCell {
         cellView?.layer.borderWidth = 1
     }
     
-    func updateUI(isComplete: Bool) {
+    func updateUI(with mission: Mission, and isComplete: Bool) {
         // change check image and backgroundColor and borderColor
         checkImage.image = isComplete ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "uncheck")
+        
+        stageNameLabel.text = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? mission.name : mission.nameEn
         
         if isComplete {
             
@@ -77,6 +79,8 @@ class GameStageCell: UITableViewCell {
         groupAnimation.autoreverses = true
         
         groupAnimation.repeatCount = Float.infinity
+        
+        groupAnimation.isRemovedOnCompletion = false
         
         groupAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
