@@ -43,14 +43,14 @@ extension NoticeViewPresentable {
 
 protocol NoticeViewDelegate: AnyObject {
     
-    func didTouchOKButton(_ noticeView: NoticeView)
+    func didTouchOKButton(_ noticeView: NoticeView, type: NoticeType)
     
     func didTouchCancelButton(_ noticeView: NoticeView)
 }
 
 extension NoticeViewDelegate {
     
-    func didTouchOKButton(_ noticeView: NoticeView) { }
+    func didTouchOKButton(_ noticeView: NoticeView?) { }
     
     func didTouchCancelButton(_ noticeView: NoticeView) { }
 }
@@ -76,13 +76,19 @@ class NoticeView: UIView {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField! {
+        didSet {
+            passwordTextField.delegate = self
+        }
+    }
     
     @IBOutlet weak var buttonStackView: UIStackView!
     
     @IBOutlet weak var okButton: UIButton!
     
     @IBOutlet weak var cancelButton: UIButton!
+    
+    private var type: NoticeType = .welcome
 
     weak var delegate: NoticeViewDelegate?
     
@@ -109,7 +115,9 @@ class NoticeView: UIView {
         cancelButton.layer.borderColor = UIColor.azure?.cgColor
     }
     
-    func updateUI(with type: NoticeType) {
+    func updateUI(with type: NoticeType, and data: AnyObject? = nil) {
+        
+        self.type = type
         
         var title = ""
         
@@ -123,31 +131,35 @@ class NoticeView: UIView {
             
             image = #imageLiteral(resourceName: "welcome")
             
-            title = (CurrentLanguage.getLanguage() == "Chinese") ? "歡迎加入" : "Welcome"
+            guard let intro = data as? FieldGameIntro else { return }
             
-            description = (CurrentLanguage.getLanguage() == "Chinese") ? "歡迎來到Mopcon闖關大進擊，透過達成各關卡任務，將有神秘大獎等著你!" : ""
+            title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? intro.title : intro.titleEn
+            
+            description = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? intro.description : intro.descriptionEn
 
         case .reward:
+            
+            guard let reward = data as? FieldGameReward else { return }
 
             image = #imageLiteral(resourceName: "reward")
             
-            title = (CurrentLanguage.getLanguage() == "Chinese") ? "獲得獎勵" : "Reward"
+            title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "獲得獎勵" : "Reward"
             
-            description = (CurrentLanguage.getLanguage() == "Chinese") ? "恭喜獲得！\n 您可在我的獎勵中查詢兌換說明" : ""
+            description = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "恭喜獲得 \(reward.name)！\n 您可在我的獎勵中查詢兌換說明" : "Congratulation on getting \(reward.nameEn) !"
             
         case .exchange:
             
             image = #imageLiteral(resourceName: "exchange")
             
-            title = (CurrentLanguage.getLanguage() == "Chinese") ? "輸入兌換密碼" : "Enter Password"
+            title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "輸入兌換密碼" : "Enter Password"
             
         case .finish:
             
             image = #imageLiteral(resourceName: "finish")
             
-            title = (CurrentLanguage.getLanguage() == "Chinese") ? "任務成功" : "Finish"
+            title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "任務成功" : "Finish"
             
-            description = (CurrentLanguage.getLanguage() == "Chinese") ? "恭喜你完成此任務，讓 Mopcon 更加成長茁壯一大步！" : ""
+            description = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "恭喜你完成此任務，讓 Mopcon 更加成長茁壯一大步！" : "Congratulation on completing this mission"
         }
         
         titleLabel.text = title
@@ -188,7 +200,7 @@ class NoticeView: UIView {
     
     @IBAction func okAction(_ sender: UIButton) {
         
-        delegate?.didTouchOKButton(self)
+        delegate?.didTouchOKButton(self, type: type)
         
         dismissAnimation()
     }
@@ -198,5 +210,15 @@ class NoticeView: UIView {
         delegate?.didTouchCancelButton(self)
         
         dismissAnimation()
+    }
+}
+
+extension NoticeView: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
     }
 }

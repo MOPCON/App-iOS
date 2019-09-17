@@ -51,6 +51,9 @@
                                         <integer key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tapAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fiZ-uI-z4Q"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.66666666669999997" blue="0.94117647059999998" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
@@ -85,6 +88,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="checkImageView" destination="Qvt-55-sRu" id="YPG-tv-xno"/>
                 <outlet property="descriptionLabel" destination="zDM-UP-0jK" id="v69-wV-Cnu"/>
                 <outlet property="getButton" destination="oow-2X-frl" id="kqV-Df-2SM"/>
                 <outlet property="titleLabel" destination="kWZ-d5-VTd" id="bQ8-NT-pIy"/>
