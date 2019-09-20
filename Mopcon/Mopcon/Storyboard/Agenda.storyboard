@@ -31,6 +31,7 @@
                                     <segment title="交流場次"/>
                                 </segments>
                                 <color key="tintColor" red="0.0" green="0.66666666669999997" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedSegmentTintColor" red="0.0" green="0.66666666669999997" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="chooseScheduleAction:" destination="BpR-EJ-EkZ" eventType="valueChanged" id="UED-Au-OZj"/>
                                 </connections>

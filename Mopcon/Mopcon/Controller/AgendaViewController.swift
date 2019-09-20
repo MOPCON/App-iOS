@@ -18,31 +18,11 @@ class AgendaViewController: MPBaseViewController {
     
     var sessionLists: [SessionList] = []
     
-    private var selectedSchedule = [Schedule.Payload.Agenda.Item]()
-    
-    private var selectedUnconf = [Schedule_unconf.Payload.Item]()
-    
-    private var selectedAgenda:Schedule.Payload.Agenda.Item.AgendaContent?
-    
-    private var mySchedule = MySchedules.get(forKey: UserDefaultsKeys.dayOneSchedule)
-    
-    private var schedule_day1 = [Schedule.Payload.Agenda.Item]()
-    
-    private var schedule_day2 = [Schedule.Payload.Agenda.Item]()
-    
-    private var unconf_day1 = [Schedule_unconf.Payload.Item]()
-    
-    private var unconf_day2 = [Schedule_unconf.Payload.Item]()
-    
-    private var isAgenda: Bool = true
-    
     private let spinner = LoadingTool.setActivityindicator()
     
     @IBAction func chooseScheduleAction(_ sender: UISegmentedControl) {
         
-        isAgenda = (sender.selectedSegmentIndex == 0)
-        
-        agendaTableView.reloadData()
+    
     }
     
     override func viewDidLoad() {
@@ -54,7 +34,27 @@ class AgendaViewController: MPBaseViewController {
         
         agendaTableView.separatorStyle = .none
         
-        scheduleSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)], for: .selected)
+        scheduleSegmentedControl.setTitleTextAttributes(
+            [
+                NSAttributedString.Key.foregroundColor: UIColor.white,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)
+            ],
+            for: .selected
+        )
+
+        if #available(iOS 13, *) {
+            scheduleSegmentedControl.setTitleTextAttributes(
+                [
+                    NSAttributedString.Key.foregroundColor: UIColor.azure,
+                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)
+                ],
+                for: .normal
+            )
+            
+            scheduleSegmentedControl.layer.borderWidth = 1
+            scheduleSegmentedControl.layer.borderColor = UIColor.azure?.cgColor
+            scheduleSegmentedControl.backgroundColor = UIColor.dark
+        }
         
         setupTableViewCell()
         
@@ -191,8 +191,6 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
         
         guard scheduleSegmentedControl.selectedSegmentIndex != 2 else { return }
         
-        selectedAgenda = isAgenda ? selectedSchedule[indexPath.section].agendas[indexPath.row] : mySchedule[indexPath.row]
-        
         performSegue(withIdentifier: SegueIDManager.performConferenceDetail, sender: nil)
     }
 }
@@ -200,18 +198,7 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
 extension AgendaViewController: ConferenceTableViewCellDelegate {
     
     func whichCellButtonDidTapped(sender: UIButton, index: IndexPath) {
-        
-        let agenda = selectedSchedule[index.section].agendas[index.row]
    
-        if sender.image(for: .normal) == #imageLiteral(resourceName: "like_24") {
-            
-            MySchedules.add(agenda: agenda, forKey: agenda.date!)
-            
-        } else if sender.image(for: .normal) == #imageLiteral(resourceName: "dislike_24"){
-            
-            MySchedules.remove(agenda: agenda, forKey: agenda.date!)
-        }
-        
         agendaTableView.reloadData()
     }
     
