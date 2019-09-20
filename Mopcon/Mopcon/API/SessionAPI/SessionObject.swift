@@ -13,6 +13,13 @@ struct SessionList: Codable {
     let date: Int
     
     let period: [Session]
+    
+    lazy var dateString: String = {
+        
+        let date = Date(timeIntervalSince1970: Double(self.date))
+        
+        return DateFormatter.string(for: date, formatter: "MM/dd")
+    }()
 }
 
 

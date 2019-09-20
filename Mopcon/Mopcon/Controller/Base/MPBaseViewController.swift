@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MPBaseViewController: UIViewController {
+class MPBaseViewController: UIViewController, MainThreadHelper {
     
     var isModifyBackButton: Bool {
         

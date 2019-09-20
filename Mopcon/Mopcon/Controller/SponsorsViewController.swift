@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SponsorsViewController: MPBaseViewController, MainThreadHelper {
+class SponsorsViewController: MPBaseViewController {
     
     let spinner = LoadingTool.setActivityindicator()
     

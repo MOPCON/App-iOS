@@ -28,7 +28,7 @@ class MPTagView: UIView {
         }
     }
     
-    var colletionView: UICollectionView {
+    lazy var colletionView: UICollectionView = {
 
         let flowLayout = UICollectionViewFlowLayout()
 
@@ -71,7 +71,7 @@ class MPTagView: UIView {
         tempCollectionView.backgroundColor = UIColor.clear
         
         return tempCollectionView
-    }
+    }()
 
     func reloadData() {
         

@@ -16,7 +16,7 @@ class AgendaViewController: MPBaseViewController {
     
     @IBOutlet weak var agendaTableView: UITableView!
     
-    private var key = UserDefaultsKeys.dayOneSchedule
+    var sessionLists: [SessionList] = []
     
     private var selectedSchedule = [Schedule.Payload.Agenda.Item]()
     
@@ -43,7 +43,6 @@ class AgendaViewController: MPBaseViewController {
         isAgenda = (sender.selectedSegmentIndex == 0)
         
         agendaTableView.reloadData()
-        
     }
     
     override func viewDidLoad() {
@@ -55,18 +54,16 @@ class AgendaViewController: MPBaseViewController {
         
         agendaTableView.separatorStyle = .none
         
-        dateSelectionView.dataSource = self
-        
         scheduleSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)], for: .selected)
         
         setupTableViewCell()
         
-        getSchedule()
-        
-        getCommunication()
+        fetchSessions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         if CurrentLanguage.getLanguage() == Language.english.rawValue {
             
             self.navigationItem.title = "Agenda"
@@ -77,190 +74,117 @@ class AgendaViewController: MPBaseViewController {
             
             scheduleSegmentedControl.setTitle("Communication", forSegmentAt: 2)
         }
-        
-        mySchedule = MySchedules.get(forKey: key)
-        
-        agendaTableView.reloadData()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == SegueIDManager.performConferenceDetail {
             
-            if let vc = segue.destination as? ConferenceDetailViewController {
-                
-                vc.key = key
-                
-                vc.agenda = selectedAgenda
-            }
+//            if let vc = segue.destination as? ConferenceDetailViewController {
+//
+//                vc.key = key
+//
+//                vc.agenda = selectedAgenda
+//            }
         }
     }
     
     private func setupTableViewCell() {
         
-        let conferenceTableViewCell = UINib(nibName: String(describing: ConferenceTableViewCell.self), bundle: nil)
+        let conferenceTableViewCell = UINib(nibName: ConferenceTableViewCell.identifier, bundle: nil)
         
-        let communicationCell = UINib(nibName: String(describing: CommunicationConferenceTableViewCell.self), bundle: nil)
-        
-        let communicationBreakCell = UINib(nibName: String(describing: CommunicationBreakTableViewCell.self), bundle: nil)
-        
-        agendaTableView.register(conferenceTableViewCell, forCellReuseIdentifier: AgendaTableViewCellID.conferenceCell)
-        
-        agendaTableView.register(communicationCell, forCellReuseIdentifier: CommunicationTableViewCellID.communicationConferenceCell)
-        
-        agendaTableView.register(communicationBreakCell, forCellReuseIdentifier: CommunicationTableViewCellID.communicationBreakCell)
+        agendaTableView.register(
+            conferenceTableViewCell,
+            forCellReuseIdentifier: ConferenceTableViewCell.identifier
+        )
     }
     
-    func getSchedule() {
+    func fetchSessions() {
         
-        spinner.center = view.center
-        
-        spinner.startAnimating()
-        
-        view.addSubview(spinner)
-        
-        ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { [weak self] (payload, error) in
+        SessionProvider.fetchAllSession(completion: { [weak self] result in
             
-            if error != nil {
+            switch result {
                 
-                print(error!.localizedDescription)
+            case .success(let sessionLists):
                 
-                self?.spinner.removeFromSuperview()
+                self?.sessionLists = sessionLists
                 
-                return
-            }
-            
-            if let payload = payload {
-                
-                self?.schedule_day1 = payload.agenda[0].items
-                
-                self?.schedule_day2 = payload.agenda[1].items
-                
-                self?.selectedSchedule = self?.schedule_day1 ?? []
-                
-                DispatchQueue.main.async {
-                
-                    self?.agendaTableView.reloadData()
+                self?.throwToMainThreadAsync {
                     
-                    self?.spinner.removeFromSuperview()
+                    self?.dateSelectionView.dataSource = self
+                    
+                    self?.agendaTableView.reloadData()
                 }
+                
+            case .failure(let error):
+                
+                print(error)
             }
-        }
-    }
-
-    func getCommunication() {
-        
-        Schedule_unconfAPI.getAPI(url: MopconAPI.shared.schedule_unconf) { [weak self] (payload, error) in
-            
-            if error != nil {
-                print(error!.localizedDescription)
-                
-                return
-            }
-            
-            if let payload = payload {
-                
-                self?.unconf_day1 = payload[0].items
-                
-                self?.unconf_day2 = payload[1].items
-                
-                self?.selectedUnconf = self?.unconf_day1 ?? []
-            }
-        }
+        })
     }
 }
-
 
 // MARK : Tableview Datasource & Tableview Delegate
 extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
     
-        return isAgenda ? selectedSchedule.count : 1
+        guard let seletedIndex = dateSelectionView.seletedIndex else { return 0 }
+        
+        return sessionLists[seletedIndex].period.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        switch scheduleSegmentedControl.selectedSegmentIndex {
-            
-        case 0:
-            
-            return selectedSchedule[section].agendas.count
+        guard let seletedIndex = dateSelectionView.seletedIndex else { return 0 }
         
-        case 1:
-            
-            return mySchedule.count
+        return sessionLists[seletedIndex].period[section].room.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        case 2:
+        guard let seletedIndex = dateSelectionView.seletedIndex else { return 0 }
+        
+        return sessionLists[seletedIndex].period[section].event == "" ? 0 : 72
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        guard let breakCell = tableView.dequeueReusableCell(
+            withIdentifier: BreakTableViewCell.identifier
+        ) as? BreakTableViewCell else {
             
-            return selectedUnconf.count
-            
-        default:
-            
-            return 0
+            return nil
         }
         
+        let sessionObject = sessionLists[dateSelectionView.seletedIndex!].period[section]
+        
+        breakCell.updateUI(
+            startDate: DateFormatter.string(for: sessionObject.startedAt, formatter: "HH:mm"),
+            endDate: DateFormatter.string(for: sessionObject.endedAt, formatter: "HH:mm"),
+            event: sessionObject.event
+        )
+        
+        return breakCell
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if scheduleSegmentedControl.selectedSegmentIndex == 2 {
+        guard let conferenceCell = tableView.dequeueReusableCell(
+            withIdentifier: ConferenceTableViewCell.identifier,
+            for: indexPath
+        ) as? ConferenceTableViewCell else {
             
-            let schedule = selectedUnconf[indexPath.row]
-
-            switch schedule.type {
-                
-            case "others":
-                
-                let communicationBreakCell = tableView.dequeueReusableCell(withIdentifier: CommunicationTableViewCellID.communicationBreakCell, for: indexPath) as! CommunicationBreakTableViewCell
-                
-                communicationBreakCell.updateUI(schedule: schedule)
-                
-                return communicationBreakCell
-                
-            default:
-
-                let communicationConferenceCell = tableView.dequeueReusableCell(withIdentifier: CommunicationTableViewCellID.communicationConferenceCell, for: indexPath) as! CommunicationConferenceTableViewCell
-                
-                communicationConferenceCell.updateUI(schedule: schedule)
-                
-                return communicationConferenceCell
-            }
+                return UITableViewCell()
         }
         
-        let scheduleID = isAgenda ? selectedSchedule[indexPath.section].agendas[indexPath.row].schedule_id : mySchedule[indexPath.row].schedule_id
+        let room = sessionLists[dateSelectionView.seletedIndex!]
+            .period[indexPath.section]
+            .room[indexPath.row]
         
-        if scheduleID != nil {
-            
-            let conferenceCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.conferenceCell, for: indexPath) as! ConferenceTableViewCell
-            
-            let agenda = isAgenda ? selectedSchedule[indexPath.section].agendas[indexPath.row] : mySchedule[indexPath.row]
-            
-            checkMySchedule(agenda: agenda, sender: conferenceCell.addToMyScheduleButton)
-            
-            conferenceCell.updateUI(agenda: agenda)
-            
-            conferenceCell.delegate = self
-            
-            conferenceCell.index = indexPath
-            
-            return conferenceCell
+        conferenceCell.updateUI(room: room)
         
-        } else {
-            
-            let agenda = selectedSchedule[indexPath.section].agendas[indexPath.row]
-            
-            let breakCell = tableView.dequeueReusableCell(withIdentifier: AgendaTableViewCellID.breakCell, for: indexPath) as! BreakTableViewCell
-            
-            breakCell.updateUI(agenda:agenda )
-            
-            return breakCell
-        }
-        
+        return conferenceCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -271,23 +195,9 @@ extension AgendaViewController: UITableViewDelegate, UITableViewDataSource{
         
         performSegue(withIdentifier: SegueIDManager.performConferenceDetail, sender: nil)
     }
-    
-    func checkMySchedule(agenda:Schedule.Payload.Agenda.Item.AgendaContent ,sender: UIButton) {
-        for schedule in mySchedule {
-            
-            if schedule.schedule_topic == agenda.schedule_topic {
-                
-                sender.setImage(#imageLiteral(resourceName: "like_24"), for: .normal)
-                
-                return
-            }
-        }
-        
-        sender.setImage(#imageLiteral(resourceName: "dislike_24"), for: .normal)
-    }
 }
 
-extension AgendaViewController: WhichCellButtonDidTapped {
+extension AgendaViewController: ConferenceTableViewCellDelegate {
     
     func whichCellButtonDidTapped(sender: UIButton, index: IndexPath) {
         
@@ -302,8 +212,6 @@ extension AgendaViewController: WhichCellButtonDidTapped {
             MySchedules.remove(agenda: agenda, forKey: agenda.date!)
         }
         
-        mySchedule = MySchedules.get(forKey: key)
-        
         agendaTableView.reloadData()
     }
     
@@ -311,20 +219,17 @@ extension AgendaViewController: WhichCellButtonDidTapped {
 
 extension AgendaViewController: SelectionViewDataSource {
     
+    func numberOfButton(_ selectionView: SelectionView) -> Int {
+        
+        return sessionLists.count
+    }
+    
     func titleOfButton(_ selectionView: SelectionView, at index: Int) -> String {
         
-        return (index == 0) ? "10/19" : "10/20"
+        return sessionLists[index].dateString
     }
     
     func didSelectedButton(_ selectionView: SelectionView, at index: Int) {
-        
-        selectedSchedule = (index == 0) ? schedule_day1 : schedule_day2
-        
-        selectedUnconf = (index == 0) ? unconf_day1 : unconf_day2
-        
-        key = (index == 0) ? UserDefaultsKeys.dayOneSchedule : UserDefaultsKeys.dayTwoSchedule
-        
-        mySchedule = MySchedules.get(forKey: key)
         
         agendaTableView.reloadData()
     }
