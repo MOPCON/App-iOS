@@ -68,7 +68,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umZ-UJ-5iD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="378.5" height="67.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="379" height="67.5"/>
                                                     <color key="backgroundColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="開幕" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cc-YS-ZCz">
@@ -97,7 +97,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXQ-cr-e0B">
-                                                    <rect key="frame" x="0.0" y="0.0" width="378.5" height="119.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="379" height="119.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="暫無行程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbd-fB-cqx">
                                                             <rect key="frame" x="131" y="8" width="80" height="28"/>
@@ -136,16 +136,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNy-8r-WBv">
-                                                    <rect key="frame" x="0.0" y="0.5" width="378.5" height="170.5"/>
+                                                    <rect key="frame" x="0.0" y="0.5" width="379" height="170.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile App &amp; ENG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPW-Qx-xiu">
-                                                            <rect key="frame" x="16" y="12" width="346.5" height="14.5"/>
+                                                            <rect key="frame" x="16" y="12" width="347" height="14.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.81568627449999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如何寫出有效率、好讀、好維護的 Java / Android 程式" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyi-BH-vDc">
-                                                            <rect key="frame" x="16" y="34.5" width="346.5" height="47"/>
+                                                            <rect key="frame" x="16" y="34.5" width="347" height="47"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -172,7 +172,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpr-ah-Brr">
-                                                            <rect key="frame" x="338.5" y="126.5" width="24" height="24"/>
+                                                            <rect key="frame" x="339" y="126.5" width="24" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Fpr-ah-Brr" secondAttribute="height" multiplier="1:1" id="N0C-tH-rpa"/>
                                                             </constraints>
@@ -233,7 +233,7 @@
                         <viewLayoutGuide key="safeArea" id="rgP-8p-gTo"/>
                     </view>
                     <navigationItem key="navigationItem" title="我的行程" id="UbQ-BZ-zck">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Close" id="lh6-1D-cuZ">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="close" id="lh6-1D-cuZ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="dismissAction:" destination="bhJ-bb-HS1" id="j3c-Ng-aQQ"/>
@@ -274,8 +274,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Close" width="24" height="24"/>
         <image name="buttonStarChecked" width="24" height="24"/>
+        <image name="close" width="24" height="24"/>
         <image name="map" width="24" height="24"/>
     </resources>
 </document>

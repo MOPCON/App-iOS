@@ -172,7 +172,7 @@ class CommunityCollectionViewHeaderView: UICollectionReusableView {
             headerLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
         
-        headerLabel.textColor = UIColor(hex: "#878787")
+        headerLabel.textColor = UIColor.brownGray
         
         headerLabel.font = UIFont.systemFont(ofSize: 14)
     }

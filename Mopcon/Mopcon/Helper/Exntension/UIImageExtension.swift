@@ -36,6 +36,7 @@ enum ImageAsset: String {
     
     //Base
     case back = "back"
+    case close = "close"
     
     //Group
     case committee_team

@@ -78,6 +78,10 @@
 		5381B36A22F7442100FEEC2C /* CommunicationBreakTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5381B36922F7442100FEEC2C /* CommunicationBreakTableViewCell.xib */; };
 		5381B36C22F9EED200FEEC2C /* ConferenceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5381B36B22F9EED200FEEC2C /* ConferenceTableViewCell.xib */; };
 		53850934227D6A960083429A /* CommunityImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53850933227D6A960083429A /* CommunityImageCollectionViewCell.swift */; };
+		53F83EA723238E7B003A35B8 /* FieldGameAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F83EA623238E7B003A35B8 /* FieldGameAPI.swift */; };
+		53F83EA92323931D003A35B8 /* KeychainTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F83EA82323931D003A35B8 /* KeychainTool.swift */; };
+		53F83EAB2323A655003A35B8 /* FieldGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F83EAA2323A655003A35B8 /* FieldGameObject.swift */; };
+		53F83EAD2323A660003A35B8 /* FieldGameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F83EAC2323A660003A35B8 /* FieldGameProvider.swift */; };
 		5E1753AA2150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1753A92150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift */; };
 		5E1753AC2150D4BA00A5D4C5 /* MopconAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1753AB2150D4BA00A5D4C5 /* MopconAPI.swift */; };
 		5E349C9021225CE10060297A /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349C8F21225CE10060297A /* Schedule.swift */; };
@@ -98,7 +102,7 @@
 		5E941018214F4FBA001D61F6 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941017214F4FBA001D61F6 /* Carousel.swift */; };
 		5E94101A214F505F001D61F6 /* CarouselAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E941019214F505F001D61F6 /* CarouselAPI.swift */; };
 		5E9FEF0021294FD70096B4A8 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */; };
-		5EE73108215B61C400201702 /* FieldGameAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE73107215B61C400201702 /* FieldGameAPI.swift */; };
+		5EE73108215B61C400201702 /* FieldGameOldAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE73107215B61C400201702 /* FieldGameOldAPI.swift */; };
 		5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */; };
 		5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF59B9C215DBCD200CF622C /* LoadingTool.swift */; };
 		854F882CF3DD3FD013EEC09B /* Pods_Mopcon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */; };
@@ -241,6 +245,10 @@
 		5381B36922F7442100FEEC2C /* CommunicationBreakTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunicationBreakTableViewCell.xib; sourceTree = "<group>"; };
 		5381B36B22F9EED200FEEC2C /* ConferenceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConferenceTableViewCell.xib; sourceTree = "<group>"; };
 		53850933227D6A960083429A /* CommunityImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		53F83EA623238E7B003A35B8 /* FieldGameAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameAPI.swift; sourceTree = "<group>"; };
+		53F83EA82323931D003A35B8 /* KeychainTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTool.swift; sourceTree = "<group>"; };
+		53F83EAA2323A655003A35B8 /* FieldGameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameObject.swift; sourceTree = "<group>"; };
+		53F83EAC2323A660003A35B8 /* FieldGameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameProvider.swift; sourceTree = "<group>"; };
 		5E1753A92150BBBF00A5D4C5 /* LanguageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCollectionViewCell.swift; sourceTree = "<group>"; };
 		5E1753AB2150D4BA00A5D4C5 /* MopconAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconAPI.swift; sourceTree = "<group>"; };
 		5E349C8F21225CE10060297A /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -261,7 +269,7 @@
 		5E941017214F4FBA001D61F6 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		5E941019214F505F001D61F6 /* CarouselAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAPI.swift; sourceTree = "<group>"; };
 		5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
-		5EE73107215B61C400201702 /* FieldGameAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameAPI.swift; sourceTree = "<group>"; };
+		5EE73107215B61C400201702 /* FieldGameOldAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameOldAPI.swift; sourceTree = "<group>"; };
 		5EF59B97215CDF2800CF622C /* Mopcon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mopcon.entitlements; sourceTree = "<group>"; };
 		5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EF59B9C215DBCD200CF622C /* LoadingTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTool.swift; sourceTree = "<group>"; };
@@ -370,7 +378,7 @@
 			children = (
 				5E941019214F505F001D61F6 /* CarouselAPI.swift */,
 				5E349CA921242B910060297A /* CommunityAPI.swift */,
-				5EE73107215B61C400201702 /* FieldGameAPI.swift */,
+				5EE73107215B61C400201702 /* FieldGameOldAPI.swift */,
 				5E1753AB2150D4BA00A5D4C5 /* MopconAPI.swift */,
 				5E941013214F43DD001D61F6 /* NewsAPI.swift */,
 				5E349CAB212448410060297A /* Schedule_unconfAPI.swift */,
@@ -575,9 +583,20 @@
 			path = CommunityImageCollectionView;
 			sourceTree = "<group>";
 		};
+		53F83EA523238E5C003A35B8 /* FieldGameAPI */ = {
+			isa = PBXGroup;
+			children = (
+				53F83EA623238E7B003A35B8 /* FieldGameAPI.swift */,
+				53F83EAA2323A655003A35B8 /* FieldGameObject.swift */,
+				53F83EAC2323A660003A35B8 /* FieldGameProvider.swift */,
+			);
+			path = FieldGameAPI;
+			sourceTree = "<group>";
+		};
 		5E349C9B212270ED0060297A /* API */ = {
 			isa = PBXGroup;
 			children = (
+				53F83EA523238E5C003A35B8 /* FieldGameAPI */,
 				3C23D4CA231D26BE005E28E5 /* SessionAPI */,
 				3C31E655230F872E00000518 /* HTTP */,
 				3C31E679230FB4E500000518 /* Response */,
@@ -768,6 +787,7 @@
 				5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */,
 				3C1229D92334C21300001760 /* DateFormatter.swift */,
 				5E9FEEFE21294CAB0096B4A8 /* Exntension */,
+				53F83EA82323931D003A35B8 /* KeychainTool.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1115,6 +1135,7 @@
 				3C7D65AD23167D2900D0EEE2 /* FieldGameViewController.swift in Sources */,
 				5E349C9021225CE10060297A /* Schedule.swift in Sources */,
 				D6555F2F20EC783A000816DF /* GroupHostDetailViewController.swift in Sources */,
+				53F83EA92323931D003A35B8 /* KeychainTool.swift in Sources */,
 				5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */,
 				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
 				D6A67ABB20EE029C00D4886E /* CommunicationViewController.swift in Sources */,
@@ -1146,12 +1167,14 @@
 				D633462A20E8FFC60033E5B4 /* Mopcon.xcdatamodeld in Sources */,
 				3C23D4CE231D299D005E28E5 /* SessionObject.swift in Sources */,
 				5E941014214F43DD001D61F6 /* NewsAPI.swift in Sources */,
-				5EE73108215B61C400201702 /* FieldGameAPI.swift in Sources */,
+				5EE73108215B61C400201702 /* FieldGameOldAPI.swift in Sources */,
 				5E94101A214F505F001D61F6 /* CarouselAPI.swift in Sources */,
 				5E4A0046216F273B00C4A656 /* QRCodeViewController.swift in Sources */,
 				3CC6FDB42305365F007352DB /* StringExtension.swift in Sources */,
 				D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */,
 				3CBDCF7322E1888500561D8D /* UIViewExtension.swift in Sources */,
+				53F83EAD2323A660003A35B8 /* FieldGameProvider.swift in Sources */,
+				53F83EAB2323A655003A35B8 /* FieldGameObject.swift in Sources */,
 				3C31E66D230FA0B500000518 /* MainThreadHelper.swift in Sources */,
 				D6F0BE6120F0610B0053A100 /* CommonFunctionHelper.swift in Sources */,
 				D633463F20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift in Sources */,
@@ -1170,6 +1193,7 @@
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 				3C3FFE9E22FAA90E00873416 /* SpeakerTalkInfoView.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
+				53F83EA723238E7B003A35B8 /* FieldGameAPI.swift in Sources */,
 				3CBDCF7122E182F700561D8D /* SelectionView.swift in Sources */,
 				3C31E684230FEC3000000518 /* SponsorObject.swift in Sources */,
 				5366887E230847AC0036DFE5 /* NoticeView.swift in Sources */,
@@ -1390,7 +1414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Mopcon/Mopcon.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = P8GYHF5M8B;
 				INFOPLIST_FILE = Mopcon/Info.plist;
@@ -1401,7 +1425,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "MOPCON-Production";
+				PROVISIONING_PROFILE_SPECIFIER = "MOPCON-Dev";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
