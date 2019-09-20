@@ -55,6 +55,14 @@ class EntryViewController: UIViewController {
                     
                     self?.register(with: uuid, and: uuid)
                 }
+
+                if let tabBarController = tabVC as? UITabBarController {
+                    
+                    if let items = tabBarController.tabBar.items {
+                        
+                        items[2].isEnabled = serverState.isEnableGame
+                    }
+                }
                 
             case .failure(let error):
                 
