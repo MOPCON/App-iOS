@@ -44,10 +44,10 @@ class SponsorsViewController: MPBaseViewController {
         
         if segue.identifier == SegueIDManager.performSponsorDetail{
         
-            if let vc = segue.destination as? SponsorDetailViewController {
+//            if let vc = segue.destination as? SponsorDetailViewController {
             
 //                vc.sponsor = self.selectedSponsor
-            }
+//            }
         }
     }
     
