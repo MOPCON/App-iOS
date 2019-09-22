@@ -16,7 +16,7 @@ protocol GetInteractionMissionResult: class {
 class QRCodeViewController: MPBaseViewController {
     
     var taskID: String?
-    
+        
     weak var getInteractionMissionResult: GetInteractionMissionResult?
     
     var captureSession = AVCaptureSession()
@@ -24,6 +24,8 @@ class QRCodeViewController: MPBaseViewController {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
     var qrCodeFrameView: UIView?
+    
+    private var isScanned: Bool = false
     
     override func viewDidLoad() {
         
@@ -110,24 +112,15 @@ class QRCodeViewController: MPBaseViewController {
     
     private func scannerAlert(message:String) {
         
-        captureSession.stopRunning()
-        
+        isScanned = false
+                
         let alertTitle = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "通知" : "Info"
         
         let alertController = UIAlertController(title: alertTitle, message: "\(message)", preferredStyle: .alert)
         
         let cancelString = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "取消" : "Cancel"
         
-        let cancelAction = UIAlertAction(title: cancelString, style: .cancel) { [weak self] _ in
-            
-            self?.qrCodeFrameView?.removeFromSuperview()
-            
-            self?.qrCodeFrameView = nil
-            
-            self?.initQRCodeFrame()
-            
-            self?.captureSession.startRunning()
-        }
+        let cancelAction = UIAlertAction(title: cancelString, style: .cancel)
         
         alertController.addAction(cancelAction)
         
@@ -135,8 +128,8 @@ class QRCodeViewController: MPBaseViewController {
     }
     
     private func checkQRCode(vKey: String) {
-        
-        captureSession.stopRunning()
+                    
+        isScanned = true
         
         guard let taskID = self.taskID else { return }
         
@@ -166,6 +159,9 @@ class QRCodeViewController: MPBaseViewController {
 extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        
+        guard !isScanned else { return }
+        
         if metadataObjects.count == 0 {
             
             qrCodeFrameView?.frame = CGRect.zero
