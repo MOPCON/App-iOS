@@ -203,7 +203,7 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
                                 
                 self?.missions = gameStatus.missions
                 
-                self?.rewards = gameStatus.rewards.filter({ $0.hasWon == 1 })
+                self?.rewards = gameStatus.rewards.filter({ $0.hasWon == 1 && $0.redeemable == 1 })
                 
                 self?.updateHeadView()
                 
@@ -305,7 +305,17 @@ extension FieldGameViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: Segue.stage, sender: indexPath)
+        if let missions = self.missions {
+            
+            let isCompleted = Bool(truncating: missions[indexPath.row].pass as NSNumber)
+            
+            let firstNotPassedIndex = missions.firstIndex(where: { $0.pass == 0})
+            
+            if firstNotPassedIndex == indexPath.row || isCompleted {
+                
+                performSegue(withIdentifier: Segue.stage, sender: indexPath)
+            }
+        }
     }
 }
 
@@ -335,6 +345,8 @@ extension FieldGameViewController: FieldGameCompleteViewDelegate {
         
         FieldGameProvider.notifyReward(completion: { [weak self] result in
             
+            self?.stopSpinner()
+            
             switch result {
                 
             case .success(let reward):
@@ -343,13 +355,11 @@ extension FieldGameViewController: FieldGameCompleteViewDelegate {
                 
                 self?.presentHintView()
                 
-                self?.stopSpinner()
-
                 guard let keyReward = self?.keyReward else { return }
                 
                 UserDefaults.standard.set(false, forKey: keyReward)
                 
-                self?.tableView.reloadData()
+                self?.fetchGameStatus()
                 
             case .failure(let error):
                 
