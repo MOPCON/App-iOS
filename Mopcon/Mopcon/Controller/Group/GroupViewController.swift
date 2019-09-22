@@ -51,7 +51,7 @@ class GroupViewController: MPBaseViewController {
         
         volunteerContainerView.isHidden = true
         
-//        spinner.startAnimating()
+        spinner.startAnimating()
         
         spinner.center = view.center
         

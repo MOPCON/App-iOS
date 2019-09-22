@@ -9,6 +9,7 @@
 import UIKit
 
 class SponsorHeaderView: UICollectionReusableView {
+    
     @IBOutlet weak var headerTitleLabel: UILabel!
     
     func updateUI(title:String){

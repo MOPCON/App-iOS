@@ -71,8 +71,6 @@ extension LKRequest {
         
         request.httpMethod = method
         
-        
-        
         return request
     }
     
@@ -85,7 +83,7 @@ extension LKRequest {
             result += key + "=" + value + "&"
         }
         
-        return "?" + result
+        return (result.isEmpty) ? "" : "?" + result
     }
 }
 

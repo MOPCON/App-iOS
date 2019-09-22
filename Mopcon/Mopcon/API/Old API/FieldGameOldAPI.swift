@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FieldGameAPI {
+class FieldGameOldAPI {
     
     // URLSession
     private class func fetchDataByDataTask(from request: URLRequest, completion: @escaping (Data) -> Void) {

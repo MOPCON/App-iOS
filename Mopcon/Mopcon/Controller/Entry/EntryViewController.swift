@@ -13,7 +13,7 @@ class EntryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        InitialProvider.fetchInitialAPI(completion: { result in
+        InitialProvider.fetchInitialAPI(completion: { [weak self] result in
             
             switch result{
                 
@@ -47,6 +47,23 @@ class EntryViewController: UIViewController {
                     completion: nil
                 )
                 
+                if !UserDefaults.standard.bool(forKey: "hasOpened") {
+                    
+                    UserDefaults.standard.set(true, forKey: "hasOpened")
+                    
+                    let uuid = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+                    
+                    self?.register(with: uuid, and: uuid)
+                }
+
+                if let tabBarController = tabVC as? UITabBarController {
+                    
+                    if let items = tabBarController.tabBar.items {
+                        
+                        items[2].isEnabled = serverState.isEnableGame
+                    }
+                }
+                
             case .failure(let error):
                 
                 //TODO Error handle
@@ -55,6 +72,10 @@ class EntryViewController: UIViewController {
                 
             }
         })
+    }
+    
+    private func register(with uid: String, and email: String) {
         
+        FieldGameProvider.register(with: uid, and: email)
     }
 }

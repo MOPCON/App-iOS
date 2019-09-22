@@ -17,7 +17,7 @@ enum SponsorCellStyle: Int {
 
 class SponsorDetailViewController: MPBaseViewController {
     
-    var sponsor: Sponsor.Payload?
+//    var sponsor: Sponsor.Payload?
     
     @IBOutlet weak var sponsorsTableView: UITableView!
     
@@ -56,10 +56,10 @@ class SponsorDetailViewController: MPBaseViewController {
     
     @objc func showMore() {
         
-        if let sponsor = sponsor,let url = URL(string: sponsor.website) {
-        
-            UIApplication.shared.open(url, options: [:])
-        }
+//        if let sponsor = sponsor,let url = URL(string: sponsor.website) {
+//
+//            UIApplication.shared.open(url, options: [:])
+//        }
     }
 }
 
@@ -109,37 +109,37 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
             return cell
         }
         
-        if let sponsor = sponsor {
-            // Get sponsor Data
-        
-            if let sponsorImageView = cell.viewWithTag(3) as? UIImageView {
-                
-                if let url = URL(string: sponsor.logo) {
-                
-                    sponsorImageView.kf.setImage(with: url)
-                }
-            }
-            
-            if let sponsorNameLabel = cell.viewWithTag(1) as? UILabel {
-        
-                sponsorNameLabel.text = (CurrentLanguage.getLanguage() == Language.english.rawValue) ? sponsor.name_en : sponsor.name
-            }
-            
-            if let sponsorInfoLabel = cell.viewWithTag(2) as? UILabel {
-                
-                sponsorInfoLabel.text = (CurrentLanguage.getLanguage() == Language.english.rawValue) ? sponsor.info_en : sponsor.info
-            }
-            
-            if let seeMoreButton = cell.viewWithTag(4) as? UIButton {
-                
-                if sponsor.website == "" {
-                
-                    seeMoreButton.isHidden = true
-                }
-                
-                seeMoreButton.addTarget(self, action: #selector(showMore), for: .touchUpInside)
-            }
-        }
+//        if let sponsor = sponsor {
+//            // Get sponsor Data
+//        
+//            if let sponsorImageView = cell.viewWithTag(3) as? UIImageView {
+//                
+//                if let url = URL(string: sponsor.logo) {
+//                
+//                    sponsorImageView.kf.setImage(with: url)
+//                }
+//            }
+//            
+//            if let sponsorNameLabel = cell.viewWithTag(1) as? UILabel {
+//        
+//                sponsorNameLabel.text = (CurrentLanguage.getLanguage() == Language.english.rawValue) ? sponsor.name_en : sponsor.name
+//            }
+//            
+//            if let sponsorInfoLabel = cell.viewWithTag(2) as? UILabel {
+//                
+//                sponsorInfoLabel.text = (CurrentLanguage.getLanguage() == Language.english.rawValue) ? sponsor.info_en : sponsor.info
+//            }
+//            
+//            if let seeMoreButton = cell.viewWithTag(4) as? UIButton {
+//                
+//                if sponsor.website == "" {
+//                
+//                    seeMoreButton.isHidden = true
+//                }
+//                
+//                seeMoreButton.addTarget(self, action: #selector(showMore), for: .touchUpInside)
+//            }
+//        }
         
         return cell
     }

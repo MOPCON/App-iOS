@@ -17,3 +17,17 @@ typealias OrganizerResultType = (Result<Organizer, Error>) -> Void
 typealias VolunteerListResultType = (Result<VolunteerList, Error>) -> Void
 
 typealias VolunteerResultType = (Result<Volunteer, Error>) -> Void
+
+typealias SponsorResultType = (Result<[SponsorList], Error>) -> Void
+
+typealias SessionListResultType = (Result<[SessionList], Error>) -> Void
+
+typealias FieldGameIntroResultType = (Result<FieldGameIntro, Error>) -> Void
+
+typealias FieldGameStatusResultType = (Result<FieldGameMe, Error>) -> Void
+
+typealias FieldGameTaskResultType = (Result<FieldGameTask, Error>) -> Void
+
+typealias FieldGameTaskVerifiedResultType = (Result<String, Error>) -> Void
+
+typealias FieldGameRewardResultType = (Result<FieldGameReward, Error>) -> Void
