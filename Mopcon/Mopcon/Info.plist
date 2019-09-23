@@ -25,7 +25,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>We need to access your camera for scanning QR code</string>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>Main</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
