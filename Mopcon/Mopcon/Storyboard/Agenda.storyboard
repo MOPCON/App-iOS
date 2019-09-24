@@ -352,28 +352,31 @@
             </objects>
             <point key="canvasLocation" x="-1719" y="1871"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite View Controller-->
         <scene sceneID="jhF-sp-YPm">
             <objects>
-                <viewController id="9HG-Ag-nnA" sceneMemberID="viewController">
+                <viewController id="9HG-Ag-nnA" customClass="FavoriteViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CdR-8d-nJQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DXN-Jp-r96">
-                                <rect key="frame" x="0.0" y="44" width="375" height="531"/>
+                                <rect key="frame" x="20" y="44" width="335" height="531"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="cgy-Lj-S5z" firstAttribute="bottom" secondItem="DXN-Jp-r96" secondAttribute="bottom" id="9c5-Vc-NuY"/>
-                            <constraint firstItem="DXN-Jp-r96" firstAttribute="leading" secondItem="cgy-Lj-S5z" secondAttribute="leading" id="NFN-pz-chv"/>
-                            <constraint firstItem="cgy-Lj-S5z" firstAttribute="trailing" secondItem="DXN-Jp-r96" secondAttribute="trailing" id="U7q-TM-oyK"/>
+                            <constraint firstItem="DXN-Jp-r96" firstAttribute="leading" secondItem="cgy-Lj-S5z" secondAttribute="leading" constant="20" id="NFN-pz-chv"/>
+                            <constraint firstItem="cgy-Lj-S5z" firstAttribute="trailing" secondItem="DXN-Jp-r96" secondAttribute="trailing" constant="20" id="U7q-TM-oyK"/>
                             <constraint firstItem="DXN-Jp-r96" firstAttribute="top" secondItem="cgy-Lj-S5z" secondAttribute="top" id="dtp-Jh-5es"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cgy-Lj-S5z"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="DXN-Jp-r96" id="6LI-JK-OnG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVf-a1-zqi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

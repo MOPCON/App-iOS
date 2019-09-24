@@ -14,6 +14,7 @@
 		3C299ADC233A403C00E787F2 /* UnConfObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C299ADB233A403C00E787F2 /* UnConfObject.swift */; };
 		3C299ADF233A408500E787F2 /* UnConfAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C299ADE233A408500E787F2 /* UnConfAPI.swift */; };
 		3C299AE1233A409F00E787F2 /* UnConfProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C299AE0233A409F00E787F2 /* UnConfProvider.swift */; };
+		3C299AE3233A4CB100E787F2 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C299AE2233A4CB100E787F2 /* FavoriteViewController.swift */; };
 		3C31E657230F872E00000518 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E656230F872E00000518 /* HTTPClient.swift */; };
 		3C31E65B230F8ABB00000518 /* InitialAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E65A230F8ABB00000518 /* InitialAPI.swift */; };
 		3C31E65D230F8AF800000518 /* HTTPClientExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C31E65C230F8AF800000518 /* HTTPClientExtenstion.swift */; };
@@ -185,6 +186,7 @@
 		3C299ADB233A403C00E787F2 /* UnConfObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnConfObject.swift; sourceTree = "<group>"; };
 		3C299ADE233A408500E787F2 /* UnConfAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnConfAPI.swift; sourceTree = "<group>"; };
 		3C299AE0233A409F00E787F2 /* UnConfProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnConfProvider.swift; sourceTree = "<group>"; };
+		3C299AE2233A4CB100E787F2 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		3C31E656230F872E00000518 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		3C31E65A230F8ABB00000518 /* InitialAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialAPI.swift; sourceTree = "<group>"; };
 		3C31E65C230F8AF800000518 /* HTTPClientExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientExtenstion.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				D62D30D420ED06F300BBDF5E /* AgendaViewController.swift */,
 				D6F0BE6820F0A02B0053A100 /* ConferenceDetailViewController.swift */,
 				3C5FF12323352AE500D82CC6 /* SessionsViewController.swift */,
+				3C299AE2233A4CB100E787F2 /* FavoriteViewController.swift */,
 				3CF0FB7B233A3EB700D9794E /* UnConferenceViewController.swift */,
 				3C5FF12523352B6B00D82CC6 /* MPBaseSessionViewController.swift */,
 			);
@@ -1242,6 +1245,7 @@
 				D6F0BE6320F06D6C0053A100 /* MyScheduleViewController.swift in Sources */,
 				3CFCF00B22DEFBB2006184CD /* UIColorExtension.swift in Sources */,
 				3C1229DA2334C21300001760 /* DateFormatter.swift in Sources */,
+				3C299AE3233A4CB100E787F2 /* FavoriteViewController.swift in Sources */,
 				D6F0BE6720F093AD0053A100 /* UserdefaultKeyManager.swift in Sources */,
 				3C31E67D230FC41E00000518 /* VolunteerObject.swift in Sources */,
 				D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */,
