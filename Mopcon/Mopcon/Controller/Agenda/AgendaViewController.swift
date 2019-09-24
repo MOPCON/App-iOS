@@ -74,10 +74,6 @@ class AgendaViewController: MPBaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        print(123)
-        print(segue.identifier)
-        print(segue.destination)
-        
         switch segue.identifier {
             
         case Segue.sessions:
