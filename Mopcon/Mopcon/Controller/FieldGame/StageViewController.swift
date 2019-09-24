@@ -155,8 +155,10 @@ class StageViewController: MPBaseViewController, NoticeViewPresentable {
         qrCodeViewController.taskID = taskID
         
         qrCodeViewController.getInteractionMissionResult = self
-        
+                
         let navigationController = UINavigationController(rootViewController: qrCodeViewController)
+                
+        navigationController.modalPresentationStyle = .fullScreen
         
         present(navigationController, animated: true, completion: nil)
     }

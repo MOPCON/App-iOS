@@ -46,10 +46,12 @@ class EntryViewController: UIViewController {
                     },
                     completion: nil
                 )
-                
+                                
                 if !UserDefaults.standard.bool(forKey: "hasOpened") {
                     
                     UserDefaults.standard.set(true, forKey: "hasOpened")
+                    
+                    guard KeychainTool.retrive(for: "token") == nil else { break }
                     
                     let uuid = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
                     
