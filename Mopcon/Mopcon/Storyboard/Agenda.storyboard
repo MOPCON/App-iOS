@@ -99,7 +99,7 @@
         <!--演講資訊-->
         <scene sceneID="vf4-6n-iH2">
             <objects>
-                <viewController id="o4V-94-Nxa" customClass="ConferenceDetailViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConferenceDetailViewController" id="o4V-94-Nxa" customClass="ConferenceDetailViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9IG-Fv-vEz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="888"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -244,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhA-Xp-vTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-84" y="1068"/>
+            <point key="canvasLocation" x="161" y="1040"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dbl-lR-O3Q">

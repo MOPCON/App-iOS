@@ -37,4 +37,45 @@ class UnconfProvider {
                 }
         })
     }
+    
+    static func fetchUnConfInfo(id: Int, completion: @escaping SessionInfoResultType) {
+    
+        HTTPClient.shared.request(
+            UnConfAPI.info(String(id)),
+            completion: { result in
+                
+                switch result{
+                    
+                case .success(let data):
+                    
+                    do {
+                        
+                        let response = try JSONDecoder.shared.decode(SuccessResponse<[SessionInfo]>.self, from: data)
+                        
+                        guard let info = response.data.first else {
+                            
+                            return completion(
+                                Result.failure(
+                                    NSError(
+                                        domain: "",
+                                        code: 999,
+                                        userInfo: nil
+                                    ) as Error
+                                )
+                            )
+                        }
+                        
+                        completion(Result.success(info))
+                    
+                    } catch {
+                        
+                        completion(Result.failure(error))
+                    }
+                    
+                case .failure(let error):
+                    
+                    completion(Result.failure(error))
+                }
+        })
+    }
 }

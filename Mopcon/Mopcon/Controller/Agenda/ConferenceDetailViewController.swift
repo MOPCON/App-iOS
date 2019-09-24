@@ -10,9 +10,7 @@ import UIKit
 
 class ConferenceDetailViewController: MPBaseViewController {
     
-    var key:String?
-    
-    var agenda:Schedule.Payload.Agenda.Item.AgendaContent?
+    var id: Int?
     
     @IBOutlet weak var typeLabel: UILabel!
     
@@ -36,39 +34,34 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     @IBAction func addToMySchedule(_ sender: UIBarButtonItem) {
         
-        guard let agenda = agenda,let key = key  else {
-            return
-        }
-        
-        if sender.image == #imageLiteral(resourceName: "dislike_24"){
-    
-            MySchedules.add(agenda: agenda, forKey: key)
-            
-            sender.image = #imageLiteral(resourceName: "like_24")
-            
-        } else {
-        
-            MySchedules.remove(agenda: agenda, forKey: key)
-            
-            sender.image = #imageLiteral(resourceName: "dislike_24")
-        }
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
-        if CurrentLanguage.getLanguage() == Language.english.rawValue {
+        fetchUnconfInfo()
+    }
+    
+    private func fetchUnconfInfo() {
         
-            navigationItem.title = "Agenda"
+        guard let id = id else { return }
+        
+        UnconfProvider.fetchUnConfInfo(id: id, completion: { [weak self] result in
             
-            sponsorTitleLabel.text = "Sponsor"
-        }
-        
-        if let agenda = agenda {
-        
-            updateUI(agenda: agenda)
-        }
+            switch result {
+                
+            case .success(let info):
+                
+                self?.throwToMainThreadAsync {
+                    
+                    self?.updateUI(info: info)
+                }
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        })
     }
     
     override func viewDidLayoutSubviews() {
@@ -79,63 +72,44 @@ class ConferenceDetailViewController: MPBaseViewController {
         sponsorImageView.makeCircle()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-    }
-    
-    func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent) {
+    func updateUI(info: SessionInfo) {
         
-        if let picture = agenda.picture {
+        if let picture = info.speakers.first?.img.mobile {
         
             speakerImageView.kf.setImage(with: URL(string: picture))
         }
-        
-        if MySchedules.checkRepeat(scheduleID: agenda.schedule_id) {
-        
-            addToMyScheduleButtonItem.image = #imageLiteral(resourceName: "like_24")
-        }
 
-        
-        
         let language = CurrentLanguage.getLanguage()
         
         switch language {
         
         case Language.chinese.rawValue:
         
-            scheduleInfoLabel.text = agenda.schedule_info
+            scheduleInfoLabel.text = info.summary
             
-            typeLabel.text = agenda.category
+            typeLabel.text = info.tags.reduce("", { $0 + $1.name + " "})
             
-            topicLabel.text = agenda.schedule_topic
+            topicLabel.text = info.topic
             
-            speakerName.text = agenda.name
+            speakerName.text = info.speakers.first?.name
             
-            speakerJob.text = "\(agenda.job ?? "")@\(agenda.company ?? "")"
+            speakerJob.text = "\(info.speakers.first?.jobTitle ?? "")@\(info.speakers.first?.company ?? "")"
         
         case Language.english.rawValue:
         
-            scheduleInfoLabel.text = agenda.schedule_info_en
+            scheduleInfoLabel.text = info.summaryEn
             
-            topicLabel.text = agenda.schedule_topic_en
+            typeLabel.text = info.tags.reduce("", { $0 + $1.name + " "})
             
-            typeLabel.text = agenda.category
+            topicLabel.text = info.topicEn
             
-            speakerName.text = agenda.name_en
+            speakerName.text = info.speakers.first?.name
             
-            speakerJob.text = "\(agenda.job ?? "")@\(agenda.company ?? "")"
+            speakerJob.text = "\(info.speakers.first?.jobTitleEn ?? "")@\(info.speakers.first?.companyEn ?? "")"
         
         default:
         
             break
         }
-        
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
