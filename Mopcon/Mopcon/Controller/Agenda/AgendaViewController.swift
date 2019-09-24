@@ -16,16 +16,24 @@ class AgendaViewController: MPBaseViewController {
         
         static let favorite = "SegueFavorite"
         
-        static let interChange = "SegueInterChange"
+        static let unConf = "SegueUnConf"
     }
     
     @IBOutlet weak var dateSelectionView: SelectionView!
     
     @IBOutlet weak var scheduleSegmentedControl: UISegmentedControl!
     
-    var sessionLists: [SessionList] = []
+    @IBOutlet weak var sessionContainerView: UIView!
+    
+    @IBOutlet weak var unconfContainerView: UIView!
+    
+    @IBOutlet weak var favirateContainerView: UIView!
+    
+    private var sessionLists: [SessionList] = []
     
     private var sessionViewController: SessionsViewController?
+    
+    private var unconfViewController: UnConferenceViewController?
     
     private let spinner = LoadingTool.setActivityindicator()
     
@@ -86,7 +94,13 @@ class AgendaViewController: MPBaseViewController {
             
         case Segue.favorite: break
             
-        case Segue.interChange: break
+        case Segue.unConf:
+            
+            guard let unconfVC = segue.destination as? UnConferenceViewController else {
+                return
+            }
+            
+            unconfViewController = unconfVC
             
         default: break
             
@@ -121,7 +135,28 @@ class AgendaViewController: MPBaseViewController {
     
     @IBAction func chooseScheduleAction(_ sender: UISegmentedControl) {
         
+        resetContainerViewState()
+        
+        switch sender.selectedSegmentIndex {
+            
+        case 0: sessionContainerView.isHidden = false
+            
+        case 1: favirateContainerView.isHidden = false
+           
+        case 2: unconfContainerView.isHidden = false
+            
+        default: break
+        
+        }
+    }
     
+    func resetContainerViewState() {
+        
+        sessionContainerView.isHidden = true
+        
+        favirateContainerView.isHidden = true
+        
+        unconfContainerView.isHidden = true
     }
 }
 
@@ -150,5 +185,7 @@ extension AgendaViewController: SelectionViewDataSource {
     func didSelectedButton(_ selectionView: SelectionView, at index: Int) {
     
         sessionViewController?.sessions = sessionLists[index].period
+        
+        unconfViewController?.selectedIndex = index
     }
 }
