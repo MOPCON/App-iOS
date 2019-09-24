@@ -28,19 +28,17 @@ class FieldGameProvider: MainThreadHelper {
                         )
                         
                         let token = "\(successResponse.data.tokenType) \(successResponse.data.accessToken)"
-                        print(token)
+
                         KeychainTool.save(token)
                         
                     } catch {
                         
                         print(error.localizedDescription)
-                        
                     }
                     
                 case .failure(let error):
                     
                     print(error.localizedDescription)
-                    
                 }
         })
     }
