@@ -32,15 +32,30 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var sponsorLabel: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBAction func addToMySchedule(_ sender: UIBarButtonItem) {
         
     }
     
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.isHidden = true
+        
         fetchUnconfInfo()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    
+        speakerImageView.makeCircle()
+
+        sponsorImageView.makeCircle()
+    }
+    
+    //MARK: - API
     
     private func fetchUnconfInfo() {
         
@@ -52,11 +67,11 @@ class ConferenceDetailViewController: MPBaseViewController {
                 
             case .success(let info):
                 
-                print(info)
-                
                 self?.throwToMainThreadAsync {
                     
                     self?.updateUI(info: info)
+                    
+                    self?.scrollView.isHidden = false
                 }
                 
             case .failure(let error):
@@ -66,14 +81,29 @@ class ConferenceDetailViewController: MPBaseViewController {
         })
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    
-        speakerImageView.makeCircle()
-
-        sponsorImageView.makeCircle()
+    private func fetchSponsor(id: Int) {
+        
+        SponsorProvider.fetchSponsor(id: id, completion: { [weak self] result in
+            
+            switch result {
+                
+            case .success(let sponsors):
+                
+                print(sponsors)
+                
+                self?.throwToMainThreadAsync {
+                    
+                    self?.updateUI(sponsors: sponsors)
+                }
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        })
     }
     
+    // MARK: - Layout View
     func updateUI(info: SessionInfo) {
         
         if info.sponsorID == 0 {
@@ -83,10 +113,12 @@ class ConferenceDetailViewController: MPBaseViewController {
             sponsorTitleLabel.isHidden = true
             
             sponsorLabel.isHidden = true
-        
+            
+            scheduleInfoLabel.isHidden = true
+            
         } else {
             
-            //TODO
+            fetchSponsor(id: info.sponsorID)
         }
         
         if let picture = info.speakers.first?.img.mobile {
@@ -111,7 +143,9 @@ class ConferenceDetailViewController: MPBaseViewController {
             
             speakerName.text = info.speakers.first?.name
             
-            speakerJob.text = "\(info.speakers.first?.jobTitle ?? "")@\(info.speakers.first?.company ?? "")"
+            let job = "\(info.speakers.first?.jobTitle ?? "")@\(info.speakers.first?.company ?? "")"
+            
+            speakerJob.text = (job == "@") ? "" : job
         
         case Language.english.rawValue:
         
@@ -123,11 +157,44 @@ class ConferenceDetailViewController: MPBaseViewController {
             
             speakerName.text = info.speakers.first?.name
             
-            speakerJob.text = "\(info.speakers.first?.jobTitleEn ?? "")@\(info.speakers.first?.companyEn ?? "")"
+            let job = "\(info.speakers.first?.jobTitleEn ?? "")@\(info.speakers.first?.companyEn ?? "")"
+            
+            speakerJob.text = (job == "@") ? "" : job
         
         default:
         
             break
+        }
+    }
+    
+    func updateUI(sponsors: [Sponsor]) {
+        
+        guard let sponsor = sponsors.first else {
+        
+            return
+        }
+        
+        sponsorImageView.isHidden = false
+        
+        sponsorTitleLabel.isHidden = false
+        
+        sponsorLabel.isHidden = false
+        
+        scheduleInfoLabel.isHidden = false
+        
+        sponsorImageView.kf.setImage(with: URL(string: sponsor.logo))
+        
+        switch CurrentLanguage.getLanguage() {
+            
+        case Language.chinese.rawValue:
+        
+            sponsorLabel.text = sponsor.name
+            
+        case Language.english.rawValue:
+        
+            sponsorLabel.text = sponsor.nameEn
+            
+        default: break
         }
     }
 }

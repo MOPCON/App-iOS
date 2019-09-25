@@ -232,6 +232,7 @@
                     <connections>
                         <outlet property="addToMyScheduleButtonItem" destination="kxq-fN-6D2" id="D7f-rB-JkT"/>
                         <outlet property="scheduleInfoLabel" destination="cyG-dJ-K3q" id="Ize-zY-x7m"/>
+                        <outlet property="scrollView" destination="EB4-NM-WDG" id="dnt-VI-G5i"/>
                         <outlet property="speakerImageView" destination="KIP-tn-Cp9" id="AcV-Zi-gHA"/>
                         <outlet property="speakerJob" destination="cdz-om-dnW" id="S0E-Al-jWq"/>
                         <outlet property="speakerName" destination="XAQ-fR-481" id="MJe-CW-8eQ"/>

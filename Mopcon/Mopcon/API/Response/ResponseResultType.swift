@@ -18,7 +18,9 @@ typealias VolunteerListResultType = (Result<VolunteerList, Error>) -> Void
 
 typealias VolunteerResultType = (Result<Volunteer, Error>) -> Void
 
-typealias SponsorResultType = (Result<[SponsorList], Error>) -> Void
+typealias SponsorListResultType = (Result<[SponsorList], Error>) -> Void
+
+typealias SponsorResultType = (Result<[Sponsor], Error>) -> Void
 
 typealias SessionListResultType = (Result<[SessionList], Error>) -> Void
 
