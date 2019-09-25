@@ -10,7 +10,9 @@ import UIKit
 
 class ConferenceDetailViewController: MPBaseViewController {
     
-    var id: Int?
+    var unconfId: Int?
+    
+    var sessionId: Int?
     
     @IBOutlet weak var typeLabel: UILabel!
     
@@ -45,6 +47,8 @@ class ConferenceDetailViewController: MPBaseViewController {
         scrollView.isHidden = true
         
         fetchUnconfInfo()
+        
+        fetchSessionInfo()
     }
     
     override func viewDidLayoutSubviews() {
@@ -56,10 +60,9 @@ class ConferenceDetailViewController: MPBaseViewController {
     }
     
     //MARK: - API
-    
     private func fetchUnconfInfo() {
         
-        guard let id = id else { return }
+        guard let id = unconfId else { return }
         
         UnconfProvider.fetchUnConfInfo(id: id, completion: { [weak self] result in
             
@@ -89,11 +92,33 @@ class ConferenceDetailViewController: MPBaseViewController {
                 
             case .success(let sponsors):
                 
-                print(sponsors)
-                
                 self?.throwToMainThreadAsync {
                     
                     self?.updateUI(sponsors: sponsors)
+                }
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        })
+    }
+    
+    private func fetchSessionInfo() {
+        
+        guard let id = sessionId else { return }
+        
+        SessionProvider.fetchSession(id: id, completion: { [weak self] result in
+            
+            switch result {
+                
+            case .success(let room):
+                
+                self?.throwToMainThreadAsync {
+                    
+                    self?.updateUI(room: room)
+                    
+                    self?.scrollView.isHidden = false
                 }
                 
             case .failure(let error):
@@ -113,8 +138,6 @@ class ConferenceDetailViewController: MPBaseViewController {
             sponsorTitleLabel.isHidden = true
             
             sponsorLabel.isHidden = true
-            
-            scheduleInfoLabel.isHidden = true
             
         } else {
             
@@ -167,6 +190,84 @@ class ConferenceDetailViewController: MPBaseViewController {
         }
     }
     
+    func updateUI(room: Room) {
+        
+        if let sponsor = room.sponsorInfo {
+        
+            sponsorImageView.isHidden = false
+            
+            sponsorTitleLabel.isHidden = false
+            
+            sponsorLabel.isHidden = false
+            
+            sponsorImageView.kf.setImage(with: URL(string: sponsor.logo))
+            
+            switch CurrentLanguage.getLanguage() {
+                
+            case Language.chinese.rawValue:
+            
+                sponsorLabel.text = sponsor.name
+                
+            case Language.english.rawValue:
+            
+                sponsorLabel.text = sponsor.nameEn
+                
+            default: break
+                
+            }
+            
+        } else {
+            
+            sponsorImageView.isHidden = true
+            
+            sponsorTitleLabel.isHidden = true
+            
+            sponsorLabel.isHidden = true
+        }
+
+        speakerImageView.kf.setImage(
+            with: URL(string: room.speakers.first!.img.mobile),
+            placeholder: UIImage.asset(.fieldGameProfile)
+        )
+
+        let language = CurrentLanguage.getLanguage()
+
+        switch language {
+
+        case Language.chinese.rawValue:
+
+            scheduleInfoLabel.text = room.summary
+
+            typeLabel.text = room.tags.reduce("", { $0 + $1.name + " "})
+
+            topicLabel.text = room.topic
+
+            speakerName.text = room.speakers.first?.name
+
+            let job = "\(room.speakers.first?.jobTitle ?? "")@\(room.speakers.first?.company ?? "")"
+
+            speakerJob.text = (job == "@") ? "" : job
+
+        case Language.english.rawValue:
+
+            scheduleInfoLabel.text = room.summaryEn
+
+            typeLabel.text = room.tags.reduce("", { $0 + $1.name + " "})
+
+            topicLabel.text = room.topicEn
+
+            speakerName.text = room.speakers.first?.name
+
+            let job = "\(room.speakers.first?.jobTitleEn ?? "")@\(room.speakers.first?.companyEn ?? "")"
+
+            speakerJob.text = (job == "@") ? "" : job
+
+        default:
+
+            break
+        }
+    }
+    
     func updateUI(sponsors: [Sponsor]) {
         
         guard let sponsor = sponsors.first else {
@@ -179,8 +280,6 @@ class ConferenceDetailViewController: MPBaseViewController {
         sponsorTitleLabel.isHidden = false
         
         sponsorLabel.isHidden = false
-        
-        scheduleInfoLabel.isHidden = false
         
         sponsorImageView.kf.setImage(with: URL(string: sponsor.logo))
         

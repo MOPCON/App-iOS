@@ -73,4 +73,39 @@ class SessionsViewController: MPBaseSessionViewController {
         
         return conferenceCell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(
+            at: indexPath,
+            animated: false
+        )
+        
+        let agendaStoryboard = UIStoryboard(
+            name: "Agenda",
+            bundle: nil
+        )
+        
+        if #available(iOS 13.0, *) {
+            
+            guard let detailVC = agendaStoryboard.instantiateViewController(
+                identifier: ConferenceDetailViewController.identifier
+            ) as? ConferenceDetailViewController else {
+                
+                return
+            }
+            
+            detailVC.sessionId = sessions[indexPath.section].room[indexPath.row].sessionId
+            
+            show(detailVC, sender: nil)
+            
+        } else {
+            
+            let detailVC = agendaStoryboard.instantiateViewController(
+                withIdentifier: ConferenceDetailViewController.identifier
+            )
+            
+            show(detailVC, sender: nil)
+        }
+    }
 }

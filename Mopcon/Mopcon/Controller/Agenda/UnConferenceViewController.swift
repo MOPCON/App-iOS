@@ -122,7 +122,7 @@ class UnConferenceViewController: MPBaseSessionViewController {
                 return
             }
             
-            detailVC.id = sessionList[selectedIndex].period[indexPath.section].room[indexPath.row].sessionId
+            detailVC.unconfId = sessionList[selectedIndex].period[indexPath.section].room[indexPath.row].sessionId
             
             show(detailVC, sender: nil)
             
