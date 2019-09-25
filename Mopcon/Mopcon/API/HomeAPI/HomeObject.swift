@@ -8,33 +8,25 @@
 
 import Foundation
 
-class HomeProvider {
+struct Home: Codable {
+    let banner: [Banner]
+    let news: [HomeNews]
+}
 
-    static func fetchHome(completion: @escaping HomeResultType) {
-        
-        HTTPClient.shared.request(
-            HomeAPI.home,
-            completion: { result in
-                
-                switch result{
-                    
-                case .success(let data):
-                    
-                    do {
-                        
-                        let response = try JSONDecoder.shared.decode(SuccessResponse<Home>.self, from: data)
-                        
-                        completion(Result.success(response.data))
-                    
-                    } catch {
-                        
-                        completion(Result.failure(error))
-                    }
-                    
-                case .failure(let error):
-                    
-                    completion(Result.failure(error))
-                }
-        })
+struct Banner: Codable {
+    let img: String
+    let link: String
+}
+
+// MARK: - News
+struct HomeNews: Codable {
+    let id, date: Int
+    let title, description: String
+    let link: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, date, title
+        case description = "description"
+        case link
     }
 }

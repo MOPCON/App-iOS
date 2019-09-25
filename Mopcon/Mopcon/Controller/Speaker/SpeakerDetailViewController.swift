@@ -24,7 +24,7 @@ class SpeakerDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var speaker:Speaker.Payload?
+    var speaker:Speaker?
     
     var speaker_schedule:Schedule.Payload.Agenda.Item.AgendaContent?
 
@@ -90,45 +90,45 @@ class SpeakerDetailViewController: MPBaseViewController {
     //MARK: - Action
     func findSchedule() {
 
-        ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { [weak self] (payload, error) in
-
-            if error != nil {
-                print(error!.localizedDescription)
-                return
-            }
-
-            if let payload = payload, let scheduleID = self?.speaker?.schedule_id {
-                for agenda in payload.agenda {
-                    for item in agenda.items {
-                        for schedule in item.agendas {
-                            if scheduleID == schedule.schedule_id {
-                                self?.speaker_schedule = schedule
-                                self?.key = schedule.date
-                            }
-                        }
-                    }
-                }
-            }
-            
-        }
+//        ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { [weak self] (payload, error) in
+//
+//            if error != nil {
+//                print(error!.localizedDescription)
+//                return
+//            }
+//
+//            if let payload = payload, let scheduleID = self?.speaker?.schedule_id {
+//                for agenda in payload.agenda {
+//                    for item in agenda.items {
+//                        for schedule in item.agendas {
+//                            if scheduleID == schedule.schedule_id {
+//                                self?.speaker_schedule = schedule
+//                                self?.key = schedule.date
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            
+//        }
     }
 
-    func updateUI(speaker: Speaker.Payload) {
+    func updateUI(speaker: Speaker) {
         
-        speakerView.updateUI(
-            image: speaker.picture,
-            name: speaker.name,
-            job: speaker.job
-        )
-        
-        speakerDetailView.updateUI(info: speaker.info)
-        
-        talkInfoView.updateUI(
-            topic: speaker.schedule_topic,
-            time: "10:15 - 11:00",
-            position: "R1: 一廳",
-            isCollected: MySchedules.checkRepeat(scheduleID: speaker.schedule_id)
-        )
+//        speakerView.updateUI(
+//            image: speaker.picture,
+//            name: speaker.name,
+//            job: speaker.job
+//        )
+//
+//        speakerDetailView.updateUI(info: speaker.info)
+//
+//        talkInfoView.updateUI(
+//            topic: speaker.schedule_topic,
+//            time: "10:15 - 11:00",
+//            position: "R1: 一廳",
+//            isCollected: MySchedules.checkRepeat(scheduleID: speaker.schedule_id)
+//        )
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  HomeProvider.swift
+//  SpeakerProvider.swift
 //  Mopcon
 //
 //  Created by WU CHIH WEI on 2019/9/25.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-class HomeProvider {
-
-    static func fetchHome(completion: @escaping HomeResultType) {
+class SpeakerProvider {
+    
+    static func fetchSpeakers(completion: @escaping SpeakerListResultType) {
         
         HTTPClient.shared.request(
-            HomeAPI.home,
+            SpeakerAPI.speakerList,
             completion: { result in
                 
                 switch result{
@@ -22,7 +22,7 @@ class HomeProvider {
                     
                     do {
                         
-                        let response = try JSONDecoder.shared.decode(SuccessResponse<Home>.self, from: data)
+                        let response = try JSONDecoder.shared.decode(SuccessResponse<[Speaker]>.self, from: data)
                         
                         completion(Result.success(response.data))
                     

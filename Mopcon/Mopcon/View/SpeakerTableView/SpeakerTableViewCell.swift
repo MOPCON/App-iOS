@@ -37,34 +37,34 @@ class SpeakerTableViewCell: UITableViewCell {
     
     weak var dataSource: SpeakerTableViewCellDataSource?
 
-    func updateUI(speaker: Speaker.Payload) {
+    func updateUI(speaker: Speaker) {
         
-        if let resource = URL(string: speaker.picture) {
-        
-            self.speakerAvatarImageView.kf.setImage(with: resource)
-        
-        } else {
-        
-            self.speakerAvatarImageView.image = nil
-        }
-        
-        let language = CurrentLanguage.getLanguage()
-        
-        switch language {
-        
-        case Language.chinese.rawValue:
-            
-            self.speakerJobLabel.text = speaker.job
-            self.speakerNameLabel.text = speaker.name
-        
-        case Language.english.rawValue:
-            
-            self.speakerJobLabel.text = speaker.job
-            self.speakerNameLabel.text = speaker.name_en
-        
-        default:
-            break
-        }
+//        if let resource = URL(string: speaker.picture) {
+//        
+//            self.speakerAvatarImageView.kf.setImage(with: resource)
+//        
+//        } else {
+//        
+//            self.speakerAvatarImageView.image = nil
+//        }
+//        
+//        let language = CurrentLanguage.getLanguage()
+//        
+//        switch language {
+//        
+//        case Language.chinese.rawValue:
+//            
+//            self.speakerJobLabel.text = speaker.job
+//            self.speakerNameLabel.text = speaker.name
+//        
+//        case Language.english.rawValue:
+//            
+//            self.speakerJobLabel.text = speaker.job
+//            self.speakerNameLabel.text = speaker.name_en
+//        
+//        default:
+//            break
+//        }
     }
     
     override func awakeFromNib() {

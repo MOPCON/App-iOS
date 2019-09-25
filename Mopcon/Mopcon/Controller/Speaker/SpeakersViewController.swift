@@ -21,11 +21,11 @@ class SpeakersViewController: MPBaseViewController {
         }
     }
     
-    var tags: [SpeakerTag] = [.blockchain, .design, .ioT]
-    
-    var selectedSpeaker:Speaker.Payload?
-    
-    var speakers = [Speaker.Payload]()
+//    var tags: [SpeakerTag] = [.blockchain, .design, .ioT]
+//
+//    var selectedSpeaker:Speaker.Payload?
+//
+//    var speakers = [Speaker.Payload]()
     
     let spinner = LoadingTool.setActivityindicator()
     
@@ -46,7 +46,7 @@ class SpeakersViewController: MPBaseViewController {
         speakersTableView.dataSource = self
         speakersTableView.separatorStyle = .none
         
-        getSpeakers()
+        fetchSpeakers()
         
     }
     
@@ -65,33 +65,27 @@ class SpeakersViewController: MPBaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIDManager.performSpeakerDetail {
             if let vc = segue.destination as? SpeakerDetailViewController {
-                vc.speaker = selectedSpeaker
+//                vc.speaker = selectedSpeaker
             }
         }
     }
     
-    func getSpeakers() {
+    func fetchSpeakers() {
         
-        spinner.startAnimating()
-        spinner.center = view.center
-        self.view.addSubview(spinner)
+        SpeakerProvider.fetchSpeakers(completion: { result in
+            
+            switch result {
+                
+            case .success(let speakers):
+                
+                print(speakers)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        })
         
-        SpeakerAPI.getAPI(url: MopconAPI.shared.speaker) { (payload, error) in
-            
-            if error != nil {
-                print(error!.localizedDescription)
-                self.spinner.removeFromSuperview()
-                return
-            }
-            
-            if let payload = payload {
-                self.speakers = payload
-                DispatchQueue.main.async {
-                    self.speakersTableView.reloadData()
-                    self.spinner.removeFromSuperview()
-                }
-            }
-        }
     }
 
 
@@ -100,14 +94,16 @@ class SpeakersViewController: MPBaseViewController {
 extension SpeakersViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return speakers.count
+//        return speakers.count
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let speakerCell = tableView.dequeueReusableCell(withIdentifier: SpeakersTableViewCellIDManager.speakerCell, for: indexPath) as! SpeakerTableViewCell
         
-        speakerCell.updateUI(speaker: speakers[indexPath.row])
+//        speakerCell.updateUI(speaker: speakers[indexPath.row])
         
         speakerCell.dataSource = self
         
@@ -122,7 +118,7 @@ extension SpeakersViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //到時候要傳講者資料過去 sender再設定
         
-        self.selectedSpeaker = speakers[indexPath.row]
+//        self.selectedSpeaker = speakers[indexPath.row]
         
         performSegue(withIdentifier: SegueIDManager.performSpeakerDetail, sender: nil)
     }
@@ -133,16 +129,19 @@ extension SpeakersViewController: SpeakerTableViewCellDataSource {
     
     func numberOfTags(_ cell: SpeakerTableViewCell) -> Int {
         
-        return tags.count
+//        return tags.count
+        return 0
     }
     
     func titleForTags(_ cell: SpeakerTableViewCell, index: Int) -> String {
         
-        return tags[index].rawValue
+//        return tags[index].rawValue
+        return ""
     }
     
     func colorForTags(_ cell: SpeakerTableViewCell, index: Int) -> UIColor? {
         
-        return tags[index].color
+//        return tags[index].color
+        return nil
     }
 }
