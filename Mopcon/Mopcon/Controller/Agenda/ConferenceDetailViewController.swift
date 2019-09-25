@@ -52,6 +52,8 @@ class ConferenceDetailViewController: MPBaseViewController {
                 
             case .success(let info):
                 
+                print(info)
+                
                 self?.throwToMainThreadAsync {
                     
                     self?.updateUI(info: info)
@@ -74,9 +76,25 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     func updateUI(info: SessionInfo) {
         
+        if info.sponsorID == 0 {
+            
+            sponsorImageView.isHidden = true
+            
+            sponsorTitleLabel.isHidden = true
+            
+            sponsorLabel.isHidden = true
+        
+        } else {
+            
+            //TODO
+        }
+        
         if let picture = info.speakers.first?.img.mobile {
         
-            speakerImageView.kf.setImage(with: URL(string: picture))
+            speakerImageView.kf.setImage(
+                with: URL(string: picture),
+                placeholder: UIImage.asset(.fieldGameProfile)
+            )
         }
 
         let language = CurrentLanguage.getLanguage()

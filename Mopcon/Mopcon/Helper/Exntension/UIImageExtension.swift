@@ -51,6 +51,9 @@ enum ImageAsset: String {
     case record_team
     case video_team
     
+    //Field Game
+    case fieldGameProfile = "field_game_profile"
+    
 }
 
 extension UIImage {
