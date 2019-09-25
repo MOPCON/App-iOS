@@ -37,7 +37,7 @@ class LobbyViewController: MPBaseViewController {
     
     private var language = CurrentLanguage.getLanguage()
     
-    private var bannerDatas: [Carousel.Payload] = []
+    private var home: Home?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,18 +101,18 @@ class LobbyViewController: MPBaseViewController {
     }
     
     private func getBanner() {
-        CarouselAPI.getAPI(url: MopconAPI.shared.carousel) { [weak self] (bannerData, error) in
+        
+        HomeProvider.fetchHome(completion: { [weak self] result in
             
-            if error != nil {
-                print(error!.localizedDescription)
-                return
-            }
-            
-            if let data = bannerData{
+            switch result {
                 
-                self?.bannerDatas = data
+            case .success(let home):
                 
-                let count: CGFloat = CGFloat(data.count)
+                print(home)
+                
+                self?.home = home
+                
+                let count: CGFloat = CGFloat(home.banner.count)
                 
                 let screenWidth = UIScreen.main.bounds.width
                 
@@ -132,16 +132,19 @@ class LobbyViewController: MPBaseViewController {
                     
                     self?.bannerScrollView.contentSize = self?.containerView.frame.size ?? .zero
                     
-                    for (index, element) in data.enumerated() {
+                    for (index, element) in home.banner.enumerated() {
                         
                         let xPoint: CGFloat = CGFloat(index) * (contentWidth + spacing)
                         
-                        self?.addImageView(with: xPoint, width: contentWidth, height: contentHeight, source: element.banner, tag: index)
+                        self?.addImageView(with: xPoint, width: contentWidth, height: contentHeight, source: element.img, tag: index)
                     }
-                
                 }
+                
+            case .failure(let error):
+                
+                print(error)
             }
-        }
+        })
     }
     
     private func updateUI() {
@@ -200,14 +203,17 @@ class LobbyViewController: MPBaseViewController {
     }
     
     @objc func bannerTapAction(_ gesture: UITapGestureRecognizer) {
+        
         let imageView = gesture.view as? UIImageView
         
-        let bannerData = bannerDatas[imageView?.tag ?? 0]
-        
-        if let url = URL(string: bannerData.link) {
+        guard let banner = home?.banner[imageView?.tag ?? 0],
+              let url = URL(string: banner.link)
+        else {
             
-            UIApplication.shared.open(url)
+            return
         }
+            
+        UIApplication.shared.open(url)
     }
     
     @IBAction func selectedLanguage(sender: UIButton) {

@@ -15,8 +15,6 @@ class LobbyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var speakerNameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
-    @IBOutlet weak var topicImageView: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -27,7 +25,5 @@ class LobbyCollectionViewCell: UICollectionViewCell {
         layer.borderWidth = 1.0
         
         clipsToBounds = true
-        
     }
-
 }

@@ -37,3 +37,5 @@ typealias FieldGameTaskResultType = (Result<FieldGameTask, Error>) -> Void
 typealias FieldGameTaskVerifiedResultType = (Result<String, Error>) -> Void
 
 typealias FieldGameRewardResultType = (Result<FieldGameReward, Error>) -> Void
+
+typealias HomeResultType = (Result<Home, Error>) -> Void
