@@ -108,8 +108,6 @@ class LobbyViewController: MPBaseViewController {
                 
             case .success(let home):
                 
-                print(home)
-                
                 self?.home = home
                 
                 let count: CGFloat = CGFloat(home.banner.count)

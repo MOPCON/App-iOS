@@ -19,36 +19,26 @@ class SpeakerDetailViewController: MPBaseViewController {
         didSet {
         
             talkInfoView.delegate = self
+            
+            talkInfoView.tagView.dataSource = self
         }
     }
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var speaker:Speaker?
+    var speaker: Speaker?
+
+    //MARK: - View Life Cycle
     
-    var speaker_schedule:Schedule.Payload.Agenda.Item.AgendaContent?
-
-    var key:String?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let speaker = speaker {
+            
             updateUI(speaker: speaker)
         }
         
         setupLayout()
-        
-        findSchedule()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if CurrentLanguage.getLanguage() == Language.english.rawValue {
-            
-            self.navigationItem.title = "Speaker"
-        }
     }
     
     private func setupLayout() {
@@ -82,72 +72,73 @@ class SpeakerDetailViewController: MPBaseViewController {
             talkInfoView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             talkInfoView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             talkInfoView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
-            
         ])
-        
     }
     
-    //MARK: - Action
-    func findSchedule() {
-
-//        ScheduleAPI.getAPI(url: MopconAPI.shared.schedule) { [weak self] (payload, error) in
-//
-//            if error != nil {
-//                print(error!.localizedDescription)
-//                return
-//            }
-//
-//            if let payload = payload, let scheduleID = self?.speaker?.schedule_id {
-//                for agenda in payload.agenda {
-//                    for item in agenda.items {
-//                        for schedule in item.agendas {
-//                            if scheduleID == schedule.schedule_id {
-//                                self?.speaker_schedule = schedule
-//                                self?.key = schedule.date
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//            
-//        }
-    }
-
+    //MARK: Layout out
+    
     func updateUI(speaker: Speaker) {
         
-//        speakerView.updateUI(
-//            image: speaker.picture,
-//            name: speaker.name,
-//            job: speaker.job
-//        )
-//
-//        speakerDetailView.updateUI(info: speaker.info)
-//
-//        talkInfoView.updateUI(
-//            topic: speaker.schedule_topic,
-//            time: "10:15 - 11:00",
-//            position: "R1: 一廳",
-//            isCollected: MySchedules.checkRepeat(scheduleID: speaker.schedule_id)
-//        )
+        speakerView.updateUI(
+            image: speaker.img.mobile,
+            name: speaker.name,
+            job: speaker.jobTitle + "@" + speaker.company
+        )
+
+        speakerDetailView.updateUI(info: speaker.bio)
+
+        let start = DateFormatter.string(for: speaker.startedAt, formatter: "MM/dd HH:MM") ?? ""
+        
+        let end = DateFormatter.string(for: speaker.startedAt, formatter: "HH:MM") ?? ""
+        
+        talkInfoView.updateUI(
+            topic: speaker.topic,
+            time: start + " - " + end,
+            position: speaker.room + " " + speaker.floor,
+            isCollected: false
+        )
+        
+        talkInfoView.tagView.reloadData()
     }
     
+    @IBAction func openFacebook(_ sender: UIButton) {
+        
+    }
+
+    @IBAction func openGitHub(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func openTwitter(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func openWebsite(_ sender: UIButton) {
+        
+    }
 }
 
 extension SpeakerDetailViewController: SpeakerTalkInfoViewDelegate {
     
     func didTouchCollectedButton(_ infoView: SpeakerTalkInfoView) {
         
-        guard let schedule = speaker_schedule, let key = key else {
-            return
-        }
+    }
+}
+
+extension SpeakerDetailViewController: MPTagViewDataSource {
+    
+    func numberOfTags(_ tagView: MPTagView) -> Int {
         
-        if MySchedules.checkRepeat(scheduleID: schedule.schedule_id) {
-            
-            MySchedules.remove(agenda: schedule, forKey: key)
+        return speaker?.tags.count ?? 0
+    }
+    
+    func titleForTags(_ tagView: MPTagView, index: Int) -> String {
         
-        } else {
+        return speaker?.tags[index].name ?? ""
+    }
+    
+    func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
-            MySchedules.add(agenda: schedule, forKey: key)
-        }
+        return UIColor(hex: speaker?.tags[index].color ?? "")
     }
 }

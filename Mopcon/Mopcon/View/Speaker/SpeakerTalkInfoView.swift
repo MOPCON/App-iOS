@@ -19,11 +19,13 @@ class SpeakerTalkInfoView: UIView {
     
     @IBOutlet weak var scheduleTimeLabel: UILabel!
     
-    @IBOutlet weak var positionButton: UIButton!
+    @IBOutlet weak var positionLabel: UILabel!
     
     @IBOutlet weak var likedButton: UIButton!
     
     @IBOutlet weak var baseView: UIView!
+    
+    @IBOutlet weak var tagView: MPTagView!
     
     weak var delegate: SpeakerTalkInfoViewDelegate?
     
@@ -50,7 +52,7 @@ class SpeakerTalkInfoView: UIView {
         
         scheduleTimeLabel.text = time
         
-        positionButton.setTitle(position, for: .normal)
+        positionLabel.text = position
         
         likedButton.isSelected = isCollected
     }

@@ -10,6 +10,11 @@ import UIKit
 
 class SpeakersViewController: MPBaseViewController {
     
+    private struct Segue {
+        
+        static let detail = "SegueSpeakerDetail"
+    }
+    
     override var hidesBottomBarWhenPushed: Bool {
         
         get {
@@ -32,9 +37,13 @@ class SpeakersViewController: MPBaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIDManager.performSpeakerDetail {
-            if let vc = segue.destination as? SpeakerDetailViewController {
-//                vc.speaker = selectedSpeaker
+        
+        if segue.identifier == Segue.detail {
+        
+            if let vc = segue.destination as? SpeakerDetailViewController,
+               let speaker = sender as? Speaker {
+                
+                vc.speaker = speaker
             }
         }
     }
@@ -87,10 +96,7 @@ extension SpeakersViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //到時候要傳講者資料過去 sender再設定
         
-//        self.selectedSpeaker = speakers[indexPath.row]
-        
-        performSegue(withIdentifier: SegueIDManager.performSpeakerDetail, sender: nil)
+        performSegue(withIdentifier: Segue.detail, sender: speakers[indexPath.row])
     }
 }
