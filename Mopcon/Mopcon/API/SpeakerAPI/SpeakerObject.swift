@@ -12,7 +12,7 @@ struct Speaker: Codable {
     
     let name, nameEn: String
     let speakerID: Int
-    let company, companyEn, jobTitle, jobTitleE: String
+    let company, companyEn, jobTitle, jobTitleEn: String
     let bio, bioEn: String
     let linkFb: String
     let linkGithub, linkTwitter: String
@@ -36,7 +36,7 @@ struct Speaker: Codable {
         case company
         case companyEn = "company_e"
         case jobTitle = "job_title"
-        case jobTitleE = "job_title_e"
+        case jobTitleEn = "job_title_e"
         case bio
         case bioEn = "bio_e"
         case linkFb = "link_fb"
