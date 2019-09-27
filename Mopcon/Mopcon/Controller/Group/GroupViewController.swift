@@ -68,12 +68,14 @@ class GroupViewController: MPBaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == SegueIDManager.performCommunityContainerView {
+        
             (segue.destination as! GroupHostViewController).delegate = self
         }
     }
 }
-extension GroupViewController: CollectionViewItemDidSelected{
+extension GroupViewController: GroupHostViewControllerDelegate {
     
     func stopSpinner() {
         

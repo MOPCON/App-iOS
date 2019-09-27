@@ -78,6 +78,40 @@ class GroupProvider: MainThreadHelper {
         )
     }
     
+    static func fetchParticipant(id: String, completion: @escaping ParticipantResultType) {
+        
+        HTTPClient.shared.request(
+            GroupAPI.participant(id),
+            completion: { result in
+                
+                switch result{
+                    
+                case .success(let data):
+                    
+                    do {
+                        
+                        let successResponse = try JSONDecoder.shared.decode(
+                            SuccessResponse<Participanter>.self,
+                            from: data
+                        )
+                        
+                        throwToMainThreadAsync {
+                            completion(Result.success(successResponse.data))
+                        }
+                        
+                    } catch {
+                        
+                        completion(Result.failure(error))
+                    }
+                    
+                case .failure(let error):
+                    
+                    completion(Result.failure(error))
+                }
+            }
+        )
+    }
+    
     static func fetchVolunteerList(completion: @escaping VolunteerListResultType) {
         
         HTTPClient.shared.request(

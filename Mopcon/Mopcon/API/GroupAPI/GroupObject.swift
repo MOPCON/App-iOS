@@ -42,26 +42,34 @@ struct Participant: Codable {
 
 struct Organizer: Codable {
     
-    let name: String
-    
+    let name, nameEn: String
     let photo: String
-    
-    let introducion: String
-    
-    let introducionEn: String
-    
+    let introduction, introductionEn: String
     let facebook: String
+    let twitter, instagram, telegram, event: String
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case nameEn = "name_e"
+        case photo, introduction
+        case introductionEn = "introduction_e"
+        case facebook, twitter, instagram, telegram, event
+    }
+}
+
+struct Participanter: Codable {
     
-    let twitter: String
-    
-    let instagram: String
-    
-    let telegram: String
-    
-    enum CondingKeys: String, CodingKey {
-        
-        case name, photom, introducion, facebook, twitter, instagram, telegram
-        
-        case introducionEn = "introducion_en"
+    let name, nameEn: String
+    let photo: String
+    let introduction, introductionEn: String
+    let facebook: String
+    let twitter, instagram, telegram, event: String
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case nameEn = "name_e"
+        case photo, introduction
+        case introductionEn = "introduction_e"
+        case facebook, twitter, instagram, telegram, event
     }
 }
