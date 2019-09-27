@@ -10,7 +10,10 @@ import UIKit
 
 class SponsorsViewController: MPBaseViewController {
     
-    let spinner = LoadingTool.setActivityindicator()
+    private struct Segue {
+        
+        static let detail = "SponsorSegue"
+    }
     
     var sponsorList: [SponsorList] = [] {
         
@@ -31,33 +34,19 @@ class SponsorsViewController: MPBaseViewController {
         getSponsors()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if CurrentLanguage.getLanguage() == Language.english.rawValue {
-            
-            navigationItem.title = "Sponsor"
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == SegueIDManager.performSponsorDetail{
+        if segue.identifier == Segue.detail {
         
-//            if let vc = segue.destination as? SponsorDetailViewController {
+            if let vc = segue.destination as? SponsorDetailViewController,
+               let sponsor = sender as? Sponsor {
             
-//                vc.sponsor = self.selectedSponsor
-//            }
+                vc.sponsor = sponsor
+            }
         }
     }
     
     func getSponsors() {
-        
-        spinner.startAnimating()
-        
-        spinner.center = view.center
-        
-        view.addSubview(spinner)
         
         SponsorProvider.fetchSponsor(completion: { [weak self] result in
             
@@ -65,18 +54,9 @@ class SponsorsViewController: MPBaseViewController {
                 
             case .success(let sponsorList):
                 
-                self?.throwToMainThreadAsync {
-                
-                    self?.spinner.stopAnimating()
-                    
-                    self?.spinner.removeFromSuperview()
-                }
-                
                 self?.sponsorList = sponsorList
                 
             case .failure(let error):
-                
-                //TODO
                 
                 print(error)
             }
@@ -124,8 +104,11 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        self.selectedSponsor = sponsors[indexPath.section][indexPath.row]
-//        performSegue(withIdentifier: SegueIDManager.performSponsorDetail, sender: self)
+
+        performSegue(
+            withIdentifier: Segue.detail,
+            sender: sponsorList[indexPath.section].data[indexPath.row]
+        )
     }
 }
 
