@@ -292,7 +292,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="wqN-m0-jrp" id="IVY-VJ-uH0"/>
-                        <segue destination="Fg7-Rl-VKX" kind="show" identifier="performCommunityDetail" id="PQI-q0-u1S"/>
+                        <segue destination="Fg7-Rl-VKX" kind="show" identifier="SegueDetail" id="PQI-q0-u1S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOC-u9-NK2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,10 +337,15 @@
                                 <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LqQ-Um-1r5">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="696"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Fhv-bu-mKJ" firstAttribute="top" secondItem="5MJ-UB-fbo" secondAttribute="bottom" constant="16" id="1lg-zB-1bx"/>
+                            <constraint firstItem="LqQ-Um-1r5" firstAttribute="top" secondItem="uvt-Bk-e1n" secondAttribute="top" id="Cdm-RD-ln0"/>
                             <constraint firstItem="F3a-XQ-TKV" firstAttribute="top" secondItem="Fhv-bu-mKJ" secondAttribute="bottom" constant="8" id="Hcd-u1-r3A"/>
                             <constraint firstItem="aAS-bR-Xvo" firstAttribute="top" secondItem="uvt-Bk-e1n" secondAttribute="top" constant="37" id="HtS-BZ-fmc"/>
                             <constraint firstItem="5MJ-UB-fbo" firstAttribute="top" secondItem="F1d-Yv-mxv" secondAttribute="bottom" constant="16" id="KDg-aL-TkJ"/>
@@ -349,15 +354,19 @@
                             <constraint firstItem="aAS-bR-Xvo" firstAttribute="centerX" secondItem="tVT-RI-oGZ" secondAttribute="centerX" id="R2u-Me-p1O"/>
                             <constraint firstItem="F1d-Yv-mxv" firstAttribute="centerX" secondItem="aAS-bR-Xvo" secondAttribute="centerX" id="VRT-pL-kJn"/>
                             <constraint firstItem="F1d-Yv-mxv" firstAttribute="top" secondItem="aAS-bR-Xvo" secondAttribute="bottom" constant="20" id="Wmf-uQ-m86"/>
+                            <constraint firstItem="LqQ-Um-1r5" firstAttribute="leading" secondItem="uvt-Bk-e1n" secondAttribute="leading" id="khx-MF-q75"/>
                             <constraint firstItem="F3a-XQ-TKV" firstAttribute="leading" secondItem="Fhv-bu-mKJ" secondAttribute="leading" id="l1E-ug-vRg"/>
                             <constraint firstItem="Fhv-bu-mKJ" firstAttribute="leading" secondItem="5MJ-UB-fbo" secondAttribute="leading" id="oW4-Pi-W7k"/>
                             <constraint firstItem="F3a-XQ-TKV" firstAttribute="trailing" secondItem="5MJ-UB-fbo" secondAttribute="trailing" id="rM0-wd-7BE"/>
+                            <constraint firstItem="uvt-Bk-e1n" firstAttribute="bottom" secondItem="LqQ-Um-1r5" secondAttribute="bottom" id="tpX-Mn-oT3"/>
+                            <constraint firstItem="uvt-Bk-e1n" firstAttribute="trailing" secondItem="LqQ-Um-1r5" secondAttribute="trailing" id="vB1-rW-7mR"/>
                             <constraint firstItem="5MJ-UB-fbo" firstAttribute="leading" secondItem="uvt-Bk-e1n" secondAttribute="leading" constant="20" id="zJu-FU-drq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uvt-Bk-e1n"/>
                     </view>
                     <navigationItem key="navigationItem" title="志工資訊" id="Xyh-Fd-SgU"/>
                     <connections>
+                        <outlet property="emptyView" destination="LqQ-Um-1r5" id="9Q4-HV-Uls"/>
                         <outlet property="memberLbl" destination="Fhv-bu-mKJ" id="Nh7-K5-Zuc"/>
                         <outlet property="volunteerDetailLbl" destination="5MJ-UB-fbo" id="B9E-Ms-u58"/>
                         <outlet property="volunteerImgView" destination="aAS-bR-Xvo" id="lfC-9T-lz0"/>

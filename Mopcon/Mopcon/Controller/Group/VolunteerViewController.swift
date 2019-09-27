@@ -10,6 +10,11 @@ import UIKit
 
 class VolunteerViewController: GroupBaseViewController {
     
+    struct Segue {
+        
+        static let detail = "SegueDetail"
+    }
+    
     var volunteers: [List] = []
     
     override func viewDidLoad() {
@@ -40,7 +45,7 @@ class VolunteerViewController: GroupBaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == SegueIDManager.performCommunityDetail,
+        if segue.identifier == Segue.detail,
            let destinationVC = segue.destination as? VolunteerDetailViewController {
             
             destinationVC.volunteerId = sender as? String
@@ -68,7 +73,7 @@ class VolunteerViewController: GroupBaseViewController {
         let volunteer = volunteers[indexPath.row]
         
         communityImageCell.updateUI(
-            image: image(name: volunteer.name),
+            image: volunteer.photo,
             title: volunteer.name
         )
         
@@ -81,41 +86,8 @@ class VolunteerViewController: GroupBaseViewController {
     ) {
         
         performSegue(
-            withIdentifier: SegueIDManager.performCommunityDetail,
+            withIdentifier: Segue.detail,
             sender: volunteers[indexPath.row].id
         )
-    }
-    
-    func image(name: String) -> UIImage? {
-        
-        switch name {
-            
-        case "議程委員會": return UIImage.asset(.committee_team)
-            
-        case "行政組": return UIImage.asset(.administrative_team)
-            
-        case "議程組": return UIImage.asset(.agenda_team)
-            
-        case "財務組": return UIImage.asset(.finance_team)
-            
-        case "贊助組": return UIImage.asset(.sponsor_team)
-            
-        case "公關組": return UIImage.asset(.public_team)
-            
-        case "資訊組": return UIImage.asset(.into_team)
-            
-        case "美術組": return UIImage.asset(.art_team)
-            
-        case "紀錄組": return UIImage.asset(.record_team)
-            
-        case "錄影組": return UIImage.asset(.video_team)
-            
-        case "場務組": return UIImage.asset(.place_team)
-            
-        case "攝影組": return UIImage.asset(.record_team)
-            
-        default: return nil
-            
-        }
     }
 }
