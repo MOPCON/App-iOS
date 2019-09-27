@@ -63,6 +63,7 @@
 		3CAC6126233CCF16007DCCD9 /* SponsorSpeechCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAC6125233CCF16007DCCD9 /* SponsorSpeechCell.swift */; };
 		3CAC6129233CE4A8007DCCD9 /* SessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAC6127233CE4A8007DCCD9 /* SessionCollectionViewCell.swift */; };
 		3CAC612A233CE4A8007DCCD9 /* SessionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC6128233CE4A8007DCCD9 /* SessionCollectionViewCell.xib */; };
+		3CB70C1C233DEA6400B76C08 /* ButtonFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB70C1B233DEA6400B76C08 /* ButtonFactor.swift */; };
 		3CBDCF7122E182F700561D8D /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7022E182F700561D8D /* SelectionView.swift */; };
 		3CBDCF7322E1888500561D8D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7222E1888500561D8D /* UIViewExtension.swift */; };
 		3CC6FDB223053578007352DB /* MPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FDB123053578007352DB /* MPBaseViewController.swift */; };
@@ -242,6 +243,7 @@
 		3CAC6125233CCF16007DCCD9 /* SponsorSpeechCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorSpeechCell.swift; sourceTree = "<group>"; };
 		3CAC6127233CE4A8007DCCD9 /* SessionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCollectionViewCell.swift; sourceTree = "<group>"; };
 		3CAC6128233CE4A8007DCCD9 /* SessionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionCollectionViewCell.xib; sourceTree = "<group>"; };
+		3CB70C1B233DEA6400B76C08 /* ButtonFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactor.swift; sourceTree = "<group>"; };
 		3CBDCF7022E182F700561D8D /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		3CBDCF7222E1888500561D8D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3CC6FDB123053578007352DB /* MPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPBaseViewController.swift; sourceTree = "<group>"; };
@@ -625,6 +627,14 @@
 			path = Group;
 			sourceTree = "<group>";
 		};
+		3CB70C1D233DEA6F00B76C08 /* BuutonFactor */ = {
+			isa = PBXGroup;
+			children = (
+				3CB70C1B233DEA6400B76C08 /* ButtonFactor.swift */,
+			);
+			path = BuutonFactor;
+			sourceTree = "<group>";
+		};
 		3CC6FDB02305321E007352DB /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -886,6 +896,7 @@
 				D6B5166520EA062F003FA56F /* SpeakerTableView */,
 				D6240CE220EC9A74002C89E7 /* SponsorsViewController */,
 				D6555F3620EC926D000816DF /* VolunteerTableView */,
+				3CB70C1D233DEA6F00B76C08 /* BuutonFactor */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1260,6 +1271,7 @@
 				5E349C9021225CE10060297A /* Schedule.swift in Sources */,
 				D6555F2F20EC783A000816DF /* GroupHostDetailViewController.swift in Sources */,
 				53F83EA92323931D003A35B8 /* KeychainTool.swift in Sources */,
+				3CB70C1C233DEA6400B76C08 /* ButtonFactor.swift in Sources */,
 				5E349C9D212271890060297A /* ScheduleAPI.swift in Sources */,
 				D6EE629120E9C0C20043B68A /* MopconHeader.swift in Sources */,
 				D6A67ABB20EE029C00D4886E /* CommunicationViewController.swift in Sources */,
