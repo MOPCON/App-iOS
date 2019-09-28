@@ -10,6 +10,7 @@
 		3C0AD2E6233CCE1D00193A4E /* SponsorInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0AD2E5233CCE1D00193A4E /* SponsorInfoCell.swift */; };
 		3C0AD2E8233CCE3200193A4E /* SponsorAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0AD2E7233CCE3200193A4E /* SponsorAboutCell.swift */; };
 		3C1229DA2334C21300001760 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1229D92334C21300001760 /* DateFormatter.swift */; };
+		3C1DCD6E233F10E7005EEEC9 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1DCD6D233F10E7005EEEC9 /* UITableViewExtension.swift */; };
 		3C2160C9233B470E00EEF638 /* HomeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2160C8233B470E00EEF638 /* HomeProvider.swift */; };
 		3C2160CB233B471D00EEF638 /* HomeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2160CA233B471D00EEF638 /* HomeObject.swift */; };
 		3C2160CD233B472B00EEF638 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2160CC233B472B00EEF638 /* HomeAPI.swift */; };
@@ -64,8 +65,15 @@
 		3CAC6129233CE4A8007DCCD9 /* SessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAC6127233CE4A8007DCCD9 /* SessionCollectionViewCell.swift */; };
 		3CAC612A233CE4A8007DCCD9 /* SessionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC6128233CE4A8007DCCD9 /* SessionCollectionViewCell.xib */; };
 		3CB70C1C233DEA6400B76C08 /* ButtonFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB70C1B233DEA6400B76C08 /* ButtonFactor.swift */; };
+		3CB70C22233F091300B76C08 /* LobbyBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB70C20233F091300B76C08 /* LobbyBannerCell.swift */; };
+		3CB70C23233F091300B76C08 /* LobbyBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CB70C21233F091300B76C08 /* LobbyBannerCell.xib */; };
+		3CB70C28233F095100B76C08 /* LobbyNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB70C26233F095100B76C08 /* LobbyNewsCell.swift */; };
+		3CB70C29233F095100B76C08 /* LobbyNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CB70C27233F095100B76C08 /* LobbyNewsCell.xib */; };
+		3CB70C2D233F09A900B76C08 /* LobbySessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB70C2B233F09A900B76C08 /* LobbySessionCell.swift */; };
+		3CB70C2E233F09A900B76C08 /* LobbySessionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CB70C2C233F09A900B76C08 /* LobbySessionCell.xib */; };
 		3CBDCF7122E182F700561D8D /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7022E182F700561D8D /* SelectionView.swift */; };
 		3CBDCF7322E1888500561D8D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDCF7222E1888500561D8D /* UIViewExtension.swift */; };
+		3CC17363233F2E1900F42076 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC17362233F2E1900F42076 /* UICollectionViewExtension.swift */; };
 		3CC6FDB223053578007352DB /* MPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FDB123053578007352DB /* MPBaseViewController.swift */; };
 		3CC6FDB42305365F007352DB /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6FDB32305365F007352DB /* StringExtension.swift */; };
 		3CEF49442319259B002AEB65 /* StageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF49432319259B002AEB65 /* StageViewController.swift */; };
@@ -78,8 +86,6 @@
 		3CFCF00722DED10E006184CD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00622DED10E006184CD /* TabBarViewController.swift */; };
 		3CFCF00922DEEFCB006184CD /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */; };
 		3CFCF00B22DEFBB2006184CD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00A22DEFBB2006184CD /* UIColorExtension.swift */; };
-		3CFCF01022DF106F006184CD /* LobbyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00E22DF106F006184CD /* LobbyCollectionViewCell.swift */; };
-		3CFCF01122DF106F006184CD /* LobbyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCF00F22DF106F006184CD /* LobbyCollectionViewCell.xib */; };
 		49A683912153248100EC6EA7 /* MopconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A683902153248100EC6EA7 /* MopconUITests.swift */; };
 		49A6839921532E4A00EC6EA7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */; };
 		53652B482296F0E0003131BC /* Quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 53652B472296F0E0003131BC /* Quiz.json */; };
@@ -190,6 +196,7 @@
 		3C0AD2E5233CCE1D00193A4E /* SponsorInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorInfoCell.swift; sourceTree = "<group>"; };
 		3C0AD2E7233CCE3200193A4E /* SponsorAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorAboutCell.swift; sourceTree = "<group>"; };
 		3C1229D92334C21300001760 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		3C1DCD6D233F10E7005EEEC9 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		3C2160C8233B470E00EEF638 /* HomeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProvider.swift; sourceTree = "<group>"; };
 		3C2160CA233B471D00EEF638 /* HomeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeObject.swift; sourceTree = "<group>"; };
 		3C2160CC233B472B00EEF638 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
@@ -244,8 +251,15 @@
 		3CAC6127233CE4A8007DCCD9 /* SessionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCollectionViewCell.swift; sourceTree = "<group>"; };
 		3CAC6128233CE4A8007DCCD9 /* SessionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionCollectionViewCell.xib; sourceTree = "<group>"; };
 		3CB70C1B233DEA6400B76C08 /* ButtonFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactor.swift; sourceTree = "<group>"; };
+		3CB70C20233F091300B76C08 /* LobbyBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyBannerCell.swift; sourceTree = "<group>"; };
+		3CB70C21233F091300B76C08 /* LobbyBannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LobbyBannerCell.xib; sourceTree = "<group>"; };
+		3CB70C26233F095100B76C08 /* LobbyNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyNewsCell.swift; sourceTree = "<group>"; };
+		3CB70C27233F095100B76C08 /* LobbyNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LobbyNewsCell.xib; sourceTree = "<group>"; };
+		3CB70C2B233F09A900B76C08 /* LobbySessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbySessionCell.swift; sourceTree = "<group>"; };
+		3CB70C2C233F09A900B76C08 /* LobbySessionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LobbySessionCell.xib; sourceTree = "<group>"; };
 		3CBDCF7022E182F700561D8D /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		3CBDCF7222E1888500561D8D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		3CC17362233F2E1900F42076 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		3CC6FDB123053578007352DB /* MPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPBaseViewController.swift; sourceTree = "<group>"; };
 		3CC6FDB32305365F007352DB /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		3CEF49432319259B002AEB65 /* StageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewController.swift; sourceTree = "<group>"; };
@@ -258,8 +272,6 @@
 		3CFCF00622DED10E006184CD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		3CFCF00A22DEFBB2006184CD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		3CFCF00E22DF106F006184CD /* LobbyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyCollectionViewCell.swift; sourceTree = "<group>"; };
-		3CFCF00F22DF106F006184CD /* LobbyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LobbyCollectionViewCell.xib; sourceTree = "<group>"; };
 		49A6838E2153248000EC6EA7 /* MopconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MopconUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A683902153248100EC6EA7 /* MopconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconUITests.swift; sourceTree = "<group>"; };
 		49A683922153248100EC6EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -598,9 +610,8 @@
 		3C6A38DC2305A3C800B4546B /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				3C6A38DD2305A3F200B4546B /* MPTagView.swift */,
-				3CAC6127233CE4A8007DCCD9 /* SessionCollectionViewCell.swift */,
-				3CAC6128233CE4A8007DCCD9 /* SessionCollectionViewCell.xib */,
+				3CB70C1E233F079000B76C08 /* MPTagView */,
+				3CB70C1F233F079E00B76C08 /* SessionCollectionViewCell */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -633,6 +644,50 @@
 				3CB70C1B233DEA6400B76C08 /* ButtonFactor.swift */,
 			);
 			path = BuutonFactor;
+			sourceTree = "<group>";
+		};
+		3CB70C1E233F079000B76C08 /* MPTagView */ = {
+			isa = PBXGroup;
+			children = (
+				3C6A38DD2305A3F200B4546B /* MPTagView.swift */,
+			);
+			path = MPTagView;
+			sourceTree = "<group>";
+		};
+		3CB70C1F233F079E00B76C08 /* SessionCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3CAC6128233CE4A8007DCCD9 /* SessionCollectionViewCell.xib */,
+				3CAC6127233CE4A8007DCCD9 /* SessionCollectionViewCell.swift */,
+			);
+			path = SessionCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		3CB70C24233F091B00B76C08 /* LobbyBannerCell */ = {
+			isa = PBXGroup;
+			children = (
+				3CB70C20233F091300B76C08 /* LobbyBannerCell.swift */,
+				3CB70C21233F091300B76C08 /* LobbyBannerCell.xib */,
+			);
+			path = LobbyBannerCell;
+			sourceTree = "<group>";
+		};
+		3CB70C25233F092B00B76C08 /* LobbyNewsCell */ = {
+			isa = PBXGroup;
+			children = (
+				3CB70C26233F095100B76C08 /* LobbyNewsCell.swift */,
+				3CB70C27233F095100B76C08 /* LobbyNewsCell.xib */,
+			);
+			path = LobbyNewsCell;
+			sourceTree = "<group>";
+		};
+		3CB70C2A233F095A00B76C08 /* LobbySessionCell */ = {
+			isa = PBXGroup;
+			children = (
+				3CB70C2B233F09A900B76C08 /* LobbySessionCell.swift */,
+				3CB70C2C233F09A900B76C08 /* LobbySessionCell.xib */,
+			);
+			path = LobbySessionCell;
 			sourceTree = "<group>";
 		};
 		3CC6FDB02305321E007352DB /* Base */ = {
@@ -670,18 +725,11 @@
 		3CFCF00C22DF1033006184CD /* Lobby */ = {
 			isa = PBXGroup;
 			children = (
-				3CFCF00D22DF1046006184CD /* LobbyCollectionViewCell */,
+				3CB70C2A233F095A00B76C08 /* LobbySessionCell */,
+				3CB70C25233F092B00B76C08 /* LobbyNewsCell */,
+				3CB70C24233F091B00B76C08 /* LobbyBannerCell */,
 			);
 			path = Lobby;
-			sourceTree = "<group>";
-		};
-		3CFCF00D22DF1046006184CD /* LobbyCollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				3CFCF00E22DF106F006184CD /* LobbyCollectionViewCell.swift */,
-				3CFCF00F22DF106F006184CD /* LobbyCollectionViewCell.xib */,
-			);
-			path = LobbyCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		49A6838F2153248100EC6EA7 /* MopconUITests */ = {
@@ -793,6 +841,8 @@
 				3CFCF00A22DEFBB2006184CD /* UIColorExtension.swift */,
 				3C31E669230F9B3000000518 /* JSONDecoderExtension.swift */,
 				3C31E66E230FA25700000518 /* UIViewControllerExtension.swift */,
+				3C1DCD6D233F10E7005EEEC9 /* UITableViewExtension.swift */,
+				3CC17362233F2E1900F42076 /* UICollectionViewExtension.swift */,
 			);
 			path = Exntension;
 			sourceTree = "<group>";
@@ -895,7 +945,6 @@
 				3C3FFE9822FAA89D00873416 /* Speaker */,
 				D6B5166520EA062F003FA56F /* SpeakerTableView */,
 				D6240CE220EC9A74002C89E7 /* SponsorsViewController */,
-				D6555F3620EC926D000816DF /* VolunteerTableView */,
 				3CB70C1D233DEA6F00B76C08 /* BuutonFactor */,
 			);
 			path = View;
@@ -924,13 +973,6 @@
 				53F83EA82323931D003A35B8 /* KeychainTool.swift */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		D6555F3620EC926D000816DF /* VolunteerTableView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = VolunteerTableView;
 			sourceTree = "<group>";
 		};
 		D662A1A820EDB5F000316FE6 /* AgendaTableView */ = {
@@ -1128,11 +1170,12 @@
 				D633462F20E8FFC70033E5B4 /* LaunchScreen.storyboard in Resources */,
 				5381B36C22F9EED200FEEC2C /* ConferenceTableViewCell.xib in Resources */,
 				53652B482296F0E0003131BC /* Quiz.json in Resources */,
+				3CB70C29233F095100B76C08 /* LobbyNewsCell.xib in Resources */,
 				D633462C20E8FFC70033E5B4 /* Assets.xcassets in Resources */,
+				3CB70C23233F091300B76C08 /* LobbyBannerCell.xib in Resources */,
 				5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */,
 				53668880230847BA0036DFE5 /* NoticeView.xib in Resources */,
 				3C3FFEA322FAD6FE00873416 /* JoinVolunteerView.xib in Resources */,
-				3CFCF01122DF106F006184CD /* LobbyCollectionViewCell.xib in Resources */,
 				3CAC612A233CE4A8007DCCD9 /* SessionCollectionViewCell.xib in Resources */,
 				5366887C2305BFFA0036DFE5 /* CompleteCell.xib in Resources */,
 				3CFCF00422DECF9D006184CD /* Main.storyboard in Resources */,
@@ -1140,6 +1183,7 @@
 				3C903F8F22979B4800765CB2 /* News.storyboard in Resources */,
 				D633462720E8FFC60033E5B4 /* Lobby.storyboard in Resources */,
 				5E682E1A213CFE4400FC37CF /* FieldGame.storyboard in Resources */,
+				3CB70C2E233F09A900B76C08 /* LobbySessionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1229,6 +1273,7 @@
 				D6240CE620EC9ADC002C89E7 /* SponsorCollectionViewID.swift in Sources */,
 				3C31E678230FB3EE00000518 /* GroupProvider.swift in Sources */,
 				5E349CA6212411200060297A /* SponsorDetailTableViewCell.swift in Sources */,
+				3CB70C22233F091300B76C08 /* LobbyBannerCell.swift in Sources */,
 				D6B5166920EA07A1003FA56F /* CornerImageView.swift in Sources */,
 				D633463D20E914820033E5B4 /* GridCollectionViewCell.swift in Sources */,
 				3C8C357623069B4000D04CB0 /* VolunteerDetailViewController.swift in Sources */,
@@ -1239,6 +1284,7 @@
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,
 				D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */,
 				D633462420E8FFC60033E5B4 /* LobbyViewController.swift in Sources */,
+				3CB70C28233F095100B76C08 /* LobbyNewsCell.swift in Sources */,
 				5E349C9F21228A340060297A /* UIImageViewExtension.swift in Sources */,
 				536688772305BC040036DFE5 /* PresentCell.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
@@ -1265,6 +1311,7 @@
 				3C31E680230FE94D00000518 /* SponsorAPI.swift in Sources */,
 				D6555F3320EC8397000816DF /* VolunteerViewController.swift in Sources */,
 				D6EE629E20E9D1960043B68A /* NewsTableViewCellID.swift in Sources */,
+				3CC17363233F2E1900F42076 /* UICollectionViewExtension.swift in Sources */,
 				3C31E674230FA9E400000518 /* GroupObject.swift in Sources */,
 				3C31E66F230FA25700000518 /* UIViewControllerExtension.swift in Sources */,
 				3C7D65AD23167D2900D0EEE2 /* FieldGameViewController.swift in Sources */,
@@ -1277,6 +1324,7 @@
 				D6A67ABB20EE029C00D4886E /* CommunicationViewController.swift in Sources */,
 				3CFCF00922DEEFCB006184CD /* UIImageExtension.swift in Sources */,
 				D62D30D320ED065D00BBDF5E /* AgendaTableViewCellID.swift in Sources */,
+				3C1DCD6E233F10E7005EEEC9 /* UITableViewExtension.swift in Sources */,
 				3C31E676230FB3C400000518 /* InitialProvider.swift in Sources */,
 				5E6CBDA1217BB9D60097D5E2 /* Wallet.swift in Sources */,
 				D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */,
@@ -1298,6 +1346,7 @@
 				D6B5166020EA00FC003FA56F /* GroupViewController.swift in Sources */,
 				536688732305B0310036DFE5 /* GameStageCell.swift in Sources */,
 				3C31E682230FEC0F00000518 /* SponsorProvider.swift in Sources */,
+				3CB70C2D233F09A900B76C08 /* LobbySessionCell.swift in Sources */,
 				3C31E65B230F8ABB00000518 /* InitialAPI.swift in Sources */,
 				5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */,
 				3CAC6126233CCF16007DCCD9 /* SponsorSpeechCell.swift in Sources */,
@@ -1323,7 +1372,6 @@
 				D633463F20E914AD0033E5B4 /* CollectionViewCellKeyManager.swift in Sources */,
 				3C2160D8233B685500EEF638 /* SpeakerAPI.swift in Sources */,
 				5E349CAC212448410060297A /* Schedule_unconfAPI.swift in Sources */,
-				3CFCF01022DF106F006184CD /* LobbyCollectionViewCell.swift in Sources */,
 				D633463820E914520033E5B4 /* BannerCollectionViewCell.swift in Sources */,
 				3CFCF00722DED10E006184CD /* TabBarViewController.swift in Sources */,
 				5E941016214F4401001D61F6 /* News.swift in Sources */,

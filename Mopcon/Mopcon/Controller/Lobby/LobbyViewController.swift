@@ -16,12 +16,38 @@ enum Language:String {
 }
 
 class LobbyViewController: MPBaseViewController {
+    
+    enum CellType: CaseIterable {
+        
+        static var allCases: [LobbyViewController.CellType] = [
+            .banner([]),
+            .news([]),
+            .session
+        ]
 
-    @IBOutlet weak var bannerScrollView: UIScrollView!
+        typealias AllCases = [CellType]
+        
+        case banner([String])
+        
+        case news([String])
+        
+        case session
+        
+        func identifier() -> String {
+            
+            switch self {
+                
+            case .banner: return LobbyBannerCell.identifier
+            
+            case .news: return LobbyNewsCell.identifier
+                
+            case .session: return LobbySessionCell.identifier
+            
+            }
+        }
+    }
     
-    @IBOutlet weak var containerView: UIView!
-    
-    @IBOutlet weak var mainCollectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var newsTitleLabel: UILabel!
     
@@ -34,24 +60,35 @@ class LobbyViewController: MPBaseViewController {
     @IBOutlet weak var chineseButton: UIButton!
     
     @IBOutlet weak var englishButton: UIButton!
-    
-    private var language = CurrentLanguage.getLanguage()
-    
+
     private var home: Home?
     
+    var cells: [CellType] = [
+        .banner(["1", "2"]),
+        .news(["3", "4"]),
+        .session
+    ]
+    
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupCollectionView()
-        
-        updateUI()
+        setupTableView()
         
         getNews()
         
         getBanner()
     }
     
+    //MARK: - Layout and Setting
+    private func setupTableView() {
+        
+        CellType.allCases.forEach({ tableView.registerNib(identifier: $0.identifier()) })
+    }
+    
+    //MARK: - API
     private func getNews() {
+        
         NewsAPI.getAPI(url: MopconAPI.shared.news) { [weak self] (news, error) in
            
             guard error == nil else {
@@ -65,41 +102,12 @@ class LobbyViewController: MPBaseViewController {
                 
                 DispatchQueue.main.async {
                 
-                    self?.descriptionLabel.text = news.first?.title
+//                    self?.descriptionLabel.text = news.first?.title
                 }
             }
         }
     }
 
-    private func setupCollectionView() {
-        
-        mainCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 0)
-        
-        mainCollectionView.contentOffset = CGPoint(x: -20, y: 0)
-        
-        let nib = UINib(
-            nibName: String(describing: LobbyCollectionViewCell.self),
-            bundle: nil
-        )
-        
-        mainCollectionView.register(
-            nib,
-            forCellWithReuseIdentifier: String(describing: LobbyCollectionViewCell.self)
-        )
-        
-        let layoutObject = mainCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        
-        layoutObject?.scrollDirection = .horizontal
-        
-        layoutObject?.itemSize = CGSize(width: 335.0, height: 300.0)
-        
-        layoutObject?.minimumLineSpacing = 12.0
-        
-        mainCollectionView.delegate = self
-        
-        mainCollectionView.dataSource = self
-    }
-    
     private func getBanner() {
         
         HomeProvider.fetchHome(completion: { [weak self] result in
@@ -110,34 +118,6 @@ class LobbyViewController: MPBaseViewController {
                 
                 self?.home = home
                 
-                let count: CGFloat = CGFloat(home.banner.count)
-                
-                let screenWidth = UIScreen.main.bounds.width
-                
-                let contentWidth: CGFloat = screenWidth * (320 / 375)
-                
-                let contentTotalWidth = count * contentWidth
-                
-                let spacing = (count - 1) * screenWidth * (16 / 375)
-                
-                let width = contentTotalWidth + spacing
-                
-                DispatchQueue.main.async {
-                    
-                    let contentHeight: CGFloat = self?.bannerScrollView.frame.height ?? 85
-                    
-                    self?.containerView.frame = CGRect(origin: .zero, size: CGSize(width: width, height: contentHeight))
-                    
-                    self?.bannerScrollView.contentSize = self?.containerView.frame.size ?? .zero
-                    
-                    for (index, element) in home.banner.enumerated() {
-                        
-                        let xPoint: CGFloat = CGFloat(index) * (contentWidth + spacing)
-                        
-                        self?.addImageView(with: xPoint, width: contentWidth, height: contentHeight, source: element.img, tag: index)
-                    }
-                }
-                
             case .failure(let error):
                 
                 print(error)
@@ -145,132 +125,54 @@ class LobbyViewController: MPBaseViewController {
         })
     }
     
-    private func updateUI() {
-        bannerScrollView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        
-        switch language {
-            
-        case Language.chinese.rawValue:
-            
-            newsTitleLabel.text = "最新消息"
-            
-            favoriteTitleLabel.text = "你最想聽的演講要開始了"
-            
-            moreButton.setTitle("查看更多", for: .normal)
-            
-            chineseButton.isSelected = true
-            
-            englishButton.isSelected = false
-            
-        case Language.english.rawValue:
-            
-            newsTitleLabel.text = "News"
-            
-            favoriteTitleLabel.text = "Favorite"
-            
-            moreButton.setTitle("More", for: .normal)
-            
-            chineseButton.isSelected = false
-            
-            englishButton.isSelected = true
-            
-        default:
-            
-            break
-        }
-    }
-    
-    private func addImageView(with xStart: CGFloat, width: CGFloat, height: CGFloat, source: String, tag: Int) {
-        let carouselImageView = UIImageView()
-        
-        carouselImageView.frame = CGRect(x: xStart, y: 0, width: width, height: height)
-        
-        carouselImageView.tag = tag
-        
-        carouselImageView.kf.setImage(with: URL(string: source))
-        
-        carouselImageView.contentMode = .scaleAspectFill
-        
-        carouselImageView.isUserInteractionEnabled = true
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.bannerTapAction(_:)))
-        
-        carouselImageView.addGestureRecognizer(tapGesture)
-        
-        self.containerView.addSubview(carouselImageView)
-    }
-    
-    @objc func bannerTapAction(_ gesture: UITapGestureRecognizer) {
-        
-        let imageView = gesture.view as? UIImageView
-        
-        guard let banner = home?.banner[imageView?.tag ?? 0],
-              let url = URL(string: banner.link)
-        else {
-            
-            return
-        }
-            
-        UIApplication.shared.open(url)
-    }
-    
-    @IBAction func selectedLanguage(sender: UIButton) {
-        
-        switch sender.currentTitle {
-            
-        case "中文":
-            
-            UserDefaults.standard.set(Language.chinese.rawValue, forKey: "language")
-            
-        case "EN":
-            
-            UserDefaults.standard.set(Language.english.rawValue, forKey: "language")
-            
-        default:
-            
-            return
-        }
-        
-        language = CurrentLanguage.getLanguage()
-        
-        updateUI()
-    }
-    
-    @IBAction func moreNews(_ sender: UIButton) {
-        
-        tabBarController?.selectedIndex = 3
-    }
+//    @IBAction func selectedLanguage(sender: UIButton) {
+//        
+//        switch sender.currentTitle {
+//            
+//        case "中文":
+//            
+//            UserDefaults.standard.set(Language.chinese.rawValue, forKey: "language")
+//            
+//        case "EN":
+//            
+//            UserDefaults.standard.set(Language.english.rawValue, forKey: "language")
+//            
+//        default:
+//            
+//            return
+//        }
+//        
+//        language = CurrentLanguage.getLanguage()
+//        
+//        updateUI()
+//    }
+//    
+//    @IBAction func moreNews(_ sender: UIButton) {
+//        
+//        tabBarController?.selectedIndex = 3
+//    }
     
 }
 
-extension LobbyViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+extension LobbyViewController: UITableViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return cells.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: String(describing: LobbyCollectionViewCell.self),
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: cells[indexPath.row].identifier(),
             for: indexPath
         )
         
         return cell
     }
+}
+
+extension LobbyViewController: UITableViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width = collectionView.frame.width - 40
-        
-        let height = collectionView.frame.height - 45
-        
-        return CGSize(width: width, height: height)
-    }
+    
 }
