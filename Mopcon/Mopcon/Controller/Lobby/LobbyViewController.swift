@@ -17,45 +17,7 @@ enum Language:String {
 
 class LobbyViewController: MPBaseViewController {
     
-    enum CellType: CaseIterable {
-        
-        static var allCases: [LobbyViewController.CellType] = [
-            .banner([]),
-            .news([]),
-            .session
-        ]
-
-        typealias AllCases = [CellType]
-        
-        case banner([String])
-        
-        case news([String])
-        
-        case session
-        
-        func identifier() -> String {
-            
-            switch self {
-                
-            case .banner: return LobbyBannerCell.identifier
-            
-            case .news: return LobbyNewsCell.identifier
-                
-            case .session: return LobbySessionCell.identifier
-            
-            }
-        }
-    }
-    
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var newsTitleLabel: UILabel!
-    
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
-    @IBOutlet weak var favoriteTitleLabel: UILabel!
-    
-    @IBOutlet weak var moreButton: UIButton!
     
     @IBOutlet weak var chineseButton: UIButton!
     
@@ -63,11 +25,7 @@ class LobbyViewController: MPBaseViewController {
 
     private var home: Home?
     
-    var cells: [CellType] = [
-        .banner(["1", "2"]),
-        .news(["3", "4"]),
-        .session
-    ]
+    private var cells: [CellType] = []
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -75,9 +33,7 @@ class LobbyViewController: MPBaseViewController {
         
         setupTableView()
         
-        getNews()
-        
-        getBanner()
+        fetchHome()
     }
     
     //MARK: - Layout and Setting
@@ -87,28 +43,8 @@ class LobbyViewController: MPBaseViewController {
     }
     
     //MARK: - API
-    private func getNews() {
-        
-        NewsAPI.getAPI(url: MopconAPI.shared.news) { [weak self] (news, error) in
-           
-            guard error == nil else {
-            
-                print(error!.localizedDescription)
-                
-                return
-            }
-            
-            if let news = news, !news.isEmpty{
-                
-                DispatchQueue.main.async {
-                
-//                    self?.descriptionLabel.text = news.first?.title
-                }
-            }
-        }
-    }
 
-    private func getBanner() {
+    private func fetchHome() {
         
         HomeProvider.fetchHome(completion: { [weak self] result in
             
@@ -117,6 +53,17 @@ class LobbyViewController: MPBaseViewController {
             case .success(let home):
                 
                 self?.home = home
+                
+                self?.cells = [
+                    .banner( home.banner.map({ $0.img }) ),
+                    .news( home.news.map({ $0.description }) ),
+                    .session
+                ]
+                
+                self?.throwToMainThreadAsync {
+                    
+                    self?.tableView.reloadData()
+                }
                 
             case .failure(let error):
                 
@@ -168,6 +115,8 @@ extension LobbyViewController: UITableViewDataSource {
             for: indexPath
         )
         
+        cells[indexPath.row].manipulateCell(cell)
+        
         return cell
     }
 }
@@ -175,4 +124,55 @@ extension LobbyViewController: UITableViewDataSource {
 extension LobbyViewController: UITableViewDelegate {
     
     
+}
+
+private enum CellType: CaseIterable {
+    
+    static var allCases: [CellType] = [
+        .banner([]),
+        .news([]),
+        .session
+    ]
+
+    typealias AllCases = [CellType]
+    
+    case banner([String])
+    
+    case news([String])
+    
+    case session
+    
+    func identifier() -> String {
+        
+        switch self {
+            
+        case .banner: return LobbyBannerCell.identifier
+        
+        case .news: return LobbyNewsCell.identifier
+            
+        case .session: return LobbySessionCell.identifier
+            
+        }
+    }
+    
+    func manipulateCell(_ cell: UITableViewCell) {
+        
+        switch self {
+            
+        case .banner(let banners):
+            
+            guard let bannerCell = cell as? LobbyBannerCell else { return }
+            
+            bannerCell.imageUrls = banners
+        
+        case .news(let news):
+            
+            guard let newsCell = cell as? LobbyNewsCell else { return }
+            
+            newsCell.news = news
+            
+        case .session: break
+            
+        }
+    }
 }

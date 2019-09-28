@@ -12,7 +12,12 @@ class LobbyBannerCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var imageUrls: [String] = []
+    var imageUrls: [String] = [] {
+        
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,8 +33,7 @@ extension LobbyBannerCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-//        return imageUrls.count
-        return 10
+        return imageUrls.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -38,6 +42,10 @@ extension LobbyBannerCell: UICollectionViewDataSource {
             withReuseIdentifier: LobbyBannerCollectionViewCell.identifier,
             for: indexPath
         )
+        
+        guard let bannerCell = cell as? LobbyBannerCollectionViewCell else { return cell }
+        
+        bannerCell.imageView.loadImage(imageUrls[indexPath.row])
         
         return cell
     }

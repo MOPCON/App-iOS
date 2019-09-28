@@ -16,6 +16,8 @@ class LobbyNewsCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var news: [String] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,7 +37,7 @@ extension LobbyNewsCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 10
+        return news.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -47,7 +49,7 @@ extension LobbyNewsCell: UICollectionViewDataSource {
         
         guard let newsCell = cell as? LobbyNewsCollectionViewCell else { return cell }
         
-        newsCell.label.text = "下午茶時間到了！有好多點心跟飲料，不要錯過唷！下午茶時間到了！有好多點心跟飲料，不要錯過唷！下午茶時間到了！有好多點心跟飲料，不要錯過唷！"
+        newsCell.label.text = news[indexPath.row]
         
         return cell
     }
@@ -116,6 +118,18 @@ private class LobbyNewsCollectionViewCell: UICollectionViewCell {
         backgroundColor = UIColor.azure?.withAlphaComponent(0.2)
         
         layer.cornerRadius = 6.0
+        
+        let stringValue = "Set\nUILabel\nline\nspacing"
+        
+        let attrString = NSMutableAttributedString(string: stringValue)
+        
+        let style = NSMutableParagraphStyle()
+        
+        style.lineSpacing = 7
+        
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSRange(location: 0, length: stringValue.count))
+        
+        label.attributedText = attrString
         
         clipsToBounds = true
         
