@@ -35,8 +35,6 @@ class AgendaViewController: MPBaseViewController {
     
     private var unconfViewController: UnConferenceViewController?
     
-    private let spinner = LoadingTool.setActivityindicator()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -158,16 +156,6 @@ class AgendaViewController: MPBaseViewController {
         
         unconfContainerView.isHidden = true
     }
-}
-
-// MARK : Tableview Datasource & Tableview Delegate
-
-extension AgendaViewController: ConferenceTableViewCellDelegate {
-    
-    func whichCellButtonDidTapped(sender: UIButton, index: IndexPath) {
-   
-    }
-    
 }
 
 extension AgendaViewController: SelectionViewDataSource {

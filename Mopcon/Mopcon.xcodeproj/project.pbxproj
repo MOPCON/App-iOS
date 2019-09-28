@@ -156,9 +156,6 @@
 		D662A1A520EDB5D600316FE6 /* BreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A1A420EDB5D600316FE6 /* BreakTableViewCell.swift */; };
 		D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */; };
 		D66778E420FB062F00E9CA34 /* MyScheduleTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66778E320FB062F00E9CA34 /* MyScheduleTableViewCellID.swift */; };
-		D66778E920FB142D00E9CA34 /* NoScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66778E820FB142D00E9CA34 /* NoScheduleTableViewCell.swift */; };
-		D66778ED20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66778EC20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift */; };
-		D66778EF20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66778EE20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift */; };
 		D6A67ABB20EE029C00D4886E /* CommunicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */; };
 		D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */; };
 		D6A67ABF20EE106800D4886E /* CommunicationBreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A67ABE20EE106800D4886E /* CommunicationBreakTableViewCell.swift */; };
@@ -346,9 +343,6 @@
 		D662A1A420EDB5D600316FE6 /* BreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTableViewCell.swift; sourceTree = "<group>"; };
 		D662A1A620EDB5EA00316FE6 /* ConferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceTableViewCell.swift; sourceTree = "<group>"; };
 		D66778E320FB062F00E9CA34 /* MyScheduleTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleTableViewCellID.swift; sourceTree = "<group>"; };
-		D66778E820FB142D00E9CA34 /* NoScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoScheduleTableViewCell.swift; sourceTree = "<group>"; };
-		D66778EC20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleConferenceTableViewCell.swift; sourceTree = "<group>"; };
-		D66778EE20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScheduleBreakTableViewCell.swift; sourceTree = "<group>"; };
 		D6A67ABA20EE029C00D4886E /* CommunicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationViewController.swift; sourceTree = "<group>"; };
 		D6A67ABC20EE03FE00D4886E /* CommunicationTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationTableViewCellID.swift; sourceTree = "<group>"; };
 		D6A67ABE20EE106800D4886E /* CommunicationBreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationBreakTableViewCell.swift; sourceTree = "<group>"; };
@@ -940,7 +934,6 @@
 				3CFCF00C22DF1033006184CD /* Lobby */,
 				D6EE629C20E9D0D50043B68A /* MainTableView */,
 				3CFC36A222F957C00058C322 /* More */,
-				D66778E720FB130A00E9CA34 /* MyScheduleTableView */,
 				D6EE629B20E9D0C70043B68A /* NewsTableView */,
 				3C3FFE9822FAA89D00873416 /* Speaker */,
 				D6B5166520EA062F003FA56F /* SpeakerTableView */,
@@ -983,16 +976,6 @@
 				5381B36B22F9EED200FEEC2C /* ConferenceTableViewCell.xib */,
 			);
 			path = AgendaTableView;
-			sourceTree = "<group>";
-		};
-		D66778E720FB130A00E9CA34 /* MyScheduleTableView */ = {
-			isa = PBXGroup;
-			children = (
-				D66778E820FB142D00E9CA34 /* NoScheduleTableViewCell.swift */,
-				D66778EE20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift */,
-				D66778EC20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift */,
-			);
-			path = MyScheduleTableView;
 			sourceTree = "<group>";
 		};
 		D6A67AB920EDF4BD00D4886E /* Model */ = {
@@ -1341,7 +1324,6 @@
 				5E1753AC2150D4BA00A5D4C5 /* MopconAPI.swift in Sources */,
 				3C9335BF22FBF31E00545A6E /* GroupBaseViewController.swift in Sources */,
 				D6EE629520E9CAFE0043B68A /* NewsViewController.swift in Sources */,
-				D66778EF20FB152F00E9CA34 /* MyScheduleBreakTableViewCell.swift in Sources */,
 				D6A67AC220EE108D00D4886E /* CommunicationConferenceTableViewCell.swift in Sources */,
 				D6B5166020EA00FC003FA56F /* GroupViewController.swift in Sources */,
 				536688732305B0310036DFE5 /* GameStageCell.swift in Sources */,
@@ -1380,7 +1362,6 @@
 				5E941018214F4FBA001D61F6 /* Carousel.swift in Sources */,
 				5E349C96212270A20060297A /* Schedule_unconf.swift in Sources */,
 				3C3FFEA122FAD6E300873416 /* JoinVolunteerView.swift in Sources */,
-				D66778ED20FB14E200E9CA34 /* MyScheduleConferenceTableViewCell.swift in Sources */,
 				D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */,
 				3C7D65AF2316822500D0EEE2 /* FieldGameHeaderView.swift in Sources */,
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
@@ -1392,7 +1373,6 @@
 				3C31E684230FEC3000000518 /* SponsorObject.swift in Sources */,
 				5366887E230847AC0036DFE5 /* NoticeView.swift in Sources */,
 				3C31E666230F971E00000518 /* EntryViewController.swift in Sources */,
-				D66778E920FB142D00E9CA34 /* NoScheduleTableViewCell.swift in Sources */,
 				D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */,
 				3CFCF00B22DEFBB2006184CD /* UIColorExtension.swift in Sources */,
 				3C0AD2E6233CCE1D00193A4E /* SponsorInfoCell.swift in Sources */,
