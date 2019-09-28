@@ -10,7 +10,7 @@ import UIKit
 
 class NewsViewController: MPBaseViewController {
     
-    var news = [News.Payload]()
+//    var news = [News.Payload]()
     let spinner = LoadingTool.setActivityindicator()
     let refreshControll = UIRefreshControl()
     
@@ -61,58 +61,60 @@ class NewsViewController: MPBaseViewController {
             self.view.addSubview(spinner)
         }
         
-        NewsAPI.getAPI(url: MopconAPI.shared.news) { [weak self] (news, error) in
-            
-            if error != nil {
-                
-                self?.spinner.removeFromSuperview()
-                
-                self?.refreshControll.endRefreshing()
-                
-                return
-            }
-            
-            if let news = news {
-                
-                self?.news = news
-                
-                DispatchQueue.main.async {
-                    
-                    self?.refreshControll.endRefreshing()
-                    
-                    self?.spinner.removeFromSuperview()
-                    
-                    self?.newsTableView.reloadData()
-                }
-            }
-        }
+//        NewsAPI.getAPI(url: MopconAPI.shared.news) { [weak self] (news, error) in
+//
+//            if error != nil {
+//
+//                self?.spinner.removeFromSuperview()
+//
+//                self?.refreshControll.endRefreshing()
+//
+//                return
+//            }
+//
+//            if let news = news {
+//
+//                self?.news = news
+//
+//                DispatchQueue.main.async {
+//
+//                    self?.refreshControll.endRefreshing()
+//
+//                    self?.spinner.removeFromSuperview()
+//
+//                    self?.newsTableView.reloadData()
+//                }
+//            }
+//        }
+//    }
     }
-    
 }
-extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
+    
+extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return news.count
+//        return news.count
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let newsCell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCellIDManager.newsCell, for: indexPath) as! NewsTableViewCell
         
-        newsCell.news = news[indexPath.row]
-        
-        newsCell.updateUI(news: news[indexPath.row])
+//        newsCell.news = news[indexPath.row]
+//
+//        newsCell.updateUI(news: news[indexPath.row])
         
         return newsCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let url = URL(string: news[indexPath.row].link) {
-        
-            UIApplication.shared.open(url, options: [:])
-        
-        }
+//        if let url = URL(string: news[indexPath.row].link) {
+//
+//            UIApplication.shared.open(url, options: [:])
+//
+//        }
     }
 }
