@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol LobbyBannerCellDelegate: AnyObject {
+
+    func didSelectedIndex(_ cell: LobbyBannerCell, index: Int)
+}
+
 class LobbyBannerCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -18,6 +23,8 @@ class LobbyBannerCell: UITableViewCell {
             collectionView.reloadData()
         }
     }
+    
+    weak var delegate: LobbyBannerCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -90,6 +97,11 @@ extension LobbyBannerCell: UICollectionViewDelegateFlowLayout {
     ) -> CGFloat {
         
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        delegate?.didSelectedIndex(self, index: indexPath.row)
     }
 }
 

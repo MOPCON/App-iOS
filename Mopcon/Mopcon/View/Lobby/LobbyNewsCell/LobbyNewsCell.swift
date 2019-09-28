@@ -8,6 +8,13 @@
 
 import UIKit
 
+protocol LobbyNewsCellDelegate: AnyObject {
+    
+    func didSelectedCell(_ cell: LobbyNewsCell, index: Int)
+    
+    func didSelectedShowMoreButton(_ cell: LobbyNewsCell)
+}
+
 class LobbyNewsCell: UITableViewCell {
 
     @IBOutlet weak var newsLabel: UILabel!
@@ -15,6 +22,8 @@ class LobbyNewsCell: UITableViewCell {
     @IBOutlet weak var showMoreButton: UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    weak var delegate: LobbyNewsCellDelegate?
     
     var news: [String] = []
     
@@ -30,6 +39,7 @@ class LobbyNewsCell: UITableViewCell {
     
     @IBAction func showMore() {
         
+        delegate?.didSelectedShowMoreButton(self)
     }
 }
 
@@ -94,6 +104,11 @@ extension LobbyNewsCell: UICollectionViewDelegateFlowLayout {
     ) -> CGFloat {
         
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        delegate?.didSelectedCell(self, index: indexPath.row)
     }
 }
 

@@ -20,6 +20,7 @@ class MPBaseViewController: UIViewController, MainThreadHelper {
         return true
     }
     
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +41,20 @@ class MPBaseViewController: UIViewController, MainThreadHelper {
         }
     }
     
+    //MARK: - Public Method
+    func openURL(_ urlString: String?) {
+        
+        guard
+            let urlString = urlString,
+            let url = URL(string: urlString)
+        else {
+            return
+        }
+            
+        UIApplication.shared.open(url, options: [:])
+    }
+    
+    //MARK: - Private Method
     private func modifyBackItemTitle() {
             
         let backItemButton = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)

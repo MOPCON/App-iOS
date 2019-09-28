@@ -36,6 +36,18 @@ class LobbyViewController: MPBaseViewController {
         fetchHome()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     //MARK: - Layout and Setting
     private func setupTableView() {
         
@@ -43,7 +55,6 @@ class LobbyViewController: MPBaseViewController {
     }
     
     //MARK: - API
-
     private func fetchHome() {
         
         HomeProvider.fetchHome(completion: { [weak self] result in
@@ -71,34 +82,6 @@ class LobbyViewController: MPBaseViewController {
             }
         })
     }
-    
-//    @IBAction func selectedLanguage(sender: UIButton) {
-//        
-//        switch sender.currentTitle {
-//            
-//        case "中文":
-//            
-//            UserDefaults.standard.set(Language.chinese.rawValue, forKey: "language")
-//            
-//        case "EN":
-//            
-//            UserDefaults.standard.set(Language.english.rawValue, forKey: "language")
-//            
-//        default:
-//            
-//            return
-//        }
-//        
-//        language = CurrentLanguage.getLanguage()
-//        
-//        updateUI()
-//    }
-//    
-//    @IBAction func moreNews(_ sender: UIButton) {
-//        
-//        tabBarController?.selectedIndex = 3
-//    }
-    
 }
 
 extension LobbyViewController: UITableViewDataSource {
@@ -115,7 +98,7 @@ extension LobbyViewController: UITableViewDataSource {
             for: indexPath
         )
         
-        cells[indexPath.row].manipulateCell(cell)
+        cells[indexPath.row].manipulateCell(cell, controller: self)
         
         return cell
     }
@@ -123,7 +106,36 @@ extension LobbyViewController: UITableViewDataSource {
 
 extension LobbyViewController: UITableViewDelegate {
     
+}
+
+extension LobbyViewController: LobbyBannerCellDelegate {
     
+    func didSelectedIndex(_ cell: LobbyBannerCell, index: Int) {
+        
+        openURL(home?.banner[index].link)
+    }
+}
+
+extension LobbyViewController: LobbyNewsCellDelegate {
+
+    func didSelectedCell(_ cell: LobbyNewsCell, index: Int) {
+        
+        openURL(home?.news[index].link)
+    }
+    
+    func didSelectedShowMoreButton(_ cell: LobbyNewsCell) {
+        
+        let newsStoryboard = UIStoryboard(
+            name: "News",
+            bundle: nil
+        )
+        
+        let vc = newsStoryboard.instantiateViewController(
+            withIdentifier: NewsViewController.identifier
+        )
+        
+        show(vc, sender: nil)
+    }
 }
 
 private enum CellType: CaseIterable {
@@ -155,7 +167,7 @@ private enum CellType: CaseIterable {
         }
     }
     
-    func manipulateCell(_ cell: UITableViewCell) {
+    func manipulateCell(_ cell: UITableViewCell, controller: LobbyViewController) {
         
         switch self {
             
@@ -164,12 +176,16 @@ private enum CellType: CaseIterable {
             guard let bannerCell = cell as? LobbyBannerCell else { return }
             
             bannerCell.imageUrls = banners
+            
+            bannerCell.delegate = controller
         
         case .news(let news):
             
             guard let newsCell = cell as? LobbyNewsCell else { return }
             
             newsCell.news = news
+            
+            newsCell.delegate = controller
             
         case .session: break
             
