@@ -24,6 +24,8 @@ enum FieldGameAPI: LKRequest {
     
     case verify(VerifyType, String, String)
     
+    case mySession(id: Int, action:String)
+    
     var endPoint: String {
         
         switch self {
@@ -41,6 +43,8 @@ enum FieldGameAPI: LKRequest {
         case .reward: return "/getReward"
             
         case .verify(let vType, _, _): return "/verify/\(vType.rawValue)"
+            
+        case .mySession: return "/mySession"
         }
     }
     
@@ -55,7 +59,7 @@ enum FieldGameAPI: LKRequest {
         
         switch self {
             
-        case .register, .login, .verify: return LKHTTPMethod.post.rawValue
+        case .register, .login, .verify, .mySession: return LKHTTPMethod.post.rawValue
             
         default: return LKHTTPMethod.get.rawValue
         }
@@ -102,6 +106,10 @@ enum FieldGameAPI: LKRequest {
         case .login(let uid, let password): return makeBody(with: ["uid": uid, "password": password])
             
         case .verify(_, let uid, let vKey): return makeBody(with: ["uid": uid, "vKey": vKey])
+            
+        case .mySession(let id, let action):
+            
+            return makeBody(with: ["session_id": id, "action": action])
 
         default: return nil
         }

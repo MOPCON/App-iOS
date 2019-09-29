@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol ConferenceTableViewCellDelegate {
+protocol ConferenceTableViewCellDelegate: AnyObject {
     
-    func whichCellButtonDidTapped(sender: UIButton,index:IndexPath)
+    func likeButtonDidTouched(_ cell: ConferenceTableViewCell)
 }
 
 class ConferenceTableViewCell: UITableViewCell {
@@ -31,7 +31,7 @@ class ConferenceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
     
-    var delegate: ConferenceTableViewCellDelegate?
+    weak var delegate: ConferenceTableViewCellDelegate?
     
     var tags: [Tag] = []
     
@@ -39,19 +39,9 @@ class ConferenceTableViewCell: UITableViewCell {
     
     @IBAction func addToMySchedule(_ sender: UIButton) {
         
-        guard let index = index else { return }
+        sender.isSelected = !sender.isSelected
         
-        if sender.image(for: .normal) == #imageLiteral(resourceName: "dislike_24") {
-            
-            addToMyScheduleButton.setImage(#imageLiteral(resourceName: "like_24"), for: .normal)
-            
-        } else {
-            
-            addToMyScheduleButton.setImage(#imageLiteral(resourceName: "dislike_24"), for: .normal)
-            
-        }
-        
-        delegate?.whichCellButtonDidTapped(sender: sender, index: index)
+        delegate?.likeButtonDidTouched(self)
     }
     
     override func awakeFromNib() {
@@ -84,6 +74,8 @@ class ConferenceTableViewCell: UITableViewCell {
         durationLabel.text = DateFormatter.string(for: room.startedAt, formatter: "HH:mm")! + " - " + DateFormatter.string(for: room.endedAt, formatter: "HH:mm")!
         
         locationLabel.text = room.room
+        
+        addToMyScheduleButton.isSelected = room.isLiked
         
         let language = CurrentLanguage.getLanguage()
         

@@ -33,7 +33,7 @@ struct Session: Codable {
     
     let event: String
     
-    let room: [Room]
+    var room: [Room]
     
     enum CodingKeys: String, CodingKey {
         
@@ -100,6 +100,8 @@ struct Room: Codable {
     let sponsorInfo: SponsorInfo?
     
     let speakers: [SessionSpeaker]
+    
+    var isLiked: Bool = false
     
     enum CodingKeys: String, CodingKey {
         

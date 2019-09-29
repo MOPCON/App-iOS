@@ -71,6 +71,8 @@ class SessionsViewController: MPBaseSessionViewController {
         
         conferenceCell.updateUI(room: room)
         
+        conferenceCell.delegate = self
+        
         return conferenceCell
     }
     
@@ -107,5 +109,47 @@ class SessionsViewController: MPBaseSessionViewController {
             
             show(detailVC, sender: nil)
         }
+    }
+}
+
+extension SessionsViewController: ConferenceTableViewCellDelegate {
+    
+    func likeButtonDidTouched(_ cell: ConferenceTableViewCell) {
+        
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        
+        sessions[indexPath.section].room[indexPath.row].isLiked = !sessions[indexPath.section].room[indexPath.row].isLiked
+        
+        var action = ""
+        
+        let room = sessions[indexPath.section].room[indexPath.row]
+        
+        if room.isLiked {
+            
+            action = "add"
+            
+        } else {
+            
+            action = "remove"
+        }
+        
+        FieldGameProvider.modifyFavorate(
+            id: room.sessionId,
+            action: action,
+            completion: { result in
+                
+                switch result {
+                    
+                case .success(_):
+                    
+                    print("success")
+                    
+                case .failure(let error):
+                    
+                    print(error)
+                }
+            }
+        )
+        
     }
 }
