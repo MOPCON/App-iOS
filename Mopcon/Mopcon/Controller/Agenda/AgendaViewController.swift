@@ -121,7 +121,9 @@ class AgendaViewController: MPBaseViewController {
                     
                     self?.dateSelectionView.dataSource = self
                     
-                    self?.sessionViewController?.sessions = sessionLists[strongSelf.dateSelectionView.seletedIndex!].period
+                    self?.sessionViewController?.updateData(
+                        sessions: sessionLists[strongSelf.dateSelectionView.seletedIndex!].period
+                    )
                 }
                 
             case .failure(let error):
@@ -172,7 +174,7 @@ extension AgendaViewController: SelectionViewDataSource {
     
     func didSelectedButton(_ selectionView: SelectionView, at index: Int) {
     
-        sessionViewController?.sessions = sessionLists[index].period
+        sessionViewController?.updateData(sessions: sessionLists[index].period)
         
         unconfViewController?.selectedIndex = index
     }

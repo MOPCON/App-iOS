@@ -10,15 +10,18 @@ import UIKit
 
 class SessionsViewController: MPBaseSessionViewController {
 
-    var sessions: [Session] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private var sessions: [Session] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    func updateData(sessions: [Session]) {
+        
+        self.sessions = sessions
+        
+        tableView.reloadData()
     }
 
 // MARK : Tableview Datasource & Tableview Delegate
@@ -59,19 +62,10 @@ class SessionsViewController: MPBaseSessionViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let conferenceCell = tableView.dequeueReusableCell(
+        let conferenceCell = tableView.dequeueReusableCell(
             withIdentifier: ConferenceTableViewCell.identifier,
             for: indexPath
-        ) as? ConferenceTableViewCell else {
-            
-                return UITableViewCell()
-        }
-        
-        let room = sessions[indexPath.section].room[indexPath.row]
-        
-        conferenceCell.updateUI(room: room)
-        
-        conferenceCell.delegate = self
+        )
         
         return conferenceCell
     }
@@ -110,6 +104,31 @@ class SessionsViewController: MPBaseSessionViewController {
             show(detailVC, sender: nil)
         }
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let sessionIds = FavoriteManager.shared.fetchSessionIds()
+        
+        let id = sessions[indexPath.section].room[indexPath.row].sessionId
+        
+        if sessionIds.contains(id) {
+            
+            sessions[indexPath.section].room[indexPath.row].isLiked = true
+            
+        } else {
+            
+            sessions[indexPath.section].room[indexPath.row].isLiked = false
+        }
+        
+        guard let conferenceCell = cell as? ConferenceTableViewCell else {
+            
+            return
+        }
+        
+        conferenceCell.updateUI(room: sessions[indexPath.section].room[indexPath.row])
+        
+        conferenceCell.delegate = self
+    }
 }
 
 extension SessionsViewController: ConferenceTableViewCellDelegate {
@@ -128,9 +147,13 @@ extension SessionsViewController: ConferenceTableViewCellDelegate {
             
             action = "add"
             
+            FavoriteManager.shared.addSessionId(id: room.sessionId)
+            
         } else {
             
             action = "remove"
+            
+            FavoriteManager.shared.removeSessionId(id: room.sessionId)
         }
         
         FieldGameProvider.modifyFavorate(

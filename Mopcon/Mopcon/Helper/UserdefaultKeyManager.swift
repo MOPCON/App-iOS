@@ -9,6 +9,8 @@
 import Foundation
 
 struct UserDefaultsKeyManager {
+    
     static let alreadyPushCommunicationVC = "alreadyPushCommunicationVC"
+    
     static let alreadyPushAgendaVC = "alreadyPushAgendaVC"
 }

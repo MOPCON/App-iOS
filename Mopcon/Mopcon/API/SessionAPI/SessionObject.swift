@@ -12,7 +12,7 @@ struct SessionList: Codable {
     
     let date: Int
     
-    let period: [Session]
+    var period: [Session]
     
     lazy var dateString: String = {
         

@@ -70,6 +70,8 @@ class MPTagView: UIView {
 
         tempCollectionView.backgroundColor = UIColor.clear
         
+        tempCollectionView.showsHorizontalScrollIndicator = false
+        
         return tempCollectionView
     }()
 

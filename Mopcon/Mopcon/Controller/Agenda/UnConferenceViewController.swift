@@ -86,19 +86,32 @@ class UnConferenceViewController: MPBaseSessionViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let conferenceCell = tableView.dequeueReusableCell(
+        let conferenceCell = tableView.dequeueReusableCell(
             withIdentifier: ConferenceTableViewCell.identifier,
             for: indexPath
-        ) as? ConferenceTableViewCell else {
-            
-                return UITableViewCell()
-        }
-        
-        let room = sessionList[selectedIndex].period[indexPath.section].room[indexPath.row]
-        
-        conferenceCell.updateUI(room: room)
+        )
         
         return conferenceCell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let conferenceCell = cell as? ConferenceTableViewCell else { return }
+        
+        let unconfIds = FavoriteManager.shared.fetchUnconfIds()
+        
+        if unconfIds.contains(sessionList[selectedIndex].period[indexPath.section].room[indexPath.row].sessionId) {
+            
+            sessionList[selectedIndex].period[indexPath.section].room[indexPath.row].isLiked = true
+            
+        } else {
+            
+            sessionList[selectedIndex].period[indexPath.section].room[indexPath.row].isLiked = false
+        }
+        
+        conferenceCell.updateUI(room: sessionList[selectedIndex].period[indexPath.section].room[indexPath.row])
+        
+        conferenceCell.delegate = self
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -133,6 +146,27 @@ class UnConferenceViewController: MPBaseSessionViewController {
             )
             
             show(detailVC, sender: nil)
+        }
+    }
+}
+
+extension UnConferenceViewController: ConferenceTableViewCellDelegate {
+    
+    func likeButtonDidTouched(_ cell: ConferenceTableViewCell) {
+        
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        
+        sessionList[selectedIndex].period[indexPath.section].room[indexPath.row].isLiked = !sessionList[selectedIndex].period[indexPath.section].room[indexPath.row].isLiked
+        
+        let room = sessionList[selectedIndex].period[indexPath.section].room[indexPath.row]
+        
+        if room.isLiked {
+            
+            FavoriteManager.shared.addUnconfId(id: room.sessionId)
+            
+        } else {
+            
+            FavoriteManager.shared.removeUnconfId(id: room.sessionId)
         }
     }
 }
