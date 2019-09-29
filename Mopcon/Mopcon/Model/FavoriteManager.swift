@@ -18,31 +18,15 @@ class FavoriteManager {
     
     let unconfKey = "unconfKey"
     
-    private var sessionIds: [Int] = [] {
-        
-        didSet {
-        
-            print("sessionIds", sessionIds)
-        }
-    }
+    private var sessionIds: [Int] = []
     
-    private var unconfIds: [Int] = [] {
-        
-        didSet {
-        
-            print("unconfIds", unconfIds)
-        }
-    }
+    private var unconfIds: [Int] = []
     
     private init() {
         
         sessionIds = userDefault.array(forKey: sessionKey) as? [Int] ?? []
         
         unconfIds = userDefault.array(forKey: unconfKey) as? [Int] ?? []
-        
-        print("sessionIds", sessionIds)
-        
-        print("unconfIds", unconfIds)
     }
     
     //Public Method
@@ -53,9 +37,6 @@ class FavoriteManager {
         sessionIds.append(id)
         
         userDefault.setValue(sessionIds, forKey: sessionKey)
-        
-        print("sessionIds add", id)
-        print("------------------")
     }
     
     func removeSessionId(id: Int) {
@@ -65,9 +46,6 @@ class FavoriteManager {
         sessionIds.remove(at: index)
     
         userDefault.setValue(sessionIds, forKey: sessionKey)
-    
-        print("sessionIds remove", id)
-        print("------------------")
     }
     
     func addUnconfId(id: Int) {
@@ -77,9 +55,6 @@ class FavoriteManager {
         unconfIds.append(id)
         
         userDefault.setValue(unconfIds, forKey: unconfKey)
-        
-        print("unconfIds add", id)
-        print("------------------")
     }
     
     func removeUnconfId(id: Int) {
@@ -89,9 +64,6 @@ class FavoriteManager {
         unconfIds.remove(at: index)
     
         userDefault.setValue(unconfIds, forKey: unconfKey)
-    
-        print("unconfIds remove", id)
-        print("------------------")
     }
     
     func fetchSessionIds() -> [Int] {
