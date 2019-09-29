@@ -43,3 +43,5 @@ typealias FieldGameRewardResultType = (Result<FieldGameReward, Error>) -> Void
 typealias HomeResultType = (Result<Home, Error>) -> Void
 
 typealias SpeakerListResultType = (Result<[Speaker], Error>) -> Void
+
+typealias NewsListResultType = (Result<[News], Error>) -> Void

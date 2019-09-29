@@ -9,6 +9,7 @@
 import UIKit
 
 class NewsCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var moreInfoLabel: UILabel!
@@ -21,7 +22,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
         self.layer.borderWidth = 1
     }
     
-    func updateUI(news:News.Payload) {
+    func updateUI(news: News) {
         
         
         let language = CurrentLanguage.getLanguage()

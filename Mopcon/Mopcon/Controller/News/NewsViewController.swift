@@ -10,8 +10,10 @@ import UIKit
 
 class NewsViewController: MPBaseViewController {
     
-//    var news = [News.Payload]()
+    var newsList: [News] = []
+    
     let spinner = LoadingTool.setActivityindicator()
+    
     let refreshControll = UIRefreshControl()
     
     @IBOutlet weak var newsTableView: UITableView!
@@ -19,7 +21,7 @@ class NewsViewController: MPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshControll.addTarget(self, action: #selector(getNews), for: .valueChanged)
+        refreshControll.addTarget(self, action: #selector(fetchNews), for: .valueChanged)
         
         newsTableView.contentInset = UIEdgeInsets(top: 17, left: 0, bottom: 0, right: 0)
         
@@ -31,26 +33,10 @@ class NewsViewController: MPBaseViewController {
         
         newsTableView.addSubview(refreshControll)
         
-        getNews()
-        // Do any additional setup after loading the view.
+        fetchNews()
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if CurrentLanguage.getLanguage() == Language.english.rawValue {
-            
-            self.navigationItem.title = "News"
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @objc func getNews() {
+    @objc func fetchNews() {
         
         if !refreshControll.isRefreshing {
             
@@ -61,32 +47,28 @@ class NewsViewController: MPBaseViewController {
             self.view.addSubview(spinner)
         }
         
-//        NewsAPI.getAPI(url: MopconAPI.shared.news) { [weak self] (news, error) in
-//
-//            if error != nil {
-//
-//                self?.spinner.removeFromSuperview()
-//
-//                self?.refreshControll.endRefreshing()
-//
-//                return
-//            }
-//
-//            if let news = news {
-//
-//                self?.news = news
-//
-//                DispatchQueue.main.async {
-//
-//                    self?.refreshControll.endRefreshing()
-//
-//                    self?.spinner.removeFromSuperview()
-//
-//                    self?.newsTableView.reloadData()
-//                }
-//            }
-//        }
-//    }
+        NewsProvider.fetchNews(completion: { [weak self] result in
+            
+            switch result {
+                
+            case .success(let newsList):
+                
+                self?.newsList = newsList
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+            
+            self?.throwToMainThreadAsync {
+
+                self?.refreshControll.endRefreshing()
+
+                self?.spinner.removeFromSuperview()
+
+                self?.newsTableView.reloadData()
+            }
+        })
     }
 }
     
@@ -94,27 +76,23 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        return news.count
-        return 0
+        return newsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let newsCell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCellIDManager.newsCell, for: indexPath) as! NewsTableViewCell
-        
-//        newsCell.news = news[indexPath.row]
-//
-//        newsCell.updateUI(news: news[indexPath.row])
+        let newsCell = tableView.dequeueReusableCell(
+            withIdentifier: NewsTableViewCell.identifier,
+            for: indexPath
+        ) as! NewsTableViewCell
+
+        newsCell.updateUI(news: newsList[indexPath.row])
         
         return newsCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        if let url = URL(string: news[indexPath.row].link) {
-//
-//            UIApplication.shared.open(url, options: [:])
-//
-//        }
+        openURL(newsList[indexPath.row].link)
     }
 }
