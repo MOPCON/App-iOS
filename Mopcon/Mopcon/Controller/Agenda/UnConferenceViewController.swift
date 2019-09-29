@@ -12,6 +12,8 @@ class UnConferenceViewController: MPBaseSessionViewController {
 
     private var sessionList: [SessionList] = []
     
+    var observer: NSKeyValueObservation!
+    
     var selectedIndex = 0 {
         didSet {
             tableView.reloadData()
@@ -22,6 +24,14 @@ class UnConferenceViewController: MPBaseSessionViewController {
         super.viewDidLoad()
 
         fetchUnconf()
+        
+        observer = FavoriteManager.shared.observe(
+            \.unconfIds,
+            changeHandler: { [weak self] _, _ in
+            
+                self?.tableView.reloadData()
+        })
+        
     }
     
     func fetchUnconf() {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FavoriteManager {
+class FavoriteManager: NSObject {
     
     static let shared = FavoriteManager()
     
@@ -18,11 +18,11 @@ class FavoriteManager {
     
     let unconfKey = "unconfKey"
     
-    private var sessionIds: [Int] = []
+    @objc dynamic var sessionIds: [Int] = []
     
-    private var unconfIds: [Int] = []
+    @objc dynamic var unconfIds: [Int] = []
     
-    private init() {
+    private override init() {
         
         sessionIds = userDefault.array(forKey: sessionKey) as? [Int] ?? []
         
