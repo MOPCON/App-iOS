@@ -66,13 +66,21 @@ class GroupViewController: MPBaseViewController {
             self.navigationItem.title = "Group"
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIDManager.performCommunityContainerView {
+            (segue.destination as! GroupHostViewController).delegate = self
+        }
+    }
 }
 extension GroupViewController: CollectionViewItemDidSelected{
     
     func stopSpinner() {
-        self.spinner.removeFromSuperview()
+        
+        spinner.stopAnimating()
+        
+        spinner.removeFromSuperview()
     }
-
 }
 
 extension GroupViewController: SelectionViewDataSource {

@@ -54,6 +54,8 @@ class GroupHostViewController: GroupBaseViewController {
                 
                 self?.group = group
                 
+                self?.delegate?.stopSpinner()
+                
                 self?.collectionView.reloadData()
                 
             case .failure(let error):
