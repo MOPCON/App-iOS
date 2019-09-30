@@ -12,9 +12,17 @@ class SessionsViewController: MPBaseSessionViewController {
 
     private var sessions: [Session] = []
     
+    var observer: NSKeyValueObservation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+        observer = FavoriteManager.shared.observe(
+            \.sessionIds,
+            changeHandler: { [weak self] _, _ in
+            
+                self?.tableView.reloadData()
+        })
     }
     
     func updateData(sessions: [Session]) {

@@ -20,7 +20,6 @@
 		3C23D4CC231D272B005E28E5 /* SessionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23D4CB231D272B005E28E5 /* SessionAPI.swift */; };
 		3C23D4CE231D299D005E28E5 /* SessionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23D4CD231D299D005E28E5 /* SessionObject.swift */; };
 		3C23D4D0231D3DB1005E28E5 /* SessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23D4CF231D3DB1005E28E5 /* SessionProvider.swift */; };
-		3C299ADC233A403C00E787F2 /* UnConfObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C299ADB233A403C00E787F2 /* UnConfObject.swift */; };
 		3C299ADF233A408500E787F2 /* UnConfAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C299ADE233A408500E787F2 /* UnConfAPI.swift */; };
 		3C299AE1233A409F00E787F2 /* UnConfProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C299AE0233A409F00E787F2 /* UnConfProvider.swift */; };
 		3C299AE3233A4CB100E787F2 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C299AE2233A4CB100E787F2 /* FavoriteViewController.swift */; };
@@ -190,7 +189,6 @@
 		3C23D4CB231D272B005E28E5 /* SessionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionAPI.swift; sourceTree = "<group>"; };
 		3C23D4CD231D299D005E28E5 /* SessionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionObject.swift; sourceTree = "<group>"; };
 		3C23D4CF231D3DB1005E28E5 /* SessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionProvider.swift; sourceTree = "<group>"; };
-		3C299ADB233A403C00E787F2 /* UnConfObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnConfObject.swift; sourceTree = "<group>"; };
 		3C299ADE233A408500E787F2 /* UnConfAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnConfAPI.swift; sourceTree = "<group>"; };
 		3C299AE0233A409F00E787F2 /* UnConfProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnConfProvider.swift; sourceTree = "<group>"; };
 		3C299AE2233A4CB100E787F2 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -452,8 +450,8 @@
 		3C23D4CA231D26BE005E28E5 /* SessionAPI */ = {
 			isa = PBXGroup;
 			children = (
-				3C23D4CB231D272B005E28E5 /* SessionAPI.swift */,
 				3C23D4CD231D299D005E28E5 /* SessionObject.swift */,
+				3C23D4CB231D272B005E28E5 /* SessionAPI.swift */,
 				3C23D4CF231D3DB1005E28E5 /* SessionProvider.swift */,
 			);
 			path = SessionAPI;
@@ -462,7 +460,6 @@
 		3C299ADD233A406B00E787F2 /* UnConference */ = {
 			isa = PBXGroup;
 			children = (
-				3C299ADB233A403C00E787F2 /* UnConfObject.swift */,
 				3C299ADE233A408500E787F2 /* UnConfAPI.swift */,
 				3C299AE0233A409F00E787F2 /* UnConfProvider.swift */,
 			);
@@ -1225,7 +1222,6 @@
 				3C31E668230F97B000000518 /* ResponseResultType.swift in Sources */,
 				D62D30D520ED06F300BBDF5E /* AgendaViewController.swift in Sources */,
 				3C3FFE9C22FAA8F800873416 /* SpeakerDetailView.swift in Sources */,
-				3C299ADC233A403C00E787F2 /* UnConfObject.swift in Sources */,
 				D6EE629720E9CED20043B68A /* CustomCornerButton.swift in Sources */,
 				5E9FEF0021294FD70096B4A8 /* UserDefaultsExtension.swift in Sources */,
 				D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */,

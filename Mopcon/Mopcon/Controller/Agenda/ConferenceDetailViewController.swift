@@ -72,7 +72,7 @@ class ConferenceDetailViewController: MPBaseViewController {
                 
                 self?.throwToMainThreadAsync {
                     
-                    self?.updateUI(info: info)
+                    self?.updateUI(room: info)
                     
                     self?.scrollView.isHidden = false
                 }
@@ -129,67 +129,6 @@ class ConferenceDetailViewController: MPBaseViewController {
     }
     
     // MARK: - Layout View
-    func updateUI(info: SessionInfo) {
-        
-        if info.sponsorID == 0 {
-            
-            sponsorImageView.isHidden = true
-            
-            sponsorTitleLabel.isHidden = true
-            
-            sponsorLabel.isHidden = true
-            
-        } else {
-            
-            fetchSponsor(id: info.sponsorID)
-        }
-        
-        if let picture = info.speakers.first?.img.mobile {
-        
-            speakerImageView.kf.setImage(
-                with: URL(string: picture),
-                placeholder: UIImage.asset(.fieldGameProfile)
-            )
-        }
-
-        let language = CurrentLanguage.getLanguage()
-        
-        switch language {
-        
-        case Language.chinese.rawValue:
-        
-            scheduleInfoLabel.text = info.summary
-            
-            typeLabel.text = info.tags.reduce("", { $0 + $1.name + " "})
-            
-            topicLabel.text = info.topic
-            
-            speakerName.text = info.speakers.first?.name
-            
-            let job = "\(info.speakers.first?.jobTitle ?? "")@\(info.speakers.first?.company ?? "")"
-            
-            speakerJob.text = (job == "@") ? "" : job
-        
-        case Language.english.rawValue:
-        
-            scheduleInfoLabel.text = info.summaryEn
-            
-            typeLabel.text = info.tags.reduce("", { $0 + $1.name + " "})
-            
-            topicLabel.text = info.topicEn
-            
-            speakerName.text = info.speakers.first?.name
-            
-            let job = "\(info.speakers.first?.jobTitleEn ?? "")@\(info.speakers.first?.companyEn ?? "")"
-            
-            speakerJob.text = (job == "@") ? "" : job
-        
-        default:
-        
-            break
-        }
-    }
-    
     func updateUI(room: Room) {
         
         if let sponsor = room.sponsorInfo {

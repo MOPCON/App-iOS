@@ -38,7 +38,7 @@ class UnconfProvider {
         })
     }
     
-    static func fetchUnConfInfo(id: Int, completion: @escaping SessionInfoResultType) {
+    static func fetchUnConfInfo(id: Int, completion: @escaping RoomResultType) {
     
         HTTPClient.shared.request(
             UnConfAPI.info(String(id)),
@@ -50,11 +50,11 @@ class UnconfProvider {
                     
                     do {
                         
-                        let response = try JSONDecoder.shared.decode(SuccessResponse<[SessionInfo]>.self, from: data)
+                        let response = try JSONDecoder.shared.decode(SuccessResponse<[Room]>.self, from: data)
                         
                         guard let info = response.data.first else {
                             
-                            return completion(
+                        return completion(
                                 Result.failure(
                                     NSError(
                                         domain: "",

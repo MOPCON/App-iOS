@@ -176,30 +176,3 @@ struct SessionSpeaker: Codable {
         case jobTitleEn = "job_title_e"
     }
 }
-
-struct SessionInfo: Codable {
-    let summary, summaryEn: String
-    let isKeynote: Bool
-    let room, floor: String
-    let tags: [Tag]
-    let recordable: Bool
-    let level: String
-    let sponsorID: Int
-    let topic, topicEn: String
-    let sessionID, startedAt, endedAt: Int
-    let speakers: [SessionSpeaker]
-
-    enum CodingKeys: String, CodingKey {
-        case summary
-        case summaryEn = "summary_e"
-        case isKeynote = "is_keynote"
-        case room, floor, tags, recordable, level
-        case sponsorID = "sponsor_id"
-        case topic
-        case topicEn = "topic_e"
-        case sessionID = "session_id"
-        case startedAt = "started_at"
-        case endedAt = "ended_at"
-        case speakers
-    }
-}

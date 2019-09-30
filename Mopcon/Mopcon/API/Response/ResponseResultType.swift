@@ -28,8 +28,6 @@ typealias SessionListResultType = (Result<[SessionList], Error>) -> Void
 
 typealias RoomResultType = (Result<Room, Error>) -> Void
 
-typealias SessionInfoResultType = (Result<SessionInfo, Error>) -> Void
-
 typealias FieldGameIntroResultType = (Result<FieldGameIntro, Error>) -> Void
 
 typealias FieldGameStatusResultType = (Result<FieldGameMe, Error>) -> Void
