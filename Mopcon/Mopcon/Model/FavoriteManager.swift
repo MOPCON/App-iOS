@@ -18,21 +18,9 @@ class FavoriteManager: NSObject, MainThreadHelper {
     
     private let unconfKey = "unconfKey"
     
-    private var _unconfs: [Room] = [] {
-        
-        didSet {
-        
-            print("unconf", _unconfs)
-        }
-    }
+    private var _unconfs: [Room] = []
     
-    private var _sessions: [Room] = [] {
-        
-        didSet {
-        
-            print("sessions", _sessions)
-        }
-    }
+    private var _sessions: [Room] = []
     
     private let dispatchGroup = DispatchGroup()
     
@@ -78,23 +66,6 @@ class FavoriteManager: NSObject, MainThreadHelper {
         }
         
         dispatchGroup.notify(queue: .main, execute: { [weak self] in
-            
-            print("----------")
-            print("add data is back")
-            
-            print("---sessionid---")
-            print(self!.sessionIds)
-            
-            for room in self!._sessions {
-                print(room.sessionId)
-            }
-            
-            print("---unconfId---")
-            print(self!.unconfIds)
-            
-            for unconf in self!._unconfs {
-                print(unconf.sessionId)
-            }
             
             self?.willChangeValue(for: \FavoriteManager.sessionIds)
             self?.willChangeValue(for: \FavoriteManager.unconfIds)

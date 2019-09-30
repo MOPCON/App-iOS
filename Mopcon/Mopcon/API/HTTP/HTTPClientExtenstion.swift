@@ -12,7 +12,7 @@ extension LKRequest {
     
     var baseURL: String {
         
-        return UserDefaults.standard.string(forKey: MPConstant.mopconServerKey)!
+        return MPConstant.baseURL
     }
     
     var headers: [String : String] { return [:] }

@@ -138,6 +138,8 @@ private class LobbyBannerCollectionViewCell: UICollectionViewCell {
         
         imageView.clipsToBounds = true
         
-        imageView.backgroundColor = UIColor.brown
+        imageView.backgroundColor = UIColor.clear
+        
+        imageView.contentMode = .scaleAspectFill
     }
 }
