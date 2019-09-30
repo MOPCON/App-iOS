@@ -58,6 +58,7 @@ enum ImageAsset: String {
     case iconFB = "icon-fb"
     case iconGithub = "icon-github"
     case iconTwitter = "icon-twitter"
+    case iconWebsite = "icon_website"
 }
 
 extension UIImage {

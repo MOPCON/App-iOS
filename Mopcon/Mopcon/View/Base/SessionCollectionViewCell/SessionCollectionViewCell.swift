@@ -10,7 +10,7 @@ import UIKit
 
 protocol SessionCollectionViewCellDelegate: AnyObject {
     
-    func likeButtonDidTouched(_ cell: SessionCollectionViewCell)
+    func likeButtonDidTouched(_ cell: SessionCollectionViewCell, isLiked: Bool)
 }
 
 class SessionCollectionViewCell: UICollectionViewCell {
@@ -37,7 +37,7 @@ class SessionCollectionViewCell: UICollectionViewCell {
         
         sender.isSelected = !sender.isSelected
         
-        delegate?.likeButtonDidTouched(self)
+        delegate?.likeButtonDidTouched(self, isLiked: sender.isSelected)
     }
     
     override func awakeFromNib() {
@@ -114,6 +114,8 @@ class SessionCollectionViewCell: UICollectionViewCell {
         }
         
         tags = speaker.tags
+     
+        addButton.isSelected = FavoriteManager.shared.sessionIds.contains(speaker.sessionId)
         
         tagView.reloadData()
     }

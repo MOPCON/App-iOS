@@ -95,25 +95,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="aDA-WB-uy0">
-                                <rect key="frame" x="123" y="198" width="168" height="24"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2e-K7-GGG">
-                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                        <state key="normal" backgroundImage="Icon_facebook"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEM-qv-gq6">
-                                        <rect key="frame" x="48" y="0.0" width="24" height="24"/>
-                                        <state key="normal" backgroundImage="Icon_Instagram"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2K-ub-no6">
-                                        <rect key="frame" x="96" y="0.0" width="24" height="24"/>
-                                        <state key="normal" backgroundImage="Icon_Telegram"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzi-jJ-Zij">
-                                        <rect key="frame" x="144" y="0.0" width="24" height="24"/>
-                                        <state key="normal" backgroundImage="Icon_Twitter"/>
-                                    </button>
-                                </subviews>
+                                <rect key="frame" x="123" y="198" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cax-vg-gfg">
                                 <rect key="frame" x="112" y="426" width="189.5" height="57"/>
@@ -379,10 +362,4 @@
             <point key="canvasLocation" x="6197" y="874"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Icon_Instagram" width="24" height="24"/>
-        <image name="Icon_Telegram" width="24" height="24"/>
-        <image name="Icon_Twitter" width="24" height="24"/>
-        <image name="Icon_facebook" width="24" height="24"/>
-    </resources>
 </document>

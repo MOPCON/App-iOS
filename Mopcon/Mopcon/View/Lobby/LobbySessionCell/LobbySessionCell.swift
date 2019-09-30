@@ -10,7 +10,7 @@ import UIKit
 
 protocol LobbySessionCellDelegate: AnyObject {
     
-    func likeButtonDidTouched(_ cell: LobbySessionCell, id: Int)
+    func likeButtonDidTouched(_ cell: LobbySessionCell, id: Int, isLiked: Bool)
 }
 
 class LobbySessionCell: UITableViewCell {
@@ -103,10 +103,10 @@ extension LobbySessionCell: UICollectionViewDelegateFlowLayout {
 
 extension LobbySessionCell: SessionCollectionViewCellDelegate {
     
-    func likeButtonDidTouched(_ cell: SessionCollectionViewCell) {
+    func likeButtonDidTouched(_ cell: SessionCollectionViewCell, isLiked: Bool) {
         
         guard let indexPath = collectionView.indexPath(for: cell) else { return }
         
-        delegate?.likeButtonDidTouched(self, id: rooms[indexPath.row].sessionId)
+        delegate?.likeButtonDidTouched(self, id: rooms[indexPath.row].sessionId, isLiked: isLiked)
     }
 }

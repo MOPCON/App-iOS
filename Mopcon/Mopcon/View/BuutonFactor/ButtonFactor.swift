@@ -48,4 +48,9 @@ class ButtonFactor {
         
         return button(asset: .iconTwitter)
     }
+    
+    static func webSiteButton() -> UIButton {
+        
+        return button(asset: .iconWebsite)
+    }
 }

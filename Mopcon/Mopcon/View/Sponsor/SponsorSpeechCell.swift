@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol SponsorSpeechCellDelegate: AnyObject {
+    
+    func likeButtonDidTouched(_ cell: SponsorSpeechCell, sessionId: Int, isLiked: Bool)
+}
+
 class SponsorSpeechCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     var sponsorSpeaker: [SponsorSpeaker] = []
+    
+    weak var delegate: SponsorSpeechCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,6 +52,8 @@ extension SponsorSpeechCell: UICollectionViewDataSource {
         
         sessionCell.updateUI(sponsorSpeaker[indexPath.row])
         
+        sessionCell.delegate = self
+        
         return sessionCell
     }
 }
@@ -72,5 +81,19 @@ extension SponsorSpeechCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         
         return 20
+    }
+}
+
+extension SponsorSpeechCell: SessionCollectionViewCellDelegate {
+    
+    func likeButtonDidTouched(_ cell: SessionCollectionViewCell, isLiked: Bool) {
+        
+        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+        
+        delegate?.likeButtonDidTouched(
+            self,
+            sessionId: sponsorSpeaker[indexPath.row].sessionId,
+            isLiked: isLiked
+        )
     }
 }

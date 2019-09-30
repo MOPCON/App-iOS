@@ -15,4 +15,6 @@ struct MPConstant {
     static let mopconServerKey = "MopconServerKey"
     
     static let gameServerKey = "GameServerKey"
+    
+    static let mopconWebSite = "https://www.facebook.com/mopcon/"
 }

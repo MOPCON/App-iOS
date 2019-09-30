@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum SponsorCellStyle {
+private enum SponsorCellStyle {
     
     case sponsor(String, String), info(String), speech([SponsorSpeaker]), seeMore(String)
     
@@ -27,7 +27,7 @@ enum SponsorCellStyle {
         }
     }
     
-    func manipulateCell(_ cell: UITableViewCell) {
+    func manipulateCell(_ cell: UITableViewCell, controller: SponsorDetailViewController) {
         
         switch self {
             
@@ -48,6 +48,8 @@ enum SponsorCellStyle {
             guard let speechCell = cell as? SponsorSpeechCell else { return }
             
             speechCell.sponsorSpeaker = speakers
+            
+            speechCell.delegate = controller
             
         case .seeMore: break
             
@@ -95,14 +97,11 @@ class SponsorDetailViewController: MPBaseViewController {
         
     }
     
-    var cells: [SponsorCellStyle] = []
+    private var cells: [SponsorCellStyle] = []
     
     @IBAction func showMore() {
         
-        if let sponsor = sponsor,let url = URL(string: sponsor.officialWebsite) {
-
-            UIApplication.shared.open(url, options: [:])
-        }
+        openURL(sponsor?.officialWebsite)
     }
 }
 
@@ -120,7 +119,7 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
             for: indexPath
         )
         
-        cells[indexPath.row].manipulateCell(cell)
+        cells[indexPath.row].manipulateCell(cell, controller: self)
         
         return cell
     }
@@ -132,6 +131,21 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
             sponsorImageView.layoutIfNeeded()
             
             sponsorImageView.makeCircle()
+        }
+    }
+}
+
+extension SponsorDetailViewController: SponsorSpeechCellDelegate {
+    
+    func likeButtonDidTouched(_ cell: SponsorSpeechCell, sessionId: Int, isLiked: Bool) {
+        
+        if isLiked {
+            
+            FavoriteManager.shared.addSessionId(id: sessionId)
+            
+        } else {
+            
+            FavoriteManager.shared.removeSessionId(id: sessionId)
         }
     }
 }
