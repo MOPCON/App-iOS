@@ -21,12 +21,31 @@ enum SocialButtonType {
 
 class ButtonFactor {
     
-    static func facebookButton() -> UIButton {
+    static private func button(asset: ImageAsset) -> UIButton {
         
         let button = UIButton()
         
         button.setTitle("", for: .normal)
         
+        button.backgroundColor = UIColor.clear
+        
+        button.setBackgroundImage(UIImage.asset(asset), for: .normal)
+        
         return button
+    }
+    
+    static func facebookButton() -> UIButton {
+        
+        return button(asset: .iconFB)
+    }
+    
+    static func githubButton() -> UIButton {
+        
+        return button(asset: .iconGithub)
+    }
+    
+    static func twitterButton() -> UIButton {
+        
+        return button(asset: .iconTwitter)
     }
 }

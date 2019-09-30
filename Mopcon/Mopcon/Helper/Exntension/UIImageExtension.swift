@@ -54,6 +54,10 @@ enum ImageAsset: String {
     //Field Game
     case fieldGameProfile = "field_game_profile"
     
+    //Speaker
+    case iconFB = "icon-fb"
+    case iconGithub = "icon-github"
+    case iconTwitter = "icon-twitter"
 }
 
 extension UIImage {

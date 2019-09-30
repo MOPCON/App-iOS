@@ -140,6 +140,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="講者" id="FBV-Yc-mPJ"/>
                     <connections>
+                        <outlet property="buttonStackView" destination="W62-J3-7lS" id="Ikl-dE-g5H"/>
                         <outlet property="scrollView" destination="rn8-eG-b1O" id="m2g-VO-frY"/>
                         <outlet property="speakerDetailView" destination="OOl-B6-dWH" id="Yq0-e3-qab"/>
                         <outlet property="speakerView" destination="A07-tq-a0V" id="4Vr-8q-npV"/>
@@ -169,41 +170,8 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="W62-J3-7lS">
-                            <rect key="frame" x="139.5" y="182" width="96" height="16"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ze9-QA-39K">
-                                    <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="16" id="FMO-gp-SkZ"/>
-                                        <constraint firstAttribute="width" secondItem="Ze9-QA-39K" secondAttribute="height" id="Xmt-CZ-wbb"/>
-                                    </constraints>
-                                    <state key="normal" backgroundImage="speaker_facebook">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="openFacebook:" destination="HI0-91-32R" eventType="touchUpInside" id="RvM-vA-Mhl"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbw-KL-X0b">
-                                    <rect key="frame" x="40" y="0.0" width="16" height="16"/>
-                                    <state key="normal" backgroundImage="github">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="openGitHub:" destination="HI0-91-32R" eventType="touchUpInside" id="b1y-30-wDV"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-C2-9Kg">
-                                    <rect key="frame" x="80" y="0.0" width="16" height="16"/>
-                                    <state key="normal" image="instagram">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="openWebsite:" destination="HI0-91-32R" eventType="touchUpInside" id="Hnh-zt-ieZ"/>
-                                    </connections>
-                                </button>
-                            </subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="W62-J3-7lS">
+                            <rect key="frame" x="179.5" y="182" width="16" height="22"/>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -264,22 +232,22 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tkv-V8-IQW">
                             <rect key="frame" x="20" y="0.0" width="335" height="187"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10:15 - 11:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qN1-D7-yNI">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:15 - 11:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qN1-D7-yNI">
                                     <rect key="frame" x="20" y="16" width="104.5" height="23.5"/>
                                     <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
                                     <color key="textColor" red="0.0" green="0.66666666666666663" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P2-XK-Cd0">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P2-XK-Cd0">
                                     <rect key="frame" x="297" y="17" width="18" height="22"/>
                                     <state key="normal" image="dislike_24"/>
                                     <state key="selected" image="like_24"/>
                                     <connections>
-                                        <action selector="collectionTopic:" destination="Asq-UZ-727" eventType="touchUpInside" id="a2S-Yg-Hon"/>
+                                        <action selector="touchFavoriteBtn:" destination="HI0-91-32R" eventType="touchUpInside" id="t13-5L-Mfc"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="如何寫出有效率、好讀、好維護的 Java / Android 程式" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-mp-aSz">
-                                    <rect key="frame" x="20" y="55.5" width="295" height="50.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="100" verticalCompressionResistancePriority="500" text="如何寫出有效率、好讀、好維護的 Java / Android 程式" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-mp-aSz">
+                                    <rect key="frame" x="20" y="55.5" width="295" height="77"/>
                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -350,10 +318,7 @@
     </scenes>
     <resources>
         <image name="dislike_24" width="18" height="16"/>
-        <image name="github" width="16" height="16"/>
-        <image name="instagram" width="16" height="16"/>
         <image name="like_24" width="16" height="14"/>
         <image name="marker_20" width="12" height="16"/>
-        <image name="speaker_facebook" width="16" height="16"/>
     </resources>
 </document>

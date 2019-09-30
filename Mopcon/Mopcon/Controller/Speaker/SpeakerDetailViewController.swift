@@ -26,6 +26,8 @@ class SpeakerDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var buttonStackView: UIStackView!
+    
     var speaker: Speaker?
 
     //MARK: - View Life Cycle
@@ -79,6 +81,8 @@ class SpeakerDetailViewController: MPBaseViewController {
     
     func updateUI(speaker: Speaker) {
         
+        self.speaker = speaker
+        
         speakerView.updateUI(
             image: speaker.img.mobile,
             name: speaker.name,
@@ -99,21 +103,66 @@ class SpeakerDetailViewController: MPBaseViewController {
         )
         
         talkInfoView.tagView.reloadData()
+    
+        setupButton(speaker: speaker)
     }
     
-    @IBAction func openFacebook(_ sender: UIButton) {
+    func setupButton(speaker: Speaker) {
         
+        if speaker.linkFb != "" {
+            
+            let button = ButtonFactor.facebookButton()
+            
+            button.addTarget(self, action: #selector(openFacebook(_:)), for: .touchUpInside)
+            
+            buttonStackView.addArrangedSubview(button)
+        }
+        
+        if speaker.linkGithub != "" {
+            
+            let button = ButtonFactor.githubButton()
+            
+            button.addTarget(self, action: #selector(openGitHub(_:)), for: .touchUpInside)
+            
+            buttonStackView.addArrangedSubview(button)
+        }
+        
+        if speaker.linkTwitter != "" {
+            
+            let button = ButtonFactor.twitterButton()
+            
+            button.addTarget(self, action: #selector(openTwitter(_:)), for: .touchUpInside)
+            
+            buttonStackView.addArrangedSubview(button)
+        }
+    }
+    
+    @objc func openFacebook(_ sender: UIButton) {
+        openURL(speaker?.linkFb)
     }
 
-    @IBAction func openGitHub(_ sender: UIButton) {
-        
+    @objc func openGitHub(_ sender: UIButton) {
+        openURL(speaker?.linkGithub)
     }
     
-    @IBAction func openTwitter(_ sender: UIButton) {
-        
+    @objc func openTwitter(_ sender: UIButton) {
+        openURL(speaker?.linkTwitter)
     }
     
-    @IBAction func openWebsite(_ sender: UIButton) {
+    @IBAction func touchFavoriteBtn(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
+        
+        guard let speaker = speaker else { return }
+        
+        if sender.isSelected {
+            
+            FavoriteManager.shared.addSessionId(id: speaker.sessionID)
+            
+        } else {
+            
+            FavoriteManager.shared.removeSessionId(id: speaker.sessionID)
+        }
         
     }
 }
