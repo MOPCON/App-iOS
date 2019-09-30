@@ -59,6 +59,7 @@
                                     <constraint firstAttribute="width" secondItem="hSb-iU-aVh" secondAttribute="height" multiplier="1:1" id="lmW-GD-vvY"/>
                                 </constraints>
                                 <state key="normal" image="dislike_24"/>
+                                <state key="selected" image="like_24"/>
                                 <connections>
                                     <action selector="addToFavorite:" destination="cqu-Zh-YjA" eventType="touchUpInside" id="xnh-SF-Uy2"/>
                                 </connections>
@@ -120,6 +121,7 @@
     </objects>
     <resources>
         <image name="dislike_24" width="18" height="16"/>
+        <image name="like_24" width="16" height="14"/>
         <image name="marker_20" width="12" height="16"/>
     </resources>
 </document>

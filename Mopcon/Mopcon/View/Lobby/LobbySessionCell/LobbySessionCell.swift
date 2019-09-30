@@ -8,9 +8,18 @@
 
 import UIKit
 
+protocol LobbySessionCellDelegate: AnyObject {
+    
+    func likeButtonDidTouched(_ cell: LobbySessionCell, id: Int)
+}
+
 class LobbySessionCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var rooms: [Room] = []
+    
+    weak var delegate: LobbySessionCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,13 +27,19 @@ class LobbySessionCell: UITableViewCell {
         collectionView.registerNib(identifier: SessionCollectionViewCell.identifier)
     }
     
+    func updateUI(rooms: [Room]) {
+        
+        self.rooms = rooms
+
+        collectionView.reloadData()
+    }
 }
 
 extension LobbySessionCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 10
+        return rooms.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -33,6 +48,12 @@ extension LobbySessionCell: UICollectionViewDataSource {
             withReuseIdentifier: SessionCollectionViewCell.identifier,
             for: indexPath
         )
+        
+        guard let sessionCell = cell as? SessionCollectionViewCell else { return cell }
+        
+        sessionCell.updateUI(rooms[indexPath.row])
+        
+        sessionCell.delegate = self
         
         return cell
     }
@@ -77,5 +98,15 @@ extension LobbySessionCell: UICollectionViewDelegateFlowLayout {
     ) -> CGFloat {
         
         return 0
+    }
+}
+
+extension LobbySessionCell: SessionCollectionViewCellDelegate {
+    
+    func likeButtonDidTouched(_ cell: SessionCollectionViewCell) {
+        
+        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+        
+        delegate?.likeButtonDidTouched(self, id: rooms[indexPath.row].sessionId)
     }
 }

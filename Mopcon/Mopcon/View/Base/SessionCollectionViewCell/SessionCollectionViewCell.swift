@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SessionCollectionViewCellDelegate {
+protocol SessionCollectionViewCellDelegate: AnyObject {
     
     func likeButtonDidTouched(_ cell: SessionCollectionViewCell)
 }
@@ -27,13 +27,15 @@ class SessionCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var tagView: MPTagView!
     
-    var delegate: SessionCollectionViewCellDelegate?
+    weak var delegate: SessionCollectionViewCellDelegate?
     
     var tags: [Tag] = []
     
     var index:IndexPath?
     
     @IBAction func addToFavorite(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
         
         delegate?.likeButtonDidTouched(self)
     }
@@ -52,9 +54,11 @@ class SessionCollectionViewCell: UICollectionViewCell {
     
     func updateUI(_ room: Room){
         
-        durationLabel.text = DateFormatter.string(for: room.startedAt, formatter: "HH:mm")! + " - " + DateFormatter.string(for: room.endedAt, formatter: "HH:mm")!
+        durationLabel.text = DateFormatter.string(for: room.startedAt, formatter: "MM/dd HH:mm")! + " - " + DateFormatter.string(for: room.endedAt, formatter: "MM/dd HH:mm")!
         
         locationLabel.text = room.room
+        
+        addButton.isSelected = room.isLiked
         
         let language = CurrentLanguage.getLanguage()
         

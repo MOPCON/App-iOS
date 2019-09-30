@@ -27,6 +27,10 @@ class LobbyViewController: MPBaseViewController {
     
     private var cells: [CellType] = []
     
+    var sessionObserve: NSKeyValueObservation!
+    
+    var unconfObserve: NSKeyValueObservation!
+    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,45 @@ class LobbyViewController: MPBaseViewController {
         setupTableView()
         
         fetchHome()
+    }
+    
+    private func observerSession() {
+        
+        sessionObserve = FavoriteManager.shared.observe(
+            \.sessionIds,
+            options: [.initial, .new],
+            changeHandler: { [weak self] _, _ in
+            
+            self?.updateData()
+        })
+    }
+    
+    func updateData() {
+        
+        if case .session(_) = cells.last {
+            
+            cells.removeLast()
+        }
+        
+        let tempRooms = FavoriteManager.shared.sessions
+        
+        let rooms: [Room] = tempRooms.compactMap({ room in
+                
+            if room.startedAt < Int(Date().timeIntervalSince1970) {
+            
+                return nil
+            }
+            
+            var tempRoom = room
+            
+            tempRoom.isLiked = true
+            
+            return tempRoom
+        })
+        
+        cells.append(.session(rooms))
+        
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,13 +110,14 @@ class LobbyViewController: MPBaseViewController {
                 
                 self?.cells = [
                     .banner( home.banner.map({ $0.img }) ),
-                    .news( home.news.map({ $0.description }) ),
-                    .session
+                    .news( home.news.map({ $0.description }) )
                 ]
                 
                 self?.throwToMainThreadAsync {
                     
                     self?.tableView.reloadData()
+                    
+                    self?.observerSession()
                 }
                 
             case .failure(let error):
@@ -138,12 +182,20 @@ extension LobbyViewController: LobbyNewsCellDelegate {
     }
 }
 
+extension LobbyViewController: LobbySessionCellDelegate {
+    
+    func likeButtonDidTouched(_ cell: LobbySessionCell, id: Int) {
+        
+        FavoriteManager.shared.removeSessionId(id: id)
+    }
+}
+
 private enum CellType: CaseIterable {
     
     static var allCases: [CellType] = [
         .banner([]),
         .news([]),
-        .session
+        .session([])
     ]
 
     typealias AllCases = [CellType]
@@ -152,7 +204,7 @@ private enum CellType: CaseIterable {
     
     case news([String])
     
-    case session
+    case session([Room])
     
     func identifier() -> String {
         
@@ -187,8 +239,13 @@ private enum CellType: CaseIterable {
             
             newsCell.delegate = controller
             
-        case .session: break
+        case .session(let rooms):
             
+            guard let sessionCell = cell as? LobbySessionCell else { return }
+            
+            sessionCell.updateUI(rooms: rooms)
+            
+            sessionCell.delegate = controller
         }
     }
 }
