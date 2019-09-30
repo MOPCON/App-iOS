@@ -36,8 +36,20 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBAction func addToMySchedule(_ sender: UIBarButtonItem) {
+    var tags: [Tag] = [] {
         
+        didSet {
+        
+            tagView.reloadData()
+        }
+    }
+    
+    @IBOutlet weak var tagView: MPTagView! {
+        
+        didSet {
+        
+            tagView.dataSource = self
+        }
     }
     
     //MARK: - View Life Cycle
@@ -168,6 +180,8 @@ class ConferenceDetailViewController: MPBaseViewController {
             with: URL(string: room.speakers.first!.img.mobile),
             placeholder: UIImage.asset(.fieldGameProfile)
         )
+        
+        tags = room.tags
 
         let language = CurrentLanguage.getLanguage()
 
@@ -177,8 +191,8 @@ class ConferenceDetailViewController: MPBaseViewController {
 
             scheduleInfoLabel.text = room.summary
 
-            typeLabel.text = room.tags.reduce("", { $0 + $1.name + " "})
-
+            typeLabel.text = room.tags.map({ $0.name }).joined(separator: " & ")
+            
             topicLabel.text = room.topic
 
             speakerName.text = room.speakers.first?.name
@@ -234,5 +248,23 @@ class ConferenceDetailViewController: MPBaseViewController {
             
         default: break
         }
+    }
+}
+
+extension ConferenceDetailViewController: MPTagViewDataSource {
+    
+    func numberOfTags(_ tagView: MPTagView) -> Int {
+        
+        return tags.count
+    }
+    
+    func titleForTags(_ tagView: MPTagView, index: Int) -> String {
+        
+        return tags[index].name
+    }
+    
+    func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
+        
+        return UIColor(hex: tags[index].color)
     }
 }

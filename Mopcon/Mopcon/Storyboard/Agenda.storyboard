@@ -138,14 +138,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCX-hR-J9A">
-                                        <rect key="frame" x="0.0" y="313.33333333333331" width="375" height="1"/>
+                                        <rect key="frame" x="0.0" y="347.33333333333331" width="375" height="1"/>
                                         <color key="backgroundColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="XXB-VS-th5"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cyG-dJ-K3q">
-                                        <rect key="frame" x="20" y="354.33333333333331" width="335" height="145.66666666666669"/>
+                                        <rect key="frame" x="20" y="388.33333333333331" width="335" height="145.66666666666669"/>
                                         <attributedString key="attributedText">
                                             <fragment content="在軟體公司最痛苦的一件事就是看到前人留下來的程式碼像本天書，看也看不懂、改也改不動，跑起來卻健步如飛，不僅一切正常，勝制連重構後的城市都飽得不如就城市順暢。這個 Session 就是要討論有哪些技巧及新法可以避免寫出這樣難讀、難懂也難維護的程式。">
                                                 <attributes>
@@ -158,27 +158,36 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="贊助廠商" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76y-nZ-5Os">
-                                        <rect key="frame" x="155.66666666666666" y="557" width="64" height="22.666666666666629"/>
+                                        <rect key="frame" x="155.66666666666666" y="591" width="64" height="22.666666666666629"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="rNi-i9-2xD">
-                                        <rect key="frame" x="147.66666666666666" y="619.66666666666663" width="80" height="80"/>
+                                        <rect key="frame" x="147.66666666666666" y="653.66666666666663" width="80" height="80"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rNi-i9-2xD" secondAttribute="height" multiplier="1:1" id="gv8-hB-5dL"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="贊助廠商" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOD-mX-dfk">
-                                        <rect key="frame" x="154.66666666666666" y="709.66666666666663" width="66" height="20"/>
+                                        <rect key="frame" x="154.66666666666666" y="743.66666666666663" width="66" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Smd-cG-ipn" customClass="MPTagView" customModule="Mopcon" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="289.33333333333331" width="335" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="cJW-b1-iY8"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="Smd-cG-ipn" firstAttribute="top" secondItem="heJ-Gy-vJA" secondAttribute="bottom" constant="16" id="2Y3-It-ery"/>
                                     <constraint firstItem="rNi-i9-2xD" firstAttribute="centerX" secondItem="EB4-NM-WDG" secondAttribute="centerX" id="6MG-ej-xfK"/>
+                                    <constraint firstAttribute="trailing" secondItem="Smd-cG-ipn" secondAttribute="trailing" constant="20" id="9FB-FR-Wnx"/>
                                     <constraint firstItem="rNi-i9-2xD" firstAttribute="width" secondItem="EB4-NM-WDG" secondAttribute="width" multiplier="80:375" id="BUU-y6-wbi"/>
                                     <constraint firstItem="cdz-om-dnW" firstAttribute="centerX" secondItem="EB4-NM-WDG" secondAttribute="centerX" id="CQG-1t-xAa"/>
                                     <constraint firstItem="KIP-tn-Cp9" firstAttribute="width" secondItem="EB4-NM-WDG" secondAttribute="width" multiplier="80:375" id="EjQ-QJ-EIx"/>
@@ -188,10 +197,11 @@
                                     <constraint firstItem="76y-nZ-5Os" firstAttribute="centerX" secondItem="EB4-NM-WDG" secondAttribute="centerX" id="Syx-yO-DlW"/>
                                     <constraint firstItem="jCX-hR-J9A" firstAttribute="leading" secondItem="EB4-NM-WDG" secondAttribute="leading" id="TiX-ON-CgE"/>
                                     <constraint firstItem="cyG-dJ-K3q" firstAttribute="leading" secondItem="IJD-i3-sqU" secondAttribute="leading" id="Zl7-GB-YPx"/>
+                                    <constraint firstItem="Smd-cG-ipn" firstAttribute="leading" secondItem="heJ-Gy-vJA" secondAttribute="leading" id="b6R-AZ-Wjm"/>
                                     <constraint firstItem="XAQ-fR-481" firstAttribute="centerX" secondItem="EB4-NM-WDG" secondAttribute="centerX" id="bpW-o1-9cW"/>
                                     <constraint firstItem="heJ-Gy-vJA" firstAttribute="trailing" secondItem="IJD-i3-sqU" secondAttribute="trailing" id="cWB-tZ-YSW"/>
                                     <constraint firstItem="rNi-i9-2xD" firstAttribute="top" secondItem="76y-nZ-5Os" secondAttribute="bottom" constant="40" id="dbO-Aw-vhi"/>
-                                    <constraint firstItem="jCX-hR-J9A" firstAttribute="top" secondItem="heJ-Gy-vJA" secondAttribute="bottom" constant="40" id="e4u-vi-5zm"/>
+                                    <constraint firstItem="jCX-hR-J9A" firstAttribute="top" secondItem="heJ-Gy-vJA" secondAttribute="bottom" constant="74" id="e4u-vi-5zm"/>
                                     <constraint firstItem="cyG-dJ-K3q" firstAttribute="top" secondItem="jCX-hR-J9A" secondAttribute="bottom" constant="40" id="eXJ-0d-B41"/>
                                     <constraint firstAttribute="trailing" secondItem="jCX-hR-J9A" secondAttribute="trailing" id="gMT-Dg-d9z"/>
                                     <constraint firstItem="IJD-i3-sqU" firstAttribute="leading" secondItem="EB4-NM-WDG" secondAttribute="leading" constant="20" id="h8Y-XZ-Q18"/>
@@ -220,11 +230,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="演講資訊" id="xJm-Zv-xwn">
-                        <barButtonItem key="rightBarButtonItem" image="dislike_24" style="done" id="kxq-fN-6D2">
-                            <connections>
-                                <action selector="addToMySchedule:" destination="o4V-94-Nxa" id="1hy-uz-dhX"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="dislike_24" style="done" id="kxq-fN-6D2"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="888"/>
@@ -238,13 +244,14 @@
                         <outlet property="sponsorImageView" destination="rNi-i9-2xD" id="P2N-Nx-oiE"/>
                         <outlet property="sponsorLabel" destination="EOD-mX-dfk" id="hYp-ab-BgX"/>
                         <outlet property="sponsorTitleLabel" destination="76y-nZ-5Os" id="j7j-OF-Xpx"/>
+                        <outlet property="tagView" destination="Smd-cG-ipn" id="8Bt-ex-2EY"/>
                         <outlet property="topicLabel" destination="IJD-i3-sqU" id="vm1-HY-He7"/>
                         <outlet property="typeLabel" destination="heJ-Gy-vJA" id="OwY-55-CbZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhA-Xp-vTN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="1040"/>
+            <point key="canvasLocation" x="160.80000000000001" y="1039.6551724137933"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dbl-lR-O3Q">
