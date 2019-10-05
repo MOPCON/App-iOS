@@ -11,7 +11,7 @@ import Foundation
 class FieldGameProvider: MainThreadHelper {
     
     static func register(with uid: String, and email: String) {
-   
+        
         HTTPClient.shared.request(
             FieldGameAPI.register(uid, email),
             completion: { result in
@@ -28,9 +28,44 @@ class FieldGameProvider: MainThreadHelper {
                         )
                         
                         let token = "\(successResponse.data.tokenType) \(successResponse.data.accessToken)"
-
+                        
                         KeychainTool.save(token)
                         
+                    } catch {
+                        
+                        print(error.localizedDescription)
+                    }
+                    
+                case .failure(let error):
+                    
+                    print(error.localizedDescription)
+                }
+        })
+    }
+    
+    static func invite(with uid: String, and email: String) {
+        
+        HTTPClient.shared.request(
+            FieldGameAPI.invite(uid, email),
+            completion: { result in
+                
+                switch result{
+                    
+                case .success(let data):
+                    
+                    do {
+                        
+                        let successResponse = try JSONDecoder.shared.decode(
+                            SuccessResponse<Auth>.self,
+                            from: data
+                        )
+                        
+                        let token = "\(successResponse.data.tokenType) \(successResponse.data.accessToken)"
+                
+                        KeychainTool.save(token)
+                        
+                        KeychainTool.save(uid, for: email)
+                    
                     } catch {
                         
                         print(error.localizedDescription)
@@ -77,7 +112,7 @@ class FieldGameProvider: MainThreadHelper {
     }
     
     static func verify(with type: FieldGameAPI.VerifyType, and id: String, and vKey: String, completion: @escaping FieldGameTaskVerifiedResultType) {
-
+        
         HTTPClient.shared.request(
             FieldGameAPI.verify(type, id, vKey),
             completion: { result in
@@ -210,7 +245,7 @@ class FieldGameProvider: MainThreadHelper {
                 }
         })
     }
-
+    
     static func notifyReward(completion: @escaping FieldGameRewardResultType) {
         
         HTTPClient.shared.request(
@@ -268,5 +303,5 @@ class FieldGameProvider: MainThreadHelper {
                 }
         })
     }
-
+    
 }

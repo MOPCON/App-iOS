@@ -12,6 +12,8 @@ enum FieldGameAPI: LKRequest {
     
     case register(String, String)
     
+    case invite(String, String)
+    
     case login(String, String)
     
     case intro
@@ -30,9 +32,11 @@ enum FieldGameAPI: LKRequest {
         
         switch self {
             
-        case .register(_, _): return "/register"
+        case .register: return "/register"
             
-        case .login(_, _): return "/login"
+        case .invite: return "/invite"
+            
+        case .login: return "/login"
             
         case .me: return "/me"
             
@@ -59,22 +63,23 @@ enum FieldGameAPI: LKRequest {
         
         switch self {
             
-        case .register, .login, .verify, .mySession: return LKHTTPMethod.post.rawValue
+        case .register, .invite, .login, .verify, .mySession: return LKHTTPMethod.post.rawValue
             
         default: return LKHTTPMethod.get.rawValue
         }
     }
     
     var baseURL: String {
-        
-        return UserDefaults.standard.string(forKey: MPConstant.gameServerKey) ?? ""
+
+        //MARK: should refactor
+        return UserDefaults.standard.string(forKey: MPConstant.gameServerKey) ?? "https://game.mopcon.org"
     }
     
     var headers: [String : String] {
         
         switch self {
         
-        case .register, .login:
+        case .register, .invite, .login:
             
             return [LKHTTPHeaderField.contentType.rawValue: LKHTTPHeaderValue.json.rawValue]
             
@@ -101,7 +106,7 @@ enum FieldGameAPI: LKRequest {
         
         switch self {
         
-        case .register(let uid, let email): return makeBody(with: ["uid": uid, "email": email])
+        case .register(let uid, let email), .invite(let uid, let email): return makeBody(with: ["uid": uid, "email": email])
             
         case .login(let uid, let password): return makeBody(with: ["uid": uid, "password": password])
             
