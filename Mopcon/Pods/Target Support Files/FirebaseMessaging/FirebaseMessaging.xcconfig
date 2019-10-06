@@ -1,9 +1,9 @@
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMessaging
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore" "${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstanceID" "${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities" "${PODS_CONFIGURATION_BUILD_DIR}/Protobuf"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore" "${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics" "${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstanceID" "${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport" "${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransportCCTSupport" "${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities" "${PODS_CONFIGURATION_BUILD_DIR}/Protobuf" "${PODS_CONFIGURATION_BUILD_DIR}/nanopb"
 GCC_C_LANGUAGE_STANDARD = c99
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1 FIRMessaging_LIB_VERSION=3.5.0
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Firebase" "${PODS_ROOT}/Headers/Public/FirebaseAnalytics" "${PODS_ROOT}/Headers/Public/FirebaseAnalyticsInterop" "${PODS_ROOT}/Headers/Public/GoogleAppMeasurement"
-OTHER_LDFLAGS = -l"sqlite3" -framework "SystemConfiguration"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1 FIRMessaging_LIB_VERSION=4.1.5
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Firebase" "${PODS_ROOT}/Headers/Public/FirebaseAnalytics" "${PODS_ROOT}/Headers/Public/FirebaseAnalyticsInterop" "${PODS_ROOT}/Headers/Public/FirebaseCoreDiagnosticsInterop" "${PODS_ROOT}/Headers/Public/GoogleAppMeasurement" "${PODS_TARGET_SRCROOT}"
+OTHER_LDFLAGS = -l"sqlite3" -framework "SystemConfiguration" -weak_framework "UserNotifications"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}

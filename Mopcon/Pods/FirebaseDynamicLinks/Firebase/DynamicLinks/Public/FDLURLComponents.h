@@ -397,6 +397,12 @@ FIR_SWIFT_NAME(DynamicLinkOtherPlatformParameters)
  */
 + (instancetype)parameters NS_SWIFT_UNAVAILABLE("Use init()");
 
+/**
+ * @method init
+ * @abstract A method for creating the Other platform parameters object.
+ * @return Returns an object to be used with FIRDynamicLinkURLComponents to add Other Platform
+ *     parameters to a generated Dynamic Link URL.
+ */
 - (instancetype)init;
 
 @end
@@ -504,38 +510,6 @@ FIR_SWIFT_NAME(DynamicLinkComponents)
  * @abstract A generated long Dynamic Link URL.
  */
 @property(nonatomic, nullable, readonly) NSURL *url;
-
-/**
- * @method componentsWithLink:domain:
- * @abstract Generates a Dynamic Link URL components object with the minimum necessary parameters
- *     set to generate a fully-functional Dynamic Link.
- * @param link Deep link to be stored in created Dynamic link. This link also called "payload" of
- *     the Dynamic link.
- * @param domain Domain of your App. This value must be equal to your assigned domain from Firebase
- *     Console. (e.g. xyz.page.link). Note that the domain scheme is required to be https and is
- * assumed as such by this API.
- */
-+ (instancetype)componentsWithLink:(NSURL *)link
-                            domain:(NSString *)domain
-    NS_SWIFT_UNAVAILABLE("Use init(link:domain:)")DEPRECATED_MSG_ATTRIBUTE(
-        "This method is deprecated. Please use the new method with support for "
-        "domainURIPrefix- init(link:domainURIPrefix:).");
-
-/**
- * @method initWithLink:domain:
- * @abstract Generates a Dynamic Link URL components object with the minimum necessary parameters
- *     set to generate a fully-functional Dynamic Link.
- * @param link Deep link to be stored in created Dynamic link. This link also called "payload" of
- *     the Dynamic link.
- * @param domain Domain of your App. This value must be equal to your assigned domain from Firebase
- *     Console. (e.g. xyz.page.link). Note that the domain scheme is required to be https and is
- * assumed as such by this API.
- */
-- (instancetype)initWithLink:(NSURL *)link
-                      domain:(NSString *)domain
-    DEPRECATED_MSG_ATTRIBUTE(
-        "This method is deprecated. Please use the new method with support for "
-        "domainURIPrefix- init(link:domainURIPrefix:).");
 
 /**
  * @method componentsWithLink:domainURIPrefix:

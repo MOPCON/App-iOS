@@ -29,6 +29,9 @@
 #import "DynamicLinks/FIRDLScionLogging.h"
 #endif
 
+#ifdef FIRDynamicLinks3P
+#import "DynamicLinks/FDLURLComponents/FDLURLComponents+Private.h"
+#endif
 #import "DynamicLinks/FIRDLRetrievalProcessFactory.h"
 #import "DynamicLinks/FIRDLRetrievalProcessProtocols.h"
 #import "DynamicLinks/FIRDLRetrievalProcessResult.h"
@@ -82,6 +85,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 #ifdef FIRDynamicLinks3P
+// Error code from FDL.
+static const NSInteger FIRErrorCodeDurableDeepLinkFailed = -119;
+
 @interface FIRDynamicLinks () {
   /// Stored Analytics reference, if it exists.
   id<FIRAnalyticsInterop> _Nullable _analytics;
@@ -184,11 +190,10 @@ NS_ASSUME_NONNULL_BEGIN
     error =
         [FIRApp errorForSubspecConfigurationFailureWithDomain:kFirebaseDurableDeepLinkErrorDomain
                                                     errorCode:FIRErrorCodeDurableDeepLinkFailed
-                                                      service:kFIRServiceDynamicLinks
+                                                      service:@"DynamicLinks"
                                                        reason:errorDescription];
   }
   if (error) {
-    [app sendLogsWithServiceName:kFIRServiceDynamicLinks version:kFIRDLVersion error:error];
     NSString *message = nil;
     if (options.usingOptionsFromDefaultPlist) {
       // Configured using plist file
@@ -215,12 +220,7 @@ NS_ASSUME_NONNULL_BEGIN
     }
     [NSException raise:kFirebaseDurableDeepLinkErrorDomain format:@"%@", message];
   }
-  // Check to see if FirebaseDynamicLinksCustomDomains array is present.
-  NSDictionary *infoDictionary = [NSBundle mainBundle].infoDictionary;
-  NSArray *customDomains = infoDictionary[kInfoPlistCustomDomainsKey];
-  if (customDomains) {
-    FIRDLAddToAllowListForCustomDomainsArray(customDomains);
-  }
+  [self checkForCustomDomainEntriesInInfoPlist];
 }
 
 - (instancetype)initWithAnalytics:(nullable id<FIRAnalyticsInterop>)analytics {
@@ -248,6 +248,26 @@ NS_ASSUME_NONNULL_BEGIN
   return dynamicLinks;
 }
 #endif
+
+#pragma mark - Custom domains
+
+- (instancetype)init {
+  self = [super init];
+  if (self) {
+    [self checkForCustomDomainEntriesInInfoPlist];
+  }
+  return self;
+}
+
+// Check for custom domains entry in PLIST file.
+- (void)checkForCustomDomainEntriesInInfoPlist {
+  // Check to see if FirebaseDynamicLinksCustomDomains array is present.
+  NSDictionary *infoDictionary = [NSBundle mainBundle].infoDictionary;
+  NSArray *customDomains = infoDictionary[kInfoPlistCustomDomainsKey];
+  if (customDomains) {
+    FIRDLAddToAllowListForCustomDomainsArray(customDomains);
+  }
+}
 
 #pragma mark - First party interface
 
