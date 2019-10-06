@@ -73,8 +73,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7j-iR-RE9">
                                                     <rect key="frame" x="0.0" y="8" width="374" height="48"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開幕" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2h-0s-ini">
-                                                            <rect key="frame" x="321" y="14" width="33" height="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="開幕" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2h-0s-ini">
+                                                            <rect key="frame" x="103.5" y="14" width="250.5" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -90,6 +90,7 @@
                                                     <constraints>
                                                         <constraint firstItem="H2h-0s-ini" firstAttribute="centerY" secondItem="B7j-iR-RE9" secondAttribute="centerY" id="75x-Pd-sp7"/>
                                                         <constraint firstItem="cAn-Bb-xCT" firstAttribute="top" secondItem="B7j-iR-RE9" secondAttribute="top" constant="14" id="Fgw-wR-JQO"/>
+                                                        <constraint firstItem="H2h-0s-ini" firstAttribute="leading" secondItem="cAn-Bb-xCT" secondAttribute="trailing" id="NrJ-Fd-ZRc"/>
                                                         <constraint firstItem="cAn-Bb-xCT" firstAttribute="leading" secondItem="B7j-iR-RE9" secondAttribute="leading" constant="20" id="d9j-F0-be2"/>
                                                         <constraint firstAttribute="bottom" secondItem="cAn-Bb-xCT" secondAttribute="bottom" constant="14" id="iDP-KV-gt6"/>
                                                         <constraint firstAttribute="trailing" secondItem="H2h-0s-ini" secondAttribute="trailing" constant="20" id="qxW-ZC-F1h"/>

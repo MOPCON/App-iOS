@@ -164,7 +164,7 @@ extension SessionsViewController: ConferenceTableViewCellDelegate {
             FavoriteManager.shared.removeSessionId(id: room.sessionId)
         }
         
-        FieldGameProvider.modifyFavorate(
+        FieldGameProvider.modifyFavorite(
             id: room.sessionId,
             action: action,
             completion: { result in

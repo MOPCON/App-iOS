@@ -301,14 +301,14 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pAF-GT-RBt">
                                                     <rect key="frame" x="0.0" y="8" width="335" height="48"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開幕" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLT-Ky-sTg">
-                                                            <rect key="frame" x="282" y="14.33333333333333" width="33" height="19.666666666666671"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" text="開幕" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLT-Ky-sTg">
+                                                            <rect key="frame" x="103.33333333333331" y="14.33333333333333" width="211.66666666666669" height="19.666666666666671"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:00 - 09:15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StT-yv-0dY">
-                                                            <rect key="frame" x="20" y="14" width="83.666666666666671" height="20"/>
+                                                            <rect key="frame" x="20" y="14" width="83.333333333333329" height="20"/>
                                                             <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -318,6 +318,7 @@
                                                     <constraints>
                                                         <constraint firstItem="StT-yv-0dY" firstAttribute="leading" secondItem="pAF-GT-RBt" secondAttribute="leading" constant="20" id="7bX-In-mAw"/>
                                                         <constraint firstItem="StT-yv-0dY" firstAttribute="top" secondItem="pAF-GT-RBt" secondAttribute="top" constant="14" id="H3X-q9-goe"/>
+                                                        <constraint firstItem="MLT-Ky-sTg" firstAttribute="leading" secondItem="StT-yv-0dY" secondAttribute="trailing" id="XW9-lQ-OlP"/>
                                                         <constraint firstItem="MLT-Ky-sTg" firstAttribute="centerY" secondItem="pAF-GT-RBt" secondAttribute="centerY" id="eov-73-LBh"/>
                                                         <constraint firstAttribute="trailing" secondItem="MLT-Ky-sTg" secondAttribute="trailing" constant="20" id="fIN-da-7zn"/>
                                                         <constraint firstAttribute="bottom" secondItem="StT-yv-0dY" secondAttribute="bottom" constant="14" id="lq1-Yu-OMd"/>
@@ -415,8 +416,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPB-1n-Kn9">
                                                     <rect key="frame" x="0.0" y="8" width="335" height="48"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開幕" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8T-Gr-RnQ">
-                                                            <rect key="frame" x="282" y="14.33333333333333" width="33" height="19.666666666666671"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="開幕" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8T-Gr-RnQ">
+                                                            <rect key="frame" x="103.66666666666669" y="14.33333333333333" width="211.33333333333331" height="19.666666666666671"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -431,6 +432,7 @@
                                                     <color key="backgroundColor" red="0.0" green="0.66666666669999997" blue="0.94117647059999998" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="hEa-Hs-zDW" firstAttribute="top" secondItem="mPB-1n-Kn9" secondAttribute="top" constant="14" id="MD3-ye-C43"/>
+                                                        <constraint firstItem="P8T-Gr-RnQ" firstAttribute="leading" secondItem="hEa-Hs-zDW" secondAttribute="trailing" id="c51-KO-5qj"/>
                                                         <constraint firstItem="P8T-Gr-RnQ" firstAttribute="centerY" secondItem="mPB-1n-Kn9" secondAttribute="centerY" id="eOr-Rr-m8X"/>
                                                         <constraint firstAttribute="trailing" secondItem="P8T-Gr-RnQ" secondAttribute="trailing" constant="20" id="rQr-LI-NdQ"/>
                                                         <constraint firstAttribute="bottom" secondItem="hEa-Hs-zDW" secondAttribute="bottom" constant="14" id="sGo-7o-x7e"/>
