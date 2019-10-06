@@ -73,6 +73,7 @@ class LobbyViewController: MPBaseViewController {
             
             return tempRoom
         })
+        .sorted(by: { $0.startedAt < $1.startedAt })
         
         cells.append(.session(rooms))
         
