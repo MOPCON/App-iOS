@@ -66,7 +66,7 @@ enum FieldGameAPI: LKRequest {
     }
     
     var baseURL: String {
-        
+
         return UserDefaults.standard.string(forKey: MPConstant.gameServerKey) ?? ""
     }
     
@@ -92,7 +92,7 @@ enum FieldGameAPI: LKRequest {
         default:
             
             let token = KeychainTool.retrive(for: "token")
-
+            
             return [LKHTTPHeaderField.auth.rawValue: token!]
         }
     }

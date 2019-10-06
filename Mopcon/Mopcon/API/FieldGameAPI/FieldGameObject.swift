@@ -122,9 +122,9 @@ struct Mission: Codable {
     
     let nameEn: String
     
-    let description: String
+    let description: String?
     
-    let descriptionEn: String
+    let descriptionEn: String?
     
     let open: Int
     
@@ -176,9 +176,9 @@ struct Reward: Codable {
     
     let nameEn: String
     
-    let description: String
+    let description: String?
     
-    let descriptionEn: String
+    let descriptionEn: String?
     
     let image: String
     
