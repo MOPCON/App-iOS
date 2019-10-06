@@ -97,7 +97,7 @@ enum FieldGameAPI: LKRequest {
         default:
             
             let token = KeychainTool.retrive(for: "token")
-
+            
             return [LKHTTPHeaderField.auth.rawValue: token!]
         }
     }
