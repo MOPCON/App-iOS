@@ -243,7 +243,7 @@
                                     <state key="normal" image="dislike_24"/>
                                     <state key="selected" image="like_24"/>
                                     <connections>
-                                        <action selector="touchFavoriteBtn:" destination="HI0-91-32R" eventType="touchUpInside" id="t13-5L-Mfc"/>
+                                        <action selector="collectionTopic:" destination="Asq-UZ-727" eventType="touchUpInside" id="7p2-q4-Ekg"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="100" verticalCompressionResistancePriority="500" text="如何寫出有效率、好讀、好維護的 Java / Android 程式" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-mp-aSz">

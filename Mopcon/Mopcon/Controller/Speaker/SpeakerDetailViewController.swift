@@ -99,7 +99,7 @@ class SpeakerDetailViewController: MPBaseViewController {
             topic: speaker.topic,
             time: start + " - " + end,
             position: speaker.room + " " + speaker.floor,
-            isCollected: false
+            isCollected: FavoriteManager.shared.fetchSessionIds().contains(speaker.sessionID)
         )
         
         talkInfoView.tagView.reloadData()
@@ -148,14 +148,15 @@ class SpeakerDetailViewController: MPBaseViewController {
     @objc func openTwitter(_ sender: UIButton) {
         openURL(speaker?.linkTwitter)
     }
+}
+
+extension SpeakerDetailViewController: SpeakerTalkInfoViewDelegate {
     
-    @IBAction func touchFavoriteBtn(_ sender: UIButton) {
-        
-        sender.isSelected = !sender.isSelected
+    func didTouchCollectedButton(_ infoView: SpeakerTalkInfoView) {
         
         guard let speaker = speaker else { return }
         
-        if sender.isSelected {
+        if infoView.likedButton.isSelected {
             
             FavoriteManager.shared.addSessionId(id: speaker.sessionID)
             
@@ -163,14 +164,6 @@ class SpeakerDetailViewController: MPBaseViewController {
             
             FavoriteManager.shared.removeSessionId(id: speaker.sessionID)
         }
-        
-    }
-}
-
-extension SpeakerDetailViewController: SpeakerTalkInfoViewDelegate {
-    
-    func didTouchCollectedButton(_ infoView: SpeakerTalkInfoView) {
-        
     }
 }
 

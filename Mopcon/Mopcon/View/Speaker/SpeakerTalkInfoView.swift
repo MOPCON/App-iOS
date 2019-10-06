@@ -31,9 +31,9 @@ class SpeakerTalkInfoView: UIView {
     
     @IBAction func collectionTopic(_ sender: UIButton) {
         
-        delegate?.didTouchCollectedButton(self)
-        
         sender.isSelected = !sender.isSelected
+        
+        delegate?.didTouchCollectedButton(self)
     }
     
     override func awakeFromNib() {
