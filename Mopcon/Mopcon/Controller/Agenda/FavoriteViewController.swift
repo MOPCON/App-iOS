@@ -55,6 +55,14 @@ class FavoriteViewController: MPBaseSessionViewController {
     
     lazy var unconfs: [Room] = []
     
+    var selectedDate: Int? {
+        
+        didSet {
+            
+            updateData()
+        }
+    }
+    
     private lazy var datas: [ConferenceType] = []
     
     private let dateFormate = "MM/dd HH:mm"
@@ -79,11 +87,11 @@ class FavoriteViewController: MPBaseSessionViewController {
                    
            self?.updateData()
        })
-        
-        updateData()
     }
     
     private func updateData() {
+        
+        guard let selectedDate = selectedDate else { return }
         
         sessions = FavoriteManager
             .shared
@@ -96,6 +104,7 @@ class FavoriteViewController: MPBaseSessionViewController {
                 
                 return tempRoom
             })
+            .filter({ return $0.startedAt > selectedDate && $0.startedAt < (selectedDate + 86400) })
             .sorted(by: { $0.startedAt < $1.startedAt })
         
         unconfs = FavoriteManager
@@ -109,6 +118,7 @@ class FavoriteViewController: MPBaseSessionViewController {
                 
                 return tempRoom
             })
+            .filter({ return $0.startedAt > selectedDate && $0.startedAt < (selectedDate + 86400) })
             .sorted(by: { $0.startedAt < $1.startedAt })
         
         datas.removeAll()

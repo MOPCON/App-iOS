@@ -47,7 +47,7 @@
                                 <rect key="frame" x="0.0" y="203" width="375" height="575"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="9HG-Ag-nnA" kind="embed" id="LiA-nq-7wM"/>
+                                    <segue destination="9HG-Ag-nnA" kind="embed" identifier="SegueFavorite" id="LiA-nq-7wM"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivw-Rz-kdc">
@@ -312,7 +312,7 @@
                                                     <rect key="frame" x="0.0" y="8" width="335" height="48"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" text="開幕" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLT-Ky-sTg">
-                                                            <rect key="frame" x="103.33333333333331" y="14.33333333333333" width="211.66666666666669" height="19.666666666666671"/>
+                                                            <rect key="frame" x="103.33333333333333" y="14.33333333333333" width="211.66666666666669" height="19.666666666666671"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -427,7 +427,7 @@
                                                     <rect key="frame" x="0.0" y="8" width="335" height="48"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="開幕" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8T-Gr-RnQ">
-                                                            <rect key="frame" x="103.66666666666669" y="14.33333333333333" width="211.33333333333331" height="19.666666666666671"/>
+                                                            <rect key="frame" x="103.66666666666667" y="14.33333333333333" width="211.33333333333331" height="19.666666666666671"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
