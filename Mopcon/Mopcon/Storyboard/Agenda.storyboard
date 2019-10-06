@@ -230,7 +230,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="演講資訊" id="xJm-Zv-xwn">
-                        <barButtonItem key="rightBarButtonItem" image="dislike_24" style="done" id="kxq-fN-6D2"/>
+                        <barButtonItem key="rightBarButtonItem" image="dislike_24" style="done" id="kxq-fN-6D2">
+                            <connections>
+                                <action selector="didTouchedLikedBtn:" destination="o4V-94-Nxa" id="dN8-5m-XCD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="888"/>

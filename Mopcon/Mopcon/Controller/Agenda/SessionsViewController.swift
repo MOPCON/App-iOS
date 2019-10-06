@@ -99,7 +99,7 @@ class SessionsViewController: MPBaseSessionViewController {
                 return
             }
             
-            detailVC.sessionId = sessions[indexPath.section].room[indexPath.row].sessionId
+            detailVC.conferenceType = .session(sessions[indexPath.section].room[indexPath.row].sessionId)
             
             show(detailVC, sender: nil)
             
