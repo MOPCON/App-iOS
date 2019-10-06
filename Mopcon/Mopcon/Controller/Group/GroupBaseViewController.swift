@@ -83,10 +83,7 @@ class GroupBaseViewController: MPBaseViewController, UICollectionViewDelegateFlo
     //MARK: - JoinVolunteerViewDelegate
     func didTouchFacebookButton(_ volunteerView: JoinVolunteerView) {
         
-        //TODO
-        
-        print("---------")
-        print("didTouchFacebookButton in CommunityImageViewController")
+        openURL(MPConstant.mopconWebSite)
     }
     
 }

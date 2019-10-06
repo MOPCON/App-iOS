@@ -43,8 +43,8 @@ struct Volunteer: Codable {
         
         case name, photo, members
     
-        case introductionEn = "introducion_en"
+        case introductionEn = "introduction_e"
     
-        case introduction = "introducion"
+        case introduction = "introduction"
     }
 }

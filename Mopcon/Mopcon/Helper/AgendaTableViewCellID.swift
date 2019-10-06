@@ -10,5 +10,5 @@ import Foundation
 
 struct AgendaTableViewCellID {
     static let breakCell = "BreakCell"
-    static let conferenceCell = "ConferenceCell"
+    static let conferenceCell = "ConferenceTableViewCell"
 }

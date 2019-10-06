@@ -8,16 +8,21 @@
 
 import UIKit
 
-protocol CollectionViewItemDidSelected: AnyObject {
+protocol GroupHostViewControllerDelegate: AnyObject {
     
     func stopSpinner()
 }
 
 class GroupHostViewController: GroupBaseViewController {
     
+    struct Segue {
+        
+        static let detail = "SegueGroupDetail"
+    }
+    
     var group: Group?
     
-    weak var delegate: CollectionViewItemDidSelected?
+    weak var delegate: GroupHostViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +38,16 @@ class GroupHostViewController: GroupBaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == SegueIDManager.performCommunityDetail{
+        if segue.identifier == Segue.detail {
             
-            guard
-                let groupHostDetailVC = segue.destination as? GroupHostDetailViewController,
-                let id = sender as? String
-            else { return }
+            guard let groupHostDetailVC = segue.destination as? GroupHostDetailViewController,
+                  let hostType = sender as? HostType
+            else {
+                
+                return
+            }
             
-            groupHostDetailVC.communityID = id
+            groupHostDetailVC.hostType = hostType
         }
     }
     
@@ -137,12 +144,18 @@ class GroupHostViewController: GroupBaseViewController {
         didSelectItemAt indexPath: IndexPath
     ) {
         
-        guard let community = group?.communitys[indexPath.row] else { return }
+        if indexPath.section == 0 {
         
-        performSegue(
-            withIdentifier: SegueIDManager.performCommunityDetail,
-            sender: community.id
-        )
+            guard let community = group?.communitys[indexPath.row] else { return }
+            
+            performSegue(withIdentifier: Segue.detail, sender: HostType.community(community.id))
+            
+        } else {
+            
+            guard let participant = group?.participants[indexPath.row] else { return }
+            
+            performSegue(withIdentifier: Segue.detail, sender: HostType.participant(participant.id))
+        }
     }
     
 }

@@ -12,21 +12,28 @@ struct SessionList: Codable {
     
     let date: Int
     
-    let period: [Session]
+    var period: [Session]
+    
+    lazy var dateString: String = {
+        
+        let date = Date(timeIntervalSince1970: Double(self.date))
+        
+        return DateFormatter.string(for: date, formatter: "MM/dd")
+    }()
 }
 
 
 struct Session: Codable {
     
-    let startedAt: Int
+    let startedAt: Int?
     
     let isBroadCast: Bool
     
-    let endedAt: Int
+    let endedAt: Int?
     
     let event: String
     
-    let room: [Room]?
+    var room: [Room]
     
     enum CodingKeys: String, CodingKey {
         
@@ -36,23 +43,31 @@ struct Session: Codable {
         
         case endedAt = "ended_at"
     }
+    
+    init(from decoder: Decoder) throws {
+        
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        startedAt = try? values.decode(Int.self, forKey: .startedAt)
+        
+        isBroadCast = try values.decode(Bool.self, forKey: .isBroadCast)
+        
+        endedAt = try? values.decode(Int.self, forKey: .endedAt)
+        
+        event = try values.decode(String.self, forKey: .event)
+        
+        do {
+            
+            room = try values.decode([Room].self, forKey: .room)
+        
+        } catch {
+        
+            room = []
+        }
+    }
 }
 
 struct Room: Codable {
-    
-    let name: String
-    
-    let nameEn: String
-    
-    let speakerId: Int
-    
-    let company: String
-    
-    let companyEn: String
-    
-    let jobTitle: String
-    
-    let jobTitleEn: String
     
     let topic: String
     
@@ -78,27 +93,19 @@ struct Room: Codable {
     
     let level: String
     
-    let img: SpeakerImage
+    let sessionId: Int
     
     let tags: [Tag]
     
-//    let sponsorInfo: SponsorInfo?
+    let sponsorInfo: SponsorInfo?
     
-    let sessionId: Int
+    let speakers: [SessionSpeaker]
+    
+    var isLiked: Bool = false
     
     enum CodingKeys: String, CodingKey {
         
-        case name, company, topic, summary, room, floor, recordable, level, img, tags
-        
-        case nameEn = "name_e"
-        
-        case speakerId = "speaker_id"
-        
-        case companyEn = "company_e"
-        
-        case jobTitle = "job_title"
-        
-        case jobTitleEn = "job_title_e"
+        case topic, summary, room, floor, recordable, level, tags, speakers
         
         case topicEn = "topic_e"
         
@@ -112,9 +119,9 @@ struct Room: Codable {
         
         case sponsorId = "sponsor_id"
         
-//        case sponsorInfo = "sponsor_info"
-        
         case sessionId = "session_id"
+        
+        case sponsorInfo = "sponsor_info"
     }
 }
 
@@ -133,5 +140,39 @@ struct SponsorInfo: Codable {
         case nameEn = "name_e"
         
         case logo = "logo_path"
+    }
+}
+
+struct SessionSpeaker: Codable {
+    
+    let name: String
+    
+    let nameEn: String
+    
+    let speakerId: Int
+    
+    let company: String
+    
+    let companyEn: String
+    
+    let jobTitle: String
+    
+    let jobTitleEn: String
+    
+    let img: SpeakerImage
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case name, company, img
+        
+        case nameEn = "name_e"
+        
+        case speakerId = "speaker_id"
+        
+        case companyEn = "company_e"
+        
+        case jobTitle = "job_title"
+        
+        case jobTitleEn = "job_title_e"
     }
 }

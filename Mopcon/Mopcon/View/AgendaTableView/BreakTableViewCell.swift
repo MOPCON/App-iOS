@@ -28,26 +28,15 @@ class BreakTableViewCell: UITableViewCell {
         self.isUserInteractionEnabled = false
     }
     
-    func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent) {
+    func updateUI(startDate: String? = nil, endDate: String? = nil, event: String) {
         
-        timeLabel.text = agenda.duration
-    
-        let language = CurrentLanguage.getLanguage()
-        
-        switch language {
-        
-        case Language.chinese.rawValue:
-        
-            breakStepLabel.text = agenda.schedule_topic
-            
-        case Language.english.rawValue:
-            
-            breakStepLabel.text = agenda.schedule_topic_en
-        
-        default:
-        
-            break
+        if let start = startDate,
+           let end = endDate {
+           
+            timeLabel.text = start + " - " + end
         }
+    
+        breakStepLabel.text = event
     }
 
 }

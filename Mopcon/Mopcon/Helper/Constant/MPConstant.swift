@@ -10,9 +10,11 @@ import Foundation
 
 struct MPConstant {
     
-    static let baseURL = "https://dev.mopcon.org"
+    static let baseURL = "https://mopcon.org/"
     
     static let mopconServerKey = "MopconServerKey"
     
     static let gameServerKey = "GameServerKey"
+    
+    static let mopconWebSite = "https://www.facebook.com/mopcon/"
 }

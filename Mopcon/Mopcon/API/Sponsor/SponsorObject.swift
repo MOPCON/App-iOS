@@ -32,7 +32,7 @@ struct Sponsor: Codable {
     
     let nameEn: String
     
-    let sponsorId: String
+    let sponsorId: Int
     
     let aboutUs: String
     

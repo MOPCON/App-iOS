@@ -8,11 +8,41 @@
 
 import UIKit
 
+enum HostType {
+    
+    case community(String)
+    
+    case participant(String)
+    
+    case normal
+}
+
 class GroupHostDetailViewController: MPBaseViewController {
     
-    var communityID: String?
+    var hostType: HostType = .normal {
+        
+        didSet {
+        
+            switch hostType {
+                
+            case .community(let id):
+                
+                fetchOrganizer(id: id)
+                
+            case .participant(let id):
+            
+                fetchParticipant(id: id)
+                
+            case .normal: emptyView.isHidden = false
+            }
+        }
+    }
     
-    var organizer: Organizer?
+    var fb: String?
+    
+    var twitter: String?
+    
+    var website: String?
     
     @IBOutlet weak var communityDetailImageView: UIImageView!
     
@@ -24,14 +54,23 @@ class GroupHostDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var socialMediaStackView: UIStackView!
     
+    @IBOutlet weak var emptyView: UIView!
+    
     let scrollView = UIScrollView()
     
-    @IBAction func connectToFacebook(_ sender: UIButton) {
+    @objc func openFB(_ sender: UIButton) {
         
-        if let organizer = organizer, let url = URL(string: organizer.facebook) {
+        openURL(fb)
+    }
+    
+    @objc func openTwitter(_ sender: UIButton) {
         
-            UIApplication.shared.open(url, options: [:])
-        }
+        openURL(twitter)
+    }
+    
+    @objc func openWebsite(_ sender: UIButton) {
+        
+        openURL(website)
     }
     
     override func viewDidLoad() {
@@ -50,9 +89,13 @@ class GroupHostDetailViewController: MPBaseViewController {
     
     func setupLayout() {
         
+        emptyView.backgroundColor = UIColor.dark
+        
+        emptyView.isHidden = false
+        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(scrollView)
+        view.insertSubview(scrollView, belowSubview: emptyView)
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
@@ -114,23 +157,44 @@ class GroupHostDetailViewController: MPBaseViewController {
         ])
     }
     
+    private func setupStackView() {
+        
+        if fb != "" {
+            
+            let button = ButtonFactor.facebookButton()
+         
+            socialMediaStackView.addArrangedSubview(button)
+            
+            button.addTarget(self, action: #selector(openFB(_:)), for: .touchUpInside)
+        }
+        
+        if twitter != "" {
+            
+            let button = ButtonFactor.twitterButton()
+         
+            socialMediaStackView.addArrangedSubview(button)
+            
+            button.addTarget(self, action: #selector(openTwitter(_:)), for: .touchUpInside)
+        }
+        
+        if website != "" {
+            
+            let button = ButtonFactor.webSiteButton()
+         
+            socialMediaStackView.addArrangedSubview(button)
+            
+            button.addTarget(self, action: #selector(openWebsite(_:)), for: .touchUpInside)
+        }
+    }
+    
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         communityDetailImageView.makeCircle()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if CurrentLanguage.getLanguage() == Language.english.rawValue {
-            self.navigationItem.title = "Community"
-        }
-    }
-    
-    func fetchOrganizer() {
-        
-        guard let id = communityID else { return }
+    func fetchOrganizer(id: String) {
         
         GroupProvider.fetchOrganizer(
             id: id,
@@ -140,7 +204,15 @@ class GroupHostDetailViewController: MPBaseViewController {
                     
                 case .success(let organizer):
                     
-                    self?.updateUI(organizer: organizer)
+                    self?.updateUI(image: organizer.photo, name: organizer.name, introduction: organizer.introduction)
+                    
+                    self?.fb = organizer.facebook
+                    
+                    self?.twitter = organizer.twitter
+                    
+                    self?.website = organizer.event
+                    
+                    self?.setupStackView()
                     
                 case .failure(let error):
                     
@@ -150,29 +222,46 @@ class GroupHostDetailViewController: MPBaseViewController {
         )
     }
     
-    func updateUI(organizer: Organizer) {
-
-        communityDetailImageView.loadImage(organizer.photo)
+    func fetchParticipant(id: String) {
         
-        communityNameLabel.text = organizer.name
-        
-        let language = CurrentLanguage.getLanguage()
-        
-        switch language {
-        
-        case Language.chinese.rawValue:
-        
-            communityDescriptionLabel.text = organizer.introducion
-        
-        case Language.english.rawValue:
-        
-            communityDescriptionLabel.text = organizer.introducionEn
-        
-        default:
+        GroupProvider.fetchParticipant(
+            id: id,
+            completion: { [weak self] result in
             
-            break
-        }
-        
+                switch result{
+                    
+                case .success(let participanter):
+                    
+                    self?.updateUI(
+                        image: participanter.photo,
+                        name: participanter.name,
+                        introduction: participanter.introduction
+                    )
+                    
+                    self?.fb = participanter.facebook
+                    
+                    self?.twitter = participanter.twitter
+                    
+                    self?.website = participanter.event
+                    
+                    self?.setupStackView()
+                    
+                case .failure(let error):
+                    
+                    print(error)
+                }
+            }
+        )
     }
+    
+    func updateUI(image: String, name: String, introduction: String) {
 
+        emptyView.isHidden = true
+        
+        communityDetailImageView.loadImage(image)
+        
+        communityNameLabel.text = name
+        
+        communityDescriptionLabel.text = introduction
+    }
 }

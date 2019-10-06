@@ -10,7 +10,39 @@ import Foundation
 
 class SponsorProvider {
     
-    static func fetchSponsor(id: String? = nil, completion: @escaping SponsorResultType) {
+    static func fetchSponsor(completion: @escaping SponsorListResultType) {
+        
+        HTTPClient.shared.request(
+            SponsorAPI.sponsorList,
+            completion: { result in
+                
+                switch result{
+                    
+                case .success(let data):
+                    
+                    do {
+                        
+                        let sponsorLists = try JSONDecoder.shared.decode(
+                            SuccessResponse<[SponsorList]>.self,
+                            from: data
+                        )
+                        
+                        completion(Result.success(sponsorLists.data))
+                        
+                    } catch {
+                        
+                        completion(Result.failure(error))
+                    }
+                    
+                case .failure(let error):
+                    
+                        completion(Result.failure(error))
+                }
+            }
+        )
+    }
+    
+    static func fetchSponsor(id: Int, completion: @escaping SponsorResultType) {
         
         HTTPClient.shared.request(
             SponsorAPI.sponsor(id),
@@ -23,7 +55,7 @@ class SponsorProvider {
                     do {
                         
                         let sponsorLists = try JSONDecoder.shared.decode(
-                            SuccessResponse<[SponsorList]>.self,
+                            SuccessResponse<[Sponsor]>.self,
                             from: data
                         )
                         

@@ -9,15 +9,6 @@
 import UIKit
 import Kingfisher
 
-protocol SpeakerTableViewCellDataSource: AnyObject {
-    
-    func numberOfTags(_ cell: SpeakerTableViewCell) -> Int
-    
-    func titleForTags(_ cell: SpeakerTableViewCell, index: Int) -> String
-    
-    func colorForTags(_ cell: SpeakerTableViewCell, index: Int) -> UIColor?
-}
-
 class SpeakerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var baseView: UIView!
@@ -35,18 +26,14 @@ class SpeakerTableViewCell: UITableViewCell {
         }
     }
     
-    weak var dataSource: SpeakerTableViewCellDataSource?
-
-    func updateUI(speaker: Speaker.Payload) {
+    var tags: [Tag] = []
+    
+    func updateUI(speaker: Speaker) {
         
-        if let resource = URL(string: speaker.picture) {
-        
-            self.speakerAvatarImageView.kf.setImage(with: resource)
-        
-        } else {
-        
-            self.speakerAvatarImageView.image = nil
-        }
+        speakerAvatarImageView.kf.setImage(
+            with: URL(string: speaker.img.mobile),
+            placeholder: UIImage.asset(.fieldGameProfile)
+        )
         
         let language = CurrentLanguage.getLanguage()
         
@@ -54,17 +41,21 @@ class SpeakerTableViewCell: UITableViewCell {
         
         case Language.chinese.rawValue:
             
-            self.speakerJobLabel.text = speaker.job
+            self.speakerJobLabel.text = speaker.jobTitle
             self.speakerNameLabel.text = speaker.name
         
         case Language.english.rawValue:
             
-            self.speakerJobLabel.text = speaker.job
-            self.speakerNameLabel.text = speaker.name_en
+            self.speakerJobLabel.text = speaker.jobTitleEn
+            self.speakerNameLabel.text = speaker.nameEn
         
         default:
             break
         }
+        
+        tags = speaker.tags
+        
+        tagView.reloadData()
     }
     
     override func awakeFromNib() {
@@ -75,12 +66,8 @@ class SpeakerTableViewCell: UITableViewCell {
         baseView.layer.borderWidth = 1.0
         baseView.layer.cornerRadius = 6.0
         baseView.clipsToBounds = true
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        self.selectionStyle = .none
-        // Configure the view for the selected state
+        
+        selectionStyle = .none
     }
 }
 
@@ -88,16 +75,16 @@ extension SpeakerTableViewCell: MPTagViewDataSource {
     
     func numberOfTags(_ tagView: MPTagView) -> Int {
         
-        return dataSource?.numberOfTags(self) ?? 0
+        return tags.count
     }
     
     func titleForTags(_ tagView: MPTagView, index: Int) -> String {
         
-        return dataSource?.titleForTags(self, index: index) ?? String.empty
+        return tags[index].name
     }
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
-        return dataSource?.colorForTags(self, index: index)
+        return UIColor(hex: tags[index].color)
     }
 }

@@ -46,6 +46,22 @@ class SelectionView: UIView {
         }
     }
     
+    var seletedIndex: Int? {
+        
+        for (index, subview) in stackView.arrangedSubviews.enumerated() {
+            
+            if let button = subview as? UIButton {
+                
+                if button.isSelected {
+                    
+                    return index
+                }
+            }
+        }
+        
+        return nil
+    }
+    
     //MARK: - Private view object
     private var stackView: UIStackView = {
         
@@ -70,6 +86,11 @@ class SelectionView: UIView {
         for index in 0...(dataSource.numberOfButton(self)-1) {
             
             let button = UIButton()
+            
+            if index == 0 {
+            
+                button.isSelected = true
+            }
             
             button.tag = index
             
@@ -131,6 +152,20 @@ class SelectionView: UIView {
         
         animator.startAnimation()
         
+        resetButton()
+        
+        sender.isSelected = true
+        
         dataSource?.didSelectedButton(self, at: sender.tag)
+    }
+    
+    private func resetButton() {
+        
+        stackView.arrangedSubviews.forEach({ subview in
+            
+            guard let button = subview as? UIButton else { return }
+            
+            button.isSelected = false
+        })
     }
 }

@@ -20,11 +20,6 @@ class EntryViewController: UIViewController {
             case .success(let serverState):
                 
                 UserDefaults.standard.set(
-                    serverState.apiServer.mopcon,
-                    forKey: MPConstant.mopconServerKey
-                )
-                
-                UserDefaults.standard.set(
                     serverState.apiServer.game,
                     forKey: MPConstant.gameServerKey
                 )

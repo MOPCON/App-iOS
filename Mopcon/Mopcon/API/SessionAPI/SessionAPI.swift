@@ -8,14 +8,17 @@
 
 enum SessionAPI: LKRequest {
     
-    case session
+    case session(Int)
+    
+    case allSessions
     
     var endPoint: String {
         
         switch self {
             
-        case .session: return "/api/2019/session"
+        case .allSessions: return "/api/2019/session"
             
+        case .session(let id): return "/api/2019/session/\(id)"
         }
     }
 }

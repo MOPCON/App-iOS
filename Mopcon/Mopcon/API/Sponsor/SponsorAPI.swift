@@ -10,13 +10,15 @@ import Foundation
 
 enum SponsorAPI: LKRequest {
     
-    case sponsor(String?)
+    case sponsorList
+    
+    case sponsor(Int)
     
     var endPoint: String {
         
         switch self {
             
-        case .sponsor: return "/api/2019/sponsor"
+        case .sponsor, .sponsorList: return "/api/2019/sponsor"
         
         }
     }
@@ -25,11 +27,10 @@ enum SponsorAPI: LKRequest {
         
         switch self {
             
-        case .sponsor(let id):
+        case .sponsor(let id): return ["sponsor_id": String(id)]
             
-            guard let id = id else { return [:] }
-            
-            return ["sponsor_id": id]
+        case .sponsorList: return [:]
+        
         }
     }
 }

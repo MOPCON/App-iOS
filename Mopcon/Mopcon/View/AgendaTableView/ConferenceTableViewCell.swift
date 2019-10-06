@@ -8,10 +8,9 @@
 
 import UIKit
 
-protocol WhichCellButtonDidTapped {
+protocol ConferenceTableViewCellDelegate: AnyObject {
     
-    func whichCellButtonDidTapped(sender: UIButton,index:IndexPath)
-    
+    func likeButtonDidTouched(_ cell: ConferenceTableViewCell)
 }
 
 class ConferenceTableViewCell: UITableViewCell {
@@ -32,27 +31,17 @@ class ConferenceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
     
-    var delegate: WhichCellButtonDidTapped?
+    weak var delegate: ConferenceTableViewCellDelegate?
     
-    var tags: [SpeakerTag] = [.blockchain, .design, .ioT]
+    var tags: [Tag] = []
     
     var index:IndexPath?
     
     @IBAction func addToMySchedule(_ sender: UIButton) {
         
-        guard let index = index else { return }
+        sender.isSelected = !sender.isSelected
         
-        if sender.image(for: .normal) == #imageLiteral(resourceName: "dislike_24") {
-            
-            addToMyScheduleButton.setImage(#imageLiteral(resourceName: "like_24"), for: .normal)
-            
-        } else {
-            
-            addToMyScheduleButton.setImage(#imageLiteral(resourceName: "dislike_24"), for: .normal)
-            
-        }
-        
-        delegate?.whichCellButtonDidTapped(sender: sender, index: index)
+        delegate?.likeButtonDidTouched(self)
     }
     
     override func awakeFromNib() {
@@ -80,7 +69,13 @@ class ConferenceTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent){
+    func updateUI(room: Room, dateFormate: String = "HH:mm"){
+        
+        durationLabel.text = DateFormatter.string(for: room.startedAt, formatter: dateFormate)! + " - " + DateFormatter.string(for: room.endedAt, formatter: dateFormate)!
+        
+        locationLabel.text = room.room
+        
+        addToMyScheduleButton.isSelected = room.isLiked
         
         let language = CurrentLanguage.getLanguage()
         
@@ -88,28 +83,24 @@ class ConferenceTableViewCell: UITableViewCell {
             
         case Language.chinese.rawValue:
             
-            self.durationLabel.text = agenda.duration
+            topicLabel.text = room.topic
             
-            self.topicLabel.text = agenda.schedule_topic
-            
-            self.speakerLabel.text = agenda.name
-            
-            self.locationLabel.text = agenda.location
+            speakerLabel.text = room.speakers.reduce("", { $0 + $1.name + " "})
             
         case Language.english.rawValue:
             
-            self.durationLabel.text = agenda.duration
+            topicLabel.text = room.topicEn
             
-            self.topicLabel.text = agenda.schedule_topic_en
-            
-            self.speakerLabel.text = agenda.name_en
-            
-            self.locationLabel.text = agenda.location
+            speakerLabel.text = room.speakers.reduce("", { $0 + $1.nameEn + " "})
             
         default:
             
             break
         }
+        
+        tags = room.tags
+        
+        tagView.reloadData()
     }
 }
 
@@ -122,11 +113,11 @@ extension ConferenceTableViewCell: MPTagViewDataSource {
     
     func titleForTags(_ tagView: MPTagView, index: Int) -> String {
         
-        return tags[index].rawValue
+        return tags[index].name
     }
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
-        return tags[index].color
+        return UIColor(hex: tags[index].color)
     }
 }
