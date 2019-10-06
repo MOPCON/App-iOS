@@ -37,7 +37,7 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var topicLabel: UILabel!
     
-    @IBOutlet weak var speakerImageView: UIImageView!
+    @IBOutlet weak var imageStackView: UIStackView!
     
     @IBOutlet weak var speakerName: UILabel!
     
@@ -80,8 +80,6 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-    
-        speakerImageView.makeCircle()
 
         sponsorImageView.makeCircle()
     }
@@ -216,11 +214,24 @@ class ConferenceDetailViewController: MPBaseViewController {
             
             sponsorLabel.isHidden = true
         }
+        
+        imageStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
 
-        speakerImageView.kf.setImage(
-            with: URL(string: room.speakers.first!.img.mobile),
-            placeholder: UIImage.asset(.fieldGameProfile)
-        )
+        for speaker in room.speakers {
+            
+            let imageView = UIImageView()
+            
+            imageView.loadImage(speaker.img.mobile)
+            
+            imageStackView.addArrangedSubview(imageView)
+            
+            imageView.contentMode = .scaleAspectFit
+            
+            imageView.widthAnchor.constraint(
+                equalTo: view.widthAnchor,
+                multiplier: 80/375
+            ).isActive = true
+        }
         
         tags = room.tags
 
@@ -236,11 +247,13 @@ class ConferenceDetailViewController: MPBaseViewController {
             
             topicLabel.text = room.topic
 
-            speakerName.text = room.speakers.first?.name
+            speakerName.text = room.speakers.map({ $0.name }).joined(separator: " | ")
 
-            let job = "\(room.speakers.first?.jobTitle ?? "")@\(room.speakers.first?.company ?? "")"
+            let jobs = room.speakers
+                .map({ "\($0.jobTitle)@\($0.company)"})
+                .joined(separator: " | ")
 
-            speakerJob.text = (job == "@") ? "" : job
+            speakerJob.text = jobs
 
         case Language.english.rawValue:
 
@@ -250,11 +263,13 @@ class ConferenceDetailViewController: MPBaseViewController {
 
             topicLabel.text = room.topicEn
 
-            speakerName.text = room.speakers.first?.name
+            speakerName.text = room.speakers.map({ $0.nameEn }).joined(separator: " | ")
 
-            let job = "\(room.speakers.first?.jobTitleEn ?? "")@\(room.speakers.first?.companyEn ?? "")"
+            let jobs = room.speakers
+            .map({ "\($0.jobTitleEn)@\($0.companyEn)"})
+            .joined(separator: " | ")
 
-            speakerJob.text = (job == "@") ? "" : job
+            speakerJob.text = jobs
 
         default:
 

@@ -105,9 +105,14 @@ class SessionsViewController: MPBaseSessionViewController {
             
         } else {
             
-            let detailVC = agendaStoryboard.instantiateViewController(
+            guard let detailVC = agendaStoryboard.instantiateViewController(
                 withIdentifier: ConferenceDetailViewController.identifier
-            )
+            ) as? ConferenceDetailViewController else {
+                    
+                    return
+            }
+            
+            detailVC.conferenceType = .session(sessions[indexPath.section].room[indexPath.row].sessionId)
             
             show(detailVC, sender: nil)
         }

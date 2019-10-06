@@ -25,16 +25,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="田哲禹" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihY-HJ-FXG">
-                                <rect key="frame" x="20" y="162.5" width="49" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="751" text="田哲禹" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihY-HJ-FXG">
+                                <rect key="frame" x="20" y="162.5" width="254" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R1: 一廳" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKG-n3-Pnz">
-                                <rect key="frame" x="300" y="164" width="54" height="17"/>
+                                <rect key="frame" x="300" y="162.5" width="54" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="FDK-z9-kg9"/>
                                     <constraint firstAttribute="height" constant="17" id="Rsr-ZI-K9F"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -42,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFE-YB-vKa">
-                                <rect key="frame" x="284" y="161.5" width="12" height="22"/>
+                                <rect key="frame" x="284" y="160" width="12" height="22"/>
                                 <state key="normal" image="marker_20"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 - 00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTs-eb-QaE">
@@ -77,6 +76,7 @@
                             <constraint firstAttribute="bottom" secondItem="ihY-HJ-FXG" secondAttribute="bottom" priority="750" constant="16" id="0S6-Xx-qgh"/>
                             <constraint firstItem="ihY-HJ-FXG" firstAttribute="leading" secondItem="S8d-Zw-X8C" secondAttribute="leading" id="DUn-6F-g86"/>
                             <constraint firstItem="ihY-HJ-FXG" firstAttribute="top" secondItem="zyj-J6-3Dl" secondAttribute="bottom" constant="22" id="IsP-sL-Ewf"/>
+                            <constraint firstItem="XFE-YB-vKa" firstAttribute="leading" secondItem="ihY-HJ-FXG" secondAttribute="trailing" constant="10" id="J5f-rt-pZ6"/>
                             <constraint firstItem="zyj-J6-3Dl" firstAttribute="top" secondItem="S8d-Zw-X8C" secondAttribute="bottom" constant="8" id="Kax-a2-nKE"/>
                             <constraint firstItem="gTs-eb-QaE" firstAttribute="top" secondItem="GLq-LJ-DzM" secondAttribute="top" constant="12" id="QWs-lW-vJU"/>
                             <constraint firstItem="RKG-n3-Pnz" firstAttribute="leading" secondItem="XFE-YB-vKa" secondAttribute="trailing" constant="4" id="Z4a-BK-jr5"/>
@@ -89,8 +89,8 @@
                             <constraint firstItem="gTs-eb-QaE" firstAttribute="leading" secondItem="GLq-LJ-DzM" secondAttribute="leading" constant="20" id="rdi-vY-K6Q"/>
                             <constraint firstAttribute="trailing" secondItem="TUx-0o-XLW" secondAttribute="trailing" constant="20" id="tRv-w5-qXj"/>
                             <constraint firstItem="S8d-Zw-X8C" firstAttribute="leading" secondItem="gTs-eb-QaE" secondAttribute="leading" id="vwE-Hi-CL7"/>
-                            <constraint firstItem="XFE-YB-vKa" firstAttribute="centerY" secondItem="ihY-HJ-FXG" secondAttribute="centerY" id="xmR-zT-hkm"/>
                             <constraint firstItem="TUx-0o-XLW" firstAttribute="centerY" secondItem="gTs-eb-QaE" secondAttribute="centerY" id="y28-oW-vd0"/>
+                            <constraint firstAttribute="bottom" secondItem="XFE-YB-vKa" secondAttribute="bottom" constant="16" id="zgb-Sr-c13"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

@@ -106,21 +106,26 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EB4-NM-WDG">
                                 <rect key="frame" x="0.0" y="44" width="375" height="810"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="field_game_profile" translatesAutoresizingMaskIntoConstraints="NO" id="KIP-tn-Cp9">
-                                        <rect key="frame" x="147.66666666666666" y="33" width="80" height="80"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="KIP-tn-Cp9" secondAttribute="height" multiplier="1:1" id="xn9-d0-OsU"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="田哲宇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAQ-fR-481">
-                                        <rect key="frame" x="163.66666666666666" y="121.00000000000001" width="48" height="22.666666666666671"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YvJ-4z-lNF">
+                                        <rect key="frame" x="102.66666666666669" y="33" width="170" height="80"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E70-09-Mev">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zhf-M8-coC">
+                                                <rect key="frame" x="90" y="0.0" width="80" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="田哲宇" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAQ-fR-481">
+                                        <rect key="frame" x="20" y="121.00000000000001" width="335" height="22.666666666666671"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台灣區經理@Google Cloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdz-om-dnW">
-                                        <rect key="frame" x="108.33333333333333" y="147.66666666666666" width="158.66666666666669" height="18.333333333333343"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台灣區經理@Google Cloud" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdz-om-dnW">
+                                        <rect key="frame" x="20" y="147.66666666666666" width="335" height="18.333333333333343"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -171,7 +176,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="贊助廠商" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOD-mX-dfk">
-                                        <rect key="frame" x="154.66666666666666" y="743.66666666666663" width="66" height="20"/>
+                                        <rect key="frame" x="155" y="743.66666666666663" width="65.333333333333314" height="19.333333333333371"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -190,9 +195,8 @@
                                     <constraint firstAttribute="trailing" secondItem="Smd-cG-ipn" secondAttribute="trailing" constant="20" id="9FB-FR-Wnx"/>
                                     <constraint firstItem="rNi-i9-2xD" firstAttribute="width" secondItem="EB4-NM-WDG" secondAttribute="width" multiplier="80:375" id="BUU-y6-wbi"/>
                                     <constraint firstItem="cdz-om-dnW" firstAttribute="centerX" secondItem="EB4-NM-WDG" secondAttribute="centerX" id="CQG-1t-xAa"/>
-                                    <constraint firstItem="KIP-tn-Cp9" firstAttribute="width" secondItem="EB4-NM-WDG" secondAttribute="width" multiplier="80:375" id="EjQ-QJ-EIx"/>
+                                    <constraint firstItem="XAQ-fR-481" firstAttribute="leading" secondItem="EB4-NM-WDG" secondAttribute="leading" constant="20" id="Izy-iv-6UO"/>
                                     <constraint firstItem="heJ-Gy-vJA" firstAttribute="top" secondItem="IJD-i3-sqU" secondAttribute="bottom" constant="16" id="J2n-kj-oxk"/>
-                                    <constraint firstItem="KIP-tn-Cp9" firstAttribute="centerX" secondItem="EB4-NM-WDG" secondAttribute="centerX" id="Jaf-Vh-MmC"/>
                                     <constraint firstItem="76y-nZ-5Os" firstAttribute="top" secondItem="cyG-dJ-K3q" secondAttribute="bottom" constant="57" id="OAz-WH-rAi"/>
                                     <constraint firstItem="76y-nZ-5Os" firstAttribute="centerX" secondItem="EB4-NM-WDG" secondAttribute="centerX" id="Syx-yO-DlW"/>
                                     <constraint firstItem="jCX-hR-J9A" firstAttribute="leading" secondItem="EB4-NM-WDG" secondAttribute="leading" id="TiX-ON-CgE"/>
@@ -206,25 +210,31 @@
                                     <constraint firstAttribute="trailing" secondItem="jCX-hR-J9A" secondAttribute="trailing" id="gMT-Dg-d9z"/>
                                     <constraint firstItem="IJD-i3-sqU" firstAttribute="leading" secondItem="EB4-NM-WDG" secondAttribute="leading" constant="20" id="h8Y-XZ-Q18"/>
                                     <constraint firstItem="cyG-dJ-K3q" firstAttribute="trailing" secondItem="IJD-i3-sqU" secondAttribute="trailing" id="hZ9-fw-PRe"/>
-                                    <constraint firstItem="XAQ-fR-481" firstAttribute="top" secondItem="KIP-tn-Cp9" secondAttribute="bottom" constant="8" id="iHK-po-KcB"/>
+                                    <constraint firstItem="XAQ-fR-481" firstAttribute="top" secondItem="YvJ-4z-lNF" secondAttribute="bottom" constant="8.0000000000000142" id="hjd-Va-MQP"/>
                                     <constraint firstAttribute="bottom" secondItem="EOD-mX-dfk" secondAttribute="bottom" constant="36" id="laP-hk-cr0"/>
+                                    <constraint firstItem="cdz-om-dnW" firstAttribute="leading" secondItem="EB4-NM-WDG" secondAttribute="leading" constant="20" id="leK-gz-knk"/>
+                                    <constraint firstItem="YvJ-4z-lNF" firstAttribute="centerX" secondItem="EB4-NM-WDG" secondAttribute="centerX" id="mPT-Ii-wIx"/>
+                                    <constraint firstItem="YvJ-4z-lNF" firstAttribute="top" secondItem="EB4-NM-WDG" secondAttribute="top" constant="33" id="mqp-Yn-X9q"/>
                                     <constraint firstAttribute="trailing" secondItem="IJD-i3-sqU" secondAttribute="trailing" constant="20" id="pcD-a8-m39"/>
                                     <constraint firstItem="IJD-i3-sqU" firstAttribute="centerX" secondItem="EB4-NM-WDG" secondAttribute="centerX" id="ryS-uW-8Vd"/>
+                                    <constraint firstAttribute="trailing" secondItem="cdz-om-dnW" secondAttribute="trailing" constant="20" id="t0y-hg-9dy"/>
                                     <constraint firstItem="cdz-om-dnW" firstAttribute="top" secondItem="XAQ-fR-481" secondAttribute="bottom" constant="4" id="tDu-9p-By3"/>
                                     <constraint firstItem="heJ-Gy-vJA" firstAttribute="leading" secondItem="IJD-i3-sqU" secondAttribute="leading" id="tli-IO-yLl"/>
                                     <constraint firstItem="IJD-i3-sqU" firstAttribute="top" secondItem="cdz-om-dnW" secondAttribute="bottom" constant="25" id="v1U-z1-aMT"/>
                                     <constraint firstItem="EOD-mX-dfk" firstAttribute="centerX" secondItem="EB4-NM-WDG" secondAttribute="centerX" id="wAM-Ok-TS1"/>
                                     <constraint firstItem="EOD-mX-dfk" firstAttribute="top" secondItem="rNi-i9-2xD" secondAttribute="bottom" constant="10" id="woa-sT-4y4"/>
-                                    <constraint firstItem="KIP-tn-Cp9" firstAttribute="top" secondItem="EB4-NM-WDG" secondAttribute="top" constant="33" id="ylL-dT-OPP"/>
+                                    <constraint firstAttribute="trailing" secondItem="XAQ-fR-481" secondAttribute="trailing" constant="20" id="wra-Tk-FBc"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BUu-Dl-1RR" firstAttribute="bottom" secondItem="EB4-NM-WDG" secondAttribute="bottom" id="2cd-Cf-Oky"/>
+                            <constraint firstItem="zhf-M8-coC" firstAttribute="width" secondItem="BUu-Dl-1RR" secondAttribute="width" multiplier="80/375" id="3RW-7b-K8a"/>
                             <constraint firstItem="BUu-Dl-1RR" firstAttribute="trailing" secondItem="EB4-NM-WDG" secondAttribute="trailing" id="8L0-6F-qfz"/>
                             <constraint firstItem="EB4-NM-WDG" firstAttribute="top" secondItem="BUu-Dl-1RR" secondAttribute="top" id="Zcz-pt-wk4"/>
                             <constraint firstItem="EB4-NM-WDG" firstAttribute="leading" secondItem="BUu-Dl-1RR" secondAttribute="leading" id="iLF-hW-7EP"/>
+                            <constraint firstItem="YvJ-4z-lNF" firstAttribute="height" secondItem="BUu-Dl-1RR" secondAttribute="width" multiplier="80/375" id="kYt-uu-nuI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BUu-Dl-1RR"/>
                     </view>
@@ -240,9 +250,9 @@
                     <size key="freeformSize" width="375" height="888"/>
                     <connections>
                         <outlet property="addToMyScheduleButtonItem" destination="kxq-fN-6D2" id="D7f-rB-JkT"/>
+                        <outlet property="imageStackView" destination="YvJ-4z-lNF" id="Xug-kH-tWb"/>
                         <outlet property="scheduleInfoLabel" destination="cyG-dJ-K3q" id="Ize-zY-x7m"/>
                         <outlet property="scrollView" destination="EB4-NM-WDG" id="dnt-VI-G5i"/>
-                        <outlet property="speakerImageView" destination="KIP-tn-Cp9" id="AcV-Zi-gHA"/>
                         <outlet property="speakerJob" destination="cdz-om-dnW" id="S0E-Al-jWq"/>
                         <outlet property="speakerName" destination="XAQ-fR-481" id="MJe-CW-8eQ"/>
                         <outlet property="sponsorImageView" destination="rNi-i9-2xD" id="P2N-Nx-oiE"/>
@@ -482,7 +492,6 @@
     </scenes>
     <resources>
         <image name="dislike_24" width="18" height="16"/>
-        <image name="field_game_profile" width="80" height="80"/>
         <image name="launchImage" width="300" height="300"/>
     </resources>
 </document>
