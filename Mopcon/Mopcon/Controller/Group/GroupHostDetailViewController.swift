@@ -44,13 +44,15 @@ class GroupHostDetailViewController: MPBaseViewController {
     
     var website: String?
     
+    var event: String?
+    
     @IBOutlet weak var communityDetailImageView: UIImageView!
     
     @IBOutlet weak var communityNameLabel: UILabel!
     
     @IBOutlet weak var communityDescriptionLabel: UILabel!
     
-    @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var moreBtn: UIButton!
     
     @IBOutlet weak var socialMediaStackView: UIStackView!
     
@@ -58,6 +60,7 @@ class GroupHostDetailViewController: MPBaseViewController {
     
     let scrollView = UIScrollView()
     
+    //MARK: - Action
     @objc func openFB(_ sender: UIButton) {
         
         openURL(fb)
@@ -73,20 +76,40 @@ class GroupHostDetailViewController: MPBaseViewController {
         openURL(website)
     }
     
+    @IBAction func openEvent(_ sender: UIButton) {
+        
+        guard let event = event,
+              event != ""
+        else {
+            
+            return openURL(fb)
+        }
+        
+        openURL(event)
+    }
+    
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         communityDescriptionLabel.adjustsFontSizeToFitWidth = true
         
-        facebookButton.layer.cornerRadius = 15
+        moreBtn.layer.cornerRadius = 15
         
-        facebookButton.layer.borderColor = UIColor.azure?.cgColor
+        moreBtn.layer.borderColor = UIColor.azure?.cgColor
         
-        facebookButton.layer.borderWidth = 1.0
+        moreBtn.layer.borderWidth = 1.0
         
         setupLayout()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        communityDetailImageView.makeCircle()
+    }
+    
+    //MARK: Layout
     func setupLayout() {
         
         emptyView.backgroundColor = UIColor.dark
@@ -125,15 +148,15 @@ class GroupHostDetailViewController: MPBaseViewController {
             socialMediaStackView.bottomAnchor.constraint(equalTo: communityDescriptionLabel.topAnchor, constant: -16)
         ])
         
-        facebookButton.translatesAutoresizingMaskIntoConstraints = false
+        moreBtn.translatesAutoresizingMaskIntoConstraints = false
         
-        scrollView.addSubview(facebookButton)
+        scrollView.addSubview(moreBtn)
         
         NSLayoutConstraint.activate([
-            facebookButton.centerXAnchor.constraint(equalTo: communityDescriptionLabel.centerXAnchor),
-            facebookButton.topAnchor.constraint(equalTo: communityDescriptionLabel.bottomAnchor, constant: 76),
-            facebookButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 172/375),
-            facebookButton.heightAnchor.constraint(equalTo: facebookButton.widthAnchor, multiplier: 52/172)
+            moreBtn.centerXAnchor.constraint(equalTo: communityDescriptionLabel.centerXAnchor),
+            moreBtn.topAnchor.constraint(equalTo: communityDescriptionLabel.bottomAnchor, constant: 76),
+            moreBtn.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 172/375),
+            moreBtn.heightAnchor.constraint(equalTo: moreBtn.widthAnchor, multiplier: 52/172)
         ])
         
         communityNameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -187,12 +210,18 @@ class GroupHostDetailViewController: MPBaseViewController {
         }
     }
     
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    func updateUI(image: String, name: String, introduction: String) {
+
+        emptyView.isHidden = true
         
-        communityDetailImageView.makeCircle()
+        communityDetailImageView.loadImage(image)
+        
+        communityNameLabel.text = name
+        
+        communityDescriptionLabel.text = introduction
     }
+    
+    //MARK: - API
     
     func fetchOrganizer(id: String) {
         
@@ -211,6 +240,8 @@ class GroupHostDetailViewController: MPBaseViewController {
                     self?.twitter = organizer.twitter
                     
                     self?.website = organizer.event
+                    
+                    self?.event = organizer.event
                     
                     self?.setupStackView()
                     
@@ -242,7 +273,7 @@ class GroupHostDetailViewController: MPBaseViewController {
                     
                     self?.twitter = participanter.twitter
                     
-                    self?.website = participanter.event
+                    self?.event = participanter.event
                     
                     self?.setupStackView()
                     
@@ -252,16 +283,5 @@ class GroupHostDetailViewController: MPBaseViewController {
                 }
             }
         )
-    }
-    
-    func updateUI(image: String, name: String, introduction: String) {
-
-        emptyView.isHidden = true
-        
-        communityDetailImageView.loadImage(image)
-        
-        communityNameLabel.text = name
-        
-        communityDescriptionLabel.text = introduction
     }
 }
