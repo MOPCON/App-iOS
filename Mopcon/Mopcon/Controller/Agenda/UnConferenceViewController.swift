@@ -137,11 +137,11 @@ extension UnConferenceViewController: ConferenceTableViewCellDelegate {
         
         if room.isLiked {
             
-            FavoriteManager.shared.addUnconfId(id: room.sessionId)
+            FavoriteManager.shared.addUnconf(room: room)
             
         } else {
             
-            FavoriteManager.shared.removeUnconfId(id: room.sessionId)
+            FavoriteManager.shared.removeUnconf(room: room)
         }
     }
 }

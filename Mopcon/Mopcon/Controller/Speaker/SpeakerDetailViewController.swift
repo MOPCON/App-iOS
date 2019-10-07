@@ -28,6 +28,8 @@ class SpeakerDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var buttonStackView: UIStackView!
     
+    let spinner = LoadingTool.setActivityindicator()
+    
     var speaker: Speaker?
 
     //MARK: - View Life Cycle
@@ -158,11 +160,30 @@ extension SpeakerDetailViewController: SpeakerTalkInfoViewDelegate {
         
         if infoView.likedButton.isSelected {
             
-            FavoriteManager.shared.addSessionId(id: speaker.sessionID)
+            spinner.startAnimating()
+            
+            SessionProvider.fetchSession(id: speaker.sessionID, completion: { [weak self] result in
+                
+                self?.throwToMainThreadAsync {
+                    
+                    switch result {
+                        
+                    case .success(let room):
+                        
+                        FavoriteManager.shared.addSession(room: room)
+                        
+                    case .failure(let error):
+                        
+                        print(error)
+                    }
+                    
+                    self?.spinner.stopAnimating()
+                }
+            })
             
         } else {
             
-            FavoriteManager.shared.removeSessionId(id: speaker.sessionID)
+            FavoriteManager.shared.removeSession(id: speaker.sessionID)
         }
     }
 }

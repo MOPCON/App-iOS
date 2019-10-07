@@ -222,7 +222,7 @@ extension LobbyViewController: LobbySessionCellDelegate {
     
     func likeButtonDidTouched(_ cell: LobbySessionCell, id: Int, isLiked: Bool) {
         
-        FavoriteManager.shared.removeSessionId(id: id)
+        FavoriteManager.shared.removeSession(id: id)
     }
     
     func moreButtonDidTouched(_ cell: LobbySessionCell) {

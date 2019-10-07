@@ -59,6 +59,8 @@ class ConferenceDetailViewController: MPBaseViewController {
         }
     }
     
+    var room: Room?
+    
     @IBOutlet weak var tagView: MPTagView! {
         
         didSet {
@@ -86,7 +88,7 @@ class ConferenceDetailViewController: MPBaseViewController {
             
             switch conferenceType {
                 
-            case .session(let id): FavoriteManager.shared.removeSessionId(id: id)
+            case .session(let id): FavoriteManager.shared.removeSession(id: id)
             
             default: break
                 
@@ -98,7 +100,11 @@ class ConferenceDetailViewController: MPBaseViewController {
             
             switch conferenceType {
                 
-            case .session(let id): FavoriteManager.shared.addSessionId(id: id)
+            case .session(_):
+                
+                guard let room = room else { return }
+                
+                FavoriteManager.shared.addSession(room: room)
             
             default: break
                 
@@ -119,6 +125,8 @@ class ConferenceDetailViewController: MPBaseViewController {
             case .success(let room):
                 
                 self?.throwToMainThreadAsync {
+                    
+                    self?.room = room
                     
                     self?.updateUI(room: room)
                     

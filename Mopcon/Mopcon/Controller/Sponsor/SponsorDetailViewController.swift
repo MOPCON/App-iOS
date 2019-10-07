@@ -61,6 +61,8 @@ class SponsorDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var sponsorsTableView: UITableView!
     
+    let spinner = LoadingTool.setActivityindicator()
+    
     var sponsor: Sponsor? {
         
         didSet {
@@ -141,11 +143,27 @@ extension SponsorDetailViewController: SponsorSpeechCellDelegate {
         
         if isLiked {
             
-            FavoriteManager.shared.addSessionId(id: sessionId)
+            spinner.startAnimating()
+            
+            SessionProvider.fetchSession(id: sessionId, completion: { [weak self] result in
+                
+                self?.throwToMainThreadAsync {
+                    
+                    switch result {
+                        
+                    case .success(let room): FavoriteManager.shared.addSession(room: room)
+                        
+                    case .failure(let error): print(error)
+                        
+                    }
+                    
+                    self?.spinner.stopAnimating()
+                }
+            })
             
         } else {
             
-            FavoriteManager.shared.removeSessionId(id: sessionId)
+            FavoriteManager.shared.removeSession(id: sessionId)
         }
     }
 }
