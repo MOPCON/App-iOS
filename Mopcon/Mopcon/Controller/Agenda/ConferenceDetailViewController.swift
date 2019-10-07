@@ -233,7 +233,7 @@ class ConferenceDetailViewController: MPBaseViewController {
             ).isActive = true
         }
         
-        tags = room.tags
+        generateTags(room: room)
 
         let language = CurrentLanguage.getLanguage()
 
@@ -276,6 +276,29 @@ class ConferenceDetailViewController: MPBaseViewController {
             break
         }
     }
+    
+    private func generateTags(room: Room) {
+        
+        tags = []
+        
+        if room.isKeynote {
+            
+            tags.append(TagFactory.keynoteTag())
+        }
+        
+        if !room.recordable {
+            
+            tags.append(TagFactory.unrecordableTag())
+        }
+        
+        if room.sponsorId != 0 {
+            
+            tags.append(TagFactory.partnerTag())
+        }
+        
+        tags.append(TagFactory.levelTag(level: room.level))
+        
+    }
 }
 
 extension ConferenceDetailViewController: MPTagViewDataSource {
@@ -293,5 +316,15 @@ extension ConferenceDetailViewController: MPTagViewDataSource {
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
         return UIColor(hex: tags[index].color)
+    }
+    
+    func viewType(_ tagView: MPTagView, index: Int) -> TagViewType {
+        
+        if tags[index].name == "Keynote" {
+            
+            return .solid
+        }
+        
+        return .hollow
     }
 }

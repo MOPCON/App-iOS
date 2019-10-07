@@ -8,14 +8,31 @@
 
 import UIKit
 
+enum TagViewType {
+    
+    case solid
+    
+    case hollow
+}
+
 protocol MPTagViewDataSource: AnyObject {
     
     func numberOfTags(_ tagView: MPTagView) -> Int
+    
+    func viewType(_ tagView: MPTagView, index: Int) -> TagViewType
     
     func titleForTags(_ tagView: MPTagView, index: Int) -> String
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor?
     
+}
+
+extension MPTagViewDataSource {
+    
+    func viewType(_ tagView: MPTagView, index: Int) -> TagViewType {
+        
+        return .solid
+    }
 }
 
 class MPTagView: UIView {
@@ -92,11 +109,37 @@ extension MPTagView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagViewCell.identifier, for: indexPath)
         
-        guard let tagViewCell = cell as? TagViewCell else { return cell }
+        guard let tagViewCell = cell as? TagViewCell,
+              let dataSource = dataSource
+        else {
+            
+            return cell
+        }
         
-        tagViewCell.label.text = dataSource?.titleForTags(self, index: indexPath.row)
+        tagViewCell.label.text = dataSource.titleForTags(self, index: indexPath.row)
+
+        switch dataSource.viewType(self, index: indexPath.row) {
+            
+        case .hollow:
+            
+            tagViewCell.backgroundColor = UIColor.clear
+            
+            tagViewCell.label.textColor = dataSource.colorForTags(self, index: indexPath.row)
+            
+            tagViewCell.layer.borderColor = dataSource.colorForTags(self, index: indexPath.row)?.cgColor
+            
+            tagViewCell.layer.borderWidth = 1
+            
+        case .solid:
         
-        tagViewCell.backgroundColor = dataSource?.colorForTags(self, index: indexPath.row)
+            tagViewCell.backgroundColor = dataSource.colorForTags(self, index: indexPath.row)
+        
+            tagViewCell.label.textColor = UIColor.white
+            
+            tagViewCell.layer.borderColor = UIColor.clear.cgColor
+            
+            tagViewCell.layer.borderWidth = 0
+        }
         
         return tagViewCell
     }

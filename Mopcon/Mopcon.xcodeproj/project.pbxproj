@@ -52,6 +52,7 @@
 		3C6A38DE2305A3F200B4546B /* MPTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A38DD2305A3F200B4546B /* MPTagView.swift */; };
 		3C7D65AD23167D2900D0EEE2 /* FieldGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D65AC23167D2900D0EEE2 /* FieldGameViewController.swift */; };
 		3C7D65AF2316822500D0EEE2 /* FieldGameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7D65AE2316822500D0EEE2 /* FieldGameHeaderView.swift */; };
+		3C8215A9234AED6E009F2FD6 /* TagFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8215A8234AED6E009F2FD6 /* TagFactory.swift */; };
 		3C8C357623069B4000D04CB0 /* VolunteerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */; };
 		3C903F8322979AE600765CB2 /* Agenda.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8222979AE600765CB2 /* Agenda.storyboard */; };
 		3C903F8722979B0C00765CB2 /* Communication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C903F8622979B0C00765CB2 /* Communication.storyboard */; };
@@ -111,7 +112,6 @@
 		5E349CA8212411570060297A /* SponsorTableViewCellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E349CA7212411570060297A /* SponsorTableViewCellID.swift */; };
 		5E4A0046216F273B00C4A656 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4A0045216F273B00C4A656 /* QRCodeViewController.swift */; };
 		5E682E1A213CFE4400FC37CF /* FieldGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E682E19213CFE4400FC37CF /* FieldGame.storyboard */; };
-		5E6CBDA1217BB9D60097D5E2 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CBDA0217BB9D60097D5E2 /* Wallet.swift */; };
 		5E9FEF0021294FD70096B4A8 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */; };
 		5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */; };
 		5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF59B9C215DBCD200CF622C /* LoadingTool.swift */; };
@@ -219,6 +219,7 @@
 		3C6A38DD2305A3F200B4546B /* MPTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPTagView.swift; sourceTree = "<group>"; };
 		3C7D65AC23167D2900D0EEE2 /* FieldGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameViewController.swift; sourceTree = "<group>"; };
 		3C7D65AE2316822500D0EEE2 /* FieldGameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameHeaderView.swift; sourceTree = "<group>"; };
+		3C8215A8234AED6E009F2FD6 /* TagFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFactory.swift; sourceTree = "<group>"; };
 		3C8C357523069B4000D04CB0 /* VolunteerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerDetailViewController.swift; sourceTree = "<group>"; };
 		3C903F8222979AE600765CB2 /* Agenda.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Agenda.storyboard; sourceTree = "<group>"; };
 		3C903F8622979B0C00765CB2 /* Communication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Communication.storyboard; sourceTree = "<group>"; };
@@ -280,7 +281,6 @@
 		5E349CA7212411570060297A /* SponsorTableViewCellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorTableViewCellID.swift; sourceTree = "<group>"; };
 		5E4A0045216F273B00C4A656 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		5E682E19213CFE4400FC37CF /* FieldGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FieldGame.storyboard; sourceTree = "<group>"; };
-		5E6CBDA0217BB9D60097D5E2 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		5EF59B97215CDF2800CF622C /* Mopcon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mopcon.entitlements; sourceTree = "<group>"; };
 		5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -933,7 +933,7 @@
 			isa = PBXGroup;
 			children = (
 				3CC1736B2340D1C400F42076 /* FavoriteManager.swift */,
-				5E6CBDA0217BB9D60097D5E2 /* Wallet.swift */,
+				3C8215A8234AED6E009F2FD6 /* TagFactory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1237,7 +1237,6 @@
 				D62D30D320ED065D00BBDF5E /* AgendaTableViewCellID.swift in Sources */,
 				3C1DCD6E233F10E7005EEEC9 /* UITableViewExtension.swift in Sources */,
 				3C31E676230FB3C400000518 /* InitialProvider.swift in Sources */,
-				5E6CBDA1217BB9D60097D5E2 /* Wallet.swift in Sources */,
 				3CC173662340C76D00F42076 /* NewsObject.swift in Sources */,
 				D6A67ABD20EE03FE00D4886E /* CommunicationTableViewCellID.swift in Sources */,
 				3C5FF12623352B6B00D82CC6 /* MPBaseSessionViewController.swift in Sources */,
@@ -1287,6 +1286,7 @@
 				D633463B20E914720033E5B4 /* NewsCollectionViewCell.swift in Sources */,
 				3C3FFE9E22FAA90E00873416 /* SpeakerTalkInfoView.swift in Sources */,
 				D6555F2820EB2A83000816DF /* CustomSelectedButton.swift in Sources */,
+				3C8215A9234AED6E009F2FD6 /* TagFactory.swift in Sources */,
 				53F83EA723238E7B003A35B8 /* FieldGameAPI.swift in Sources */,
 				3CBDCF7122E182F700561D8D /* SelectionView.swift in Sources */,
 				3C2160D6233B684B00EEF638 /* SpeakerObject.swift in Sources */,
