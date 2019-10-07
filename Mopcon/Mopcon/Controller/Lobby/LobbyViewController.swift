@@ -189,6 +189,11 @@ extension LobbyViewController: LobbySessionCellDelegate {
         
         FavoriteManager.shared.removeSessionId(id: id)
     }
+    
+    func moreButtonDidTouched(_ cell: LobbySessionCell) {
+        
+        tabBarController?.selectedIndex = 1
+    }
 }
 
 private enum CellType: CaseIterable {

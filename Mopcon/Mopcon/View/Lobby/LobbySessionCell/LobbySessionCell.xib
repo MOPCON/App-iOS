@@ -40,13 +40,48 @@
                             <outlet property="delegate" destination="KGk-i7-Jjw" id="jM9-e4-ntk"/>
                         </connections>
                     </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4K-SS-5hF">
+                        <rect key="frame" x="20" y="51.5" width="280" height="184.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你目前尚未收藏任何議程" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlG-lY-cO2">
+                                <rect key="frame" x="20" y="56.5" width="240" height="25.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4S-pn-iQG">
+                                <rect key="frame" x="100" y="102" width="80" height="34"/>
+                                <color key="backgroundColor" red="0.0039215686274509803" green="0.66666666666666663" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="去逛逛">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouchMoreBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PhV-gF-zEZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Y4S-pn-iQG" secondAttribute="trailing" constant="100" id="3b3-Nd-FWH"/>
+                            <constraint firstItem="HlG-lY-cO2" firstAttribute="leading" secondItem="h4K-SS-5hF" secondAttribute="leading" constant="20" id="PCN-sj-b05"/>
+                            <constraint firstItem="Y4S-pn-iQG" firstAttribute="leading" secondItem="h4K-SS-5hF" secondAttribute="leading" constant="100" id="VX0-zv-lT1"/>
+                            <constraint firstItem="Y4S-pn-iQG" firstAttribute="top" secondItem="h4K-SS-5hF" secondAttribute="centerY" constant="10" id="jVO-Ym-vKj"/>
+                            <constraint firstItem="HlG-lY-cO2" firstAttribute="bottom" secondItem="h4K-SS-5hF" secondAttribute="centerY" constant="-10" id="lOJ-Ob-AHx"/>
+                            <constraint firstAttribute="trailing" secondItem="HlG-lY-cO2" secondAttribute="trailing" constant="20" id="ryh-TX-EkI"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="IAU-3e-1b1" secondAttribute="bottom" priority="750" constant="16" id="5lv-Hd-SlO"/>
+                    <constraint firstItem="h4K-SS-5hF" firstAttribute="top" secondItem="IAU-3e-1b1" secondAttribute="top" id="A01-O1-d01"/>
                     <constraint firstAttribute="trailing" secondItem="non-gE-pRq" secondAttribute="trailing" constant="22" id="CYh-kT-Qjq"/>
+                    <constraint firstItem="h4K-SS-5hF" firstAttribute="trailing" secondItem="IAU-3e-1b1" secondAttribute="trailing" constant="-20" id="DLd-wH-Nuk"/>
                     <constraint firstItem="IAU-3e-1b1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="H6f-Uj-kff"/>
+                    <constraint firstItem="h4K-SS-5hF" firstAttribute="bottom" secondItem="IAU-3e-1b1" secondAttribute="bottom" id="Z84-Ue-Xv3"/>
                     <constraint firstAttribute="trailing" secondItem="IAU-3e-1b1" secondAttribute="trailing" id="ZaQ-6r-GEe"/>
                     <constraint firstItem="non-gE-pRq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="c1A-Ho-xQz"/>
+                    <constraint firstItem="h4K-SS-5hF" firstAttribute="leading" secondItem="IAU-3e-1b1" secondAttribute="leading" constant="20" id="oEr-Z1-f0G"/>
                     <constraint firstItem="IAU-3e-1b1" firstAttribute="top" secondItem="non-gE-pRq" secondAttribute="bottom" constant="16" id="p5h-hL-HSi"/>
                     <constraint firstItem="non-gE-pRq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="vGA-i4-jEy"/>
                 </constraints>
@@ -55,6 +90,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="collectionView" destination="IAU-3e-1b1" id="8Wh-Af-Cmx"/>
+                <outlet property="emptyView" destination="h4K-SS-5hF" id="YIV-Gh-I9B"/>
+                <outlet property="moreBtn" destination="Y4S-pn-iQG" id="P8L-On-SHU"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="193.86160714285714"/>
         </tableViewCell>
