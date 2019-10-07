@@ -10,7 +10,7 @@ import UIKit
 
 class FavoriteViewController: MPBaseSessionViewController {
 
-    private enum ConferenceType {
+    private enum FavoriteConferenceType {
         
         case session([Room])
         
@@ -61,7 +61,7 @@ class FavoriteViewController: MPBaseSessionViewController {
         }
     }
     
-    private var viewState: ViewState<[FavoriteViewController.ConferenceType]> = .empty {
+    private var viewState: ViewState<[FavoriteViewController.FavoriteConferenceType]> = .empty {
         
         didSet {
             
@@ -84,7 +84,7 @@ class FavoriteViewController: MPBaseSessionViewController {
         }
     }
     
-    private var datas: [ConferenceType] {
+    private var datas: [FavoriteConferenceType] {
                 
         switch viewState {
             
@@ -94,7 +94,6 @@ class FavoriteViewController: MPBaseSessionViewController {
     
         }
     }
-    
     
     private let dateFormate = "MM/dd HH:mm"
     
@@ -159,7 +158,7 @@ class FavoriteViewController: MPBaseSessionViewController {
             .filter({ return $0.startedAt > selectedDate && $0.startedAt < (selectedDate + 86400) })
             .sorted(by: { $0.startedAt < $1.startedAt })
         
-        var tempDatas: [FavoriteViewController.ConferenceType] = []
+        var tempDatas: [FavoriteViewController.FavoriteConferenceType] = []
         
         if sessions.count > 0 {
 
@@ -222,6 +221,48 @@ class FavoriteViewController: MPBaseSessionViewController {
         headerView.textLabel?.font = UIFont.systemFont(ofSize: 18)
         
         headerView.tintColor = UIColor.clear
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        tableView.deselectRow(
+            at: indexPath,
+            animated: false
+        )
+    
+        guard case .session(_) = datas[indexPath.section] else { return }
+            
+        let agendaStoryboard = UIStoryboard(
+            name: "Agenda",
+            bundle: nil
+        )
+        
+        if #available(iOS 13.0, *) {
+            
+            guard let detailVC = agendaStoryboard.instantiateViewController(
+                identifier: ConferenceDetailViewController.identifier
+            ) as? ConferenceDetailViewController else {
+                
+                return
+            }
+            
+            detailVC.conferenceType = .session(datas[indexPath.section].rooms()[indexPath.row].sessionId)
+            
+            show(detailVC, sender: nil)
+            
+        } else {
+            
+            guard let detailVC = agendaStoryboard.instantiateViewController(
+                withIdentifier: ConferenceDetailViewController.identifier
+            ) as? ConferenceDetailViewController else {
+                    
+                    return
+            }
+            
+            detailVC.conferenceType = .session(datas[indexPath.section].rooms()[indexPath.row].sessionId)
+            
+            show(detailVC, sender: nil)
+        }
     }
 }
 

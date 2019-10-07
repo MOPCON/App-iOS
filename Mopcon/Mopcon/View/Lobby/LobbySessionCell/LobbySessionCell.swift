@@ -13,6 +13,8 @@ protocol LobbySessionCellDelegate: AnyObject {
     func likeButtonDidTouched(_ cell: LobbySessionCell, id: Int, isLiked: Bool)
     
     func moreButtonDidTouched(_ cell: LobbySessionCell)
+    
+    func didSelectedSession(_ cell: LobbySessionCell, sessionId: Int)
 }
 
 enum ViewState<T> {
@@ -131,6 +133,14 @@ extension LobbySessionCell: UICollectionViewDataSource {
         sessionCell.delegate = self
         
         return cell
+    }
+}
+
+extension LobbySessionCell: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        delegate?.didSelectedSession(self, sessionId: rooms[indexPath.row].sessionId)
     }
 }
 

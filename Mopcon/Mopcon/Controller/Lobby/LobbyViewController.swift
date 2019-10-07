@@ -185,6 +185,41 @@ extension LobbyViewController: LobbyNewsCellDelegate {
 
 extension LobbyViewController: LobbySessionCellDelegate {
     
+    func didSelectedSession(_ cell: LobbySessionCell, sessionId: Int) {
+        
+        let agendaStoryboard = UIStoryboard(
+            name: "Agenda",
+            bundle: nil
+        )
+        
+        if #available(iOS 13.0, *) {
+            
+            guard let detailVC = agendaStoryboard.instantiateViewController(
+                identifier: ConferenceDetailViewController.identifier
+            ) as? ConferenceDetailViewController else {
+                
+                return
+            }
+            
+            detailVC.conferenceType = .session(sessionId)
+            
+            show(detailVC, sender: nil)
+            
+        } else {
+            
+            guard let detailVC = agendaStoryboard.instantiateViewController(
+                withIdentifier: ConferenceDetailViewController.identifier
+            ) as? ConferenceDetailViewController else {
+                    
+                    return
+            }
+            
+            detailVC.conferenceType = .session(sessionId)
+            
+            show(detailVC, sender: nil)
+        }
+    }
+    
     func likeButtonDidTouched(_ cell: LobbySessionCell, id: Int, isLiked: Bool) {
         
         FavoriteManager.shared.removeSessionId(id: id)
