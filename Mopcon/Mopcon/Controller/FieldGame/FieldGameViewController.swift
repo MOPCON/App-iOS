@@ -195,6 +195,8 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
         
         FieldGameProvider.fetchGameStatus(completion: { [weak self] result in
             
+            self?.stopSpinner()
+            
             switch result {
                 
             case .success(let gameStatus):
@@ -205,9 +207,7 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
                 
                 self?.rewards = gameStatus.rewards.filter({ $0.hasWon == 1 && $0.redeemable == 1 })
                 
-                self?.updateHeadView()
-                
-                self?.stopSpinner()
+                self?.updateHeadView()            
                 
                 self?.tableView.isHidden = false
                 
