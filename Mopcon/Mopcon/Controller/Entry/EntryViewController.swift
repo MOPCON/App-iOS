@@ -41,6 +41,13 @@ class EntryViewController: UIViewController {
                     },
                     completion: nil
                 )
+                
+                if let tabBarController = tabVC as? UITabBarController {
+                    
+                    if let items = tabBarController.tabBar.items {
+                        items[2].isEnabled = serverState.isEnableGame
+                    }
+                }
                                 
                 if !UserDefaults.standard.bool(forKey: "hasOpened") {
                     
@@ -51,14 +58,6 @@ class EntryViewController: UIViewController {
                     let uuid = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
                     
                     self?.register(with: uuid, and: uuid)
-                }
-
-                if let tabBarController = tabVC as? UITabBarController {
-                    
-                    if let items = tabBarController.tabBar.items {
-                        
-                        items[2].isEnabled = serverState.isEnableGame
-                    }
                 }
                 
             case .failure(let error):

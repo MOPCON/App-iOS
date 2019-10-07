@@ -35,6 +35,8 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var hintLabel: UILabel!
+    
     //MARK: - HintViewPresentable
     lazy var noticeView: NoticeView = {
         
@@ -93,7 +95,7 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     private func setupTableView() {
         
         headerView.frame.size.height = 170
-        
+                
         tableView.tableHeaderView = headerView
         
         let nib = UINib(
@@ -167,9 +169,13 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     
     func stopSpinner() {
         
-        spinner.stopAnimating()
+        DispatchQueue.main.async { [weak self] in
+            
+            self?.spinner.stopAnimating()
+            
+            self?.spinner.removeFromSuperview()
+        }
         
-        spinner.removeFromSuperview()
     }
     
     private func fetchIntro() {
@@ -207,7 +213,7 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
                 
                 self?.rewards = gameStatus.rewards.filter({ $0.hasWon == 1 && $0.redeemable == 1 })
                 
-                self?.updateHeadView()            
+                self?.updateHeadView()
                 
                 self?.tableView.isHidden = false
                 
@@ -216,6 +222,11 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
             case .failure(let error):
                 
                 print(error)
+                
+                DispatchQueue.main.async {
+                    
+                    self?.hintLabel.isHidden = false
+                }
             }
         })
     }
