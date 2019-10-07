@@ -105,6 +105,9 @@
                                 <state key="normal" title="了解更多">
                                     <color key="titleColor" red="0.0" green="0.66666666666666663" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="openEvent:" destination="jOl-02-M2L" eventType="touchUpInside" id="Ied-dm-dQ0"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9JC-mf-azF">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="696"/>
@@ -127,7 +130,7 @@
                         <outlet property="communityDetailImageView" destination="Hh7-L2-nc2" id="8WM-Cx-8Up"/>
                         <outlet property="communityNameLabel" destination="Ce3-C2-SsP" id="K9a-yA-lap"/>
                         <outlet property="emptyView" destination="9JC-mf-azF" id="OR4-ey-GIe"/>
-                        <outlet property="facebookButton" destination="Cax-vg-gfg" id="JPf-Q7-Csv"/>
+                        <outlet property="moreBtn" destination="Cax-vg-gfg" id="8WG-ic-Mr8"/>
                         <outlet property="socialMediaStackView" destination="aDA-WB-uy0" id="bhI-lQ-Nj7"/>
                     </connections>
                 </viewController>

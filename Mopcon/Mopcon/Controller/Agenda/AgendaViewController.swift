@@ -35,6 +35,8 @@ class AgendaViewController: MPBaseViewController {
     
     private var unconfViewController: UnConferenceViewController?
     
+    private var favoriteController: FavoriteViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,7 +92,13 @@ class AgendaViewController: MPBaseViewController {
             
             sessionViewController = sessionVC
             
-        case Segue.favorite: break
+        case Segue.favorite:
+            
+            guard let favoriteVC = segue.destination as? FavoriteViewController else {
+                return
+            }
+            
+            favoriteController = favoriteVC
             
         case Segue.unConf:
             
@@ -124,6 +132,8 @@ class AgendaViewController: MPBaseViewController {
                     self?.sessionViewController?.updateData(
                         sessions: sessionLists[strongSelf.dateSelectionView.seletedIndex!].period
                     )
+                    
+                    self?.favoriteController?.selectedDate = sessionLists.first?.date
                 }
                 
             case .failure(let error):
@@ -177,5 +187,7 @@ extension AgendaViewController: SelectionViewDataSource {
         sessionViewController?.updateData(sessions: sessionLists[index].period)
         
         unconfViewController?.selectedIndex = index
+        
+        favoriteController?.selectedDate = sessionLists[index].date
     }
 }

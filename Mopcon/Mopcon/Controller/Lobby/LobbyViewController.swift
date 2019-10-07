@@ -73,6 +73,7 @@ class LobbyViewController: MPBaseViewController {
             
             return tempRoom
         })
+        .sorted(by: { $0.startedAt < $1.startedAt })
         
         cells.append(.session(rooms))
         
@@ -187,6 +188,11 @@ extension LobbyViewController: LobbySessionCellDelegate {
     func likeButtonDidTouched(_ cell: LobbySessionCell, id: Int, isLiked: Bool) {
         
         FavoriteManager.shared.removeSessionId(id: id)
+    }
+    
+    func moreButtonDidTouched(_ cell: LobbySessionCell) {
+        
+        tabBarController?.selectedIndex = 1
     }
 }
 

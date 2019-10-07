@@ -145,15 +145,20 @@ class UnConferenceViewController: MPBaseSessionViewController {
                 return
             }
             
-            detailVC.unconfId = sessionList[selectedIndex].period[indexPath.section].room[indexPath.row].sessionId
+            detailVC.conferenceType = .unconf(sessionList[selectedIndex].period[indexPath.section].room[indexPath.row].sessionId)
             
             show(detailVC, sender: nil)
             
         } else {
             
-            let detailVC = agendaStoryboard.instantiateViewController(
+            guard let detailVC = agendaStoryboard.instantiateViewController(
                 withIdentifier: ConferenceDetailViewController.identifier
-            )
+            ) as? ConferenceDetailViewController else {
+                
+                    return
+            }
+            
+            detailVC.conferenceType = .unconf(sessionList[selectedIndex].period[indexPath.section].room[indexPath.row].sessionId)
             
             show(detailVC, sender: nil)
         }

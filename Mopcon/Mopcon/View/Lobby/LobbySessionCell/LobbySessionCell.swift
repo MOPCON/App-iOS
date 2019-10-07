@@ -11,13 +11,78 @@ import UIKit
 protocol LobbySessionCellDelegate: AnyObject {
     
     func likeButtonDidTouched(_ cell: LobbySessionCell, id: Int, isLiked: Bool)
+    
+    func moreButtonDidTouched(_ cell: LobbySessionCell)
+}
+
+enum ViewState<T> {
+    
+    case normal(T)
+    
+    case empty
 }
 
 class LobbySessionCell: UITableViewCell {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var rooms: [Room] = []
+    @IBOutlet weak var emptyView: UIView! {
+        
+        didSet {
+        
+            emptyView.layer.cornerRadius = 6
+            
+            emptyView.layer.borderColor = UIColor.azure?.cgColor
+            
+            emptyView.layer.borderWidth = 1.0
+            
+            emptyView.clipsToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var moreBtn: UIButton! {
+        
+        didSet {
+        
+            moreBtn.layer.cornerRadius = 5
+            
+            emptyView.clipsToBounds = true
+        }
+    }
+    
+    var state: ViewState<[Room]> = .empty {
+        
+        didSet {
+            
+            switch state {
+                
+            case .normal(_):
+                
+                collectionView.isHidden = false
+                
+                emptyView.isHidden = true
+                
+                collectionView.reloadData()
+                
+            case .empty:
+            
+                collectionView.isHidden = true
+            
+                emptyView.isHidden = false
+            }
+        }
+    }
+    
+    var rooms: [Room] {
+
+        switch state {
+            
+        case .normal(let rooms): return rooms
+            
+        case .empty: return []
+        
+        }
+    }
     
     weak var delegate: LobbySessionCellDelegate?
     
@@ -29,9 +94,19 @@ class LobbySessionCell: UITableViewCell {
     
     func updateUI(rooms: [Room]) {
         
-        self.rooms = rooms
-
-        collectionView.reloadData()
+        guard rooms.count > 0 else {
+            
+            state = .empty
+            
+            return
+        }
+        
+        state = .normal(rooms)
+    }
+    
+    @IBAction func didTouchMoreBtn(_ sender: UIButton) {
+        
+        delegate?.moreButtonDidTouched(self)
     }
 }
 

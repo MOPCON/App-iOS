@@ -34,6 +34,14 @@ class BreakTableViewCell: UITableViewCell {
            let end = endDate {
            
             timeLabel.text = start + " - " + end
+            
+            breakStepLabel.textAlignment = .right
+        
+        } else {
+         
+            timeLabel.text = ""
+            
+            breakStepLabel.textAlignment = .center
         }
     
         breakStepLabel.text = event

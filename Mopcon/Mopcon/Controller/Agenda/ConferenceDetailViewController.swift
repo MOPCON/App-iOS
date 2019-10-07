@@ -8,17 +8,36 @@
 
 import UIKit
 
+enum ConferenceType {
+    
+    case unconf(Int)
+    
+    case session(Int)
+}
+
 class ConferenceDetailViewController: MPBaseViewController {
     
-    var unconfId: Int?
-    
-    var sessionId: Int?
+    var conferenceType: ConferenceType? {
+        
+        didSet {
+            
+            switch conferenceType {
+            
+            case .session(let id): fetchSessionInfo(id: id)
+                
+            case .unconf(let id): fetchUnconfInfo(id: id)
+                
+            default: scrollView.isHidden = true
+        
+            }
+        }
+    }
     
     @IBOutlet weak var typeLabel: UILabel!
     
     @IBOutlet weak var topicLabel: UILabel!
     
-    @IBOutlet weak var speakerImageView: UIImageView!
+    @IBOutlet weak var imageStackView: UIStackView!
     
     @IBOutlet weak var speakerName: UILabel!
     
@@ -57,24 +76,48 @@ class ConferenceDetailViewController: MPBaseViewController {
         super.viewDidLoad()
         
         scrollView.isHidden = true
-        
-        fetchUnconfInfo()
-        
-        fetchSessionInfo()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-    
-        speakerImageView.makeCircle()
 
         sponsorImageView.makeCircle()
     }
     
-    //MARK: - API
-    private func fetchUnconfInfo() {
+    @IBAction func didTouchedLikedBtn(_ sender: UIBarButtonItem) {
         
-        guard let id = unconfId else { return }
+        if sender.image == UIImage.asset(.like_24) {
+            
+            switch conferenceType {
+                
+            case .session(let id): FavoriteManager.shared.removeSessionId(id: id)
+                
+            case .unconf(let id): FavoriteManager.shared.removeUnconfId(id: id)
+            
+            default: break
+                
+            }
+            
+            sender.image = UIImage.asset(.dislike_24)
+            
+        } else {
+            
+            switch conferenceType {
+                
+            case .session(let id): FavoriteManager.shared.addSessionId(id: id)
+                
+            case .unconf(let id): FavoriteManager.shared.addUnconfId(id: id)
+            
+            default: break
+                
+            }
+            
+            sender.image = UIImage.asset(.like_24)
+        }
+    }
+    
+    //MARK: - API
+    private func fetchUnconfInfo(id: Int) {
         
         UnconfProvider.fetchUnConfInfo(id: id, completion: { [weak self] result in
             
@@ -87,26 +130,15 @@ class ConferenceDetailViewController: MPBaseViewController {
                     self?.updateUI(room: info)
                     
                     self?.scrollView.isHidden = false
-                }
-                
-            case .failure(let error):
-                
-                print(error)
-            }
-        })
-    }
-    
-    private func fetchSponsor(id: Int) {
-        
-        SponsorProvider.fetchSponsor(id: id, completion: { [weak self] result in
-            
-            switch result {
-                
-            case .success(let sponsors):
-                
-                self?.throwToMainThreadAsync {
                     
-                    self?.updateUI(sponsors: sponsors)
+                    if FavoriteManager.shared.fetchUnconfIds().contains(id) {
+                        
+                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.like_24)
+                        
+                    } else {
+                        
+                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.dislike_24)
+                    }
                 }
                 
             case .failure(let error):
@@ -116,9 +148,7 @@ class ConferenceDetailViewController: MPBaseViewController {
         })
     }
     
-    private func fetchSessionInfo() {
-        
-        guard let id = sessionId else { return }
+    private func fetchSessionInfo(id: Int) {
         
         SessionProvider.fetchSession(id: id, completion: { [weak self] result in
             
@@ -131,6 +161,15 @@ class ConferenceDetailViewController: MPBaseViewController {
                     self?.updateUI(room: room)
                     
                     self?.scrollView.isHidden = false
+                    
+                    if FavoriteManager.shared.fetchSessionIds().contains(id) {
+                        
+                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.like_24)
+                        
+                    } else {
+                        
+                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.dislike_24)
+                    }
                 }
                 
             case .failure(let error):
@@ -175,13 +214,26 @@ class ConferenceDetailViewController: MPBaseViewController {
             
             sponsorLabel.isHidden = true
         }
-
-        speakerImageView.kf.setImage(
-            with: URL(string: room.speakers.first!.img.mobile),
-            placeholder: UIImage.asset(.fieldGameProfile)
-        )
         
-        tags = room.tags
+        imageStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
+
+        for speaker in room.speakers {
+            
+            let imageView = UIImageView()
+            
+            imageView.loadImage(speaker.img.mobile)
+            
+            imageStackView.addArrangedSubview(imageView)
+            
+            imageView.contentMode = .scaleAspectFit
+            
+            imageView.widthAnchor.constraint(
+                equalTo: view.widthAnchor,
+                multiplier: 80/375
+            ).isActive = true
+        }
+        
+        generateTags(room: room)
 
         let language = CurrentLanguage.getLanguage()
 
@@ -195,11 +247,13 @@ class ConferenceDetailViewController: MPBaseViewController {
             
             topicLabel.text = room.topic
 
-            speakerName.text = room.speakers.first?.name
+            speakerName.text = room.speakers.map({ $0.name }).joined(separator: " | ")
 
-            let job = "\(room.speakers.first?.jobTitle ?? "")@\(room.speakers.first?.company ?? "")"
+            let jobs = room.speakers
+                .map({ "\($0.jobTitle)@\($0.company)"})
+                .joined(separator: " | ")
 
-            speakerJob.text = (job == "@") ? "" : job
+            speakerJob.text = jobs
 
         case Language.english.rawValue:
 
@@ -209,11 +263,13 @@ class ConferenceDetailViewController: MPBaseViewController {
 
             topicLabel.text = room.topicEn
 
-            speakerName.text = room.speakers.first?.name
+            speakerName.text = room.speakers.map({ $0.nameEn }).joined(separator: " | ")
 
-            let job = "\(room.speakers.first?.jobTitleEn ?? "")@\(room.speakers.first?.companyEn ?? "")"
+            let jobs = room.speakers
+            .map({ "\($0.jobTitleEn)@\($0.companyEn)"})
+            .joined(separator: " | ")
 
-            speakerJob.text = (job == "@") ? "" : job
+            speakerJob.text = jobs
 
         default:
 
@@ -221,33 +277,27 @@ class ConferenceDetailViewController: MPBaseViewController {
         }
     }
     
-    func updateUI(sponsors: [Sponsor]) {
+    private func generateTags(room: Room) {
         
-        guard let sponsor = sponsors.first else {
+        tags = []
         
-            return
+        if room.isKeynote {
+            
+            tags.append(TagFactory.keynoteTag())
         }
         
-        sponsorImageView.isHidden = false
-        
-        sponsorTitleLabel.isHidden = false
-        
-        sponsorLabel.isHidden = false
-        
-        sponsorImageView.kf.setImage(with: URL(string: sponsor.logo))
-        
-        switch CurrentLanguage.getLanguage() {
+        if !room.recordable {
             
-        case Language.chinese.rawValue:
-        
-            sponsorLabel.text = sponsor.name
-            
-        case Language.english.rawValue:
-        
-            sponsorLabel.text = sponsor.nameEn
-            
-        default: break
+            tags.append(TagFactory.unrecordableTag())
         }
+        
+        if room.sponsorId != 0 {
+            
+            tags.append(TagFactory.partnerTag())
+        }
+        
+        tags.append(TagFactory.levelTag(level: room.level))
+        
     }
 }
 
@@ -266,5 +316,15 @@ extension ConferenceDetailViewController: MPTagViewDataSource {
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
         return UIColor(hex: tags[index].color)
+    }
+    
+    func viewType(_ tagView: MPTagView, index: Int) -> TagViewType {
+        
+        if tags[index].name == "Keynote" {
+            
+            return .solid
+        }
+        
+        return .hollow
     }
 }

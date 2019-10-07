@@ -279,7 +279,7 @@ class FieldGameProvider: MainThreadHelper {
         })
     }
     
-    static func modifyFavorate(
+    static func modifyFavorite(
         id: Int,
         action: String,
         completion: @escaping (Result<Void, Error>) -> Void

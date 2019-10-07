@@ -51,11 +51,50 @@ class FavoriteViewController: MPBaseSessionViewController {
         }
     }
     
-    lazy var sessions: [Room] = []
+    @IBOutlet weak var emptyView: UIView!
     
-    lazy var unconfs: [Room] = []
+    var selectedDate: Int? {
+        
+        didSet {
+            
+            updateData()
+        }
+    }
     
-    private lazy var datas: [ConferenceType] = []
+    private var viewState: ViewState<[FavoriteViewController.ConferenceType]> = .empty {
+        
+        didSet {
+            
+            switch viewState {
+        
+            case .empty:
+                
+                tableView.isHidden = true
+                
+                emptyView.isHidden = false
+                
+            case .normal(_):
+                
+                tableView.isHidden = false
+            
+                emptyView.isHidden = true
+                
+                tableView.reloadData()
+            }
+        }
+    }
+    
+    private var datas: [ConferenceType] {
+                
+        switch viewState {
+            
+        case .empty: return []
+
+        case .normal(let datas): return datas
+    
+        }
+    }
+    
     
     private let dateFormate = "MM/dd HH:mm"
     
@@ -68,6 +107,7 @@ class FavoriteViewController: MPBaseSessionViewController {
 
         sessionsObserver = FavoriteManager.shared.observe(
             \.sessionIds,
+            options: [.initial, .new],
             changeHandler: { [weak self] _, _ in
             
             self?.updateData()
@@ -75,17 +115,23 @@ class FavoriteViewController: MPBaseSessionViewController {
         
         unconfsObserver = FavoriteManager.shared.observe(
             \.unconfIds,
+            options: [.initial, .new],
             changeHandler: { [weak self] _, _ in
                    
            self?.updateData()
        })
-        
-        updateData()
     }
     
     private func updateData() {
         
-        sessions = FavoriteManager
+        guard let selectedDate = selectedDate else {
+            
+            viewState = .empty
+            
+            return
+        }
+        
+        let sessions: [Room] = FavoriteManager
             .shared
             .sessions
             .map({ room in
@@ -96,9 +142,10 @@ class FavoriteViewController: MPBaseSessionViewController {
                 
                 return tempRoom
             })
+            .filter({ return $0.startedAt > selectedDate && $0.startedAt < (selectedDate + 86400) })
             .sorted(by: { $0.startedAt < $1.startedAt })
         
-        unconfs = FavoriteManager
+        let unconfs: [Room] = FavoriteManager
             .shared
             .unconfs
             .map({ room in
@@ -109,21 +156,29 @@ class FavoriteViewController: MPBaseSessionViewController {
                 
                 return tempRoom
             })
+            .filter({ return $0.startedAt > selectedDate && $0.startedAt < (selectedDate + 86400) })
             .sorted(by: { $0.startedAt < $1.startedAt })
         
-        datas.removeAll()
+        var tempDatas: [FavoriteViewController.ConferenceType] = []
         
         if sessions.count > 0 {
 
-            datas.append(.session(sessions))
+            tempDatas.append(.session(sessions))
         }
 
         if unconfs.count > 0 {
 
-            datas.append(.unconf(unconfs))
+            tempDatas.append(.unconf(unconfs))
         }
         
-        tableView.reloadData()
+        if tempDatas.count > 0 {
+            
+            viewState = .normal(tempDatas)
+            
+        } else {
+            
+            viewState = .empty
+        }
     }
     
     //MARK: - UITableViewDataSource & UITableViewDelegate

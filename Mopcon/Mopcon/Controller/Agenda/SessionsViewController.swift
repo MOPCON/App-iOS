@@ -99,15 +99,20 @@ class SessionsViewController: MPBaseSessionViewController {
                 return
             }
             
-            detailVC.sessionId = sessions[indexPath.section].room[indexPath.row].sessionId
+            detailVC.conferenceType = .session(sessions[indexPath.section].room[indexPath.row].sessionId)
             
             show(detailVC, sender: nil)
             
         } else {
             
-            let detailVC = agendaStoryboard.instantiateViewController(
+            guard let detailVC = agendaStoryboard.instantiateViewController(
                 withIdentifier: ConferenceDetailViewController.identifier
-            )
+            ) as? ConferenceDetailViewController else {
+                    
+                    return
+            }
+            
+            detailVC.conferenceType = .session(sessions[indexPath.section].room[indexPath.row].sessionId)
             
             show(detailVC, sender: nil)
         }
@@ -164,7 +169,7 @@ extension SessionsViewController: ConferenceTableViewCellDelegate {
             FavoriteManager.shared.removeSessionId(id: room.sessionId)
         }
         
-        FieldGameProvider.modifyFavorate(
+        FieldGameProvider.modifyFavorite(
             id: room.sessionId,
             action: action,
             completion: { result in
