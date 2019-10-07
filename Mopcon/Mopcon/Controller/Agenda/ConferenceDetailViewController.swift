@@ -10,8 +10,6 @@ import UIKit
 
 enum ConferenceType {
     
-    case unconf(Int)
-    
     case session(Int)
 }
 
@@ -24,8 +22,6 @@ class ConferenceDetailViewController: MPBaseViewController {
             switch conferenceType {
             
             case .session(let id): fetchSessionInfo(id: id)
-                
-            case .unconf(let id): fetchUnconfInfo(id: id)
                 
             default: scrollView.isHidden = true
         
@@ -91,8 +87,6 @@ class ConferenceDetailViewController: MPBaseViewController {
             switch conferenceType {
                 
             case .session(let id): FavoriteManager.shared.removeSessionId(id: id)
-                
-            case .unconf(let id): FavoriteManager.shared.removeUnconfId(id: id)
             
             default: break
                 
@@ -105,8 +99,6 @@ class ConferenceDetailViewController: MPBaseViewController {
             switch conferenceType {
                 
             case .session(let id): FavoriteManager.shared.addSessionId(id: id)
-                
-            case .unconf(let id): FavoriteManager.shared.addUnconfId(id: id)
             
             default: break
                 
@@ -117,36 +109,6 @@ class ConferenceDetailViewController: MPBaseViewController {
     }
     
     //MARK: - API
-    private func fetchUnconfInfo(id: Int) {
-        
-        UnconfProvider.fetchUnConfInfo(id: id, completion: { [weak self] result in
-            
-            switch result {
-                
-            case .success(let info):
-                
-                self?.throwToMainThreadAsync {
-                    
-                    self?.updateUI(room: info)
-                    
-                    self?.scrollView.isHidden = false
-                    
-                    if FavoriteManager.shared.fetchUnconfIds().contains(id) {
-                        
-                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.like_24)
-                        
-                    } else {
-                        
-                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.dislike_24)
-                    }
-                }
-                
-            case .failure(let error):
-                
-                print(error)
-            }
-        })
-    }
     
     private func fetchSessionInfo(id: Int) {
         
