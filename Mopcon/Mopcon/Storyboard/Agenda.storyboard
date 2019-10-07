@@ -386,17 +386,38 @@
                                 <rect key="frame" x="20" y="44" width="335" height="531"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2Z-Ym-efL">
+                                <rect key="frame" x="20" y="44" width="335" height="531"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你目前尚未收藏任何議程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9E-4l-h2Z">
+                                        <rect key="frame" x="66.666666666666686" y="255" width="202" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="B9E-4l-h2Z" firstAttribute="centerX" secondItem="G2Z-Ym-efL" secondAttribute="centerX" id="Ci1-se-4Dw"/>
+                                    <constraint firstItem="B9E-4l-h2Z" firstAttribute="centerY" secondItem="G2Z-Ym-efL" secondAttribute="centerY" id="kD8-XC-LYG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="G2Z-Ym-efL" firstAttribute="trailing" secondItem="DXN-Jp-r96" secondAttribute="trailing" id="9LZ-ZF-Due"/>
                             <constraint firstItem="cgy-Lj-S5z" firstAttribute="bottom" secondItem="DXN-Jp-r96" secondAttribute="bottom" id="9c5-Vc-NuY"/>
+                            <constraint firstItem="G2Z-Ym-efL" firstAttribute="bottom" secondItem="DXN-Jp-r96" secondAttribute="bottom" id="JZE-ou-jrf"/>
                             <constraint firstItem="DXN-Jp-r96" firstAttribute="leading" secondItem="cgy-Lj-S5z" secondAttribute="leading" constant="20" id="NFN-pz-chv"/>
+                            <constraint firstItem="G2Z-Ym-efL" firstAttribute="leading" secondItem="DXN-Jp-r96" secondAttribute="leading" id="Qo2-XA-FDg"/>
                             <constraint firstItem="cgy-Lj-S5z" firstAttribute="trailing" secondItem="DXN-Jp-r96" secondAttribute="trailing" constant="20" id="U7q-TM-oyK"/>
                             <constraint firstItem="DXN-Jp-r96" firstAttribute="top" secondItem="cgy-Lj-S5z" secondAttribute="top" id="dtp-Jh-5es"/>
+                            <constraint firstItem="G2Z-Ym-efL" firstAttribute="top" secondItem="DXN-Jp-r96" secondAttribute="top" id="rTn-k2-ViQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cgy-Lj-S5z"/>
                     </view>
                     <connections>
+                        <outlet property="emptyView" destination="G2Z-Ym-efL" id="3sB-Iw-Ped"/>
                         <outlet property="tableView" destination="DXN-Jp-r96" id="6LI-JK-OnG"/>
                     </connections>
                 </viewController>

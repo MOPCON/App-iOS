@@ -15,9 +15,9 @@ protocol LobbySessionCellDelegate: AnyObject {
     func moreButtonDidTouched(_ cell: LobbySessionCell)
 }
 
-enum ViewState {
+enum ViewState<T> {
     
-    case normal([Room])
+    case normal(T)
     
     case empty
 }
@@ -50,7 +50,7 @@ class LobbySessionCell: UITableViewCell {
         }
     }
     
-    var state: ViewState = .empty {
+    var state: ViewState<[Room]> = .empty {
         
         didSet {
             
