@@ -78,6 +78,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
+            
+            guard let link = dynamicLink.url, let sn = link.queryParameters?["sn"] else { return true }
+            
+            let uuid = KeychainTool.retrive(for: "uuid") ?? UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+            
+            invite(with: uuid, and: sn)
+            
+            return true
+        }
+        
+        return false
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        // Handle url if app has installed
+        
+        let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { [weak self] (dynamiclink, error) in
+            
+            print("app has installed \(String(describing: dynamiclink?.url))")
+            
+            guard let link = dynamiclink?.url, let sn = link.queryParameters?["sn"] else { return }
+            
+            let uuid = KeychainTool.retrive(for: "uuid") ?? UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+            
+            self?.invite(with: uuid, and: sn)
+        }
+
+        return handled
+    }
+    
+    private func invite(with uid: String, and email: String) {
+        
+        FieldGameProvider.invite(with: uid, and: email)
+    }
 }
 
 @available(iOS 10, *)

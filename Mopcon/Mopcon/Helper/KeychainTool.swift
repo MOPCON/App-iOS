@@ -10,20 +10,42 @@ import Foundation
 
 struct KeychainTool {
     
+    enum KeychainError: Error {
+        case noPassword
+        case unexpectedPasswordData
+        case unhandledError(status: OSStatus)
+    }
+    
     static func save(_ uuid: String, for email: String) {
         
+        // Save uuid
         let uuid = uuid.data(using: String.Encoding.utf8)!
         
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                    kSecAttrAccount as String: email,
+                                    kSecAttrAccount as String: "uuid",
                                     kSecValueData as String: uuid]
         
-        // Remove old token
+        // Remove old uuid
         SecItemDelete(query as CFDictionary)
         
         let status = SecItemAdd(query as CFDictionary, nil)
 
-        guard status == errSecSuccess else { return print("save error") }
+        guard status == errSecSuccess else { return print("save uuid error") }
+        
+        // Save email
+        let email = email.data(using: String.Encoding.utf8)!
+        
+        let query2: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+                                     kSecAttrAccount as String: "email",
+                                     kSecValueData as String: email]
+        
+        // Remove old email
+        SecItemDelete(query2 as CFDictionary)
+
+        let status2 = SecItemAdd(query2 as CFDictionary, nil)
+
+        guard status2 == errSecSuccess else { return print("save email error") }
+
     }
     
     static func save(_ token: String) {
