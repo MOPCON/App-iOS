@@ -18,19 +18,23 @@ class FavoriteManager: NSObject, MainThreadHelper {
     
     private let unconfKey = "unconfKey"
     
-    private var _unconfs: [Room] = []
+    var unconfs: [Room] = []
     
-    private var _sessions: [Room] = []
+    var sessions: [Room] = []
     
-    private let dispatchGroup = DispatchGroup()
+    @objc dynamic var sessionIds: [Int] = [] {
+        
+        didSet {
+            userDefault.setValue(sessionIds, forKey: sessionKey)
+        }
+    }
     
-    var unconfs: [Room] { return _unconfs }
-    
-    var sessions: [Room] { return _sessions }
-    
-    @objc dynamic var sessionIds: [Int] = []
-    
-    @objc dynamic var unconfIds: [Int] = []
+    @objc dynamic var unconfIds: [Int] = [] {
+        
+        didSet {
+            userDefault.setValue(unconfIds, forKey: unconfKey)
+        }
+    }
     
     private override init() {
         
@@ -47,99 +51,60 @@ class FavoriteManager: NSObject, MainThreadHelper {
         
         for id in sessionIds {
             
-            dispatchGroup.enter()
-            
-            fetchSession(id: id, completion: { [weak self] in
-            
-                self?.dispatchGroup.leave()
-            })
+            fetchSession(id: id)
         }
         
         for id in unconfIds {
             
-            dispatchGroup.enter()
-            
-            fetchUnconf(id: id, completion: { [weak self] in
-            
-                self?.dispatchGroup.leave()
-            })
+            fetchUnconf(id: id)
         }
-        
-        dispatchGroup.notify(queue: .main, execute: { [weak self] in
-            
-            self?.willChangeValue(for: \FavoriteManager.sessionIds)
-            self?.willChangeValue(for: \FavoriteManager.unconfIds)
-            
-            self?.didChangeValue(for: \FavoriteManager.sessionIds)
-            self?.didChangeValue(for: \FavoriteManager.unconfIds)
-        })
     }
     
     //Public Method - id
-    func addSessionId(id: Int) {
+    func addSession(room: Room) {
         
-        guard sessionIds.contains(id) == false else { return }
+        guard sessions.filter({ $0.sessionId == room.sessionId }).count == 0 else { return }
         
-        sessionIds.append(id)
+        sessions.append(room)
         
-        userDefault.setValue(sessionIds, forKey: sessionKey)
-        
-        fetchSession(id: id, completion: { [weak self] in
-            
-            self?.willChangeValue(for: \.sessionIds)
-            self?.didChangeValue(for: \.sessionIds)
-        })
+        sessionIds = sessions.map({ $0.sessionId })
     }
     
-    func removeSessionId(id: Int) {
+    func removeSession(room: Room) {
         
-        guard let index = sessionIds.firstIndex(of: id) else { return }
+        sessions.removeAll(where: { $0.sessionId == room.sessionId })
         
-        _sessions = _sessions.compactMap({ session in
-            
-            if session.sessionId == id {
-                return nil
-            }
-            
-            return session
-        })
-        
-        sessionIds.remove(at: index)
-    
-        userDefault.setValue(sessionIds, forKey: sessionKey)
+        sessionIds = sessions.map({ $0.sessionId })
     }
     
-    func addUnconfId(id: Int) {
+    func removeSession(id: Int) {
         
-        guard unconfIds.contains(id) == false else { return }
+        sessions.removeAll(where: { $0.sessionId == id })
         
-        unconfIds.append(id)
-        
-        userDefault.setValue(unconfIds, forKey: unconfKey)
-        
-        fetchUnconf(id: id, completion: { [weak self] in
-            
-            self?.willChangeValue(for: \.unconfIds)
-            self?.didChangeValue(for: \.unconfIds)
-        })
+        sessionIds = sessions.map({ $0.sessionId })
     }
     
-    func removeUnconfId(id: Int) {
+    func addUnconf(room: Room) {
         
-        guard let index = unconfIds.firstIndex(of: id) else { return }
+        guard unconfs.filter({ $0.sessionId == room.sessionId }).count == 0 else { return }
         
-        _unconfs = _unconfs.compactMap({ info in
-            
-            if info.sessionId == id {
-                return nil
-            }
-            
-            return info
-        })
+        unconfs.append(room)
         
-        unconfIds.remove(at: index)
+        unconfIds = unconfs.map({ $0.sessionId })
+    }
     
-        userDefault.setValue(unconfIds, forKey: unconfKey)
+    func removeUnconf(room: Room) {
+        
+        unconfs.removeAll(where: { $0.sessionId == room.sessionId })
+        
+        unconfIds = unconfs.map({ $0.sessionId })
+    }
+    
+    func removeUnconf(id: Int) {
+        
+        unconfs.removeAll(where: { $0.sessionId == id })
+        
+        unconfIds = unconfs.map({ $0.sessionId })
     }
     
     func fetchSessionIds() -> [Int] {
@@ -163,7 +128,7 @@ class FavoriteManager: NSObject, MainThreadHelper {
                 
                 self?.throwToMainThreadAsync {
                     
-                    self?._sessions.append(room)
+                    self?.sessions.append(room)
                     
                     completion()
                 }
@@ -187,7 +152,7 @@ class FavoriteManager: NSObject, MainThreadHelper {
                 
                 self?.throwToMainThreadAsync {
                     
-                    self?._unconfs.append(sessionInfo)
+                    self?.unconfs.append(sessionInfo)
                     
                     completion()
                 }

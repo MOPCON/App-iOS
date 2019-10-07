@@ -160,13 +160,13 @@ extension SessionsViewController: ConferenceTableViewCellDelegate {
             
             action = "add"
             
-            FavoriteManager.shared.addSessionId(id: room.sessionId)
+            FavoriteManager.shared.addSession(room: room)
             
         } else {
             
             action = "remove"
             
-            FavoriteManager.shared.removeSessionId(id: room.sessionId)
+            FavoriteManager.shared.removeSession(room: room)
         }
         
         FieldGameProvider.modifyFavorite(

@@ -42,11 +42,11 @@ class FavoriteViewController: MPBaseSessionViewController {
                 
             case .session:
             
-                FavoriteManager.shared.removeSessionId(id: id)
+                FavoriteManager.shared.removeSession(id: id)
                 
             case .unconf:
             
-                FavoriteManager.shared.removeUnconfId(id: id)
+                FavoriteManager.shared.removeUnconf(id: id)
             }
         }
     }
@@ -78,9 +78,9 @@ class FavoriteViewController: MPBaseSessionViewController {
                 tableView.isHidden = false
             
                 emptyView.isHidden = true
-                
-                tableView.reloadData()
             }
+            
+            tableView.reloadData()
         }
     }
     
@@ -90,8 +90,7 @@ class FavoriteViewController: MPBaseSessionViewController {
             
         case .empty: return []
 
-        case .normal(let datas): return datas
-    
+        case .normal(let tempDatas): return tempDatas
         }
     }
     
