@@ -12,11 +12,21 @@ class SponsorSmallCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var sponsorImageView: UIImageView!
     
-    func updateUI(sponsor:Sponsor.Payload){
-        self.layer.cornerRadius = 5
-        self.layer.masksToBounds = true
-        if let url = URL(string: sponsor.logo) {
-            sponsorImageView.kf.setImage(with: url)
-        }
+    @IBOutlet weak var sponsorLabel: UILabel!
+    
+    override func layoutSubviews() {
+        
+        sponsorImageView.makeCircle()
     }
+    
+    func updateUI(sponsor: Sponsor){
+        
+        sponsorLabel.text =
+            (CurrentLanguage.getLanguage() == Language.english.rawValue)
+            ? sponsor.nameEn
+            : sponsor.name
+        
+        sponsorImageView.loadImage(sponsor.logo)
+    }
+
 }

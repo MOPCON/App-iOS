@@ -9,5 +9,6 @@ target 'Mopcon' do
     pod 'Kingfisher'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
+    pod 'Firebase/DynamicLinks'
 
 end

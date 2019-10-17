@@ -46,6 +46,8 @@ typedef NS_ENUM(NSInteger, FIRMessagingMessageCode) {
   kFIRMessagingMessageCodeAPNSTokenNotAvailableDuringTokenFetch = 2022, // I-FCM002022
   kFIRMessagingMessageCodeTokenDelegateMethodsNotImplemented = 2023, // I-FCM002023
   kFIRMessagingMessageCodeTopicFormatIsDeprecated = 2024,
+  kFIRMessagingMessageCodeDirectChannelConnectionFailed = 2025,
+  kFIRMessagingMessageCodeInvalidClient = 2026,
   // FIRMessagingClient.m
   kFIRMessagingMessageCodeClient000 = 4000,  // I-FCM004000
   kFIRMessagingMessageCodeClient001 = 4001,  // I-FCM004001
@@ -59,6 +61,9 @@ typedef NS_ENUM(NSInteger, FIRMessagingMessageCode) {
   kFIRMessagingMessageCodeClient009 = 4009,  // I-FCM004009
   kFIRMessagingMessageCodeClient010 = 4010,  // I-FCM004010
   kFIRMessagingMessageCodeClient011 = 4011,  // I-FCM004011
+  kFIRMessagingMessageCodeClientInvalidState = 4012,
+  kFIRMessagingMessageCodeClientInvalidStateTimeout = 4013,
+
   // FIRMessagingConnection.m
   kFIRMessagingMessageCodeConnection000 = 5000,  // I-FCM005000
   kFIRMessagingMessageCodeConnection001 = 5001,  // I-FCM005001
@@ -105,6 +110,8 @@ typedef NS_ENUM(NSInteger, FIRMessagingMessageCode) {
   kFIRMessagingMessageCodeDataMessageManager010 = 7010,  // I-FCM007010
   kFIRMessagingMessageCodeDataMessageManager011 = 7011,  // I-FCM007011
   kFIRMessagingMessageCodeDataMessageManager012 = 7012,  // I-FCM007012
+  kFIRMessagingMessageCodeDataMessageManager013 = 7013,
+
   // FIRMessagingPendingTopicsList.m
   kFIRMessagingMessageCodePendingTopicsList000 = 8000,  // I-FCM008000
   // FIRMessagingPubSub.m
@@ -178,4 +185,24 @@ typedef NS_ENUM(NSInteger, FIRMessagingMessageCode) {
   kFIRMessagingMessageCodeUtilities000 = 18000,  // I-FCM018000
   kFIRMessagingMessageCodeUtilities001 = 18001,  // I-FCM018001
   kFIRMessagingMessageCodeUtilities002 = 18002,  // I-FCM018002
+  // FIRMessagingAnalytics.m
+  kFIRMessagingMessageCodeAnalytics000 = 19000,  // I-FCM019000
+  kFIRMessagingMessageCodeAnalytics001 = 19001,  // I-FCM019001
+  kFIRMessagingMessageCodeAnalytics002 = 19002,  // I-FCM019002
+  kFIRMessagingMessageCodeAnalytics003 = 19003,  // I-FCM019003
+  kFIRMessagingMessageCodeAnalytics004 = 19004,  // I-FCM019004
+  kFIRMessagingMessageCodeAnalytics005 = 19005,  // I-FCM019005
+  kFIRMessagingMessageCodeAnalyticsInvalidEvent = 19006,  // I-FCM019006
+  kFIRMessagingMessageCodeAnalytics007 = 19007,  // I-FCM019007
+  kFIRMessagingMessageCodeAnalyticsCouldNotInvokeAnalyticsLog = 19008,  // I-FCM019008
+
+  // FIRMessagingExtensionHelper.m
+  kFIRMessagingServiceExtensionImageInvalidURL = 20000,
+  kFIRMessagingServiceExtensionImageNotDownloaded = 20001,
+  kFIRMessagingServiceExtensionLocalFileNotCreated = 20002,
+  kFIRMessagingServiceExtensionImageNotAttached = 20003,
+
+  // FIRMessagingCodedInputStream.m
+  kFIRMessagingCodeInputStreamInvalidParameters = 21000,
+
 };

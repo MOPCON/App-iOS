@@ -14,18 +14,23 @@
  * limitations under the License.
  */
 
-#import "FIRMessagingDataMessageManager.h"
-#import "FIRMessaging.h"
+#import <FirebaseMessaging/FIRMessaging.h>
+#import "Firebase/Messaging/FIRMessagingDataMessageManager.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @class FIRMessagingReceiver;
 @protocol FIRMessagingReceiverDelegate <NSObject>
 
-- (void)receiver:(nonnull FIRMessagingReceiver *)receiver
-      receivedRemoteMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage;
+- (void)receiver:(FIRMessagingReceiver *)receiver
+      receivedRemoteMessage:(FIRMessagingRemoteMessage *)remoteMessage;
 
 @end
-
 
 @interface FIRMessagingReceiver : NSObject <FIRMessagingDataMessageManagerDelegate>
+
 @property(nonatomic, weak, nullable) id<FIRMessagingReceiverDelegate> delegate;
+
 @end
+
+NS_ASSUME_NONNULL_END

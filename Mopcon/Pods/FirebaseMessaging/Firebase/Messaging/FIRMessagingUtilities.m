@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-#import "FIRMessagingUtilities.h"
+#import "Firebase/Messaging/FIRMessagingUtilities.h"
 
-#import "Protos/GtalkCore.pbobjc.h"
+#import "Firebase/Messaging/Protos/GtalkCore.pbobjc.h"
 
-#import "FIRMessagingLogger.h"
+#import "Firebase/Messaging/FIRMessagingLogger.h"
+
+#import <GoogleUtilities/GULAppEnvironmentUtil.h>
 
 // Convert the macro to a string
 #define STR_EXPAND(x) #x
@@ -170,4 +172,12 @@ uint64_t FIRMessagingGetFreeDiskSpaceInMB(void) {
                             @"Error in retreiving device's free memory %@", error);
     return 0;
   }
+}
+
+NSSearchPathDirectory FIRMessagingSupportedDirectory(void) {
+#if TARGET_OS_TV
+    return NSCachesDirectory;
+#else
+    return NSApplicationSupportDirectory;
+#endif
 }

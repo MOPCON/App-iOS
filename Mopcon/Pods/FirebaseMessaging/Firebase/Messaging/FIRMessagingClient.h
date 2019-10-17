@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-#import "FIRMessaging.h"
+#import <FirebaseMessaging/FIRMessaging.h>
 
-@class FIRReachabilityChecker;
+@class GULReachabilityChecker;
 @class GPBMessage;
 
 @class FIRMessagingConnection;
@@ -48,7 +48,7 @@ typedef void(^FIRMessagingConnectCompletionHandler)(NSError *error);
 
 // Designated initializer
 - (instancetype)initWithDelegate:(id<FIRMessagingClientDelegate>)delegate
-                    reachability:(FIRReachabilityChecker *)reachability
+                    reachability:(GULReachabilityChecker *)reachability
                      rmq2Manager:(FIRMessagingRmqManager *)rmq2Manager;
 
 - (void)teardown;

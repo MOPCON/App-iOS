@@ -8,62 +8,116 @@
 
 import UIKit
 
-protocol WhichCellButtonDidTapped {
-    func whichCellButtonDidTapped(sender: UIButton,index:IndexPath)
+protocol ConferenceTableViewCellDelegate: AnyObject {
+    
+    func likeButtonDidTouched(_ cell: ConferenceTableViewCell)
 }
 
 class ConferenceTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    
     @IBOutlet weak var topicLabel: UILabel!
+    
     @IBOutlet weak var speakerLabel: UILabel!
+    
     @IBOutlet weak var locationLabel: UILabel!
+    
     @IBOutlet weak var addToMyScheduleButton: UIButton!
     
-    var delegate: WhichCellButtonDidTapped?
+    @IBOutlet weak var tagView: MPTagView!
+    
+    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
+    
+    weak var delegate: ConferenceTableViewCellDelegate?
+    
+    var tags: [Tag] = []
+    
     var index:IndexPath?
     
     @IBAction func addToMySchedule(_ sender: UIButton) {
-        guard let index = index else {return}
-        if sender.image(for: .normal) == #imageLiteral(resourceName: "buttonStarNormal") {
-            addToMyScheduleButton.setImage(#imageLiteral(resourceName: "buttonStarChecked"), for: .normal)
-        } else {
-            addToMyScheduleButton.setImage(#imageLiteral(resourceName: "buttonStarNormal"), for: .normal)
-        }
-        delegate?.whichCellButtonDidTapped(sender: sender, index: index)
+        
+        sender.isSelected = !sender.isSelected
+        
+        delegate?.likeButtonDidTouched(self)
     }
     
     override func awakeFromNib() {
+        
         super.awakeFromNib()
-        self.layoutIfNeeded()
+        
+        contentView.subviews.first?.layer.borderColor = UIColor.azure?.cgColor
+        
+        contentView.subviews.first?.layer.borderWidth = 1
+        
+        tagView.dataSource = self
+        
+        layoutIfNeeded()
     }
     
     override func prepareForReuse() {
+        
         super.prepareForReuse()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
         super.setSelected(selected, animated: animated)
-        self.selectionStyle = .none
-        // Configure the view for the selected state
+        
+        selectionStyle = .none
     }
     
-    func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent){
+    func updateUI(room: Room, dateFormate: String = "HH:mm"){
+        
+        durationLabel.text = DateFormatter.string(for: room.startedAt, formatter: dateFormate)! + " - " + DateFormatter.string(for: room.endedAt, formatter: dateFormate)!
+        
+        locationLabel.text = room.room
+        
+        addToMyScheduleButton.isSelected = room.isLiked
         
         let language = CurrentLanguage.getLanguage()
+        
         switch language {
+            
         case Language.chinese.rawValue:
-            self.categoryLabel.text = agenda.category
-            self.topicLabel.text = agenda.schedule_topic
-            self.speakerLabel.text = agenda.name
-            self.locationLabel.text = agenda.location
+            
+            topicLabel.text = room.topic
+            
+            speakerLabel.text = room.speakers.reduce("", { $0 + $1.name + " "})
+            
         case Language.english.rawValue:
-            self.categoryLabel.text = agenda.category
-            self.topicLabel.text = agenda.schedule_topic_en
-            self.speakerLabel.text = agenda.name_en
-            self.locationLabel.text = agenda.location
+            
+            topicLabel.text = room.topicEn
+            
+            speakerLabel.text = room.speakers.reduce("", { $0 + $1.nameEn + " "})
+            
         default:
+            
             break
         }
+        
+        tags = room.tags
+        
+        tagView.reloadData()
+    }
+}
+
+extension ConferenceTableViewCell: MPTagViewDataSource {
+    
+    func numberOfTags(_ tagView: MPTagView) -> Int {
+        
+        return tags.count
+    }
+    
+    func titleForTags(_ tagView: MPTagView, index: Int) -> String {
+        
+        return tags[index].name
+    }
+    
+    func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
+        
+        return UIColor(hex: tags[index].color)
     }
 }

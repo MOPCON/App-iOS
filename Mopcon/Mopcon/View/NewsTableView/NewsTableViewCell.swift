@@ -8,50 +8,28 @@
 
 import UIKit
 
-protocol ButtonDidTappedDelegate {
-    func messageConnectionButtonDidTapped(index:IndexPath)
-}
-
 class NewsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var opacityView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dedcriptionLabel: UILabel!
   
-//    var delegate:ButtonDidTappedDelegate?
-    var news:News.Payload?
-    var index:IndexPath?
-    
-    @IBAction func messageConnectAction(_ sender: UIButton) {
-//        print("OK")
-//        delegate?.messageConnectionButtonDidTapped(index: index!)
-        if let news = news, let url = URL(string: news.link) {
-            UIApplication.shared.open(url, options: [:])
-        }
-    }
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         self.selectionStyle = .none
-        // Initialization code
+        
+        opacityView.layer.borderColor = UIColor.azure?.cgColor
     }
 
-    func updateUI(news: News.Payload) {
+    func updateUI(news: News) {
         
-        let language = CurrentLanguage.getLanguage()
-        switch language {
-        case Language.chinese.rawValue:
-            timeLabel.text = news.time
-            titleLabel.text = news.title
-            dedcriptionLabel.text = news.description
-        case Language.english.rawValue:
-            timeLabel.text = news.time
-            titleLabel.text = news.title
-            dedcriptionLabel.text = news.description
-        default:
-            break
-        }
+        dateLabel.text = DateFormatter.string(for: news.date, formatter: "yyyy/MM/dd")
+        timeLabel.text = DateFormatter.string(for: news.date, formatter: "HH:mm")
+        titleLabel.text = news.title
+        dedcriptionLabel.text = news.description
     }
 }

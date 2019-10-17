@@ -12,29 +12,39 @@ class BreakTableViewCell: UITableViewCell {
     
     @IBOutlet weak var breakStepLabel: UILabel!
     
+    @IBOutlet weak var timeLabel: UILabel!
+    
     override func awakeFromNib() {
+        
         super.awakeFromNib()
-
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
         super.setSelected(selected, animated: animated)
+        
         self.selectionStyle = .none
+        
         self.isUserInteractionEnabled = false
-        // Configure the view for the selected state
     }
     
-    func updateUI(agenda:Schedule.Payload.Agenda.Item.AgendaContent) {
+    func updateUI(startDate: String? = nil, endDate: String? = nil, event: String) {
         
-        let language = CurrentLanguage.getLanguage()
-        switch language {
-        case Language.chinese.rawValue:
-            self.breakStepLabel.text = agenda.schedule_topic
-        case Language.english.rawValue:
-            self.breakStepLabel.text = agenda.schedule_topic_en
-        default:
-            break
+        if let start = startDate,
+           let end = endDate {
+           
+            timeLabel.text = start + " - " + end
+            
+            breakStepLabel.textAlignment = .right
+        
+        } else {
+         
+            timeLabel.text = ""
+            
+            breakStepLabel.textAlignment = .center
         }
+    
+        breakStepLabel.text = event
     }
 
 }

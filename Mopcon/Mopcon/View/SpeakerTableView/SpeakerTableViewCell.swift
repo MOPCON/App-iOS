@@ -11,49 +11,80 @@ import Kingfisher
 
 class SpeakerTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var opacityView: UIView!
+    @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var speakerAvatarImageView: UIImageView! {
         didSet {
             self.speakerAvatarImageView.makeCircle()
         }
     }
-    @IBOutlet weak var speakerNameLabel: UILabel!
-    @IBOutlet weak var speakerCompanyLabel: UILabel!
-    @IBOutlet weak var speakerJobLabel: UILabel!
     
-
-    func updateUI(speaker:Speaker.Payload){
-        if let resource = URL(string: speaker.picture) {
-            self.speakerAvatarImageView.kf.setImage(with: resource)
-        } else {
-            self.speakerAvatarImageView.image = nil
+    @IBOutlet weak var speakerNameLabel: UILabel!
+    @IBOutlet weak var speakerJobLabel: UILabel!
+    @IBOutlet weak var tagView: MPTagView! {
+        didSet {
+            tagView.dataSource = self
         }
+    }
+    
+    var tags: [Tag] = []
+    
+    func updateUI(speaker: Speaker) {
+        
+        speakerAvatarImageView.kf.setImage(
+            with: URL(string: speaker.img.mobile),
+            placeholder: UIImage.asset(.fieldGameProfile)
+        )
         
         let language = CurrentLanguage.getLanguage()
+        
         switch language {
+        
         case Language.chinese.rawValue:
-            self.speakerJobLabel.text = speaker.job
+            
+            self.speakerJobLabel.text = speaker.jobTitle
             self.speakerNameLabel.text = speaker.name
-            self.speakerCompanyLabel.text = speaker.company
+        
         case Language.english.rawValue:
-            self.speakerJobLabel.text = speaker.job
-            self.speakerNameLabel.text = speaker.name_en
-            self.speakerCompanyLabel.text = speaker.company
+            
+            self.speakerJobLabel.text = speaker.jobTitleEn
+            self.speakerNameLabel.text = speaker.nameEn
+        
         default:
             break
         }
         
+        tags = speaker.tags
+        
+        tagView.reloadData()
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        baseView.layer.borderColor = UIColor.azure?.cgColor
+        baseView.layer.borderWidth = 1.0
+        baseView.layer.cornerRadius = 6.0
+        baseView.clipsToBounds = true
+        
+        selectionStyle = .none
     }
+}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        self.selectionStyle = .none
-        // Configure the view for the selected state
+extension SpeakerTableViewCell: MPTagViewDataSource {
+    
+    func numberOfTags(_ tagView: MPTagView) -> Int {
+        
+        return tags.count
     }
-
+    
+    func titleForTags(_ tagView: MPTagView, index: Int) -> String {
+        
+        return tags[index].name
+    }
+    
+    func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
+        
+        return UIColor(hex: tags[index].color)
+    }
 }
