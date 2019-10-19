@@ -95,7 +95,7 @@ class SpeakerDetailViewController: MPBaseViewController {
 
         let start = DateFormatter.string(for: speaker.startedAt, formatter: "MM/dd HH:MM") ?? ""
         
-        let end = DateFormatter.string(for: speaker.startedAt, formatter: "HH:MM") ?? ""
+        let end = DateFormatter.string(for: speaker.endedAt, formatter: "HH:MM") ?? ""
         
         talkInfoView.updateUI(
             topic: speaker.topic,
