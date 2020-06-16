@@ -26,4 +26,12 @@ typedef NS_ENUM(NSInteger, GDTCORTarget) {
 
   /** The CCT target. */
   kGDTCORTargetCCT = 1000,
+
+  /** The FLL target. */
+  kGDTCORTargetFLL = 1001,
+
+  /** The CSH target. The CSH target is a special-purpose backend. Please do not use it without
+   * permission.
+   */
+  kGDTCORTargetCSH = 1002
 };
