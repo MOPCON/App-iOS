@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pp0-8L-Z8b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pp0-8L-Z8b">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -239,9 +239,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P2-XK-Cd0">
-                                    <rect key="frame" x="297" y="17" width="18" height="22"/>
-                                    <state key="normal" image="dislike_24"/>
-                                    <state key="selected" image="like_24"/>
+                                    <rect key="frame" x="299" y="17" width="16" height="22"/>
+                                    <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" image="dislike"/>
+                                    <state key="selected" image="like"/>
                                     <connections>
                                         <action selector="collectionTopic:" destination="Asq-UZ-727" eventType="touchUpInside" id="7p2-q4-Ekg"/>
                                     </connections>
@@ -317,8 +318,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dislike_24" width="18" height="16"/>
-        <image name="like_24" width="16" height="14"/>
+        <image name="dislike" width="16" height="14"/>
+        <image name="like" width="16" height="14"/>
         <image name="marker_20" width="12" height="16"/>
     </resources>
 </document>

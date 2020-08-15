@@ -96,7 +96,11 @@ class GroupHostDetailViewController: MPBaseViewController {
         
         moreBtn.layer.cornerRadius = 15
         
-        moreBtn.layer.borderColor = UIColor.azure?.cgColor
+        moreBtn.layer.borderColor = UIColor.secondThemeColor?.cgColor
+        
+        moreBtn.layer.backgroundColor = UIColor.mainThemeColor?.cgColor
+        
+        moreBtn.setTitleColor(UIColor.secondThemeColor, for: .normal)
         
         moreBtn.layer.borderWidth = 1.0
         

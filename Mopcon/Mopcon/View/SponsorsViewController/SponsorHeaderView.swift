@@ -14,5 +14,6 @@ class SponsorHeaderView: UICollectionReusableView {
     
     func updateUI(title:String){
         headerTitleLabel.text = title
+        headerTitleLabel.textColor = UIColor.secondThemeColor
     }
 }

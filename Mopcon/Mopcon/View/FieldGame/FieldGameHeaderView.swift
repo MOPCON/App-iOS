@@ -26,7 +26,7 @@ class FieldGameHeaderView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        rewardBtn.layer.borderColor = UIColor.azure?.cgColor
+        rewardBtn.layer.borderColor = UIColor.secondThemeColor?.cgColor
         
         rewardBtn.layer.borderWidth = 1.0
         
