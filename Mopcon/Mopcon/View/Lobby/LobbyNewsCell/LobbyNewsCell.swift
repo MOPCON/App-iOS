@@ -130,7 +130,7 @@ private class LobbyNewsCollectionViewCell: UICollectionViewCell {
     
     func setup() {
         
-        backgroundColor = UIColor.azure?.withAlphaComponent(0.2)
+        backgroundColor = UIColor.secondThemeColor
         
         layer.cornerRadius = 6.0
         
@@ -163,7 +163,7 @@ private class LobbyNewsCollectionViewCell: UICollectionViewCell {
         
         label.font = UIFont.systemFont(ofSize: 16)
         
-        label.textColor = UIColor.white
+        label.textColor = UIColor.mainThemeColor
         
         label.numberOfLines = 0
     }

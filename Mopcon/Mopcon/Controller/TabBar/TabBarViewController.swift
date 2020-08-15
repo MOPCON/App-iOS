@@ -105,7 +105,7 @@ class TabBarViewController: UITabBarController {
         
         tabBar.unselectedItemTintColor = .white
         
-        tabBar.tintColor = UIColor.azure
+        tabBar.tintColor = UIColor.secondThemeColor
         
         tabBar.barTintColor = UIColor.dark
 

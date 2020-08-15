@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F9C97E924E7CA690060B123 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9C97E824E7CA690060B123 /* CustomSegmentedControl.swift */; };
 		3C0AD2E6233CCE1D00193A4E /* SponsorInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0AD2E5233CCE1D00193A4E /* SponsorInfoCell.swift */; };
 		3C0AD2E8233CCE3200193A4E /* SponsorAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0AD2E7233CCE3200193A4E /* SponsorAboutCell.swift */; };
 		3C1229DA2334C21300001760 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1229D92334C21300001760 /* DateFormatter.swift */; };
@@ -166,6 +167,7 @@
 
 /* Begin PBXFileReference section */
 		0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mopcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F9C97E824E7CA690060B123 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		293FFEAF5ECBACAF171BB104 /* Pods-Mopcon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.release.xcconfig"; sourceTree = "<group>"; };
 		36A8ADA41F4B2FE3D1F03AD3 /* Pods-Mopcon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.debug.xcconfig"; sourceTree = "<group>"; };
 		3C0AD2E5233CCE1D00193A4E /* SponsorInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorInfoCell.swift; sourceTree = "<group>"; };
@@ -936,6 +938,7 @@
 				D6555F2720EB2A83000816DF /* CustomSelectedButton.swift */,
 				D6B5166820EA07A1003FA56F /* CornerImageView.swift */,
 				D6555F3020EC7D97000816DF /* CornerBackgroundView.swift */,
+				0F9C97E824E7CA690060B123 /* CustomSegmentedControl.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1255,6 +1258,7 @@
 				3C31E657230F872E00000518 /* HTTPClient.swift in Sources */,
 				3C5FF12423352AE500D82CC6 /* SessionsViewController.swift in Sources */,
 				3C2160CD233B472B00EEF638 /* HomeAPI.swift in Sources */,
+				0F9C97E924E7CA690060B123 /* CustomSegmentedControl.swift in Sources */,
 				D6240CEA20ECABED002C89E7 /* SponsorDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

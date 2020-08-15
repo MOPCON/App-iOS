@@ -34,7 +34,7 @@ class LobbySessionCell: UITableViewCell {
         
             emptyView.layer.cornerRadius = 6
             
-            emptyView.layer.borderColor = UIColor.azure?.cgColor
+            emptyView.layer.borderColor = UIColor.secondThemeColor?.cgColor
             
             emptyView.layer.borderWidth = 1.0
             

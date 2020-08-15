@@ -48,7 +48,7 @@ class ConferenceTableViewCell: UITableViewCell {
         
         super.awakeFromNib()
         
-        contentView.subviews.first?.layer.borderColor = UIColor.azure?.cgColor
+        contentView.subviews.first?.layer.borderColor = UIColor.secondThemeColor?.cgColor
         
         contentView.subviews.first?.layer.borderWidth = 1
         

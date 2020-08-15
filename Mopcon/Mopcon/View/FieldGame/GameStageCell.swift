@@ -44,7 +44,7 @@ class GameStageCell: UITableViewCell {
     
     private func hightlightStateLayout() {
         
-        cellView?.backgroundColor = UIColor.azure?.withAlphaComponent(0.3)
+        cellView?.backgroundColor = UIColor.secondThemeColor?.withAlphaComponent(0.3)
         
         cellView?.layer.borderColor = UIColor.clear.cgColor
     }
@@ -53,7 +53,7 @@ class GameStageCell: UITableViewCell {
         
         cellView?.backgroundColor = UIColor.clear
         
-        cellView?.layer.borderColor = UIColor.azure?.cgColor
+        cellView?.layer.borderColor = UIColor.secondThemeColor?.cgColor
     }
     
     func startTimer() {
@@ -62,11 +62,11 @@ class GameStageCell: UITableViewCell {
         
         backgroudColorAnimation.fromValue = UIColor.clear
         
-        backgroudColorAnimation.toValue = UIColor.azure?.withAlphaComponent(0.3).cgColor
+        backgroudColorAnimation.toValue = UIColor.secondThemeColor?.withAlphaComponent(0.3).cgColor
         
         let borderColorAnimation = CABasicAnimation(keyPath: "borderColor")
         
-        borderColorAnimation.fromValue = UIColor.azure?.cgColor
+        borderColorAnimation.fromValue = UIColor.secondThemeColor?.cgColor
         
         borderColorAnimation.toValue = UIColor.clear.cgColor
         

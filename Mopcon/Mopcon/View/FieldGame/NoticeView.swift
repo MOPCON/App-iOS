@@ -112,7 +112,7 @@ class NoticeView: UIView {
         
         backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
-        cancelButton.layer.borderColor = UIColor.azure?.cgColor
+        cancelButton.layer.borderColor = UIColor.secondThemeColor?.cgColor
     }
     
     func updateUI(with type: NoticeType, and data: AnyObject? = nil) {
