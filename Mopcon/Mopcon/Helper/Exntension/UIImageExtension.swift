@@ -11,19 +11,14 @@ import UIKit
 enum ImageAsset: String {
     
     case lobby = "lobby"
-    case lobbySelected = "lobby_selected"
     
     case agenda = "agenda"
-    case agendaSelected = "agenda_selected"
     
     case mission = "mission"
-    case missionSelected = "mission_selected"
     
     case news = "news"
-    case newsSelected = "news_selected"
     
     case more = "more"
-    case moreSelected = "more_selected"
     
     case communication = "communication"
     case speaker = "speaker"
@@ -31,8 +26,8 @@ enum ImageAsset: String {
     case group = "group"
     
     //Lobby
-    case dislike_24 = "dislike_24"
-    case like_24 = "like_24"
+    case dislike = "dislike"
+    case like = "like"
     
     //Base
     case back = "back"

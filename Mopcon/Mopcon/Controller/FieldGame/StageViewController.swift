@@ -65,7 +65,7 @@ class StageViewController: MPBaseViewController, NoticeViewPresentable {
         
         stageImageView.layer.cornerRadius = 6
         
-        stageImageView.layer.borderColor = UIColor.azure?.cgColor
+        stageImageView.layer.borderColor = UIColor.secondThemeColor?.cgColor
         
         stageImageView.layer.borderWidth = 1
         
@@ -97,13 +97,13 @@ class StageViewController: MPBaseViewController, NoticeViewPresentable {
         
         let titleColor = pass ? UIColor.brownGray : UIColor.white
         
-        qrCodeButton.backgroundColor = pass ? UIColor.clear : UIColor.azure
+        qrCodeButton.backgroundColor = pass ? UIColor.clear : UIColor.secondThemeColor
         
         qrCodeButton.setTitleColor(titleColor, for: .normal)
         
         qrCodeButton.setTitle(title, for: .normal)
         
-        qrCodeButton.layer.borderColor = pass ? UIColor.brownGray?.cgColor : UIColor.azure?.cgColor
+        qrCodeButton.layer.borderColor = pass ? UIColor.brownGray?.cgColor : UIColor.secondThemeColor?.cgColor
         
         qrCodeButton.isEnabled = !pass
     }

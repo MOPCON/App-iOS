@@ -29,7 +29,7 @@ extension SelectionViewDataSource {
     
     func colorOfTitleInButton(_ selectionView: SelectionView, at index: Int) -> UIColor? { return UIColor.white }
     
-    func colorOfIndicator(_ selectionView: SelectionView) -> UIColor? { return UIColor.azure }
+    func colorOfIndicator(_ selectionView: SelectionView) -> UIColor? { return UIColor.secondThemeColor }
     
     func initialButtonIndex(_ selectionView: SelectionView) -> Int { return 0 }
 }

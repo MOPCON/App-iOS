@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         
-        UINavigationBar.appearance().shadowImage = UIImage.imageWithColor(color: (UIColor.azure?.withAlphaComponent(0.2))!)
+        UINavigationBar.appearance().shadowImage = UIImage.imageWithColor(color: (UIColor.secondThemeColor?.withAlphaComponent(0.2))!)
         
         UINavigationBar.appearance().tintColor = .white
         

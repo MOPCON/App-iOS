@@ -84,7 +84,7 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     @IBAction func didTouchedLikedBtn(_ sender: UIBarButtonItem) {
         
-        if sender.image == UIImage.asset(.like_24) {
+        if sender.image == UIImage.asset(.like) {
             
             switch conferenceType {
                 
@@ -94,7 +94,7 @@ class ConferenceDetailViewController: MPBaseViewController {
                 
             }
             
-            sender.image = UIImage.asset(.dislike_24)
+            sender.image = UIImage.asset(.dislike)
             
         } else {
             
@@ -110,7 +110,7 @@ class ConferenceDetailViewController: MPBaseViewController {
                 
             }
             
-            sender.image = UIImage.asset(.like_24)
+            sender.image = UIImage.asset(.like)
         }
     }
     
@@ -134,11 +134,11 @@ class ConferenceDetailViewController: MPBaseViewController {
                     
                     if FavoriteManager.shared.fetchSessionIds().contains(id) {
                         
-                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.like_24)
+                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.like)
                         
                     } else {
                         
-                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.dislike_24)
+                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.dislike)
                     }
                 }
                 

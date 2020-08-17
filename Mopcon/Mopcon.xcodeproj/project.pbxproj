@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -115,7 +115,7 @@
 		5E9FEF0021294FD70096B4A8 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */; };
 		5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */; };
 		5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF59B9C215DBCD200CF622C /* LoadingTool.swift */; };
-		854F882CF3DD3FD013EEC09B /* Pods_Mopcon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */; };
+		6C537D459B15269A6CBB0C9C /* Pods_Mopcon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 197E99FE540FB7A3524E9C01 /* Pods_Mopcon.framework */; };
 		D6240CDF20EC98AD002C89E7 /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */; };
 		D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE020EC9A70002C89E7 /* SponsorHeaderView.swift */; };
 		D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */; };
@@ -165,9 +165,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mopcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		293FFEAF5ECBACAF171BB104 /* Pods-Mopcon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.release.xcconfig"; sourceTree = "<group>"; };
-		36A8ADA41F4B2FE3D1F03AD3 /* Pods-Mopcon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mopcon/Pods-Mopcon.debug.xcconfig"; sourceTree = "<group>"; };
+		197E99FE540FB7A3524E9C01 /* Pods_Mopcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mopcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0AD2E5233CCE1D00193A4E /* SponsorInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorInfoCell.swift; sourceTree = "<group>"; };
 		3C0AD2E7233CCE3200193A4E /* SponsorAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorAboutCell.swift; sourceTree = "<group>"; };
 		3C1229D92334C21300001760 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -251,6 +249,7 @@
 		3CFCF00622DED10E006184CD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		3CFCF00A22DEFBB2006184CD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		4102445E3B7FCE9C670FBD26 /* Pods-Mopcon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.release.xcconfig"; path = "Target Support Files/Pods-Mopcon/Pods-Mopcon.release.xcconfig"; sourceTree = "<group>"; };
 		49A6838E2153248000EC6EA7 /* MopconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MopconUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A683902153248100EC6EA7 /* MopconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconUITests.swift; sourceTree = "<group>"; };
 		49A683922153248100EC6EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -317,6 +316,7 @@
 		D6EE629820E9D0B00043B68A /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		D6F0BE6020F0610B0053A100 /* CommonFunctionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctionHelper.swift; sourceTree = "<group>"; };
 		D6F0BE6820F0A02B0053A100 /* ConferenceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceDetailViewController.swift; sourceTree = "<group>"; };
+		EB90D25ADD6CD798AF61F5CE /* Pods-Mopcon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.debug.xcconfig"; path = "Target Support Files/Pods-Mopcon/Pods-Mopcon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,19 +331,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				854F882CF3DD3FD013EEC09B /* Pods_Mopcon.framework in Frameworks */,
+				6C537D459B15269A6CBB0C9C /* Pods_Mopcon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03F6A52C60EC4ABC5E9314F0 /* Frameworks */ = {
+		12374D9A5A907691DC3C9353 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0DBB6C96F98717D3E5B71A3B /* Pods_Mopcon.framework */,
+				EB90D25ADD6CD798AF61F5CE /* Pods-Mopcon.debug.xcconfig */,
+				4102445E3B7FCE9C670FBD26 /* Pods-Mopcon.release.xcconfig */,
 			);
-			name = Frameworks;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		3C0AD2E3233CCDC100193A4E /* Sponsor */ = {
@@ -686,6 +687,14 @@
 			path = MopconUITests;
 			sourceTree = "<group>";
 		};
+		4A514A8F09CAC325C38D09AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				197E99FE540FB7A3524E9C01 /* Pods_Mopcon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		536688702305AFEA0036DFE5 /* FieldGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,15 +792,6 @@
 			path = Exntension;
 			sourceTree = "<group>";
 		};
-		960B7C1F8806742F9A864552 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				36A8ADA41F4B2FE3D1F03AD3 /* Pods-Mopcon.debug.xcconfig */,
-				293FFEAF5ECBACAF171BB104 /* Pods-Mopcon.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		D6240CE220EC9A74002C89E7 /* SponsorsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -808,8 +808,8 @@
 				D633462020E8FFC60033E5B4 /* Mopcon */,
 				49A6838F2153248100EC6EA7 /* MopconUITests */,
 				D633461F20E8FFC60033E5B4 /* Products */,
-				960B7C1F8806742F9A864552 /* Pods */,
-				03F6A52C60EC4ABC5E9314F0 /* Frameworks */,
+				12374D9A5A907691DC3C9353 /* Pods */,
+				4A514A8F09CAC325C38D09AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -985,11 +985,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D633463320E8FFC70033E5B4 /* Build configuration list for PBXNativeTarget "Mopcon" */;
 			buildPhases = (
-				3144AF88E0CC9BAF399D5C22 /* [CP] Check Pods Manifest.lock */,
+				281C521A23EEAF60FE321730 /* [CP] Check Pods Manifest.lock */,
 				D633461A20E8FFC60033E5B4 /* Sources */,
 				D633461B20E8FFC60033E5B4 /* Frameworks */,
 				D633461C20E8FFC60033E5B4 /* Resources */,
-				6B8B2D35D5FB2A6FE09AC128 /* [CP] Embed Pods Frameworks */,
+				85A6CB43C84CF6B82BA9198E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1086,16 +1086,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3144AF88E0CC9BAF399D5C22 /* [CP] Check Pods Manifest.lock */ = {
+		281C521A23EEAF60FE321730 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Mopcon-checkManifestLockResult.txt",
 			);
@@ -1104,7 +1108,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6B8B2D35D5FB2A6FE09AC128 /* [CP] Embed Pods Frameworks */ = {
+		85A6CB43C84CF6B82BA9198E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1454,7 +1458,7 @@
 		};
 		D633463420E8FFC70033E5B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36A8ADA41F4B2FE3D1F03AD3 /* Pods-Mopcon.debug.xcconfig */;
+			baseConfigurationReference = EB90D25ADD6CD798AF61F5CE /* Pods-Mopcon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1480,7 +1484,7 @@
 		};
 		D633463520E8FFC70033E5B4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 293FFEAF5ECBACAF171BB104 /* Pods-Mopcon.release.xcconfig */;
+			baseConfigurationReference = 4102445E3B7FCE9C670FBD26 /* Pods-Mopcon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

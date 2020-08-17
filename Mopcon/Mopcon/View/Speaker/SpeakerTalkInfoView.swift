@@ -41,7 +41,7 @@ class SpeakerTalkInfoView: UIView {
     
         baseView.layer.cornerRadius = 6
         
-        baseView.layer.borderColor = UIColor.azure?.cgColor
+        baseView.layer.borderColor = UIColor.secondThemeColor?.cgColor
         
         baseView.layer.borderWidth = 1.0
     }
@@ -51,6 +51,8 @@ class SpeakerTalkInfoView: UIView {
         scheduleTopicLabel.text = topic
         
         scheduleTimeLabel.text = time
+        
+        scheduleTimeLabel.textColor = UIColor.secondThemeColor
         
         positionLabel.text = position
         

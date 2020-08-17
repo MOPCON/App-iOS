@@ -50,7 +50,7 @@ class CompleteCell: UITableViewCell {
         
         getButton.setTitleColor(buttonTitleColor, for: .normal)
         
-        getButton.backgroundColor = isEnabled ? .azure : UIColor.azure?.withAlphaComponent(0.15)
+        getButton.backgroundColor = isEnabled ? .secondThemeColor : UIColor.secondThemeColor?.withAlphaComponent(0.15)
         
         getButton.isEnabled = isEnabled
         
@@ -79,7 +79,7 @@ class CompleteCell: UITableViewCell {
     
     private func hightlightStateLayout() {
         
-        cellView?.backgroundColor = UIColor.azure?.withAlphaComponent(0.3)
+        cellView?.backgroundColor = UIColor.secondThemeColor?.withAlphaComponent(0.3)
         
         cellView?.layer.borderColor = UIColor.clear.cgColor
     }
@@ -88,7 +88,7 @@ class CompleteCell: UITableViewCell {
         
         cellView?.backgroundColor = UIColor.clear
         
-        cellView?.layer.borderColor = UIColor.azure?.cgColor
+        cellView?.layer.borderColor = UIColor.secondThemeColor?.cgColor
     }
     
     @IBAction func tapAction(_ sender: UIButton) {

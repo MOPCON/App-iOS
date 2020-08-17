@@ -50,23 +50,6 @@ private enum TabCategory: String {
         }
     }
     
-    func seletedImage() -> UIImage? {
-        
-        switch self {
-            
-        case .lobby: return UIImage.asset(.lobbySelected)
-            
-        case .agenda: return UIImage.asset(.agendaSelected)
-            
-        case .fieldGame: return UIImage.asset(.missionSelected)
-            
-        case .news: return UIImage.asset(.newsSelected)
-            
-        case .more: return UIImage.asset(.moreSelected)
-            
-        }
-    }
-    
     func title() -> String {
         
         switch self {
@@ -96,7 +79,7 @@ class TabBarViewController: UITabBarController {
             
             let vc = tab.instantiateInitialViewController()
             
-            let tabBarItem = UITabBarItem(title: tab.title(), image: tab.image(), selectedImage: tab.seletedImage())
+            let tabBarItem = UITabBarItem(title: tab.title(), image: tab.image(), selectedImage: nil)
         
             vc.tabBarItem = tabBarItem
             
@@ -105,7 +88,7 @@ class TabBarViewController: UITabBarController {
         
         tabBar.unselectedItemTintColor = .white
         
-        tabBar.tintColor = UIColor.azure
+        tabBar.tintColor = UIColor.secondThemeColor
         
         tabBar.barTintColor = UIColor.dark
 

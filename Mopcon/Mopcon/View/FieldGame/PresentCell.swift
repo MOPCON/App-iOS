@@ -39,7 +39,7 @@ class PresentCell: UITableViewCell {
         
         baseView.layer.borderWidth = 1.0
         
-        baseView.layer.borderColor = UIColor.azure?.cgColor
+        baseView.layer.borderColor = UIColor.secondThemeColor?.cgColor
     }
     
     func updateUI(with reward: Reward) {
@@ -59,7 +59,7 @@ class PresentCell: UITableViewCell {
         
         getButton.isEnabled = !isRedeemed
         
-        getButton.backgroundColor = isRedeemed ? .clear : .azureTwo
+        getButton.backgroundColor = isRedeemed ? .clear : .secondThemeColor
         
         getButton.layer.borderWidth = isRedeemed ? 1 : 0
         
