@@ -94,7 +94,7 @@ class GroupHostDetailViewController: MPBaseViewController {
         
         communityDescriptionLabel.adjustsFontSizeToFitWidth = true
         
-        moreBtn.layer.cornerRadius = 15
+        moreBtn.layer.cornerRadius = 6
         
         moreBtn.layer.borderColor = UIColor.secondThemeColor?.cgColor
         
