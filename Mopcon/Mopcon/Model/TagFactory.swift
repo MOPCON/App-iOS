@@ -29,4 +29,9 @@ class TagFactory {
         
         return Tag(color: "#ff4492", name: "Keynote")
     }
+    
+    static func generalTag(with name: String) -> Tag {
+        
+        return Tag(color: "#651fff", name: name)
+    }
 }
