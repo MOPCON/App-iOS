@@ -18,9 +18,9 @@ extension UIColor {
     
     static let dark = UIColor(hex: "#001333")
     
-    static let tagTextColor = UIColor(hex: "#f2f2f4")
+    static let tagTextColor = UIColor(hex: "#001333")
         
-    static let tagBackgroundColor = UIColor(hex: "#651fff")
+    static let tagBackgroundColor = UIColor(hex: "#ffcc00")
         
     static let pink = UIColor(hex: "#ff4392")
     

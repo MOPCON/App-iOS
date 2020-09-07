@@ -124,9 +124,9 @@ extension MPTagView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
             
             tagViewCell.backgroundColor = UIColor.clear
             
-            tagViewCell.label.textColor = UIColor.tagTextColor
+            tagViewCell.label.textColor = dataSource.colorForTags(self, index: indexPath.row)
             
-            tagViewCell.layer.borderColor = UIColor.tagBackgroundColor?.cgColor
+            tagViewCell.layer.borderColor = dataSource.colorForTags(self, index: indexPath.row)?.cgColor
             
             tagViewCell.layer.borderWidth = 1
             

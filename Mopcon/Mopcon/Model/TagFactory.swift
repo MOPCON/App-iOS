@@ -32,6 +32,6 @@ class TagFactory {
     
     static func generalTag(with name: String) -> Tag {
         
-        return Tag(color: "#651fff", name: name)
+        return Tag(color: "#ffcc00", name: name)
     }
 }
