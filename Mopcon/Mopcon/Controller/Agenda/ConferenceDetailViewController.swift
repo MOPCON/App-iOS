@@ -28,9 +28,7 @@ class ConferenceDetailViewController: MPBaseViewController {
             }
         }
     }
-    
-    @IBOutlet weak var typeLabel: UILabel!
-    
+        
     @IBOutlet weak var topicLabel: UILabel!
     
     @IBOutlet weak var imageStackView: UIStackView!
@@ -231,8 +229,6 @@ class ConferenceDetailViewController: MPBaseViewController {
         case Language.chinese.rawValue:
 
             scheduleInfoLabel.text = room.summary
-
-//            typeLabel.text = room.tags.map({ $0.name }).joined(separator: " & ")
             
             topicLabel.text = room.topic
 
@@ -247,8 +243,6 @@ class ConferenceDetailViewController: MPBaseViewController {
         case Language.english.rawValue:
 
             scheduleInfoLabel.text = room.summaryEn
-
-//            typeLabel.text = room.tags.reduce("", { $0 + $1.name + " "})
 
             topicLabel.text = room.topicEn
 
@@ -330,7 +324,7 @@ extension ConferenceDetailViewController: MPTagViewDataSource {
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
-        return UIColor.tagBackgroundColor
+        return UIColor(hex: tags[index].color)
     }
     
     func viewType(_ tagView: MPTagView, index: Int) -> TagViewType {
