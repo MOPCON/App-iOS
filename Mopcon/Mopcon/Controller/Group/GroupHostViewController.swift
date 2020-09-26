@@ -76,7 +76,7 @@ class GroupHostViewController: GroupBaseViewController {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        return 2
+        return 1
     }
     
     override func collectionView(
@@ -86,7 +86,7 @@ class GroupHostViewController: GroupBaseViewController {
         
         guard let group = group else { return 0 }
         
-        return section == 0 ? group.communitys.count : group.participants.count
+        return group.participants.count
     }
     
     override func collectionView(
@@ -98,20 +98,10 @@ class GroupHostViewController: GroupBaseViewController {
             withReuseIdentifier: CollectionViewCellKeyManager.communityImageCell,
             for: indexPath
         ) as! CommunityImageCollectionViewCell
+                            
+        guard let participant = group?.participants[indexPath.row] else { return communityImageCell }
         
-        if indexPath.section == 0 {
-        
-            guard let community = group?.communitys[indexPath.row] else { return communityImageCell }
-            
-            communityImageCell.updateUI(image: community.photo, title: community.name)
-            
-        } else {
-            
-            guard let participant = group?.participants[indexPath.row] else { return communityImageCell }
-            
-            communityImageCell.updateUI(image: participant.photo, title: participant.name)
-        }
-        
+        communityImageCell.updateUI(image: participant.photo, title: participant.name)
         
         return communityImageCell
     }
@@ -134,7 +124,7 @@ class GroupHostViewController: GroupBaseViewController {
             return header
         }
         
-        communityHeader.headerLabel.text = indexPath.section == 0 ? "主辦社群" : "參與社群"
+        communityHeader.headerLabel.text = "參與社群"
         
         return header
     }
@@ -144,18 +134,9 @@ class GroupHostViewController: GroupBaseViewController {
         didSelectItemAt indexPath: IndexPath
     ) {
         
-        if indexPath.section == 0 {
+        guard let participant = group?.participants[indexPath.row] else { return }
         
-            guard let community = group?.communitys[indexPath.row] else { return }
-            
-            performSegue(withIdentifier: Segue.detail, sender: HostType.community(community.id))
-            
-        } else {
-            
-            guard let participant = group?.participants[indexPath.row] else { return }
-            
-            performSegue(withIdentifier: Segue.detail, sender: HostType.participant(participant.id))
-        }
+        performSegue(withIdentifier: Segue.detail, sender: HostType.participant(participant.id))
     }
     
 }
