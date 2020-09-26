@@ -289,7 +289,7 @@ class ConferenceDetailViewController: MPBaseViewController {
         
         for category in room.tags {
             
-            categoryTags.append(TagFactory.generalTag(with: category.name))
+            categoryTags.append(category)
         }
         
     }
@@ -324,7 +324,7 @@ extension ConferenceDetailViewController: MPTagViewDataSource {
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
-        return UIColor(hex: tags[index].color)
+        return UIColor(hex: tags[index].color.mobile)
     }
     
     func viewType(_ tagView: MPTagView, index: Int) -> TagViewType {
