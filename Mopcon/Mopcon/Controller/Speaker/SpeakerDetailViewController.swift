@@ -202,6 +202,6 @@ extension SpeakerDetailViewController: MPTagViewDataSource {
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
-        return UIColor(hex: speaker?.tags[index].color ?? "")
+        return UIColor(hex: speaker?.tags[index].color.mobile ?? "")
     }
 }
