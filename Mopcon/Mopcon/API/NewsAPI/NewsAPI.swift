@@ -16,7 +16,7 @@ enum NewsAPI: LKRequest {
         
         switch self {
             
-        case .news: return "/api/2019/news"
+        case .news: return "/api/2020/news"
         }
     }
 }
