@@ -127,7 +127,12 @@ struct SpeakerImage: Codable {
 
 struct Tag: Codable {
     
-    let color: String
+    let color: TagColor
     
     let name: String
+}
+
+struct TagColor: Codable {
+        
+    let mobile: String
 }
