@@ -61,7 +61,7 @@ struct Session: Codable {
             room = try values.decode([Room].self, forKey: .room)
         
         } catch {
-        
+
             room = []
         }
     }
