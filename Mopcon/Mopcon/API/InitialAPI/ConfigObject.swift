@@ -29,3 +29,7 @@ struct Server: Codable {
     let game: String
 }
 
+struct Version: Codable {
+    
+    let version: String
+}

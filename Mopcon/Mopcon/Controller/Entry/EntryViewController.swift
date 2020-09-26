@@ -8,10 +8,11 @@
 
 import UIKit
 
-class EntryViewController: UIViewController {
-
+class EntryViewController: UIViewController, MainThreadHelper {
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         
         InitialProvider.fetchInitialAPI(completion: { [weak self] result in
             
@@ -37,8 +38,8 @@ class EntryViewController: UIViewController {
                     animations: {
                         
                         window.rootViewController = tabVC
-                    
-                    },
+                        
+                },
                     completion: nil
                 )
                 
@@ -48,7 +49,7 @@ class EntryViewController: UIViewController {
                         items[2].isEnabled = serverState.isEnableGame
                     }
                 }
-                                
+                
                 if !UserDefaults.standard.bool(forKey: "hasOpened") {
                     
                     UserDefaults.standard.set(true, forKey: "hasOpened")
@@ -70,8 +71,67 @@ class EntryViewController: UIViewController {
         })
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        checkAppVersion()
+    }
+    
     private func register(with uid: String, and email: String) {
         
         FieldGameProvider.register(with: uid, and: email)
     }
+    
+    private func checkAppVersion() {
+        
+        guard let info = Bundle.main.infoDictionary, let bundleID = info["CFBundleIdentifier"] as? String, let currentVersion = info["CFBundleShortVersionString"] as? String else {
+            
+            return
+        }
+        
+        InitialProvider.fetchAppVersion(of: bundleID, completion: { [weak self] result in
+            
+            switch result {
+                
+            case .success(let version):
+                
+                self?.throwToMainThreadAsync {
+                    
+                    if currentVersion != version.first?.version {
+
+                        self?.showVersionAlert()
+                    }
+
+                }
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+            
+            
+        })
+    }
+    
+    private func showVersionAlert() {
+        
+        let alert = UIAlertController(title: "提示", message: "目前已有新版 App，請前往 AppStore 更新。", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        
+        let okAction = UIAlertAction(title: "前往 AppStore", style: .default, handler: { _ in
+            
+            if let url = URL(string: MPConstant.mopconAppStore) {
+                
+                UIApplication.shared.open(url)
+            }
+        })
+        
+        alert.addAction(cancelAction)
+        
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
