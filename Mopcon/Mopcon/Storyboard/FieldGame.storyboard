@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ygp-2d-lTV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ygp-2d-lTV">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,7 +36,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWU-k1-3sv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWU-k1-3sv">
                                 <rect key="frame" x="121" y="568" width="172" height="52"/>
                                 <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -52,6 +52,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uia-pK-Si4"/>
                         <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Uia-pK-Si4" firstAttribute="trailing" secondItem="RKZ-XG-tGW" secondAttribute="trailing" constant="20" id="1yW-5Y-tbT"/>
@@ -66,7 +67,6 @@
                             <constraint firstItem="smw-SH-mWq" firstAttribute="top" secondItem="wQB-IC-7Gf" secondAttribute="bottom" constant="16" id="mBq-f6-6WR"/>
                             <constraint firstItem="wQB-IC-7Gf" firstAttribute="leading" secondItem="RKZ-XG-tGW" secondAttribute="leading" id="xTe-YZ-Ywn"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Uia-pK-Si4"/>
                     </view>
                     <navigationItem key="navigationItem" id="nfT-0d-a1m"/>
                     <connections>
@@ -96,7 +96,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hld-6w-2w3">
-                                <rect key="frame" x="151.66666666666666" y="152" width="110.66666666666666" height="19.333333333333343"/>
+                                <rect key="frame" x="152" y="152" width="110" height="19.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="破關進度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0i-7h-wDt">
                                         <rect key="frame" x="0.0" y="0.0" width="65.333333333333329" height="19.333333333333332"/>
@@ -105,7 +105,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wck-4d-2Ke">
-                                        <rect key="frame" x="77.333333333333343" y="0.0" width="33.333333333333343" height="19.333333333333332"/>
+                                        <rect key="frame" x="77.333333333333343" y="0.0" width="32.666666666666657" height="19.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="textColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -154,7 +154,7 @@ Field Game will start  at 10/19</string>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="r9m-VL-a7s" secondAttribute="height" id="Mnj-bQ-wMn"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="1" minimumInteritemSpacing="1" id="6eg-Ks-bsX">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6eg-Ks-bsX">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -180,16 +180,17 @@ Field Game will start  at 10/19</string>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="puzzleImageView" destination="eXi-tP-7ke" id="yM7-5G-GUD"/>
+                                            <outlet property="puzzleImageView" destination="eXi-tP-7ke" id="4n0-jg-vdY"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="CAw-XF-2Mb" id="JCl-eP-uoP"/>
-                                    <outlet property="delegate" destination="CAw-XF-2Mb" id="gre-Mr-mBV"/>
+                                    <outlet property="dataSource" destination="qxq-jU-ARz" id="JL4-uQ-6F5"/>
+                                    <outlet property="delegate" destination="qxq-jU-ARz" id="KG1-pW-I6Q"/>
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="453-QL-dCf"/>
                         <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="453-QL-dCf" firstAttribute="trailing" secondItem="r9m-VL-a7s" secondAttribute="trailing" constant="21" id="1Ih-Dx-Zpv"/>
@@ -215,11 +216,10 @@ Field Game will start  at 10/19</string>
                             <constraint firstItem="EjQ-5d-GWa" firstAttribute="leading" secondItem="6bT-Qn-haM" secondAttribute="trailing" constant="8" id="u6T-UN-mwY"/>
                             <constraint firstItem="3fX-7Z-AXn" firstAttribute="centerY" secondItem="CAw-XF-2Mb" secondAttribute="centerY" id="vdq-ED-k8h"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="453-QL-dCf"/>
                     </view>
                     <navigationItem key="navigationItem" id="QmD-w6-g2N">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="wtH-GO-Ose">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RYS-xP-KTj">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="RYS-xP-KTj">
                                 <rect key="frame" x="302" y="5.6666666666666679" width="92" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -264,6 +264,7 @@ Field Game will start  at 10/19</string>
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="FAt-Ya-3hA"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="25E-zq-2nH" firstAttribute="leading" secondItem="FAt-Ya-3hA" secondAttribute="leading" id="2qU-cf-A4r"/>
@@ -271,7 +272,6 @@ Field Game will start  at 10/19</string>
                             <constraint firstItem="FAt-Ya-3hA" firstAttribute="bottom" secondItem="25E-zq-2nH" secondAttribute="bottom" id="5dF-5W-cst"/>
                             <constraint firstItem="FAt-Ya-3hA" firstAttribute="trailing" secondItem="25E-zq-2nH" secondAttribute="trailing" id="LBI-fF-yTB"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="FAt-Ya-3hA"/>
                     </view>
                     <navigationItem key="navigationItem" title="我的獎勵" id="nmS-PG-KBM"/>
                     <connections>

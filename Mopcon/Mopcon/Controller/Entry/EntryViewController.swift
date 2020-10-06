@@ -45,16 +45,16 @@ class EntryViewController: UIViewController, MainThreadHelper {
                 
                 if let tabBarController = tabVC as? UITabBarController {
                     
-                    if let items = tabBarController.tabBar.items {
-                        items[2].isEnabled = serverState.isEnableGame
-                    }
+//                    if let items = tabBarController.tabBar.items {
+//                        items[2].isEnabled = serverState.isEnableGame
+//                    }
                 }
                 
                 if !UserDefaults.standard.bool(forKey: "hasOpened") {
                     
                     UserDefaults.standard.set(true, forKey: "hasOpened")
                     
-                    guard KeychainTool.retrive(for: "token") == nil else { break }
+//                    guard KeychainTool.retrive(for: "token") == nil else { break }
                     
                     let uuid = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
                     

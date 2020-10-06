@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseDynamicLinks
 
 class FieldGameProvider: MainThreadHelper {
     

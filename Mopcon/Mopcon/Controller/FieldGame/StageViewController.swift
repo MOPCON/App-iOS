@@ -10,8 +10,6 @@ import UIKit
 
 class StageViewController: MPBaseViewController, NoticeViewPresentable {
     
-    var isLast: Bool = false
-    
     var isPassed: Bool = false
     
     var missionID: String?
@@ -19,6 +17,8 @@ class StageViewController: MPBaseViewController, NoticeViewPresentable {
     private var taskID: String?
     
     private let spinner = LoadingTool.setActivityindicator()
+    
+    private let keyReward = "hasOpenedReward"
     
     //MARK: - HintViewPresentable
     internal lazy var noticeView: NoticeView = {
@@ -174,22 +174,22 @@ extension StageViewController: GetInteractionMissionResult {
         presentHintView()
         
         updateQRCodeButton(pass: true)
-        
-        if let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2] as? FieldGameViewController {
-        
-            parentViewController.fetchGameStatus()
-            
-            if isLast {
-                
-                let keyReward = "hasOpenedReward"
-                
-                UserDefaults.standard.set(true, forKey: keyReward)
-            }
-        }
     }
 }
 
 extension StageViewController: NoticeViewDelegate {
     
-    func didTouchOKButton(_ noticeView: NoticeView, type: NoticeType) {}
+    func didTouchOKButton(_ noticeView: NoticeView, type: NoticeType) {
+        if let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2] as? FieldGameViewController {
+        
+            parentViewController.fetchGameStatus()
+            
+//            if isLast {
+//
+//                let keyReward = "hasOpenedReward"
+//
+//                UserDefaults.standard.set(true, forKey: keyReward)
+//            }
+        }
+    }
 }

@@ -85,6 +85,18 @@ extension LKRequest {
         
         return (result.isEmpty) ? "" : "?" + result
     }
+    
+    func log() {
+        print("\(method ?? "") \(self)")
+        print("BODY \n \(body?.toString())")
+        print("HEADERS \n \(headers)")
+    }
+}
+
+extension Data {
+    func toString() -> String? {
+        return String(data: self, encoding: .utf8)
+    }
 }
 
 class HTTPClient {
@@ -114,6 +126,7 @@ class HTTPClient {
         _ request: LKRequest,
         completion: @escaping (Result<Data, Error>) -> Void
     ) {
+        request.log()
         
         session.dataTask(
             with: request.makeRequest(),
@@ -128,6 +141,10 @@ class HTTPClient {
             let httpResponse = response as! HTTPURLResponse
             // swiftlint:enable force_cast
             let statusCode = httpResponse.statusCode
+                
+            print("data: \(data)")
+            print("response: \(response)")
+            print("error: \(error)")
 
             switch statusCode {
 

@@ -73,6 +73,8 @@ enum FieldGameAPI: LKRequest {
 
         //MARK: should refactor
         return UserDefaults.standard.string(forKey: MPConstant.gameServerKey) ?? "https://game.mopcon.org"
+        
+//        return "https://game-test.mopcon.org"
     }
     
     var headers: [String : String] {

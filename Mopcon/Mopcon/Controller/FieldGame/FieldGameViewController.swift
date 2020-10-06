@@ -92,14 +92,14 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     
     private func setupTableView() {
         
-        let nib = UINib(
-            nibName: PuzzleCell.identifier,
-            bundle: nil
-        )
+//        let nib = UINib(
+//            nibName: PuzzleCell.identifier,
+//            bundle: nil
+//        )
         
-        puzzleCollectionView.register(nib, forCellWithReuseIdentifier: PuzzleCell.identifier)
+//        puzzleCollectionView.register(nib, forCellWithReuseIdentifier: PuzzleCell.identifier)
         
-        puzzleCollectionView.isHidden = true
+//        puzzleCollectionView.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -116,8 +116,6 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
         if segue.identifier == Segue.stage {
         
             if let destination = segue.destination as? StageViewController, let indexPath = sender as? IndexPath, let mission = missions?[indexPath.row] {
-                
-                destination.isLast = (indexPath.row == ((missions?.count ?? 0) - 1))
                 
                 destination.missionID = mission.uid
                 
@@ -186,6 +184,28 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     
     func fetchGameStatus() {
         
+        if point == 5 || point == 11 {
+            FieldGameProvider.notifyReward(completion: { [weak self] result in
+           
+               switch result {
+
+               case .success(let reward):
+
+                   self?.noticeView.updateUI(with: .reward, and: reward as AnyObject)
+
+                   self?.presentHintView()
+
+                   guard let keyReward = self?.keyReward else { return }
+
+                   UserDefaults.standard.set(false, forKey: keyReward)
+
+               case .failure(let error):
+
+                   print(error)
+               }
+           })
+        }
+
         FieldGameProvider.fetchGameStatus(completion: { [weak self] result in
             
             self?.stopSpinner()
@@ -207,6 +227,12 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
                     self?.puzzleCollectionView.reloadData()
                     
                     self?.updateProgress()
+                }
+                
+                if self?.point == 12 {
+                    self?.noticeView.updateUI(with: .allFinish)
+                    
+                    self?.presentHintView()
                 }
                 
             case .failure(let error):
@@ -241,7 +267,7 @@ extension FieldGameViewController: UICollectionViewDataSource {
 
         let isCompleted = Bool(truncating: mission.pass as NSNumber)
         
-        let puzzleImageName = ((isCompleted) ? "pl" : "pu") + "\(indexPath.row + 1)"
+        let puzzleImageName = ((isCompleted) ? "pu" : "pl") + "\(indexPath.row + 1)"
         
         cell.puzzleImageView.image = UIImage(named: puzzleImageName)
         
@@ -252,17 +278,7 @@ extension FieldGameViewController: UICollectionViewDataSource {
 extension FieldGameViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let missions = self.missions {
-
-            let isCompleted = Bool(truncating: missions[indexPath.row].pass as NSNumber)
-
-            let firstNotPassedIndex = missions.firstIndex(where: { $0.pass == 0})
-
-            if firstNotPassedIndex == indexPath.row || isCompleted {
-
-                performSegue(withIdentifier: Segue.stage, sender: indexPath)
-            }
-        }
+        performSegue(withIdentifier: Segue.stage, sender: indexPath)
     }
 }
 

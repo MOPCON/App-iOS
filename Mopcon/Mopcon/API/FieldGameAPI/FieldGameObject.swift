@@ -130,13 +130,15 @@ struct Mission: Codable {
     
     let point: Int
     
+    let order: Int
+    
     var pass: Int
     
     let task: Task?
     
     enum CodingKeys: String, CodingKey {
         
-        case uid, name, description, open, point, pass, task
+        case uid, name, description, open, point, order, pass, task
         
         case nameEn = "name_e"
         
@@ -147,6 +149,8 @@ struct Mission: Codable {
 struct Task: Codable {
     
     let uid: String
+    
+    let missionUid: String
     
     let name: String
     
@@ -161,6 +165,8 @@ struct Task: Codable {
     enum CodingKeys: String, CodingKey {
         
         case uid, name, description, image
+        
+        case missionUid = "mission_uid"
         
         case nameEn = "name_e"
         
