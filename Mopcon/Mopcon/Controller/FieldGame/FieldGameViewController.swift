@@ -77,7 +77,7 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTableView()
+        setupCollectionView()
         
         startSpinner()
         
@@ -90,16 +90,8 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
         navigationItem.title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "大地遊戲" : "Game"
     }
     
-    private func setupTableView() {
-        
-//        let nib = UINib(
-//            nibName: PuzzleCell.identifier,
-//            bundle: nil
-//        )
-        
-//        puzzleCollectionView.register(nib, forCellWithReuseIdentifier: PuzzleCell.identifier)
-        
-//        puzzleCollectionView.isHidden = true
+    private func setupCollectionView() {
+        puzzleCollectionView.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -185,6 +177,7 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     func fetchGameStatus() {
         
         if point == 5 || point == 11 {
+            
             FieldGameProvider.notifyReward(completion: { [weak self] result in
            
                switch result {
