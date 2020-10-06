@@ -269,6 +269,11 @@ class ConferenceDetailViewController: MPBaseViewController {
             tags.append(TagFactory.keynoteTag())
         }
         
+        if room.isOnline {
+            
+            tags.append(TagFactory.onlineTag())
+        }
+        
         if !room.recordable {
             
             tags.append(TagFactory.unrecordableTag())
@@ -279,7 +284,7 @@ class ConferenceDetailViewController: MPBaseViewController {
             tags.append(TagFactory.partnerTag())
         }
         
-        tags.append(TagFactory.levelTag(level: room.level))
+//        tags.append(TagFactory.levelTag(level: room.level))
         
     }
     

@@ -29,4 +29,8 @@ class TagFactory {
         
         return Tag(color: TagColor(mobile: "#ff4492"), name: "Keynote")
     }
+    
+    static func onlineTag() -> Tag {
+        return Tag(color: TagColor(mobile: "#01aaf0"), name: "遠距議程")
+    }
 }

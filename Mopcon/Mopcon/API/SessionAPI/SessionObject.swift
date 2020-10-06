@@ -79,6 +79,8 @@ struct Room: Codable {
     
     let isKeynote: Bool
     
+    let isOnline: Bool
+    
     let startedAt: Int
     
     let endedAt: Int
@@ -112,6 +114,8 @@ struct Room: Codable {
         case summaryEn = "summary_e"
         
         case isKeynote = "is_keynote"
+        
+        case isOnline = "is_online"
         
         case startedAt = "started_at"
         
