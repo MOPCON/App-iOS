@@ -237,12 +237,14 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
                 if error.localizedDescription == LKHTTPError.unauthError.localizedDescription {
                     
                     let uuid = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+
+                    FieldGameProvider.register(with: uuid, and: uuid, completion: {
                     
-                    FieldGameProvider.register(with: uuid, and: uuid)
-                    
-                    self?.fetchGameStatus()
+                        self?.fetchGameStatus()
+                    })
 
                 } else {
+                    
                     print(error)
                     
                     self?.throwToMainThreadAsync {

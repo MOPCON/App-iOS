@@ -11,7 +11,7 @@ import FirebaseDynamicLinks
 
 class FieldGameProvider: MainThreadHelper {
     
-    static func register(with uid: String, and email: String) {
+    static func register(with uid: String, and email: String, completion: (()->Void)? = nil) {
         
         HTTPClient.shared.request(
             FieldGameAPI.register(uid, email),
@@ -31,6 +31,8 @@ class FieldGameProvider: MainThreadHelper {
                         let token = "\(successResponse.data.tokenType) \(successResponse.data.accessToken)"
                         
                         KeychainTool.save(token)
+                        
+                        completion?()
                         
                     } catch {
                         
