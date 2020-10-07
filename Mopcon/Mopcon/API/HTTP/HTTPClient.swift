@@ -11,6 +11,8 @@ import Foundation
 enum LKHTTPError: Error {
 
     case decodeDataFail
+    
+    case unauthError
 
     case clientError(Data)
 
@@ -151,6 +153,10 @@ class HTTPClient {
             case 200..<300:
 
                 completion(Result.success(data!))
+                
+            case 401:
+                
+                completion(Result.failure(LKHTTPError.unauthError))
 
             case 400..<500:
 

@@ -176,27 +176,31 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     
     func fetchGameStatus() {
         
+        var ended = false
+        
         if point == 5 || point == 11 {
             
             FieldGameProvider.notifyReward(completion: { [weak self] result in
            
-               switch result {
+                switch result {
 
-               case .success(let reward):
+                case .success(let reward):
 
-                   self?.noticeView.updateUI(with: .reward, and: reward as AnyObject)
+                    self?.noticeView.updateUI(with: .reward, and: reward as AnyObject)
 
-                   self?.presentHintView()
+                    self?.presentHintView()
 
-                   guard let keyReward = self?.keyReward else { return }
+                    guard let keyReward = self?.keyReward else { return }
 
-                   UserDefaults.standard.set(false, forKey: keyReward)
+                    UserDefaults.standard.set(false, forKey: keyReward)
+                    
+                    ended = true
 
-               case .failure(let error):
+                case .failure(let error):
 
-                   print(error)
-               }
-           })
+                    print(error)
+                }
+            })
         }
 
         FieldGameProvider.fetchGameStatus(completion: { [weak self] result in
@@ -222,7 +226,7 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
                     self?.updateProgress()
                 }
                 
-                if self?.point == 12 {
+                if self?.point == 12 && ended {
                     self?.noticeView.updateUI(with: .allFinish)
                     
                     self?.presentHintView()
@@ -230,11 +234,21 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
                 
             case .failure(let error):
                 
-                print(error)
-                
-                self?.throwToMainThreadAsync {
+                if error.localizedDescription == LKHTTPError.unauthError.localizedDescription {
                     
-                    self?.hintLabel.isHidden = false
+                    let uuid = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+                    
+                    FieldGameProvider.register(with: uuid, and: uuid)
+                    
+                    self?.fetchGameStatus()
+
+                } else {
+                    print(error)
+                    
+                    self?.throwToMainThreadAsync {
+                        
+                        self?.hintLabel.isHidden = false
+                    }
                 }
             }
         })
