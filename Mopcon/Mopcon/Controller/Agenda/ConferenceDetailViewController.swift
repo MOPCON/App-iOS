@@ -37,6 +37,9 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var speakerJob: UILabel!
     
+    @IBOutlet weak var communityPartner: UILabel!
+    
+    
     @IBOutlet weak var scheduleInfoLabel: UILabel!
     
     @IBOutlet weak var addToMyScheduleButtonItem: UIBarButtonItem!
@@ -217,6 +220,8 @@ class ConferenceDetailViewController: MPBaseViewController {
                 multiplier: 80/375
             ).isActive = true
         }
+        
+        communityPartner.text! += room.communityPartner
         
         generateTags(room: room)
         
