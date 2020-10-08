@@ -8,10 +8,11 @@
 
 import UIKit
 
-class EntryViewController: UIViewController {
-
+class EntryViewController: UIViewController, MainThreadHelper {
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         
         InitialProvider.fetchInitialAPI(completion: { [weak self] result in
             
@@ -29,7 +30,7 @@ class EntryViewController: UIViewController {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 
                 let tabVC = storyboard.instantiateViewController(withIdentifier: TabBarViewController.identifier)
-                
+           
                 UIView.transition(
                     with: window,
                     duration: 0.3,
@@ -37,8 +38,8 @@ class EntryViewController: UIViewController {
                     animations: {
                         
                         window.rootViewController = tabVC
-                    
-                    },
+                        
+                },
                     completion: nil
                 )
                 
@@ -48,7 +49,7 @@ class EntryViewController: UIViewController {
                         items[2].isEnabled = serverState.isEnableGame
                     }
                 }
-                                
+
                 if !UserDefaults.standard.bool(forKey: "hasOpened") {
                     
                     UserDefaults.standard.set(true, forKey: "hasOpened")
@@ -74,4 +75,5 @@ class EntryViewController: UIViewController {
         
         FieldGameProvider.register(with: uid, and: email)
     }
+        
 }

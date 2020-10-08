@@ -28,9 +28,7 @@ class ConferenceDetailViewController: MPBaseViewController {
             }
         }
     }
-    
-    @IBOutlet weak var typeLabel: UILabel!
-    
+        
     @IBOutlet weak var topicLabel: UILabel!
     
     @IBOutlet weak var imageStackView: UIStackView!
@@ -59,6 +57,14 @@ class ConferenceDetailViewController: MPBaseViewController {
         }
     }
     
+    var categoryTags: [Tag] = [] {
+        
+        didSet {
+            
+            categoryTagView.reloadData()
+        }
+    }
+    
     var room: Room?
     
     @IBOutlet weak var tagView: MPTagView! {
@@ -68,6 +74,15 @@ class ConferenceDetailViewController: MPBaseViewController {
             tagView.dataSource = self
         }
     }
+    
+    @IBOutlet weak var categoryTagView: MPTagView! {
+        
+        didSet {
+            
+            categoryTagView.dataSource = self
+        }
+    }
+    
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -204,6 +219,8 @@ class ConferenceDetailViewController: MPBaseViewController {
         }
         
         generateTags(room: room)
+        
+        generateCategoryTags(room: room)
 
         let language = CurrentLanguage.getLanguage()
 
@@ -212,8 +229,6 @@ class ConferenceDetailViewController: MPBaseViewController {
         case Language.chinese.rawValue:
 
             scheduleInfoLabel.text = room.summary
-
-            typeLabel.text = room.tags.map({ $0.name }).joined(separator: " & ")
             
             topicLabel.text = room.topic
 
@@ -228,8 +243,6 @@ class ConferenceDetailViewController: MPBaseViewController {
         case Language.english.rawValue:
 
             scheduleInfoLabel.text = room.summaryEn
-
-            typeLabel.text = room.tags.reduce("", { $0 + $1.name + " "})
 
             topicLabel.text = room.topicEn
 
@@ -256,6 +269,11 @@ class ConferenceDetailViewController: MPBaseViewController {
             tags.append(TagFactory.keynoteTag())
         }
         
+        if room.isOnline {
+            
+            tags.append(TagFactory.onlineTag())
+        }
+        
         if !room.recordable {
             
             tags.append(TagFactory.unrecordableTag())
@@ -266,7 +284,18 @@ class ConferenceDetailViewController: MPBaseViewController {
             tags.append(TagFactory.partnerTag())
         }
         
-        tags.append(TagFactory.levelTag(level: room.level))
+//        tags.append(TagFactory.levelTag(level: room.level))
+        
+    }
+    
+    private func generateCategoryTags(room: Room) {
+        
+        categoryTags = []
+        
+        for category in room.tags {
+            
+            categoryTags.append(category)
+        }
         
     }
 }
@@ -275,26 +304,44 @@ extension ConferenceDetailViewController: MPTagViewDataSource {
     
     func numberOfTags(_ tagView: MPTagView) -> Int {
         
-        return tags.count
+        if tagView == self.tagView {
+            
+            return tags.count
+            
+        } else {
+            
+            return categoryTags.count
+        }
     }
     
     func titleForTags(_ tagView: MPTagView, index: Int) -> String {
         
-        return tags[index].name
+        if tagView == self.tagView {
+            
+            return tags[index].name
+            
+        } else {
+            
+            return categoryTags[index].name
+        }
+                
     }
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
-        return UIColor(hex: tags[index].color)
+        return UIColor(hex: tags[index].color.mobile)
     }
     
     func viewType(_ tagView: MPTagView, index: Int) -> TagViewType {
         
-        if tags[index].name == "Keynote" {
+        if tagView == self.tagView {
+            
+            return .hollow
+        
+        } else {
             
             return .solid
         }
-        
-        return .hollow
+   
     }
 }

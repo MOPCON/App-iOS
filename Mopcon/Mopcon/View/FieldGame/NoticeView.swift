@@ -64,6 +64,8 @@ enum NoticeType {
     case exchange
     
     case finish
+    
+    case allFinish
 }
 
 class NoticeView: UIView {
@@ -160,6 +162,13 @@ class NoticeView: UIView {
             title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "任務成功" : "Finish"
             
             description = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "恭喜你完成此任務，讓 Mopcon 更加成長茁壯一大步！" : "Congratulation on completing this mission"
+            
+        case .allFinish:
+            image = #imageLiteral(resourceName: "reward")
+            
+            title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "全部解開啦" : "All finished"
+            
+            description = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "記得去我的獎勵中對講哦" : "Congratulation on completing all the missions"
         }
         
         titleLabel.text = title

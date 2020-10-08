@@ -61,7 +61,7 @@ struct Session: Codable {
             room = try values.decode([Room].self, forKey: .room)
         
         } catch {
-        
+
             room = []
         }
     }
@@ -78,6 +78,8 @@ struct Room: Codable {
     let summaryEn: String
     
     let isKeynote: Bool
+    
+    let isOnline: Bool
     
     let startedAt: Int
     
@@ -112,6 +114,8 @@ struct Room: Codable {
         case summaryEn = "summary_e"
         
         case isKeynote = "is_keynote"
+        
+        case isOnline = "is_online"
         
         case startedAt = "started_at"
         

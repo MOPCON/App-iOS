@@ -68,7 +68,7 @@ private enum TabCategory: String {
     }
 }
 
-class TabBarViewController: UITabBarController {
+class TabBarViewController: UITabBarController, MainThreadHelper {
     
     private let tabs: [TabCategory] = [.lobby, .agenda, .fieldGame, .news, .more]
     
@@ -93,5 +93,63 @@ class TabBarViewController: UITabBarController {
         tabBar.barTintColor = UIColor.dark
 
         tabBar.isTranslucent = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        checkAppVersion()
+    }
+    
+    private func checkAppVersion() {
+        
+        guard let info = Bundle.main.infoDictionary, let bundleID = info["CFBundleIdentifier"] as? String, let currentVersion = info["CFBundleShortVersionString"] as? String else {
+            
+            return
+        }
+        
+        InitialProvider.fetchAppVersion(of: bundleID, completion: { [weak self] result in
+            
+            switch result {
+                
+            case .success(let version):
+                
+                self?.throwToMainThreadAsync {
+                    
+                    if currentVersion != version.first?.version {
+
+                        self?.showVersionAlert()
+                    }
+
+                }
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+            
+            
+        })
+    }
+    
+    private func showVersionAlert() {
+        
+        let alert = UIAlertController(title: "提示", message: "目前已有新版 App，請前往 AppStore 更新。", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        
+        let okAction = UIAlertAction(title: "前往 AppStore", style: .default, handler: { _ in
+            
+            if let url = URL(string: MPConstant.mopconAppStore) {
+                
+                UIApplication.shared.open(url)
+            }
+        })
+        
+        alert.addAction(cancelAction)
+        
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

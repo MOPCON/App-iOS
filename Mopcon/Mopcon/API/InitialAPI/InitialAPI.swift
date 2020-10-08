@@ -12,16 +12,26 @@ enum InitialAPI: LKRequest {
     
     case initial
     
+    case version(String)
+    
     var baseURL: String {
         
-        return MPConstant.baseURL
+        switch self {
+            
+        case .initial: return MPConstant.baseURL
+            
+        case .version: return MPConstant.itunesURL
+        
+        }
     }
     
     var endPoint: String {
         
         switch self {
         
-        case .initial: return "/api/2019/initial"
+        case .initial: return "/api/2020/initial"
+            
+        case .version(let bundleID): return bundleID
             
         }
     }

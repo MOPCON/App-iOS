@@ -11,6 +11,8 @@ import Foundation
 enum LKHTTPError: Error {
 
     case decodeDataFail
+    
+    case unauthError
 
     case clientError(Data)
 
@@ -87,6 +89,12 @@ extension LKRequest {
     }
 }
 
+extension Data {
+    func toString() -> String? {
+        return String(data: self, encoding: .utf8)
+    }
+}
+
 class HTTPClient {
 
     static let shared = HTTPClient()
@@ -128,12 +136,16 @@ class HTTPClient {
             let httpResponse = response as! HTTPURLResponse
             // swiftlint:enable force_cast
             let statusCode = httpResponse.statusCode
-
+                           
             switch statusCode {
 
             case 200..<300:
 
                 completion(Result.success(data!))
+                
+            case 401:
+                
+                completion(Result.failure(LKHTTPError.unauthError))
 
             case 400..<500:
 

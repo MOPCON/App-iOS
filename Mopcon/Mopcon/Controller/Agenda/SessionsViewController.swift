@@ -34,7 +34,7 @@ class SessionsViewController: MPBaseSessionViewController {
 
 // MARK : Tableview Datasource & Tableview Delegate
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
+
         return sessions.count
     }
     

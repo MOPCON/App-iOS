@@ -16,7 +16,7 @@ enum SpeakerAPI: LKRequest {
         
         switch self {
             
-        case .speakerList: return "/api/2019/speaker"
+        case .speakerList: return "/api/2020/speaker"
         }
     }
 }

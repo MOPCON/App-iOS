@@ -14,13 +14,17 @@ extension UIColor {
     
     static let secondThemeColor = UIColor(hex: "#ffcc00")
     
+    static let navigationBottomBorderColor = UIColor(hex: "#00aaf0")
+    
     static let dark = UIColor(hex: "#001333")
     
-    static let almostBlack = UIColor(hex: "#001333", alpha: 0.2)
-    
+    static let tagTextColor = UIColor(hex: "#001333")
+        
+    static let tagBackgroundColor = UIColor(hex: "#ffcc00")
+        
     static let pink = UIColor(hex: "#ff4392")
     
-    static let brownGray = UIColor(hex: "#001333")
+    static let brownGray = UIColor(hex: "#878787")
     
     public convenience init?(hex: String, alpha: CGFloat = 1.0) {
         

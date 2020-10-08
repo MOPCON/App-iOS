@@ -92,6 +92,7 @@
 		3CFCF00B22DEFBB2006184CD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF00A22DEFBB2006184CD /* UIColorExtension.swift */; };
 		49A683912153248100EC6EA7 /* MopconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A683902153248100EC6EA7 /* MopconUITests.swift */; };
 		49A6839921532E4A00EC6EA7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */; };
+		4A0710BE2C7F7D575ABB0EF5 /* Pods_Mopcon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16132A5788BB830AC3CB1073 /* Pods_Mopcon.framework */; };
 		532143EA23464E0700C2B4BE /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532143E923464E0700C2B4BE /* URLExtension.swift */; };
 		536688732305B0310036DFE5 /* GameStageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536688712305B0310036DFE5 /* GameStageCell.swift */; };
 		536688742305B0310036DFE5 /* GameStageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 536688722305B0310036DFE5 /* GameStageCell.xib */; };
@@ -103,6 +104,7 @@
 		53668880230847BA0036DFE5 /* NoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5366887F230847BA0036DFE5 /* NoticeView.xib */; };
 		5381B36C22F9EED200FEEC2C /* ConferenceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5381B36B22F9EED200FEEC2C /* ConferenceTableViewCell.xib */; };
 		53850934227D6A960083429A /* CommunityImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53850933227D6A960083429A /* CommunityImageCollectionViewCell.swift */; };
+		53992D93250542CA004C1607 /* PuzzleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53992D92250542CA004C1607 /* PuzzleCell.swift */; };
 		53F83EA723238E7B003A35B8 /* FieldGameAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F83EA623238E7B003A35B8 /* FieldGameAPI.swift */; };
 		53F83EA92323931D003A35B8 /* KeychainTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F83EA82323931D003A35B8 /* KeychainTool.swift */; };
 		53F83EAB2323A655003A35B8 /* FieldGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F83EAA2323A655003A35B8 /* FieldGameObject.swift */; };
@@ -115,7 +117,6 @@
 		5E9FEF0021294FD70096B4A8 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */; };
 		5EF59B9B215CEC3700CF622C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */; };
 		5EF59B9D215DBCD200CF622C /* LoadingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF59B9C215DBCD200CF622C /* LoadingTool.swift */; };
-		6C537D459B15269A6CBB0C9C /* Pods_Mopcon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 197E99FE540FB7A3524E9C01 /* Pods_Mopcon.framework */; };
 		D6240CDF20EC98AD002C89E7 /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */; };
 		D6240CE120EC9A70002C89E7 /* SponsorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE020EC9A70002C89E7 /* SponsorHeaderView.swift */; };
 		D6240CE420EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */; };
@@ -165,7 +166,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		197E99FE540FB7A3524E9C01 /* Pods_Mopcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mopcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16132A5788BB830AC3CB1073 /* Pods_Mopcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mopcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0AD2E5233CCE1D00193A4E /* SponsorInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorInfoCell.swift; sourceTree = "<group>"; };
 		3C0AD2E7233CCE3200193A4E /* SponsorAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorAboutCell.swift; sourceTree = "<group>"; };
 		3C1229D92334C21300001760 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -249,7 +250,6 @@
 		3CFCF00622DED10E006184CD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3CFCF00822DEEFCB006184CD /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		3CFCF00A22DEFBB2006184CD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		4102445E3B7FCE9C670FBD26 /* Pods-Mopcon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.release.xcconfig"; path = "Target Support Files/Pods-Mopcon/Pods-Mopcon.release.xcconfig"; sourceTree = "<group>"; };
 		49A6838E2153248000EC6EA7 /* MopconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MopconUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A683902153248100EC6EA7 /* MopconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconUITests.swift; sourceTree = "<group>"; };
 		49A683922153248100EC6EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -265,6 +265,7 @@
 		5366887F230847BA0036DFE5 /* NoticeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeView.xib; sourceTree = "<group>"; };
 		5381B36B22F9EED200FEEC2C /* ConferenceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConferenceTableViewCell.xib; sourceTree = "<group>"; };
 		53850933227D6A960083429A /* CommunityImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		53992D92250542CA004C1607 /* PuzzleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleCell.swift; sourceTree = "<group>"; };
 		53F83EA623238E7B003A35B8 /* FieldGameAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameAPI.swift; sourceTree = "<group>"; };
 		53F83EA82323931D003A35B8 /* KeychainTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTool.swift; sourceTree = "<group>"; };
 		53F83EAA2323A655003A35B8 /* FieldGameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameObject.swift; sourceTree = "<group>"; };
@@ -274,10 +275,12 @@
 		5E349CA5212411200060297A /* SponsorDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorDetailTableViewCell.swift; sourceTree = "<group>"; };
 		5E4A0045216F273B00C4A656 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		5E682E19213CFE4400FC37CF /* FieldGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FieldGame.storyboard; sourceTree = "<group>"; };
+		5E6988E5B1D66AA27EEB3E35 /* Pods-Mopcon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.release.xcconfig"; path = "Target Support Files/Pods-Mopcon/Pods-Mopcon.release.xcconfig"; sourceTree = "<group>"; };
 		5E9FEEFF21294FD70096B4A8 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		5EF59B97215CDF2800CF622C /* Mopcon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mopcon.entitlements; sourceTree = "<group>"; };
 		5EF59B9A215CEC3700CF622C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EF59B9C215DBCD200CF622C /* LoadingTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTool.swift; sourceTree = "<group>"; };
+		9F2B499B414008AE708B3B9D /* Pods-Mopcon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.debug.xcconfig"; path = "Target Support Files/Pods-Mopcon/Pods-Mopcon.debug.xcconfig"; sourceTree = "<group>"; };
 		D6240CDE20EC98AD002C89E7 /* SponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
 		D6240CE020EC9A70002C89E7 /* SponsorHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorHeaderView.swift; sourceTree = "<group>"; };
 		D6240CE320EC9A8E002C89E7 /* SponsorSmallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorSmallCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -316,7 +319,6 @@
 		D6EE629820E9D0B00043B68A /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		D6F0BE6020F0610B0053A100 /* CommonFunctionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctionHelper.swift; sourceTree = "<group>"; };
 		D6F0BE6820F0A02B0053A100 /* ConferenceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceDetailViewController.swift; sourceTree = "<group>"; };
-		EB90D25ADD6CD798AF61F5CE /* Pods-Mopcon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mopcon.debug.xcconfig"; path = "Target Support Files/Pods-Mopcon/Pods-Mopcon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,7 +333,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C537D459B15269A6CBB0C9C /* Pods_Mopcon.framework in Frameworks */,
+				4A0710BE2C7F7D575ABB0EF5 /* Pods_Mopcon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,8 +343,8 @@
 		12374D9A5A907691DC3C9353 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EB90D25ADD6CD798AF61F5CE /* Pods-Mopcon.debug.xcconfig */,
-				4102445E3B7FCE9C670FBD26 /* Pods-Mopcon.release.xcconfig */,
+				9F2B499B414008AE708B3B9D /* Pods-Mopcon.debug.xcconfig */,
+				5E6988E5B1D66AA27EEB3E35 /* Pods-Mopcon.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -687,14 +689,6 @@
 			path = MopconUITests;
 			sourceTree = "<group>";
 		};
-		4A514A8F09CAC325C38D09AD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				197E99FE540FB7A3524E9C01 /* Pods_Mopcon.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		536688702305AFEA0036DFE5 /* FieldGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -707,6 +701,7 @@
 				536688762305BC040036DFE5 /* PresentCell.xib */,
 				5366887D230847AC0036DFE5 /* NoticeView.swift */,
 				5366887F230847BA0036DFE5 /* NoticeView.xib */,
+				53992D92250542CA004C1607 /* PuzzleCell.swift */,
 			);
 			path = FieldGame;
 			sourceTree = "<group>";
@@ -792,6 +787,14 @@
 			path = Exntension;
 			sourceTree = "<group>";
 		};
+		B96BC28F1E45CE738D3894A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16132A5788BB830AC3CB1073 /* Pods_Mopcon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D6240CE220EC9A74002C89E7 /* SponsorsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -809,7 +812,7 @@
 				49A6838F2153248100EC6EA7 /* MopconUITests */,
 				D633461F20E8FFC60033E5B4 /* Products */,
 				12374D9A5A907691DC3C9353 /* Pods */,
-				4A514A8F09CAC325C38D09AD /* Frameworks */,
+				B96BC28F1E45CE738D3894A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -985,11 +988,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D633463320E8FFC70033E5B4 /* Build configuration list for PBXNativeTarget "Mopcon" */;
 			buildPhases = (
-				281C521A23EEAF60FE321730 /* [CP] Check Pods Manifest.lock */,
+				5568D8F019265A5AA0CAC8A3 /* [CP] Check Pods Manifest.lock */,
 				D633461A20E8FFC60033E5B4 /* Sources */,
 				D633461B20E8FFC60033E5B4 /* Frameworks */,
 				D633461C20E8FFC60033E5B4 /* Resources */,
-				85A6CB43C84CF6B82BA9198E /* [CP] Embed Pods Frameworks */,
+				F54BD2C4FC040400373E0E27 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1086,7 +1089,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		281C521A23EEAF60FE321730 /* [CP] Check Pods Manifest.lock */ = {
+		5568D8F019265A5AA0CAC8A3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1108,7 +1111,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		85A6CB43C84CF6B82BA9198E /* [CP] Embed Pods Frameworks */ = {
+		F54BD2C4FC040400373E0E27 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1162,6 +1165,7 @@
 				536688772305BC040036DFE5 /* PresentCell.swift in Sources */,
 				D6555F3120EC7D97000816DF /* CornerBackgroundView.swift in Sources */,
 				3CFC36A122F92FED0058C322 /* MoreViewController.swift in Sources */,
+				53992D93250542CA004C1607 /* PuzzleCell.swift in Sources */,
 				3C31E668230F97B000000518 /* ResponseResultType.swift in Sources */,
 				D62D30D520ED06F300BBDF5E /* AgendaViewController.swift in Sources */,
 				3C3FFE9C22FAA8F800873416 /* SpeakerDetailView.swift in Sources */,
@@ -1458,14 +1462,14 @@
 		};
 		D633463420E8FFC70033E5B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB90D25ADD6CD798AF61F5CE /* Pods-Mopcon.debug.xcconfig */;
+			baseConfigurationReference = 9F2B499B414008AE708B3B9D /* Pods-Mopcon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Mopcon/MopconDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20190930;
+				CURRENT_PROJECT_VERSION = 20201007;
 				DEVELOPMENT_TEAM = P8GYHF5M8B;
 				INFOPLIST_FILE = Mopcon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -1473,6 +1477,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1484,14 +1489,14 @@
 		};
 		D633463520E8FFC70033E5B4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4102445E3B7FCE9C670FBD26 /* Pods-Mopcon.release.xcconfig */;
+			baseConfigurationReference = 5E6988E5B1D66AA27EEB3E35 /* Pods-Mopcon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Mopcon/Mopcon.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20190930;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 20201007;
 				DEVELOPMENT_TEAM = P8GYHF5M8B;
 				INFOPLIST_FILE = Mopcon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -1499,9 +1504,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "MOPCON-Production";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

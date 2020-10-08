@@ -132,9 +132,9 @@ extension MPTagView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
             
         case .solid:
         
-            tagViewCell.backgroundColor = dataSource.colorForTags(self, index: indexPath.row)
+            tagViewCell.backgroundColor = UIColor.tagBackgroundColor
         
-            tagViewCell.label.textColor = UIColor.white
+            tagViewCell.label.textColor = UIColor.tagTextColor
             
             tagViewCell.layer.borderColor = UIColor.clear.cgColor
             
@@ -179,7 +179,7 @@ class TagViewCell: UICollectionViewCell {
             label.bottomAnchor.constraint(equalTo: bottomAnchor,  constant: -3)
         ])
         
-        layer.cornerRadius = 3
+        layer.cornerRadius = frame.height * 0.5
         
         clipsToBounds = true
     }
