@@ -135,7 +135,7 @@ class StageViewController: MPBaseViewController, NoticeViewPresentable {
                 self?.stageTitleLabel.text = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? task.name : task.nameEn
                 
                 self?.stageDetailLabel.text = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? task.description : task.descriptionEn
-                
+
                 self?.stageImageView.loadImage(task.image)
                 
                 self?.taskID = task.uid

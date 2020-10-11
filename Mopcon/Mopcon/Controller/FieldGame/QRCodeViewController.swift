@@ -145,7 +145,7 @@ class QRCodeViewController: MPBaseViewController {
                 })
             
             case .failure(let error):
-            
+                
                 self?.scannerAlert(message: error.localizedDescription)
             }
         })
