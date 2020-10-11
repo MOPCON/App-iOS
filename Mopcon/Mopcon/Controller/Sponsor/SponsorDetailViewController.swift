@@ -153,7 +153,9 @@ extension SponsorDetailViewController: SponsorSpeechCellDelegate {
                         
                     case .success(let room): FavoriteManager.shared.addSession(room: room)
                         
-                    case .failure(let error): print(error)
+                    case .failure(let error):
+                        
+                        print(error)
                         
                     }
                     

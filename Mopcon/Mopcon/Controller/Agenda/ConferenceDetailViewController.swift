@@ -221,7 +221,10 @@ class ConferenceDetailViewController: MPBaseViewController {
             ).isActive = true
         }
         
-        communityPartner.text! += room.communityPartner
+        if !room.communityPartner.isEmpty {
+        
+            communityPartner.text! += "#合作社群－\(room.communityPartner)"
+        }
         
         generateTags(room: room)
         
