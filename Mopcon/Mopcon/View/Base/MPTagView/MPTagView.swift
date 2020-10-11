@@ -42,33 +42,28 @@ class MPTagView: UIView {
         didSet {
         
             colletionView.dataSource = self
+            
+            colletionView.delegate = self
         }
     }
     
     lazy var colletionView: UICollectionView = {
 
         let flowLayout = UICollectionViewFlowLayout()
-
+        
         flowLayout.estimatedItemSize = CGSize(width: 46, height: 18)
 
         flowLayout.minimumLineSpacing = 6
 
         flowLayout.minimumInteritemSpacing = 0
 
-        flowLayout.sectionInset = UIEdgeInsets(
-            top: 0,
-            left: 0,
-            bottom: 0,
-            right: 0
-        )
-
         flowLayout.scrollDirection = .horizontal
-
+        
         let tempCollectionView = UICollectionView(
             frame: CGRect(x: 0, y: 0, width: 100, height: 100),
             collectionViewLayout: flowLayout
         )
-
+      
         tempCollectionView.register(
             TagViewCell.self,
             forCellWithReuseIdentifier: TagViewCell.identifier
@@ -101,7 +96,7 @@ class MPTagView: UIView {
 extension MPTagView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+
         return dataSource?.numberOfTags(self) ?? 0
     }
     
@@ -144,6 +139,11 @@ extension MPTagView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
         return tagViewCell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let rightPadding = CGFloat(((dataSource?.numberOfTags(self) ?? 0) - 1) * 6)
+
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: rightPadding)
+    }
 }
 
 class TagViewCell: UICollectionViewCell {
@@ -187,13 +187,13 @@ class TagViewCell: UICollectionViewCell {
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
 
         let size = systemLayoutSizeFitting(UIView.layoutFittingExpandedSize)
-        
+
         var newFrame = layoutAttributes.frame
-        
+
         newFrame.size = size
-        
+
         layoutAttributes.frame = newFrame
-        
+
         return layoutAttributes
     }
     
