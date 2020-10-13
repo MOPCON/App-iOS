@@ -17,7 +17,7 @@ class TagFactory {
     
     static func partnerTag() -> Tag {
         
-        return Tag(color: TagColor(mobile: "#98ce02"), name: "夥伴議程")
+        return Tag(color: TagColor(mobile: "#01aaf0"), name: "夥伴議程")
     }
     
     static func levelTag(level: String) -> Tag {

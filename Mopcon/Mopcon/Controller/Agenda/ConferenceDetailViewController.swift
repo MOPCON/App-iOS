@@ -60,15 +60,9 @@ class ConferenceDetailViewController: MPBaseViewController {
         }
     }
     
-    var categoryTags: [Tag] = [] {
-        
-        didSet {
-            
-            categoryTagView.reloadData()
-        }
-    }
-    
     var room: Room?
+    
+    var categoryStartIndex: Int = 0
     
     @IBOutlet weak var tagView: MPTagView! {
         
@@ -77,15 +71,6 @@ class ConferenceDetailViewController: MPBaseViewController {
             tagView.dataSource = self
         }
     }
-    
-    @IBOutlet weak var categoryTagView: MPTagView! {
-        
-        didSet {
-            
-            categoryTagView.dataSource = self
-        }
-    }
-    
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -228,8 +213,6 @@ class ConferenceDetailViewController: MPBaseViewController {
         
         generateTags(room: room)
         
-        generateCategoryTags(room: room)
-
         let language = CurrentLanguage.getLanguage()
 
         switch language {
@@ -268,7 +251,7 @@ class ConferenceDetailViewController: MPBaseViewController {
         }
     }
     
-    private func generateTags(room: Room) {
+    func generateTags(room: Room) {
         
         tags = []
         
@@ -292,19 +275,13 @@ class ConferenceDetailViewController: MPBaseViewController {
             tags.append(TagFactory.partnerTag())
         }
         
-//        tags.append(TagFactory.levelTag(level: room.level))
-        
-    }
-    
-    private func generateCategoryTags(room: Room) {
-        
-        categoryTags = []
+        categoryStartIndex = tags.count - 1
         
         for category in room.tags {
             
-            categoryTags.append(category)
+            tags.append(category)
         }
-        
+
     }
 }
 
@@ -312,27 +289,12 @@ extension ConferenceDetailViewController: MPTagViewDataSource {
     
     func numberOfTags(_ tagView: MPTagView) -> Int {
         
-        if tagView == self.tagView {
-            
-            return tags.count
-            
-        } else {
-            
-            return categoryTags.count
-        }
+        return tags.count
     }
     
     func titleForTags(_ tagView: MPTagView, index: Int) -> String {
         
-        if tagView == self.tagView {
-            
-            return tags[index].name
-            
-        } else {
-            
-            return categoryTags[index].name
-        }
-                
+        return tags[index].name
     }
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
@@ -342,14 +304,6 @@ extension ConferenceDetailViewController: MPTagViewDataSource {
     
     func viewType(_ tagView: MPTagView, index: Int) -> TagViewType {
         
-        if tagView == self.tagView {
-            
-            return .hollow
-        
-        } else {
-            
-            return .solid
-        }
-   
+        return (index > categoryStartIndex) ? .solid : .hollow
     }
 }

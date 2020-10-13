@@ -301,7 +301,7 @@ extension FieldGameViewController: UICollectionViewDelegateFlowLayout {
         let width =  (viewWidth - 3) / 4
         
         let height = (viewWidth - 2) / 3
-        
+
         return CGSize(width: width, height: height)
     }
 }
