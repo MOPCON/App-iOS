@@ -141,9 +141,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fX-7Z-AXn">
-                                <rect key="frame" x="79.666666666666686" y="344" width="255" height="48"/>
+                                <rect key="frame" x="78.333333333333343" y="344" width="257.33333333333326" height="48"/>
                                 <string key="text">遊戲將於 10/24 開始
-Field Game will start  at 10/19</string>
+Field Game will start  at 10/24</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -154,7 +154,7 @@ Field Game will start  at 10/19</string>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="r9m-VL-a7s" secondAttribute="height" id="Mnj-bQ-wMn"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6eg-Ks-bsX">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6eg-Ks-bsX">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>

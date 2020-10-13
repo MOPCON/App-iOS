@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 import Firebase
+import FirebaseDynamicLinks
+import FirebaseMessaging
 import UserNotifications
 import SafariServices
 
