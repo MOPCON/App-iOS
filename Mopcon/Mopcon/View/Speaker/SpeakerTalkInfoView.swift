@@ -11,6 +11,8 @@ import UIKit
 protocol SpeakerTalkInfoViewDelegate: AnyObject {
     
     func didTouchCollectedButton(_ infoView: SpeakerTalkInfoView)
+    
+    func didTouchTalkInfoView()
 }
 
 class SpeakerTalkInfoView: UIView {
@@ -39,6 +41,9 @@ class SpeakerTalkInfoView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
     
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchViewAction))
+        baseView.addGestureRecognizer(tapGesture)
+        
         baseView.layer.cornerRadius = 6
         
         baseView.layer.borderColor = UIColor.secondThemeColor?.cgColor
@@ -59,4 +64,7 @@ class SpeakerTalkInfoView: UIView {
         likedButton.isSelected = isCollected
     }
     
+    @objc func touchViewAction() {
+        delegate?.didTouchTalkInfoView()
+    }
 }
