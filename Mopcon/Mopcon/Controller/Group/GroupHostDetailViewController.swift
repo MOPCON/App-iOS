@@ -72,7 +72,6 @@ class GroupHostDetailViewController: MPBaseViewController {
     }
     
     @objc func openWebsite(_ sender: UIButton) {
-        
         openURL(website)
     }
     
@@ -205,7 +204,7 @@ class GroupHostDetailViewController: MPBaseViewController {
         }
         
         if website != "" {
-            
+
             let button = ButtonFactor.webSiteButton()
          
             socialMediaStackView.addArrangedSubview(button)
@@ -242,7 +241,7 @@ class GroupHostDetailViewController: MPBaseViewController {
                     self?.fb = organizer.facebook
                     
                     self?.twitter = organizer.twitter
-                    
+
                     self?.website = organizer.event
                     
                     self?.event = organizer.event
@@ -276,6 +275,8 @@ class GroupHostDetailViewController: MPBaseViewController {
                     self?.fb = participanter.facebook
                     
                     self?.twitter = participanter.twitter
+                    
+                    self?.website = participanter.event
                     
                     self?.event = participanter.event
                     

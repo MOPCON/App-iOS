@@ -72,6 +72,8 @@ class TabBarViewController: UITabBarController, MainThreadHelper {
     
     private let tabs: [TabCategory] = [.lobby, .agenda, .fieldGame, .news, .more]
     
+    private var hasShownAlert: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -103,7 +105,7 @@ class TabBarViewController: UITabBarController, MainThreadHelper {
     
     private func checkAppVersion() {
         
-        guard let info = Bundle.main.infoDictionary, let bundleID = info["CFBundleIdentifier"] as? String, let currentVersion = info["CFBundleShortVersionString"] as? String else {
+        guard let info = Bundle.main.infoDictionary, let bundleID = info["CFBundleIdentifier"] as? String, let currentVersion = info["CFBundleShortVersionString"] as? String, !hasShownAlert else {
             
             return
         }
@@ -119,6 +121,8 @@ class TabBarViewController: UITabBarController, MainThreadHelper {
                     if currentVersion != version.first?.version {
 
                         self?.showVersionAlert()
+                        
+                        self?.hasShownAlert = true
                     }
 
                 }

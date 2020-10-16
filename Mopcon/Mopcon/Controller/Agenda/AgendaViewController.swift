@@ -47,7 +47,7 @@ class AgendaViewController: MPBaseViewController {
             ],
             for: .selected
         )
-
+        
         if #available(iOS 13, *) {
             scheduleSegmentedControl.setTitleTextAttributes(
                 [

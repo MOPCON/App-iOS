@@ -90,7 +90,7 @@ class UnConferenceViewController: MPBaseSessionViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         return sessionList[selectedIndex].period[section].room.count
     }
     
@@ -118,7 +118,7 @@ class UnConferenceViewController: MPBaseSessionViewController {
             
             sessionList[selectedIndex].period[indexPath.section].room[indexPath.row].isLiked = false
         }
-        
+
         conferenceCell.updateUI(room: sessionList[selectedIndex].period[indexPath.section].room[indexPath.row])
         
         conferenceCell.delegate = self

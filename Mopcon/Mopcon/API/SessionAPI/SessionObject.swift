@@ -97,6 +97,8 @@ struct Room: Codable {
     
     let sessionId: Int
     
+    let communityPartner: String
+    
     let tags: [Tag]
     
     let sponsorInfo: SponsorInfo?
@@ -126,6 +128,8 @@ struct Room: Codable {
         case sessionId = "session_id"
         
         case sponsorInfo = "sponsor_info"
+        
+        case communityPartner = "community_partner"
     }
 }
 

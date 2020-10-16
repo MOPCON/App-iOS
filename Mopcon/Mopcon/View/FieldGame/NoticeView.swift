@@ -166,9 +166,9 @@ class NoticeView: UIView {
         case .allFinish:
             image = #imageLiteral(resourceName: "reward")
             
-            title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "全部解開啦" : "All finished"
+            title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "強者是你！" : "All finished"
             
-            description = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "記得去我的獎勵中對講哦" : "Congratulation on completing all the missions"
+            description = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "換啦，哪次不給換！請憑畫面至 4 樓 MOPCON 攤位領取兌換獎勵！" : "Congratulation on completing all the missions"
         }
         
         titleLabel.text = title

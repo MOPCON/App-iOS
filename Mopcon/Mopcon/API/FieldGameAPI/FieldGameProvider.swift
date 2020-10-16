@@ -119,7 +119,7 @@ class FieldGameProvider: MainThreadHelper {
         HTTPClient.shared.request(
             FieldGameAPI.verify(type, id, vKey),
             completion: { result in
-                
+
                 switch result{
                     
                 case .success(let data):
@@ -141,7 +141,7 @@ class FieldGameProvider: MainThreadHelper {
                     }
                     
                 case .failure(let error):
-                    
+
                     throwToMainThreadAsync {
                         completion(Result.failure(error))
                     }

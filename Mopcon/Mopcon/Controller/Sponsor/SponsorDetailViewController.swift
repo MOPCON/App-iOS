@@ -135,6 +135,7 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
             sponsorImageView.makeCircle()
         }
     }
+
 }
 
 extension SponsorDetailViewController: SponsorSpeechCellDelegate {
@@ -153,7 +154,9 @@ extension SponsorDetailViewController: SponsorSpeechCellDelegate {
                         
                     case .success(let room): FavoriteManager.shared.addSession(room: room)
                         
-                    case .failure(let error): print(error)
+                    case .failure(let error):
+                        
+                        print(error)
                         
                     }
                     
@@ -164,6 +167,40 @@ extension SponsorDetailViewController: SponsorSpeechCellDelegate {
         } else {
             
             FavoriteManager.shared.removeSession(id: sessionId)
+        }
+    }
+    
+    func didTouchTalkInfoCell(_ sessionID: Int) {
+        let agendaStoryboard = UIStoryboard(
+            name: "Agenda",
+            bundle: nil
+        )
+        
+        if #available(iOS 13.0, *) {
+            
+            guard let detailVC = agendaStoryboard.instantiateViewController(
+                identifier: ConferenceDetailViewController.identifier
+            ) as? ConferenceDetailViewController else {
+                
+                return
+            }
+            
+            detailVC.conferenceType = .session(sessionID)
+            
+            show(detailVC, sender: nil)
+            
+        } else {
+            
+            guard let detailVC = agendaStoryboard.instantiateViewController(
+                withIdentifier: ConferenceDetailViewController.identifier
+            ) as? ConferenceDetailViewController else {
+                    
+                return
+            }
+            
+            detailVC.conferenceType = .session(sessionID)
+            
+            show(detailVC, sender: nil)
         }
     }
 }

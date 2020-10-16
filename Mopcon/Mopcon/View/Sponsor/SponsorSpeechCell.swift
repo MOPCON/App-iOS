@@ -11,6 +11,8 @@ import UIKit
 protocol SponsorSpeechCellDelegate: AnyObject {
     
     func likeButtonDidTouched(_ cell: SponsorSpeechCell, sessionId: Int, isLiked: Bool)
+    
+    func didTouchTalkInfoCell(_ sessionID: Int)
 }
 
 class SponsorSpeechCell: UITableViewCell {
@@ -55,6 +57,10 @@ extension SponsorSpeechCell: UICollectionViewDataSource {
         sessionCell.delegate = self
         
         return sessionCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didTouchTalkInfoCell(sponsorSpeaker[indexPath.row].sessionId)
     }
 }
 
