@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -46,6 +46,9 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 - 00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTs-eb-QaE">
                                 <rect key="frame" x="20" y="12" width="104.5" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="1GN-Ob-nHk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
                                 <color key="textColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -74,9 +77,9 @@
                         <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RKG-n3-Pnz" firstAttribute="centerY" secondItem="XFE-YB-vKa" secondAttribute="centerY" id="0PS-cl-7Gd"/>
-                            <constraint firstAttribute="bottom" secondItem="ihY-HJ-FXG" secondAttribute="bottom" priority="750" constant="16" id="0S6-Xx-qgh"/>
+                            <constraint firstAttribute="bottom" secondItem="ihY-HJ-FXG" secondAttribute="bottom" constant="16" id="0S6-Xx-qgh"/>
                             <constraint firstItem="ihY-HJ-FXG" firstAttribute="leading" secondItem="S8d-Zw-X8C" secondAttribute="leading" id="DUn-6F-g86"/>
-                            <constraint firstItem="ihY-HJ-FXG" firstAttribute="top" secondItem="zyj-J6-3Dl" secondAttribute="bottom" constant="22" id="IsP-sL-Ewf"/>
+                            <constraint firstItem="ihY-HJ-FXG" firstAttribute="top" secondItem="zyj-J6-3Dl" secondAttribute="bottom" priority="750" constant="22" id="IsP-sL-Ewf"/>
                             <constraint firstItem="XFE-YB-vKa" firstAttribute="leading" secondItem="ihY-HJ-FXG" secondAttribute="trailing" constant="10" id="J5f-rt-pZ6"/>
                             <constraint firstItem="zyj-J6-3Dl" firstAttribute="top" secondItem="S8d-Zw-X8C" secondAttribute="bottom" constant="8" id="Kax-a2-nKE"/>
                             <constraint firstItem="gTs-eb-QaE" firstAttribute="top" secondItem="GLq-LJ-DzM" secondAttribute="top" constant="12" id="QWs-lW-vJU"/>
