@@ -50,23 +50,6 @@ private enum TabCategory: String {
         }
     }
     
-    func seletedImage() -> UIImage? {
-        
-        switch self {
-            
-        case .lobby: return UIImage.asset(.lobbySelected)
-            
-        case .agenda: return UIImage.asset(.agendaSelected)
-            
-        case .fieldGame: return UIImage.asset(.missionSelected)
-            
-        case .news: return UIImage.asset(.newsSelected)
-            
-        case .more: return UIImage.asset(.moreSelected)
-            
-        }
-    }
-    
     func title() -> String {
         
         switch self {
@@ -85,9 +68,11 @@ private enum TabCategory: String {
     }
 }
 
-class TabBarViewController: UITabBarController {
+class TabBarViewController: UITabBarController, MainThreadHelper {
     
     private let tabs: [TabCategory] = [.lobby, .agenda, .fieldGame, .news, .more]
+    
+    private var hasShownAlert: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +81,7 @@ class TabBarViewController: UITabBarController {
             
             let vc = tab.instantiateInitialViewController()
             
-            let tabBarItem = UITabBarItem(title: tab.title(), image: tab.image(), selectedImage: tab.seletedImage())
+            let tabBarItem = UITabBarItem(title: tab.title(), image: tab.image(), selectedImage: nil)
         
             vc.tabBarItem = tabBarItem
             
@@ -105,10 +90,70 @@ class TabBarViewController: UITabBarController {
         
         tabBar.unselectedItemTintColor = .white
         
-        tabBar.tintColor = UIColor.azure
+        tabBar.tintColor = UIColor.secondThemeColor
         
         tabBar.barTintColor = UIColor.dark
 
         tabBar.isTranslucent = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        checkAppVersion()
+    }
+    
+    private func checkAppVersion() {
+        
+        guard let info = Bundle.main.infoDictionary, let bundleID = info["CFBundleIdentifier"] as? String, let currentVersion = info["CFBundleShortVersionString"] as? String, !hasShownAlert else {
+            
+            return
+        }
+        
+        InitialProvider.fetchAppVersion(of: bundleID, completion: { [weak self] result in
+            
+            switch result {
+                
+            case .success(let version):
+                
+                self?.throwToMainThreadAsync {
+                    
+                    if currentVersion != version.first?.version {
+
+                        self?.showVersionAlert()
+                        
+                        self?.hasShownAlert = true
+                    }
+
+                }
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+            
+            
+        })
+    }
+    
+    private func showVersionAlert() {
+        
+        let alert = UIAlertController(title: "提示", message: "目前已有新版 App，請前往 AppStore 更新。", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        
+        let okAction = UIAlertAction(title: "前往 AppStore", style: .default, handler: { _ in
+            
+            if let url = URL(string: MPConstant.mopconAppStore) {
+                
+                UIApplication.shared.open(url)
+            }
+        })
+        
+        alert.addAction(cancelAction)
+        
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

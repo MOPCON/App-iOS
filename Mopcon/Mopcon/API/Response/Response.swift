@@ -23,3 +23,8 @@ struct FailureResponse: Codable {
     
     let message: String
 }
+
+struct VersionResponse<T: Codable>: Codable {
+    
+    let results: [T]
+}

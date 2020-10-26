@@ -47,7 +47,11 @@ class SessionCollectionViewCell: UICollectionViewCell {
         
         layer.borderWidth = 1.0
         
-        layer.borderColor = UIColor.azure?.cgColor
+        layer.borderColor = UIColor.secondThemeColor?.cgColor
+        
+        layer.backgroundColor = UIColor.mainThemeColor?.cgColor
+        
+        durationLabel.textColor = UIColor.secondThemeColor
         
         tagView.dataSource = self
     }
@@ -135,6 +139,6 @@ extension SessionCollectionViewCell: MPTagViewDataSource {
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
-        return UIColor(hex: tags[index].color)
+        return UIColor(hex: tags[index].color.mobile)
     }
 }

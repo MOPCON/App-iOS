@@ -186,6 +186,50 @@ extension SpeakerDetailViewController: SpeakerTalkInfoViewDelegate {
             FavoriteManager.shared.removeSession(id: speaker.sessionID)
         }
     }
+    
+    func didTouchTalkInfoView() {
+        let agendaStoryboard = UIStoryboard(
+            name: "Agenda",
+            bundle: nil
+        )
+        
+        if #available(iOS 13.0, *) {
+            
+            guard let detailVC = agendaStoryboard.instantiateViewController(
+                identifier: ConferenceDetailViewController.identifier
+            ) as? ConferenceDetailViewController else {
+                
+                return
+            }
+            
+            guard let sessionID = speaker?.sessionID else {
+                
+                return
+            }
+            
+            detailVC.conferenceType = .session(sessionID)
+            
+            show(detailVC, sender: nil)
+            
+        } else {
+            
+            guard let detailVC = agendaStoryboard.instantiateViewController(
+                withIdentifier: ConferenceDetailViewController.identifier
+            ) as? ConferenceDetailViewController else {
+                    
+                return
+            }
+            
+            guard let sessionID = speaker?.sessionID else {
+                
+                return
+            }
+            
+            detailVC.conferenceType = .session(sessionID)
+            
+            show(detailVC, sender: nil)
+        }
+    }
 }
 
 extension SpeakerDetailViewController: MPTagViewDataSource {
@@ -202,6 +246,6 @@ extension SpeakerDetailViewController: MPTagViewDataSource {
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
-        return UIColor(hex: speaker?.tags[index].color ?? "")
+        return UIColor(hex: speaker?.tags[index].color.mobile ?? "")
     }
 }

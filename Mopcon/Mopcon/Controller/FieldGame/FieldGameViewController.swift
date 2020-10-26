@@ -25,15 +25,13 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
         static let reward = "SegueReward"
     }
     
-    @IBOutlet weak var headerView: FieldGameHeaderView! {
-        
-        didSet {
-        
-            headerView.delegate = self
-        }
-    }
+    @IBOutlet var puzzleProgressGroup: [UIProgressView]!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var giftIconGroup: [UIImageView]!
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    @IBOutlet weak var puzzleCollectionView: UICollectionView!
     
     @IBOutlet weak var hintLabel: UILabel!
     
@@ -79,7 +77,7 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTableView()
+        setupCollectionView()
         
         startSpinner()
         
@@ -89,36 +87,11 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationItem.title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "遊戲" : "Game"
+        navigationItem.title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "大地遊戲" : "Game"
     }
     
-    private func setupTableView() {
-        
-        headerView.frame.size.height = 170
-                
-        tableView.tableHeaderView = headerView
-        
-        let nib = UINib(
-            nibName: GameStageCell.identifier,
-            bundle: nil
-        )
-        
-        tableView.register(
-            nib,
-            forCellReuseIdentifier: GameStageCell.identifier
-        )
-        
-        let completeNib = UINib(
-            nibName: CompleteCell.identifier,
-            bundle: nil
-        )
-        
-        tableView.register(
-            completeNib,
-            forCellReuseIdentifier: CompleteCell.identifier
-        )
-        
-        tableView.isHidden = true
+    private func setupCollectionView() {
+        puzzleCollectionView.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -136,8 +109,6 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
         
             if let destination = segue.destination as? StageViewController, let indexPath = sender as? IndexPath, let mission = missions?[indexPath.row] {
                 
-                destination.isLast = (indexPath.row == ((missions?.count ?? 0) - 1))
-                
                 destination.missionID = mission.uid
                 
                 destination.isPassed = Bool(truncating: mission.pass as NSNumber)
@@ -151,11 +122,17 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
         }
     }
     
-    private func updateHeadView() {
+    private func updateProgress() {
+            
+        puzzleProgressGroup[0].progress = Float(point / 6)
         
-        headerView.scoreLabel.text = "\(point)"
+        puzzleProgressGroup[1].progress = (point > 6) ? Float(point / 12) : 0
         
-        headerView.levelLabel.text = "\(point)/\(missions?.count ?? 0)"
+        giftIconGroup[0].tintColor = (point >= 6) ? .secondThemeColor : .white
+        
+        giftIconGroup[1].tintColor = (point == 12) ? .secondThemeColor : .white
+        
+        scoreLabel.text = "\(point)/12"
     }
     
     private func startSpinner() {
@@ -199,6 +176,33 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
     
     func fetchGameStatus() {
         
+        var ended = false
+        
+        if point == 5 || point == 11 {
+            
+            FieldGameProvider.notifyReward(completion: { [weak self] result in
+           
+                switch result {
+
+                case .success(let reward):
+
+                    self?.noticeView.updateUI(with: .reward, and: reward as AnyObject)
+
+                    self?.presentHintView()
+
+                    guard let keyReward = self?.keyReward else { return }
+
+                    UserDefaults.standard.set(false, forKey: keyReward)
+                    
+                    ended = true
+
+                case .failure(let error):
+
+                    print(error)
+                }
+            })
+        }
+
         FieldGameProvider.fetchGameStatus(completion: { [weak self] result in
             
             self?.stopSpinner()
@@ -213,137 +217,110 @@ class FieldGameViewController: MPBaseViewController, NoticeViewPresentable {
                 
                 self?.rewards = gameStatus.rewards.filter({ $0.hasWon == 1 && $0.redeemable == 1 })
                 
-                self?.updateHeadView()
+                self?.throwToMainThreadAsync {
+                    
+                    self?.puzzleCollectionView.isHidden = false
+                    
+                    self?.puzzleCollectionView.reloadData()
+                    
+                    self?.updateProgress()
+                }
                 
-                self?.tableView.isHidden = false
-                
-                self?.tableView.reloadData()
+                if self?.point == 12 && ended {
+                    self?.noticeView.updateUI(with: .allFinish)
+                    
+                    self?.presentHintView()
+                }
                 
             case .failure(let error):
                 
-                print(error)
+                switch error {
                 
-                DispatchQueue.main.async {
+                case LKHTTPError.unauthError:
                     
-                    self?.hintLabel.isHidden = false
+                    let uuid = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+
+                    FieldGameProvider.register(with: uuid, and: uuid, completion: {
+                    
+                        self?.fetchGameStatus()
+                    })
+                    
+                default:
+                    
+                    print(error)
+                    
+                    self?.throwToMainThreadAsync {
+                        
+                        self?.hintLabel.isHidden = false
+                    }
                 }
             }
         })
     }
-}
-
-extension FieldGameViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    @IBAction func goToReward(_ sender: UIButton) {
         
-        return missions?.count ?? 0
+        performSegue(withIdentifier: Segue.reward, sender: nil)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: GameStageCell.identifier,
-            for: indexPath)
-        
-        guard let stageCell = cell as? GameStageCell else { return cell }
+}
+
+extension FieldGameViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 12
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PuzzleCell.identifier, for: indexPath) as! PuzzleCell
         
         guard let mission = missions?[indexPath.row] else { return cell }
-        
+
         let isCompleted = Bool(truncating: mission.pass as NSNumber)
         
-        stageCell.updateUI(with: mission, and: isCompleted)
+        let puzzleImageName = ((isCompleted) ? "pu" : "pl") + "\(indexPath.row + 1)"
+        
+        cell.puzzleImageView.image = UIImage(named: puzzleImageName)
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+}
 
-        return 112
-    }
+extension FieldGameViewController: UICollectionViewDelegate {
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        
-        let footer = tableView.dequeueReusableCell(
-            withIdentifier: CompleteCell.identifier
-        ) as! CompleteCell
-        
-        let isCompleted = (point == missions?.count)
-        
-        footer.updateUI(with: isCompleted, and: shouldEnableRewardButton)
-        
-        footer.delegate = self
-        
-        return footer
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: Segue.stage, sender: indexPath)
     }
 }
 
-extension FieldGameViewController: UITableViewDelegate {
+extension FieldGameViewController: UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let viewWidth = UIScreen.main.bounds.width - (21 * 2)
         
-        guard let stageCell = cell as? GameStageCell else { return }
+        let width =  (viewWidth - 3) / 4
         
-        if let missions = self.missions {
-            
-            let firstNotPassedIndex = missions.firstIndex(where: { $0.pass == 0})
-            
-            if firstNotPassedIndex == indexPath.row {
-                
-                stageCell.startTimer()
-            }
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    
-        guard let stageCell = cell as? GameStageCell else { return }
+        let height = (viewWidth - 2) / 3
 
-        if let missions = self.missions {
-
-            let firstNoPassedIndex = missions.firstIndex(where: { $0.pass == 0})
-
-            if firstNoPassedIndex == indexPath.row {
-
-                stageCell.stopTimer()
-            }
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if let missions = self.missions {
-            
-            let isCompleted = Bool(truncating: missions[indexPath.row].pass as NSNumber)
-            
-            let firstNotPassedIndex = missions.firstIndex(where: { $0.pass == 0})
-            
-            if firstNotPassedIndex == indexPath.row || isCompleted {
-                
-                performSegue(withIdentifier: Segue.stage, sender: indexPath)
-            }
-        }
+        return CGSize(width: width, height: height)
     }
 }
 
 extension FieldGameViewController: NoticeViewDelegate {
+    
     func didTouchOKButton(_ noticeView: NoticeView, type: NoticeType) {
-        
+
         if type == .welcome {
-            
+
             UserDefaults.standard.set(true, forKey: keyFieldGame)
         }
     }
 }
 
 extension FieldGameViewController: FieldGameHeaderViewDelegate {
-    
+
     func didTouchRewardBtn(_ headerView: FieldGameHeaderView) {
-        
+
         performSegue(withIdentifier: Segue.reward, sender: nil)
     }
 }
@@ -351,29 +328,29 @@ extension FieldGameViewController: FieldGameHeaderViewDelegate {
 extension FieldGameViewController: FieldGameCompleteViewDelegate {
 
     func didTouchRewardBtn() {
-        
+
         startSpinner()
-        
+
         FieldGameProvider.notifyReward(completion: { [weak self] result in
-            
+
             self?.stopSpinner()
-            
+
             switch result {
-                
+
             case .success(let reward):
-                
+
                 self?.noticeView.updateUI(with: .reward, and: reward as AnyObject)
-                
+
                 self?.presentHintView()
-                
+
                 guard let keyReward = self?.keyReward else { return }
-                
+
                 UserDefaults.standard.set(false, forKey: keyReward)
-                
+
                 self?.fetchGameStatus()
-                
+
             case .failure(let error):
-                
+
                 print(error)
             }
         })

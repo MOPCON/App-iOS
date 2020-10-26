@@ -72,7 +72,6 @@ class GroupHostDetailViewController: MPBaseViewController {
     }
     
     @objc func openWebsite(_ sender: UIButton) {
-        
         openURL(website)
     }
     
@@ -94,9 +93,13 @@ class GroupHostDetailViewController: MPBaseViewController {
         
         communityDescriptionLabel.adjustsFontSizeToFitWidth = true
         
-        moreBtn.layer.cornerRadius = 15
+        moreBtn.layer.cornerRadius = 6
         
-        moreBtn.layer.borderColor = UIColor.azure?.cgColor
+        moreBtn.layer.borderColor = UIColor.secondThemeColor?.cgColor
+        
+        moreBtn.layer.backgroundColor = UIColor.mainThemeColor?.cgColor
+        
+        moreBtn.setTitleColor(UIColor.secondThemeColor, for: .normal)
         
         moreBtn.layer.borderWidth = 1.0
         
@@ -201,7 +204,7 @@ class GroupHostDetailViewController: MPBaseViewController {
         }
         
         if website != "" {
-            
+
             let button = ButtonFactor.webSiteButton()
          
             socialMediaStackView.addArrangedSubview(button)
@@ -238,7 +241,7 @@ class GroupHostDetailViewController: MPBaseViewController {
                     self?.fb = organizer.facebook
                     
                     self?.twitter = organizer.twitter
-                    
+
                     self?.website = organizer.event
                     
                     self?.event = organizer.event
@@ -272,6 +275,8 @@ class GroupHostDetailViewController: MPBaseViewController {
                     self?.fb = participanter.facebook
                     
                     self?.twitter = participanter.twitter
+                    
+                    self?.website = participanter.event
                     
                     self?.event = participanter.event
                     

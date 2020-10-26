@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 import Firebase
+import FirebaseDynamicLinks
+import FirebaseMessaging
 import UserNotifications
 import SafariServices
 
@@ -53,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         
-        UINavigationBar.appearance().shadowImage = UIImage.imageWithColor(color: (UIColor.azure?.withAlphaComponent(0.2))!)
+        UINavigationBar.appearance().shadowImage = UIImage.imageWithColor(color: (UIColor.navigationBottomBorderColor?.withAlphaComponent(0.2))!)
         
         UINavigationBar.appearance().tintColor = .white
         
@@ -154,10 +156,6 @@ extension AppDelegate : MessagingDelegate {
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
-    }
-    
-    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        print("Received data message: \(remoteMessage.appData)")
     }
 }
 

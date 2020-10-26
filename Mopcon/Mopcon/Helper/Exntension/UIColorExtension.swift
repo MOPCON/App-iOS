@@ -10,19 +10,19 @@ import UIKit
 
 extension UIColor {
     
-    static let azure = UIColor(hex: "#00aaf0")
+    static let mainThemeColor = UIColor(hex: "#001333")
     
-    static let dark = UIColor(hex: "#101721")
+    static let secondThemeColor = UIColor(hex: "#ffcc00")
     
-    static let almostBlack = UIColor(hex: "#070b11", alpha: 0.2)
+    static let navigationBottomBorderColor = UIColor(hex: "#00aaf0")
     
+    static let dark = UIColor(hex: "#001333")
+    
+    static let tagTextColor = UIColor(hex: "#001333")
+        
+    static let tagBackgroundColor = UIColor(hex: "#ffcc00")
+        
     static let pink = UIColor(hex: "#ff4392")
-    
-    static let barbiePink = UIColor(hex: "#ff4492")
-    
-    static let azureTwo = UIColor(hex: "#01aaf0")
-    
-    static let greenTwo = UIColor(hex: "#98ce02")
     
     static let brownGray = UIColor(hex: "#878787")
     

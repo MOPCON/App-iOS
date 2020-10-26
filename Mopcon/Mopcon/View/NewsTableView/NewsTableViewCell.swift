@@ -22,7 +22,9 @@ class NewsTableViewCell: UITableViewCell {
         
         self.selectionStyle = .none
         
-        opacityView.layer.borderColor = UIColor.azure?.cgColor
+        opacityView.layer.borderColor = UIColor.secondThemeColor?.cgColor
+        dateLabel.textColor = UIColor.secondThemeColor
+        timeLabel.textColor = UIColor.secondThemeColor
     }
 
     func updateUI(news: News) {

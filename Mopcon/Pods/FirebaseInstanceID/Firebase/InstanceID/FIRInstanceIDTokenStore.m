@@ -121,11 +121,21 @@ static NSString *const kFIRInstanceIDTokenKeychainId = @"com.google.iid-tokens";
   NSString *account = FIRInstanceIDAppIdentifier();
   NSString *service = [[self class] serviceKeyForAuthorizedEntity:tokenInfo.authorizedEntity
                                                             scope:tokenInfo.scope];
-  [self.keychain setData:tokenInfoData
-              forService:service
-           accessibility:NULL
-                 account:account
-                 handler:handler];
+  [self.keychain setData:tokenInfoData forService:service account:account handler:handler];
+}
+
+- (void)saveTokenInfoInCacheOnly:(FIRInstanceIDTokenInfo *)tokenInfo {
+  tokenInfo.cacheTime = [NSDate date];
+  // Always write to the Keychain, so that the cacheTime is up-to-date.
+  NSData *tokenInfoData;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+  tokenInfoData = [NSKeyedArchiver archivedDataWithRootObject:tokenInfo];
+#pragma clang diagnostic pop
+  NSString *account = FIRInstanceIDAppIdentifier();
+  NSString *service = [[self class] serviceKeyForAuthorizedEntity:tokenInfo.authorizedEntity
+                                                            scope:tokenInfo.scope];
+  [self.keychain setDataInCache:tokenInfoData forService:service account:account];
 }
 
 #pragma mark - Delete

@@ -10,8 +10,6 @@ import UIKit
 
 class StageViewController: MPBaseViewController, NoticeViewPresentable {
     
-    var isLast: Bool = false
-    
     var isPassed: Bool = false
     
     var missionID: String?
@@ -19,6 +17,8 @@ class StageViewController: MPBaseViewController, NoticeViewPresentable {
     private var taskID: String?
     
     private let spinner = LoadingTool.setActivityindicator()
+    
+    private let keyReward = "hasOpenedReward"
     
     //MARK: - HintViewPresentable
     internal lazy var noticeView: NoticeView = {
@@ -65,7 +65,7 @@ class StageViewController: MPBaseViewController, NoticeViewPresentable {
         
         stageImageView.layer.cornerRadius = 6
         
-        stageImageView.layer.borderColor = UIColor.azure?.cgColor
+        stageImageView.layer.borderColor = UIColor.secondThemeColor?.cgColor
         
         stageImageView.layer.borderWidth = 1
         
@@ -97,13 +97,13 @@ class StageViewController: MPBaseViewController, NoticeViewPresentable {
         
         let titleColor = pass ? UIColor.brownGray : UIColor.white
         
-        qrCodeButton.backgroundColor = pass ? UIColor.clear : UIColor.azure
+        qrCodeButton.backgroundColor = pass ? UIColor.clear : UIColor.secondThemeColor
         
         qrCodeButton.setTitleColor(titleColor, for: .normal)
         
         qrCodeButton.setTitle(title, for: .normal)
         
-        qrCodeButton.layer.borderColor = pass ? UIColor.brownGray?.cgColor : UIColor.azure?.cgColor
+        qrCodeButton.layer.borderColor = pass ? UIColor.brownGray?.cgColor : UIColor.secondThemeColor?.cgColor
         
         qrCodeButton.isEnabled = !pass
     }
@@ -135,7 +135,7 @@ class StageViewController: MPBaseViewController, NoticeViewPresentable {
                 self?.stageTitleLabel.text = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? task.name : task.nameEn
                 
                 self?.stageDetailLabel.text = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? task.description : task.descriptionEn
-                
+
                 self?.stageImageView.loadImage(task.image)
                 
                 self?.taskID = task.uid
@@ -174,22 +174,22 @@ extension StageViewController: GetInteractionMissionResult {
         presentHintView()
         
         updateQRCodeButton(pass: true)
-        
-        if let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2] as? FieldGameViewController {
-        
-            parentViewController.fetchGameStatus()
-            
-            if isLast {
-                
-                let keyReward = "hasOpenedReward"
-                
-                UserDefaults.standard.set(true, forKey: keyReward)
-            }
-        }
     }
 }
 
 extension StageViewController: NoticeViewDelegate {
     
-    func didTouchOKButton(_ noticeView: NoticeView, type: NoticeType) {}
+    func didTouchOKButton(_ noticeView: NoticeView, type: NoticeType) {
+        if let parentViewController = navigationController?.viewControllers[(navigationController?.viewControllers.count)! - 2] as? FieldGameViewController {
+        
+            parentViewController.fetchGameStatus()
+            
+//            if isLast {
+//
+//                let keyReward = "hasOpenedReward"
+//
+//                UserDefaults.standard.set(true, forKey: keyReward)
+//            }
+        }
+    }
 }

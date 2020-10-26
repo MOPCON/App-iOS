@@ -10,6 +10,8 @@ import Foundation
 
 typealias VoidResultType = (Result<Void, Error>) -> Void
 
+typealias StringResultType = (Result<String, Error>) -> Void
+
 typealias CommunityResultType = (Result<Group, Error>) -> Void
 
 typealias OrganizerResultType = (Result<Organizer, Error>) -> Void
@@ -43,3 +45,7 @@ typealias HomeResultType = (Result<Home, Error>) -> Void
 typealias SpeakerListResultType = (Result<[Speaker], Error>) -> Void
 
 typealias NewsListResultType = (Result<[News], Error>) -> Void
+
+typealias InitialResultType = (Result<ServerState, Error>) -> Void
+
+typealias VersionResultType = (Result<[Version], Error>) -> Void

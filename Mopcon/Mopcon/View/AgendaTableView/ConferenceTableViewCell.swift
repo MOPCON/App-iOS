@@ -34,6 +34,8 @@ class ConferenceTableViewCell: UITableViewCell {
     weak var delegate: ConferenceTableViewCellDelegate?
     
     var tags: [Tag] = []
+
+    var categoryStartIndex: Int = 0
     
     var index:IndexPath?
     
@@ -48,7 +50,7 @@ class ConferenceTableViewCell: UITableViewCell {
         
         super.awakeFromNib()
         
-        contentView.subviews.first?.layer.borderColor = UIColor.azure?.cgColor
+        contentView.subviews.first?.layer.borderColor = UIColor.secondThemeColor?.cgColor
         
         contentView.subviews.first?.layer.borderWidth = 1
         
@@ -98,9 +100,42 @@ class ConferenceTableViewCell: UITableViewCell {
             break
         }
         
-        tags = room.tags
+        generateTags(room: room)
         
         tagView.reloadData()
+    }
+    
+    func generateTags(room: Room) {
+        
+        tags = []
+        
+        if room.isKeynote {
+            
+            tags.append(TagFactory.keynoteTag())
+        }
+        
+        if room.isOnline {
+            
+            tags.append(TagFactory.onlineTag())
+        }
+        
+        if !room.recordable {
+            
+            tags.append(TagFactory.unrecordableTag())
+        }
+        
+        if room.sponsorId != 0 {
+            
+            tags.append(TagFactory.partnerTag())
+        }
+        
+        categoryStartIndex = tags.count - 1
+        
+        for category in room.tags {
+            
+            tags.append(category)
+        }
+
     }
 }
 
@@ -118,6 +153,11 @@ extension ConferenceTableViewCell: MPTagViewDataSource {
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
-        return UIColor(hex: tags[index].color)
+        return UIColor(hex: tags[index].color.mobile)
+    }
+    
+    func viewType(_ tagView: MPTagView, index: Int) -> TagViewType {
+        
+        return (index > categoryStartIndex) ? .solid : .hollow
     }
 }

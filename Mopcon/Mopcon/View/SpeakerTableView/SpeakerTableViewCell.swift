@@ -62,7 +62,7 @@ class SpeakerTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        baseView.layer.borderColor = UIColor.azure?.cgColor
+        baseView.layer.borderColor = UIColor.secondThemeColor?.cgColor
         baseView.layer.borderWidth = 1.0
         baseView.layer.cornerRadius = 6.0
         baseView.clipsToBounds = true
@@ -85,6 +85,6 @@ extension SpeakerTableViewCell: MPTagViewDataSource {
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
-        return UIColor(hex: tags[index].color)
+        return UIColor(hex: tags[index].color.mobile)
     }
 }

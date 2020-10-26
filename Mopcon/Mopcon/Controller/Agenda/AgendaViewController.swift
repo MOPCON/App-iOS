@@ -42,23 +42,23 @@ class AgendaViewController: MPBaseViewController {
         
         scheduleSegmentedControl.setTitleTextAttributes(
             [
-                NSAttributedString.Key.foregroundColor: UIColor.white,
+                NSAttributedString.Key.foregroundColor: UIColor.mainThemeColor ?? UIColor.white,
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)
             ],
             for: .selected
         )
-
+        
         if #available(iOS 13, *) {
             scheduleSegmentedControl.setTitleTextAttributes(
                 [
-                    NSAttributedString.Key.foregroundColor: UIColor.azure ?? UIColor.blue,
+                    NSAttributedString.Key.foregroundColor: UIColor.secondThemeColor ?? UIColor.blue,
                     NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)
                 ],
                 for: .normal
             )
             
             scheduleSegmentedControl.layer.borderWidth = 1
-            scheduleSegmentedControl.layer.borderColor = UIColor.azure?.cgColor
+            scheduleSegmentedControl.layer.borderColor = UIColor.secondThemeColor?.cgColor
             scheduleSegmentedControl.backgroundColor = UIColor.dark
         }
         

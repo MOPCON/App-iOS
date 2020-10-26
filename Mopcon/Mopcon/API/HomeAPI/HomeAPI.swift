@@ -16,7 +16,7 @@ enum HomeAPI: LKRequest {
         
         switch self {
             
-        case .home: return "/api/2019/home"
+        case .home: return "/api/2020/home"
         }
     }
 }

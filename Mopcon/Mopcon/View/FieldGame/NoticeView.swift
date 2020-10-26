@@ -64,6 +64,8 @@ enum NoticeType {
     case exchange
     
     case finish
+    
+    case allFinish
 }
 
 class NoticeView: UIView {
@@ -112,7 +114,7 @@ class NoticeView: UIView {
         
         backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
-        cancelButton.layer.borderColor = UIColor.azure?.cgColor
+        cancelButton.layer.borderColor = UIColor.secondThemeColor?.cgColor
     }
     
     func updateUI(with type: NoticeType, and data: AnyObject? = nil) {
@@ -160,6 +162,13 @@ class NoticeView: UIView {
             title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "任務成功" : "Finish"
             
             description = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "恭喜你完成此任務，讓 Mopcon 更加成長茁壯一大步！" : "Congratulation on completing this mission"
+            
+        case .allFinish:
+            image = #imageLiteral(resourceName: "reward")
+            
+            title = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "強者是你！" : "All finished"
+            
+            description = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "換啦，哪次不給換！請憑畫面至 4 樓 MOPCON 攤位領取兌換獎勵！" : "Congratulation on completing all the missions"
         }
         
         titleLabel.text = title

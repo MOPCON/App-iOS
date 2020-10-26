@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import FirebaseDynamicLinks
 
 class FieldGameProvider: MainThreadHelper {
     
-    static func register(with uid: String, and email: String) {
+    static func register(with uid: String, and email: String, completion: (()->Void)? = nil) {
         
         HTTPClient.shared.request(
             FieldGameAPI.register(uid, email),
@@ -30,6 +31,8 @@ class FieldGameProvider: MainThreadHelper {
                         let token = "\(successResponse.data.tokenType) \(successResponse.data.accessToken)"
                         
                         KeychainTool.save(token)
+                        
+                        completion?()
                         
                     } catch {
                         
@@ -116,7 +119,7 @@ class FieldGameProvider: MainThreadHelper {
         HTTPClient.shared.request(
             FieldGameAPI.verify(type, id, vKey),
             completion: { result in
-                
+
                 switch result{
                     
                 case .success(let data):
@@ -138,7 +141,7 @@ class FieldGameProvider: MainThreadHelper {
                     }
                     
                 case .failure(let error):
-                    
+
                     throwToMainThreadAsync {
                         completion(Result.failure(error))
                     }

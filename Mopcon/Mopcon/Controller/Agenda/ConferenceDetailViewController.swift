@@ -28,9 +28,7 @@ class ConferenceDetailViewController: MPBaseViewController {
             }
         }
     }
-    
-    @IBOutlet weak var typeLabel: UILabel!
-    
+        
     @IBOutlet weak var topicLabel: UILabel!
     
     @IBOutlet weak var imageStackView: UIStackView!
@@ -38,6 +36,9 @@ class ConferenceDetailViewController: MPBaseViewController {
     @IBOutlet weak var speakerName: UILabel!
     
     @IBOutlet weak var speakerJob: UILabel!
+    
+    @IBOutlet weak var communityPartner: UILabel!
+    
     
     @IBOutlet weak var scheduleInfoLabel: UILabel!
     
@@ -60,6 +61,8 @@ class ConferenceDetailViewController: MPBaseViewController {
     }
     
     var room: Room?
+    
+    var categoryStartIndex: Int = 0
     
     @IBOutlet weak var tagView: MPTagView! {
         
@@ -84,7 +87,7 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     @IBAction func didTouchedLikedBtn(_ sender: UIBarButtonItem) {
         
-        if sender.image == UIImage.asset(.like_24) {
+        if sender.image == UIImage.asset(.like) {
             
             switch conferenceType {
                 
@@ -94,7 +97,7 @@ class ConferenceDetailViewController: MPBaseViewController {
                 
             }
             
-            sender.image = UIImage.asset(.dislike_24)
+            sender.image = UIImage.asset(.dislike)
             
         } else {
             
@@ -110,7 +113,7 @@ class ConferenceDetailViewController: MPBaseViewController {
                 
             }
             
-            sender.image = UIImage.asset(.like_24)
+            sender.image = UIImage.asset(.like)
         }
     }
     
@@ -134,11 +137,11 @@ class ConferenceDetailViewController: MPBaseViewController {
                     
                     if FavoriteManager.shared.fetchSessionIds().contains(id) {
                         
-                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.like_24)
+                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.like)
                         
                     } else {
                         
-                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.dislike_24)
+                        self?.addToMyScheduleButtonItem.image = UIImage.asset(.dislike)
                     }
                 }
                 
@@ -203,8 +206,13 @@ class ConferenceDetailViewController: MPBaseViewController {
             ).isActive = true
         }
         
+        if !room.communityPartner.isEmpty {
+        
+            communityPartner.text! += "#合作社群－\(room.communityPartner)"
+        }
+        
         generateTags(room: room)
-
+        
         let language = CurrentLanguage.getLanguage()
 
         switch language {
@@ -212,8 +220,6 @@ class ConferenceDetailViewController: MPBaseViewController {
         case Language.chinese.rawValue:
 
             scheduleInfoLabel.text = room.summary
-
-            typeLabel.text = room.tags.map({ $0.name }).joined(separator: " & ")
             
             topicLabel.text = room.topic
 
@@ -228,8 +234,6 @@ class ConferenceDetailViewController: MPBaseViewController {
         case Language.english.rawValue:
 
             scheduleInfoLabel.text = room.summaryEn
-
-            typeLabel.text = room.tags.reduce("", { $0 + $1.name + " "})
 
             topicLabel.text = room.topicEn
 
@@ -247,13 +251,18 @@ class ConferenceDetailViewController: MPBaseViewController {
         }
     }
     
-    private func generateTags(room: Room) {
+    func generateTags(room: Room) {
         
         tags = []
         
         if room.isKeynote {
             
             tags.append(TagFactory.keynoteTag())
+        }
+        
+        if room.isOnline {
+            
+            tags.append(TagFactory.onlineTag())
         }
         
         if !room.recordable {
@@ -266,8 +275,13 @@ class ConferenceDetailViewController: MPBaseViewController {
             tags.append(TagFactory.partnerTag())
         }
         
-        tags.append(TagFactory.levelTag(level: room.level))
+        categoryStartIndex = tags.count - 1
         
+        for category in room.tags {
+            
+            tags.append(category)
+        }
+
     }
 }
 
@@ -285,16 +299,11 @@ extension ConferenceDetailViewController: MPTagViewDataSource {
     
     func colorForTags(_ tagView: MPTagView, index: Int) -> UIColor? {
         
-        return UIColor(hex: tags[index].color)
+        return UIColor(hex: tags[index].color.mobile)
     }
     
     func viewType(_ tagView: MPTagView, index: Int) -> TagViewType {
         
-        if tags[index].name == "Keynote" {
-            
-            return .solid
-        }
-        
-        return .hollow
+        return (index > categoryStartIndex) ? .solid : .hollow
     }
 }
