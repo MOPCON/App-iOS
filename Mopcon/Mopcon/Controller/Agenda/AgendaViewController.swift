@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseRemoteConfig
 
 class AgendaViewController: MPBaseViewController {
     
@@ -37,6 +38,8 @@ class AgendaViewController: MPBaseViewController {
     
     private var favoriteController: FavoriteViewController?
     
+    private var remoteConfig : RemoteConfig?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,6 +64,8 @@ class AgendaViewController: MPBaseViewController {
             scheduleSegmentedControl.layer.borderColor = UIColor.secondThemeColor?.cgColor
             scheduleSegmentedControl.backgroundColor = UIColor.dark
         }
+        
+        setupRemoteConfig()
         
         fetchSessions()
     }
@@ -168,7 +173,51 @@ class AgendaViewController: MPBaseViewController {
         
         unconfContainerView.isHidden = true
     }
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // MARK: FireBase Remote Config Related Method
+    private func setupRemoteConfig() {
+        
+        self.remoteConfig = RemoteConfig.remoteConfig()
+      
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+        self.remoteConfig?.configSettings = settings
+    }
+    
+    private func fetchAndActivateRemoteConfig() {
+        self.remoteConfig?.fetchAndActivate { status, error in
+          guard error == nil else {
+              
+              print("error:",error as Any)
+              return
+          }
+        
+          guard let allkeys = self.remoteConfig?.allKeys(from: .remote)
+            else {
+                return
+            }
+            
+            // TODO: 要知道後台的參數設定，才知道議程表要不要更新
+            var needToLoadSession:Bool = false
+            
+            allkeys.forEach({ key in
+                let value = self.remoteConfig?.configValue(forKey: key)
+                
+                print("value:",value as Any)
+            })
+            
+            if(needToLoadSession==true)
+            {
+                self.fetchSessions()
+            }
+        }
+    }
+    
 }
+
 
 extension AgendaViewController: SelectionViewDataSource {
     
