@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-protocol GetInteractionMissionResult: class {
+protocol GetInteractionMissionResult: AnyObject {
     func updateMissionStatus()
 }
 
