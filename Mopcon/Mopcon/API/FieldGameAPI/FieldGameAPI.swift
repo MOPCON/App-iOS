@@ -86,10 +86,10 @@ enum FieldGameAPI: LKRequest {
             
         case .verify:
             
-            let token = KeychainTool.retrive(for: "token")
+            let token = KeychainTool.retrive(for: "token") ?? ""
             
             return [LKHTTPHeaderField.contentType.rawValue: LKHTTPHeaderValue.json.rawValue,
-                    LKHTTPHeaderField.auth.rawValue: token!]
+                    LKHTTPHeaderField.auth.rawValue: token]
             
         case .intro:
             
@@ -97,9 +97,9 @@ enum FieldGameAPI: LKRequest {
             
         default:
             
-            let token = KeychainTool.retrive(for: "token")
+            let token = KeychainTool.retrive(for: "token") ?? ""
             
-            return [LKHTTPHeaderField.auth.rawValue: token!]
+            return [LKHTTPHeaderField.auth.rawValue: token]
         }
     }
     
