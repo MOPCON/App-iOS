@@ -11,5 +11,5 @@ target 'Mopcon' do
     pod 'Firebase/Messaging'
     pod 'Firebase/DynamicLinks'
     pod 'Firebase/InAppMessaging'
-    pod 'Firebase/RemoteConfig'
+#    pod 'Firebase/RemoteConfig'
 end
