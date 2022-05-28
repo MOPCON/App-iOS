@@ -16,9 +16,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TargetConditionals.h>
-#if TARGET_OS_IOS
-
 #import "FIRDynamicLink.h"
 #import "FIRDynamicLinksCommon.h"
 
@@ -32,7 +29,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * @class FIRDynamicLinks
  * @abstract A class that checks for pending Dynamic Links and parses URLs.
+ *     This class is available on iOS only.
  */
+
+NS_EXTENSION_UNAVAILABLE_IOS("Firebase Dynamic Links is not supported for iOS extensions.")
+API_UNAVAILABLE(macos, tvos, watchos)
 NS_SWIFT_NAME(DynamicLinks)
 @interface FIRDynamicLinks : NSObject
 
@@ -68,6 +69,22 @@ NS_SWIFT_NAME(DynamicLinks)
     NS_SWIFT_NAME(dynamicLink(fromCustomSchemeURL:));
 
 /**
+ * @method dynamicLinkFromUniversalLinkURL:completion:
+ * @abstract Get a Dynamic Link from a universal link URL. This method parses universal link
+ *     URLs, for instance,
+ *     "https://example.page.link?link=https://www.google.com&ibi=com.google.app&ius=comgoogleapp".
+ *     It is suggested to call it inside your |UIApplicationDelegate|'s
+ *     |application:continueUserActivity:restorationHandler:| method.
+ * @param url Custom scheme URL.
+ * @param completion A block that handles the outcome of attempting to get a Dynamic Link from a
+ * universal link URL.
+ */
+- (void)dynamicLinkFromUniversalLinkURL:(NSURL *)url
+                             completion:(void (^)(FIRDynamicLink *_Nullable dynamicLink,
+                                                  NSError *_Nullable error))completion
+    NS_SWIFT_NAME(dynamicLink(fromUniversalLink:completion:));
+
+/**
  * @method dynamicLinkFromUniversalLinkURL:
  * @abstract Get a Dynamic Link from a universal link URL. This method parses universal link
  *     URLs, for instance,
@@ -78,17 +95,19 @@ NS_SWIFT_NAME(DynamicLinks)
  * @return Dynamic Link object if the URL is valid and has link parameter, otherwise nil.
  */
 - (nullable FIRDynamicLink *)dynamicLinkFromUniversalLinkURL:(NSURL *)url
-    NS_SWIFT_NAME(dynamicLink(fromUniversalLink:));
+    NS_SWIFT_NAME(dynamicLink(fromUniversalLink:))
+        DEPRECATED_MSG_ATTRIBUTE("Use dynamicLinkFromUniversalLinkURL:completion: instead.");
 
 /**
  * @method handleUniversalLink:completion:
- * @abstract Convenience method to handle a Universal Link whether it is long or short. A long link
- *     will call the handler immediately, but a short link may not.
+ * @abstract Convenience method to handle a Universal Link whether it is long or short.
  * @param url A Universal Link URL.
  * @param completion A block that handles the outcome of attempting to create a FIRDynamicLink.
  * @return YES if FIRDynamicLinks is handling the link, otherwise, NO.
  */
-- (BOOL)handleUniversalLink:(NSURL *)url completion:(FIRDynamicLinkUniversalLinkHandler)completion;
+- (BOOL)handleUniversalLink:(NSURL *)url
+                 completion:(void (^)(FIRDynamicLink *_Nullable dynamicLink,
+                                      NSError *_Nullable error))completion;
 
 /**
  * @method resolveShortLink:completion:
@@ -96,7 +115,8 @@ NS_SWIFT_NAME(DynamicLinks)
  * @param url A Short Dynamic Link.
  * @param completion Block to be run upon completion.
  */
-- (void)resolveShortLink:(NSURL *)url completion:(FIRDynamicLinkResolverHandler)completion;
+- (void)resolveShortLink:(NSURL *)url
+              completion:(void (^)(NSURL *_Nullable url, NSError *_Nullable error))completion;
 
 /**
  * @method matchesShortLinkFormat:
@@ -124,5 +144,3 @@ NS_SWIFT_NAME(DynamicLinks)
 @end
 
 NS_ASSUME_NONNULL_END
-
-#endif
