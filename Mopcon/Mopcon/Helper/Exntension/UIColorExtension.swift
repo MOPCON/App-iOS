@@ -14,6 +14,8 @@ extension UIColor {
     
     static let secondThemeColor = UIColor(hex: "#ffcc00")
     
+    static let tabbarSelectedColor = UIColor(hex: "#FF7987")
+    
     static let navigationBottomBorderColor = UIColor(hex: "#00aaf0")
     
     static let dark = UIColor(hex: "#001333")
