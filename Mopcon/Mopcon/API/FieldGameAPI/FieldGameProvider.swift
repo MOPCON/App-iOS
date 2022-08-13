@@ -281,30 +281,4 @@ class FieldGameProvider: MainThreadHelper {
                 }
         })
     }
-    
-    static func modifyFavorite(
-        id: Int,
-        action: String,
-        completion: @escaping (Result<Void, Error>) -> Void
-    ) {
-        
-        HTTPClient.shared.request(
-            FieldGameAPI.mySession(id: id, action: action),
-            completion: { result in
-                
-                switch result{
-                    
-                case .success:
-                    
-                    throwToMainThreadAsync {
-                        completion(Result.success(()))
-                    }
-                    
-                case .failure(let error):
-                    
-                    completion(Result.failure(error))
-                }
-        })
-    }
-    
 }

@@ -81,11 +81,11 @@ class SessionsViewController: MPBaseSessionViewController {
         
         label.numberOfLines = 0
         label.text = totalString
-        let constraintRect = label.sizeThatFits(CGSize(width: tableView.bounds.size.width - 40 - CGFloat(16 * room.tags.count) - CGFloat(6 * room.tags.count), height: CGFloat.greatestFiniteMagnitude))
+        let constraintRect = label.sizeThatFits(CGSize(width: tableView.bounds.size.width - 40 - CGFloat(16 * room.tags.count) - CGFloat(10 * room.tags.count), height: CGFloat.greatestFiniteMagnitude))
       
-        let boundingBox = totalString.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)], context: nil)
+        let boundingBox = totalString.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)], context: nil)
         
-        return ConferenceTableViewCellBasisHeight + (ceil(boundingBox.size.height / 20) * (20 + 6) - 20)
+        return ConferenceTableViewCellBasisHeight + (ceil(boundingBox.size.height / 20) * (20 + 13) - 20)
     }
 
 // MARK : Tableview Datasource & Tableview Delegate
@@ -233,24 +233,5 @@ extension SessionsViewController: ConferenceTableViewCellDelegate {
             
             FavoriteManager.shared.removeSession(room: room)
         }
-        
-        FieldGameProvider.modifyFavorite(
-            id: room.sessionId,
-            action: action,
-            completion: { result in
-                
-                switch result {
-                    
-                case .success(_):
-                    
-                    print("success")
-                    
-                case .failure(let error):
-                    
-                    print(error)
-                }
-            }
-        )
-        
     }
 }
