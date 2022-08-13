@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol ConferenceTableViewCellDelegate: AnyObject {
     
@@ -31,6 +32,8 @@ class ConferenceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var tagViewHeightConstraint: NSLayoutConstraint!
+ 
     weak var delegate: ConferenceTableViewCellDelegate?
     
     var tags: [Tag] = []
@@ -38,6 +41,8 @@ class ConferenceTableViewCell: UITableViewCell {
     var categoryStartIndex: Int = 0
     
     var index:IndexPath?
+    
+    var collectionViewHeight: Int = 18
     
     @IBAction func addToMySchedule(_ sender: UIButton) {
         
@@ -64,6 +69,10 @@ class ConferenceTableViewCell: UITableViewCell {
         super.prepareForReuse()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         
         super.setSelected(selected, animated: animated)
@@ -102,6 +111,11 @@ class ConferenceTableViewCell: UITableViewCell {
         
         generateTags(room: room)
         
+        if(tags.count>0)
+        {
+            self.tagViewHeightConstraint.constant = ceil((self.bounds.size.height-ConferenceTableViewCell_BasisHeight)/24)*24
+        }
+       
         tagView.reloadData()
     }
     
@@ -135,7 +149,6 @@ class ConferenceTableViewCell: UITableViewCell {
             
             tags.append(category)
         }
-
     }
 }
 

@@ -31,6 +31,63 @@ class SessionsViewController: MPBaseSessionViewController {
         
         tableView.reloadData()
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // MARK: Private Method
+    
+    func tableViewRowHeight(indexPath:IndexPath) -> CGFloat{
+        
+        let room = sessions[indexPath.section].room[indexPath.row]
+        var tags: [Tag] = []
+        
+        
+        if room.isKeynote {
+            
+            tags.append(TagFactory.keynoteTag())
+        }
+        
+        if room.isOnline {
+            
+            tags.append(TagFactory.onlineTag())
+        }
+        
+        if !room.recordable {
+            
+            tags.append(TagFactory.unrecordableTag())
+        }
+        
+        if room.sponsorId != 0 {
+            
+            tags.append(TagFactory.partnerTag())
+        }
+        
+        for category in room.tags {
+            
+            tags.append(category)
+        }
+        
+        /**
+         計算高度  layoutConstraint Label FontSize = 10
+         */
+        
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 10)
+        
+        var totalString = String()
+        for tag in tags {
+            totalString.append(tag.name)
+            totalString.append(" ")
+        }
+        
+        label.numberOfLines = 0
+        label.text = totalString
+        let constraintRect = label.sizeThatFits(CGSize(width: self.tableView.bounds.size.width-40-CGFloat(16*room.tags.count)-CGFloat(6*room.tags.count), height: CGFloat.greatestFiniteMagnitude))
+      
+        let boundingBox = totalString.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)], context: nil)
+        
+        return ConferenceTableViewCell_BasisHeight + (ceil(boundingBox.size.height/18)*(18+6)-18)
+    }
 
 // MARK : Tableview Datasource & Tableview Delegate
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -74,6 +131,7 @@ class SessionsViewController: MPBaseSessionViewController {
             withIdentifier: ConferenceTableViewCell.identifier,
             for: indexPath
         )
+        
         
         return conferenceCell
     }
@@ -139,8 +197,16 @@ class SessionsViewController: MPBaseSessionViewController {
         }
         
         conferenceCell.updateUI(room: sessions[indexPath.section].room[indexPath.row])
-        
+       
         conferenceCell.delegate = self
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.tableViewRowHeight(indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.tableViewRowHeight(indexPath: indexPath)
     }
 }
 

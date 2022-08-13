@@ -54,6 +54,9 @@ enum ImageAsset: String {
     case iconGithub = "icon_github"
     case iconTwitter = "icon_twitter"
     case iconWebsite = "icon_website"
+    case coverImage = "coverImage"
+    case bgImage = "bgImage"
+    case shadowImage = "shadowImage"
 }
 
 extension UIImage {

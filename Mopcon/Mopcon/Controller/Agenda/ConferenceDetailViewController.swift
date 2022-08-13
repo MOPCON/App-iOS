@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 enum ConferenceType {
     
     case session(Int)
@@ -192,18 +193,36 @@ class ConferenceDetailViewController: MPBaseViewController {
 
         for speaker in room.speakers {
             
-            let imageView = UIImageView()
+            let speakerAvatarView = SpeakerAvatarView()
             
-            imageView.loadImage(speaker.img.mobile)
+            speakerAvatarView.loadImage(speaker.img.mobile)
             
-            imageStackView.addArrangedSubview(imageView)
+            imageStackView.addArrangedSubview(speakerAvatarView)
+          
+//            speakerAvatarView.widthAnchor.constraint(
+//                equalTo: view.widthAnchor,
+//                multiplier: 100/375
+//            ).isActive = true
             
-            imageView.contentMode = .scaleAspectFit
-            
-            imageView.widthAnchor.constraint(
-                equalTo: view.widthAnchor,
-                multiplier: 80/375
-            ).isActive = true
+            //////////////////////////////////////////////////
+
+            let coverImageView = UIImageView()
+
+            speakerAvatarView.addSubview(coverImageView)
+            let coverImage = UIImage.asset(.coverImage)
+
+            coverImageView.image = coverImage
+
+            coverImageView.translatesAutoresizingMaskIntoConstraints = false
+            coverImageView.contentMode = .scaleAspectFill
+
+            speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .width, relatedBy: .equal, toItem: speakerAvatarView, attribute: .width, multiplier: 1, constant: 0))
+
+            speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .height, relatedBy: .equal, toItem: speakerAvatarView, attribute: .height, multiplier: 1, constant: 0))
+
+            speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .top, relatedBy: .equal, toItem: speakerAvatarView, attribute: .top, multiplier: 1, constant: 0))
+
+            speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .left, relatedBy: .equal, toItem: speakerAvatarView, attribute: .left, multiplier: 1, constant: 0))
         }
         
         if !room.communityPartner.isEmpty {

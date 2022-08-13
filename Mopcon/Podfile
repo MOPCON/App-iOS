@@ -12,4 +12,6 @@ target 'Mopcon' do
     pod 'Firebase/DynamicLinks'
     pod 'Firebase/InAppMessaging'
     pod 'Firebase/AnalyticsWithoutAdIdSupport'
+    
+    pod "AlignedCollectionViewFlowLayout"
 end
