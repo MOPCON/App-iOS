@@ -21,36 +21,36 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Innovate width New Technologies on Google" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8d-Zw-X8C">
                                 <rect key="frame" x="20" y="51" width="310" height="64.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="751" text="田哲禹" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihY-HJ-FXG">
-                                <rect key="frame" x="20" y="164.5" width="254" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="20" y="162.5" width="239.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R1: 一廳" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKG-n3-Pnz">
-                                <rect key="frame" x="300" y="164.5" width="54" height="17"/>
+                                <rect key="frame" x="285.5" y="164.5" width="68.5" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="Rsr-ZI-K9F"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFE-YB-vKa">
-                                <rect key="frame" x="284" y="162" width="12" height="22"/>
+                                <rect key="frame" x="269.5" y="162" width="12" height="22"/>
                                 <state key="normal" image="marker_20"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 - 00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTs-eb-QaE">
-                                <rect key="frame" x="20" y="12" width="104.5" height="31"/>
+                                <rect key="frame" x="20" y="12" width="106.5" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="1GN-Ob-nHk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
-                                <color key="textColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <color key="textColor" red="0.31764705882352939" green="0.63921568627450975" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUx-0o-XLW">
@@ -59,7 +59,7 @@
                                     <constraint firstAttribute="width" secondItem="TUx-0o-XLW" secondAttribute="height" multiplier="1:1" id="0k6-xc-3ZR"/>
                                     <constraint firstAttribute="width" constant="24" id="ufD-Gg-yJR"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.47450980392156861" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="dislike"/>
                                 <state key="selected" image="like"/>
                                 <connections>
@@ -67,14 +67,14 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyj-J6-3Dl" customClass="MPTagView" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="20" y="123.5" width="334" height="20"/>
+                                <rect key="frame" x="20" y="123.5" width="334" height="18"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="1uB-jz-A9a"/>
+                                    <constraint firstAttribute="height" constant="18" id="1uB-jz-A9a"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0078431372549019607" green="0.16862745098039217" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RKG-n3-Pnz" firstAttribute="centerY" secondItem="XFE-YB-vKa" secondAttribute="centerY" id="0PS-cl-7Gd"/>
                             <constraint firstAttribute="bottom" secondItem="ihY-HJ-FXG" secondAttribute="bottom" constant="16" id="0S6-Xx-qgh"/>

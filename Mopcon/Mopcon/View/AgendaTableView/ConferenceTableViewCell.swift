@@ -114,7 +114,7 @@ class ConferenceTableViewCell: UITableViewCell {
         if(tags.count>0)
         {
             
-            tagViewHeightConstraint.constant = ceil((bounds.size.height - ConferenceTableViewCellBasisHeight) / 24) * 24
+            tagViewHeightConstraint.constant = ceil((bounds.size.height - ConferenceTableViewCellBasisHeight) / 30) * 30
         }
        
         tagView.reloadData()

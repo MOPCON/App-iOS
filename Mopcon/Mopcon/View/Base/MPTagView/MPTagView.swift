@@ -54,11 +54,9 @@ class MPTagView: UIView {
         
         flowLayout.estimatedItemSize = CGSize(width: 46, height: 20)
 
-        flowLayout.minimumLineSpacing = 6
+        flowLayout.minimumLineSpacing = 10
 
-        flowLayout.minimumInteritemSpacing = 6
-
-//        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumInteritemSpacing = 10
         
         let tempCollectionView = UICollectionView(
             frame: CGRect(x: 0, y: 0, width: 100, height: 100),
@@ -84,6 +82,8 @@ class MPTagView: UIView {
         tempCollectionView.backgroundColor = UIColor.clear
         
         tempCollectionView.showsHorizontalScrollIndicator = false
+        
+        tempCollectionView.showsVerticalScrollIndicator = false
         
         return tempCollectionView
     }()
@@ -127,13 +127,9 @@ extension MPTagView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
             
         case .hollow:
             
-            tagViewCell.backgroundColor = UIColor.clear
+            tagViewCell.backgroundColor = dataSource.colorForTags(self, index: indexPath.row)
             
-            tagViewCell.label.textColor = dataSource.colorForTags(self, index: indexPath.row)
-            
-            tagViewCell.layer.borderColor = dataSource.colorForTags(self, index: indexPath.row)?.cgColor
-            
-            tagViewCell.layer.borderWidth = 1
+            tagViewCell.label.textColor = .white
             
         case .solid:
         
@@ -174,10 +170,9 @@ class TagViewCell: UICollectionViewCell {
     
     private func setupCell() {
         
-       
         addSubview(label)
 
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 13)
 
         label.textColor = UIColor.white
 
