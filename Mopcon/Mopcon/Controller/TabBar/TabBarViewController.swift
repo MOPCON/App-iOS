@@ -96,26 +96,22 @@ class TabBarViewController: UITabBarController, MainThreadHelper {
         
         tabBar.isTranslucent = false
         
-        if #available(iOS 13.0, *) {
+        if #available(iOS 15.0, *) {
             
             let appearance = UITabBarAppearance()
+                        
+            appearance.configureWithOpaqueBackground()
+            
+            appearance.backgroundColor = UIColor.dark
             
             appearance.shadowImage = nil
             
             appearance.shadowColor = nil
+    
+            tabBar.scrollEdgeAppearance = appearance
             
-            if #available(iOS 15.0, *) {
-                
-                appearance.configureWithOpaqueBackground()
-                
-                appearance.backgroundColor = UIColor.dark
-                
-                tabBar.scrollEdgeAppearance = appearance
-                
-                tabBar.standardAppearance = appearance
-            }
+            tabBar.standardAppearance = appearance
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
