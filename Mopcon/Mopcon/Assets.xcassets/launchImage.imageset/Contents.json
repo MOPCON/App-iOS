@@ -1,23 +1,23 @@
 {
   "images" : [
     {
+      "filename" : "splash-mdpi.png",
       "idiom" : "universal",
-      "filename" : "imgVisual.png",
       "scale" : "1x"
     },
     {
+      "filename" : "splash-xhdpi.png",
       "idiom" : "universal",
-      "filename" : "imgVisual@2x.png",
       "scale" : "2x"
     },
     {
+      "filename" : "splash-xxhdpi.png",
       "idiom" : "universal",
-      "filename" : "imgVisual@3x.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }
