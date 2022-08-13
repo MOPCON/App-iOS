@@ -113,7 +113,8 @@ class ConferenceTableViewCell: UITableViewCell {
         
         if(tags.count>0)
         {
-            self.tagViewHeightConstraint.constant = ceil((self.bounds.size.height-ConferenceTableViewCell_BasisHeight)/24)*24
+            
+            tagViewHeightConstraint.constant = ceil((bounds.size.height - ConferenceTableViewCellBasisHeight) / 24) * 24
         }
        
         tagView.reloadData()
@@ -160,7 +161,7 @@ extension ConferenceTableViewCell: MPTagViewDataSource {
     }
     
     func titleForTags(_ tagView: MPTagView, index: Int) -> String {
-        
+
         return tags[index].name
     }
     

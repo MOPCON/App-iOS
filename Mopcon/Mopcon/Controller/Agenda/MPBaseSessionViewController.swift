@@ -8,7 +8,7 @@
 
 import UIKit
 
-let ConferenceTableViewCell_BasisHeight = 214.0
+let ConferenceTableViewCellBasisHeight = 216.0
 
 class MPBaseSessionViewController: MPBaseViewController, UITableViewDataSource, UITableViewDelegate {
 

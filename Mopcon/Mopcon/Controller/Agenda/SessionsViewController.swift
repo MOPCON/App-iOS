@@ -68,25 +68,24 @@ class SessionsViewController: MPBaseSessionViewController {
         }
         
         /**
-         計算高度  layoutConstraint Label FontSize = 10
+         計算高度  layoutConstraint Label FontSize = 13
          */
         
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 13)
         
         var totalString = String()
         for tag in tags {
             totalString.append(tag.name)
-            totalString.append(" ")
         }
         
         label.numberOfLines = 0
         label.text = totalString
-        let constraintRect = label.sizeThatFits(CGSize(width: self.tableView.bounds.size.width-40-CGFloat(16*room.tags.count)-CGFloat(6*room.tags.count), height: CGFloat.greatestFiniteMagnitude))
+        let constraintRect = label.sizeThatFits(CGSize(width: tableView.bounds.size.width - 40 - CGFloat(16 * room.tags.count) - CGFloat(6 * room.tags.count), height: CGFloat.greatestFiniteMagnitude))
       
         let boundingBox = totalString.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)], context: nil)
         
-        return ConferenceTableViewCell_BasisHeight + (ceil(boundingBox.size.height/18)*(18+6)-18)
+        return ConferenceTableViewCellBasisHeight + (ceil(boundingBox.size.height / 20) * (20 + 6) - 20)
     }
 
 // MARK : Tableview Datasource & Tableview Delegate
@@ -202,11 +201,11 @@ class SessionsViewController: MPBaseSessionViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.tableViewRowHeight(indexPath: indexPath)
+        return tableViewRowHeight(indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.tableViewRowHeight(indexPath: indexPath)
+        return tableViewRowHeight(indexPath: indexPath)
     }
 }
 

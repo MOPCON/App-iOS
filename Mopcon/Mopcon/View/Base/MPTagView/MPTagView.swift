@@ -52,7 +52,7 @@ class MPTagView: UIView {
 
         let flowLayout = AlignedCollectionViewFlowLayout(horizontalAlignment: .left, verticalAlignment: .top)
         
-        flowLayout.estimatedItemSize = CGSize(width: 46, height: 18)
+        flowLayout.estimatedItemSize = CGSize(width: 46, height: 20)
 
         flowLayout.minimumLineSpacing = 6
 
@@ -61,7 +61,7 @@ class MPTagView: UIView {
 //        flowLayout.scrollDirection = .horizontal
         
         let tempCollectionView = UICollectionView(
-            frame: CGRect(x: 0, y: 0, width: 100, height: 200),
+            frame: CGRect(x: 0, y: 0, width: 100, height: 100),
             collectionViewLayout: flowLayout
         )
       
