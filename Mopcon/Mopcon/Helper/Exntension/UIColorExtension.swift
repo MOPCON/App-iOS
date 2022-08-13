@@ -18,7 +18,7 @@ extension UIColor {
     
     static let navigationBottomBorderColor = UIColor(hex: "#00aaf0")
     
-    static let dark = UIColor(hex: "#001333")
+    static let dark = UIColor(hex: "#022B42")
     
     static let tagTextColor = UIColor(hex: "#001333")
         

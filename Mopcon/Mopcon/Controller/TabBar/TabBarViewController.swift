@@ -36,7 +36,7 @@ private enum TabCategory: String {
     func image() -> UIImage? {
         
         switch self {
-        
+            
         case .lobby: return UIImage.asset(.lobby)
             
         case .agenda: return UIImage.asset(.agenda)
@@ -82,7 +82,7 @@ class TabBarViewController: UITabBarController, MainThreadHelper {
             let vc = tab.instantiateInitialViewController()
             
             let tabBarItem = UITabBarItem(title: tab.title(), image: tab.image(), selectedImage: nil)
-        
+            
             vc.tabBarItem = tabBarItem
             
             return vc
@@ -93,8 +93,29 @@ class TabBarViewController: UITabBarController, MainThreadHelper {
         tabBar.tintColor = UIColor.tabbarSelectedColor
         
         tabBar.barTintColor = UIColor.dark
-
+        
         tabBar.isTranslucent = false
+        
+        if #available(iOS 13.0, *) {
+            
+            let appearance = UITabBarAppearance()
+            
+            appearance.shadowImage = nil
+            
+            appearance.shadowColor = nil
+            
+            if #available(iOS 15.0, *) {
+                
+                appearance.configureWithOpaqueBackground()
+                
+                appearance.backgroundColor = UIColor.dark
+                
+                tabBar.scrollEdgeAppearance = appearance
+                
+                tabBar.standardAppearance = appearance
+            }
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -119,20 +140,19 @@ class TabBarViewController: UITabBarController, MainThreadHelper {
                 self?.throwToMainThreadAsync {
                     
                     if currentVersion != version.first?.version {
-
+                        
                         self?.showVersionAlert()
                         
                         self?.hasShownAlert = true
                     }
-
+                    
                 }
                 
             case .failure(let error):
                 
                 print(error)
             }
-            
-            
+
         })
     }
     
