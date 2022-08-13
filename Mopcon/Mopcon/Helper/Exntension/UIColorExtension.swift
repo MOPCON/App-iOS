@@ -10,21 +10,21 @@ import UIKit
 
 extension UIColor {
     
-    static let mainThemeColor = UIColor(hex: "#001333")
+    static let mainThemeColor = UIColor(hex: "#022b42")
     
-    static let secondThemeColor = UIColor(hex: "#ffcc00")
+    static let secondThemeColor = UIColor(hex: "#51a3d3")
     
-    static let tabbarSelectedColor = UIColor(hex: "#FF7987")
+    static let tabbarSelectedColor = UIColor(hex: "#ff7987")
     
     static let navigationBottomBorderColor = UIColor(hex: "#00aaf0")
     
-    static let dark = UIColor(hex: "#022B42")
+    static let dark = UIColor(hex: "#022b42")
     
-    static let tagTextColor = UIColor(hex: "#001333")
+    static let tagTextColor = UIColor.white
         
-    static let tagBackgroundColor = UIColor(hex: "#ffcc00")
+    static let tagBackgroundColor = UIColor(hex: "#51a3d3")
         
-    static let pink = UIColor(hex: "#ff4392")
+    static let pink = UIColor(hex: "#ff7987")
     
     static let brownGray = UIColor(hex: "#878787")
     
