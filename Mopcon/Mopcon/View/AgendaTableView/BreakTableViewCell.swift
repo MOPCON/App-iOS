@@ -10,6 +10,8 @@ import UIKit
 
 class BreakTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var breakView: UIView!
+    
     @IBOutlet weak var breakStepLabel: UILabel!
     
     @IBOutlet weak var timeLabel: UILabel!
@@ -17,6 +19,8 @@ class BreakTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         
         super.awakeFromNib()
+        
+        breakView.layer.borderColor = UIColor.secondThemeColor?.cgColor
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
