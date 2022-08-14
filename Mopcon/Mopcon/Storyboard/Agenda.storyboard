@@ -521,7 +521,7 @@
     </scenes>
     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="dislike" width="16" height="14"/>
+        <image name="dislike" width="24" height="24"/>
         <image name="emptyLogo" width="55" height="52"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
