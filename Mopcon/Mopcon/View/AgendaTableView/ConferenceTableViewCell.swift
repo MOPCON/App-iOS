@@ -28,6 +28,8 @@ class ConferenceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var tagView: MPTagView!
     
+    @IBOutlet weak var battleShipView: UIImageView!
+    
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
