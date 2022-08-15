@@ -49,8 +49,6 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var sponsorImageView: UIImageView!
     
-    @IBOutlet weak var sponsorLabel: UILabel!
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
     var tags: [Tag] = [] {
@@ -162,23 +160,8 @@ class ConferenceDetailViewController: MPBaseViewController {
             
             sponsorTitleLabel.isHidden = false
             
-            sponsorLabel.isHidden = false
             
             sponsorImageView.kf.setImage(with: URL(string: sponsor.logo))
-            
-            switch CurrentLanguage.getLanguage() {
-                
-            case Language.chinese.rawValue:
-            
-                sponsorLabel.text = sponsor.name
-                
-            case Language.english.rawValue:
-            
-                sponsorLabel.text = sponsor.nameEn
-                
-            default: break
-                
-            }
             
         } else {
             
@@ -186,7 +169,6 @@ class ConferenceDetailViewController: MPBaseViewController {
             
             sponsorTitleLabel.isHidden = true
             
-            sponsorLabel.isHidden = true
         }
         
         imageStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
@@ -229,6 +211,7 @@ class ConferenceDetailViewController: MPBaseViewController {
         
             communityPartner.text! += "#合作社群－\(room.communityPartner)"
         }
+       
         
         generateTags(room: room)
         
