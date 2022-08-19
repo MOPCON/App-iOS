@@ -43,6 +43,8 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var scheduleInfoLabel: UILabel!
     
+    @IBOutlet weak var scheduleInfoHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var addToMyScheduleButtonItem: UIBarButtonItem!
     
     @IBOutlet weak var sponsorTitleLabel: UILabel!
@@ -50,6 +52,12 @@ class ConferenceDetailViewController: MPBaseViewController {
     @IBOutlet weak var sponsorImageView: UIImageView!
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var separatorLineView: UIImageView!
     
     var tags: [Tag] = [] {
         
@@ -70,6 +78,8 @@ class ConferenceDetailViewController: MPBaseViewController {
             tagView.dataSource = self
         }
     }
+    
+    @IBOutlet weak var tagViewHeightConstraint: NSLayoutConstraint!
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -141,7 +151,10 @@ class ConferenceDetailViewController: MPBaseViewController {
                     } else {
                         
                         self?.addToMyScheduleButtonItem.image = UIImage.asset(.dislike)
+    
                     }
+                    
+                    self?.addToMyScheduleButtonItem.tintColor = UIColor.pink
                 }
                 
             case .failure(let error):
@@ -154,27 +167,39 @@ class ConferenceDetailViewController: MPBaseViewController {
     // MARK: - Layout View
     func updateUI(room: Room) {
         
+        self.locationLabel.text = room.room + ", " + room.floor
+        
+        let start = DateFormatter.string(for: room.startedAt, formatter: "HH:mm") ?? ""
+        let end = DateFormatter.string(for: room.endedAt, formatter: "HH:mm") ?? ""
+        
+        
+        self.timeLabel.text = start + "-" + end
+        
+        //////////////////////////////////////////////////
+
         if let sponsor = room.sponsorInfo {
         
             sponsorImageView.isHidden = false
             
             sponsorTitleLabel.isHidden = false
             
-            
             sponsorImageView.kf.setImage(with: URL(string: sponsor.logo))
             
+            separatorLineView.isHidden = false
         } else {
             
             sponsorImageView.isHidden = true
             
             sponsorTitleLabel.isHidden = true
             
+            separatorLineView.isHidden = true
         }
         
         imageStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
 
-        for speaker in room.speakers {
-            
+        
+        for speaker in room.speakers{
+     
             let speakerAvatarView = SpeakerAvatarView()
             
             speakerAvatarView.loadImage(speaker.img.mobile)
@@ -214,6 +239,33 @@ class ConferenceDetailViewController: MPBaseViewController {
        
         
         generateTags(room: room)
+        
+        
+        /**
+         計算高度  layoutConstraint Label FontSize = 13
+         */
+        
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 13)
+        
+        var totalString = String()
+        for tag in tags {
+            totalString.append(tag.name)
+        }
+        
+        label.numberOfLines = 0
+        label.text = totalString
+        let constraintRect = label.sizeThatFits(CGSize(width: self.view.bounds.size.width - 40 - CGFloat(16 * room.tags.count) - CGFloat(10 * room.tags.count), height: CGFloat.greatestFiniteMagnitude))
+      
+        let boundingBox = totalString.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)], context: nil)
+        
+        self.tagViewHeightConstraint.constant += (ceil(boundingBox.size.height / 20) * (20 + 13) - 20)
+        
+        
+        
+        //////////////////////////////////////////////////
+
+        
         
         let language = CurrentLanguage.getLanguage()
 

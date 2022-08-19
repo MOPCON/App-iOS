@@ -286,7 +286,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="演講資訊" id="xJm-Zv-xwn">
                         <barButtonItem key="rightBarButtonItem" image="dislike" style="done" id="kxq-fN-6D2">
-                            <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="didTouchedLikedBtn:" destination="o4V-94-Nxa" id="dN8-5m-XCD"/>
                             </connections>
@@ -298,13 +297,18 @@
                         <outlet property="addToMyScheduleButtonItem" destination="kxq-fN-6D2" id="D7f-rB-JkT"/>
                         <outlet property="communityPartner" destination="xYf-UV-17r" id="UJk-Os-zxn"/>
                         <outlet property="imageStackView" destination="YvJ-4z-lNF" id="Xug-kH-tWb"/>
+                        <outlet property="locationLabel" destination="G8r-JB-Obk" id="7Up-4e-tl4"/>
+                        <outlet property="scheduleInfoHeightConstraint" destination="JRh-vk-3Ih" id="JkA-uO-Y4X"/>
                         <outlet property="scheduleInfoLabel" destination="cyG-dJ-K3q" id="Ize-zY-x7m"/>
                         <outlet property="scrollView" destination="EB4-NM-WDG" id="dnt-VI-G5i"/>
+                        <outlet property="separatorLineView" destination="BHM-B5-L6M" id="Uhf-l6-Mab"/>
                         <outlet property="speakerJob" destination="cdz-om-dnW" id="S0E-Al-jWq"/>
                         <outlet property="speakerName" destination="XAQ-fR-481" id="MJe-CW-8eQ"/>
                         <outlet property="sponsorImageView" destination="rNi-i9-2xD" id="P2N-Nx-oiE"/>
                         <outlet property="sponsorTitleLabel" destination="76y-nZ-5Os" id="j7j-OF-Xpx"/>
                         <outlet property="tagView" destination="Smd-cG-ipn" id="8Bt-ex-2EY"/>
+                        <outlet property="tagViewHeightConstraint" destination="cJW-b1-iY8" id="9fd-FJ-O3S"/>
+                        <outlet property="timeLabel" destination="7Ka-0l-Apv" id="L2h-uv-pCS"/>
                         <outlet property="topicLabel" destination="IJD-i3-sqU" id="vm1-HY-He7"/>
                     </connections>
                 </viewController>
