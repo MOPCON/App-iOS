@@ -28,8 +28,8 @@
                                 <rect key="frame" x="20" y="164" width="335" height="32"/>
                                 <segments>
                                     <segment title="全部議程"/>
-                                    <segment title="我最想聽"/>
                                     <segment title="交流場次"/>
+                                    <segment title="我最想聽"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="1" green="0.47450980392156861" blue="0.52941176470588236" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -119,19 +119,19 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="田哲宇" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAQ-fR-481">
-                                        <rect key="frame" x="20" y="121.00000000000001" width="335" height="22.666666666666671"/>
+                                        <rect key="frame" x="20" y="133" width="335" height="22.666666666666657"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台灣區經理@Google Cloud" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdz-om-dnW">
-                                        <rect key="frame" x="20" y="147.66666666666666" width="335" height="18.333333333333343"/>
+                                        <rect key="frame" x="20" y="159.66666666666666" width="335" height="18.333333333333343"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYf-UV-17r">
-                                        <rect key="frame" x="20" y="170" width="335" height="10"/>
+                                        <rect key="frame" x="20" y="182" width="335" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="1ER-pg-5tg"/>
                                         </constraints>
@@ -140,13 +140,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如何寫出有效率、好讀、好維護的 Java / Android 程式" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IJD-i3-sqU">
-                                        <rect key="frame" x="20" y="220" width="335" height="50.666666666666686"/>
+                                        <rect key="frame" x="20" y="231.99999999999997" width="335" height="50.666666666666657"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cyG-dJ-K3q">
-                                        <rect key="frame" x="20" y="330.66666666666669" width="335" height="145.66666666666669"/>
+                                        <rect key="frame" x="20" y="342.66666666666669" width="335" height="145.66666666666669"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="145.66999999999999" id="JRh-vk-3Ih"/>
                                         </constraints>
@@ -162,7 +162,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="贊助廠商" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76y-nZ-5Os">
-                                        <rect key="frame" x="155.66666666666666" y="524.33333333333337" width="64" height="22.666666666666629"/>
+                                        <rect key="frame" x="155.66666666666666" y="536.33333333333337" width="64" height="22.666666666666629"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22.670000000000002" id="BFn-el-WCu"/>
                                         </constraints>
@@ -171,7 +171,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyLogo" translatesAutoresizingMaskIntoConstraints="NO" id="rNi-i9-2xD">
-                                        <rect key="frame" x="138" y="567" width="99" height="54"/>
+                                        <rect key="frame" x="138" y="579" width="99" height="54"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" id="Dwq-Cs-3b4"/>
@@ -180,21 +180,21 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Smd-cG-ipn" customClass="MPTagView" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="290.66666666666669" width="335" height="20"/>
+                                        <rect key="frame" x="20" y="302.66666666666669" width="335" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="cJW-b1-iY8"/>
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_clock" translatesAutoresizingMaskIntoConstraints="NO" id="EzP-Fz-Dhe">
-                                        <rect key="frame" x="20" y="190" width="20" height="20"/>
+                                        <rect key="frame" x="20" y="202" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="4Gj-Xx-6Nn"/>
                                             <constraint firstAttribute="height" constant="20" id="bHx-We-QMc"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:00 - 02:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ka-0l-Apv">
-                                        <rect key="frame" x="45" y="189.66666666666666" width="120" height="21"/>
+                                        <rect key="frame" x="45" y="201.66666666666666" width="120" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="889-ZM-ycQ"/>
                                             <constraint firstAttribute="width" constant="120" id="URH-aM-fbj"/>
@@ -204,14 +204,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marker_20" translatesAutoresizingMaskIntoConstraints="NO" id="yDR-Mn-rS8">
-                                        <rect key="frame" x="185" y="190" width="20" height="20"/>
+                                        <rect key="frame" x="185" y="202" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="N9d-z7-6VF"/>
                                             <constraint firstAttribute="width" constant="20" id="XLF-Ec-tgv"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8r-JB-Obk">
-                                        <rect key="frame" x="210" y="189.66666666666666" width="145" height="21"/>
+                                        <rect key="frame" x="210" y="201.66666666666666" width="145" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="ygE-bv-l2f"/>
                                         </constraints>
@@ -220,7 +220,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperator" translatesAutoresizingMaskIntoConstraints="NO" id="BHM-B5-L6M">
-                                        <rect key="frame" x="0.0" y="496.33333333333337" width="375" height="8"/>
+                                        <rect key="frame" x="0.0" y="508.33333333333337" width="375" height="8"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="8" id="ldD-lV-ZQr"/>
                                         </constraints>
@@ -255,7 +255,7 @@
                                     <constraint firstItem="Smd-cG-ipn" firstAttribute="top" secondItem="IJD-i3-sqU" secondAttribute="bottom" constant="20" id="fJO-FV-TrW"/>
                                     <constraint firstItem="IJD-i3-sqU" firstAttribute="leading" secondItem="EB4-NM-WDG" secondAttribute="leading" constant="20" id="g7I-eo-p8y"/>
                                     <constraint firstItem="cyG-dJ-K3q" firstAttribute="trailing" secondItem="IJD-i3-sqU" secondAttribute="trailing" id="hZ9-fw-PRe"/>
-                                    <constraint firstItem="XAQ-fR-481" firstAttribute="top" secondItem="YvJ-4z-lNF" secondAttribute="bottom" constant="8.0000000000000142" id="hjd-Va-MQP"/>
+                                    <constraint firstItem="XAQ-fR-481" firstAttribute="top" secondItem="YvJ-4z-lNF" secondAttribute="bottom" constant="20" id="hjd-Va-MQP"/>
                                     <constraint firstItem="cyG-dJ-K3q" firstAttribute="top" secondItem="Smd-cG-ipn" secondAttribute="bottom" constant="20" id="i38-fp-EIj"/>
                                     <constraint firstItem="BHM-B5-L6M" firstAttribute="top" secondItem="cyG-dJ-K3q" secondAttribute="bottom" constant="20" id="j6Z-MC-BMc"/>
                                     <constraint firstItem="cdz-om-dnW" firstAttribute="leading" secondItem="EB4-NM-WDG" secondAttribute="leading" constant="20" id="leK-gz-knk"/>

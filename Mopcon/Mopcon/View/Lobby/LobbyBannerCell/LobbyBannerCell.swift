@@ -28,7 +28,7 @@ class LobbyBannerCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         collectionView.register(
             LobbyBannerCollectionViewCell.self,
             forCellWithReuseIdentifier: LobbyBannerCollectionViewCell.identifier
@@ -67,7 +67,7 @@ extension LobbyBannerCell: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
     
         return CGSize(
-            width: collectionView.frame.width - 55,
+            width: collectionView.frame.width-40,
             height: collectionView.frame.height
         )
     }
@@ -78,7 +78,7 @@ extension LobbyBannerCell: UICollectionViewDelegateFlowLayout {
         insetForSectionAt section: Int
     ) -> UIEdgeInsets {
         
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 
     func collectionView(

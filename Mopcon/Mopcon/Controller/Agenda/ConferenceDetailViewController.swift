@@ -86,6 +86,8 @@ class ConferenceDetailViewController: MPBaseViewController {
         super.viewDidLoad()
         
         scrollView.isHidden = true
+        
+        imageStackView.spacing = 90
     }
     
     override func viewDidLayoutSubviews() {
@@ -94,6 +96,16 @@ class ConferenceDetailViewController: MPBaseViewController {
         sponsorImageView.makeCircle()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        for view in imageStackView.arrangedSubviews
+        {
+            print(view.frame)
+        }
+    
+    }
     @IBAction func didTouchedLikedBtn(_ sender: UIBarButtonItem) {
         
         if sender.image == UIImage.asset(.like) {
@@ -213,6 +225,11 @@ class ConferenceDetailViewController: MPBaseViewController {
             
             //////////////////////////////////////////////////
 
+            if(room.speakers.count>1)
+            {
+                continue;
+            }
+            
             let coverImageView = UIImageView()
 
             speakerAvatarView.addSubview(coverImageView)
