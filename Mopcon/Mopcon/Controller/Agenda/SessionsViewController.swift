@@ -81,11 +81,30 @@ class SessionsViewController: MPBaseSessionViewController {
         
         label.numberOfLines = 0
         label.text = totalString
-        let constraintRect = label.sizeThatFits(CGSize(width: tableView.bounds.size.width - 40 - CGFloat(16 * room.tags.count) - CGFloat(10 * room.tags.count), height: CGFloat.greatestFiniteMagnitude))
-      
-        let boundingBox = totalString.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)], context: nil)
         
-        return ConferenceTableViewCellBasisHeight + (ceil(boundingBox.size.height / 20) * (20 + 13) - 20)
+        var constraintRect = label.sizeThatFits(CGSize(width: tableView.bounds.size.width - 40 - CGFloat(16 * room.tags.count) - CGFloat(10 * room.tags.count), height: CGFloat.greatestFiniteMagnitude))
+      
+        var boundingBox = totalString.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)], context: nil)
+        
+        let tagHeight = ConferenceTableViewCellBasisHeight + (ceil(boundingBox.size.height / 20) * (20 + 13) - 20)
+        
+        //////////////////////////////////////////////////
+
+        label.font = UIFont.systemFont(ofSize: 18)
+
+        totalString = String()
+        for speaker in room.speakers {
+            totalString.append(speaker.name+" ")
+        }
+        
+        constraintRect = label.sizeThatFits(CGSize(width: self.tableView.bounds.size.width - 113, height: CGFloat.greatestFiniteMagnitude))
+      
+        boundingBox = totalString.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], context: nil)
+        
+        let speakerNameHeight = max(boundingBox.size.height,21.5)
+        
+
+        return tagHeight + speakerNameHeight
     }
 
 // MARK : Tableview Datasource & Tableview Delegate
