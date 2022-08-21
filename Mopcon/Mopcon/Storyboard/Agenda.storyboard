@@ -28,8 +28,8 @@
                                 <rect key="frame" x="20" y="164" width="335" height="32"/>
                                 <segments>
                                     <segment title="全部議程"/>
-                                    <segment title="我最想聽"/>
                                     <segment title="交流場次"/>
+                                    <segment title="我最想聽"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="1" green="0.47450980392156861" blue="0.52941176470588236" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>

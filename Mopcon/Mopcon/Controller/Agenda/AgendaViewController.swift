@@ -151,10 +151,9 @@ class AgendaViewController: MPBaseViewController {
             
         case 0: sessionContainerView.isHidden = false
             
-        case 1: favirateContainerView.isHidden = false
+        case 1: unconfContainerView.isHidden = false
            
-        case 2: unconfContainerView.isHidden = false
-            
+        case 2: favirateContainerView.isHidden = false
         default: break
         
         }
