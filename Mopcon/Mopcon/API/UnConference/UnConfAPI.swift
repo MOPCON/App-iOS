@@ -18,9 +18,9 @@ enum UnConfAPI: LKRequest {
         
         switch self {
             
-        case .unconf: return "/api/2020/unconf"
+        case .unconf: return "/api/2022/unconf"
             
-        case .info(let id): return "/api/2020/unconf/\(id)"
+        case .info(let id): return "/api/2022/unconf/\(id)"
             
         }
     }
