@@ -12,17 +12,13 @@ class SpeakerAvatarView: UIView {
     
     let bgImageView = UIImageView.init()
     let headImageView = UIImageView.init()
-    let shadowImageView = UIImageView.init()
  
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(self.shadowImageView)
+
         self.addSubview(self.bgImageView)
         self.addSubview(self.headImageView)
-        
-        self.shadowImageView.contentMode = .scaleAspectFill
-        self.shadowImageView.image = UIImage.asset(.shadowImage)
-        
+
         self.bgImageView.contentMode = .scaleAspectFill
         self.bgImageView.image = UIImage.asset(.bgImage)
         
@@ -33,13 +29,10 @@ class SpeakerAvatarView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.addSubview(self.shadowImageView)
         self.addSubview(self.bgImageView)
         self.addSubview(self.headImageView)
         
-        self.shadowImageView.contentMode = .scaleAspectFill
-        self.shadowImageView.image = UIImage.asset(.shadowImage)
-        
+ 
         self.bgImageView.contentMode = .scaleAspectFill
         self.bgImageView.image = UIImage.asset(.bgImage)
         
@@ -52,9 +45,11 @@ class SpeakerAvatarView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
        
-        self.headImageView.frame = CGRect(x: (self.bounds.size.width-100)/2-3, y: (self.bounds.size.height-100)/2-3.5, width: 100, height: 100)
-        self.shadowImageView.frame = self.bounds
-        self.bgImageView.frame = self.bounds
+        self.headImageView.frame = CGRect(x: (self.bounds.size.width-100)/2-1, y: (self.bounds.size.height-100)/2-1, width: 100, height: 100)
+
+        self.bgImageView.frame = CGRect(x: (self.bounds.size.width-103)/2, y: (self.bounds.size.height-102)/2, width: 103, height: 102)
+        
+        print(self.bgImageView.frame)
     }
     
     func loadImage(_ url: String)
