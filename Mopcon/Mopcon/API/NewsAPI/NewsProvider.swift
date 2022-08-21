@@ -11,7 +11,7 @@ import Foundation
 class NewsProvider {
     
     static func fetchNews(completion: @escaping NewsListResultType) {
-        
+        print(NewsAPI.news)
         HTTPClient.shared.request(
             NewsAPI.news,
             completion: { result in

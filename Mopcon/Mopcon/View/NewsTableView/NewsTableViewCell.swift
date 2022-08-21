@@ -22,14 +22,14 @@ class NewsTableViewCell: UITableViewCell {
         
         self.selectionStyle = .none
         
-        opacityView.layer.borderColor = UIColor.secondThemeColor?.cgColor
-        dateLabel.textColor = UIColor.secondThemeColor
-        timeLabel.textColor = UIColor.secondThemeColor
+        opacityView.layer.borderColor = UIColor.pink?.cgColor
+        dateLabel.textColor = UIColor.pink
+        timeLabel.textColor = UIColor.pink
     }
 
     func updateUI(news: News) {
         
-        dateLabel.text = DateFormatter.string(for: news.date, formatter: "yyyy/MM/dd")
+        dateLabel.text = "\(DateFormatter.string(for: news.date, formatter: "MM/dd") ?? "")(\(DateFormatter.string(for: news.date, formatter: "E") ?? ""))"
         timeLabel.text = DateFormatter.string(for: news.date, formatter: "HH:mm")
         titleLabel.text = news.title
         dedcriptionLabel.text = news.description

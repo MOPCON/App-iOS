@@ -23,7 +23,7 @@ class NewsViewController: MPBaseViewController {
         
         refreshControll.addTarget(self, action: #selector(fetchNews), for: .valueChanged)
         
-        newsTableView.contentInset = UIEdgeInsets(top: 17, left: 0, bottom: 0, right: 0)
+        newsTableView.contentInset = UIEdgeInsets(top: 11, left: 0, bottom: 0, right: 0)
         
         newsTableView.delegate = self
         

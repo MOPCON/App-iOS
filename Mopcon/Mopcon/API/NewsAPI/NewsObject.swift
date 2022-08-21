@@ -10,7 +10,8 @@ import Foundation
 
 struct News: Codable {
     
-    let id, date: Int
+    let date: Int
     
-    let title, description, link: String
+    let id, title, description, link: String
+    
 }
