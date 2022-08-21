@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -226,7 +227,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="themeColor"/>
                                 <constraints>
                                     <constraint firstItem="G8r-JB-Obk" firstAttribute="leading" secondItem="yDR-Mn-rS8" secondAttribute="trailing" constant="5" id="1hm-pS-0OX"/>
                                     <constraint firstItem="rNi-i9-2xD" firstAttribute="centerX" secondItem="EB4-NM-WDG" secondAttribute="centerX" id="6MG-ej-xfK"/>
@@ -273,7 +274,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BUu-Dl-1RR"/>
-                        <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="themeColor"/>
                         <constraints>
                             <constraint firstItem="zhf-M8-coC" firstAttribute="width" secondItem="BUu-Dl-1RR" secondAttribute="width" multiplier="80/375" id="3RW-7b-K8a"/>
                             <constraint firstItem="YvJ-4z-lNF" firstAttribute="height" secondItem="BUu-Dl-1RR" secondAttribute="width" multiplier="80/375" id="kYt-uu-nuI"/>
@@ -572,6 +573,9 @@
         <image name="ic_clock" width="20" height="20"/>
         <image name="marker_20" width="20" height="20"/>
         <image name="seperator" width="335" height="9"/>
+        <namedColor name="themeColor">
+            <color red="0.0078431372549019607" green="0.16862745098039217" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
