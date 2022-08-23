@@ -9,9 +9,7 @@
 import UIKit
 
 private enum TabCategory: String {
-    
-    case communication = "Communication"
-    
+        
     case speaker = "Speaker"
     
     case sponsor = "Sponsor"
@@ -36,9 +34,7 @@ private enum TabCategory: String {
     func image() -> UIImage? {
         
         switch self {
-            
-        case .communication: return UIImage.asset(.communication)
-            
+                        
         case .speaker: return UIImage.asset(.speaker)
             
         case .sponsor: return UIImage.asset(.sponsor)
@@ -51,14 +47,12 @@ private enum TabCategory: String {
     func title() -> String {
         
         switch self {
-            
-        case .communication: return "交流場次"
-            
+                        
         case .speaker: return "講者介紹"
             
         case .sponsor: return "贊助廠商"
             
-        case .group: return "社群"
+        case .group: return "主辦社群"
             
         }
     }
@@ -76,7 +70,7 @@ class MoreViewController: MPBaseViewController {
         }
     }
     
-    private let datas: [TabCategory] = [.communication, .speaker, .sponsor, .group]
+    private let datas: [TabCategory] = [.speaker, .sponsor, .group]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +95,8 @@ extension MoreViewController: UITableViewDataSource {
             image: datas[indexPath.row].image(),
             name: datas[indexPath.row].title()
         )
+        
+        moreCell.addCustomDisclosureIndicator(with: UIColor.secondThemeColor ?? .white)
         
         return cell
     }
