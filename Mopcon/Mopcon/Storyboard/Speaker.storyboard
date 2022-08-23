@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pp0-8L-Z8b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pp0-8L-Z8b">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,37 +20,37 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SpeakerTableViewCell" rowHeight="160" id="B9i-3S-xPq" customClass="SpeakerTableViewCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="160"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SpeakerTableViewCell" rowHeight="120" id="B9i-3S-xPq" customClass="SpeakerTableViewCell" customModule="Mopcon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B9i-3S-xPq" id="YIk-5O-XzU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ksh-ae-mMq">
-                                                    <rect key="frame" x="22" y="16" width="370" height="144"/>
+                                                    <rect key="frame" x="22" y="16" width="370" height="104"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zAC-cd-Ic2" customClass="CustomCornerImageView" customModule="Mopcon" customModuleProvider="target">
-                                                            <rect key="frame" x="20" y="31" width="80" height="80"/>
+                                                            <rect key="frame" x="15" y="12" width="80" height="80"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="zAC-cd-Ic2" secondAttribute="height" multiplier="1:1" id="2qA-iG-gh5"/>
                                                                 <constraint firstAttribute="height" constant="80" id="IW5-QC-Twn"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="田哲宇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="db9-vl-c5G">
-                                                            <rect key="frame" x="116" y="36" width="214.5" height="21"/>
+                                                            <rect key="frame" x="111" y="17" width="214.5" height="21"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台灣區經理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56K-QZ-jFJ">
-                                                            <rect key="frame" x="116" y="65" width="55" height="15.5"/>
+                                                            <rect key="frame" x="111" y="46" width="55" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="11"/>
                                                             <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIE-I7-D2d" customClass="MPTagView" customModule="Mopcon" customModuleProvider="target">
-                                                            <rect key="frame" x="116" y="88.5" width="234" height="18"/>
+                                                            <rect key="frame" x="111" y="69.5" width="239" height="18"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="Pr6-SR-WAy"/>
@@ -61,12 +61,13 @@
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="zIE-I7-D2d" secondAttribute="trailing" constant="20" id="4g6-2k-D2G"/>
                                                         <constraint firstItem="56K-QZ-jFJ" firstAttribute="leading" secondItem="db9-vl-c5G" secondAttribute="leading" id="65V-EQ-PUO"/>
-                                                        <constraint firstItem="db9-vl-c5G" firstAttribute="top" secondItem="zAC-cd-Ic2" secondAttribute="top" constant="5" id="Abh-0h-s3t"/>
+                                                        <constraint firstAttribute="bottom" secondItem="zIE-I7-D2d" secondAttribute="bottom" priority="999" constant="16.5" id="9vb-yk-X5i"/>
+                                                        <constraint firstItem="db9-vl-c5G" firstAttribute="top" secondItem="Ksh-ae-mMq" secondAttribute="top" constant="17" id="Abh-0h-s3t"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="56K-QZ-jFJ" secondAttribute="trailing" constant="20" id="EuX-DP-l5W"/>
                                                         <constraint firstItem="db9-vl-c5G" firstAttribute="width" secondItem="Ksh-ae-mMq" secondAttribute="width" multiplier="199:343" id="FVZ-r6-NR4"/>
                                                         <constraint firstItem="db9-vl-c5G" firstAttribute="leading" secondItem="zAC-cd-Ic2" secondAttribute="trailing" constant="16" id="NLa-tc-1pQ"/>
-                                                        <constraint firstItem="zAC-cd-Ic2" firstAttribute="leading" secondItem="Ksh-ae-mMq" secondAttribute="leading" constant="20" id="Nop-E7-KUV"/>
-                                                        <constraint firstItem="zAC-cd-Ic2" firstAttribute="centerY" secondItem="Ksh-ae-mMq" secondAttribute="centerY" constant="-1" id="VBc-uc-Drm"/>
+                                                        <constraint firstItem="zAC-cd-Ic2" firstAttribute="leading" secondItem="Ksh-ae-mMq" secondAttribute="leading" constant="15" id="Nop-E7-KUV"/>
+                                                        <constraint firstItem="zAC-cd-Ic2" firstAttribute="centerY" secondItem="Ksh-ae-mMq" secondAttribute="centerY" id="VBc-uc-Drm"/>
                                                         <constraint firstItem="56K-QZ-jFJ" firstAttribute="top" secondItem="db9-vl-c5G" secondAttribute="bottom" constant="8" id="dDZ-jr-NRe"/>
                                                         <constraint firstItem="zIE-I7-D2d" firstAttribute="leading" secondItem="56K-QZ-jFJ" secondAttribute="leading" id="uSw-sl-u4d"/>
                                                         <constraint firstItem="zIE-I7-D2d" firstAttribute="top" secondItem="56K-QZ-jFJ" secondAttribute="bottom" constant="8" id="vJR-NX-U7s"/>
@@ -87,6 +88,7 @@
                                             <outlet property="speakerJobLabel" destination="56K-QZ-jFJ" id="RFX-ND-3mW"/>
                                             <outlet property="speakerNameLabel" destination="db9-vl-c5G" id="Y8J-Jr-wEe"/>
                                             <outlet property="tagView" destination="zIE-I7-D2d" id="Lyv-TG-9gs"/>
+                                            <outlet property="tagViewHeightConstraint" destination="Pr6-SR-WAy" id="TFb-9q-kgO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -159,7 +161,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台灣區經理" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXQ-Yt-aZl">
-                            <rect key="frame" x="155" y="147.5" width="65.5" height="18.5"/>
+                            <rect key="frame" x="155" y="147.5" width="65" height="18.5"/>
                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -239,7 +241,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P2-XK-Cd0">
-                                    <rect key="frame" x="299" y="17" width="16" height="22"/>
+                                    <rect key="frame" x="291" y="16" width="24" height="24"/>
                                     <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <state key="normal" image="dislike"/>
                                     <state key="selected" image="like"/>
@@ -318,8 +320,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dislike" width="16" height="14"/>
-        <image name="like" width="16" height="14"/>
-        <image name="marker_20" width="12" height="16"/>
+        <image name="dislike" width="24" height="24"/>
+        <image name="like" width="24" height="24"/>
+        <image name="marker_20" width="20" height="20"/>
     </resources>
 </document>
