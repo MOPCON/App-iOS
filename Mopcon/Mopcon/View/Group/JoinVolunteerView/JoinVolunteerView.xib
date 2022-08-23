@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,60 +19,54 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="447"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group-1534" translatesAutoresizingMaskIntoConstraints="NO" id="HNr-U4-Xn2">
-                    <rect key="frame" x="158.5" y="56" width="97" height="91"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="titleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="HNr-U4-Xn2">
+                    <rect key="frame" x="97" y="40" width="220" height="34"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="「我想加入志工行列！」" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbd-fc-hhb">
-                    <rect key="frame" x="97" y="167" width="220" height="28"/>
-                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
-                    <color key="textColor" red="1" green="0.2627450980392157" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtD-Tt-ylP">
-                    <rect key="frame" x="112" y="226" width="190" height="35"/>
-                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                    <state key="normal" title="追蹤 Facebook">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="想要和我們一起改變南部資訊生態圈嗎？歡迎追蹤我們的 Facebook，我們會在下一屆準備開始前 PO 出徵才資訊！加入我們不僅有機會參與改變的過程，還可以得到寶貴的辦展經驗，認識大神們哦！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypf-It-3b7">
-                    <rect key="frame" x="50" y="309" width="314" height="105"/>
-                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                    <rect key="frame" x="20" y="114" width="374" height="76.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vzp-dQ-Inn">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
-                    <color key="backgroundColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtD-Tt-ylP">
+                    <rect key="frame" x="112" y="230.5" width="190" height="36"/>
+                    <color key="backgroundColor" red="1" green="0.47450980390000003" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="1" id="xCm-km-Uxa"/>
+                        <constraint firstAttribute="height" constant="36" id="yKa-Sc-t5j"/>
                     </constraints>
-                </view>
+                    <state key="normal" title="我要加入志工行列" image="click">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperator" translatesAutoresizingMaskIntoConstraints="NO" id="RiE-te-dTS">
+                    <rect key="frame" x="20" y="0.0" width="374" height="9"/>
+                </imageView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="vzp-dQ-Inn" secondAttribute="trailing" id="2mu-Zd-5Qb"/>
-                <constraint firstItem="Ypf-It-3b7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="DVE-k9-j62"/>
-                <constraint firstItem="Ypf-It-3b7" firstAttribute="top" secondItem="rtD-Tt-ylP" secondAttribute="bottom" constant="48" id="FFu-KC-cb0"/>
-                <constraint firstItem="fbd-fc-hhb" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Fat-SF-Prc"/>
-                <constraint firstItem="vzp-dQ-Inn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FkV-Mn-RY4"/>
+                <constraint firstItem="Ypf-It-3b7" firstAttribute="top" secondItem="HNr-U4-Xn2" secondAttribute="bottom" constant="40" id="5d6-9b-L6d"/>
+                <constraint firstItem="Ypf-It-3b7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="DVE-k9-j62"/>
                 <constraint firstItem="rtD-Tt-ylP" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Gfs-QT-LhK"/>
-                <constraint firstItem="fbd-fc-hhb" firstAttribute="top" secondItem="HNr-U4-Xn2" secondAttribute="bottom" constant="20" id="Iy1-Em-ZHI"/>
+                <constraint firstItem="RiE-te-dTS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="IQV-II-EWY"/>
                 <constraint firstItem="HNr-U4-Xn2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OWr-dq-ImA"/>
-                <constraint firstItem="HNr-U4-Xn2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="56" id="U0k-I2-qX0"/>
+                <constraint firstItem="rtD-Tt-ylP" firstAttribute="top" secondItem="Ypf-It-3b7" secondAttribute="bottom" constant="40" id="QuM-EJ-d9q"/>
+                <constraint firstItem="HNr-U4-Xn2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="U0k-I2-qX0"/>
                 <constraint firstItem="rtD-Tt-ylP" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="172:375" id="amH-sQ-tYM"/>
-                <constraint firstItem="vzp-dQ-Inn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mi5-Xi-5S3"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ypf-It-3b7" secondAttribute="trailing" constant="50" id="r3p-e4-fsw"/>
-                <constraint firstItem="rtD-Tt-ylP" firstAttribute="top" secondItem="fbd-fc-hhb" secondAttribute="bottom" constant="31" id="rEn-FL-xtf"/>
+                <constraint firstItem="RiE-te-dTS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cUT-Lb-He5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RiE-te-dTS" secondAttribute="trailing" constant="20" id="m3a-yr-Px1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ypf-It-3b7" secondAttribute="trailing" constant="20" id="r3p-e4-fsw"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="-7.2463768115942031" y="42.522321428571423"/>
         </view>
     </objects>
     <resources>
-        <image name="group-1534" width="97" height="91"/>
+        <image name="click" width="22" height="22"/>
+        <image name="seperator" width="335" height="9"/>
+        <image name="titleLogo" width="220" height="34"/>
     </resources>
 </document>

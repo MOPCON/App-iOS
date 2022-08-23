@@ -22,7 +22,7 @@ class GroupBaseViewController: MPBaseViewController, UICollectionViewDelegateFlo
     
     let joinVolunteerView = JoinVolunteerView()
     
-    private let joinViewHeight: CGFloat = 537.0
+    private let joinViewHeight: CGFloat = 350.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +83,7 @@ class GroupBaseViewController: MPBaseViewController, UICollectionViewDelegateFlo
     //MARK: - JoinVolunteerViewDelegate
     func didTouchFacebookButton(_ volunteerView: JoinVolunteerView) {
         
-        openURL(MPConstant.mopconWebSite)
+        openURL(MPConstant.recruitURL)
     }
     
 }
