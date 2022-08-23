@@ -93,6 +93,10 @@
 		49A683912153248100EC6EA7 /* MopconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A683902153248100EC6EA7 /* MopconUITests.swift */; };
 		49A6839921532E4A00EC6EA7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */; };
 		4A0710BE2C7F7D575ABB0EF5 /* Pods_Mopcon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16132A5788BB830AC3CB1073 /* Pods_Mopcon.framework */; };
+		5319664028B5109200CE3924 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5319663F28B5109200CE3924 /* UITableViewCellExtension.swift */; };
+		5319664328B5155700CE3924 /* LobbyNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5319664128B5155700CE3924 /* LobbyNewsCollectionViewCell.swift */; };
+		5319664428B5155700CE3924 /* LobbyNewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5319664228B5155700CE3924 /* LobbyNewsCollectionViewCell.xib */; };
+		5319664628B51B4000CE3924 /* IntExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5319664528B51B4000CE3924 /* IntExtenstion.swift */; };
 		532143EA23464E0700C2B4BE /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532143E923464E0700C2B4BE /* URLExtension.swift */; };
 		536688732305B0310036DFE5 /* GameStageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536688712305B0310036DFE5 /* GameStageCell.swift */; };
 		536688742305B0310036DFE5 /* GameStageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 536688722305B0310036DFE5 /* GameStageCell.xib */; };
@@ -255,6 +259,10 @@
 		49A683902153248100EC6EA7 /* MopconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MopconUITests.swift; sourceTree = "<group>"; };
 		49A683922153248100EC6EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49A6839821532E4A00EC6EA7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		5319663F28B5109200CE3924 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
+		5319664128B5155700CE3924 /* LobbyNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyNewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		5319664228B5155700CE3924 /* LobbyNewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LobbyNewsCollectionViewCell.xib; sourceTree = "<group>"; };
+		5319664528B51B4000CE3924 /* IntExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtenstion.swift; sourceTree = "<group>"; };
 		532143E923464E0700C2B4BE /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		536688712305B0310036DFE5 /* GameStageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStageCell.swift; sourceTree = "<group>"; };
 		536688722305B0310036DFE5 /* GameStageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameStageCell.xib; sourceTree = "<group>"; };
@@ -616,6 +624,8 @@
 			children = (
 				3CB70C26233F095100B76C08 /* LobbyNewsCell.swift */,
 				3CB70C27233F095100B76C08 /* LobbyNewsCell.xib */,
+				5319664128B5155700CE3924 /* LobbyNewsCollectionViewCell.swift */,
+				5319664228B5155700CE3924 /* LobbyNewsCollectionViewCell.xib */,
 			);
 			path = LobbyNewsCell;
 			sourceTree = "<group>";
@@ -785,6 +795,8 @@
 				3C1DCD6D233F10E7005EEEC9 /* UITableViewExtension.swift */,
 				3CC17362233F2E1900F42076 /* UICollectionViewExtension.swift */,
 				532143E923464E0700C2B4BE /* URLExtension.swift */,
+				5319663F28B5109200CE3924 /* UITableViewCellExtension.swift */,
+				5319664528B51B4000CE3924 /* IntExtenstion.swift */,
 			);
 			path = Exntension;
 			sourceTree = "<group>";
@@ -1091,6 +1103,7 @@
 				3CFCF00422DECF9D006184CD /* Main.storyboard in Resources */,
 				536688742305B0310036DFE5 /* GameStageCell.xib in Resources */,
 				3C903F8F22979B4800765CB2 /* News.storyboard in Resources */,
+				5319664428B5155700CE3924 /* LobbyNewsCollectionViewCell.xib in Resources */,
 				D633462720E8FFC60033E5B4 /* Lobby.storyboard in Resources */,
 				5E682E1A213CFE4400FC37CF /* FieldGame.storyboard in Resources */,
 				3CB70C2E233F09A900B76C08 /* LobbySessionCell.xib in Resources */,
@@ -1169,7 +1182,9 @@
 				3C31E65D230F8AF800000518 /* HTTPClientExtenstion.swift in Sources */,
 				3C6A38DE2305A3F200B4546B /* MPTagView.swift in Sources */,
 				D633464220E936ED0033E5B4 /* BannerImageCell.swift in Sources */,
+				5319664628B51B4000CE3924 /* IntExtenstion.swift in Sources */,
 				D6555F2620EB1F27000816DF /* SpeakerDetailViewController.swift in Sources */,
+				5319664328B5155700CE3924 /* LobbyNewsCollectionViewCell.swift in Sources */,
 				D633462420E8FFC60033E5B4 /* LobbyViewController.swift in Sources */,
 				3CB70C28233F095100B76C08 /* LobbyNewsCell.swift in Sources */,
 				5E349C9F21228A340060297A /* UIImageViewExtension.swift in Sources */,
@@ -1272,6 +1287,7 @@
 				3C31E67D230FC41E00000518 /* VolunteerObject.swift in Sources */,
 				D662A1A720EDB5EA00316FE6 /* ConferenceTableViewCell.swift in Sources */,
 				3C23D4CC231D272B005E28E5 /* SessionAPI.swift in Sources */,
+				5319664028B5109200CE3924 /* UITableViewCellExtension.swift in Sources */,
 				3C31E657230F872E00000518 /* HTTPClient.swift in Sources */,
 				3C5FF12423352AE500D82CC6 /* SessionsViewController.swift in Sources */,
 				3C2160CD233B472B00EEF638 /* HomeAPI.swift in Sources */,
@@ -1486,7 +1502,7 @@
 				CURRENT_PROJECT_VERSION = 2020101401;
 				DEVELOPMENT_TEAM = P8GYHF5M8B;
 				INFOPLIST_FILE = Mopcon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1513,7 +1529,7 @@
 				CURRENT_PROJECT_VERSION = 2020101401;
 				DEVELOPMENT_TEAM = P8GYHF5M8B;
 				INFOPLIST_FILE = Mopcon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

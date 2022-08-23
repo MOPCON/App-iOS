@@ -121,6 +121,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="titleLogo" width="159" height="24"/>
+        <image name="titleLogo" width="220" height="34"/>
     </resources>
 </document>

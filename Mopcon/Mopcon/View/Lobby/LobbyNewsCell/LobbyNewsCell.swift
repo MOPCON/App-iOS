@@ -25,16 +25,13 @@ class LobbyNewsCell: UITableViewCell {
     
     weak var delegate: LobbyNewsCellDelegate?
     
-    var news: [String] = []
+    var news: [HomeNews] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        collectionView.register(
-            LobbyNewsCollectionViewCell.self,
-            forCellWithReuseIdentifier: LobbyNewsCollectionViewCell.identifier
-        )
+        collectionView.registerNib(identifier: LobbyNewsCollectionViewCell.identifier)
     }
     
     @IBAction func showMore() {
@@ -59,8 +56,8 @@ extension LobbyNewsCell: UICollectionViewDataSource {
         
         guard let newsCell = cell as? LobbyNewsCollectionViewCell else { return cell }
         
-        newsCell.label.text = news[indexPath.row]
-        
+        newsCell.updateUI(news[indexPath.row])
+                
         return cell
     }
 }
@@ -85,7 +82,7 @@ extension LobbyNewsCell: UICollectionViewDelegateFlowLayout {
         insetForSectionAt section: Int
     ) -> UIEdgeInsets {
         
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 
     func collectionView(
@@ -112,59 +109,61 @@ extension LobbyNewsCell: UICollectionViewDelegateFlowLayout {
     }
 }
 
-private class LobbyNewsCollectionViewCell: UICollectionViewCell {
-    
-    let label = UILabel()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setup()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        setup()
-    }
-    
-    func setup() {
-        
-        backgroundColor = UIColor.secondThemeColor
-        
-        layer.cornerRadius = 6.0
-        
-        let stringValue = "Set\nUILabel\nline\nspacing"
-        
-        let attrString = NSMutableAttributedString(string: stringValue)
-        
-        let style = NSMutableParagraphStyle()
-        
-        style.lineSpacing = 7
-        
-        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSRange(location: 0, length: stringValue.count))
-        
-        label.attributedText = attrString
-        
-        clipsToBounds = true
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(label)
-        
-        NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            label.topAnchor.constraint(equalTo: topAnchor, constant: 18),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -18)
-        ])
-        
-        label.backgroundColor = UIColor.clear
-        
-        label.font = UIFont.systemFont(ofSize: 16)
-        
-        label.textColor = UIColor.mainThemeColor
-        
-        label.numberOfLines = 0
-    }
-}
+//private class LobbyNewsCollectionViewCell: UICollectionViewCell {
+//
+//    let label = UILabel()
+//
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//
+//        setup()
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        super.init(coder: coder)
+//
+//        setup()
+//    }
+//
+//    func setup() {
+//
+//        layer.borderColor = UIColor.pink?.cgColor
+//
+//        layer.borderWidth = 1.0
+//
+//        layer.cornerRadius = 10.0
+//
+//        let stringValue = "Set\nUILabel\nline\nspacing"
+//
+//        let attrString = NSMutableAttributedString(string: stringValue)
+//
+//        let style = NSMutableParagraphStyle()
+//
+//        style.lineSpacing = 7
+//
+//        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSRange(location: 0, length: stringValue.count))
+//
+//        label.attributedText = attrString
+//
+//        clipsToBounds = true
+//
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//
+//        addSubview(label)
+//
+//        NSLayoutConstraint.activate([
+//            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+//            label.topAnchor.constraint(equalTo: topAnchor, constant: 18),
+//            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+//            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -18)
+//        ])
+//
+//        label.backgroundColor = UIColor.clear
+//
+//        label.font = UIFont.systemFont(ofSize: 16)
+//
+//        label.textColor = .white
+//
+//        label.numberOfLines = 0
+//    }
+//}

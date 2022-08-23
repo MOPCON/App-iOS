@@ -111,7 +111,7 @@ class LobbyViewController: MPBaseViewController {
                 
                 self?.cells = [
                     .banner( home.banner.map({ $0.img }) ),
-                    .news( home.news.map({ $0.description }) )
+                    .news( home.news )
                 ]
                 
                 self?.throwToMainThreadAsync {
@@ -243,7 +243,7 @@ private enum CellType: CaseIterable {
     
     case banner([String])
     
-    case news([String])
+    case news([HomeNews])
     
     case session([Room])
     
