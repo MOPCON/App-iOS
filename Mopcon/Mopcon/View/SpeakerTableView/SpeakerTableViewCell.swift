@@ -25,10 +25,13 @@ class SpeakerTableViewCell: UITableViewCell {
             tagView.dataSource = self
         }
     }
+    @IBOutlet weak var tagViewHeightConstraint: NSLayoutConstraint!
     
     var tags: [Tag] = []
     
     func updateUI(speaker: Speaker) {
+        
+        tags = speaker.tags
         
         speakerAvatarImageView.kf.setImage(
             with: URL(string: speaker.img.mobile),
@@ -52,11 +55,17 @@ class SpeakerTableViewCell: UITableViewCell {
         default:
             break
         }
-        
-        tags = speaker.tags
-        
+
         tagView.reloadData()
+
+        /** 取得正確的 CollectionView Flowlayout Contentsize*/
+        tagView.colletionView.collectionViewLayout.invalidateLayout()
+        tagView.colletionView.collectionViewLayout.prepare();
+        tagView.colletionView.layoutIfNeeded()
+        
+        self.tagViewHeightConstraint.constant = tagView.colletionView.collectionViewLayout.collectionViewContentSize.height + 5
     }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -66,7 +75,7 @@ class SpeakerTableViewCell: UITableViewCell {
         baseView.layer.borderWidth = 1.0
         baseView.layer.cornerRadius = 6.0
         baseView.clipsToBounds = true
-        
+
         selectionStyle = .none
     }
 }
