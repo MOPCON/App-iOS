@@ -31,11 +31,11 @@ class SelectionButton: UIView {
         
         super.layoutSubviews()
         
-        self.seperatorView.frame = CGRect(x: 0, y: self.bounds.size.height/2-2, width: self.bounds.size.width, height: 4)
+        self.seperatorView.frame = CGRect(x: 0, y: self.bounds.size.height/2-1, width: self.bounds.size.width, height: 2)
         
         self.button.sizeToFit()
         
-        let width = self.button.frame.size.width + 50
+        let width = self.button.frame.size.width + 60
         let height = ceil(width/160*37)
         
         self.button.frame = CGRect(x: (self.bounds.size.width-width)/2, y: (self.bounds.size.height-height)/2, width: width, height: height)
