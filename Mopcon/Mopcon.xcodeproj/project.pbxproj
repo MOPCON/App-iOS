@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EEDF2C128B67CD60082DB96 /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEDF2C028B67CD60082DB96 /* SelectionButton.swift */; };
 		3C0AD2E6233CCE1D00193A4E /* SponsorInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0AD2E5233CCE1D00193A4E /* SponsorInfoCell.swift */; };
 		3C0AD2E8233CCE3200193A4E /* SponsorAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0AD2E7233CCE3200193A4E /* SponsorAboutCell.swift */; };
 		3C1229DA2334C21300001760 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1229D92334C21300001760 /* DateFormatter.swift */; };
@@ -171,6 +172,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0EEDF2C028B67CD60082DB96 /* SelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
 		16132A5788BB830AC3CB1073 /* Pods_Mopcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mopcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0AD2E5233CCE1D00193A4E /* SponsorInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorInfoCell.swift; sourceTree = "<group>"; };
 		3C0AD2E7233CCE3200193A4E /* SponsorAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorAboutCell.swift; sourceTree = "<group>"; };
@@ -962,6 +964,7 @@
 				D6555F2720EB2A83000816DF /* CustomSelectedButton.swift */,
 				D6B5166820EA07A1003FA56F /* CornerImageView.swift */,
 				D6555F3020EC7D97000816DF /* CornerBackgroundView.swift */,
+				0EEDF2C028B67CD60082DB96 /* SelectionButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1264,6 +1267,7 @@
 				3CFCF00722DED10E006184CD /* TabBarViewController.swift in Sources */,
 				3CF0FB7C233A3EB700D9794E /* UnConferenceViewController.swift in Sources */,
 				D6EE629320E9C9270043B68A /* SegueManager.swift in Sources */,
+				0EEDF2C128B67CD60082DB96 /* SelectionButton.swift in Sources */,
 				3C3FFEA122FAD6E300873416 /* JoinVolunteerView.swift in Sources */,
 				D633462220E8FFC60033E5B4 /* AppDelegate.swift in Sources */,
 				3C7D65AF2316822500D0EEE2 /* FieldGameHeaderView.swift in Sources */,
