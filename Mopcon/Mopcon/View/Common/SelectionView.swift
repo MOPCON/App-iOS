@@ -48,20 +48,19 @@ class SelectionView: UIView {
         }
     }
     
-    var seletedIndex: Int? {
+    var selectedIndex: Int {
         
         for (index, subview) in stackView.arrangedSubviews.enumerated() {
             
             if let button = subview as? UIButton {
                 
                 if button.isSelected {
-                    
                     return index
                 }
             }
         }
         
-        return nil
+        return 0
     }
     
     //MARK: - Private view object

@@ -128,9 +128,9 @@ class AgendaViewController: MPBaseViewController {
                     guard let strongSelf = self else { return }
                     
                     self?.dateSelectionView.dataSource = self
-                    
+
                     self?.sessionViewController?.updateData(
-                        sessions: sessionLists[strongSelf.dateSelectionView.seletedIndex!].period
+                        sessions: sessionLists[strongSelf.dateSelectionView.selectedIndex].period
                     )
                     
                     self?.favoriteController?.selectedDate = sessionLists.first?.date
