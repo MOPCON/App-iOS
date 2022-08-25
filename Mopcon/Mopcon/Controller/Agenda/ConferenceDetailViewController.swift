@@ -217,27 +217,21 @@ class ConferenceDetailViewController: MPBaseViewController {
             speakerAvatarView.loadImage(speaker.img.mobile)
             
             imageStackView.addArrangedSubview(speakerAvatarView)
-          
-//            speakerAvatarView.widthAnchor.constraint(
-//                equalTo: view.widthAnchor,
-//                multiplier: 100/375
-//            ).isActive = true
-            
-            //////////////////////////////////////////////////
 
-            if(room.speakers.count>1)
-            {
+            if room.speakers.count > 1 {
                 continue;
             }
             
             let coverImageView = UIImageView()
 
             speakerAvatarView.addSubview(coverImageView)
+            
             let coverImage = UIImage.asset(.coverImage)
 
             coverImageView.image = coverImage
 
             coverImageView.translatesAutoresizingMaskIntoConstraints = false
+            
             coverImageView.contentMode = .scaleAspectFill
 
             speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .width, relatedBy: .equal, toItem: speakerAvatarView, attribute: .width, multiplier: 1, constant: 0))

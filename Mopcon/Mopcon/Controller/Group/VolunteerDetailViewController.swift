@@ -10,7 +10,7 @@ import UIKit
 
 class VolunteerDetailViewController: MPBaseViewController {
 
-    @IBOutlet weak var volunteerImgView: UIImageView!
+    @IBOutlet weak var volunteerView: SpeakerAvatarView!
     
     @IBOutlet weak var volunteerTitleLbl: UILabel!
     
@@ -33,6 +33,7 @@ class VolunteerDetailViewController: MPBaseViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         emptyView.backgroundColor = UIColor.dark
@@ -48,7 +49,9 @@ class VolunteerDetailViewController: MPBaseViewController {
                 
             case .success(let volunteer):
                 
-                self?.volunteerImgView.loadImage(volunteer.photo)
+                self?.volunteerView.loadImage(volunteer.photo)
+                
+                self?.updateImageView()
                 
                 self?.volunteerTitleLbl.text = volunteer.name
                 
@@ -63,5 +66,27 @@ class VolunteerDetailViewController: MPBaseViewController {
                 print(error)
             }
         })
+    }
+    
+    func updateImageView() {
+        let coverImageView = UIImageView()
+
+        self.volunteerView.addSubview(coverImageView)
+        
+        let coverImage = UIImage.asset(.coverImage)
+
+        coverImageView.image = coverImage
+
+        coverImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        coverImageView.contentMode = .scaleAspectFill
+
+        self.volunteerView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .width, relatedBy: .equal, toItem: self.volunteerView, attribute: .width, multiplier: 1, constant: 0))
+
+        self.volunteerView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .height, relatedBy: .equal, toItem: self.volunteerView, attribute: .height, multiplier: 1, constant: 0))
+
+        self.volunteerView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .top, relatedBy: .equal, toItem: self.volunteerView, attribute: .top, multiplier: 1, constant: 0))
+
+        self.volunteerView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .left, relatedBy: .equal, toItem: self.volunteerView, attribute: .left, multiplier: 1, constant: 0))
     }
 }
