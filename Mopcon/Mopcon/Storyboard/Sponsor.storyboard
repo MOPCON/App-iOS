@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +20,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="egN-7w-6IB">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="themeColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o5P-mx-SWp">
                                     <size key="itemSize" width="375" height="150"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
@@ -109,7 +110,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KYc-pS-Jlc"/>
-                        <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="themeColor"/>
                         <constraints>
                             <constraint firstItem="egN-7w-6IB" firstAttribute="top" secondItem="KYc-pS-Jlc" secondAttribute="top" id="P2X-3Y-5Gz"/>
                             <constraint firstItem="egN-7w-6IB" firstAttribute="trailing" secondItem="KYc-pS-Jlc" secondAttribute="trailing" id="Soi-s7-LxP"/>
@@ -308,7 +309,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JgN-FH-bSy"/>
-                        <color key="backgroundColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="themeColor"/>
                         <constraints>
                             <constraint firstItem="sYl-AF-4uR" firstAttribute="bottom" secondItem="JgN-FH-bSy" secondAttribute="bottom" id="00d-xv-m80"/>
                             <constraint firstItem="sYl-AF-4uR" firstAttribute="leading" secondItem="JgN-FH-bSy" secondAttribute="leading" id="Ba0-bu-3F9"/>
@@ -326,4 +327,9 @@
             <point key="canvasLocation" x="886.95652173913049" y="1485.2678571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="themeColor">
+            <color red="0.0078431372549019607" green="0.16862745098039217" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

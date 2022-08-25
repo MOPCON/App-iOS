@@ -277,6 +277,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BUu-Dl-1RR"/>
                         <color key="backgroundColor" name="themeColor"/>
+                        <color key="tintColor" red="0.7843137255" green="0.78039215689999997" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="zhf-M8-coC" firstAttribute="width" secondItem="BUu-Dl-1RR" secondAttribute="width" multiplier="80/375" id="3RW-7b-K8a"/>
                             <constraint firstItem="YvJ-4z-lNF" firstAttribute="height" secondItem="BUu-Dl-1RR" secondAttribute="width" multiplier="80/375" id="kYt-uu-nuI"/>

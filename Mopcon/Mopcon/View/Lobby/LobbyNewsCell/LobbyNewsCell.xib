@@ -18,20 +18,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新消息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gH-fa-AbX">
-                        <rect key="frame" x="20" y="16" width="65.5" height="25"/>
+                        <rect key="frame" x="20" y="16" width="64" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="k4O-HU-Vbt"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qQ-SP-XbC">
-                        <rect key="frame" x="230" y="16" width="66" height="25"/>
+                        <rect key="frame" x="232" y="16" width="64" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="NLw-M7-pHc"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                         <state key="normal" title="查看更多">
                             <color key="titleColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
@@ -40,7 +40,7 @@
                         </connections>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="100" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BFf-tQ-5pt">
-                        <rect key="frame" x="0.0" y="57" width="320" height="130"/>
+                        <rect key="frame" x="0.0" y="49" width="320" height="138"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="BFf-tQ-5pt" secondAttribute="height" multiplier="335:144" priority="750" id="fcI-vD-ACl"/>
@@ -58,7 +58,7 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="BFf-tQ-5pt" firstAttribute="top" secondItem="9qQ-SP-XbC" secondAttribute="bottom" constant="16" id="2Dh-Ab-lrb"/>
+                    <constraint firstItem="BFf-tQ-5pt" firstAttribute="top" secondItem="9qQ-SP-XbC" secondAttribute="bottom" constant="8" id="2Dh-Ab-lrb"/>
                     <constraint firstItem="BFf-tQ-5pt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="JA7-0R-6dY"/>
                     <constraint firstAttribute="trailing" secondItem="9qQ-SP-XbC" secondAttribute="trailing" constant="24" id="PZ6-e4-yf6"/>
                     <constraint firstAttribute="bottom" secondItem="BFf-tQ-5pt" secondAttribute="bottom" constant="32" id="hql-jj-0GY"/>
