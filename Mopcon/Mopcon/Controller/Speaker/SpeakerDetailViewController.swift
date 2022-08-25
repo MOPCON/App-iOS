@@ -28,6 +28,10 @@ class SpeakerDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var buttonStackView: UIStackView!
     
+    @IBOutlet weak var scheduleTopicLabelHeighConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var tagViewHeightConstraint: NSLayoutConstraint!
+    
     let spinner = LoadingTool.setActivityindicator()
     
     var speaker: Speaker?
@@ -37,6 +41,7 @@ class SpeakerDetailViewController: MPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         if let speaker = speaker {
             
             updateUI(speaker: speaker)
@@ -81,6 +86,29 @@ class SpeakerDetailViewController: MPBaseViewController {
     
     //MARK: Layout out
     
+    private func addStarCircleView() {
+        let coverImageView = UIImageView()
+
+        self.speakerView.speakerAvatarView.addSubview(coverImageView)
+        
+        let coverImage = UIImage.asset(.coverImage)
+
+        coverImageView.image = coverImage
+
+        coverImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        coverImageView.contentMode = .scaleAspectFill
+
+        self.speakerView.speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .width, relatedBy: .equal, toItem: self.speakerView.speakerAvatarView, attribute: .width, multiplier: 1, constant: 0))
+
+        self.speakerView.speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .height, relatedBy: .equal, toItem: self.speakerView.speakerAvatarView, attribute: .height, multiplier: 1, constant: 0))
+
+        self.speakerView.speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .top, relatedBy: .equal, toItem: self.speakerView.speakerAvatarView, attribute: .top, multiplier: 1, constant: 0))
+
+        self.speakerView.speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .left, relatedBy: .equal, toItem: self.speakerView.speakerAvatarView, attribute: .left, multiplier: 1, constant: 0))
+    }
+    
+    
     func updateUI(speaker: Speaker) {
         
         self.speaker = speaker
@@ -97,16 +125,30 @@ class SpeakerDetailViewController: MPBaseViewController {
         
         let end = DateFormatter.string(for: speaker.endedAt, formatter: "HH:mm") ?? ""
         
+
         talkInfoView.updateUI(
             topic: speaker.topic,
+            speakerName: (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? speaker.name : speaker.nameEn,
             time: start + " - " + end,
             position: speaker.room + " " + speaker.floor,
             isCollected: FavoriteManager.shared.fetchSessionIds().contains(speaker.sessionID)
         )
         
         talkInfoView.tagView.reloadData()
-    
+        
+        talkInfoView.scheduleTopicLabel.sizeToFit()
+        
+        self.scheduleTopicLabelHeighConstraint.constant = max(talkInfoView.scheduleTopicLabel.frame.size.height,self.scheduleTopicLabelHeighConstraint.constant)
+        
+        /** 取得正確的 CollectionView Flowlayout Contentsize*/
+        talkInfoView.tagView.colletionView.collectionViewLayout.invalidateLayout()
+        talkInfoView.tagView.colletionView.collectionViewLayout.prepare();
+        talkInfoView.tagView.colletionView.layoutIfNeeded()
+        
+        self.tagViewHeightConstraint.constant = talkInfoView.tagView.colletionView.collectionViewLayout.collectionViewContentSize.height + 5
+        
         setupButton(speaker: speaker)
+        addStarCircleView()
     }
     
     func setupButton(speaker: Speaker) {

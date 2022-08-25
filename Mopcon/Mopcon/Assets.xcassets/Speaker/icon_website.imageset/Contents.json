@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "icon_website.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "icon_website@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "icon_website@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "ic_view360.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

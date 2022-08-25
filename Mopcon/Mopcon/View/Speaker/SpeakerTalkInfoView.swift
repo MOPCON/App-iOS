@@ -29,6 +29,8 @@ class SpeakerTalkInfoView: UIView {
     
     @IBOutlet weak var tagView: MPTagView!
     
+    @IBOutlet weak var speakerNameLabel: UILabel!
+    
     weak var delegate: SpeakerTalkInfoViewDelegate?
     
     @IBAction func collectionTopic(_ sender: UIButton) {
@@ -51,7 +53,7 @@ class SpeakerTalkInfoView: UIView {
         baseView.layer.borderWidth = 1.0
     }
 
-    func updateUI(topic: String, time: String, position: String, isCollected: Bool) {
+    func updateUI(topic: String, speakerName:String, time: String, position: String, isCollected: Bool) {
         
         scheduleTopicLabel.text = topic
         
@@ -62,6 +64,8 @@ class SpeakerTalkInfoView: UIView {
         positionLabel.text = position
         
         likedButton.isSelected = isCollected
+        
+        speakerNameLabel.text = speakerName
     }
     
     @objc func touchViewAction() {
