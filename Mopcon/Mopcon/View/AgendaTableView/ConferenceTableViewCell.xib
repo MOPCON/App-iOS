@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="8" width="374" height="210"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Innovate width New Technologies on Google" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8d-Zw-X8C">
-                                <rect key="frame" x="20" y="63.5" width="310" height="67.5"/>
+                                <rect key="frame" x="20" y="61" width="310" height="67.5"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -45,10 +45,7 @@
                                 <state key="normal" image="marker_20"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 - 00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTs-eb-QaE">
-                                <rect key="frame" x="72" y="24.5" width="119" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="1GN-Ob-nHk"/>
-                                </constraints>
+                                <rect key="frame" x="72" y="27.5" width="119" height="25.5"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                 <color key="textColor" red="0.31764705882352939" green="0.63921568627450975" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -67,7 +64,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyj-J6-3Dl" customClass="MPTagView" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="20" y="139" width="334" height="18"/>
+                                <rect key="frame" x="20" y="136.5" width="334" height="18"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="1uB-jz-A9a"/>
