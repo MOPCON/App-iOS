@@ -175,7 +175,7 @@
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyLogo" translatesAutoresizingMaskIntoConstraints="NO" id="rNi-i9-2xD">
                                         <rect key="frame" x="138" y="579" width="99" height="54"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" id="Dwq-Cs-3b4"/>
                                             <constraint firstAttribute="width" secondItem="rNi-i9-2xD" secondAttribute="height" multiplier="99:54" id="gv8-hB-5dL"/>
@@ -260,6 +260,7 @@
                                     <constraint firstItem="cyG-dJ-K3q" firstAttribute="trailing" secondItem="IJD-i3-sqU" secondAttribute="trailing" id="hZ9-fw-PRe"/>
                                     <constraint firstItem="XAQ-fR-481" firstAttribute="top" secondItem="YvJ-4z-lNF" secondAttribute="bottom" constant="20" id="hjd-Va-MQP"/>
                                     <constraint firstItem="cyG-dJ-K3q" firstAttribute="top" secondItem="Smd-cG-ipn" secondAttribute="bottom" constant="20" id="i38-fp-EIj"/>
+                                    <constraint firstItem="rNi-i9-2xD" firstAttribute="width" secondItem="EB4-NM-WDG" secondAttribute="width" multiplier="99:375" id="izv-t9-TPl"/>
                                     <constraint firstItem="BHM-B5-L6M" firstAttribute="top" secondItem="cyG-dJ-K3q" secondAttribute="bottom" constant="20" id="j6Z-MC-BMc"/>
                                     <constraint firstItem="cdz-om-dnW" firstAttribute="leading" secondItem="EB4-NM-WDG" secondAttribute="leading" constant="20" id="leK-gz-knk"/>
                                     <constraint firstItem="xYf-UV-17r" firstAttribute="leading" secondItem="cdz-om-dnW" secondAttribute="leading" id="lhn-IY-QQJ"/>
