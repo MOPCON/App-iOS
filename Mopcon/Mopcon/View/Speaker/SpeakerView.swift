@@ -10,15 +10,17 @@ import UIKit
 
 class SpeakerView: UIView {
 
-    @IBOutlet weak var speakerImageView: UIImageView!
+    
+    @IBOutlet weak var speakerAvatarView: SpeakerAvatarView!
     
     @IBOutlet weak var speakerJobLabel: UILabel!
     
     @IBOutlet weak var speakerNameLabel: UILabel!
     
+    
     func updateUI(image: String, name: String, job: String) {
         
-        speakerImageView.loadImage(image)
+        speakerAvatarView.loadImage(image)
         
         speakerJobLabel.text = job
 
@@ -27,7 +29,5 @@ class SpeakerView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        speakerImageView.makeCircle()
     }
 }
