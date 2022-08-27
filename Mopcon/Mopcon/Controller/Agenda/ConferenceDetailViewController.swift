@@ -59,6 +59,8 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var separatorLineView: UIImageView!
     
+    @IBOutlet weak var sponsorNameLabel: UILabel!
+    
     var tags: [Tag] = [] {
         
         didSet {
@@ -198,6 +200,8 @@ class ConferenceDetailViewController: MPBaseViewController {
             sponsorImageView.kf.setImage(with: URL(string: sponsor.logo))
             
             separatorLineView.isHidden = false
+            
+            sponsorNameLabel.isHidden = false
         } else {
             
             sponsorImageView.isHidden = true
@@ -205,6 +209,8 @@ class ConferenceDetailViewController: MPBaseViewController {
             sponsorTitleLabel.isHidden = true
             
             separatorLineView.isHidden = true
+            
+            sponsorNameLabel.isHidden = true
         }
         
         imageStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
@@ -295,6 +301,8 @@ class ConferenceDetailViewController: MPBaseViewController {
                 .joined(separator: " | ")
 
             speakerJob.text = jobs
+            
+            sponsorNameLabel.text = room.sponsorInfo?.name
 
         case Language.english.rawValue:
 
@@ -309,11 +317,15 @@ class ConferenceDetailViewController: MPBaseViewController {
             .joined(separator: " | ")
 
             speakerJob.text = jobs
+            
+            sponsorNameLabel.text = room.sponsorInfo?.nameEn
 
         default:
 
             break
         }
+        
+       
     }
     
     func generateTags(room: Room) {
