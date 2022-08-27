@@ -23,13 +23,13 @@
                                 <color key="backgroundColor" name="themeColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o5P-mx-SWp">
                                     <size key="itemSize" width="375" height="150"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="50" height="100"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SponsorSmallCollectionCell" id="Ge9-XI-PCl" customClass="SponsorSmallCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="164" height="164"/>
+                                        <rect key="frame" x="0.0" y="100" width="164" height="164"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
@@ -84,23 +84,43 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SponsorHeader" id="e1W-kt-mwx" customClass="SponsorHeaderView" customModule="Mopcon" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqy-ku-xLj">
-                                            <rect key="frame" x="0.0" y="14" width="414" height="22.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqy-ku-xLj">
+                                            <rect key="frame" x="88" y="39" width="303" height="22.5"/>
                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                            <color key="textColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="1" green="0.47450980392156861" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sponsor01" translatesAutoresizingMaskIntoConstraints="NO" id="nep-9M-E3k">
+                                            <rect key="frame" x="23" y="23" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="EQH-iG-9wG"/>
+                                                <constraint firstAttribute="height" constant="50" id="p8W-Zc-2Wd"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperator" translatesAutoresizingMaskIntoConstraints="NO" id="uev-pN-Ena">
+                                            <rect key="frame" x="15" y="76" width="384" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="ybt-KE-v2F"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
+                                    <color key="tintColor" red="1" green="0.47450980392156861" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstItem="Qqy-ku-xLj" firstAttribute="width" secondItem="e1W-kt-mwx" secondAttribute="width" id="TQK-9u-GIc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Qqy-ku-xLj" secondAttribute="trailing" constant="15" id="7y4-x5-A7G"/>
+                                        <constraint firstItem="uev-pN-Ena" firstAttribute="leading" secondItem="e1W-kt-mwx" secondAttribute="leading" constant="15" id="89Y-V3-O9E"/>
+                                        <constraint firstItem="nep-9M-E3k" firstAttribute="top" secondItem="e1W-kt-mwx" secondAttribute="topMargin" constant="15" id="Ktz-y4-RLf"/>
+                                        <constraint firstAttribute="bottom" secondItem="uev-pN-Ena" secondAttribute="bottom" id="P48-Ks-wu9"/>
                                         <constraint firstItem="Qqy-ku-xLj" firstAttribute="centerY" secondItem="e1W-kt-mwx" secondAttribute="centerY" id="WFB-gc-e0A"/>
-                                        <constraint firstItem="Qqy-ku-xLj" firstAttribute="centerX" secondItem="e1W-kt-mwx" secondAttribute="centerX" id="tiE-bH-Y47"/>
+                                        <constraint firstAttribute="trailing" secondItem="uev-pN-Ena" secondAttribute="trailing" constant="15" id="a0i-Lo-aeO"/>
+                                        <constraint firstItem="nep-9M-E3k" firstAttribute="leading" secondItem="e1W-kt-mwx" secondAttribute="leadingMargin" constant="15" id="cKF-oG-cbd"/>
+                                        <constraint firstItem="Qqy-ku-xLj" firstAttribute="leading" secondItem="nep-9M-E3k" secondAttribute="trailing" constant="15" id="tiE-bH-Y47"/>
                                     </constraints>
                                     <connections>
                                         <outlet property="headerTitleLabel" destination="Qqy-ku-xLj" id="ugs-2n-iGg"/>
+                                        <outlet property="iconImageView" destination="nep-9M-E3k" id="pkL-7I-2WT"/>
                                     </connections>
                                 </collectionReusableView>
                                 <connections>
@@ -128,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Rp-fu-sWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8.8000000000000007" y="1485.6071964017992"/>
+            <point key="canvasLocation" x="8.6956521739130448" y="1485.2678571428571"/>
         </scene>
         <!--贊助廠商資訊-->
         <scene sceneID="h0y-dW-Jfr">
@@ -328,6 +348,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="seperator" width="335" height="9"/>
+        <image name="sponsor01" width="50" height="50"/>
         <namedColor name="themeColor">
             <color red="0.0078431372549019607" green="0.16862745098039217" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

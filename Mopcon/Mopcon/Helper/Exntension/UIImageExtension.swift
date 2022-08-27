@@ -56,6 +56,14 @@ enum ImageAsset: String {
     case iconWebsite = "icon_website"
     case coverImage = "coverImage"
     case bgImage = "bgImage"
+    
+    //SposorType
+    case sponsor01 = "sponsor01"
+    case sponsor02 = "sponsor02"
+    case sponsor03 = "sponsor03"
+    case sponsor04 = "sponsor04"
+    case sponsor05 = "sponsor05"
+    case sponsor06 = "sponsor06"
 }
 
 extension UIImage {
