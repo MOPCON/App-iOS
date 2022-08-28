@@ -55,7 +55,8 @@ class LobbyViewController: MPBaseViewController {
         
         repeat
         {
-            if(cells.last?.identifier()==LobbySessionCell.identifier)
+            if(cells.last?.identifier()==ConferenceTableViewCell.identifier ||
+               cells.last?.identifier()==LobbySessionCell.identifier)
             {
                 cells.removeLast()
             }
