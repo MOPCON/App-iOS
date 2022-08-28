@@ -98,7 +98,7 @@ extension SponsorsViewController: UICollectionViewDelegate, UICollectionViewData
             for: indexPath
         ) as! SponsorHeaderView
 
-        headerView.updateUI(title: sponsorList[indexPath.section].name)
+        headerView.updateUI(section: indexPath.section, title: sponsorList[indexPath.section].name)
         
         return headerView
     }
@@ -164,7 +164,7 @@ extension SponsorsViewController: UICollectionViewDelegateFlowLayout {
         referenceSizeForHeaderInSection section: Int
         ) -> CGSize {
         
-        return CGSize(width: collectionView.bounds.width, height: 50)
+        return CGSize(width: collectionView.bounds.width, height: 100)
     }
     
 }
