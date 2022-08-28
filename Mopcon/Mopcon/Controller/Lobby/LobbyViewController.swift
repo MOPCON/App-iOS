@@ -124,6 +124,45 @@ class LobbyViewController: MPBaseViewController {
         tableView.registerNib(identifier: ConferenceTableViewCell.identifier)
     }
     
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Private Method
+    
+    private func didSelectSession(sessionId:Int)
+    {
+        let agendaStoryboard = UIStoryboard(
+            name: "Agenda",
+            bundle: nil
+        )
+        
+        if #available(iOS 13.0, *) {
+            
+            guard let detailVC = agendaStoryboard.instantiateViewController(
+                identifier: ConferenceDetailViewController.identifier
+            ) as? ConferenceDetailViewController else {
+                
+                return
+            }
+            
+            detailVC.conferenceType = .session(sessionId)
+            
+            show(detailVC, sender: nil)
+            
+        } else {
+            
+            guard let detailVC = agendaStoryboard.instantiateViewController(
+                withIdentifier: ConferenceDetailViewController.identifier
+            ) as? ConferenceDetailViewController else {
+                    
+                    return
+            }
+            
+            detailVC.conferenceType = .session(sessionId)
+            
+            show(detailVC, sender: nil)
+        }
+    }
+    
     private func hasFavoriteRoom() -> Bool {
         
         var result = false
@@ -267,6 +306,18 @@ extension LobbyViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch cells[indexPath.section]
+        {
+            case .session(let rooms):
+                self.didSelectSession(sessionId: rooms[0].sessionId)
+            case .banner(_):
+                break
+            case .news(_):
+                break
+        }
+    }
 }
 
 extension LobbyViewController: UITableViewDelegate {
@@ -306,38 +357,7 @@ extension LobbyViewController: LobbyNewsCellDelegate {
 extension LobbyViewController: LobbySessionCellDelegate {
     
     func didSelectedSession(_ cell: LobbySessionCell, sessionId: Int) {
-        
-        let agendaStoryboard = UIStoryboard(
-            name: "Agenda",
-            bundle: nil
-        )
-        
-        if #available(iOS 13.0, *) {
-            
-            guard let detailVC = agendaStoryboard.instantiateViewController(
-                identifier: ConferenceDetailViewController.identifier
-            ) as? ConferenceDetailViewController else {
-                
-                return
-            }
-            
-            detailVC.conferenceType = .session(sessionId)
-            
-            show(detailVC, sender: nil)
-            
-        } else {
-            
-            guard let detailVC = agendaStoryboard.instantiateViewController(
-                withIdentifier: ConferenceDetailViewController.identifier
-            ) as? ConferenceDetailViewController else {
-                    
-                    return
-            }
-            
-            detailVC.conferenceType = .session(sessionId)
-            
-            show(detailVC, sender: nil)
-        }
+        self.didSelectSession(sessionId: sessionId)
     }
     
     func likeButtonDidTouched(_ cell: LobbySessionCell, id: Int, isLiked: Bool) {
