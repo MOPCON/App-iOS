@@ -113,13 +113,13 @@ class ConferenceTableViewCell: UITableViewCell {
         
         generateTags(room: room)
         
-        if(tags.count>0)
-        {
-            
-            tagViewHeightConstraint.constant = ceil((bounds.size.height - ConferenceTableViewCellBasisHeight) / 30) * 30
-        }
-       
         tagView.reloadData()
+        
+        tagView.colletionView.collectionViewLayout.invalidateLayout()
+        tagView.colletionView.collectionViewLayout.prepare();
+        tagView.colletionView.layoutIfNeeded()
+        
+        self.tagViewHeightConstraint.constant = tagView.colletionView.collectionViewLayout.collectionViewContentSize.height + 5
     }
     
     func generateTags(room: Room) {

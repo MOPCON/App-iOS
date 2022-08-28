@@ -318,6 +318,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="collectionView" destination="pSo-ro-gyG" id="24d-aa-vjw"/>
+                                            <outlet property="collectionViewHeightConstraint" destination="Q8O-XG-U4z" id="EHT-FS-BfA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

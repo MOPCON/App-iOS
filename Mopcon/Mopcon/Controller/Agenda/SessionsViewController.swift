@@ -236,20 +236,16 @@ extension SessionsViewController: ConferenceTableViewCellDelegate {
         
         sessions[indexPath.section].room[indexPath.row].isLiked = !sessions[indexPath.section].room[indexPath.row].isLiked
         
-        var action = ""
-        
+
         let room = sessions[indexPath.section].room[indexPath.row]
         
         if room.isLiked {
-            
-            action = "add"
             
             FavoriteManager.shared.addSession(room: room)
             
         } else {
             
-            action = "remove"
-            
+  
             FavoriteManager.shared.removeSession(room: room)
         }
     }

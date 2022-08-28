@@ -68,7 +68,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="keQ-db-Yk2">
-                                <rect key="frame" x="0.0" y="111" width="375" height="701"/>
+                                <rect key="frame" x="20" y="111" width="335" height="701"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="HOW-aI-Srg"/>
@@ -82,10 +82,10 @@
                             <constraint firstItem="WaJ-66-DAS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="GZq-e5-DwC"/>
                             <constraint firstItem="keQ-db-Yk2" firstAttribute="top" secondItem="WaJ-66-DAS" secondAttribute="bottom" constant="16" id="XXr-IH-kL8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="keQ-db-Yk2" secondAttribute="bottom" id="dL6-22-pcl"/>
-                            <constraint firstItem="keQ-db-Yk2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lgu-G3-psT"/>
+                            <constraint firstItem="keQ-db-Yk2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lgu-G3-psT"/>
                             <constraint firstItem="WaJ-66-DAS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="tVR-Pd-zXN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WaJ-66-DAS" secondAttribute="trailing" constant="196" id="wWG-MF-x5M"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="keQ-db-Yk2" secondAttribute="trailing" id="yo8-RX-zep"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="keQ-db-Yk2" secondAttribute="trailing" constant="20" id="yo8-RX-zep"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6hH-Rt-ltf"/>
