@@ -94,8 +94,6 @@ class FavoriteViewController: MPBaseSessionViewController {
         }
     }
     
-    private let dateFormate = "MM/dd HH:mm"
-    
     private var sessionsObserver: NSKeyValueObservation!
     
     private var unconfsObserver: NSKeyValueObservation!
@@ -197,8 +195,7 @@ class FavoriteViewController: MPBaseSessionViewController {
         guard let conferenceCell = cell as? ConferenceTableViewCell else { return cell }
             
         conferenceCell.updateUI(
-            room: datas[indexPath.section].rooms()[indexPath.row],
-            dateFormate: dateFormate
+            room: datas[indexPath.section].rooms()[indexPath.row]
         )
         
         conferenceCell.delegate = self

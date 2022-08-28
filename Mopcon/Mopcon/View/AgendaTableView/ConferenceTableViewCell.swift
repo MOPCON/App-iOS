@@ -82,9 +82,9 @@ class ConferenceTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func updateUI(room: Room, dateFormate: String = "HH:mm"){
+    func updateUI(room: Room, startDateFormate: String = "MM/dd HH:mm", endDateFormat: String = "HH:mm"){
         
-        durationLabel.text = DateFormatter.string(for: room.startedAt, formatter: dateFormate)! + " - " + DateFormatter.string(for: room.endedAt, formatter: dateFormate)!
+        durationLabel.text = DateFormatter.string(for: room.startedAt, formatter: startDateFormate)! + " - " + DateFormatter.string(for: room.endedAt, formatter: endDateFormat)!
         
         locationLabel.text = room.room
         
