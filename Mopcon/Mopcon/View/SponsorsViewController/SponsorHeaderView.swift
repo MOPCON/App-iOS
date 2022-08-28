@@ -14,7 +14,7 @@ class SponsorHeaderView: UICollectionReusableView {
     @IBOutlet weak var iconImageView: UIImageView!
     
     
-    private func updateIcon(section:NSInteger)
+    func updateIcon(section:NSInteger)
     {
         switch section {
         case 0:

@@ -25,6 +25,8 @@ enum ImageAsset: String {
     case sponsor = "sponsor"
     case group = "group"
     
+    case vector = "vector"
+    
     //Lobby
     case dislike = "dislike"
     case like = "like"
@@ -45,6 +47,8 @@ enum ImageAsset: String {
     case place_team
     case record_team
     case video_team
+    case communlity = "community"
+    case participant = "participant"
     
     //Field Game
     case fieldGameProfile = "field_game_profile"
