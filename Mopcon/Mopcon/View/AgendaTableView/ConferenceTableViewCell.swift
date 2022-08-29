@@ -122,6 +122,47 @@ class ConferenceTableViewCell: UITableViewCell {
         self.tagViewHeightConstraint.constant = tagView.colletionView.collectionViewLayout.collectionViewContentSize.height + 5
     }
     
+    func updateUI(sponsorSpeaker:SponsorSpeaker, startDateFormate: String = "MM/dd HH:mm", endDateFormat: String = "HH:mm")
+    {
+        durationLabel.text = DateFormatter.string(for: sponsorSpeaker.startedAt, formatter: startDateFormate)! + " - " + DateFormatter.string(for: sponsorSpeaker.endedAt, formatter: endDateFormat)!
+        
+        locationLabel.text = sponsorSpeaker.room
+        
+        addToMyScheduleButton.isSelected = FavoriteManager.shared.sessionIds.contains(sponsorSpeaker.sessionId)
+        
+        let language = CurrentLanguage.getLanguage()
+        
+        switch language {
+            
+        case Language.chinese.rawValue:
+            
+            topicLabel.text = sponsorSpeaker.topicName
+            
+            speakerLabel.text = sponsorSpeaker.name
+            
+        case Language.english.rawValue:
+            
+            topicLabel.text = sponsorSpeaker.topicNameEn
+            
+            speakerLabel.text = sponsorSpeaker.nameEn
+            
+        default:
+            
+            break
+        }
+        
+        tags = sponsorSpeaker.tags
+        
+        tagView.reloadData()
+        
+        tagView.colletionView.collectionViewLayout.invalidateLayout()
+        tagView.colletionView.collectionViewLayout.prepare();
+        tagView.colletionView.layoutIfNeeded()
+        
+        self.tagViewHeightConstraint.constant = tagView.colletionView.collectionViewLayout.collectionViewContentSize.height + 5
+    }
+    
+    
     func generateTags(room: Room) {
         
         tags = []
