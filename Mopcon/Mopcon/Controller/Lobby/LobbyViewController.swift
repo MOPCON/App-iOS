@@ -244,7 +244,7 @@ extension LobbyViewController: UITableViewDataSource {
         {
             label = UILabel()
             
-            label?.text  = "你最喜愛的戰艦即將進站"
+            label?.text  = "贊助場次"
             
             label?.textColor = UIColor.white
         }

@@ -39,13 +39,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MSY-A4-qzp">
-                                                            <rect key="frame" x="42" y="42" width="80" height="80"/>
+                                                            <rect key="frame" x="42" y="50" width="80" height="64"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="MSY-A4-qzp" secondAttribute="height" multiplier="1:1" id="tue-hS-c4s"/>
+                                                                <constraint firstAttribute="width" secondItem="MSY-A4-qzp" secondAttribute="height" multiplier="99:79" id="tue-hS-c4s"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SponsorSponsorSponsor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="dC5-rl-kYe">
-                                                            <rect key="frame" x="22" y="130" width="120" height="34"/>
+                                                            <rect key="frame" x="22" y="122" width="120" height="42"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19.5" id="BDL-4c-GZi"/>
                                                             </constraints>
@@ -158,24 +158,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sYl-AF-4uR">
-                                <rect key="frame" x="0.0" y="44" width="414" height="798"/>
+                                <rect key="frame" x="20" y="44" width="374" height="798"/>
                                 <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SponsorInfoCell" rowHeight="188" id="Y2b-Wp-8jD" customClass="SponsorInfoCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="188"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="188"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y2b-Wp-8jD" id="39D-RR-gqO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="188"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C7d-fX-O9z">
-                                                    <rect key="frame" x="163" y="33" width="88" height="88.5"/>
+                                                    <rect key="frame" x="147" y="33" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="C7d-fX-O9z" secondAttribute="height" multiplier="1:1" id="5E5-Ds-hF0"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="webduino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeC-Mg-HJG">
-                                                    <rect key="frame" x="171.5" y="145.5" width="71.5" height="42.5"/>
+                                                    <rect key="frame" x="151.5" y="137" width="71.5" height="51"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -198,20 +198,23 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SponsorAboutCell" rowHeight="227" id="QSn-qd-6hS" customClass="SponsorAboutCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="232.5" width="414" height="227"/>
+                                        <rect key="frame" x="0.0" y="232.5" width="374" height="227"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QSn-qd-6hS" id="POe-z2-C2H">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="227"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="227"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="關於廠商" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2d-G5-Y9J">
-                                                    <rect key="frame" x="20" y="32" width="374" height="25.5"/>
+                                                    <rect key="frame" x="0.0" y="32" width="374" height="25.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25.5" id="dSR-y0-BIg"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jw-ea-bdj">
-                                                    <rect key="frame" x="20" y="68.5" width="374" height="134.5"/>
+                                                    <rect key="frame" x="0.0" y="68.5" width="374" height="134.5"/>
                                                     <string key="text">雲端平台是 Webduino 研發的雲端服務 
 具備開發板雲端裝置管理、Webduino Blockly 積木編輯工具，未來更會整合模擬器、App 開發和後端流程工具。 使用 Webduino 將可以讓不具有韌體程式專業背景的設計師、網頁開發者，也可以輕鬆成為創客 ( Maker、自造者 )，享受創造的樂趣和快感。</string>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
@@ -222,12 +225,11 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="e2d-G5-Y9J" firstAttribute="top" secondItem="POe-z2-C2H" secondAttribute="top" constant="32" id="7Ub-LG-6u7"/>
-                                                <constraint firstItem="e2d-G5-Y9J" firstAttribute="centerX" secondItem="POe-z2-C2H" secondAttribute="centerX" id="BsA-6h-w44"/>
                                                 <constraint firstItem="2jw-ea-bdj" firstAttribute="leading" secondItem="e2d-G5-Y9J" secondAttribute="leading" id="J1v-pK-f4w"/>
-                                                <constraint firstItem="e2d-G5-Y9J" firstAttribute="leading" secondItem="POe-z2-C2H" secondAttribute="leading" constant="20" id="UT9-th-ESN"/>
+                                                <constraint firstItem="e2d-G5-Y9J" firstAttribute="leading" secondItem="POe-z2-C2H" secondAttribute="leading" id="UT9-th-ESN"/>
                                                 <constraint firstItem="2jw-ea-bdj" firstAttribute="trailing" secondItem="e2d-G5-Y9J" secondAttribute="trailing" id="esA-zk-2Rw"/>
                                                 <constraint firstItem="2jw-ea-bdj" firstAttribute="top" secondItem="e2d-G5-Y9J" secondAttribute="bottom" constant="11" id="f5C-8r-UdJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="e2d-G5-Y9J" secondAttribute="trailing" constant="20" id="j4f-Jz-Ui0"/>
+                                                <constraint firstAttribute="trailing" secondItem="e2d-G5-Y9J" secondAttribute="trailing" id="j4f-Jz-Ui0"/>
                                                 <constraint firstAttribute="bottom" secondItem="2jw-ea-bdj" secondAttribute="bottom" constant="24" id="o9C-9w-N6Y"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -237,14 +239,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SeeMoreCell" rowHeight="115" id="9FE-Ag-CJ6">
-                                        <rect key="frame" x="0.0" y="459.5" width="414" height="115"/>
+                                        <rect key="frame" x="0.0" y="459.5" width="374" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9FE-Ag-CJ6" id="xGH-QI-8dq">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="115"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9e-4L-76i" customClass="CustomCornerButton" customModule="Mopcon" customModuleProvider="target">
-                                                    <rect key="frame" x="112" y="40" width="190" height="25"/>
+                                                    <rect key="frame" x="101" y="40" width="172" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="n9e-4L-76i" secondAttribute="height" multiplier="43:13" priority="750" id="dTX-AA-0Jc"/>
                                                     </constraints>
@@ -267,10 +269,10 @@
                                         <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SponsorSpeechCell" rowHeight="162" id="9lJ-H7-IHM" customClass="SponsorSpeechCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="574.5" width="414" height="162"/>
+                                        <rect key="frame" x="0.0" y="574.5" width="374" height="162"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9lJ-H7-IHM" id="IKy-Ql-zYf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="162"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="贊助場次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEE-zt-G2y">
@@ -283,7 +285,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="500" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSo-ro-gyG">
-                                                    <rect key="frame" x="0.0" y="66" width="414" height="195"/>
+                                                    <rect key="frame" x="0.0" y="66" width="374" height="195"/>
                                                     <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="195" id="Q8O-XG-U4z"/>
@@ -331,9 +333,9 @@
                         <color key="backgroundColor" name="themeColor"/>
                         <constraints>
                             <constraint firstItem="sYl-AF-4uR" firstAttribute="bottom" secondItem="JgN-FH-bSy" secondAttribute="bottom" id="00d-xv-m80"/>
-                            <constraint firstItem="sYl-AF-4uR" firstAttribute="leading" secondItem="JgN-FH-bSy" secondAttribute="leading" id="Ba0-bu-3F9"/>
+                            <constraint firstItem="sYl-AF-4uR" firstAttribute="leading" secondItem="JgN-FH-bSy" secondAttribute="leading" constant="20" id="Ba0-bu-3F9"/>
                             <constraint firstItem="sYl-AF-4uR" firstAttribute="top" secondItem="JgN-FH-bSy" secondAttribute="top" id="gSw-nD-qRq"/>
-                            <constraint firstItem="JgN-FH-bSy" firstAttribute="trailing" secondItem="sYl-AF-4uR" secondAttribute="trailing" id="zEs-Pb-uiR"/>
+                            <constraint firstItem="JgN-FH-bSy" firstAttribute="trailing" secondItem="sYl-AF-4uR" secondAttribute="trailing" constant="20" id="zEs-Pb-uiR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="贊助廠商資訊" id="hRU-UX-N2Y"/>
