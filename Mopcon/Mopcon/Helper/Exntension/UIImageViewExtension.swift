@@ -18,6 +18,13 @@ extension UIImageView {
         self.clipsToBounds = true
     }
     
+    func makeCorner(radius:CGFloat)
+    {
+        self.layer.cornerRadius = radius
+        self.clipsToBounds = true
+    }
+    
+    
     func loadImage(_ url: String) {
         
         guard let url = URL(string: url) else { return }

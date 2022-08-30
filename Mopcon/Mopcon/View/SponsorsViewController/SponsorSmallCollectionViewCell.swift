@@ -13,10 +13,12 @@ class SponsorSmallCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var sponsorImageView: UIImageView!
     
     @IBOutlet weak var sponsorLabel: UILabel!
+
+    @IBOutlet weak var sponsorLabelHeightConstraint: NSLayoutConstraint!
     
     override func layoutSubviews() {
         
-        sponsorImageView.makeCircle()
+        sponsorImageView.makeCorner(radius: 20)
     }
     
     func updateUI(sponsor: Sponsor){
@@ -26,7 +28,18 @@ class SponsorSmallCollectionViewCell: UICollectionViewCell {
             ? sponsor.nameEn
             : sponsor.name
         
+        sponsorImageView.contentMode = UIView.ContentMode.scaleAspectFit
+        sponsorImageView.backgroundColor = UIColor.white
         sponsorImageView.loadImage(sponsor.logo)
+        
+        sponsorLabel.numberOfLines = 0
+        
+        let labelSize = sponsorLabel.sizeThatFits(CGSize(width: self.sponsorLabel.bounds.size.width, height: CGFloat.greatestFiniteMagnitude))
+        
+        
+        self.sponsorLabelHeightConstraint.constant =  max(19.5,labelSize.height)
+        
+        print(sponsorLabel.text!,self.sponsorLabelHeightConstraint.constant)
     }
 
 }

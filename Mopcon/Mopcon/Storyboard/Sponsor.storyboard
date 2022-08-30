@@ -39,15 +39,15 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MSY-A4-qzp">
-                                                            <rect key="frame" x="42" y="50" width="80" height="64"/>
+                                                            <rect key="frame" x="42" y="60" width="80" height="44"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="MSY-A4-qzp" secondAttribute="height" multiplier="99:79" id="tue-hS-c4s"/>
+                                                                <constraint firstAttribute="width" secondItem="MSY-A4-qzp" secondAttribute="height" multiplier="99:54" id="tue-hS-c4s"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SponsorSponsorSponsor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="dC5-rl-kYe">
-                                                            <rect key="frame" x="22" y="122" width="120" height="42"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SponsorSponsorSponsor" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="dC5-rl-kYe">
+                                                            <rect key="frame" x="22" y="112" width="120" height="52"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19.5" id="BDL-4c-GZi"/>
+                                                                <constraint firstAttribute="height" constant="19.5" id="BDL-4c-GZi"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,7 +56,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="dC5-rl-kYe" secondAttribute="bottom" priority="900" id="4nY-Pi-mF7"/>
+                                                        <constraint firstAttribute="bottom" secondItem="dC5-rl-kYe" secondAttribute="bottom" id="4nY-Pi-mF7"/>
                                                         <constraint firstItem="dC5-rl-kYe" firstAttribute="leading" secondItem="MSY-A4-qzp" secondAttribute="leading" constant="-20" id="4sC-h5-dQu"/>
                                                         <constraint firstItem="MSY-A4-qzp" firstAttribute="width" secondItem="nSQ-6g-fW8" secondAttribute="width" multiplier="0.487805" id="RSE-B1-0zw"/>
                                                         <constraint firstItem="dC5-rl-kYe" firstAttribute="top" secondItem="MSY-A4-qzp" secondAttribute="bottom" constant="8" id="Xg9-cn-MS4"/>
@@ -79,6 +79,7 @@
                                         <connections>
                                             <outlet property="sponsorImageView" destination="MSY-A4-qzp" id="vZs-M5-I0M"/>
                                             <outlet property="sponsorLabel" destination="dC5-rl-kYe" id="Zaf-5J-TA4"/>
+                                            <outlet property="sponsorLabelHeightConstraint" destination="BDL-4c-GZi" id="GYs-38-85j"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
