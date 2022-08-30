@@ -162,44 +162,76 @@
                                 <rect key="frame" x="20" y="44" width="374" height="798"/>
                                 <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SponsorInfoCell" rowHeight="188" id="Y2b-Wp-8jD" customClass="SponsorInfoCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="374" height="188"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SponsorInfoCell" rowHeight="228" id="Y2b-Wp-8jD" customClass="SponsorInfoCell" customModule="Mopcon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="228"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y2b-Wp-8jD" id="39D-RR-gqO">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="188"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="228"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C7d-fX-O9z">
-                                                    <rect key="frame" x="147" y="33" width="80" height="80"/>
+                                                    <rect key="frame" x="137.5" y="33" width="99" height="54"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="C7d-fX-O9z" secondAttribute="height" multiplier="1:1" id="5E5-Ds-hF0"/>
+                                                        <constraint firstAttribute="width" secondItem="C7d-fX-O9z" secondAttribute="height" multiplier="99:54" id="5E5-Ds-hF0"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="webduino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeC-Mg-HJG">
-                                                    <rect key="frame" x="151.5" y="137" width="71.5" height="51"/>
+                                                    <rect key="frame" x="151.5" y="111" width="71.5" height="67"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuJ-bC-AFR">
+                                                    <rect key="frame" x="137" y="188" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="Sh3-43-VV5"/>
+                                                        <constraint firstAttribute="width" constant="40" id="lMG-Ph-zl3"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="icon_website"/>
+                                                    <connections>
+                                                        <action selector="onClickWebSiteButton:" destination="PDb-K1-zz6" eventType="touchUpInside" id="uS6-Nq-ACR"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSq-9B-duv">
+                                                    <rect key="frame" x="197" y="188" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="Jcd-Sw-k9Y"/>
+                                                        <constraint firstAttribute="width" constant="40" id="R4y-ab-pH4"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="icon_fb"/>
+                                                    <connections>
+                                                        <action selector="onClickFbButton:" destination="PDb-K1-zz6" eventType="touchUpInside" id="MYX-ej-ePO"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="OuJ-bC-AFR" secondAttribute="bottom" id="A2T-O1-fQ9"/>
                                                 <constraint firstItem="C7d-fX-O9z" firstAttribute="centerX" secondItem="39D-RR-gqO" secondAttribute="centerX" id="BcU-Hm-P5l"/>
+                                                <constraint firstAttribute="centerX" secondItem="jSq-9B-duv" secondAttribute="centerX" constant="-30" id="T5h-zw-r5t"/>
                                                 <constraint firstItem="DeC-Mg-HJG" firstAttribute="centerX" secondItem="39D-RR-gqO" secondAttribute="centerX" id="VgJ-81-TeY"/>
+                                                <constraint firstItem="OuJ-bC-AFR" firstAttribute="centerX" secondItem="39D-RR-gqO" secondAttribute="centerX" constant="-30" id="ZGA-z8-uqP"/>
+                                                <constraint firstAttribute="bottom" secondItem="jSq-9B-duv" secondAttribute="bottom" id="a7I-a8-vdS"/>
                                                 <constraint firstItem="C7d-fX-O9z" firstAttribute="top" secondItem="39D-RR-gqO" secondAttribute="top" constant="33" id="dKS-59-cki"/>
                                                 <constraint firstItem="DeC-Mg-HJG" firstAttribute="top" secondItem="C7d-fX-O9z" secondAttribute="bottom" constant="24" id="jm0-IL-RvP"/>
-                                                <constraint firstItem="C7d-fX-O9z" firstAttribute="width" secondItem="39D-RR-gqO" secondAttribute="width" multiplier="80:375" id="per-ho-4DV"/>
-                                                <constraint firstAttribute="bottom" secondItem="DeC-Mg-HJG" secondAttribute="bottom" id="u1s-9G-0bE"/>
+                                                <constraint firstItem="C7d-fX-O9z" firstAttribute="width" secondItem="39D-RR-gqO" secondAttribute="width" multiplier="99:375" id="per-ho-4DV"/>
+                                                <constraint firstItem="jSq-9B-duv" firstAttribute="top" secondItem="DeC-Mg-HJG" secondAttribute="bottom" constant="10" id="u1s-9G-0bE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="companyLabel" destination="DeC-Mg-HJG" id="erV-5W-wAw"/>
+                                            <outlet property="fbButton" destination="jSq-9B-duv" id="dvw-Qc-Lgt"/>
+                                            <outlet property="fbButtonCenterlayoutConstraint" destination="T5h-zw-r5t" id="4TS-ha-LlF"/>
                                             <outlet property="logoImageView" destination="C7d-fX-O9z" id="HMk-IW-HjN"/>
+                                            <outlet property="webButton" destination="OuJ-bC-AFR" id="gzl-l1-ypU"/>
+                                            <outlet property="webButtonCenterLayoutConstraint" destination="VgJ-81-TeY" id="h7z-PS-RDE"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SponsorAboutCell" rowHeight="227" id="QSn-qd-6hS" customClass="SponsorAboutCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="232.5" width="374" height="227"/>
+                                        <rect key="frame" x="0.0" y="272.5" width="374" height="227"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QSn-qd-6hS" id="POe-z2-C2H">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="227"/>
@@ -240,7 +272,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SeeMoreCell" rowHeight="115" id="9FE-Ag-CJ6">
-                                        <rect key="frame" x="0.0" y="459.5" width="374" height="115"/>
+                                        <rect key="frame" x="0.0" y="499.5" width="374" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9FE-Ag-CJ6" id="xGH-QI-8dq">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="115"/>
@@ -270,7 +302,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SponsorSpeechCell" rowHeight="162" id="9lJ-H7-IHM" customClass="SponsorSpeechCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="574.5" width="374" height="162"/>
+                                        <rect key="frame" x="0.0" y="614.5" width="374" height="162"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9lJ-H7-IHM" id="IKy-Ql-zYf">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="162"/>
@@ -350,6 +382,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_fb" width="40" height="40"/>
+        <image name="icon_website" width="40" height="40"/>
         <image name="seperator" width="335" height="9"/>
         <image name="sponsor01" width="50" height="50"/>
         <namedColor name="themeColor">
