@@ -10,7 +10,7 @@ import UIKit
 
 private enum SponsorCellStyle {
     
-    case sponsor(String, String), info(String), speech([SponsorSpeaker]), seeMore(String)
+    case sponsor(String, String, String, String), info(String), speech([SponsorSpeaker]), seeMore(String)
     
 
     
@@ -33,11 +33,11 @@ private enum SponsorCellStyle {
         
         switch self {
             
-        case .sponsor(let logo, let company):
+        case .sponsor(let logo, let company, let webSite, let fbSite):
             
             guard let infoCell = cell as? SponsorInfoCell else { return }
             
-            infoCell.updateUI(logo: logo, company: company)
+            infoCell.updateUI(logo: logo, company: company, webSite: webSite, fbSite: fbSite)
             
         case .info(let info):
             
@@ -78,7 +78,7 @@ class SponsorDetailViewController: MPBaseViewController {
         
             if sponsor.speakerInfo.count > 0 {
                 
-                cells.append(.sponsor(sponsor.logo, sponsor.name))
+                cells.append(.sponsor(sponsor.logo, sponsor.name, sponsor.officialWebsite, sponsor.facebook))
                 cells.append(.info(sponsor.aboutUs))
                 
                 for sponsorSpeaker in sponsor.speakerInfo
@@ -86,14 +86,14 @@ class SponsorDetailViewController: MPBaseViewController {
                     cells.append(.speech([sponsorSpeaker]))
                 }
                 
-                cells.append(.seeMore(sponsor.officialWebsite))
+//                cells.append(.seeMore(sponsor.officialWebsite))
            
             } else {
                 
                 cells = [
-                    .sponsor(sponsor.logo, sponsor.name),
+                    .sponsor(sponsor.logo, sponsor.name, sponsor.officialWebsite, sponsor.facebook),
                     .info(sponsor.aboutUs),
-                    .seeMore(sponsor.officialWebsite)
+//                    .seeMore(sponsor.officialWebsite)
                 ]
             }
         }
@@ -118,6 +118,16 @@ class SponsorDetailViewController: MPBaseViewController {
         
         openURL(sponsor?.officialWebsite)
     }
+    
+    
+    @IBAction func onClickWebSiteButton(_ sender: Any) {
+        openURL(sponsor?.officialWebsite)
+    }
+    
+    
+    @IBAction func onClickFbButton(_ sender: Any) {
+        openURL(sponsor?.facebook)
+    }
 }
 
 extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegate {
@@ -137,21 +147,6 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var label = Optional<UILabel>.none
-        
-        if(section==2)
-        {
-            label = UILabel()
-            
-            label?.text  = "贊助廠商"
-            
-            label?.textColor = UIColor.white
-        }
-        
-        return label
-    }
-
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return cells.count
