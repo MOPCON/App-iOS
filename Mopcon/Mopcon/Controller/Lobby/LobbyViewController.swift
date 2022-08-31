@@ -31,6 +31,8 @@ class LobbyViewController: MPBaseViewController {
     
     var unconfObserve: NSKeyValueObservation!
     
+    var timer : Timer?
+    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,13 +108,13 @@ class LobbyViewController: MPBaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.startCarousel()
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        self.stopCarousel()
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
@@ -188,6 +190,40 @@ class LobbyViewController: MPBaseViewController {
         
         return result;
     }
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Private Timer method
+    
+    private func startCarousel(){
+        self.timer = Timer()
+        self.timer = Timer.scheduledTimer(timeInterval: MPConstant.carouselBannerSeconds, target: self, selector: #selector(carouselBanner), userInfo: nil, repeats: true)
+    }
+    
+    
+    @objc private func carouselBanner() {
+        switch(cells[0])
+        {
+            case CellType.banner(let banners):
+                let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+                guard let bannerCell = cell as? LobbyBannerCell else { return }
+            
+                let displayIndex = floor(bannerCell.collectionView.contentOffset.x/bannerCell.collectionView.bounds.size.width)
+               
+                let nextIndex = (displayIndex+1.0).remainder(dividingBy: (CGFloat)(banners.count))
+            
+                bannerCell.collectionView.scrollToItem(at: IndexPath(row: Int(nextIndex), section: 0), at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+            
+            default: break;
+        }
+    }
+    
+    
+    private func stopCarousel(){
+        self.timer?.invalidate()
+    }
+    
+    
     
     //MARK: - API
     private func fetchHome() {
