@@ -20,7 +20,7 @@ struct VolunteerList: Codable {
 
 struct List: Codable {
     
-    let id: String
+    let id: Int
     
     let name: String
     

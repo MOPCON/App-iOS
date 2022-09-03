@@ -24,7 +24,7 @@ struct Group: Codable {
 
 struct Community: Codable {
     
-    let id: String
+    let id: Int
     
     let name: String
     
