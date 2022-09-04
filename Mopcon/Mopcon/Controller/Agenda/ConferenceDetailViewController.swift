@@ -220,7 +220,9 @@ class ConferenceDetailViewController: MPBaseViewController {
      
             let speakerAvatarView = SpeakerAvatarView()
             
-            speakerAvatarView.loadImage(speaker.img.mobile)
+            let imgUrl = MPConstant.baseURL + "/" + speaker.img.mobile
+            
+            speakerAvatarView.loadImage(imgUrl)
             
             imageStackView.addArrangedSubview(speakerAvatarView)
 

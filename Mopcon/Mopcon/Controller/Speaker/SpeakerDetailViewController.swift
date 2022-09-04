@@ -113,8 +113,10 @@ class SpeakerDetailViewController: MPBaseViewController {
         
         self.speaker = speaker
         
+        let imgUrl = MPConstant.baseURL + "/" + speaker.img.mobile
+        
         speakerView.updateUI(
-            image: speaker.img.mobile,
+            image:imgUrl,
             name: speaker.name,
             job: speaker.jobTitle + "@" + speaker.company
         )

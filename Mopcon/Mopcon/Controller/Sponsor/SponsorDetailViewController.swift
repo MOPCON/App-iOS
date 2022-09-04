@@ -78,7 +78,7 @@ class SponsorDetailViewController: MPBaseViewController {
         
             if sponsor.speakerInfo.count > 0 {
                 
-                cells.append(.sponsor(sponsor.logo, sponsor.name, sponsor.officialWebsite, sponsor.facebook))
+                cells.append(.sponsor(sponsor.logo.mobile, sponsor.name, sponsor.officialWebsite, sponsor.facebook))
                 cells.append(.info(sponsor.aboutUs))
                 
                 for sponsorSpeaker in sponsor.speakerInfo
@@ -91,7 +91,7 @@ class SponsorDetailViewController: MPBaseViewController {
             } else {
                 
                 cells = [
-                    .sponsor(sponsor.logo, sponsor.name, sponsor.officialWebsite, sponsor.facebook),
+                    .sponsor(sponsor.logo.mobile, sponsor.name, sponsor.officialWebsite, sponsor.facebook),
                     .info(sponsor.aboutUs),
 //                    .seeMore(sponsor.officialWebsite)
                 ]

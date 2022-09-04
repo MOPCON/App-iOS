@@ -33,8 +33,10 @@ class SpeakerTableViewCell: UITableViewCell {
         
         tags = speaker.tags
         
+        let imgUrl = MPConstant.baseURL + "/" + speaker.img.mobile
+        
         speakerAvatarImageView.kf.setImage(
-            with: URL(string: speaker.img.mobile),
+            with: URL(string: imgUrl),
             placeholder: UIImage.asset(.fieldGameProfile)
         )
         
