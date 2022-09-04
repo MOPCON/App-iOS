@@ -30,7 +30,7 @@ class SponsorSmallCollectionViewCell: UICollectionViewCell {
         
         sponsorImageView.contentMode = UIView.ContentMode.scaleAspectFit
         sponsorImageView.backgroundColor = UIColor.white
-        sponsorImageView.loadImage(sponsor.logo)
+        sponsorImageView.loadImage(sponsor.logo.mobile)
         
         sponsorLabel.numberOfLines = 0
         
