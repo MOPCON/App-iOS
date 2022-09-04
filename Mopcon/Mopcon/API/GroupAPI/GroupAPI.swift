@@ -14,7 +14,7 @@ enum GroupAPI: LKRequest {
     
     case organizer(String)
     
-    case participant(String)
+    case participant(Int)
     
     case volunteerList
     

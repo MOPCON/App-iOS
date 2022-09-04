@@ -12,7 +12,7 @@ enum HostType {
     
     case community(String)
     
-    case participant(String)
+    case participant(Int)
     
     case normal
 }
@@ -256,7 +256,7 @@ class GroupHostDetailViewController: MPBaseViewController {
         )
     }
     
-    func fetchParticipant(id: String) {
+    func fetchParticipant(id: Int) {
         
         GroupProvider.fetchParticipant(
             id: id,
