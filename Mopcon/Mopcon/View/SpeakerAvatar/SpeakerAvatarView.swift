@@ -17,30 +17,14 @@ class SpeakerAvatarView: UIView {
     override init(frame: CGRect) {
         
         super.init(frame: frame)
-
-        self.addSubview(self.bgImageView)
         
-        self.addSubview(self.headImageView)
-
-        self.bgImageView.contentMode = .scaleAspectFill
-        
-        self.bgImageView.image = UIImage.asset(.bgImage)
-        
-        self.headImageView.contentMode = .scaleAspectFit
+        self.commitInit()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        self.addSubview(self.bgImageView)
-        
-        self.addSubview(self.headImageView)
-        
-        self.bgImageView.contentMode = .scaleAspectFill
-        
-        self.bgImageView.image = UIImage.asset(.bgImage)
-        
-        self.headImageView.contentMode = .scaleAspectFit
+        self.commitInit()
     }
     
     
@@ -53,8 +37,25 @@ class SpeakerAvatarView: UIView {
         self.bgImageView.frame = CGRect(x: (self.bounds.size.width-103)/2, y: (self.bounds.size.height-102)/2, width: 103, height: 102)
     }
     
+    private func commitInit(){
+        
+        self.addSubview(self.bgImageView)
+        
+        self.addSubview(self.headImageView)
+
+        self.bgImageView.contentMode = .scaleAspectFill
+        self.bgImageView.image = UIImage.asset(.bgImage)
+        
+        self.headImageView.contentMode = .center
+        self.headImageView.image = UIImage.asset(.defaultHead)
+    }
+    
     func loadImage(_ url: String) {
         
-        self.headImageView.loadImage(url)
+        if(url.count>0)
+        {
+            self.headImageView.loadImage(url)
+            self.headImageView.contentMode = .scaleAspectFit
+        }
     }
 }

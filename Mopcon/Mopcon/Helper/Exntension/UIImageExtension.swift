@@ -60,6 +60,7 @@ enum ImageAsset: String {
     case iconWebsite = "icon_website"
     case coverImage = "coverImage"
     case bgImage = "bgImage"
+    case defaultHead = "defaultHead"
     
     //SposorType
     case sponsor01 = "sponsor01"
