@@ -137,14 +137,7 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if(section==2)
-        {
-            return 20
-        }
-        else
-        {
-            return 5
-        }
+        return (section == 2) ? 20 : 0
     }
     
     

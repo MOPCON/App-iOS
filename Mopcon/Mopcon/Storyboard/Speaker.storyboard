@@ -264,13 +264,13 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="R1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyd-EZ-5hE">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyd-EZ-5hE">
                                     <rect key="frame" x="295.5" y="226" width="19.5" height="25.5"/>
                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                     <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="marker_20" translatesAutoresizingMaskIntoConstraints="NO" id="XbI-bZ-HqE">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marker_20" translatesAutoresizingMaskIntoConstraints="NO" id="XbI-bZ-HqE">
                                     <rect key="frame" x="271.5" y="228.5" width="20" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="0K8-QU-hQI"/>
@@ -284,8 +284,8 @@
                                         <constraint firstAttribute="height" constant="22" id="PO7-yy-nwA"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="王大明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhA-6W-DhO">
-                                    <rect key="frame" x="20" y="228" width="154" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王大明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhA-6W-DhO">
+                                    <rect key="frame" x="20" y="228" width="54" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="44A-5b-J64"/>
                                     </constraints>
@@ -315,6 +315,7 @@
                                 <constraint firstItem="d1u-mp-aSz" firstAttribute="leading" secondItem="Sh1-v2-EI9" secondAttribute="leading" id="S8c-rc-fgU"/>
                                 <constraint firstItem="XbI-bZ-HqE" firstAttribute="centerY" secondItem="xyd-EZ-5hE" secondAttribute="centerY" id="TDA-H4-6N1"/>
                                 <constraint firstItem="qN1-D7-yNI" firstAttribute="centerY" secondItem="Sh1-v2-EI9" secondAttribute="centerY" id="WZL-of-AyL"/>
+                                <constraint firstAttribute="trailing" secondItem="xyd-EZ-5hE" secondAttribute="trailing" constant="20" id="XvW-1P-OJd"/>
                                 <constraint firstItem="Sh1-v2-EI9" firstAttribute="leading" secondItem="tkv-V8-IQW" secondAttribute="leading" constant="20" id="a5t-1J-Opy"/>
                                 <constraint firstItem="YhA-6W-DhO" firstAttribute="leading" secondItem="tkv-V8-IQW" secondAttribute="leading" constant="20" id="fDx-ce-YFN"/>
                                 <constraint firstItem="xyd-EZ-5hE" firstAttribute="trailing" secondItem="7P2-XK-Cd0" secondAttribute="trailing" id="fE2-D0-9An"/>
@@ -322,7 +323,6 @@
                                 <constraint firstItem="xyd-EZ-5hE" firstAttribute="leading" secondItem="XbI-bZ-HqE" secondAttribute="trailing" constant="4" id="mBX-ax-UZ7"/>
                                 <constraint firstItem="7P2-XK-Cd0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qN1-D7-yNI" secondAttribute="trailing" constant="20" id="u4c-5O-dsn"/>
                                 <constraint firstItem="7P2-XK-Cd0" firstAttribute="centerY" secondItem="qN1-D7-yNI" secondAttribute="centerY" id="uRI-Dn-Kn2"/>
-                                <constraint firstItem="XbI-bZ-HqE" firstAttribute="leading" secondItem="YhA-6W-DhO" secondAttribute="trailing" id="xpw-es-qMB"/>
                                 <constraint firstItem="nBk-ea-TLx" firstAttribute="top" secondItem="d1u-mp-aSz" secondAttribute="bottom" constant="10" id="zDA-1c-ijM"/>
                             </constraints>
                         </view>

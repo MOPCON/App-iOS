@@ -202,6 +202,7 @@ class LobbyViewController: MPBaseViewController {
     
     
     @objc private func carouselBanner() {
+        return
         switch(cells[0])
         {
             case CellType.banner(let banners):
@@ -263,20 +264,13 @@ extension LobbyViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if(section==2 && self.hasFavoriteRoom())
-        {
-            return 20
-        }
-        else
-        {
-            return 5
-        }
+        return (section == 2 && hasFavoriteRoom()) ? 20 : 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var label = Optional<UILabel>.none
         
-        if(section==2 && self.hasFavoriteRoom())
+        if(section == 2 && hasFavoriteRoom())
         {
             label = UILabel()
             
