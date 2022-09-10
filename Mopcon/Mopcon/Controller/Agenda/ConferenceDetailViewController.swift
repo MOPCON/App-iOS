@@ -181,11 +181,11 @@ class ConferenceDetailViewController: MPBaseViewController {
     // MARK: - Layout View
     func updateUI(room: Room) {
         
-        self.locationLabel.text = room.room + ", " + room.floor
+        self.locationLabel.text = room.room //+ ", " + room.floor
         
         let start = DateFormatter.string(for: room.startedAt, formatter: "HH:mm") ?? ""
-        let end = DateFormatter.string(for: room.endedAt, formatter: "HH:mm") ?? ""
         
+        let end = DateFormatter.string(for: room.endedAt, formatter: "HH:mm") ?? ""
         
         self.timeLabel.text = start + "-" + end
         
@@ -197,7 +197,7 @@ class ConferenceDetailViewController: MPBaseViewController {
             
             sponsorTitleLabel.isHidden = false
             
-            sponsorImageView.kf.setImage(with: URL(string: sponsor.logo))
+            sponsorImageView.kf.setImage(with: URL(string: sponsor.logo.mobile))
             
             separatorLineView.isHidden = false
             

@@ -139,7 +139,7 @@ struct SponsorInfo: Codable {
     
     let nameEn: String
     
-    let logo: String
+    let logo: SpeakerImage
     
     enum CodingKeys: String, CodingKey {
         
