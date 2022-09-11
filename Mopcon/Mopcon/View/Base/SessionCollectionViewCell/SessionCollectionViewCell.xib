@@ -127,7 +127,7 @@
                 <outlet property="tagView" destination="Fvq-je-YzG" id="PTZ-NU-LdI"/>
                 <outlet property="topicLabel" destination="zWN-pP-lRZ" id="pWB-T3-vxI"/>
             </connections>
-            <point key="canvasLocation" x="-464.49275362318843" y="262.16517857142856"/>
+            <point key="canvasLocation" x="-457" y="262"/>
         </collectionViewCell>
     </objects>
     <resources>

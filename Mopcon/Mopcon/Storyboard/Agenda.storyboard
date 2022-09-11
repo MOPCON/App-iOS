@@ -148,24 +148,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cyG-dJ-K3q">
-                                        <rect key="frame" x="20" y="342.66666666666669" width="335" height="145.66666666666669"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="145.66999999999999" id="JRh-vk-3Ih"/>
-                                        </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="在軟體公司最痛苦的一件事就是看到前人留下來的程式碼像本天書，看也看不懂、改也改不動，跑起來卻健步如飛，不僅一切正常，勝制連重構後的城市都飽得不如就城市順暢。這個 Session 就是要討論有哪些技巧及新法可以避免寫出這樣難讀、難懂也難維護的程式。">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="16" name="PingFangTC-Regular"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingMiddle" baseWritingDirection="natural" lineSpacing="2.2000000000000002" paragraphSpacing="0.20000000000000001" paragraphSpacingBefore="0.20000000000000001" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在軟體公司最痛苦的一件事就是看到前人留下來的程式碼像本天書，看也看不懂、改也改不動，跑起來卻健步如飛，不僅一切正常，勝制連重構後的城市都飽得不如就城市順暢。這個 Session 就是要討論有哪些技巧及新法可以避免寫出這樣難讀、難懂也難維護的程式。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cyG-dJ-K3q">
+                                        <rect key="frame" x="20" y="342.66666666666669" width="335" height="134.66666666666669"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="贊助廠商" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76y-nZ-5Os">
-                                        <rect key="frame" x="155.66666666666666" y="536.33333333333337" width="64" height="22.666666666666629"/>
+                                        <rect key="frame" x="155.66666666666666" y="525.33333333333337" width="64" height="22.666666666666629"/>
                                         <color key="tintColor" red="0.31764705882352939" green="0.63921568627450975" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22.670000000000002" id="BFn-el-WCu"/>
@@ -175,7 +165,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyLogo" translatesAutoresizingMaskIntoConstraints="NO" id="rNi-i9-2xD">
-                                        <rect key="frame" x="138" y="579" width="99" height="54"/>
+                                        <rect key="frame" x="138" y="568" width="99" height="54"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" id="Dwq-Cs-3b4"/>
@@ -224,13 +214,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seperator" translatesAutoresizingMaskIntoConstraints="NO" id="BHM-B5-L6M">
-                                        <rect key="frame" x="0.0" y="508.33333333333337" width="375" height="8"/>
+                                        <rect key="frame" x="0.0" y="497.33333333333337" width="375" height="8"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="8" id="ldD-lV-ZQr"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVi-Et-xnb">
-                                        <rect key="frame" x="0.0" y="653" width="375" height="21"/>
+                                        <rect key="frame" x="0.0" y="642" width="375" height="21"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="LeG-NN-lEq"/>
@@ -317,7 +307,6 @@
                         <outlet property="communityPartner" destination="xYf-UV-17r" id="UJk-Os-zxn"/>
                         <outlet property="imageStackView" destination="YvJ-4z-lNF" id="Xug-kH-tWb"/>
                         <outlet property="locationLabel" destination="G8r-JB-Obk" id="7Up-4e-tl4"/>
-                        <outlet property="scheduleInfoHeightConstraint" destination="JRh-vk-3Ih" id="JkA-uO-Y4X"/>
                         <outlet property="scheduleInfoLabel" destination="cyG-dJ-K3q" id="Ize-zY-x7m"/>
                         <outlet property="scrollView" destination="EB4-NM-WDG" id="dnt-VI-G5i"/>
                         <outlet property="separatorLineView" destination="BHM-B5-L6M" id="Uhf-l6-Mab"/>
