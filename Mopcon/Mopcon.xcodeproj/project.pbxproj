@@ -110,6 +110,7 @@
 		5381B36C22F9EED200FEEC2C /* ConferenceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5381B36B22F9EED200FEEC2C /* ConferenceTableViewCell.xib */; };
 		53850934227D6A960083429A /* CommunityImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53850933227D6A960083429A /* CommunityImageCollectionViewCell.swift */; };
 		53992D93250542CA004C1607 /* PuzzleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53992D92250542CA004C1607 /* PuzzleCell.swift */; };
+		53A742A028D0BA6F006C7B72 /* FieldGameWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A7429F28D0BA6F006C7B72 /* FieldGameWebViewController.swift */; };
 		53F83EA723238E7B003A35B8 /* FieldGameAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F83EA623238E7B003A35B8 /* FieldGameAPI.swift */; };
 		53F83EA92323931D003A35B8 /* KeychainTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F83EA82323931D003A35B8 /* KeychainTool.swift */; };
 		53F83EAB2323A655003A35B8 /* FieldGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F83EAA2323A655003A35B8 /* FieldGameObject.swift */; };
@@ -277,6 +278,7 @@
 		5381B36B22F9EED200FEEC2C /* ConferenceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConferenceTableViewCell.xib; sourceTree = "<group>"; };
 		53850933227D6A960083429A /* CommunityImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		53992D92250542CA004C1607 /* PuzzleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleCell.swift; sourceTree = "<group>"; };
+		53A7429F28D0BA6F006C7B72 /* FieldGameWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameWebViewController.swift; sourceTree = "<group>"; };
 		53F83EA623238E7B003A35B8 /* FieldGameAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameAPI.swift; sourceTree = "<group>"; };
 		53F83EA82323931D003A35B8 /* KeychainTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTool.swift; sourceTree = "<group>"; };
 		53F83EAA2323A655003A35B8 /* FieldGameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGameObject.swift; sourceTree = "<group>"; };
@@ -780,6 +782,7 @@
 				3C7D65AC23167D2900D0EEE2 /* FieldGameViewController.swift */,
 				3CEF494523192E4A002AEB65 /* RewardViewController.swift */,
 				3CEF49432319259B002AEB65 /* StageViewController.swift */,
+				53A7429F28D0BA6F006C7B72 /* FieldGameWebViewController.swift */,
 			);
 			path = FieldGame;
 			sourceTree = "<group>";
@@ -1253,6 +1256,7 @@
 				3C2160CB233B471D00EEF638 /* HomeObject.swift in Sources */,
 				3CC1736C2340D1C400F42076 /* FavoriteManager.swift in Sources */,
 				5E4A0046216F273B00C4A656 /* QRCodeViewController.swift in Sources */,
+				53A742A028D0BA6F006C7B72 /* FieldGameWebViewController.swift in Sources */,
 				3CC6FDB42305365F007352DB /* StringExtension.swift in Sources */,
 				D6B5166420EA062C003FA56F /* SpeakerTableViewCell.swift in Sources */,
 				3C2160D4233B684100EEF638 /* SpeakerProvider.swift in Sources */,
