@@ -52,7 +52,7 @@ private enum TabCategory: String {
             
         case .sponsor: return "贊助廠商"
             
-        case .group: return "主辦社群"
+        case .group: return "社群組織"
             
         }
     }
