@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ygp-2d-lTV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ygp-2d-lTV">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,30 +15,30 @@
             <objects>
                 <viewController id="uXe-I1-Z6h" customClass="StageViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CdL-XJ-xBx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RKZ-XG-tGW">
-                                <rect key="frame" x="20" y="69" width="374" height="96"/>
+                                <rect key="frame" x="20" y="25" width="374" height="96"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="AEa-1n-L7M"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQB-IC-7Gf">
-                                <rect key="frame" x="20" y="189" width="374" height="0.0"/>
+                                <rect key="frame" x="20" y="145" width="374" height="0.0"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.66666666666666663" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smw-SH-mWq">
-                                <rect key="frame" x="20" y="205" width="374" height="0.0"/>
+                                <rect key="frame" x="20" y="161" width="374" height="0.0"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWU-k1-3sv">
-                                <rect key="frame" x="121" y="568" width="172" height="52"/>
+                                <rect key="frame" x="121" y="548" width="172" height="52"/>
                                 <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="172" id="4iF-ed-fhF"/>
@@ -89,14 +90,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="cco-WC-3A4">
-                                <rect key="frame" x="171" y="68" width="72" height="72"/>
+                                <rect key="frame" x="171" y="24" width="72" height="72"/>
                                 <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cco-WC-3A4" secondAttribute="height" id="uos-gB-YZ7"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hld-6w-2w3">
-                                <rect key="frame" x="152" y="152" width="110" height="19.333333333333343"/>
+                                <rect key="frame" x="152" y="108" width="110" height="19.333333333333329"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="破關進度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0i-7h-wDt">
                                         <rect key="frame" x="0.0" y="0.0" width="65.333333333333329" height="19.333333333333332"/>
@@ -113,7 +114,7 @@
                                 </subviews>
                             </stackView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PzI-2B-8hC">
-                                <rect key="frame" x="32" y="191.33333333333334" width="155" height="4"/>
+                                <rect key="frame" x="32" y="147.33333333333334" width="155" height="4"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="Ycn-Rr-E5x"/>
                                 </constraints>
@@ -121,7 +122,7 @@
                                 <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
                             <progressView opaque="NO" tag="1" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6bT-Qn-haM">
-                                <rect key="frame" x="227" y="191.33333333333334" width="119" height="4"/>
+                                <rect key="frame" x="227" y="147.33333333333334" width="119" height="4"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="Y7Y-9s-hD0"/>
                                 </constraints>
@@ -129,7 +130,7 @@
                                 <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift" translatesAutoresizingMaskIntoConstraints="NO" id="oAO-C0-2Xt">
-                                <rect key="frame" x="195" y="179.33333333333334" width="24" height="24"/>
+                                <rect key="frame" x="195" y="135.33333333333334" width="24" height="24"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="8r9-LG-4gv"/>
@@ -137,7 +138,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift" translatesAutoresizingMaskIntoConstraints="NO" id="EjQ-5d-GWa">
-                                <rect key="frame" x="354" y="179.33333333333334" width="24" height="24"/>
+                                <rect key="frame" x="354" y="135.33333333333334" width="24" height="24"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fX-7Z-AXn">
@@ -149,7 +150,7 @@ Field Game will start  at 10/24</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r9m-VL-a7s">
-                                <rect key="frame" x="21" y="235.33333333333337" width="372" height="372"/>
+                                <rect key="frame" x="21" y="191.33333333333337" width="372" height="372"/>
                                 <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="r9m-VL-a7s" secondAttribute="height" id="Mnj-bQ-wMn"/>
@@ -252,11 +253,11 @@ Field Game will start  at 10/24</string>
             <objects>
                 <viewController id="V3V-ym-Ind" customClass="RewardViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k2Q-Ss-gAZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="25E-zq-2nH">
-                                <rect key="frame" x="0.0" y="53" width="414" height="683"/>
+                                <rect key="frame" x="0.0" y="9" width="414" height="707"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="V3V-ym-Ind" id="Fhx-Fo-GDr"/>
@@ -296,16 +297,53 @@ Field Game will start  at 10/24</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="qxq-jU-ARz" kind="relationship" relationship="rootViewController" id="1wx-39-niV"/>
+                        <segue destination="oec-Gx-hiR" kind="relationship" relationship="rootViewController" id="VPN-DD-AMv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="srW-zB-sHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="760.86956521739137" y="200.54347826086959"/>
+            <point key="canvasLocation" x="-23" y="201"/>
+        </scene>
+        <!--Field Game Web View Controller-->
+        <scene sceneID="2WB-cO-Elj">
+            <objects>
+                <viewController id="oec-Gx-hiR" customClass="FieldGameWebViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wib-tg-Tcx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gme-A7-M77">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oId-d7-Jjs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gme-A7-M77" firstAttribute="leading" secondItem="oId-d7-Jjs" secondAttribute="leading" id="EGO-4O-Vtm"/>
+                            <constraint firstItem="oId-d7-Jjs" firstAttribute="trailing" secondItem="gme-A7-M77" secondAttribute="trailing" id="m7o-Qw-emd"/>
+                            <constraint firstItem="gme-A7-M77" firstAttribute="top" secondItem="oId-d7-Jjs" secondAttribute="top" id="mur-ow-Abc"/>
+                            <constraint firstItem="oId-d7-Jjs" firstAttribute="bottom" secondItem="gme-A7-M77" secondAttribute="bottom" id="uCG-uf-1CD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HjD-6t-qlv"/>
+                    <connections>
+                        <outlet property="gameWebView" destination="gme-A7-M77" id="E6f-e1-LZy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BQ3-gd-ock" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="783" y="201"/>
         </scene>
     </scenes>
     <resources>
         <image name="gift" width="80" height="80"/>
         <image name="profile" width="72" height="72"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

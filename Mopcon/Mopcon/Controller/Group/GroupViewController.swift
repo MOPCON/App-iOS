@@ -18,9 +18,9 @@ private enum GroupType {
         
         switch self {
             
-        case .host: return "主辦社群"
+        case .host: return "參與社群"
             
-        case .volunteer: return "志工組織"
+        case .volunteer: return "主辦團隊"
         
         }
     }
