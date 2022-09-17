@@ -48,6 +48,9 @@ class SpeakerAvatarView: UIView {
         
         self.headImageView.contentMode = .center
         self.headImageView.image = UIImage.asset(.defaultHead)
+        
+        self.headImageView.layer.cornerRadius  = 50
+        self.headImageView.clipsToBounds = true
     }
     
     func loadImage(_ url: String) {
