@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ygp-2d-lTV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ygp-2d-lTV">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -304,7 +303,7 @@ Field Game will start  at 10/24</string>
             </objects>
             <point key="canvasLocation" x="-23" y="201"/>
         </scene>
-        <!--Field Game Web View Controller-->
+        <!--任務-->
         <scene sceneID="2WB-cO-Elj">
             <objects>
                 <viewController id="oec-Gx-hiR" customClass="FieldGameWebViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
@@ -321,7 +320,7 @@ Field Game will start  at 10/24</string>
                             </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oId-d7-Jjs"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0078431372549019607" green="0.16862745098039217" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gme-A7-M77" firstAttribute="leading" secondItem="oId-d7-Jjs" secondAttribute="leading" id="EGO-4O-Vtm"/>
                             <constraint firstItem="oId-d7-Jjs" firstAttribute="trailing" secondItem="gme-A7-M77" secondAttribute="trailing" id="m7o-Qw-emd"/>
@@ -329,7 +328,7 @@ Field Game will start  at 10/24</string>
                             <constraint firstItem="oId-d7-Jjs" firstAttribute="bottom" secondItem="gme-A7-M77" secondAttribute="bottom" id="uCG-uf-1CD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="HjD-6t-qlv"/>
+                    <navigationItem key="navigationItem" title="任務" id="HjD-6t-qlv"/>
                     <connections>
                         <outlet property="gameWebView" destination="gme-A7-M77" id="E6f-e1-LZy"/>
                     </connections>
@@ -342,8 +341,5 @@ Field Game will start  at 10/24</string>
     <resources>
         <image name="gift" width="80" height="80"/>
         <image name="profile" width="72" height="72"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

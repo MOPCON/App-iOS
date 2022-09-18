@@ -25,4 +25,6 @@ struct MPConstant {
     static let recruitURL = "https://docs.google.com/forms/d/e/1FAIpQLSf6fHcsyL3Wv649VDA2FnzUn2vO6K6sv1vAe47urvkcf0F_ig/viewform"
     
     static let carouselBannerSeconds = 3.0
+    
+    static let webGameTokenKey = "MOPCONTOKENKEY"
 }
