@@ -202,7 +202,7 @@ class LobbyViewController: MPBaseViewController {
     
     
     @objc private func carouselBanner() {
-        return
+        
         switch(cells[0])
         {
             case CellType.banner(let banners):
