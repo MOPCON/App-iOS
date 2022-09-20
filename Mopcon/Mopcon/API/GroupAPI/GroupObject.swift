@@ -37,7 +37,7 @@ struct Participant: Codable {
     
     let name: String
     
-    let photo: String
+    let photo: ParticipanterImage
 }
 
 struct Organizer: Codable {
@@ -60,7 +60,7 @@ struct Organizer: Codable {
 struct Participanter: Codable {
     
     let name, nameEn: String
-    let photo: String
+    let photo: ParticipanterImage
     let introduction, introductionEn: String
     let facebook: String
     let twitter, instagram, telegram, event: String
@@ -72,4 +72,12 @@ struct Participanter: Codable {
         case introductionEn = "introduction_e"
         case facebook, twitter, instagram, telegram, event
     }
+}
+
+
+struct ParticipanterImage: Codable {
+    
+    let web: String
+    
+    let mobile: String
 }

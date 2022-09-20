@@ -124,10 +124,10 @@ class GroupHostDetailViewController: MPBaseViewController {
         view.insertSubview(scrollView, belowSubview: emptyView)
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor)
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor )
         ])
         
         communityDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -267,7 +267,7 @@ class GroupHostDetailViewController: MPBaseViewController {
                 case .success(let participanter):
                     
                     self?.updateUI(
-                        image: participanter.photo,
+                        image: participanter.photo.mobile,
                         name: participanter.name,
                         introduction: participanter.introduction
                     )

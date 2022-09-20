@@ -138,7 +138,7 @@ class GroupHostViewController: GroupBaseViewController {
             {
                 guard let participant = group?.participants[indexPath.row] else { return communityImageCell }
                 
-                communityImageCell.updateUI(image: participant.photo, title: participant.name)
+                communityImageCell.updateUI(image: participant.photo.mobile, title: participant.name)
                 
             }
         }
@@ -146,7 +146,7 @@ class GroupHostViewController: GroupBaseViewController {
         {
             guard let participant = group?.participants[indexPath.row] else { return communityImageCell }
             
-            communityImageCell.updateUI(image: participant.photo, title: participant.name)
+            communityImageCell.updateUI(image: participant.photo.mobile, title: participant.name)
             
         }
         
