@@ -147,7 +147,7 @@ class GroupProvider: MainThreadHelper {
         )
     }
     
-    static func fetchVolunteer(id: String, completion: @escaping VolunteerResultType) {
+    static func fetchVolunteer(id: Int, completion: @escaping VolunteerResultType) {
         
         HTTPClient.shared.request(
             GroupAPI.volunteer(id),
@@ -169,7 +169,7 @@ class GroupProvider: MainThreadHelper {
                         }
                         
                     } catch {
-                        
+                        print(error)
                         completion(Result.failure(error))
                     }
                     

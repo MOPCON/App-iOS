@@ -18,7 +18,7 @@ enum GroupAPI: LKRequest {
     
     case volunteerList
     
-    case volunteer(String)
+    case volunteer(Int)
     
     var endPoint: String {
         
