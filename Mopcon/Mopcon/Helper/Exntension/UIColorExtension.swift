@@ -28,6 +28,8 @@ extension UIColor {
     
     static let brownGray = UIColor(hex: "#878787")
     
+    static let textGray = UIColor(hex: "#C8C7C8")
+    
     public convenience init?(hex: String, alpha: CGFloat = 1.0) {
         
         var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
