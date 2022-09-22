@@ -311,7 +311,8 @@ extension LobbyViewController: UITableViewDataSource {
                     {
                         if let conferenceTableViewCell = cell as? ConferenceTableViewCell
                         {
-                            conferenceTableViewCell.delegate = self;
+                            conferenceTableViewCell.delegate = self
+                            
                             conferenceTableViewCell.updateUI(room: rooms[0])
                         }
                             

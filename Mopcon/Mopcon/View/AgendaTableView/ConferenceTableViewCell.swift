@@ -82,11 +82,13 @@ class ConferenceTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func updateUI(room: Room, startDateFormate: String = "MM/dd HH:mm", endDateFormat: String = "HH:mm"){
+    func updateUI(room: Room, startDateFormate: String = "MM/dd HH:mm", endDateFormat: String = "HH:mm", isConf: Bool = true){
         
         durationLabel.text = DateFormatter.string(for: room.startedAt, formatter: startDateFormate)! + " - " + DateFormatter.string(for: room.endedAt, formatter: endDateFormat)!
         
         locationLabel.text = room.room
+        
+        battleShipView.tintColor = isConf ? UIColor.pink : UIColor.secondThemeColor
         
         addToMyScheduleButton.isSelected = room.isLiked
         
@@ -116,7 +118,9 @@ class ConferenceTableViewCell: UITableViewCell {
         tagView.reloadData()
         
         tagView.colletionView.collectionViewLayout.invalidateLayout()
-        tagView.colletionView.collectionViewLayout.prepare();
+        
+        tagView.colletionView.collectionViewLayout.prepare()
+        
         tagView.colletionView.layoutIfNeeded()
         
         self.tagViewHeightConstraint.constant = tagView.colletionView.collectionViewLayout.collectionViewContentSize.height + 5
