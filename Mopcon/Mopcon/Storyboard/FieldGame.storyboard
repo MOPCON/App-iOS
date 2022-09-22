@@ -310,28 +310,10 @@ Field Game will start  at 10/24</string>
                     <view key="view" contentMode="scaleToFill" id="wib-tg-Tcx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gme-A7-M77">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="oId-d7-Jjs"/>
                         <color key="backgroundColor" red="0.0078431372549019607" green="0.16862745098039217" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="gme-A7-M77" firstAttribute="leading" secondItem="oId-d7-Jjs" secondAttribute="leading" id="EGO-4O-Vtm"/>
-                            <constraint firstItem="oId-d7-Jjs" firstAttribute="trailing" secondItem="gme-A7-M77" secondAttribute="trailing" id="m7o-Qw-emd"/>
-                            <constraint firstItem="gme-A7-M77" firstAttribute="top" secondItem="oId-d7-Jjs" secondAttribute="top" id="mur-ow-Abc"/>
-                            <constraint firstItem="oId-d7-Jjs" firstAttribute="bottom" secondItem="gme-A7-M77" secondAttribute="bottom" id="uCG-uf-1CD"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="任務" id="HjD-6t-qlv"/>
-                    <connections>
-                        <outlet property="gameWebView" destination="gme-A7-M77" id="E6f-e1-LZy"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQ3-gd-ock" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

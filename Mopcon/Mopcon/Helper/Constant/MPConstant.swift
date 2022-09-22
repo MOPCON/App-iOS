@@ -26,5 +26,20 @@ struct MPConstant {
     
     static let carouselBannerSeconds = 3.0
     
+    
+    // 大地遊戲
     static let webGameTokenKey = "MOPCONTOKENKEY"
+    
+    static let getDeviceID = "getDeviceID"
+    
+    static let loadPreference = "loadPreference"
+    
+    static let storePreference = "storePreference"
+    
+    static let scanQRCode = "scanQRCode"
+    
+    static let socialShare = "socialShare"
+    
+    static let saveImage = "saveImage"
+    
 }
