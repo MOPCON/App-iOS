@@ -22,7 +22,7 @@ class VolunteerDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var emptyView: UIView!
     
-    var volunteerId: String? {
+    var volunteerId: Int? {
         
         didSet {
             
@@ -41,14 +41,14 @@ class VolunteerDetailViewController: MPBaseViewController {
         emptyView.isHidden = false
     }
     
-    func fetchVolunteer(id: String) {
+    func fetchVolunteer(id: Int) {
         
         GroupProvider.fetchVolunteer(id: id, completion: { [weak self] result in
             
             switch result{
                 
             case .success(let volunteer):
-                
+
                 self?.volunteerView.loadImage(volunteer.photo)
                 
                 self?.updateImageView()

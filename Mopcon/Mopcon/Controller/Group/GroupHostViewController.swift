@@ -82,8 +82,8 @@ class GroupHostViewController: GroupBaseViewController {
             return count
         }
         
-        
         let communitysCount = (group.communitys.count>0) ? 1 : 0
+        
         let participantsCount = (group.participants.count>0) ? 1 : 0
         
         count = communitysCount + participantsCount
@@ -125,9 +125,9 @@ class GroupHostViewController: GroupBaseViewController {
             for: indexPath
         ) as! CommunityImageCollectionViewCell
                    
-        if(self.numberOfSections(in: collectionView)>=2)
+        if(self.numberOfSections(in: collectionView) >= 2)
         {
-            if(indexPath.section==0)
+            if(indexPath.section == 0)
             {
                 guard let community = group?.communitys[indexPath.row] else { return communityImageCell }
                 
@@ -150,9 +150,28 @@ class GroupHostViewController: GroupBaseViewController {
             
         }
         
-        
-
         return communityImageCell
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        
+        return CGSize(
+            width: self.view.frame.width * (164 / 375),
+            height: 100
+        )
+    }
+    
+    //MARK: - UICollectionViewDelegateFlowLayout
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.init(top: 24, left: self.view.frame.height * (16 / 667), bottom: self.view.frame.height * (16 / 667), right: self.view.frame.width * (16 / 375))
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -173,9 +192,9 @@ class GroupHostViewController: GroupBaseViewController {
             return header
         }
         
-        if(self.numberOfSections(in: collectionView)>=2)
+        if(self.numberOfSections(in: collectionView) >= 2)
         {
-            if(indexPath.section==0)
+            if(indexPath.section == 0)
             {
                 communityHeader.updateUI(title: "主辦社群")
                 
@@ -207,17 +226,18 @@ class GroupHostViewController: GroupBaseViewController {
 }
 
 class CommunityCollectionViewHeaderView: UICollectionReusableView {
-    
 
-    
     let iconImageView = UIImageView()
+    
     let seperatorView = UIImageView()
+    
     let headerLabel = UILabel()
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         prepareImg()
+        
         setupLayout()
     }
 
@@ -225,6 +245,7 @@ class CommunityCollectionViewHeaderView: UICollectionReusableView {
         super.init(frame: frame)
 
         prepareImg()
+
         setupLayout()
     }
 

@@ -51,9 +51,7 @@ class GroupHostDetailViewController: MPBaseViewController {
     @IBOutlet weak var communityNameLabel: UILabel!
     
     @IBOutlet weak var communityDescriptionLabel: UILabel!
-    
-    @IBOutlet weak var moreBtn: UIButton!
-    
+        
     @IBOutlet weak var socialMediaStackView: UIStackView!
     
     @IBOutlet weak var emptyView: UIView!
@@ -92,24 +90,14 @@ class GroupHostDetailViewController: MPBaseViewController {
         super.viewDidLoad()
         
         communityDescriptionLabel.adjustsFontSizeToFitWidth = true
-        
-        moreBtn.layer.cornerRadius = 6
-        
-        moreBtn.layer.borderColor = UIColor.secondThemeColor?.cgColor
-        
-        moreBtn.layer.backgroundColor = UIColor.mainThemeColor?.cgColor
-        
-        moreBtn.setTitleColor(UIColor.secondThemeColor, for: .normal)
-        
-        moreBtn.layer.borderWidth = 1.0
-        
+                
         setupLayout()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        communityDetailImageView.makeCircle()
+        communityDetailImageView.makeCorner(radius: communityDetailImageView.frame.size.height / 2)
     }
     
     //MARK: Layout
@@ -150,18 +138,7 @@ class GroupHostDetailViewController: MPBaseViewController {
             socialMediaStackView.centerXAnchor.constraint(equalTo: communityDescriptionLabel.centerXAnchor),
             socialMediaStackView.bottomAnchor.constraint(equalTo: communityDescriptionLabel.topAnchor, constant: -16)
         ])
-        
-        moreBtn.translatesAutoresizingMaskIntoConstraints = false
-        
-        scrollView.addSubview(moreBtn)
-        
-        NSLayoutConstraint.activate([
-            moreBtn.centerXAnchor.constraint(equalTo: communityDescriptionLabel.centerXAnchor),
-            moreBtn.topAnchor.constraint(equalTo: communityDescriptionLabel.bottomAnchor, constant: 76),
-            moreBtn.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 172/375),
-            moreBtn.heightAnchor.constraint(equalTo: moreBtn.widthAnchor, multiplier: 52/172)
-        ])
-        
+                               
         communityNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         scrollView.addSubview(communityNameLabel)
@@ -177,8 +154,8 @@ class GroupHostDetailViewController: MPBaseViewController {
         
         NSLayoutConstraint.activate([
             communityDetailImageView.centerXAnchor.constraint(equalTo: communityDescriptionLabel.centerXAnchor),
-            communityDetailImageView.heightAnchor.constraint(equalToConstant: 80),
-            communityDetailImageView.widthAnchor.constraint(equalTo: communityDetailImageView.heightAnchor),
+            communityDetailImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: (99 / 375), constant: 0),
+            communityDetailImageView.heightAnchor.constraint(equalTo: communityDetailImageView.widthAnchor, multiplier: (54 / 99), constant: 0),
             communityDetailImageView.bottomAnchor.constraint(equalTo: communityNameLabel.topAnchor, constant: -26)
         ])
     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gu6-Uw-2KJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gu6-Uw-2KJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,21 +17,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jda-He-Suu">
-                                <rect key="frame" x="0.0" y="116" width="414" height="746"/>
+                                <rect key="frame" x="0.0" y="112" width="414" height="750"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="Nrd-GL-5h3" kind="embed" identifier="performCommunityContainerView" id="xZC-6X-K5H"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWL-OR-dbb">
-                                <rect key="frame" x="0.0" y="116" width="414" height="746"/>
+                                <rect key="frame" x="0.0" y="112" width="414" height="750"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="tgk-pg-3HF" kind="embed" id="d7d-LI-xtn"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdl-XY-7QY" customClass="SelectionView" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="48" width="414" height="52"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="52"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="bRw-rY-53M"/>
@@ -72,7 +72,7 @@
             <objects>
                 <viewController id="jOl-02-M2L" customClass="GroupHostDetailViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rfo-4L-Xsg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="688"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="696"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KSDG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ce3-C2-SsP">
@@ -98,19 +98,8 @@
                                 <rect key="frame" x="123" y="198" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cax-vg-gfg">
-                                <rect key="frame" x="112" y="426" width="189.5" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                <state key="normal" title="了解更多">
-                                    <color key="titleColor" red="0.0" green="0.66666666666666663" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="openEvent:" destination="jOl-02-M2L" eventType="touchUpInside" id="Ied-dm-dQ0"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9JC-mf-azF">
-                                <rect key="frame" x="0.0" y="48" width="414" height="640"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="652"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -130,7 +119,6 @@
                         <outlet property="communityDetailImageView" destination="Hh7-L2-nc2" id="8WM-Cx-8Up"/>
                         <outlet property="communityNameLabel" destination="Ce3-C2-SsP" id="K9a-yA-lap"/>
                         <outlet property="emptyView" destination="9JC-mf-azF" id="OR4-ey-GIe"/>
-                        <outlet property="moreBtn" destination="Cax-vg-gfg" id="8WG-ic-Mr8"/>
                         <outlet property="socialMediaStackView" destination="aDA-WB-uy0" id="bhI-lQ-Nj7"/>
                     </connections>
                 </viewController>
@@ -143,50 +131,52 @@
             <objects>
                 <viewController id="Nrd-GL-5h3" customClass="GroupHostViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8a9-T0-KYH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="746"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yI8-64-jG1">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="746"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hec-xv-yW1">
-                                    <size key="itemSize" width="177" height="149"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="hec-xv-yW1">
+                                    <size key="itemSize" width="160" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="24" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CommunityImageCell" id="icm-w0-k88" customClass="CommunityImageCollectionViewCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                                        <rect key="frame" x="0.0" y="24" width="160" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hQV-pc-b4t">
-                                                    <rect key="frame" x="47" y="24" width="70" height="70"/>
+                                                    <rect key="frame" x="32.5" y="0.0" width="95" height="52"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="hQV-pc-b4t" secondAttribute="height" multiplier="1:1" id="vJ0-wa-Ror"/>
+                                                        <constraint firstAttribute="width" secondItem="hQV-pc-b4t" secondAttribute="height" multiplier="99:54" id="vJ0-wa-Ror"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="7DY-ru-iXY">
-                                                    <rect key="frame" x="20" y="104" width="124" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <rect key="frame" x="20" y="60" width="120" height="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="hQV-pc-b4t" firstAttribute="width" secondItem="icm-w0-k88" secondAttribute="width" multiplier="80:187" id="NbG-yu-Q81"/>
+                                            <constraint firstItem="hQV-pc-b4t" firstAttribute="width" secondItem="icm-w0-k88" secondAttribute="width" multiplier="99:166" id="NbG-yu-Q81"/>
                                             <constraint firstItem="hQV-pc-b4t" firstAttribute="centerX" secondItem="icm-w0-k88" secondAttribute="centerX" id="O4d-4x-3Jw"/>
                                             <constraint firstItem="7DY-ru-iXY" firstAttribute="centerX" secondItem="hQV-pc-b4t" secondAttribute="centerX" id="aGS-sH-mZa"/>
                                             <constraint firstAttribute="trailing" secondItem="7DY-ru-iXY" secondAttribute="trailing" constant="20" id="bKW-9U-Jh9"/>
-                                            <constraint firstItem="7DY-ru-iXY" firstAttribute="top" secondItem="hQV-pc-b4t" secondAttribute="bottom" constant="10" id="bj8-NN-gOG"/>
+                                            <constraint firstItem="7DY-ru-iXY" firstAttribute="top" secondItem="hQV-pc-b4t" secondAttribute="bottom" constant="8" id="bj8-NN-gOG"/>
                                             <constraint firstItem="7DY-ru-iXY" firstAttribute="leading" secondItem="icm-w0-k88" secondAttribute="leading" constant="20" id="glD-cy-0Rj"/>
-                                            <constraint firstItem="hQV-pc-b4t" firstAttribute="top" secondItem="icm-w0-k88" secondAttribute="top" constant="24" id="nAy-it-5qa"/>
+                                            <constraint firstItem="hQV-pc-b4t" firstAttribute="top" secondItem="icm-w0-k88" secondAttribute="top" id="nAy-it-5qa"/>
                                         </constraints>
-                                        <size key="customSize" width="164" height="164"/>
+                                        <size key="customSize" width="160" height="100"/>
                                         <connections>
                                             <outlet property="communityImageView" destination="hQV-pc-b4t" id="KdG-C9-QRx"/>
                                             <outlet property="communityLabel" destination="7DY-ru-iXY" id="BWM-tv-6DM"/>
@@ -218,13 +208,13 @@
             <objects>
                 <viewController id="tgk-pg-3HF" customClass="VolunteerViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vj5-st-1wn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="746"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wqN-m0-jrp">
-                                <rect key="frame" x="0.0" y="48" width="414" height="698"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="706"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vga-HY-6VY">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="0.0" id="Vga-HY-6VY">
                                     <size key="itemSize" width="160" height="157"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -290,11 +280,11 @@
             <objects>
                 <viewController id="Fg7-Rl-VKX" customClass="VolunteerDetailViewController" customModule="Mopcon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tVT-RI-oGZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="688"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="696"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYt-qv-VsV" customClass="SpeakerAvatarView" customModule="Mopcon" customModuleProvider="target">
-                                <rect key="frame" x="102" y="64" width="210" height="132.5"/>
+                                <rect key="frame" x="102" y="60" width="210" height="132.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.7843137255" green="0.78039215689999997" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -302,31 +292,31 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="議程委員會" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1d-Yv-mxv">
-                                <rect key="frame" x="167" y="216.5" width="80" height="22.5"/>
+                                <rect key="frame" x="167" y="212.5" width="80" height="22.5"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="議程品質的守門員，審核各方來稿是否適合 MOPCON 舞台。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5MJ-UB-fbo">
-                                <rect key="frame" x="20" y="259" width="374" height="45"/>
+                                <rect key="frame" x="20" y="255" width="374" height="45"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成員" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fhv-bu-mKJ">
-                                <rect key="frame" x="20" y="320" width="32" height="22.5"/>
+                                <rect key="frame" x="20" y="316" width="32" height="22.5"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                 <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王小明，素還真，東尼大木，多拉Ａ夢" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3a-XQ-TKV">
-                                <rect key="frame" x="20" y="350.5" width="374" height="22.5"/>
+                                <rect key="frame" x="20" y="346.5" width="374" height="22.5"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                                 <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LqQ-Um-1r5">
-                                <rect key="frame" x="0.0" y="48" width="414" height="640"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="652"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
