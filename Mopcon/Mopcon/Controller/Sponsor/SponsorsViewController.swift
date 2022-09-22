@@ -121,20 +121,11 @@ extension SponsorsViewController: UICollectionViewDelegateFlowLayout {
     ) -> UIEdgeInsets {
         
         return UIEdgeInsets.init(
-            top: 0,
-            left: self.view.frame.width * (16/375),
-            bottom: self.view.frame.width * (16/375),
-            right: self.view.frame.width * (16/375)
+            top: 24,
+            left: self.view.frame.width * (16 / 375),
+            bottom: self.view.frame.width * (16 / 375),
+            right: self.view.frame.width * (16 / 375)
         )
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        minimumLineSpacingForSectionAt section: Int
-    ) -> CGFloat {
-        
-        return self.view.frame.width * (16/375)
     }
     
     func collectionView(
@@ -143,7 +134,11 @@ extension SponsorsViewController: UICollectionViewDelegateFlowLayout {
         minimumInteritemSpacingForSectionAt section: Int
     ) -> CGFloat {
         
-        return self.view.frame.width * (8/375)
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
     
     func collectionView(
@@ -153,8 +148,8 @@ extension SponsorsViewController: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         
         return CGSize(
-            width: self.view.frame.width * (164/375),
-            height: self.view.frame.width * (164/375)
+            width: self.view.frame.width * (164 / 375),
+            height: 115
         )
     }
     

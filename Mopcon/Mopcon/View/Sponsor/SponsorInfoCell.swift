@@ -38,7 +38,7 @@ class SponsorInfoCell: UITableViewCell {
     func updateUI(logo: String, company: String, webSite: String, fbSite: String) {
         
         logoImageView.loadImage(logo)
-        logoImageView.makeCorner(radius: 20)
+        logoImageView.makeCorner(radius: logoImageView.frame.size.height / 2)
         
         companyLabel.text = company
         
