@@ -55,5 +55,9 @@ class MPBaseSessionViewController: MPBaseViewController, UITableViewDataSource, 
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
     //MARK: - UITableViewDelegate
 }

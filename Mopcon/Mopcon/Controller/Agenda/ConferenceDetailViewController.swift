@@ -95,7 +95,7 @@ class ConferenceDetailViewController: MPBaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        sponsorImageView.makeCorner(radius: 20)
+        sponsorImageView.makeCorner(radius: sponsorImageView.frame.size.height / 2)
     }
     
     override func viewDidAppear(_ animated: Bool) {

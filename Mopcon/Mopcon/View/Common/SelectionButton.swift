@@ -20,6 +20,7 @@ class SelectionButton: UIView {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         
         setupSeperatorView()
+        
         setupButton(buttonTitle: buttonTitle, titleColor: titleColor)
     }
     
@@ -31,14 +32,17 @@ class SelectionButton: UIView {
         
         super.layoutSubviews()
         
-        self.seperatorView.frame = CGRect(x: 0, y: self.bounds.size.height/2-1, width: self.bounds.size.width, height: 2)
+        seperatorView.frame = CGRect(x: 0, y: (bounds.size.height / 2) - 1, width: bounds.size.width, height: 1)
         
-        self.button.sizeToFit()
+        button.sizeToFit()
         
-        let width = self.button.frame.size.width + 60
-        let height = ceil(width/160*37)
+        let width = UIScreen.main.bounds.width * ( 130 / 375)
         
-        self.button.frame = CGRect(x: (self.bounds.size.width-width)/2, y: (self.bounds.size.height-height)/2, width: width, height: height)
+        let height = width * (37 / 160)
+        
+        button.frame = CGRect(x: (bounds.size.width - width) / 2, y: (bounds.size.height - height) / 2, width: width, height: height)
+        
+        button.layer.cornerRadius = button.frame.size.height / 2
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,20 +51,24 @@ class SelectionButton: UIView {
     private func setupButton(buttonTitle:String, titleColor:UIColor) {
         
         button.backgroundColor = UIColor.mainThemeColor
-        button.layer.cornerRadius = 15
-
-        button.setTitle(buttonTitle, for: .normal)
-
-        button.setTitleColor(titleColor, for: .normal)
         
-        self.addSubview(button)
+        button.setTitle(buttonTitle, for: .normal)
+        
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+
+        button.setTitleColor(UIColor.textGray, for: .normal)
+        
+        button.setTitleColor(.white, for: .selected)
+                
+        addSubview(button)
     }
     
     
     private func setupSeperatorView() {
         
-        self.seperatorView.backgroundColor = UIColor.pink
-        self.addSubview(self.seperatorView)
+        seperatorView.backgroundColor = UIColor.pink
+        
+        addSubview(seperatorView)
     }
     
     

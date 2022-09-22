@@ -173,6 +173,7 @@ class SelectionView: UIView {
             guard let selectionButton = subview as? SelectionButton else { return }
             
             selectionButton.unselected()
+            
             selectionButton.button.isSelected = false
         })
     }
