@@ -57,8 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().shadowImage = UIImage()
         
-        
-        
         UINavigationBar.appearance().tintColor = .white
         
         UINavigationBar.appearance().isTranslucent = true
