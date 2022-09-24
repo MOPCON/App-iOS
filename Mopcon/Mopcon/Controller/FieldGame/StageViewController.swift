@@ -154,7 +154,7 @@ class StageViewController: MPBaseViewController, NoticeViewPresentable {
         
         qrCodeViewController.taskID = taskID
         
-        qrCodeViewController.getInteractionMissionResult = self
+//        qrCodeViewController.getInteractionMissionResult = self
                 
         let navigationController = UINavigationController(rootViewController: qrCodeViewController)
                 
@@ -165,17 +165,17 @@ class StageViewController: MPBaseViewController, NoticeViewPresentable {
     
 }
 
-extension StageViewController: GetInteractionMissionResult {
-    
-    func updateMissionStatus() {
-        
-        noticeView.updateUI(with: .finish, and: nil)
-        
-        presentHintView()
-        
-        updateQRCodeButton(pass: true)
-    }
-}
+//extension StageViewController: GetInteractionMissionResult {
+//    
+//    func updateMissionStatus() {
+//        
+//        noticeView.updateUI(with: .finish, and: nil)
+//        
+//        presentHintView()
+//        
+//        updateQRCodeButton(pass: true)
+//    }
+//}
 
 extension StageViewController: NoticeViewDelegate {
     

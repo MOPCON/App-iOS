@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ygp-2d-lTV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oec-Gx-hiR">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -282,27 +283,6 @@ Field Game will start  at 10/24</string>
             </objects>
             <point key="canvasLocation" x="2587" y="956"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="GHh-df-YLB">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ygp-2d-lTV" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6ZT-Sa-ocf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="oec-Gx-hiR" kind="relationship" relationship="rootViewController" id="VPN-DD-AMv"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="srW-zB-sHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-23" y="201"/>
-        </scene>
         <!--任務-->
         <scene sceneID="2WB-cO-Elj">
             <objects>
@@ -310,10 +290,29 @@ Field Game will start  at 10/24</string>
                     <view key="view" contentMode="scaleToFill" id="wib-tg-Tcx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="je3-9R-RC0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" name="themeColor"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="oId-d7-Jjs"/>
                         <color key="backgroundColor" red="0.0078431372549019607" green="0.16862745098039217" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oId-d7-Jjs" firstAttribute="trailing" secondItem="je3-9R-RC0" secondAttribute="trailing" id="5uJ-0U-qZp"/>
+                            <constraint firstItem="je3-9R-RC0" firstAttribute="leading" secondItem="oId-d7-Jjs" secondAttribute="leading" id="c54-0r-Q8C"/>
+                            <constraint firstItem="je3-9R-RC0" firstAttribute="top" secondItem="oId-d7-Jjs" secondAttribute="top" id="gBS-mG-L6s"/>
+                            <constraint firstItem="oId-d7-Jjs" firstAttribute="bottom" secondItem="je3-9R-RC0" secondAttribute="bottom" id="o3S-Oo-dUo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="任務" id="HjD-6t-qlv"/>
+                    <connections>
+                        <outlet property="gameWebView" destination="je3-9R-RC0" id="lPW-hu-wjc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQ3-gd-ock" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -323,5 +322,8 @@ Field Game will start  at 10/24</string>
     <resources>
         <image name="gift" width="80" height="80"/>
         <image name="profile" width="72" height="72"/>
+        <namedColor name="themeColor">
+            <color red="0.0078431372549019607" green="0.16862745098039217" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

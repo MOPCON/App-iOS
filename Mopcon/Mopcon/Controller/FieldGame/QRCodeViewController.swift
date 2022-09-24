@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 protocol GetInteractionMissionResult: AnyObject {
-    func updateMissionStatus()
+    func sendQRCode(value: String)
 }
 
 class QRCodeViewController: MPBaseViewController {
@@ -49,7 +49,18 @@ class QRCodeViewController: MPBaseViewController {
         
         navigationController?.navigationBar.isTranslucent = false
         
-        navigationController?.navigationBar.barTintColor = .dark
+        navigationController?.navigationBar.barTintColor = .mainThemeColor
+        
+        let appearance = UINavigationBarAppearance()
+        
+        appearance.configureWithOpaqueBackground()
+        
+        appearance.backgroundColor = .mainThemeColor
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
     }
     
     private func scannerSetting() {
@@ -109,48 +120,7 @@ class QRCodeViewController: MPBaseViewController {
             view.bringSubviewToFront(qrCodeFrameView)
         }
     }
-    
-    private func scannerAlert(message:String) {
         
-        isScanned = false
-                
-        let alertTitle = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "通知" : "Info"
-        
-        let alertController = UIAlertController(title: alertTitle, message: "\(message)", preferredStyle: .alert)
-        
-        let cancelString = (CurrentLanguage.getLanguage() == Language.chinese.rawValue) ? "取消" : "Cancel"
-        
-        let cancelAction = UIAlertAction(title: cancelString, style: .cancel)
-        
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    private func checkQRCode(vKey: String) {
-                    
-        isScanned = true
-        
-        guard let taskID = self.taskID else { return }
-        
-        FieldGameProvider.verify(with: .task, and: taskID, and: vKey, completion: { [weak self] result in
-            
-            switch result {
-            
-            case .success(_):
-                
-                self?.dismiss(animated: true, completion: {
-
-                    self?.getInteractionMissionResult?.updateMissionStatus()
-                })
-            
-            case .failure(let error):
-                
-                self?.scannerAlert(message: error.localizedDescription)
-            }
-        })
-    }
-    
     @objc private func dismissAction() {
         dismiss(animated: true, completion: nil)
     }
@@ -180,8 +150,13 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
                 qrCodeFrameView?.frame = barCodeObject!.bounds
                 
                 if let string = metadataObj.stringValue {
+
+                    isScanned = true
                     
-                    checkQRCode(vKey: string)
+                    dismiss(animated: true, completion: { [weak self] in
+
+                        self?.getInteractionMissionResult?.sendQRCode(value: string)
+                    })
                 }
             }
         }

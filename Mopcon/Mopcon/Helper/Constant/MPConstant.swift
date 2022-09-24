@@ -28,7 +28,7 @@ struct MPConstant {
     
     
     // 大地遊戲
-    static let webGameTokenKey = "MOPCONTOKENKEY"
+    static let preference = "preference"
     
     static let getDeviceID = "getDeviceID"
     

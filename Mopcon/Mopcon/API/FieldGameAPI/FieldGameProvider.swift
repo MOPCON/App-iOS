@@ -281,4 +281,8 @@ class FieldGameProvider: MainThreadHelper {
                 }
         })
     }
+    
+    static var baseURL: String {
+        return UserDefaults.standard.string(forKey: MPConstant.gameServerKey) ?? "https://game.mopcon.org"
+    }
 }
