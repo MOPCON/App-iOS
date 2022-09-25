@@ -45,18 +45,19 @@ class QRCodeViewController: MPBaseViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.asset(.close), style: .plain, target: self, action: #selector(dismissAction))
         
-        navigationItem.rightBarButtonItem?.tintColor = .white
         
         navigationController?.navigationBar.isTranslucent = false
         
         navigationController?.navigationBar.barTintColor = .mainThemeColor
-        
+ 
         let appearance = UINavigationBarAppearance()
         
         appearance.configureWithOpaqueBackground()
         
         appearance.backgroundColor = .mainThemeColor
-        
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
         navigationController?.navigationBar.standardAppearance = appearance
         
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
