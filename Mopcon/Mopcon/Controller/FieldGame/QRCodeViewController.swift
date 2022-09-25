@@ -47,16 +47,20 @@ class QRCodeViewController: MPBaseViewController {
         
         navigationItem.rightBarButtonItem?.tintColor = .white
         
+        navigationItem.rightBarButtonItem?.title = "返回"
+        
         navigationController?.navigationBar.isTranslucent = false
         
         navigationController?.navigationBar.barTintColor = .mainThemeColor
-        
+ 
         let appearance = UINavigationBarAppearance()
         
         appearance.configureWithOpaqueBackground()
         
         appearance.backgroundColor = .mainThemeColor
-        
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
         navigationController?.navigationBar.standardAppearance = appearance
         
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
