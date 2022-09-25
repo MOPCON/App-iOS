@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>我們需要您的權限來將圖像儲存至相簿</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -46,6 +44,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>我們需要使用您的相機來掃描 QR Code</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>我們需要您的權限來將圖像儲存至相簿</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Main</string>
 	<key>UIMainStoryboardFile</key>
