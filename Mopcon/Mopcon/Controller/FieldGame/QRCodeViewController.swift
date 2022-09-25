@@ -45,9 +45,6 @@ class QRCodeViewController: MPBaseViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.asset(.close), style: .plain, target: self, action: #selector(dismissAction))
         
-        navigationItem.rightBarButtonItem?.tintColor = .white
-        
-        navigationItem.rightBarButtonItem?.title = "返回"
         
         navigationController?.navigationBar.isTranslucent = false
         
