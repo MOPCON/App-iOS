@@ -30,7 +30,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtD-Tt-ylP">
-                    <rect key="frame" x="112" y="244" width="190" height="36"/>
+                    <rect key="frame" x="102" y="244" width="210" height="36"/>
                     <color key="backgroundColor" red="1" green="0.47450980390000003" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="yKa-Sc-t5j"/>
@@ -54,7 +54,7 @@
                 <constraint firstItem="HNr-U4-Xn2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OWr-dq-ImA"/>
                 <constraint firstItem="rtD-Tt-ylP" firstAttribute="top" secondItem="Ypf-It-3b7" secondAttribute="bottom" constant="40" id="QuM-EJ-d9q"/>
                 <constraint firstItem="HNr-U4-Xn2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="U0k-I2-qX0"/>
-                <constraint firstItem="rtD-Tt-ylP" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="172:375" id="amH-sQ-tYM"/>
+                <constraint firstItem="rtD-Tt-ylP" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="190:375" id="amH-sQ-tYM"/>
                 <constraint firstItem="RiE-te-dTS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cUT-Lb-He5"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RiE-te-dTS" secondAttribute="trailing" constant="20" id="m3a-yr-Px1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ypf-It-3b7" secondAttribute="trailing" constant="20" id="r3p-e4-fsw"/>

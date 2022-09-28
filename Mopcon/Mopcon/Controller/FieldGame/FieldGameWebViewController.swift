@@ -156,8 +156,6 @@ class FieldGameWebViewController: UIViewController {
     private func sendQRCodeToWeb(qrCode:String) {
 
             gameWebView.evaluateJavaScript("onQRCodeScaned('{\"data\": \"\(qrCode)\"}')", completionHandler: { (object, error) in
-
-            print("TEST")
             
             print("completed with object, \(object ?? "")")
 
