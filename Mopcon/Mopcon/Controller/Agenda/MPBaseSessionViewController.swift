@@ -25,6 +25,11 @@ class MPBaseSessionViewController: MPBaseViewController, UITableViewDataSource, 
         
         tableView.backgroundColor = UIColor.clear
         
+        if #available(iOS 15.0, *) {
+            
+          tableView.sectionHeaderTopPadding = 0.0
+        }
+        
         setupTableViewCell()
     }
     

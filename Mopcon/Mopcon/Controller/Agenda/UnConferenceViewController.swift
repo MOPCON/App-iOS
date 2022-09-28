@@ -66,7 +66,7 @@ class UnConferenceViewController: MPBaseSessionViewController {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return sessionList[selectedIndex].period[section].event == "" ? 0 : 72
+        return sessionList[selectedIndex].period[section].event == "" ? 0 : 64
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

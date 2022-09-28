@@ -82,7 +82,7 @@ class ConferenceTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func updateUI(room: Room, startDateFormate: String = "MM/dd HH:mm", endDateFormat: String = "HH:mm", isConf: Bool = true){
+    func updateUI(room: Room, startDateFormate: String = "HH:mm", endDateFormat: String = "HH:mm", isConf: Bool = true){
         
         durationLabel.text = DateFormatter.string(for: room.startedAt, formatter: startDateFormate)! + " - " + DateFormatter.string(for: room.endedAt, formatter: endDateFormat)!
         
@@ -133,6 +133,8 @@ class ConferenceTableViewCell: UITableViewCell {
         locationLabel.text = sponsorSpeaker.room
         
         addToMyScheduleButton.isSelected = FavoriteManager.shared.sessionIds.contains(sponsorSpeaker.sessionId)
+        
+        battleShipView.tintColor = .pink
         
         let language = CurrentLanguage.getLanguage()
         

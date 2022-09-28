@@ -88,12 +88,11 @@ class SessionsViewController: MPBaseSessionViewController {
         
         let tagHeight = ConferenceTableViewCellBasisHeight + (ceil(boundingBox.size.height / 20) * (20 + 13) - 20)
         
-        //////////////////////////////////////////////////
-
         label.font = UIFont.systemFont(ofSize: 18)
 
         totalString = String()
         for speaker in room.speakers {
+            
             totalString.append(speaker.name+" ")
         }
         
@@ -107,7 +106,7 @@ class SessionsViewController: MPBaseSessionViewController {
         return tagHeight + speakerNameHeight
     }
 
-// MARK : Tableview Datasource & Tableview Delegate
+    // MARK : Tableview Datasource & Tableview Delegate
     override func numberOfSections(in tableView: UITableView) -> Int {
 
         return sessions.count
@@ -120,7 +119,7 @@ class SessionsViewController: MPBaseSessionViewController {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return sessions[section].event == "" ? 0 : 72
+        return sessions[section].event == "" ? 0 : 64
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
