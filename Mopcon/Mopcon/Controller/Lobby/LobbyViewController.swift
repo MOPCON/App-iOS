@@ -57,8 +57,8 @@ class LobbyViewController: MPBaseViewController {
         
         repeat
         {
-            if(cells.last?.identifier()==ConferenceTableViewCell.identifier ||
-               cells.last?.identifier()==LobbySessionCell.identifier)
+            if(cells.last?.identifier() == ConferenceTableViewCell.identifier ||
+               cells.last?.identifier() == LobbySessionCell.identifier)
             {
                 cells.removeLast()
             }
@@ -209,7 +209,7 @@ class LobbyViewController: MPBaseViewController {
                 let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
                 guard let bannerCell = cell as? LobbyBannerCell else { return }
             
-                let displayIndex = floor(bannerCell.collectionView.contentOffset.x/bannerCell.collectionView.bounds.size.width)
+                let displayIndex = floor(bannerCell.collectionView.contentOffset.x / bannerCell.collectionView.bounds.size.width)
                
                 let nextIndex = (displayIndex+1.0).remainder(dividingBy: (CGFloat)(banners.count))
             
@@ -223,7 +223,6 @@ class LobbyViewController: MPBaseViewController {
     private func stopCarousel(){
         self.timer?.invalidate()
     }
-    
     
     
     //MARK: - API
@@ -273,9 +272,7 @@ extension LobbyViewController: UITableViewDataSource {
         if(section == 2 && hasFavoriteRoom())
         {
             label = UILabel()
-            
-            label?.text  = "贊助場次"
-            
+                        
             label?.textColor = UIColor.white
         }
         
