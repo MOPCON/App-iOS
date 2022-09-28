@@ -272,6 +272,8 @@ extension LobbyViewController: UITableViewDataSource {
         if(section == 2 && hasFavoriteRoom())
         {
             label = UILabel()
+            
+            label?.text  = "你最喜愛的戰艦即將進站"
                         
             label?.textColor = UIColor.white
         }

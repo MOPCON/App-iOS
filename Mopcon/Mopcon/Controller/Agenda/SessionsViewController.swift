@@ -72,14 +72,18 @@ class SessionsViewController: MPBaseSessionViewController {
          */
         
         let label = UILabel()
+        
         label.font = UIFont.systemFont(ofSize: 13)
         
         var totalString = String()
+        
         for tag in tags {
+            
             totalString.append(tag.name)
         }
         
         label.numberOfLines = 0
+        
         label.text = totalString
         
         var constraintRect = label.sizeThatFits(CGSize(width: tableView.bounds.size.width - 40 - CGFloat(16 * room.tags.count) - CGFloat(10 * room.tags.count), height: CGFloat.greatestFiniteMagnitude))
@@ -91,6 +95,7 @@ class SessionsViewController: MPBaseSessionViewController {
         label.font = UIFont.systemFont(ofSize: 18)
 
         totalString = String()
+        
         for speaker in room.speakers {
             
             totalString.append(speaker.name+" ")
@@ -102,7 +107,6 @@ class SessionsViewController: MPBaseSessionViewController {
         
         let speakerNameHeight = max(boundingBox.size.height,21.5)
         
-
         return tagHeight + speakerNameHeight
     }
 
@@ -234,7 +238,6 @@ extension SessionsViewController: ConferenceTableViewCellDelegate {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         
         sessions[indexPath.section].room[indexPath.row].isLiked = !sessions[indexPath.section].room[indexPath.row].isLiked
-        
 
         let room = sessions[indexPath.section].room[indexPath.row]
         
@@ -244,7 +247,6 @@ extension SessionsViewController: ConferenceTableViewCellDelegate {
             
         } else {
             
-  
             FavoriteManager.shared.removeSession(room: room)
         }
     }

@@ -44,6 +44,7 @@ class SpeakerTalkInfoView: UIView {
         super.awakeFromNib()
     
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchViewAction))
+        
         baseView.addGestureRecognizer(tapGesture)
         
         baseView.layer.cornerRadius = 6
