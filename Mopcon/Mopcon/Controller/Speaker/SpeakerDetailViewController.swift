@@ -32,10 +32,10 @@ class SpeakerDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var tagViewHeightConstraint: NSLayoutConstraint!
     
-    let spinner = LoadingTool.setActivityindicator()
+    private let spinner = LoadingTool.setActivityindicator()
     
     var speaker: Speaker?
-
+    
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -81,7 +81,7 @@ class SpeakerDetailViewController: MPBaseViewController {
             talkInfoView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             talkInfoView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             talkInfoView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            talkInfoView.heightAnchor.constraint(equalToConstant: 226)
+            talkInfoView.heightAnchor.constraint(equalToConstant: 217 + tagViewHeightConstraint.constant)
         ])
     }
     
@@ -108,7 +108,6 @@ class SpeakerDetailViewController: MPBaseViewController {
 
         self.speakerView.speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .left, relatedBy: .equal, toItem: self.speakerView.speakerAvatarView, attribute: .left, multiplier: 1, constant: 0))
     }
-    
     
     func updateUI(speaker: Speaker) {
         
@@ -146,11 +145,13 @@ class SpeakerDetailViewController: MPBaseViewController {
         /** 取得正確的 CollectionView Flowlayout Contentsize*/
         talkInfoView.tagView.colletionView.collectionViewLayout.invalidateLayout()
         talkInfoView.tagView.colletionView.collectionViewLayout.prepare();
+        talkInfoView.tagView.colletionView.layoutSubviews()
         talkInfoView.tagView.colletionView.layoutIfNeeded()
-        
         self.tagViewHeightConstraint.constant = talkInfoView.tagView.colletionView.collectionViewLayout.collectionViewContentSize.height + 5
         
+       
         setupButton(speaker: speaker)
+        
         addStarCircleView()
     }
     
@@ -280,12 +281,12 @@ extension SpeakerDetailViewController: SpeakerTalkInfoViewDelegate {
 extension SpeakerDetailViewController: MPTagViewDataSource {
     
     func numberOfTags(_ tagView: MPTagView) -> Int {
-        
+
         return speaker?.tags.count ?? 0
     }
     
     func titleForTags(_ tagView: MPTagView, index: Int) -> String {
-        
+       
         return speaker?.tags[index].name ?? ""
     }
     
