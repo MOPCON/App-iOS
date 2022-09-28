@@ -27,7 +27,7 @@ class TagFactory {
     
     static func keynoteTag() -> Tag {
         
-        return Tag(color: TagColor(mobile: "#ff4492"), name: "Keynote")
+        return Tag(color: TagColor(mobile: "#ff7987"), name: "Keynote")
     }
     
     static func onlineTag() -> Tag {

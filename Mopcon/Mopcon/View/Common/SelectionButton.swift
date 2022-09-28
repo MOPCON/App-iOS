@@ -36,9 +36,9 @@ class SelectionButton: UIView {
         
         button.sizeToFit()
         
-        let width = UIScreen.main.bounds.width * ( 130 / 375)
+        let width = UIScreen.main.bounds.width * (130 / 375)
         
-        let height = width * (37 / 160)
+        let height = 37.0
         
         button.frame = CGRect(x: (bounds.size.width - width) / 2, y: (bounds.size.height - height) / 2, width: width, height: height)
         

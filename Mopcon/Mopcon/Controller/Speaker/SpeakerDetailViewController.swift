@@ -80,7 +80,8 @@ class SpeakerDetailViewController: MPBaseViewController {
             talkInfoView.topAnchor.constraint(equalTo: speakerDetailView.bottomAnchor),
             talkInfoView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             talkInfoView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            talkInfoView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            talkInfoView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            talkInfoView.heightAnchor.constraint(equalToConstant: 226)
         ])
     }
     
