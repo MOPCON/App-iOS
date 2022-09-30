@@ -341,7 +341,8 @@ extension LobbyViewController: UITableViewDataSource {
         switch cells[indexPath.section]
         {
             case .session(let rooms):
-                self.didSelectSession(sessionId: rooms[0].sessionId)
+                guard rooms.count > 0 else { break }
+                didSelectSession(sessionId: rooms[indexPath.row].sessionId)
             case .banner(_):
                 break
             case .news(_):
