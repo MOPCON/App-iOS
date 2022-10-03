@@ -156,22 +156,23 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FGP-dg-zvk" customClass="SpeakerAvatarView" customModule="Mopcon" customModuleProvider="target">
-                            <rect key="frame" x="92.5" y="33" width="210" height="132.5"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGP-dg-zvk" customClass="SpeakerAvatarView" customModule="Mopcon" customModuleProvider="target">
+                            <rect key="frame" x="92.5" y="33" width="190" height="102"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="FGP-dg-zvk" secondAttribute="height" multiplier="190:120" id="o0U-ag-38L"/>
+                                <constraint firstAttribute="width" constant="190" id="GKM-Ck-55f"/>
+                                <constraint firstAttribute="width" secondItem="FGP-dg-zvk" secondAttribute="height" multiplier="190:102" id="o0U-ag-38L"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台灣區經理" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXQ-Yt-aZl">
-                            <rect key="frame" x="155" y="187.5" width="65" height="18.5"/>
+                            <rect key="frame" x="155" y="169.5" width="65" height="18.5"/>
                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="田哲宇" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HiZ-bO-055">
-                            <rect key="frame" x="163.5" y="161" width="48" height="22.5"/>
+                            <rect key="frame" x="163.5" y="143" width="48" height="22.5"/>
                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -191,7 +192,6 @@
                         <constraint firstItem="Nvb-lR-Mw3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="W62-J3-7lS" secondAttribute="bottom" constant="32" id="YbH-by-lmE"/>
                         <constraint firstItem="eXQ-Yt-aZl" firstAttribute="centerX" secondItem="HiZ-bO-055" secondAttribute="centerX" id="Z2j-PB-aMP"/>
                         <constraint firstItem="HiZ-bO-055" firstAttribute="top" secondItem="FGP-dg-zvk" secondAttribute="bottom" constant="8" id="ZNa-FV-b8u"/>
-                        <constraint firstItem="FGP-dg-zvk" firstAttribute="width" secondItem="A07-tq-a0V" secondAttribute="width" multiplier="190:375" id="dDC-HD-Tkv"/>
                         <constraint firstItem="FGP-dg-zvk" firstAttribute="centerX" secondItem="A07-tq-a0V" secondAttribute="centerX" id="lqw-MS-auT"/>
                         <constraint firstItem="eXQ-Yt-aZl" firstAttribute="top" secondItem="HiZ-bO-055" secondAttribute="bottom" constant="4" id="yac-j8-AiI"/>
                     </constraints>
