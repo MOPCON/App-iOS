@@ -1507,7 +1507,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mopcon/MopconDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2022100301;
+				CURRENT_PROJECT_VERSION = 2022101601;
 				DEVELOPMENT_TEAM = P8GYHF5M8B;
 				INFOPLIST_FILE = Mopcon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1515,7 +1515,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.5.1;
+				MARKETING_VERSION = 2.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "MOPCON-Dev";
@@ -1534,7 +1534,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mopcon/Mopcon.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2022100301;
+				CURRENT_PROJECT_VERSION = 2022101601;
 				DEVELOPMENT_TEAM = P8GYHF5M8B;
 				INFOPLIST_FILE = Mopcon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1542,7 +1542,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.5.1;
+				MARKETING_VERSION = 2.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mopcon.session.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "MOPCON-Production";

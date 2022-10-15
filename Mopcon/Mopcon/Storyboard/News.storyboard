@@ -37,8 +37,8 @@
                                                             <color key="textColor" red="1" green="0.47450980392156861" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="任務遊戲倒數20分鐘 !" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VY-9m-iu5">
-                                                            <rect key="frame" x="12" y="54.5" width="178" height="25.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="任務遊戲倒數20分鐘 !" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VY-9m-iu5">
+                                                            <rect key="frame" x="12" y="54.5" width="346" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" red="0.78431372549019607" green="0.7803921568627451" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -58,6 +58,7 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="DFB-ak-9cu" firstAttribute="top" secondItem="8VY-9m-iu5" secondAttribute="bottom" constant="8" id="D18-Ri-loU"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8VY-9m-iu5" secondAttribute="trailing" constant="12" id="FN8-5W-prE"/>
                                                         <constraint firstAttribute="bottom" secondItem="DFB-ak-9cu" secondAttribute="bottom" constant="16" id="OR2-OB-znX"/>
                                                         <constraint firstItem="zeu-bp-0CL" firstAttribute="leading" secondItem="1Y9-vG-854" secondAttribute="trailing" constant="5" id="TIm-fg-TUc"/>
                                                         <constraint firstItem="8VY-9m-iu5" firstAttribute="top" secondItem="1Y9-vG-854" secondAttribute="bottom" constant="8" id="ZbJ-06-7IK"/>
