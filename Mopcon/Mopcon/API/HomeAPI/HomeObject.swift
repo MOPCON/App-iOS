@@ -20,7 +20,8 @@ struct Banner: Codable {
 
 // MARK: - News
 struct HomeNews: Codable {
-    let id, date: Int
+    let date: Int
+    let id: String
     let title, description: String
     let link: String
 

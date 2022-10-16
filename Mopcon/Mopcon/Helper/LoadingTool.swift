@@ -13,7 +13,8 @@ class LoadingTool {
     
     class func setActivityindicator() -> UIActivityIndicatorView {
         let spinner = UIActivityIndicatorView()
-        spinner.style = .whiteLarge
+        spinner.style = UIActivityIndicatorView.Style.large
+        spinner.color = .white
         spinner.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         return spinner
     }

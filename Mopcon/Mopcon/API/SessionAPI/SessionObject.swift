@@ -16,9 +16,11 @@ struct SessionList: Codable {
     
     lazy var dateString: String = {
         
-        let date = Date(timeIntervalSince1970: Double(self.date))
+        let calendar = Calendar.current
         
-        return DateFormatter.string(for: date, formatter: "MM/dd")
+        let weekday = calendar.component(.weekday, from: Date(timeIntervalSince1970: TimeInterval(self.date)))
+        
+        return "\(DateFormatter.string(for: self.date, formatter: "MM/dd") ?? "")(\(weekday.makeWeekday()))"
     }()
 }
 
@@ -139,7 +141,7 @@ struct SponsorInfo: Codable {
     
     let nameEn: String
     
-    let logo: String
+    let logo: SpeakerImage
     
     enum CodingKeys: String, CodingKey {
         

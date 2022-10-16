@@ -22,16 +22,25 @@ class NewsTableViewCell: UITableViewCell {
         
         self.selectionStyle = .none
         
-        opacityView.layer.borderColor = UIColor.secondThemeColor?.cgColor
-        dateLabel.textColor = UIColor.secondThemeColor
-        timeLabel.textColor = UIColor.secondThemeColor
+        opacityView.layer.borderColor = UIColor.pink?.cgColor
+        
+        dateLabel.textColor = UIColor.pink
+        
+        timeLabel.textColor = UIColor.pink
     }
 
     func updateUI(news: News) {
         
-        dateLabel.text = DateFormatter.string(for: news.date, formatter: "yyyy/MM/dd")
+        let calendar = Calendar.current
+        
+        let weekday = calendar.component(.weekday, from: Date(timeIntervalSince1970: TimeInterval(news.date)))
+        
+        dateLabel.text = "\(DateFormatter.string(for: news.date, formatter: "MM/dd") ?? "")(\(weekday.makeWeekday()))"
+        
         timeLabel.text = DateFormatter.string(for: news.date, formatter: "HH:mm")
+        
         titleLabel.text = news.title
+        
         dedcriptionLabel.text = news.description
     }
 }

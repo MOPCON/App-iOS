@@ -22,7 +22,7 @@ class GroupBaseViewController: MPBaseViewController, UICollectionViewDelegateFlo
     
     let joinVolunteerView = JoinVolunteerView()
     
-    private let joinViewHeight: CGFloat = 537.0
+    private let joinViewHeight: CGFloat = 350.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,19 +53,15 @@ class GroupBaseViewController: MPBaseViewController, UICollectionViewDelegateFlo
     
     //MARK: - UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.init(top: 0, left: self.view.frame.width * (16/375), bottom: self.view.frame.height * (16/667), right: self.view.frame.width * (16/375))
+        return UIEdgeInsets.init(top: 0, left: self.view.frame.width * (16 / 375), bottom: self.view.frame.height * (16 / 667), right: self.view.frame.width * (16 / 375))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return self.view.frame.height * (16/375)
+        return 16
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return self.view.frame.height * (8/375)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width * 164/375, height: self.view.frame.width * 164/375)
+        return 0//self.view.frame.height * (8 / 375)
     }
     
     //MARK: - UICollectionDelegate
@@ -83,7 +79,7 @@ class GroupBaseViewController: MPBaseViewController, UICollectionViewDelegateFlo
     //MARK: - JoinVolunteerViewDelegate
     func didTouchFacebookButton(_ volunteerView: JoinVolunteerView) {
         
-        openURL(MPConstant.mopconWebSite)
+        openURL(MPConstant.recruitURL)
     }
     
 }

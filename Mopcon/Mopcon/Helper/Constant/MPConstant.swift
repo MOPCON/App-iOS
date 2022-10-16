@@ -21,4 +21,25 @@ struct MPConstant {
     static let mopconAppStore = "https://apps.apple.com/tw/app/mopcon/id721411970"
     
     static let itunesURL = "https://itunes.apple.com/lookup?bundleId="
+    
+    static let recruitURL = "https://docs.google.com/forms/d/e/1FAIpQLSf6fHcsyL3Wv649VDA2FnzUn2vO6K6sv1vAe47urvkcf0F_ig/viewform"
+    
+    static let carouselBannerSeconds = 3.0
+    
+    
+    // 大地遊戲
+    static let preference = "preference"
+    
+    static let getDeviceID = "getDeviceID"
+    
+    static let loadPreference = "loadPreference"
+    
+    static let storePreference = "storePreference"
+    
+    static let scanQRCode = "scanQRCode"
+    
+    static let socialShare = "socialShare"
+    
+    static let saveImage = "saveImage"
+    
 }

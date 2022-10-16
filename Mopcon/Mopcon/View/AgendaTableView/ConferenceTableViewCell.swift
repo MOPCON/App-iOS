@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol ConferenceTableViewCellDelegate: AnyObject {
     
@@ -27,10 +28,14 @@ class ConferenceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var tagView: MPTagView!
     
+    @IBOutlet weak var battleShipView: UIImageView!
+    
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var tagViewHeightConstraint: NSLayoutConstraint!
+ 
     weak var delegate: ConferenceTableViewCellDelegate?
     
     var tags: [Tag] = []
@@ -38,6 +43,8 @@ class ConferenceTableViewCell: UITableViewCell {
     var categoryStartIndex: Int = 0
     
     var index:IndexPath?
+    
+    var collectionViewHeight: Int = 18
     
     @IBAction func addToMySchedule(_ sender: UIButton) {
         
@@ -64,6 +71,10 @@ class ConferenceTableViewCell: UITableViewCell {
         super.prepareForReuse()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         
         super.setSelected(selected, animated: animated)
@@ -71,11 +82,13 @@ class ConferenceTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func updateUI(room: Room, dateFormate: String = "HH:mm"){
+    func updateUI(room: Room, startDateFormate: String = "HH:mm", endDateFormat: String = "HH:mm", isConf: Bool = true){
         
-        durationLabel.text = DateFormatter.string(for: room.startedAt, formatter: dateFormate)! + " - " + DateFormatter.string(for: room.endedAt, formatter: dateFormate)!
+        durationLabel.text = DateFormatter.string(for: room.startedAt, formatter: startDateFormate)! + " - " + DateFormatter.string(for: room.endedAt, formatter: endDateFormat)!
         
         locationLabel.text = room.room
+        
+        battleShipView.tintColor = isConf ? UIColor.pink : UIColor.secondThemeColor
         
         addToMyScheduleButton.isSelected = room.isLiked
         
@@ -103,7 +116,58 @@ class ConferenceTableViewCell: UITableViewCell {
         generateTags(room: room)
         
         tagView.reloadData()
+        
+        tagView.colletionView.collectionViewLayout.invalidateLayout()
+        
+        tagView.colletionView.collectionViewLayout.prepare()
+        
+        tagView.colletionView.layoutIfNeeded()
+        
+        self.tagViewHeightConstraint.constant = tagView.colletionView.collectionViewLayout.collectionViewContentSize.height + 5
     }
+    
+    func updateUI(sponsorSpeaker:SponsorSpeaker, startDateFormate: String = "MM/dd HH:mm", endDateFormat: String = "HH:mm")
+    {
+        durationLabel.text = DateFormatter.string(for: sponsorSpeaker.startedAt, formatter: startDateFormate)! + " - " + DateFormatter.string(for: sponsorSpeaker.endedAt, formatter: endDateFormat)!
+        
+        locationLabel.text = sponsorSpeaker.room
+        
+        addToMyScheduleButton.isSelected = FavoriteManager.shared.sessionIds.contains(sponsorSpeaker.sessionId)
+        
+        battleShipView.tintColor = .pink
+        
+        let language = CurrentLanguage.getLanguage()
+        
+        switch language {
+            
+        case Language.chinese.rawValue:
+            
+            topicLabel.text = sponsorSpeaker.topicName
+            
+            speakerLabel.text = sponsorSpeaker.name
+            
+        case Language.english.rawValue:
+            
+            topicLabel.text = sponsorSpeaker.topicNameEn
+            
+            speakerLabel.text = sponsorSpeaker.nameEn
+            
+        default:
+            
+            break
+        }
+        
+        tags = sponsorSpeaker.tags
+        
+        tagView.reloadData()
+        
+        tagView.colletionView.collectionViewLayout.invalidateLayout()
+        tagView.colletionView.collectionViewLayout.prepare();
+        tagView.colletionView.layoutIfNeeded()
+        
+        self.tagViewHeightConstraint.constant = tagView.colletionView.collectionViewLayout.collectionViewContentSize.height + 5
+    }
+    
     
     func generateTags(room: Room) {
         
@@ -135,7 +199,6 @@ class ConferenceTableViewCell: UITableViewCell {
             
             tags.append(category)
         }
-
     }
 }
 
@@ -147,7 +210,7 @@ extension ConferenceTableViewCell: MPTagViewDataSource {
     }
     
     func titleForTags(_ tagView: MPTagView, index: Int) -> String {
-        
+
         return tags[index].name
     }
     

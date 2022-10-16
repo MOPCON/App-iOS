@@ -41,7 +41,7 @@ class JoinVolunteerView: UIView {
         
         facebookBtn.addTarget(self, action: #selector(openFacebook(_:)), for: .touchUpInside)
         
-        facebookBtn.layer.cornerRadius = 6
+        facebookBtn.layer.cornerRadius = facebookBtn.frame.height / 2
         
         facebookBtn.layer.borderColor = UIColor.pink?.cgColor
         
@@ -52,6 +52,6 @@ class JoinVolunteerView: UIView {
 
     @objc func openFacebook(_ sender: UIButton) {
         
-        delegate?.didTouchFacebookButton(self)
+        delegate?.didTouchFacebookButton(self)        
     }
 }

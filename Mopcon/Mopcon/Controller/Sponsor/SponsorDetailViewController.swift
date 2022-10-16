@@ -10,7 +10,9 @@ import UIKit
 
 private enum SponsorCellStyle {
     
-    case sponsor(String, String), info(String), speech([SponsorSpeaker]), seeMore(String)
+    case sponsor(String, String, String, String), info(String), speech([SponsorSpeaker]), seeMore(String)
+    
+
     
     func identifier() -> String {
 
@@ -20,7 +22,7 @@ private enum SponsorCellStyle {
             
         case .info: return SponsorAboutCell.identifier
             
-        case .speech: return SponsorSpeechCell.identifier
+        case .speech: return ConferenceTableViewCell.identifier
             
         case .seeMore: return "SeeMoreCell"
             
@@ -31,11 +33,11 @@ private enum SponsorCellStyle {
         
         switch self {
             
-        case .sponsor(let logo, let company):
+        case .sponsor(let logo, let company, let webSite, let fbSite):
             
             guard let infoCell = cell as? SponsorInfoCell else { return }
             
-            infoCell.updateUI(logo: logo, company: company)
+            infoCell.updateUI(logo: logo, company: company, webSite: webSite, fbSite: fbSite)
             
         case .info(let info):
             
@@ -45,11 +47,11 @@ private enum SponsorCellStyle {
             
         case .speech(let speakers):
             
-            guard let speechCell = cell as? SponsorSpeechCell else { return }
+            guard let conferenceTableViewCell = cell as? ConferenceTableViewCell else { return }
             
-            speechCell.sponsorSpeaker = speakers
-            
-            speechCell.delegate = controller
+    
+            conferenceTableViewCell.updateUI(sponsorSpeaker: speakers[0])
+
             
         case .seeMore: break
             
@@ -76,27 +78,39 @@ class SponsorDetailViewController: MPBaseViewController {
         
             if sponsor.speakerInfo.count > 0 {
                 
-                cells = [
-                    .sponsor(sponsor.logo, sponsor.name),
-                    .info(sponsor.aboutUs),
-                    .speech(sponsor.speakerInfo),
-                    .seeMore(sponsor.officialWebsite)
-                ]
+                cells.append(.sponsor(sponsor.logo.mobile, sponsor.name, sponsor.officialWebsite, sponsor.facebook))
                 
+                cells.append(.info(sponsor.aboutUs))
+                
+                for sponsorSpeaker in sponsor.speakerInfo
+                {
+                    cells.append(.speech([sponsorSpeaker]))
+                }
+                
+//                cells.append(.seeMore(sponsor.officialWebsite))
+           
             } else {
                 
                 cells = [
-                    .sponsor(sponsor.logo, sponsor.name),
+                    .sponsor(sponsor.logo.mobile, sponsor.name, sponsor.officialWebsite, sponsor.facebook),
                     .info(sponsor.aboutUs),
-                    .seeMore(sponsor.officialWebsite)
+//                    .seeMore(sponsor.officialWebsite)
                 ]
             }
         }
     }
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+    }
+    
+    
+    private func setupTableView() {
         
+        sponsorsTableView.registerNib(identifier: ConferenceTableViewCell.identifier)
     }
     
     private var cells: [SponsorCellStyle] = []
@@ -105,23 +119,51 @@ class SponsorDetailViewController: MPBaseViewController {
         
         openURL(sponsor?.officialWebsite)
     }
+    
+    
+    @IBAction func onClickWebSiteButton(_ sender: Any) {
+        openURL(sponsor?.officialWebsite)
+    }
+    
+    
+    @IBAction func onClickFbButton(_ sender: Any) {
+        openURL(sponsor?.facebook)
+    }
 }
 
 extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return (section == 2) ? 20 : 0
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return cells.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return cells.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: cells[indexPath.row].identifier(),
+            withIdentifier: cells[indexPath.section].identifier(),
             for: indexPath
         )
         
-        cells[indexPath.row].manipulateCell(cell, controller: self)
+        if let conferenceTableViewCell = cell as? ConferenceTableViewCell
+        {
+            conferenceTableViewCell.delegate = self
+        }
+        
+        cells[indexPath.section].manipulateCell(cell, controller: self)
         
         return cell
     }
@@ -131,16 +173,27 @@ extension SponsorDetailViewController: UITableViewDataSource, UITableViewDelegat
         if let sponsorImageView = cell.viewWithTag(3) as? UIImageView {
         
             sponsorImageView.layoutIfNeeded()
-            
-            sponsorImageView.makeCircle()
         }
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch cells[indexPath.section]
+        {
+        case .sponsor: break
+            
+        case .info: break
+            
+        case .speech(let speakers):
+            didTouchTalkInfoCell(speakers[0].sessionId)
+        case .seeMore: break
+        }
+    }
 }
 
 extension SponsorDetailViewController: SponsorSpeechCellDelegate {
     
     func likeButtonDidTouched(_ cell: SponsorSpeechCell, sessionId: Int, isLiked: Bool) {
+        
         
         if isLiked {
             
@@ -204,3 +257,55 @@ extension SponsorDetailViewController: SponsorSpeechCellDelegate {
         }
     }
 }
+
+extension SponsorDetailViewController : ConferenceTableViewCellDelegate{
+    
+    func likeButtonDidTouched(_ cell: ConferenceTableViewCell)
+    {
+        guard let indexPath = sponsorsTableView.indexPath(for: cell) else { return }
+        
+        switch cells[indexPath.section] {
+            
+        case .sponsor: break
+     
+        case .info: break
+            
+        case .speech(let speakers):
+            let isLiked = cell.addToMyScheduleButton.isSelected
+            
+            
+            if isLiked {
+                
+                spinner.startAnimating()
+                
+                SessionProvider.fetchSession(id: speakers[0].sessionId, completion: { [weak self] result in
+                    
+                    self?.throwToMainThreadAsync {
+                        
+                        switch result {
+                            
+                        case .success(let room): FavoriteManager.shared.addSession(room: room)
+                            
+                        case .failure(let error):
+                            
+                            print(error)
+                            
+                        }
+                        
+                        self?.spinner.stopAnimating()
+                    }
+                })
+                
+            } else {
+                
+                FavoriteManager.shared.removeSession(id: speakers[0].sessionId)
+            }
+        case .seeMore: break
+            
+        }
+        
+        
+        
+    }
+}
+

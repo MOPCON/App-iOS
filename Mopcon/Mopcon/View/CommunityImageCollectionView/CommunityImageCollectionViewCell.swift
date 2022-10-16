@@ -18,6 +18,7 @@ class CommunityImageCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         self.backgroundColor = UIColor.clear
+        
         self.layer.masksToBounds = true
     }
     
@@ -38,7 +39,7 @@ class CommunityImageCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        communityImageView.makeCircle()
+        communityImageView.makeCorner(radius: communityImageView.frame.size.height / 2)
     }
     
 }

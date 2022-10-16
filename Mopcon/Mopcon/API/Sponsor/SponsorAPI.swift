@@ -18,7 +18,7 @@ enum SponsorAPI: LKRequest {
         
         switch self {
             
-        case .sponsor, .sponsorList: return "/api/2020/sponsor"
+        case .sponsor, .sponsorList: return "/api/2022/sponsor"
         
         }
     }

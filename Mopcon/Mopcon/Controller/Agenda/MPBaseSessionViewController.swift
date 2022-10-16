@@ -8,6 +8,8 @@
 
 import UIKit
 
+let ConferenceTableViewCellBasisHeight = 226.0
+
 class MPBaseSessionViewController: MPBaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
@@ -22,6 +24,11 @@ class MPBaseSessionViewController: MPBaseViewController, UITableViewDataSource, 
         tableView.separatorStyle = .none
         
         tableView.backgroundColor = UIColor.clear
+        
+        if #available(iOS 15.0, *) {
+            
+          tableView.sectionHeaderTopPadding = 0.0
+        }
         
         setupTableViewCell()
     }
@@ -51,6 +58,10 @@ class MPBaseSessionViewController: MPBaseViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
     }
     
     //MARK: - UITableViewDelegate

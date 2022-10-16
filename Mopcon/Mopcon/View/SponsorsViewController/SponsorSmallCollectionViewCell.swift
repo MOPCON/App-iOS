@@ -16,7 +16,7 @@ class SponsorSmallCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         
-        sponsorImageView.makeCircle()
+        sponsorImageView.makeCorner(radius: sponsorImageView.frame.size.height / 2)
     }
     
     func updateUI(sponsor: Sponsor){
@@ -26,7 +26,11 @@ class SponsorSmallCollectionViewCell: UICollectionViewCell {
             ? sponsor.nameEn
             : sponsor.name
         
-        sponsorImageView.loadImage(sponsor.logo)
+        sponsorImageView.contentMode = UIView.ContentMode.scaleAspectFit
+        
+        sponsorImageView.backgroundColor = .white
+        
+        sponsorImageView.loadImage(sponsor.logo.mobile)
     }
 
 }

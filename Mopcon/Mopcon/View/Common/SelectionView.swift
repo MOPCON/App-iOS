@@ -39,27 +39,28 @@ class SelectionView: UIView {
     weak var dataSource: SelectionViewDataSource? {
         
         didSet {
-        
+            
+            
             setupSelectionViews()
-        
-            setupIndicatorView()
+
+//            setupIndicatorView()
+   
         }
     }
     
-    var seletedIndex: Int? {
+    var selectedIndex: Int {
         
         for (index, subview) in stackView.arrangedSubviews.enumerated() {
             
             if let button = subview as? UIButton {
                 
                 if button.isSelected {
-                    
                     return index
                 }
             }
         }
         
-        return nil
+        return 0
     }
     
     //MARK: - Private view object
@@ -74,7 +75,9 @@ class SelectionView: UIView {
         return stack
     }()
     
-    private let indicatorView = UIView()
+
+    
+//    private let indicatorView = UIView()
     
     private var indicatorCenterXContraint: NSLayoutConstraint?
     
@@ -85,76 +88,80 @@ class SelectionView: UIView {
         
         for index in 0...(dataSource.numberOfButton(self)-1) {
             
-            let button = UIButton()
-            
+            let selectionButton = SelectionButton(buttonTitle: dataSource.titleOfButton(self, at: index), titleColor: dataSource.colorOfTitleInButton(self, at: index)!)
+
             if index == 0 {
-            
-                button.isSelected = true
+
+                selectionButton.button.isSelected = true
+                selectionButton.selected()
             }
             
-            button.tag = index
-            
-            button.setTitle(dataSource.titleOfButton(self, at: index), for: .normal)
-            
-            button.setTitleColor(dataSource.colorOfTitleInButton(self, at: index), for: .normal)
-            
-            button.addTarget(
+            selectionButton.button.tag = index
+   
+            selectionButton.button.addTarget(
                 self,
                 action: #selector(userDidTouchButton(_:)),
                 for: .touchUpInside
             )
             
-            stackView.addArrangedSubview(button)
+            stackView.addArrangedSubview(selectionButton)
         }
         
         addAndStickSubView(stackView)
     }
     
-    private func setupIndicatorView() {
-        
-        guard let dataSource = dataSource,
-              let firstView = stackView.arrangedSubviews.first
-        else {
-            return
-        }
-        
-        indicatorView.backgroundColor = dataSource.colorOfIndicator(self)
-        
-        indicatorView.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(indicatorView)
-        
-        indicatorCenterXContraint = indicatorView.centerXAnchor.constraint(equalTo: firstView.centerXAnchor)
-        
-        NSLayoutConstraint.activate([
-        
-            indicatorView.bottomAnchor.constraint(equalTo: firstView.bottomAnchor),
-            indicatorView.heightAnchor.constraint(equalToConstant: 2),
-            indicatorView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 80.0 / 375.0),
-            indicatorCenterXContraint!
-            
-        ])
-    }
+//    private func setupIndicatorView() {
+//
+//        guard let dataSource = dataSource,
+//              let firstView = stackView.arrangedSubviews.first
+//        else {
+//            return
+//        }
+//
+//        indicatorView.backgroundColor = dataSource.colorOfIndicator(self)
+//
+//        indicatorView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        addSubview(indicatorView)
+//
+//        indicatorCenterXContraint = indicatorView.centerXAnchor.constraint(equalTo: firstView.centerXAnchor)
+//
+//        NSLayoutConstraint.activate([
+//
+//            indicatorView.bottomAnchor.constraint(equalTo: firstView.bottomAnchor),
+//            indicatorView.heightAnchor.constraint(equalToConstant: 2),
+//            indicatorView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 80.0 / 375.0),
+//            indicatorCenterXContraint!
+//
+//        ])
+//    }
 
+
+    
     //MARK: - Action
     @objc private func userDidTouchButton(_ sender: UIButton) {
         
-        let animator = UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut, animations: { [weak self] in
-        
-            self?.indicatorCenterXContraint?.isActive = false
-            
-            self?.indicatorCenterXContraint = self?.indicatorView.centerXAnchor.constraint(equalTo: sender.centerXAnchor)
-            
-            self?.indicatorCenterXContraint?.isActive = true
-            
-            self?.layoutIfNeeded()
-        })
-        
-        animator.startAnimation()
+//        let animator = UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut, animations: { [weak self] in
+//
+//            self?.indicatorCenterXContraint?.isActive = false
+//
+//            self?.indicatorCenterXContraint = self?.indicatorView.centerXAnchor.constraint(equalTo: sender.centerXAnchor)
+//
+//            self?.indicatorCenterXContraint?.isActive = true
+//
+//            self?.layoutIfNeeded()
+//        })
+//
+//        animator.startAnimation()
         
         resetButton()
-        
+
         sender.isSelected = true
+        
+        if let selectionButton = sender.superview as? SelectionButton
+        {
+            selectionButton.selected()
+        }
         
         dataSource?.didSelectedButton(self, at: sender.tag)
     }
@@ -163,9 +170,11 @@ class SelectionView: UIView {
         
         stackView.arrangedSubviews.forEach({ subview in
             
-            guard let button = subview as? UIButton else { return }
+            guard let selectionButton = subview as? SelectionButton else { return }
             
-            button.isSelected = false
+            selectionButton.unselected()
+            
+            selectionButton.button.isSelected = false
         })
     }
 }

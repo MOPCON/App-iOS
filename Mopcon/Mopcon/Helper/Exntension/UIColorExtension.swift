@@ -10,21 +10,25 @@ import UIKit
 
 extension UIColor {
     
-    static let mainThemeColor = UIColor(hex: "#001333")
+    static let mainThemeColor = UIColor(hex: "#022b42")
     
-    static let secondThemeColor = UIColor(hex: "#ffcc00")
+    static let secondThemeColor = UIColor(hex: "#51a3d3")
+    
+    static let tabbarSelectedColor = UIColor(hex: "#ff7987")
     
     static let navigationBottomBorderColor = UIColor(hex: "#00aaf0")
     
-    static let dark = UIColor(hex: "#001333")
+    static let dark = UIColor(hex: "#022b42")
     
-    static let tagTextColor = UIColor(hex: "#001333")
+    static let tagTextColor = UIColor.white
         
-    static let tagBackgroundColor = UIColor(hex: "#ffcc00")
+    static let tagBackgroundColor = UIColor(hex: "#51a3d3")
         
-    static let pink = UIColor(hex: "#ff4392")
+    static let pink = UIColor(hex: "#ff7987")
     
     static let brownGray = UIColor(hex: "#878787")
+    
+    static let textGray = UIColor(hex: "#C8C7C8")
     
     public convenience init?(hex: String, alpha: CGFloat = 1.0) {
         
@@ -38,8 +42,8 @@ extension UIColor {
             return nil
         }
         
-        var rgbValue:UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
+        var rgbValue:UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
         
         self.init(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,

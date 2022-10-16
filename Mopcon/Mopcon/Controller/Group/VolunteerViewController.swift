@@ -47,8 +47,7 @@ class VolunteerViewController: GroupBaseViewController {
         
         if segue.identifier == Segue.detail,
            let destinationVC = segue.destination as? VolunteerDetailViewController {
-            
-            destinationVC.volunteerId = sender as? String
+            destinationVC.volunteerId = sender as? Int
         }
     }
     
@@ -78,6 +77,10 @@ class VolunteerViewController: GroupBaseViewController {
         )
         
         return communityImageCell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 30
     }
     
     func collectionView(

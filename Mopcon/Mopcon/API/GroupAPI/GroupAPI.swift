@@ -14,25 +14,25 @@ enum GroupAPI: LKRequest {
     
     case organizer(String)
     
-    case participant(String)
+    case participant(Int)
     
     case volunteerList
     
-    case volunteer(String)
+    case volunteer(Int)
     
     var endPoint: String {
         
         switch self {
         
-        case .community: return "/api/2020/community"
+        case .community: return "/api/2022/community"
             
-        case .organizer(let id): return "/api/2020/community/organizer/\(id)"
+        case .organizer(let id): return "/api/2022/community/organizer/\(id)"
             
-        case .participant(let id): return "/api/2020/community/participant/\(id)"
+        case .participant(let id): return "/api/2022/community/participant/\(id)"
             
-        case .volunteerList: return "/api/2020/volunteer"
+        case .volunteerList: return "/api/2022/volunteer"
             
-        case .volunteer(let id): return "/api/2020/volunteer/\(id)"
+        case .volunteer(let id): return "/api/2022/volunteer/\(id)"
             
         }
     }

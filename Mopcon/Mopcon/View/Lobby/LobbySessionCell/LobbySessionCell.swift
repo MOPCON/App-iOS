@@ -32,13 +32,14 @@ class LobbySessionCell: UITableViewCell {
         
         didSet {
         
-            emptyView.layer.cornerRadius = 6
+            emptyView.layer.cornerRadius = 10
             
             emptyView.layer.borderColor = UIColor.secondThemeColor?.cgColor
             
             emptyView.layer.borderWidth = 1.0
             
             emptyView.clipsToBounds = true
+            
         }
     }
     
@@ -46,9 +47,8 @@ class LobbySessionCell: UITableViewCell {
         
         didSet {
         
-            moreBtn.layer.cornerRadius = 5
-            
-            emptyView.clipsToBounds = true
+            moreBtn.layer.cornerRadius = moreBtn.frame.height / 2
+            moreBtn.tintColor = UIColor.pink
         }
     }
     

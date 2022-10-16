@@ -12,12 +12,12 @@ class TagFactory {
     
     static func unrecordableTag() -> Tag {
         
-        return Tag(color: TagColor(mobile: "#ff4492"), name: "禁止錄影")
+        return Tag(color: TagColor(mobile: "#ff7987"), name: "禁止錄影")
     }
     
     static func partnerTag() -> Tag {
         
-        return Tag(color: TagColor(mobile: "#01aaf0"), name: "夥伴議程")
+        return Tag(color: TagColor(mobile: "#5d6160"), name: "夥伴議程")
     }
     
     static func levelTag(level: String) -> Tag {
@@ -27,7 +27,7 @@ class TagFactory {
     
     static func keynoteTag() -> Tag {
         
-        return Tag(color: TagColor(mobile: "#ff4492"), name: "Keynote")
+        return Tag(color: TagColor(mobile: "#ff7987"), name: "Keynote")
     }
     
     static func onlineTag() -> Tag {

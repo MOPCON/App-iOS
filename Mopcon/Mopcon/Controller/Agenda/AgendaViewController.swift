@@ -42,7 +42,7 @@ class AgendaViewController: MPBaseViewController {
         
         scheduleSegmentedControl.setTitleTextAttributes(
             [
-                NSAttributedString.Key.foregroundColor: UIColor.mainThemeColor ?? UIColor.white,
+                NSAttributedString.Key.foregroundColor: UIColor.white,
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)
             ],
             for: .selected
@@ -51,17 +51,17 @@ class AgendaViewController: MPBaseViewController {
         if #available(iOS 13, *) {
             scheduleSegmentedControl.setTitleTextAttributes(
                 [
-                    NSAttributedString.Key.foregroundColor: UIColor.secondThemeColor ?? UIColor.blue,
+                    NSAttributedString.Key.foregroundColor: UIColor.white,
                     NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)
                 ],
                 for: .normal
             )
             
             scheduleSegmentedControl.layer.borderWidth = 1
-            scheduleSegmentedControl.layer.borderColor = UIColor.secondThemeColor?.cgColor
+            scheduleSegmentedControl.layer.borderColor = UIColor.pink?.cgColor
             scheduleSegmentedControl.backgroundColor = UIColor.dark
         }
-        
+    
         fetchSessions()
     }
     
@@ -128,9 +128,9 @@ class AgendaViewController: MPBaseViewController {
                     guard let strongSelf = self else { return }
                     
                     self?.dateSelectionView.dataSource = self
-                    
+
                     self?.sessionViewController?.updateData(
-                        sessions: sessionLists[strongSelf.dateSelectionView.seletedIndex!].period
+                        sessions: sessionLists[strongSelf.dateSelectionView.selectedIndex].period
                     )
                     
                     self?.favoriteController?.selectedDate = sessionLists.first?.date
@@ -151,10 +151,9 @@ class AgendaViewController: MPBaseViewController {
             
         case 0: sessionContainerView.isHidden = false
             
-        case 1: favirateContainerView.isHidden = false
+        case 1: unconfContainerView.isHidden = false
            
-        case 2: unconfContainerView.isHidden = false
-            
+        case 2: favirateContainerView.isHidden = false
         default: break
         
         }
@@ -169,6 +168,7 @@ class AgendaViewController: MPBaseViewController {
         unconfContainerView.isHidden = true
     }
 }
+
 
 extension AgendaViewController: SelectionViewDataSource {
     

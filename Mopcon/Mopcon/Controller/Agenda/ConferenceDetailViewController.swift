@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 enum ConferenceType {
     
     case session(Int)
@@ -42,15 +43,23 @@ class ConferenceDetailViewController: MPBaseViewController {
     
     @IBOutlet weak var scheduleInfoLabel: UILabel!
     
+    @IBOutlet weak var scheduleInfoHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var addToMyScheduleButtonItem: UIBarButtonItem!
     
     @IBOutlet weak var sponsorTitleLabel: UILabel!
     
     @IBOutlet weak var sponsorImageView: UIImageView!
     
-    @IBOutlet weak var sponsorLabel: UILabel!
-    
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var separatorLineView: UIImageView!
+    
+    @IBOutlet weak var sponsorNameLabel: UILabel!
     
     var tags: [Tag] = [] {
         
@@ -72,19 +81,33 @@ class ConferenceDetailViewController: MPBaseViewController {
         }
     }
     
+    @IBOutlet weak var tagViewHeightConstraint: NSLayoutConstraint!
+    
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         scrollView.isHidden = true
+        
+        imageStackView.spacing = 90
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        sponsorImageView.makeCircle()
+        sponsorImageView.makeCorner(radius: sponsorImageView.frame.size.height / 2)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        for view in imageStackView.arrangedSubviews
+        {
+            print(view.frame)
+        }
+    
+    }
     @IBAction func didTouchedLikedBtn(_ sender: UIBarButtonItem) {
         
         if sender.image == UIImage.asset(.like) {
@@ -142,7 +165,10 @@ class ConferenceDetailViewController: MPBaseViewController {
                     } else {
                         
                         self?.addToMyScheduleButtonItem.image = UIImage.asset(.dislike)
+    
                     }
+                    
+                    self?.addToMyScheduleButtonItem.tintColor = UIColor.pink
                 }
                 
             case .failure(let error):
@@ -155,63 +181,110 @@ class ConferenceDetailViewController: MPBaseViewController {
     // MARK: - Layout View
     func updateUI(room: Room) {
         
+        self.locationLabel.text = room.room //+ ", " + room.floor
+        
+        let start = DateFormatter.string(for: room.startedAt, formatter: "HH:mm") ?? ""
+        
+        let end = DateFormatter.string(for: room.endedAt, formatter: "HH:mm") ?? ""
+        
+        self.timeLabel.text = start + "-" + end
+        
+        //////////////////////////////////////////////////
+
         if let sponsor = room.sponsorInfo {
         
             sponsorImageView.isHidden = false
             
             sponsorTitleLabel.isHidden = false
             
-            sponsorLabel.isHidden = false
+            sponsorImageView.kf.setImage(with: URL(string: sponsor.logo.mobile))
             
-            sponsorImageView.kf.setImage(with: URL(string: sponsor.logo))
+            separatorLineView.isHidden = false
             
-            switch CurrentLanguage.getLanguage() {
-                
-            case Language.chinese.rawValue:
-            
-                sponsorLabel.text = sponsor.name
-                
-            case Language.english.rawValue:
-            
-                sponsorLabel.text = sponsor.nameEn
-                
-            default: break
-                
-            }
-            
+            sponsorNameLabel.isHidden = false
         } else {
             
             sponsorImageView.isHidden = true
             
             sponsorTitleLabel.isHidden = true
             
-            sponsorLabel.isHidden = true
+            separatorLineView.isHidden = true
+            
+            sponsorNameLabel.isHidden = true
         }
         
         imageStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
 
-        for speaker in room.speakers {
+        
+        for speaker in room.speakers{
+     
+            let speakerAvatarView = SpeakerAvatarView()
             
-            let imageView = UIImageView()
+            let imgUrl = MPConstant.baseURL + "/" + speaker.img.mobile
             
-            imageView.loadImage(speaker.img.mobile)
+            speakerAvatarView.loadImage(imgUrl)
             
-            imageStackView.addArrangedSubview(imageView)
+            imageStackView.addArrangedSubview(speakerAvatarView)
+
+            if room.speakers.count > 1 {
+                continue;
+            }
             
-            imageView.contentMode = .scaleAspectFit
+            let coverImageView = UIImageView()
+
+            speakerAvatarView.addSubview(coverImageView)
             
-            imageView.widthAnchor.constraint(
-                equalTo: view.widthAnchor,
-                multiplier: 80/375
-            ).isActive = true
+            let coverImage = UIImage.asset(.coverImage)
+
+            coverImageView.image = coverImage
+
+            coverImageView.translatesAutoresizingMaskIntoConstraints = false
+            
+            coverImageView.contentMode = .scaleAspectFill
+
+            speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .width, relatedBy: .equal, toItem: speakerAvatarView, attribute: .width, multiplier: 1, constant: 0))
+
+            speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .height, relatedBy: .equal, toItem: speakerAvatarView, attribute: .height, multiplier: 1, constant: 0))
+
+            speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .top, relatedBy: .equal, toItem: speakerAvatarView, attribute: .top, multiplier: 1, constant: 0))
+
+            speakerAvatarView.addConstraint(NSLayoutConstraint.init(item: coverImageView, attribute: .left, relatedBy: .equal, toItem: speakerAvatarView, attribute: .left, multiplier: 1, constant: 0))
         }
         
         if !room.communityPartner.isEmpty {
         
             communityPartner.text! += "#合作社群－\(room.communityPartner)"
         }
+       
         
         generateTags(room: room)
+        
+        
+        /**
+         計算高度  layoutConstraint Label FontSize = 13
+         */
+        
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 13)
+        
+        var totalString = String()
+        for tag in tags {
+            totalString.append(tag.name)
+        }
+        
+        label.numberOfLines = 0
+        label.text = totalString
+        let constraintRect = label.sizeThatFits(CGSize(width: self.view.bounds.size.width - 40 - CGFloat(16 * room.tags.count) - CGFloat(10 * room.tags.count), height: CGFloat.greatestFiniteMagnitude))
+      
+        let boundingBox = totalString.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)], context: nil)
+        
+        self.tagViewHeightConstraint.constant += (ceil(boundingBox.size.height / 20) * (20 + 13) - 20)
+        
+        
+        
+        //////////////////////////////////////////////////
+
+        
         
         let language = CurrentLanguage.getLanguage()
 
@@ -230,6 +303,8 @@ class ConferenceDetailViewController: MPBaseViewController {
                 .joined(separator: " | ")
 
             speakerJob.text = jobs
+            
+            sponsorNameLabel.text = room.sponsorInfo?.name
 
         case Language.english.rawValue:
 
@@ -244,11 +319,15 @@ class ConferenceDetailViewController: MPBaseViewController {
             .joined(separator: " | ")
 
             speakerJob.text = jobs
+            
+            sponsorNameLabel.text = room.sponsorInfo?.nameEn
 
         default:
 
             break
         }
+        
+       
     }
     
     func generateTags(room: Room) {

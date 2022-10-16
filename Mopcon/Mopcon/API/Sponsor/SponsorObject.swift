@@ -26,7 +26,7 @@ struct SponsorList: Codable {
 
 struct Sponsor: Codable {
     
-    let logo: String
+    let logo: SpeakerImage
     
     let name: String
     

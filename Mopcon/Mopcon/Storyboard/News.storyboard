@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ric-uL-TkP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ric-uL-TkP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,55 +22,56 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsTableViewCell" rowHeight="205" id="E73-Jt-byY" customClass="NewsTableViewCell" customModule="Mopcon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="205"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="205"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E73-Jt-byY" id="T7z-D3-qZu">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="205"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfd-DY-8Qj">
-                                                    <rect key="frame" x="17.5" y="8" width="379" height="189"/>
+                                                    <rect key="frame" x="22" y="10" width="370" height="185"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="2019/10/10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Y9-vG-854">
-                                                            <rect key="frame" x="16" y="16" width="90.5" height="23.5"/>
-                                                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
-                                                            <color key="textColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="10/10(六)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Y9-vG-854">
+                                                            <rect key="frame" x="12" y="21" width="75.5" height="25.5"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
+                                                            <color key="textColor" red="1" green="0.47450980392156861" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="任務遊戲倒數20分鐘 !" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VY-9m-iu5">
-                                                            <rect key="frame" x="16" y="47.5" width="178" height="25.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="任務遊戲倒數20分鐘 !" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VY-9m-iu5">
+                                                            <rect key="frame" x="12" y="54.5" width="346" height="25.5"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                                            <color key="textColor" red="0.78431372549019607" green="0.7803921568627451" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="還沒搜集到的朋友，快來看 360 直播影片，就知道所有隱藏版徽章位置！" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFB-ak-9cu">
+                                                            <rect key="frame" x="12" y="88" width="335.5" height="81"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="還沒搜集到的朋友，快來看 360 直播影片，就知道所有隱藏版徽章位置！" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFB-ak-9cu">
-                                                            <rect key="frame" x="16" y="81" width="343.5" height="92"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                                            <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:17pm " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeu-bp-0CL">
-                                                            <rect key="frame" x="283.5" y="16" width="75.5" height="23.5"/>
-                                                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
-                                                            <color key="textColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <rect key="frame" x="92.5" y="21" width="72" height="25.5"/>
+                                                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
+                                                            <color key="textColor" red="1" green="0.47450980390000003" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="DFB-ak-9cu" firstAttribute="top" secondItem="8VY-9m-iu5" secondAttribute="bottom" constant="8" id="D18-Ri-loU"/>
-                                                        <constraint firstAttribute="trailing" secondItem="zeu-bp-0CL" secondAttribute="trailing" constant="20" id="En9-HC-X5E"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8VY-9m-iu5" secondAttribute="trailing" constant="12" id="FN8-5W-prE"/>
                                                         <constraint firstAttribute="bottom" secondItem="DFB-ak-9cu" secondAttribute="bottom" constant="16" id="OR2-OB-znX"/>
+                                                        <constraint firstItem="zeu-bp-0CL" firstAttribute="leading" secondItem="1Y9-vG-854" secondAttribute="trailing" constant="5" id="TIm-fg-TUc"/>
                                                         <constraint firstItem="8VY-9m-iu5" firstAttribute="top" secondItem="1Y9-vG-854" secondAttribute="bottom" constant="8" id="ZbJ-06-7IK"/>
-                                                        <constraint firstItem="8VY-9m-iu5" firstAttribute="leading" secondItem="zfd-DY-8Qj" secondAttribute="leading" constant="16" id="cxr-6H-X8X"/>
-                                                        <constraint firstItem="1Y9-vG-854" firstAttribute="leading" secondItem="zfd-DY-8Qj" secondAttribute="leading" constant="16" id="fMw-t8-ecb"/>
-                                                        <constraint firstItem="1Y9-vG-854" firstAttribute="top" secondItem="zfd-DY-8Qj" secondAttribute="top" constant="16" id="h3u-m7-zYO"/>
+                                                        <constraint firstItem="8VY-9m-iu5" firstAttribute="leading" secondItem="zfd-DY-8Qj" secondAttribute="leading" constant="12" id="cxr-6H-X8X"/>
+                                                        <constraint firstItem="1Y9-vG-854" firstAttribute="leading" secondItem="zfd-DY-8Qj" secondAttribute="leading" constant="12" id="fMw-t8-ecb"/>
+                                                        <constraint firstItem="1Y9-vG-854" firstAttribute="top" secondItem="zfd-DY-8Qj" secondAttribute="top" constant="21" id="h3u-m7-zYO"/>
                                                         <constraint firstItem="DFB-ak-9cu" firstAttribute="width" secondItem="zfd-DY-8Qj" secondAttribute="width" multiplier="311:343" id="rBN-vj-gFe"/>
-                                                        <constraint firstItem="DFB-ak-9cu" firstAttribute="leading" secondItem="zfd-DY-8Qj" secondAttribute="leading" constant="16" id="vek-lo-MZc"/>
-                                                        <constraint firstItem="zeu-bp-0CL" firstAttribute="top" secondItem="zfd-DY-8Qj" secondAttribute="top" constant="16" id="wPS-Uz-q4Q"/>
+                                                        <constraint firstItem="DFB-ak-9cu" firstAttribute="leading" secondItem="zfd-DY-8Qj" secondAttribute="leading" constant="12" id="vek-lo-MZc"/>
+                                                        <constraint firstItem="zeu-bp-0CL" firstAttribute="centerY" secondItem="1Y9-vG-854" secondAttribute="centerY" id="vwd-nm-cdD"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="6"/>
+                                                            <integer key="value" value="10"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                                             <integer key="value" value="1"/>
@@ -80,13 +82,13 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="zfd-DY-8Qj" firstAttribute="centerY" secondItem="T7z-D3-qZu" secondAttribute="centerY" id="01j-f3-YiM"/>
-                                                <constraint firstItem="zfd-DY-8Qj" firstAttribute="top" secondItem="T7z-D3-qZu" secondAttribute="top" constant="8" id="1PN-om-ifw"/>
-                                                <constraint firstAttribute="bottom" secondItem="zfd-DY-8Qj" secondAttribute="bottom" constant="8" id="92h-Qp-8oF"/>
-                                                <constraint firstItem="zfd-DY-8Qj" firstAttribute="width" secondItem="T7z-D3-qZu" secondAttribute="width" multiplier="343:375" id="GL0-Hu-tBf"/>
+                                                <constraint firstItem="zfd-DY-8Qj" firstAttribute="top" secondItem="T7z-D3-qZu" secondAttribute="top" constant="10" id="1PN-om-ifw"/>
+                                                <constraint firstAttribute="bottom" secondItem="zfd-DY-8Qj" secondAttribute="bottom" constant="10" id="92h-Qp-8oF"/>
+                                                <constraint firstItem="zfd-DY-8Qj" firstAttribute="width" secondItem="T7z-D3-qZu" secondAttribute="width" multiplier="335:375" id="GL0-Hu-tBf"/>
                                                 <constraint firstItem="zfd-DY-8Qj" firstAttribute="centerX" secondItem="T7z-D3-qZu" secondAttribute="centerX" id="epz-O4-CY0"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.074509803921568626" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="themeColor"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="1Y9-vG-854" id="9wN-zp-1aP"/>
                                             <outlet property="dedcriptionLabel" destination="DFB-ak-9cu" id="ddr-qR-Rce"/>
@@ -98,14 +100,14 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="zi3-zU-hYw"/>
+                        <color key="backgroundColor" name="themeColor"/>
                         <constraints>
                             <constraint firstItem="XBC-wK-9bj" firstAttribute="trailing" secondItem="zi3-zU-hYw" secondAttribute="trailing" id="Kxz-fi-IA3"/>
                             <constraint firstItem="XBC-wK-9bj" firstAttribute="bottom" secondItem="zi3-zU-hYw" secondAttribute="bottom" id="YU3-6e-UTT"/>
                             <constraint firstItem="XBC-wK-9bj" firstAttribute="top" secondItem="zi3-zU-hYw" secondAttribute="top" id="ljw-kU-Ckz"/>
                             <constraint firstItem="XBC-wK-9bj" firstAttribute="leading" secondItem="zi3-zU-hYw" secondAttribute="leading" id="tWL-Yc-fon"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="zi3-zU-hYw"/>
                     </view>
                     <navigationItem key="navigationItem" title="最新消息" id="tsv-TW-hoN"/>
                     <connections>
@@ -139,4 +141,9 @@
             <point key="canvasLocation" x="3242.4000000000001" y="117.39130434782609"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="themeColor">
+            <color red="0.0078431372549019607" green="0.16862745098039217" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

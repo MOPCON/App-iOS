@@ -16,9 +16,9 @@ enum SessionAPI: LKRequest {
         
         switch self {
             
-        case .allSessions: return "/api/2020/session"
+        case .allSessions: return "/api/2022/session"
             
-        case .session(let id): return "/api/2020/session/\(id)"
+        case .session(let id): return "/api/2022/session/\(id)"
         }
     }
 }

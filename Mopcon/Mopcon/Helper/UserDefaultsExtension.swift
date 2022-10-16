@@ -17,3 +17,17 @@ class CurrentLanguage {
         }
     }
 }
+
+class Preference {
+    class func load() -> String {
+        if let preference = UserDefaults.standard.string(forKey: MPConstant.preference) {
+            return preference
+        } else {
+            return ""
+        }
+    }
+    
+    class func store(_ preference: String) {
+        UserDefaults.standard.setValue(preference, forKey: MPConstant.preference)
+    }
+}

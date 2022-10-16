@@ -29,7 +29,7 @@ enum InitialAPI: LKRequest {
         
         switch self {
         
-        case .initial: return "/api/2020/initial"
+        case .initial: return "/api/2022/initial"
             
         case .version(let bundleID): return bundleID
             

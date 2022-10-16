@@ -78,7 +78,7 @@ class GroupProvider: MainThreadHelper {
         )
     }
     
-    static func fetchParticipant(id: String, completion: @escaping ParticipantResultType) {
+    static func fetchParticipant(id: Int, completion: @escaping ParticipantResultType) {
         
         HTTPClient.shared.request(
             GroupAPI.participant(id),
@@ -147,7 +147,7 @@ class GroupProvider: MainThreadHelper {
         )
     }
     
-    static func fetchVolunteer(id: String, completion: @escaping VolunteerResultType) {
+    static func fetchVolunteer(id: Int, completion: @escaping VolunteerResultType) {
         
         HTTPClient.shared.request(
             GroupAPI.volunteer(id),
@@ -169,7 +169,7 @@ class GroupProvider: MainThreadHelper {
                         }
                         
                     } catch {
-                        
+                        print(error)
                         completion(Result.failure(error))
                     }
                     

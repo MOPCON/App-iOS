@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlignedCollectionViewFlowLayout
 
 enum TagViewType {
     
@@ -36,7 +37,7 @@ extension MPTagViewDataSource {
 }
 
 class MPTagView: UIView {
-
+    
     weak var dataSource: MPTagViewDataSource? {
         
         didSet {
@@ -49,15 +50,13 @@ class MPTagView: UIView {
     
     lazy var colletionView: UICollectionView = {
 
-        let flowLayout = UICollectionViewFlowLayout()
+        let flowLayout = AlignedCollectionViewFlowLayout(horizontalAlignment: .left, verticalAlignment: .top)
         
-        flowLayout.estimatedItemSize = CGSize(width: 46, height: 18)
+        flowLayout.estimatedItemSize = CGSize(width: 46, height: 20)
 
-        flowLayout.minimumLineSpacing = 6
+        flowLayout.minimumLineSpacing = 10
 
-        flowLayout.minimumInteritemSpacing = 0
-
-        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumInteritemSpacing = 10
         
         let tempCollectionView = UICollectionView(
             frame: CGRect(x: 0, y: 0, width: 100, height: 100),
@@ -84,9 +83,20 @@ class MPTagView: UIView {
         
         tempCollectionView.showsHorizontalScrollIndicator = false
         
+        tempCollectionView.showsVerticalScrollIndicator = false
+        
         return tempCollectionView
     }()
 
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     func reloadData() {
         
         colletionView.reloadData()
@@ -117,13 +127,9 @@ extension MPTagView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
             
         case .hollow:
             
-            tagViewCell.backgroundColor = UIColor.clear
+            tagViewCell.backgroundColor = dataSource.colorForTags(self, index: indexPath.row)
             
-            tagViewCell.label.textColor = dataSource.colorForTags(self, index: indexPath.row)
-            
-            tagViewCell.layer.borderColor = dataSource.colorForTags(self, index: indexPath.row)?.cgColor
-            
-            tagViewCell.layer.borderWidth = 1
+            tagViewCell.label.textColor = .white
             
         case .solid:
         
@@ -140,7 +146,7 @@ extension MPTagView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let rightPadding = CGFloat(((dataSource?.numberOfTags(self) ?? 0) - 1) * 6)
+        let rightPadding = CGFloat(((dataSource?.numberOfTags(self) ?? 0) - 1) * 3)
 
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: rightPadding)
     }
@@ -152,7 +158,7 @@ class TagViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         setupCell()
     }
     
@@ -163,10 +169,10 @@ class TagViewCell: UICollectionViewCell {
     }
     
     private func setupCell() {
-
+        
         addSubview(label)
 
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 13)
 
         label.textColor = UIColor.white
 
@@ -182,6 +188,7 @@ class TagViewCell: UICollectionViewCell {
         layer.cornerRadius = frame.height * 0.5
         
         clipsToBounds = true
+       
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
@@ -193,7 +200,7 @@ class TagViewCell: UICollectionViewCell {
         newFrame.size = size
 
         layoutAttributes.frame = newFrame
-
+        
         return layoutAttributes
     }
     

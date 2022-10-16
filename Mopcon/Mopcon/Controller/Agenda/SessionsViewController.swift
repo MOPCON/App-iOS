@@ -31,8 +31,86 @@ class SessionsViewController: MPBaseSessionViewController {
         
         tableView.reloadData()
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    // MARK: Private Method
+    
+    func tableViewRowHeight(indexPath:IndexPath) -> CGFloat{
+        
+        let room = sessions[indexPath.section].room[indexPath.row]
+        var tags: [Tag] = []
+        
+        
+        if room.isKeynote {
+            
+            tags.append(TagFactory.keynoteTag())
+        }
+        
+        if room.isOnline {
+            
+            tags.append(TagFactory.onlineTag())
+        }
+        
+        if !room.recordable {
+            
+            tags.append(TagFactory.unrecordableTag())
+        }
+        
+        if room.sponsorId != 0 {
+            
+            tags.append(TagFactory.partnerTag())
+        }
+        
+        for category in room.tags {
+            
+            tags.append(category)
+        }
+        
+        /**
+         計算高度  layoutConstraint Label FontSize = 13
+         */
+        
+        let label = UILabel()
+        
+        label.font = UIFont.systemFont(ofSize: 13)
+        
+        var totalString = String()
+        
+        for tag in tags {
+            
+            totalString.append(tag.name)
+        }
+        
+        label.numberOfLines = 0
+        
+        label.text = totalString
+        
+        var constraintRect = label.sizeThatFits(CGSize(width: tableView.bounds.size.width - 40 - CGFloat(16 * room.tags.count) - CGFloat(10 * room.tags.count), height: CGFloat.greatestFiniteMagnitude))
+      
+        var boundingBox = totalString.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)], context: nil)
+        
+        let tagHeight = ConferenceTableViewCellBasisHeight + (ceil(boundingBox.size.height / 20) * (20 + 13) - 20)
+        
+        label.font = UIFont.systemFont(ofSize: 18)
 
-// MARK : Tableview Datasource & Tableview Delegate
+        totalString = String()
+        
+        for speaker in room.speakers {
+            
+            totalString.append(speaker.name+" ")
+        }
+        
+        constraintRect = label.sizeThatFits(CGSize(width: self.tableView.bounds.size.width - 113, height: CGFloat.greatestFiniteMagnitude))
+      
+        boundingBox = totalString.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], context: nil)
+        
+        let speakerNameHeight = max(boundingBox.size.height,21.5)
+        
+        return tagHeight + speakerNameHeight
+    }
+
+    // MARK : Tableview Datasource & Tableview Delegate
     override func numberOfSections(in tableView: UITableView) -> Int {
 
         return sessions.count
@@ -45,7 +123,7 @@ class SessionsViewController: MPBaseSessionViewController {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return sessions[section].event == "" ? 0 : 72
+        return sessions[section].event == "" ? 0 : 64
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -74,6 +152,7 @@ class SessionsViewController: MPBaseSessionViewController {
             withIdentifier: ConferenceTableViewCell.identifier,
             for: indexPath
         )
+        
         
         return conferenceCell
     }
@@ -139,8 +218,16 @@ class SessionsViewController: MPBaseSessionViewController {
         }
         
         conferenceCell.updateUI(room: sessions[indexPath.section].room[indexPath.row])
-        
+       
         conferenceCell.delegate = self
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableViewRowHeight(indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableViewRowHeight(indexPath: indexPath)
     }
 }
 
@@ -151,41 +238,16 @@ extension SessionsViewController: ConferenceTableViewCellDelegate {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         
         sessions[indexPath.section].room[indexPath.row].isLiked = !sessions[indexPath.section].room[indexPath.row].isLiked
-        
-        var action = ""
-        
+
         let room = sessions[indexPath.section].room[indexPath.row]
         
         if room.isLiked {
-            
-            action = "add"
             
             FavoriteManager.shared.addSession(room: room)
             
         } else {
             
-            action = "remove"
-            
             FavoriteManager.shared.removeSession(room: room)
         }
-        
-        FieldGameProvider.modifyFavorite(
-            id: room.sessionId,
-            action: action,
-            completion: { result in
-                
-                switch result {
-                    
-                case .success(_):
-                    
-                    print("success")
-                    
-                case .failure(let error):
-                    
-                    print(error)
-                }
-            }
-        )
-        
     }
 }
